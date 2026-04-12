@@ -22,11 +22,14 @@
     :root {
       --navy: #173559;
       --ice: #9ECDE4;
-      --body: #888888;
-      --muted: #AAAAAA;
-      --border: #E8E8E8;
-      --surface: #F5F5F5;
+      --body: #6b7280;
+      --muted: #9ca3af;
+      --border: rgba(0,0,0,0.08);
+      --surface: #f7f8fa;
+      --warm-surface: #f5f7fa;
       --white: #FFFFFF;
+      --shadow-card: rgba(23,53,89,0.04) 0px 4px 18px, rgba(23,53,89,0.027) 0px 2px 8px, rgba(23,53,89,0.02) 0px 0.8px 3px, rgba(23,53,89,0.01) 0px 0.2px 1px;
+      --shadow-deep: rgba(23,53,89,0.01) 0px 1px 3px, rgba(23,53,89,0.02) 0px 3px 7px, rgba(23,53,89,0.02) 0px 7px 15px, rgba(23,53,89,0.04) 0px 14px 28px, rgba(23,53,89,0.05) 0px 23px 52px;
     }
 
     html { scroll-behavior: smooth; }
@@ -374,8 +377,8 @@
       width: 920px;
       background: white;
       border-radius: 16px;
-      border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-deep);
       display: flex;
       padding: 24px;
       gap: 24px;
@@ -502,6 +505,15 @@
       background: var(--border);
     }
 
+    /* Warm alternating sections (Notion-inspired) */
+    .section-warm {
+      background: var(--warm-surface);
+      margin-left: -80px;
+      margin-right: -80px;
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+
     /* --- HERO --- */
     .hero {
       padding: 100px 0 80px;
@@ -519,13 +531,13 @@
 
     .hero-headline {
       font-family: "Cormorant Garamond", serif;
-      font-size: 64px;
+      font-size: 66px;
       font-weight: 300;
-      line-height: 95%;
-      letter-spacing: -0.03em;
+      line-height: 92%;
+      letter-spacing: -0.035em;
       color: var(--navy);
       max-width: 860px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .hero-body {
@@ -621,8 +633,8 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 48px;
       font-weight: 300;
-      line-height: 100%;
-      letter-spacing: -0.02em;
+      line-height: 98%;
+      letter-spacing: -0.025em;
       color: var(--navy);
     }
 
@@ -908,10 +920,13 @@
       border-radius: 12px;
       padding: 28px 24px;
       position: relative;
+      background: var(--white);
+      box-shadow: var(--shadow-card);
     }
 
     .retainer-card.is-popular {
       border-color: var(--navy);
+      box-shadow: var(--shadow-deep);
     }
 
     .retainer-badge {
@@ -977,12 +992,14 @@
       width: 200px;
       height: 260px;
       background: var(--surface);
-      border-radius: 8px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 13px;
       color: var(--muted);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
     }
 
     .team-name {
@@ -1082,7 +1099,8 @@
     .form-input:focus,
     .form-select:focus,
     .form-textarea:focus {
-      border-color: var(--navy);
+      border-color: var(--ice);
+      box-shadow: 0 0 0 2px rgba(158,205,228,0.3);
     }
 
     .form-textarea {
@@ -1123,7 +1141,7 @@
 
     .retainer-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow-deep);
     }
 
     .mega-menu-card {
@@ -1224,6 +1242,7 @@
       .contact-grid { grid-template-columns: 1fr; }
       .mega-menu-panel { width: 680px; }
       .mega-menu-cards { grid-template-columns: repeat(2, 1fr); }
+      .section-warm { margin-left: -40px; margin-right: -40px; padding-left: 40px; padding-right: 40px; }
     }
 
     @media (max-width: 640px) {
@@ -1244,6 +1263,7 @@
       .package-highlight { padding: 24px; }
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .section-warm { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
     }
   </style>
 </head>
@@ -1539,10 +1559,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- STATS -->
-    <section class="stats fade-in dot-grid" style="overflow: hidden;">
+    <section class="stats fade-in dot-grid section-warm" style="overflow: hidden;">
       <div class="stats-grid">
         <div>
           <div class="stat-number gradient-text">500+</div>
@@ -1563,10 +1581,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- HOW WE WORK -->
-    <section class="section fade-in">
+    <section class="section fade-in section-warm">
       <div class="section-grid">
         <div>
           <div class="section-counter">[ 02 /05 ]</div>
@@ -1726,10 +1742,8 @@
       </div>
     </section>
 
-    <div class="divider"></div>
-
     <!-- TEAM -->
-    <section class="section fade-in" id="team">
+    <section class="section fade-in section-warm" id="team">
       <div style="margin-bottom: 40px;">
         <div class="section-counter">[ 05 /05 ]</div>
         <div class="section-label">Our Team</div>
