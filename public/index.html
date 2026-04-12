@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploration Sites — Visual Storytelling for Mining Companies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #173559;
+      --ice: #9ECDE4;
+      --body: #888888;
+      --muted: #AAAAAA;
+      --border: #E8E8E8;
+      --surface: #F5F5F5;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV --- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--navy);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .nav-logo-text {
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { opacity: 0.7; }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-strip {
+      height: 4px;
+      background: var(--navy);
+    }
+
+    /* --- PAGE FRAME --- */
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 100px 0 80px;
+    }
+
+    .hero-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 95%;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .hero-body {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 165%;
+      color: var(--body);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: #9ECDE426 0px 0px 0px 3px, #9ECDE440 0px 0px 12px;
+    }
+
+    .btn-primary:hover { background: #1e4270; }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--navy);
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 6px;
+      border: 1.5px solid var(--navy);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover { background: var(--surface); }
+
+    /* --- TWO-COLUMN SECTION --- */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 60px;
+    }
+
+    .section-counter {
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .section-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 16px;
+    }
+
+    .section-headline {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+
+    /* --- SERVICE ROWS --- */
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.15s;
+    }
+
+    .service-row:first-child { border-top: 1px solid var(--border); }
+    .service-row:hover { opacity: 0.7; }
+
+    .service-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 150%;
+    }
+
+    .service-arrow {
+      font-size: 18px;
+      color: var(--navy);
+      flex-shrink: 0;
+      margin-left: 24px;
+      margin-top: 4px;
+    }
+
+    /* --- STATS --- */
+    .stats {
+      padding: 80px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 48px;
+      font-weight: 300;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* --- HOW WE WORK ROWS --- */
+    .principle-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle-row:first-child { border-top: 1px solid var(--border); }
+
+    .principle-num {
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ice);
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    .principle-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .principle-desc {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 165%;
+      color: var(--body);
+    }
+
+    /* --- SOCIAL PROOF / CTA --- */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta-counter {
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .cta-headline {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-tagline {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 160%;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-col-title {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li { margin-bottom: 12px; }
+
+    .footer-col ul a {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 160%;
+    }
+
+    .footer-col ul a:hover { color: var(--navy); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-disclaimer {
+      max-width: 520px;
+      line-height: 160%;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1024px) {
+      .nav-inner { padding: 0 40px; }
+      .page { padding: 0 40px; }
+      .section-grid { grid-template-columns: 1fr; gap: 32px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .hero-headline { font-size: 48px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 20px; }
+      .page { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 60px 0 48px; }
+      .hero-headline { font-size: 36px; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .stat-number { font-size: 36px; }
+      .section { padding: 48px 0; }
+      .section-headline { font-size: 32px; }
+      .cta-headline { font-size: 32px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">ES</div>
+        <span class="nav-logo-text">Exploration Sites</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Inquire</a></li>
+      </ul>
+    </div>
+    <div class="nav-strip"></div>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-label">Exploration Sites</div>
+      <h1 class="hero-headline">Powerful visual storytelling for exploration-stage mining companies.</h1>
+      <p class="hero-body">From early-stage juniors to established producers &mdash; maps, websites, presentations, films, and branding that move investors.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Start a project</a>
+        <a href="#pricing" class="btn-secondary">See pricing</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="section-grid">
+        <div>
+          <div class="section-counter">[ 01 /04 ]</div>
+          <div class="section-label">What We Do</div>
+          <h2 class="section-headline">Every service a mining company needs to tell its story.</h2>
+        </div>
+        <div>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">Maps &amp; Spatial</div>
+              <div class="service-desc">Locator maps to publication-ready geological sections and 3D models.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">Websites</div>
+              <div class="service-desc">Investor-grade web presence on Webflow or WordPress.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">Presentations</div>
+              <div class="service-desc">Pitch decks and factsheets built for boardrooms and roadshows.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">Films &amp; Motion</div>
+              <div class="service-desc">3D property flyovers, animated geological models, and cinematic site videos.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">Design &amp; Branding</div>
+              <div class="service-desc">Logo and visual identity systems built for resource companies.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="#" class="service-row">
+            <div>
+              <div class="service-title">CRM &amp; Socials</div>
+              <div class="service-desc">Investor relations platform, social media content, and outreach programs.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="stats-grid">
+        <div>
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div>
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Websites Launched</div>
+        </div>
+        <div>
+          <div class="stat-number">$50B+</div>
+          <div class="stat-label">Client Market Cap</div>
+        </div>
+        <div>
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOW WE WORK -->
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <div class="section-counter">[ 02 /04 ]</div>
+          <div class="section-label">How We Work</div>
+          <h2 class="section-headline">Three principles. Every project.</h2>
+        </div>
+        <div>
+          <div class="principle-row">
+            <span class="principle-num">01</span>
+            <div>
+              <div class="principle-title">Map &amp; Understand</div>
+              <p class="principle-desc">We start with your geological data, property, stage, and audience to build optimized IR visuals.</p>
+            </div>
+          </div>
+          <div class="principle-row">
+            <span class="principle-num">02</span>
+            <div>
+              <div class="principle-title">Visualize</div>
+              <p class="principle-desc">We turn raw data into publication-ready visuals &mdash; maps, decks, sites, and films.</p>
+            </div>
+          </div>
+          <div class="principle-row">
+            <span class="principle-num">03</span>
+            <div>
+              <div class="principle-title">Deliver</div>
+              <p class="principle-desc">Press releases move fast, and so do we. Structured revisions, clear timelines, no surprises.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SOCIAL PROOF -->
+    <section class="cta-section" id="clients">
+      <div class="cta-counter">[ 03 /04 ]</div>
+      <h2 class="cta-headline">Trusted by over 100 explorers across five continents.</h2>
+      <p class="cta-sub">From early-stage juniors to established producers.</p>
+      <a href="#contact" class="btn-primary">Book a discovery call</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Exploration Sites</div>
+          <div class="footer-brand-tagline">Visual storytelling for exploration-stage mining companies.</div>
+          <div class="footer-brand-meta">Vancouver, BC &middot; Since 1994</div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="#">Maps</a></li>
+            <li><a href="#">Websites</a></li>
+            <li><a href="#">Presentations</a></li>
+            <li><a href="#">Movies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">More</div>
+          <ul>
+            <li><a href="#">Clients</a></li>
+            <li><a href="#" id="pricing">Pricing</a></li>
+            <li><a href="#" id="team">Team</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:6046889997">604 688 9997</a></li>
+            <li><a href="mailto:info@explorationsites.com">info@explorationsites.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Exploration Sites. All rights reserved.</span>
+        <span class="footer-disclaimer">Projects initiated once contract signed. Timelines and deliverables confirmed at kickoff.</span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
