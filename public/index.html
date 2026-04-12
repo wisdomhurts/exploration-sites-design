@@ -56,18 +56,16 @@
     }
 
     .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--navy);
-      border-radius: 4px;
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white);
-      font-family: "DM Sans", sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1px;
+    }
+
+    .nav-logo-icon svg {
+      width: 28px;
+      height: 28px;
     }
 
     .nav-logo-text {
@@ -101,6 +99,20 @@
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
+      box-shadow:
+        0 0 0 1.5px rgba(13,193,253,0.45),
+        0 0 10px rgba(13,193,253,0.35),
+        0 0 25px rgba(99,102,241,0.2),
+        0 0 8px rgba(217,21,239,0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      box-shadow:
+        0 0 0 2px rgba(13,193,253,0.6),
+        0 0 16px rgba(13,193,253,0.5),
+        0 0 35px rgba(99,102,241,0.3),
+        0 0 12px rgba(217,21,239,0.22);
     }
 
     .nav-strip {
@@ -173,10 +185,22 @@
       border: none;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: #9ECDE426 0px 0px 0px 3px, #9ECDE440 0px 0px 12px;
+      box-shadow:
+        0 0 0 2px rgba(13,193,253,0.45),
+        0 0 14px rgba(13,193,253,0.4),
+        0 0 35px rgba(99,102,241,0.2),
+        0 0 10px rgba(217,21,239,0.18);
+      transition: box-shadow 0.3s ease, background 0.2s ease;
     }
 
-    .btn-primary:hover { background: #1e4270; }
+    .btn-primary:hover {
+      background: #1e4270;
+      box-shadow:
+        0 0 0 2px rgba(13,193,253,0.6),
+        0 0 20px rgba(13,193,253,0.5),
+        0 0 45px rgba(99,102,241,0.3),
+        0 0 14px rgba(217,21,239,0.25);
+    }
 
     .btn-secondary {
       display: inline-block;
@@ -471,7 +495,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <div class="nav-logo-icon">ES</div>
+        <div class="nav-logo-icon"><svg viewBox="0 0 124.63 124.63" fill="var(--navy)"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></div>
         <span class="nav-logo-text">Exploration Sites</span>
       </a>
       <ul class="nav-links">
