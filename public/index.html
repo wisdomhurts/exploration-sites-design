@@ -69,7 +69,15 @@
 
     /* --- GRADIENT TEXT --- */
     .gradient-text {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--ice) 100%);
+      background: linear-gradient(90deg, var(--navy) 0%, var(--ice) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+
+    .gradient-text-inline {
+      background: linear-gradient(90deg, var(--navy) 0%, var(--ice) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -509,13 +517,9 @@
       background: var(--border);
     }
 
-    /* Warm alternating sections — full bleed (Notion-inspired) */
+    /* Warm alternating sections (Notion-inspired) */
     .section-warm {
       background: var(--warm-surface);
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      padding-left: calc(50vw - 50% + 80px);
-      padding-right: calc(50vw - 50% + 80px);
     }
 
     /* --- HERO --- */
@@ -1246,7 +1250,6 @@
       .contact-grid { grid-template-columns: 1fr; }
       .mega-menu-panel { width: 680px; }
       .mega-menu-cards { grid-template-columns: repeat(2, 1fr); }
-      .section-warm { padding-left: calc(50vw - 50% + 40px); padding-right: calc(50vw - 50% + 40px); }
     }
 
     @media (max-width: 640px) {
@@ -1267,7 +1270,6 @@
       .package-highlight { padding: 24px; }
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .section-warm { padding-left: calc(50vw - 50% + 20px); padding-right: calc(50vw - 50% + 20px); }
     }
   </style>
 </head>
@@ -1567,19 +1569,19 @@
     <section class="stats fade-in dot-grid section-warm" style="overflow: hidden;">
       <div class="stats-grid">
         <div>
-          <div class="stat-number gradient-text">500+</div>
+          <div class="stat-number gradient-text-inline">500+</div>
           <div class="stat-label">Projects Completed</div>
         </div>
         <div>
-          <div class="stat-number gradient-text">100+</div>
+          <div class="stat-number gradient-text-inline">100+</div>
           <div class="stat-label">Websites Launched</div>
         </div>
         <div>
-          <div class="stat-number gradient-text">$50B+</div>
+          <div class="stat-number gradient-text-inline">$50B+</div>
           <div class="stat-label">Client Market Cap</div>
         </div>
         <div>
-          <div class="stat-number gradient-text">30+</div>
+          <div class="stat-number gradient-text-inline">30+</div>
           <div class="stat-label">Years Experience</div>
         </div>
       </div>
