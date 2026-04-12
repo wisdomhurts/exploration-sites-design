@@ -87,6 +87,7 @@
       font-weight: 500;
       color: var(--navy);
       text-decoration: none;
+      transition: opacity 0.15s;
     }
 
     .nav-links a:hover { opacity: 0.7; }
@@ -108,6 +109,7 @@
     }
 
     .nav-cta:hover {
+      opacity: 1 !important;
       box-shadow:
         0 0 0 2px rgba(13,193,253,0.6),
         0 0 16px rgba(13,193,253,0.5),
@@ -119,6 +121,209 @@
       height: 4px;
       background: var(--navy);
     }
+
+    /* --- MEGA MENU --- */
+    .mega-menu-wrapper {
+      position: relative;
+    }
+
+    .mega-menu-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.15s;
+    }
+
+    .mega-menu-trigger:hover { opacity: 0.7; }
+
+    .mega-menu-trigger svg {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .mega-menu-wrapper:hover .mega-menu-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-top: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 200;
+    }
+
+    .mega-menu-wrapper:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mega-menu-arrow {
+      width: 16px;
+      height: 8px;
+      margin: 0 auto -1px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mega-menu-arrow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-bottom: 9px solid rgba(0,0,0,0.08);
+    }
+
+    .mega-menu-arrow::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid white;
+    }
+
+    .mega-menu-panel {
+      width: 920px;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      display: flex;
+      padding: 24px;
+      gap: 24px;
+    }
+
+    .mega-menu-sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(0,0,0,0.06);
+      padding-right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .mega-menu-tab {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--navy);
+      transition: background 0.15s;
+    }
+
+    .mega-menu-tab:hover,
+    .mega-menu-tab.is-active {
+      background: rgba(20,40,68,0.05);
+      opacity: 1;
+    }
+
+    .mega-menu-tab-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1px;
+    }
+
+    .mega-menu-tab-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .mega-menu-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mega-menu-content-header {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .mega-menu-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mega-menu-card {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.07);
+      background: rgba(20,40,68,0.015);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .mega-menu-card:hover {
+      border-color: rgba(20,40,68,0.15);
+      background: rgba(20,40,68,0.03);
+    }
+
+    .mega-menu-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .mega-menu-card-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .mega-menu-card-price {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ice);
+      margin-top: 6px;
+    }
+
+    .mega-menu-footer-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .mega-menu-footer-link:hover { opacity: 0.7; }
+
+    /* Tab content panels — show/hide via JS */
+    .mega-menu-tab-panel { display: none; }
+    .mega-menu-tab-panel.is-active { display: block; }
 
     /* --- PAGE FRAME --- */
     .page {
@@ -392,6 +597,263 @@
       margin-bottom: 40px;
     }
 
+    /* --- PRICING SECTION --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .pricing-block {
+      padding-bottom: 40px;
+    }
+
+    .pricing-block-label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 8px;
+    }
+
+    .pricing-block-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .pricing-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    .pricing-line:first-of-type { border-top: 1px solid var(--border); }
+
+    .pricing-line-name {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .pricing-line-price {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* --- PACKAGE HIGHLIGHT --- */
+    .package-highlight {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 40px;
+      color: var(--white);
+      margin-top: 40px;
+    }
+
+    .package-highlight .pricing-block-label { color: var(--ice); }
+
+    .package-highlight .pricing-block-title {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .package-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      line-height: 165%;
+      margin-bottom: 24px;
+    }
+
+    .package-highlight .pricing-line {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--white);
+    }
+
+    .package-highlight .pricing-line-name { color: rgba(255,255,255,0.8); }
+    .package-highlight .pricing-line-price { color: var(--white); }
+
+    .package-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .package-total-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .package-total-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .package-savings {
+      font-size: 13px;
+      color: var(--ice);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    /* --- RETAINERS --- */
+    .retainer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .retainer-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      position: relative;
+    }
+
+    .retainer-card.is-popular {
+      border-color: var(--navy);
+    }
+
+    .retainer-badge {
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .retainer-tier {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .retainer-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .retainer-rate {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .retainer-features {
+      list-style: none;
+    }
+
+    .retainer-features li {
+      font-size: 14px;
+      color: var(--body);
+      padding: 6px 0;
+      line-height: 150%;
+    }
+
+    /* --- TEAM --- */
+    .team-member {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 60px;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .team-member:first-child { border-top: 1px solid var(--border); }
+
+    .team-photo {
+      width: 200px;
+      height: 260px;
+      background: var(--surface);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .team-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-top: 12px;
+    }
+
+    .team-role {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .team-bio {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 175%;
+      padding-top: 16px;
+      max-width: 680px;
+    }
+
+    /* --- CONTACT --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    .contact-info-row:first-child { border-top: 1px solid var(--border); }
+
+    .contact-info-label {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .contact-info-value {
+      color: var(--muted);
+    }
+
+    .contact-info-value a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-info-value a:hover { color: var(--navy); }
+
     /* --- FOOTER --- */
     .footer {
       padding: 80px 0 40px;
@@ -433,10 +895,7 @@
       margin-bottom: 20px;
     }
 
-    .footer-col ul {
-      list-style: none;
-    }
-
+    .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 12px; }
 
     .footer-col ul a {
@@ -470,6 +929,12 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .hero-headline { font-size: 48px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .retainer-grid { grid-template-columns: 1fr; }
+      .team-member { grid-template-columns: 1fr; gap: 24px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .mega-menu-panel { width: 680px; }
+      .mega-menu-cards { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 640px) {
@@ -486,6 +951,7 @@
       .cta-headline { font-size: 32px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 16px; }
+      .package-highlight { padding: 24px; }
     }
   </style>
 </head>
@@ -494,12 +960,188 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#top" class="nav-logo">
         <div class="nav-logo-icon"><svg viewBox="0 0 124.63 124.63" fill="var(--navy)"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></div>
         <span class="nav-logo-text">Exploration Sites</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
+        <li class="mega-menu-wrapper">
+          <button class="mega-menu-trigger" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 10 10" fill="none"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div class="mega-menu">
+            <div class="mega-menu-arrow"></div>
+            <div class="mega-menu-panel">
+              <div class="mega-menu-sidebar">
+                <a href="#services" class="mega-menu-tab is-active" data-tab="maps">
+                  <div class="mega-menu-tab-title">Maps</div>
+                  <div class="mega-menu-tab-sub">8 map types</div>
+                </a>
+                <a href="#services" class="mega-menu-tab" data-tab="websites">
+                  <div class="mega-menu-tab-title">Websites</div>
+                  <div class="mega-menu-tab-sub">Webflow &middot; WordPress</div>
+                </a>
+                <a href="#services" class="mega-menu-tab" data-tab="presentations">
+                  <div class="mega-menu-tab-title">Presentations</div>
+                  <div class="mega-menu-tab-sub">Pitch decks &middot; Factsheets</div>
+                </a>
+                <a href="#services" class="mega-menu-tab" data-tab="films">
+                  <div class="mega-menu-tab-title">Films &amp; Motion</div>
+                  <div class="mega-menu-tab-sub">Flyovers &middot; Animation</div>
+                </a>
+                <a href="#services" class="mega-menu-tab" data-tab="design">
+                  <div class="mega-menu-tab-title">Design</div>
+                  <div class="mega-menu-tab-sub">Brand &middot; Identity</div>
+                </a>
+                <a href="#services" class="mega-menu-tab" data-tab="crm">
+                  <div class="mega-menu-tab-title">CRM &amp; Socials</div>
+                  <div class="mega-menu-tab-sub">Investor relations</div>
+                </a>
+              </div>
+              <div class="mega-menu-content">
+                <!-- Maps Panel -->
+                <div class="mega-menu-tab-panel is-active" id="panel-maps">
+                  <div class="mega-menu-content-header">Map Types</div>
+                  <div class="mega-menu-cards">
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Locator Maps</div>
+                      <div class="mega-menu-card-desc">Regional context for property location</div>
+                      <div class="mega-menu-card-price">$1,200</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Area Play Maps</div>
+                      <div class="mega-menu-card-desc">District-scale geology and land position</div>
+                      <div class="mega-menu-card-price">$1,200</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Property Maps</div>
+                      <div class="mega-menu-card-desc">Claim boundaries and infrastructure</div>
+                      <div class="mega-menu-card-price">$1,200</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Geological Maps</div>
+                      <div class="mega-menu-card-desc">Lithology, structure and alteration zones</div>
+                      <div class="mega-menu-card-price">$1,500</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Geophysical Maps</div>
+                      <div class="mega-menu-card-desc">Magnetics, EM and gravity survey data</div>
+                      <div class="mega-menu-card-price">$1,500</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Geochemical Maps</div>
+                      <div class="mega-menu-card-desc">Soil and rock assay contours</div>
+                      <div class="mega-menu-card-price">$1,500</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Cross Sections</div>
+                      <div class="mega-menu-card-desc">Drill collar and interval visualization</div>
+                      <div class="mega-menu-card-price">$1,500</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">3D Block Models</div>
+                      <div class="mega-menu-card-desc">Resource model and drill hole renders</div>
+                      <div class="mega-menu-card-price">$2,000</div>
+                    </a>
+                  </div>
+                  <a href="#pricing" class="mega-menu-footer-link">View Maps pricing &rarr;</a>
+                </div>
+                <!-- Websites Panel -->
+                <div class="mega-menu-tab-panel" id="panel-websites">
+                  <div class="mega-menu-content-header">Platforms</div>
+                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Webflow</div>
+                      <div class="mega-menu-card-desc">Custom-designed, visually-editable sites. Fast, modern, and fully controlled.</div>
+                      <div class="mega-menu-card-price">$18,000</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">WordPress</div>
+                      <div class="mega-menu-card-desc">Flexible CMS-driven builds with full content control. Ideal for ongoing updates.</div>
+                      <div class="mega-menu-card-price">$12,000</div>
+                    </a>
+                  </div>
+                  <a href="#pricing" class="mega-menu-footer-link">View Websites pricing &rarr;</a>
+                </div>
+                <!-- Presentations Panel -->
+                <div class="mega-menu-tab-panel" id="panel-presentations">
+                  <div class="mega-menu-content-header">Presentations &amp; Collateral</div>
+                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Investor Deck</div>
+                      <div class="mega-menu-card-desc">Pitch decks built for boardrooms and roadshows</div>
+                      <div class="mega-menu-card-price">$5,000</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Development</div>
+                      <div class="mega-menu-card-desc">Full build, animation, and interactive elements</div>
+                      <div class="mega-menu-card-price">$8,000</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Fact Sheet</div>
+                      <div class="mega-menu-card-desc">One-page property summary for investors</div>
+                      <div class="mega-menu-card-price">$1,200</div>
+                    </a>
+                  </div>
+                  <a href="#pricing" class="mega-menu-footer-link">View Presentations pricing &rarr;</a>
+                </div>
+                <!-- Films Panel -->
+                <div class="mega-menu-tab-panel" id="panel-films">
+                  <div class="mega-menu-content-header">Films &amp; Motion</div>
+                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                    <a href="#contact" class="mega-menu-card">
+                      <div class="mega-menu-card-title">3D Property Flyovers</div>
+                      <div class="mega-menu-card-desc">Aerial visualization of your property with geological overlays</div>
+                    </a>
+                    <a href="#contact" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Animated Models</div>
+                      <div class="mega-menu-card-desc">Geological models and mineralization envelopes brought to life</div>
+                    </a>
+                    <a href="#contact" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Cinematic Site Videos</div>
+                      <div class="mega-menu-card-desc">Professional site documentation and investor-ready video content</div>
+                    </a>
+                  </div>
+                  <a href="#contact" class="mega-menu-footer-link">Contact for quote &rarr;</a>
+                </div>
+                <!-- Design Panel -->
+                <div class="mega-menu-tab-panel" id="panel-design">
+                  <div class="mega-menu-content-header">Brand &amp; Identity</div>
+                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Logo &amp; Brand Creation</div>
+                      <div class="mega-menu-card-desc">Complete visual identity system built for resource companies</div>
+                      <div class="mega-menu-card-price">$2,400</div>
+                    </a>
+                    <a href="#contact" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Brand Guidelines</div>
+                      <div class="mega-menu-card-desc">Typography, color systems, and usage standards for consistent investor communications</div>
+                    </a>
+                  </div>
+                  <a href="#pricing" class="mega-menu-footer-link">View Design pricing &rarr;</a>
+                </div>
+                <!-- CRM Panel -->
+                <div class="mega-menu-tab-panel" id="panel-crm">
+                  <div class="mega-menu-content-header">CRM &amp; Investor Relations</div>
+                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">CRM Platform</div>
+                      <div class="mega-menu-card-desc">Investor relations platform with contact management and outreach tracking</div>
+                      <div class="mega-menu-card-price">$200/mo</div>
+                    </a>
+                    <a href="#pricing" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Social Media</div>
+                      <div class="mega-menu-card-desc">Content creation, scheduling, and community management across channels</div>
+                      <div class="mega-menu-card-price">$4,000/mo</div>
+                    </a>
+                  </div>
+                  <a href="#pricing" class="mega-menu-footer-link">View Marketing pricing &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
         <li><a href="#clients">Clients</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#team">Team</a></li>
@@ -510,7 +1152,7 @@
     <div class="nav-strip"></div>
   </nav>
 
-  <div class="page">
+  <div class="page" id="top">
 
     <!-- HERO -->
     <section class="hero">
@@ -529,47 +1171,47 @@
     <section class="section" id="services">
       <div class="section-grid">
         <div>
-          <div class="section-counter">[ 01 /04 ]</div>
+          <div class="section-counter">[ 01 /05 ]</div>
           <div class="section-label">What We Do</div>
           <h2 class="section-headline">Every service a mining company needs to tell its story.</h2>
         </div>
         <div>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">Maps &amp; Spatial</div>
               <div class="service-desc">Locator maps to publication-ready geological sections and 3D models.</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">Websites</div>
               <div class="service-desc">Investor-grade web presence on Webflow or WordPress.</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">Presentations</div>
               <div class="service-desc">Pitch decks and factsheets built for boardrooms and roadshows.</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">Films &amp; Motion</div>
               <div class="service-desc">3D property flyovers, animated geological models, and cinematic site videos.</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">Design &amp; Branding</div>
               <div class="service-desc">Logo and visual identity systems built for resource companies.</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="#" class="service-row">
+          <a href="#pricing" class="service-row">
             <div>
               <div class="service-title">CRM &amp; Socials</div>
               <div class="service-desc">Investor relations platform, social media content, and outreach programs.</div>
@@ -610,7 +1252,7 @@
     <section class="section">
       <div class="section-grid">
         <div>
-          <div class="section-counter">[ 02 /04 ]</div>
+          <div class="section-counter">[ 02 /05 ]</div>
           <div class="section-label">How We Work</div>
           <h2 class="section-headline">Three principles. Every project.</h2>
         </div>
@@ -642,9 +1284,9 @@
 
     <div class="divider"></div>
 
-    <!-- SOCIAL PROOF -->
+    <!-- CLIENTS / SOCIAL PROOF -->
     <section class="cta-section" id="clients">
-      <div class="cta-counter">[ 03 /04 ]</div>
+      <div class="cta-counter">[ 03 /05 ]</div>
       <h2 class="cta-headline">Trusted by over 100 explorers across five continents.</h2>
       <p class="cta-sub">From early-stage juniors to established producers.</p>
       <a href="#contact" class="btn-primary">Book a discovery call</a>
@@ -652,30 +1294,243 @@
 
     <div class="divider"></div>
 
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div style="margin-bottom: 60px;">
+        <div class="section-counter">[ 04 /05 ]</div>
+        <div class="section-label">Pricing &mdash; Q2 2026</div>
+        <h2 class="section-headline" style="margin-bottom: 16px;">Transparent pricing. No surprises.</h2>
+        <p style="font-size: 15px; color: var(--body); line-height: 165%; max-width: 520px; margin-bottom: 8px;">&Agrave; la carte services, a complete launch package, and ongoing retainers &mdash; all built for exploration-stage companies.</p>
+        <p style="font-size: 13px; color: var(--muted);">All prices in CAD. GST not included.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Maps & Spatial -->
+        <div class="pricing-block">
+          <div class="pricing-block-label">Visualize Your Data</div>
+          <div class="pricing-block-title">Maps &amp; Spatial</div>
+          <div class="pricing-line"><span class="pricing-line-name">Map Design</span><span class="pricing-line-price">$1,200/map</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Isometric Model</span><span class="pricing-line-price">$2,000</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Leapfrog Geo Map</span><span class="pricing-line-price">$1,500</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Data Compilation</span><span class="pricing-line-price">$1,500</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Updates (half-hour)</span><span class="pricing-line-price">$100</span></div>
+        </div>
+
+        <!-- Presentations -->
+        <div class="pricing-block">
+          <div class="pricing-block-label">Tell a Compelling Story</div>
+          <div class="pricing-block-title">Presentations</div>
+          <div class="pricing-line"><span class="pricing-line-name">Presentation Design</span><span class="pricing-line-price">$5,000</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Development</span><span class="pricing-line-price">$8,000</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Fact Sheet</span><span class="pricing-line-price">$1,200</span></div>
+        </div>
+
+        <!-- Websites -->
+        <div class="pricing-block">
+          <div class="pricing-block-label">Your Digital Presence</div>
+          <div class="pricing-block-title">Websites</div>
+          <div class="pricing-line"><span class="pricing-line-name">WordPress Site</span><span class="pricing-line-price">$12,000</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Webflow Site</span><span class="pricing-line-price">$18,000</span></div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="pricing-block">
+          <div class="pricing-block-label">Reach &amp; Engage</div>
+          <div class="pricing-block-title">Marketing</div>
+          <div class="pricing-line"><span class="pricing-line-name">CRM Platform</span><span class="pricing-line-price">$200/mo</span></div>
+          <div class="pricing-line"><span class="pricing-line-name">Social Media</span><span class="pricing-line-price">$4,000/mo</span></div>
+        </div>
+      </div>
+
+      <!-- Launch Package -->
+      <div class="package-highlight">
+        <div class="pricing-block-label">Everything You Need to Launch</div>
+        <div class="pricing-block-title">The complete investor relations package.</div>
+        <p class="package-desc">One package, one price. Maps, deck, website, fact sheet, and brand &mdash; everything an exploration company needs to go to market.</p>
+        <div class="pricing-line"><span class="pricing-line-name">8 Maps</span><span class="pricing-line-price">$9,600</span></div>
+        <div class="pricing-line"><span class="pricing-line-name">Investor Deck</span><span class="pricing-line-price">$5,000</span></div>
+        <div class="pricing-line"><span class="pricing-line-name">WordPress Site</span><span class="pricing-line-price">$12,000</span></div>
+        <div class="pricing-line"><span class="pricing-line-name">Fact Sheet</span><span class="pricing-line-price">$1,200</span></div>
+        <div class="pricing-line"><span class="pricing-line-name">Logo &amp; Brand Creation</span><span class="pricing-line-price">$2,400</span></div>
+        <div class="package-total">
+          <span class="package-total-label">Package Total</span>
+          <div>
+            <div class="package-total-price">$24,000</div>
+            <div class="package-savings">Save 20% vs. $30,200 &agrave; la carte</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retainers -->
+      <div style="margin-top: 60px;">
+        <div class="pricing-block-label">Ongoing Support</div>
+        <div class="pricing-block-title" style="margin-bottom: 0;">Monthly retainers.</div>
+        <div class="retainer-grid">
+          <div class="retainer-card">
+            <div class="retainer-tier">Essentials</div>
+            <div class="retainer-price">$3,800/mo</div>
+            <div class="retainer-rate">$190/hr &middot; Save 5%</div>
+            <ul class="retainer-features">
+              <li>20 hours/month</li>
+              <li>Map updates &amp; revisions</li>
+              <li>Website maintenance</li>
+              <li>Priority scheduling</li>
+            </ul>
+          </div>
+          <div class="retainer-card is-popular">
+            <div class="retainer-badge">Most Popular</div>
+            <div class="retainer-tier">Growth</div>
+            <div class="retainer-price">$8,750/mo</div>
+            <div class="retainer-rate">$175/hr &middot; Save 13%</div>
+            <ul class="retainer-features">
+              <li>50 hours/month</li>
+              <li>All Essentials features</li>
+              <li>New map production</li>
+              <li>Presentation updates</li>
+              <li>Social media content</li>
+            </ul>
+          </div>
+          <div class="retainer-card">
+            <div class="retainer-tier">Enterprise</div>
+            <div class="retainer-price">$15,000/mo</div>
+            <div class="retainer-rate">$150/hr &middot; Save 25%</div>
+            <ul class="retainer-features">
+              <li>100 hours/month</li>
+              <li>All Growth features</li>
+              <li>Dedicated team</li>
+              <li>Film &amp; motion projects</li>
+              <li>Full IR management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+      <div style="margin-bottom: 40px;">
+        <div class="section-counter">[ 05 /05 ]</div>
+        <div class="section-label">Our Team</div>
+        <h2 class="section-headline">Specialists who turn complex data into clear, compelling visuals.</h2>
+      </div>
+
+      <div class="team-member">
+        <div>
+          <div class="team-photo">Photo</div>
+          <div class="team-name">Dorian Leslie</div>
+          <div class="team-role">CEO</div>
+        </div>
+        <div class="team-bio">With over 30 years of experience in the mineral exploration industry, Dorian has built Exploration Sites into the go-to visual communications partner for exploration-stage mining companies worldwide. His deep understanding of investor relations, geological data, and strategic storytelling drives every project.</div>
+      </div>
+
+      <div class="team-member">
+        <div>
+          <div class="team-photo">Photo</div>
+          <div class="team-name">Anastasia Schoeps</div>
+          <div class="team-role">Operations Director</div>
+        </div>
+        <div class="team-bio">She combines a background in geology and GIS with a strong focus on project management and client delivery, ensuring every engagement runs smoothly from kickoff to final delivery.</div>
+      </div>
+
+      <div class="team-member">
+        <div>
+          <div class="team-photo">Photo</div>
+          <div class="team-name">Kai Erfle</div>
+          <div class="team-role">Creative Director</div>
+        </div>
+        <div class="team-bio">A skilled graphic and web designer, Kai is a graduate of the Emily Carr University of Art + Design. He leads the creative direction across all visual deliverables &mdash; from maps and presentations to websites and brand systems.</div>
+      </div>
+
+      <div class="team-member">
+        <div>
+          <div class="team-photo">Photo</div>
+          <div class="team-name">Mark Aimon Pangan</div>
+          <div class="team-role">Map Technician</div>
+        </div>
+        <div class="team-bio">Mark brings precision and consistency to every map we produce. With expertise in GIS software and cartographic design, he ensures every spatial deliverable meets publication standards.</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div style="margin-bottom: 60px;">
+        <div class="section-label">Contact</div>
+        <h2 class="section-headline" style="margin-bottom: 16px;">Start a project.</h2>
+        <p style="font-size: 15px; color: var(--body); line-height: 165%; max-width: 460px;">Tell us about your property and what you need. We&rsquo;ll follow up within one business day.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Email</span>
+            <span class="contact-info-value"><a href="mailto:info@explorationsites.com">info@explorationsites.com</a></span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Phone</span>
+            <span class="contact-info-value"><a href="tel:6046889997">604 688 9997</a></span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Location</span>
+            <span class="contact-info-value">Vancouver, BC</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Response time</span>
+            <span class="contact-info-value">Within 1 business day</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="pricing-block-label" style="margin-bottom: 16px;">Typical Timelines</div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Maps</span>
+            <span class="contact-info-value">3&ndash;7 business days</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Websites</span>
+            <span class="contact-info-value">3&ndash;4 weeks</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Presentations</span>
+            <span class="contact-info-value">5&ndash;10 business days</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">Films</span>
+            <span class="contact-info-value">2&ndash;3 weeks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- FOOTER -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
       <div class="footer-grid">
         <div>
           <div class="footer-brand-name">Exploration Sites</div>
-          <div class="footer-brand-tagline">Visual storytelling for exploration-stage mining companies.</div>
+          <div class="footer-brand-tagline">Powerful visual storytelling for exploration-stage mining companies.</div>
           <div class="footer-brand-meta">Vancouver, BC &middot; Since 1994</div>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Services</div>
           <ul>
-            <li><a href="#">Maps</a></li>
-            <li><a href="#">Websites</a></li>
-            <li><a href="#">Presentations</a></li>
-            <li><a href="#">Movies</a></li>
+            <li><a href="#services">Maps</a></li>
+            <li><a href="#services">Websites</a></li>
+            <li><a href="#services">Presentations</a></li>
+            <li><a href="#services">Films</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">More</div>
           <ul>
-            <li><a href="#">Clients</a></li>
-            <li><a href="#" id="pricing">Pricing</a></li>
-            <li><a href="#" id="team">Team</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#clients">Clients</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -689,11 +1544,27 @@
       <div class="divider"></div>
       <div class="footer-bottom">
         <span>&copy; 2026 Exploration Sites. All rights reserved.</span>
-        <span class="footer-disclaimer">Projects initiated once contract signed. Timelines and deliverables confirmed at kickoff.</span>
+        <span class="footer-disclaimer">Projects initiated once contract signed and deposit made. GST not included. All prices in CAD.</span>
       </div>
     </footer>
 
   </div>
+
+  <script>
+    // Mega menu tab switching
+    document.querySelectorAll('.mega-menu-tab').forEach(function(tab) {
+      tab.addEventListener('mouseenter', function() {
+        var tabId = this.getAttribute('data-tab');
+        // Deactivate all tabs and panels
+        document.querySelectorAll('.mega-menu-tab').forEach(function(t) { t.classList.remove('is-active'); });
+        document.querySelectorAll('.mega-menu-tab-panel').forEach(function(p) { p.classList.remove('is-active'); });
+        // Activate this tab and panel
+        this.classList.add('is-active');
+        var panel = document.getElementById('panel-' + tabId);
+        if (panel) panel.classList.add('is-active');
+      });
+    });
+  </script>
 
 </body>
 </html>
