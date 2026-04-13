@@ -493,328 +493,348 @@
 
     <div class="divider"></div>
 
-        <!-- ALL CLIENTS -->
+        <!-- ALL CLIENTS TABLE -->
     <section class="section fade-in section-warm">
       <div style="text-align: center; margin-bottom: 40px;">
         <div class="section-counter">[ 03 /03 ]</div>
         <div class="section-label">300+ Companies</div>
         <h2 class="section-headline" style="max-width: 640px; margin: 0 auto 16px;">From first-drill juniors to billion-dollar producers.</h2>
+        <p style="font-size: 13px; color: var(--muted);">Sorted by market cap. All figures in CAD. Data as of April 2026.</p>
       </div>
       <style>
-        .client-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; max-width: 1100px; margin: 0 auto; }
-        .client-cell { background: white; border-radius: 6px; padding: 12px 10px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid var(--border); min-height: 48px; }
-        .client-cell span { font-size: 12px; font-weight: 500; color: var(--navy); line-height: 1.3; }
-        @media (max-width: 640px) { .client-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } .client-cell span { font-size: 11px; } }
+        .client-table { width: 100%; max-width: 1100px; margin: 0 auto; border-collapse: collapse; font-size: 13px; }
+        .client-table thead th { text-align: left; padding: 10px 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); border-bottom: 2px solid var(--border); }
+        .client-table tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); color: var(--body); }
+        .client-table tbody tr:hover { background: rgba(23,53,89,0.03); }
+        .client-table td:nth-child(4), .client-table td:nth-child(5), .client-table th:nth-child(4), .client-table th:nth-child(5) { text-align: right; }
+        .client-table td:first-child { font-weight: 500; color: var(--navy); }
+        @media (max-width: 768px) { .client-table { font-size: 11px; } .client-table thead th, .client-table tbody td { padding: 6px 8px; } .client-table td:nth-child(6), .client-table td:nth-child(7), .client-table th:nth-child(6), .client-table th:nth-child(7) { display: none; } }
       </style>
-      <div class="client-grid">
-        <div class="client-cell"><span>Aben Gold</span></div>
-        <div class="client-cell"><span>Abitibi Metals</span></div>
-        <div class="client-cell"><span>Abyssinian Metals</span></div>
-        <div class="client-cell"><span>ACDC Battery Metals</span></div>
-        <div class="client-cell"><span>Adelayde Exploration</span></div>
-        <div class="client-cell"><span>Affinity Metals</span></div>
-        <div class="client-cell"><span>African Discovery Group</span></div>
-        <div class="client-cell"><span>Alaska Energy Metals</span></div>
-        <div class="client-cell"><span>Alerio Gold</span></div>
-        <div class="client-cell"><span>Algo Grande</span></div>
-        <div class="client-cell"><span>Altair Minerals</span></div>
-        <div class="client-cell"><span>Altamira Gold</span></div>
-        <div class="client-cell"><span>Altus Gold</span></div>
-        <div class="client-cell"><span>Ameranium Resources</span></div>
-        <div class="client-cell"><span>American Critical Minerals</span></div>
-        <div class="client-cell"><span>American Lithium</span></div>
-        <div class="client-cell"><span>Americore Resources</span></div>
-        <div class="client-cell"><span>Ameriwest Lithium</span></div>
-        <div class="client-cell"><span>Amex Exploration</span></div>
-        <div class="client-cell"><span>Angel Wing Metals</span></div>
-        <div class="client-cell"><span>Apex Critical Metals</span></div>
-        <div class="client-cell"><span>Appia Rare Earths & Uranium</span></div>
-        <div class="client-cell"><span>Ardiden</span></div>
-        <div class="client-cell"><span>Arena Minerals</span></div>
-        <div class="client-cell"><span>Argenta Silver</span></div>
-        <div class="client-cell"><span>Arkle Resources</span></div>
-        <div class="client-cell"><span>Armory Metals</span></div>
-        <div class="client-cell"><span>Asante Gold</span></div>
-        <div class="client-cell"><span>Atco Mining</span></div>
-        <div class="client-cell"><span>Atha Energy</span></div>
-        <div class="client-cell"><span>Aura Minerals</span></div>
-        <div class="client-cell"><span>Autumn Resources</span></div>
-        <div class="client-cell"><span>Avino Silver & Gold Mines</span></div>
-        <div class="client-cell"><span>Axies Ventures</span></div>
-        <div class="client-cell"><span>Azincourt Energy</span></div>
-        <div class="client-cell"><span>Badlands Resources</span></div>
-        <div class="client-cell"><span>Battery Age Minerals</span></div>
-        <div class="client-cell"><span>Bear Creek Mining</span></div>
-        <div class="client-cell"><span>Black Rock Gold</span></div>
-        <div class="client-cell"><span>Black Wolf Copper & Gold</span></div>
-        <div class="client-cell"><span>Blackbird</span></div>
-        <div class="client-cell"><span>Blue Star Gold</span></div>
-        <div class="client-cell"><span>Bluestone Resources</span></div>
-        <div class="client-cell"><span>BMC Minerals</span></div>
-        <div class="client-cell"><span>Brixton Metals</span></div>
-        <div class="client-cell"><span>Bunker Hill Mining</span></div>
-        <div class="client-cell"><span>Buscando Resources</span></div>
-        <div class="client-cell"><span>Cabral Gold</span></div>
-        <div class="client-cell"><span>Callinex Mines</span></div>
-        <div class="client-cell"><span>Cambria Gold Mines</span></div>
-        <div class="client-cell"><span>Canter Resources</span></div>
-        <div class="client-cell"><span>Cantor Resources</span></div>
-        <div class="client-cell"><span>Canyon Resources</span></div>
-        <div class="client-cell"><span>Capitan Silver</span></div>
-        <div class="client-cell"><span>Carlyle Commodities</span></div>
-        <div class="client-cell"><span>CopAur Minerals</span></div>
-        <div class="client-cell"><span>Copper Mountain</span></div>
-        <div class="client-cell"><span>CopperCorp</span></div>
-        <div class="client-cell"><span>Core Assets</span></div>
-        <div class="client-cell"><span>Core Lithium</span></div>
-        <div class="client-cell"><span>Crest Resources</span></div>
-        <div class="client-cell"><span>Cross River Ventures</span></div>
-        <div class="client-cell"><span>Currawong Resources</span></div>
-        <div class="client-cell"><span>Deep South Resources</span></div>
-        <div class="client-cell"><span>Denarius Metals</span></div>
-        <div class="client-cell"><span>Discovery Silver</span></div>
-        <div class="client-cell"><span>District Metals</span></div>
-        <div class="client-cell"><span>Dolly Varden</span></div>
-        <div class="client-cell"><span>Ekometall Exploration</span></div>
-        <div class="client-cell"><span>Electron Uranium</span></div>
-        <div class="client-cell"><span>Electrum Discovery</span></div>
-        <div class="client-cell"><span>Element79 Gold</span></div>
-        <div class="client-cell"><span>Eminent Gold</span></div>
-        <div class="client-cell"><span>Emperor Metals</span></div>
-        <div class="client-cell"><span>Endeavour Mining</span></div>
-        <div class="client-cell"><span>Enduro Metals</span></div>
-        <div class="client-cell"><span>Evergold</span></div>
-        <div class="client-cell"><span>Exploits Discovery</span></div>
-        <div class="client-cell"><span>F3 Uranium</span></div>
-        <div class="client-cell"><span>F4 Uranium</span></div>
-        <div class="client-cell"><span>Fathom Minerals</span></div>
-        <div class="client-cell"><span>Filo</span></div>
-        <div class="client-cell"><span>FinEx Metals</span></div>
-        <div class="client-cell"><span>Firebird Metals</span></div>
-        <div class="client-cell"><span>Fireweed Metals</span></div>
-        <div class="client-cell"><span>First Andes Silver</span></div>
-        <div class="client-cell"><span>First Atlantic Nickel</span></div>
-        <div class="client-cell"><span>First Nordic Metals</span></div>
-        <div class="client-cell"><span>First Tin</span></div>
-        <div class="client-cell"><span>Fitzroy Minerals</span></div>
-        <div class="client-cell"><span>Fortuna Silver Mines</span></div>
-        <div class="client-cell"><span>Free Battery Metals</span></div>
-        <div class="client-cell"><span>Fremont Gold</span></div>
-        <div class="client-cell"><span>Future Fuels</span></div>
-        <div class="client-cell"><span>Galantas Gold</span></div>
-        <div class="client-cell"><span>Garibaldi Resources</span></div>
-        <div class="client-cell"><span>GCM Mining</span></div>
-        <div class="client-cell"><span>Gemoil</span></div>
-        <div class="client-cell"><span>Generation Uranium</span></div>
-        <div class="client-cell"><span>GeoMinEx</span></div>
-        <div class="client-cell"><span>GFG Resources</span></div>
-        <div class="client-cell"><span>Global Manganese Pty</span></div>
-        <div class="client-cell"><span>Gold Digger Resources</span></div>
-        <div class="client-cell"><span>Gold Group Management</span></div>
-        <div class="client-cell"><span>Gold Hunter Resources</span></div>
-        <div class="client-cell"><span>Gold Line</span></div>
-        <div class="client-cell"><span>Gold Mountain Mining</span></div>
-        <div class="client-cell"><span>Golden Cross Resources</span></div>
-        <div class="client-cell"><span>Golden Graphite</span></div>
-        <div class="client-cell"><span>Golden Sky Minerals</span></div>
-        <div class="client-cell"><span>Goldrea Resources</span></div>
-        <div class="client-cell"><span>Goldseek Resources</span></div>
-        <div class="client-cell"><span>Great Pacific Gold</span></div>
-        <div class="client-cell"><span>Great Whyte Ventures</span></div>
-        <div class="client-cell"><span>Grid Battery Metals</span></div>
-        <div class="client-cell"><span>Grid Metals</span></div>
-        <div class="client-cell"><span>Group Ten Metals</span></div>
-        <div class="client-cell"><span>GSP Resource</span></div>
-        <div class="client-cell"><span>Hathor Exploration</span></div>
-        <div class="client-cell"><span>Headwater Gold</span></div>
-        <div class="client-cell"><span>Hercules Silver</span></div>
-        <div class="client-cell"><span>Hertz Lithium</span></div>
-        <div class="client-cell"><span>Hi-View Resources</span></div>
-        <div class="client-cell"><span>Highlands Geo</span></div>
-        <div class="client-cell"><span>Ignition Battery Metals</span></div>
-        <div class="client-cell"><span>Imperial Metals</span></div>
-        <div class="client-cell"><span>Imperial Mining Group</span></div>
-        <div class="client-cell"><span>Infini Resources</span></div>
-        <div class="client-cell"><span>Inflection Resources</span></div>
-        <div class="client-cell"><span>Investor Events</span></div>
-        <div class="client-cell"><span>Iris Metals</span></div>
-        <div class="client-cell"><span>Ivory Gold</span></div>
-        <div class="client-cell"><span>Jaguar Uranium</span></div>
-        <div class="client-cell"><span>K9 Gold</span></div>
-        <div class="client-cell"><span>Kesselrun Resources</span></div>
-        <div class="client-cell"><span>Kincora Copper</span></div>
-        <div class="client-cell"><span>King Global Ventures</span></div>
-        <div class="client-cell"><span>Kingfisher Metals</span></div>
-        <div class="client-cell"><span>Lake Winn Resources</span></div>
-        <div class="client-cell"><span>Lancaster Resources</span></div>
-        <div class="client-cell"><span>Latam Battery Metals</span></div>
-        <div class="client-cell"><span>Leocor Ventures</span></div>
-        <div class="client-cell"><span>Leviathan Gold</span></div>
-        <div class="client-cell"><span>Libero Copper</span></div>
-        <div class="client-cell"><span>Liberty Gold</span></div>
-        <div class="client-cell"><span>Lithium Africa Resources</span></div>
-        <div class="client-cell"><span>Lithium Ionic</span></div>
-        <div class="client-cell"><span>MAG Silver</span></div>
-        <div class="client-cell"><span>Mammoth Minerals</span></div>
-        <div class="client-cell"><span>Manning Ventures</span></div>
-        <div class="client-cell"><span>Mantaro Precious Metals</span></div>
-        <div class="client-cell"><span>Marathon Gold</span></div>
-        <div class="client-cell"><span>Marvel Discovery</span></div>
-        <div class="client-cell"><span>Max Resource</span></div>
-        <div class="client-cell"><span>MCF Energy</span></div>
-        <div class="client-cell"><span>Megastar Development</span></div>
-        <div class="client-cell"><span>Melkior Resources</span></div>
-        <div class="client-cell"><span>Metallis Resources</span></div>
-        <div class="client-cell"><span>Metallum Resources</span></div>
-        <div class="client-cell"><span>Miata Metals</span></div>
-        <div class="client-cell"><span>Mich Resources</span></div>
-        <div class="client-cell"><span>Mineral Mountain Resources</span></div>
-        <div class="client-cell"><span>Miramis Minerals</span></div>
-        <div class="client-cell"><span>Mithril Silver and Gold</span></div>
-        <div class="client-cell"><span>Mogotes Metals</span></div>
-        <div class="client-cell"><span>Mogul Mountain Ventures</span></div>
-        <div class="client-cell"><span>Montage Gold</span></div>
-        <div class="client-cell"><span>Mountain Boy Minerals LTD</span></div>
-        <div class="client-cell"><span>Mustang Energy</span></div>
-        <div class="client-cell"><span>MX2</span></div>
-        <div class="client-cell"><span>Nations Royalties</span></div>
-        <div class="client-cell"><span>Nevada Energy Metals</span></div>
-        <div class="client-cell"><span>Nevada Silver</span></div>
-        <div class="client-cell"><span>Nevada Sunrise Gold</span></div>
-        <div class="client-cell"><span>New Found Gold</span></div>
-        <div class="client-cell"><span>New Path Resources</span></div>
-        <div class="client-cell"><span>New World Precious Metals</span></div>
-        <div class="client-cell"><span>Newfoundland Discovery</span></div>
-        <div class="client-cell"><span>NexGen Energy</span></div>
-        <div class="client-cell"><span>Nexgold Mining</span></div>
-        <div class="client-cell"><span>NexMetals Mining</span></div>
-        <div class="client-cell"><span>NEXT Lithium</span></div>
-        <div class="client-cell"><span>Nexus Gold</span></div>
-        <div class="client-cell"><span>Nexus Metals</span></div>
-        <div class="client-cell"><span>NG Energy International</span></div>
-        <div class="client-cell"><span>NGEx</span></div>
-        <div class="client-cell"><span>Nine Mile Metals</span></div>
-        <div class="client-cell"><span>Nordique Resources</span></div>
-        <div class="client-cell"><span>Norrland Gold</span></div>
-        <div class="client-cell"><span>North Bay Resources</span></div>
-        <div class="client-cell"><span>North by Northwest</span></div>
-        <div class="client-cell"><span>Northern Silicon International</span></div>
-        <div class="client-cell"><span>Northern Superior</span></div>
-        <div class="client-cell"><span>Nova Lithium</span></div>
-        <div class="client-cell"><span>NRG Metals</span></div>
-        <div class="client-cell"><span>Nuclear Fuels</span></div>
-        <div class="client-cell"><span>Omai Gold Mines</span></div>
-        <div class="client-cell"><span>Opawica Explorations</span></div>
-        <div class="client-cell"><span>Orex Minerals</span></div>
-        <div class="client-cell"><span>Orior Metals</span></div>
-        <div class="client-cell"><span>Osino Resources</span></div>
-        <div class="client-cell"><span>Pacific Ridge Exploration</span></div>
-        <div class="client-cell"><span>Pacton Gold</span></div>
-        <div class="client-cell"><span>Panther Minerals</span></div>
-        <div class="client-cell"><span>Patriot Battery Metals</span></div>
-        <div class="client-cell"><span>PC Gold</span></div>
-        <div class="client-cell"><span>Peninsula Energy</span></div>
-        <div class="client-cell"><span>Phoenix Copper</span></div>
-        <div class="client-cell"><span>Phoenix Metals</span></div>
-        <div class="client-cell"><span>Pinnacle Silver and Gold</span></div>
-        <div class="client-cell"><span>Power Metal Resources</span></div>
-        <div class="client-cell"><span>Prime Mining</span></div>
-        <div class="client-cell"><span>Primero Silver</span></div>
-        <div class="client-cell"><span>Prospect Ridge Resources</span></div>
-        <div class="client-cell"><span>Ptolemy Mining (UK)</span></div>
-        <div class="client-cell"><span>Puddle Pond Resources</span></div>
-        <div class="client-cell"><span>Puma Exploration</span></div>
-        <div class="client-cell"><span>Quadro Resources</span></div>
-        <div class="client-cell"><span>Quebec Pegmatite</span></div>
-        <div class="client-cell"><span>Rackla Metals</span></div>
-        <div class="client-cell"><span>Radius Gold</span></div>
-        <div class="client-cell"><span>Raincity Resources</span></div>
-        <div class="client-cell"><span>Rare Earth Ridge</span></div>
-        <div class="client-cell"><span>Red Canyon Resources</span></div>
-        <div class="client-cell"><span>Renforth Resources</span></div>
-        <div class="client-cell"><span>Resouro Gold</span></div>
-        <div class="client-cell"><span>Revival Gold</span></div>
-        <div class="client-cell"><span>Ripasso Precious Metals</span></div>
-        <div class="client-cell"><span>Rock Cliff Metals</span></div>
-        <div class="client-cell"><span>RSD Discovery Group</span></div>
-        <div class="client-cell"><span>RUA GOLD</span></div>
-        <div class="client-cell"><span>San Lorenzo Gold</span></div>
-        <div class="client-cell"><span>Scorpio Gold</span></div>
-        <div class="client-cell"><span>Scotch Creek Ventures</span></div>
-        <div class="client-cell"><span>Seahawk Gold</span></div>
-        <div class="client-cell"><span>Secova Metals</span></div>
-        <div class="client-cell"><span>Selkirk Copper Mines</span></div>
-        <div class="client-cell"><span>Seva Mining</span></div>
-        <div class="client-cell"><span>Silicon Metals</span></div>
-        <div class="client-cell"><span>Silver 47 Exploration</span></div>
-        <div class="client-cell"><span>Silver Fish Resources</span></div>
-        <div class="client-cell"><span>Silver Valley Metals</span></div>
-        <div class="client-cell"><span>Silver Viper Minerals</span></div>
-        <div class="client-cell"><span>Silverco Mining</span></div>
-        <div class="client-cell"><span>Sitka Gold</span></div>
-        <div class="client-cell"><span>Skyharbour Resources</span></div>
-        <div class="client-cell"><span>Snowline Gold</span></div>
-        <div class="client-cell"><span>Sonoro Gold</span></div>
-        <div class="client-cell"><span>South Pacific Metals</span></div>
-        <div class="client-cell"><span>Southern Cross Gold</span></div>
-        <div class="client-cell"><span>Southern Empire Resources</span></div>
-        <div class="client-cell"><span>SPC Nickel</span></div>
-        <div class="client-cell"><span>Spod Lithium</span></div>
-        <div class="client-cell"><span>Spruce Ridge Resources</span></div>
-        <div class="client-cell"><span>Stairway Mining</span></div>
-        <div class="client-cell"><span>Stallion Uranium</span></div>
-        <div class="client-cell"><span>Stellar AfricaGold</span></div>
-        <div class="client-cell"><span>Stirling Bridge Resources</span></div>
-        <div class="client-cell"><span>Strikepoint Gold</span></div>
-        <div class="client-cell"><span>Summit Minerals</span></div>
-        <div class="client-cell"><span>Sun Summit Minerals</span></div>
-        <div class="client-cell"><span>Surge Battery Metals</span></div>
-        <div class="client-cell"><span>Surge Copper</span></div>
-        <div class="client-cell"><span>T2 Metals</span></div>
-        <div class="client-cell"><span>Taurus Gold</span></div>
-        <div class="client-cell"><span>Teako Minerals</span></div>
-        <div class="client-cell"><span>Telegraph Gold</span></div>
-        <div class="client-cell"><span>Temas Resources</span></div>
-        <div class="client-cell"><span>Terra Gold Properties</span></div>
-        <div class="client-cell"><span>Teuton Resources</span></div>
-        <div class="client-cell"><span>Thistle Resources</span></div>
-        <div class="client-cell"><span>Thunderbird Minerals</span></div>
-        <div class="client-cell"><span>Tiger Gold</span></div>
-        <div class="client-cell"><span>Tiger Tasman</span></div>
-        <div class="client-cell"><span>Tisdale Clean Energy</span></div>
-        <div class="client-cell"><span>Titan Discovery</span></div>
-        <div class="client-cell"><span>Toogood Gold</span></div>
-        <div class="client-cell"><span>Trailbreaker Resources</span></div>
-        <div class="client-cell"><span>Trans Canada Gold</span></div>
-        <div class="client-cell"><span>Trident Resources</span></div>
-        <div class="client-cell"><span>Trifecta Gold</span></div>
-        <div class="client-cell"><span>Troilus Gold</span></div>
-        <div class="client-cell"><span>TruSilver Metals</span></div>
-        <div class="client-cell"><span>US American Exploration</span></div>
-        <div class="client-cell"><span>US Critical Metals</span></div>
-        <div class="client-cell"><span>Usha Resource</span></div>
-        <div class="client-cell"><span>Vertex Minerals</span></div>
-        <div class="client-cell"><span>Viridian Metals</span></div>
-        <div class="client-cell"><span>Volatus Capital</span></div>
-        <div class="client-cell"><span>Volcanic Gold Mines</span></div>
-        <div class="client-cell"><span>Volta Metals</span></div>
-        <div class="client-cell"><span>Vortex Metals</span></div>
-        <div class="client-cell"><span>Vulcan Resources</span></div>
-        <div class="client-cell"><span>Waraba Gold</span></div>
-        <div class="client-cell"><span>Waratah Minerals</span></div>
-        <div class="client-cell"><span>West Red Lake Gold Mines</span></div>
-        <div class="client-cell"><span>Western Copper & Gold</span></div>
-        <div class="client-cell"><span>Western Star Resources</span></div>
-        <div class="client-cell"><span>Westhaven Gold</span></div>
-        <div class="client-cell"><span>White Gold</span></div>
-        <div class="client-cell"><span>Winston Gold</span></div>
-        <div class="client-cell"><span>X-Terra Resources</span></div>
-        <div class="client-cell"><span>Xander Resources</span></div>
-        <div class="client-cell"><span>Yellow Rocks Energy</span></div>
-        <div class="client-cell"><span>York Harbour Metals</span></div>
-        <div class="client-cell"><span>Zacatecas Silver</span></div>
-        <div class="client-cell"><span>Zeus Mining</span></div>
-
+      <div style="overflow-x: auto; max-width: 1100px; margin: 0 auto;">
+        <table class="client-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Exchange</th>
+              <th>Ticker</th>
+              <th>Price</th>
+              <th>Market Cap</th>
+              <th>Country</th>
+              <th>Commodity</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr><td>Endeavour Canada Holdings</td><td>TSX</td><td>EDV</td><td>$90.15</td><td>$22.17B</td><td></td><td></td></tr>
+              <tr><td>NexGen Energy</td><td>TSX</td><td>NXE</td><td>$16.36</td><td>$10.82B</td><td></td><td></td></tr>
+              <tr><td>Discovery Silver</td><td>TSX</td><td>DSV</td><td>$9.75</td><td>$7.90B</td><td></td><td></td></tr>
+              <tr><td>Montage Gold</td><td>TSX</td><td>MAU</td><td>$16.22</td><td>$5.91B</td><td></td><td></td></tr>
+              <tr><td>Fortuna Silver Mines</td><td>TSX</td><td>FVI</td><td>$14.41</td><td>$4.40B</td><td></td><td></td></tr>
+              <tr><td>Snowline Gold</td><td>TSX</td><td>SGD</td><td>$15.58</td><td>$2.74B</td><td></td><td></td></tr>
+              <tr><td>Avino Silver & Gold Mines</td><td>TSX</td><td>ASM</td><td>$9.57</td><td>$1.61B</td><td></td><td></td></tr>
+              <tr><td>Imperial Metals</td><td>TSX</td><td>III</td><td>$8.38</td><td>$1.49B</td><td></td><td></td></tr>
+              <tr><td>Omai Gold Mines</td><td>TSXV</td><td>OMG</td><td>$2.12</td><td>$1.35B</td><td></td><td></td></tr>
+              <tr><td>Asante Gold</td><td>TSXV</td><td>ASE</td><td>$1.25</td><td>$1.13B</td><td></td><td></td></tr>
+              <tr><td>Fireweed Metals</td><td>TSXV</td><td>FWZ</td><td>$4.70</td><td>$1.07B</td><td></td><td></td></tr>
+              <tr><td>Troilus Gold</td><td>TSX</td><td>TLG</td><td>$1.85</td><td>$1.01B</td><td></td><td></td></tr>
+              <tr><td>New Found Gold</td><td>TSXV</td><td>NFG</td><td>$2.86</td><td>$987M</td><td></td><td></td></tr>
+              <tr><td>Patriot Battery Metals</td><td>TSX</td><td>PMET</td><td>$4.98</td><td>$914M</td><td></td><td></td></tr>
+              <tr><td>Western Copper & Gold</td><td>TSX</td><td>WRN</td><td>$3.93</td><td>$887M</td><td></td><td></td></tr>
+              <tr><td>Core Lithium</td><td>ASX</td><td>CXO</td><td>$0.29</td><td>$846M</td><td></td><td></td></tr>
+              <tr><td>Liberty Gold</td><td>TSX</td><td>LGD</td><td>$1.53</td><td>$786M</td><td></td><td></td></tr>
+              <tr><td>Amex Expl</td><td>TSXV</td><td>AMX</td><td>$5.00</td><td>$708M</td><td></td><td></td></tr>
+              <tr><td>Bear Creek Mining</td><td>TSXV</td><td>BCM</td><td>$1.22</td><td>$419M</td><td></td><td></td></tr>
+              <tr><td>West Red Lake Gold Mines</td><td>TSXV</td><td>WRLG</td><td>$1.00</td><td>$410M</td><td></td><td></td></tr>
+              <tr><td>West Red Lake Gold</td><td>TSXV</td><td>WRLG</td><td>$1.00</td><td>$410M</td><td></td><td></td></tr>
+              <tr><td>Nexgold Mining</td><td>TSXV</td><td>NEXG</td><td>$1.61</td><td>$399M</td><td></td><td></td></tr>
+              <tr><td>White Gold</td><td>TSXV</td><td>WGO</td><td>$1.69</td><td>$374M</td><td></td><td></td></tr>
+              <tr><td>Sitka Gold</td><td>TSXV</td><td>SIG</td><td>$0.89</td><td>$363M</td><td></td><td></td></tr>
+              <tr><td>Dolly Varden</td><td>TSXV</td><td>DV</td><td>$3.72</td><td>$342M</td><td></td><td></td></tr>
+              <tr><td>Atha Energy</td><td>TSXV</td><td>SASK</td><td>$0.82</td><td>$284M</td><td></td><td></td></tr>
+              <tr><td>Cabral Gold</td><td>TSXV</td><td>CBR</td><td>$0.92</td><td>$277M</td><td></td><td></td></tr>
+              <tr><td>Bunker Hill Mining</td><td>TSX</td><td>BNKR</td><td>$5.65</td><td>$259M</td><td></td><td></td></tr>
+              <tr><td>Revival Gold</td><td>TSXV</td><td>RVG</td><td>$0.93</td><td>$254M</td><td></td><td></td></tr>
+              <tr><td>Peninsula Energy</td><td>ASX</td><td>PEN</td><td>$0.55</td><td>$246M</td><td></td><td></td></tr>
+              <tr><td>Surge Copper</td><td>TSXV</td><td>SURG</td><td>$0.63</td><td>$238M</td><td></td><td></td></tr>
+              <tr><td>Hercules Silver</td><td>TSXV</td><td>BIG</td><td>$0.69</td><td>$200M</td><td></td><td></td></tr>
+              <tr><td>Argenta Silver</td><td>TSXV</td><td>AGAG</td><td>$0.60</td><td>$171M</td><td></td><td></td></tr>
+              <tr><td>Nations Royalties</td><td>TSXV</td><td>NRC</td><td>$1.05</td><td>$163M</td><td></td><td></td></tr>
+              <tr><td>Lithium Ionic</td><td>TSXV</td><td>LTH</td><td>$0.90</td><td>$157M</td><td></td><td></td></tr>
+              <tr><td>American Lithium</td><td>TSXV</td><td>LI</td><td>$0.60</td><td>$153M</td><td></td><td></td></tr>
+              <tr><td>Mogotes Metals</td><td>TSXV</td><td>MOG</td><td>$0.33</td><td>$136M</td><td></td><td></td></tr>
+              <tr><td>District Metals</td><td>TSXV</td><td>DMX</td><td>$0.76</td><td>$134M</td><td></td><td></td></tr>
+              <tr><td>Fitzroy Minerals</td><td>TSXV</td><td>FTZ</td><td>$0.40</td><td>$131M</td><td></td><td></td></tr>
+              <tr><td>Silver 47 Expl</td><td>TSXV</td><td>AGA</td><td>$0.73</td><td>$127M</td><td></td><td></td></tr>
+              <tr><td>RUA GOLD</td><td>TSXV</td><td>RUA</td><td>$1.33</td><td>$112M</td><td></td><td></td></tr>
+              <tr><td>F3 Uranium</td><td>TSXV</td><td>FUU</td><td>$0.17</td><td>$111M</td><td></td><td></td></tr>
+              <tr><td>Skyharbour Resources</td><td>TSXV</td><td>SYH</td><td>$0.51</td><td>$108M</td><td></td><td></td></tr>
+              <tr><td>Scorpio Gold</td><td>TSXV</td><td>SGN</td><td>$0.35</td><td>$94M</td><td></td><td></td></tr>
+              <tr><td>Silver Viper Minerals</td><td>TSXV</td><td>VIPR</td><td>$1.21</td><td>$83M</td><td></td><td></td></tr>
+              <tr><td>Brixton Metals</td><td>TSXV</td><td>BBB</td><td>$1.04</td><td>$74M</td><td></td><td></td></tr>
+              <tr><td>Mithril Silver and Gold</td><td>TSXV</td><td>MSG</td><td>$0.36</td><td>$67M</td><td></td><td></td></tr>
+              <tr><td>Westhaven Gold</td><td>TSXV</td><td>WHN</td><td>$0.26</td><td>$65M</td><td></td><td></td></tr>
+              <tr><td>Sonoro Gold</td><td>TSXV</td><td>SGO</td><td>$0.24</td><td>$62M</td><td></td><td></td></tr>
+              <tr><td>Sun Summit Minerals</td><td>TSXV</td><td>SMN</td><td>$0.14</td><td>$45M</td><td></td><td></td></tr>
+              <tr><td>First Atlantic Nickel (formerly Avante Mining)</td><td>TSXV</td><td>FAN</td><td>$0.32</td><td>$42M</td><td></td><td></td></tr>
+              <tr><td>Kincora Copper</td><td>TSXV</td><td>KCC</td><td>$0.83</td><td>$39M</td><td></td><td></td></tr>
+              <tr><td>Puma Expl</td><td>TSXV</td><td>PUMA</td><td>$0.17</td><td>$33M</td><td></td><td></td></tr>
+              <tr><td>South Pacific Metals</td><td>TSXV</td><td>SPMC</td><td>$0.47</td><td>$32M</td><td></td><td></td></tr>
+              <tr><td>T2 Metals</td><td>TSXV</td><td>TWO</td><td>$0.52</td><td>$31M</td><td></td><td></td></tr>
+              <tr><td>Rackla Metals</td><td>TSXV</td><td>RAK</td><td>$0.17</td><td>$29M</td><td></td><td></td></tr>
+              <tr><td>Tiger Gold</td><td>TSXV</td><td>TIG</td><td>$0.53</td><td>$28M</td><td></td><td></td></tr>
+              <tr><td>Grid Metals</td><td>TSXV</td><td>GRDM</td><td>$0.12</td><td>$27M</td><td></td><td></td></tr>
+              <tr><td>Vertex Minerals</td><td>TSXV</td><td>VTX</td><td>$0.20</td><td>$22M</td><td></td><td></td></tr>
+              <tr><td>SPC Nickel</td><td>TSXV</td><td>SPC</td><td>$0.05</td><td>$20M</td><td></td><td></td></tr>
+              <tr><td>Garibaldi Resources</td><td>TSXV</td><td>GGI</td><td>$0.13</td><td>$20M</td><td></td><td></td></tr>
+              <tr><td>Radius Gold</td><td>TSXV</td><td>RDU</td><td>$0.14</td><td>$16M</td><td></td><td></td></tr>
+              <tr><td>Metallis Resources</td><td>TSXV</td><td>MTS</td><td>$0.14</td><td>$13M</td><td></td><td></td></tr>
+              <tr><td>Enduro Metals</td><td>TSXV</td><td>ENDR</td><td>$0.17</td><td>$13M</td><td></td><td></td></tr>
+              <tr><td>Trifecta Gold</td><td>TSXV</td><td>TG</td><td>$0.20</td><td>$10M</td><td></td><td></td></tr>
+              <tr><td>Stellar AfricaGold</td><td>TSXV</td><td>SPX</td><td>$0.12</td><td>$7M</td><td></td><td></td></tr>
+              <tr><td>Mammoth Minerals</td><td>TSXV</td><td>MTH</td><td>$0.05</td><td>$5M</td><td></td><td></td></tr>
+              <tr><td>ACDC Battery Metals</td><td>TSXV</td><td>ACDC</td><td>$0.06</td><td>$3M</td><td></td><td></td></tr>
+              <tr><td>Infini Resources</td><td>TSXV</td><td>IFR</td><td>$0.04</td><td>$2M</td><td></td><td></td></tr>
+              <tr><td>Aben Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Abitibi Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Abyssinian Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Adelayde Expl</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Affinity Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>African Discovery Group</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Alaska Energy Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Alerio Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Algo Grande</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Altair Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Altamira Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Altus Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ameranium Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>American Critical Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Americore Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ameriwest Lithium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Angel Wing Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Apex Critical Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Appia Rare Earths & Uranium</td><td></td><td>API</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ardiden</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Arena Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Arkle Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Armory Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Atco Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Aura Minerals</td><td></td><td>ORA</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Autumn Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Axies Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Azincourt Energy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Badlands Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Battery Age Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Black Rock Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Black Wolf Copper & Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Blackbird</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Blue Star Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Bluestone Resources</td><td></td><td>BSR</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>BMC Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Buscando Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Callinex Mines</td><td></td><td>CNX</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Cambria Gold Mines</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Canter Resources</td><td></td><td>CRC</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Cantor Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Canyon Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Capitan Silver</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Carlyle Commodities</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>CopAur Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Copper Mountain</td><td></td><td>CMMC</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>CopperCorp</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Core Assets</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Crest Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Cross River Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Currawong Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Deep South Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Denarius Metals</td><td></td><td>DSLV</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ekometall Expl</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Electron Uranium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Electrum Discovery</td><td></td><td>ELX</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Element79 Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Eminent Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Emperor Metals</td><td></td><td>AUOZ</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Evergold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Exploits Discovery</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>F4 Uranium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Fathom Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Filo</td><td></td><td>FIL</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>FinEx Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Firebird Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>First Andes Silver</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>First Nordic Metals</td><td></td><td>FNM</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>First Tin</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Free Battery Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Fremont Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Future Fuels</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Galantas Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GCM Mining</td><td></td><td>GCM</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GEMOIL</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Generation Uranium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GeoMinEx</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GeoMinEx Consultants</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GFG Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Global Manganese Pty</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Gold Digger Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Gold Group Management</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Gold Hunter Resources</td><td></td><td>HUNT</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Gold Line</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Gold Mountain Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Golden Cross Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Golden Graphite</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Golden Sky Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Goldrea Resources</td><td></td><td>GOR</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Goldseek Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Great Pacific Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Great Whyte Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Grid Battery Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Group Ten Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>GSP Resource</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Hathor Expl</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Headwater Gold</td><td></td><td>HWG</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Hertz Lithium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Hi-View Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Highlands Geo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ignition Battery Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Imperial Mining Group</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Inflection Resources</td><td></td><td>AUCU</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>INVESTOR EVENTS INC.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Iris Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ivory Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Jaguar Uranium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>K9 Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Kesselrun Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>King Global Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Kingfisher Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Lake Winn Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Lancaster Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Latam Battery Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Leocor Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Leviathan Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Libero Copper</td><td></td><td>LBC</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Lithium Africa Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>MAG Silver</td><td></td><td>MAG</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Manning Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mantaro Precious Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Marathon Gold</td><td></td><td>MOZ</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Marvel Discovery</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Max Resource</td><td></td><td>MXR</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>MCF Energy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Megastar Development</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Melkior Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Metallum Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Miata Metals</td><td></td><td>MIAM</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mich Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mineral Mountain Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Miramis Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mogul Mountain Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mountain Boy Minerals LTD</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Mustang Energy</td><td></td><td>MEC</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>MX2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nevada Energy Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nevada Silver</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nevada Sunrise Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>New Path Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>New World Precious Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Newfoundland Discovery</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>NexMetals Mining</td><td></td><td>NME</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>NEXT Lithium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nexus Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nexus Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>NG Energy International</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>NGEx</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nine Mile Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nordique Resources</td><td></td><td>NRQ</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Norrland Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>North Bay Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>North by Northwest</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Northern Silicon International</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Northern Superior</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nova Lithium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>NRG Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Nuclear Fuels</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Opawica Expls</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Orex Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Orior Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Osino Resources</td><td></td><td>OSI</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Pacific Ridge Expl</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Pacton Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Panther Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>PC Gold</td><td></td><td>PCG</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Phoenix Copper</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Phoenix Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Pinnacle Silver and Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Power Metal Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Prime Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Primero Silver</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Prospect Ridge Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ptolemy Mining (UK)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Puddle Pond Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Quadro Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Quebec Pegmatite</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Raincity Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Rare Earth Ridge</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Red Canyon Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Renforth Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Resouro Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Ripasso Precious Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Rock Cliff Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>RSD Discovery Group</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>San Lorenzo Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Scotch Creek Ventures</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Seahawk Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Secova Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Selkirk Copper Mines</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Seva Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Silicon Metals</td><td></td><td>ALB</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Silver Fish Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Silver Valley Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Silverco Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Southern Cross Gold</td><td></td><td>SX2</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Southern Empire Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Spod Lithium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Spruce Ridge Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Stairway Mining</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Stallion Uranium</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Stirling Bridge Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Strikepoint Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Summit Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Surge Battery Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Taurus Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>TEAKO MINERALS CORP.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Telegraph Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Temas Resources</td><td></td><td>TMAS</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Terra Gold Properties</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Teuton Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>THISTLE RESOURCES CORP.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Thunderbird Minerals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Tiger Tasman</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Tisdale Clean Energy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Titan Discovery</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Toogood Gold</td><td></td><td>TOO</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Trailbreaker Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Trans Canada Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Trident Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>TruSilver Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>US American Expl</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>US Critical Metals</td><td></td><td>USCM</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Usha Resource</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Viridian Metals</td><td></td><td>VRD</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Volatus Capital</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Volcanic Gold Mines</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Volta Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>VORTEX METALS INC</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Vulcan Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Waraba Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Waratah Minerals</td><td></td><td>WTH</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Western Star Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Winston Gold</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>X-Terra Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Xander Resources</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Yellow Rocks Energy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>York Harbour Metals</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Zacatecas Silver</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Zeus Mining</td><td></td><td>ZEUS</td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
       </div>
     </section><!-- ALL CLIENTS LOGO GRID -->
     <section class="section fade-in section-warm">
