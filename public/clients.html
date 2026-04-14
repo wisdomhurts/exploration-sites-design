@@ -667,6 +667,7 @@
         .client-table tbody tr:hover { background: rgba(23,53,89,0.03); }
 
         .client-table td:nth-child(2), .client-table td:nth-child(5), .client-table th:nth-child(2), .client-table th:nth-child(5) { text-align: right; }
+        .client-table thead th { cursor: pointer; user-select: none; }
 
         .client-table td:first-child { font-weight: 500; color: var(--navy); }
         .sortable { cursor: pointer; user-select: none; }
@@ -684,25 +685,15 @@
         <table class="client-table">
 
           <thead>
-
             <tr>
-
-              <th>Company</th>
-
-              <th>Price</th>
-
-              <th>Ticker</th>
-
-              <th>Exchange</th>
-
-              <th>Market Cap</th>
-
-              <th>Commodity</th>
-
-              <th>Country</th>
-
+              <th class="sortable" data-col="0" onclick="sortTable(0,'text')">Company <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="1" onclick="sortTable(1,'price')">Price <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="2" onclick="sortTable(2,'text')">Ticker <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="3" onclick="sortTable(3,'text')">Exchange <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Market Cap <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity <span class="sort-arrow"></span></th>
+              <th class="sortable" data-col="6" onclick="sortTable(6,'text')">Country <span class="sort-arrow"></span></th>
             </tr>
-
           </thead>
 
           <tbody>
@@ -721,9 +712,9 @@
 <tr><td>MAG Silver</td><td>$26.00</td><td>MAG</td><td>TSX</td><td>$3.56B</td><td>Silver</td><td>Mexico</td></tr>
 <tr><td>Snowline Gold</td><td>$15.58</td><td>SGD</td><td>TSX</td><td>$2.74B</td><td>Gold</td><td>Yukon, Canada</td></tr>
 <tr><td>Southern Cross Gold</td><td>$3.75</td><td>SX2</td><td>TSXV</td><td>$2.69B</td><td>Gold</td><td>Victoria, Australia</td></tr>
-<tr><td>Avino Silver & Gold Mines</td><td>$9.57</td><td>ASM</td><td>TSX</td><td>$1.61B</td><td>Silver / Gold</td><td>BC, Canada</td></tr>
+<tr><td>Avino Silver & Gold</td><td>$9.57</td><td>ASM</td><td>TSX</td><td>$1.61B</td><td>Silver / Gold</td><td>BC, Canada</td></tr>
 <tr><td>Imperial</td><td>$8.38</td><td>III</td><td>TSX</td><td>$1.49B</td><td>Copper / Gold</td><td>BC, Canada</td></tr>
-<tr><td>Omai Gold Mines</td><td>$2.12</td><td>OMG</td><td>TSXV</td><td>$1.35B</td><td>Gold</td><td>Guyana</td></tr>
+<tr><td>Omai Gold</td><td>$2.12</td><td>OMG</td><td>TSXV</td><td>$1.35B</td><td>Gold</td><td>Guyana</td></tr>
 <tr><td>Asante Gold</td><td>$1.25</td><td>ASE</td><td>TSXV</td><td>$1.13B</td><td>Gold</td><td>Ghana</td></tr>
 <tr><td>Fireweed</td><td>$4.70</td><td>FWZ</td><td>TSXV</td><td>$1.07B</td><td>Zinc / Tungsten</td><td>Yukon, Canada</td></tr>
 <tr><td>Troilus Gold</td><td>$1.85</td><td>TLG</td><td>TSX</td><td>$1.01B</td><td>Gold / Copper</td><td>Quebec, Canada</td></tr>
@@ -753,12 +744,11 @@
 <tr><td>Revival Gold</td><td>$0.93</td><td>RVG</td><td>TSXV</td><td>$254M</td><td>Gold</td><td>Idaho, USA</td></tr>
 <tr><td>Peninsula Energy</td><td>$0.55</td><td>PEN</td><td>ASX</td><td>$246M</td><td>Uranium</td><td>Wyoming, USA</td></tr>
 <tr><td>Surge Copper</td><td>$0.63</td><td>SURG</td><td>TSXV</td><td>$238M</td><td>Copper</td><td>BC, Canada</td></tr>
-<tr><td>Bluestone</td><td>$1.25</td><td>BSR</td><td>TSXV</td><td>$210M</td><td>Gold / Silver</td><td>Guatemala</td></tr>
 <tr><td>Hercules</td><td>$0.69</td><td>BIG</td><td>TSXV</td><td>$200M</td><td>Copper / Silver</td><td>Idaho, USA</td></tr>
 <tr><td>Altair</td><td>$0.03</td><td>ALR</td><td>ASX</td><td>$191M</td><td>Gold / Silver</td><td>Argentina</td></tr>
 <tr><td>Osino</td><td>$1.50</td><td>OSI</td><td>TSXV</td><td>$180M</td><td>Gold</td><td>Namibia</td></tr>
 <tr><td>Argenta Silver</td><td>$0.60</td><td>AGAG</td><td>TSXV</td><td>$171M</td><td>Silver</td><td>Mexico</td></tr>
-<tr><td>Selkirk Copper Mines</td><td>$1.31</td><td>SCMI</td><td>TSXV</td><td>$168M</td><td>Copper</td><td>BC, Canada</td></tr>
+<tr><td>Selkirk Copper</td><td>$1.31</td><td>SCMI</td><td>TSXV</td><td>$168M</td><td>Copper</td><td>BC, Canada</td></tr>
 <tr><td>Apex Critical</td><td>$2.09</td><td>APXC</td><td>CSE</td><td>$165M</td><td>Critical Minerals</td><td>Canada</td></tr>
 <tr><td>Nations Royalties</td><td>$1.05</td><td>NRC</td><td>TSXV</td><td>$163M</td><td>Royalties</td><td>Canada</td></tr>
 <tr><td>Lithium Ionic</td><td>$0.90</td><td>LTH</td><td>TSXV</td><td>$157M</td><td>Lithium</td><td>Brazil</td></tr>
@@ -769,7 +759,7 @@
 <tr><td>District</td><td>$0.76</td><td>DMX</td><td>TSXV</td><td>$134M</td><td>Zinc / Copper</td><td>Sweden</td></tr>
 <tr><td>Fitzroy</td><td>$0.40</td><td>FTZ</td><td>TSXV</td><td>$131M</td><td>Copper / Gold</td><td>Chile</td></tr>
 <tr><td>Silver 47</td><td>$0.73</td><td>AGA</td><td>TSXV</td><td>$127M</td><td>Silver</td><td>Idaho, USA</td></tr>
-<tr><td>Callinex Mines</td><td>$1.20</td><td>CNX</td><td>TSXV</td><td>$115M</td><td>Copper / Zinc</td><td>Manitoba, Canada</td></tr>
+<tr><td>Callinex</td><td>$1.20</td><td>CNX</td><td>TSXV</td><td>$115M</td><td>Copper / Zinc</td><td>Manitoba, Canada</td></tr>
 <tr><td>Abitibi</td><td>$0.60</td><td>AMQ</td><td>CSE</td><td>$113M</td><td>Copper / Gold</td><td>Quebec, Canada</td></tr>
 <tr><td>Rua Gold</td><td>$1.33</td><td>RUA</td><td>TSXV</td><td>$112M</td><td>Gold</td><td>New Zealand</td></tr>
 <tr><td>F3 Uranium</td><td>$0.17</td><td>FUU</td><td>TSXV</td><td>$111M</td><td>Uranium</td><td>Saskatchewan, Canada</td></tr>
@@ -778,7 +768,7 @@
 <tr><td>BMC</td><td>A$0.50</td><td>BMC</td><td>ASX</td><td>$100M</td><td>Zinc / Lead</td><td>Yukon, Canada</td></tr>
 <tr><td>Group Ten</td><td>$0.32</td><td>PGE</td><td>TSXV</td><td>$99M</td><td>PGE / Nickel</td><td>Montana, USA</td></tr>
 <tr><td>Scorpio Gold</td><td>$0.35</td><td>SGN</td><td>TSXV</td><td>$94M</td><td>Gold</td><td>Nevada, USA</td></tr>
-<tr><td>Cambria Gold Mines</td><td>$1.44</td><td>CAMB</td><td>TSXV</td><td>$86M</td><td>Gold</td><td>Nevada, USA</td></tr>
+<tr><td>Cambria Gold</td><td>$1.44</td><td>CAMB</td><td>TSXV</td><td>$86M</td><td>Gold</td><td>Nevada, USA</td></tr>
 <tr><td>Silver Viper</td><td>$1.21</td><td>VIPR</td><td>TSXV</td><td>$83M</td><td>Silver / Gold</td><td>Mexico</td></tr>
 <tr><td>Libero Copper</td><td>$0.53</td><td>LBC</td><td>TSXV</td><td>$78M</td><td>Copper</td><td>Colombia</td></tr>
 <tr><td>Ardiden</td><td>$0.35</td><td>ADV</td><td>ASX</td><td>$75M</td><td>Lithium</td><td>Australia</td></tr>
@@ -865,7 +855,7 @@
 <tr><td>Grid Battery</td><td>$0.03</td><td>CELL</td><td>TSXV</td><td>$6M</td><td>Lithium</td><td>Nevada, USA</td></tr>
 <tr><td>Melkior</td><td>$0.14</td><td>MKR</td><td>TSXV</td><td>$6M</td><td>Gold</td><td>Quebec, Canada</td></tr>
 <tr><td>NexMetals</td><td>$0.02</td><td>NME</td><td>TSXV</td><td>$6M</td><td>Gold</td><td>Australia</td></tr>
-<tr><td>Volcanic Gold Mines</td><td>$0.09</td><td>VG</td><td>TSXV</td><td>$6M</td><td>Gold</td><td>West Africa</td></tr>
+<tr><td>Volcanic Gold</td><td>$0.09</td><td>VG</td><td>TSXV</td><td>$6M</td><td>Gold</td><td>West Africa</td></tr>
 <tr><td>Waratah</td><td>$0.08</td><td>WTH</td><td>TSXV</td><td>$6M</td><td>Tin</td><td>Australia</td></tr>
 <tr><td>F4 Uranium</td><td>$0.07</td><td>FFU</td><td>TSXV</td><td>$6M</td><td>Uranium</td><td>Saskatchewan, Canada</td></tr>
 <tr><td>Panther</td><td>$0.39</td><td>PURR</td><td>CSE</td><td>$6M</td><td>Gold / Copper</td><td>Canada</td></tr>
@@ -926,7 +916,7 @@
 <tr><td>Nova Lithium</td><td>$0.04</td><td>NVPC</td><td>CSE</td><td>$2M</td><td>Lithium</td><td>Argentina</td></tr>
 <tr><td>Badlands</td><td>$0.15</td><td>BLDS</td><td>TSXV</td><td>$2M</td><td>Gold</td><td>Saskatchewan, Canada</td></tr>
 <tr><td>Atco</td><td>$0.05</td><td>ATCM</td><td>CSE</td><td><$1M</td><td>Gold</td><td>BC, Canada</td></tr>
-<tr><td>Golden Cross</td><td>A$0.002</td><td>GCR</td><td>ASX</td><td>$1M</td><td>Gold</td><td>BC, Canada</td></tr>
+<tr><td>Golden Cross</td><td>—</td><td>AUX</td><td>TSXV</td><td>—</td><td>Gold</td><td>BC, Canada</td></tr>
 <tr><td>Mineral Mountain</td><td>$0.03</td><td>MMV</td><td>TSXV</td><td>$1M</td><td>Gold</td><td>BC, Canada</td></tr>
 <tr><td>North Bay</td><td>$0.01</td><td>NBRI</td><td>OTC</td><td>$1M</td><td>Gold</td><td>Alaska, USA</td></tr>
 <tr><td>Raincity</td><td>$0.01</td><td>RAIN</td><td>CSE</td><td>$1M</td><td>Gold</td><td>BC, Canada</td></tr>
@@ -934,14 +924,11 @@
 <tr><td>Spod Lithium</td><td>$0.01</td><td>SPOD</td><td>CSE</td><td>$940K</td><td>Lithium</td><td>Quebec, Canada</td></tr>
 <tr><td>Scotch Creek</td><td>$0.04</td><td>SCV</td><td>CSE</td><td>$912K</td><td>Lithium</td><td>Canada</td></tr>
 <tr><td>Volatus Capital</td><td>$0.01</td><td>VC</td><td>CSE</td><td>$552K</td><td>Lithium</td><td>Canada</td></tr>
-<tr><td>African Discovery Group</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>West Africa</td></tr>
-<tr><td>Americore</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Ontario, Canada</td></tr>
 <tr><td>Ekometall</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Nickel</td><td>Sweden</td></tr>
 <tr><td>Gemoil</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Oil & Gas</td><td>International</td></tr>
 <tr><td>GeoMinEx</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Consulting</td><td>Canada</td></tr>
 <tr><td>Highlands Geo</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Consulting</td><td>Canada</td></tr>
 <tr><td>Investor Events</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Events</td><td>Canada</td></tr>
-<tr><td>Latam Battery</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Lithium</td><td>Chile</td></tr>
 <tr><td>Miramis</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Ontario, Canada</td></tr>
 <tr><td>Mogul Mountain</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>BC, Canada</td></tr>
 <tr><td>MX2</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Silver</td><td>Mexico</td></tr>
@@ -956,15 +943,12 @@
 <tr><td>Puddle Pond</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Newfoundland, Canada</td></tr>
 <tr><td>Rare Earth Ridge</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>REE</td><td>Canada</td></tr>
 <tr><td>Ripasso</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Silver</td><td>Mexico</td></tr>
-<tr><td>RSD Discovery Group</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>West Africa</td></tr>
 <tr><td>Stairway</td><td>—</td><td>—</td><td>Acquired</td><td>—</td><td>Gold</td><td>Newfoundland, Canada</td></tr>
 <tr><td>Summit</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Copper</td><td>BC, Canada</td></tr>
 <tr><td>Teako</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>BC, Canada</td></tr>
 <tr><td>Telegraph Gold</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>BC, Canada</td></tr>
 <tr><td>Terra Gold Properties</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Ontario, Canada</td></tr>
 <tr><td>Thistle</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Ontario, Canada</td></tr>
-<tr><td>Tiger Tasman</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold</td><td>Australia</td></tr>
-<tr><td>Titan Discovery</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Copper</td><td>BC, Canada</td></tr>
 <tr><td>TruSilver</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Silver</td><td>Mexico</td></tr>
 <tr><td>US American</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Silver</td><td>USA</td></tr>
 <tr><td>Vulcan</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Copper / Gold</td><td>Australia</td></tr>
