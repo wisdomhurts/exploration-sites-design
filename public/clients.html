@@ -40,8 +40,6 @@
 
 <body>
 
-
-
   <!-- NAV -->
 
   <nav class="nav">
@@ -502,8 +500,6 @@
 
   </nav>
 
-
-
   <!-- Mobile Nav Panel -->
 
   <div class="nav-mobile-overlay" onclick="this.classList.remove('is-open');document.querySelector('.nav-mobile-panel').classList.remove('is-open');"></div>
@@ -542,11 +538,7 @@
 
   </div>
 
-
-
   <div class="page">
-
-
 
     <!-- PAGE HERO -->
 
@@ -560,15 +552,11 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- STATS -->
 
-    <section class="stats fade-in dot-grid section-warm" style="overflow: hidden;">
+    <section class="stats fade-in dot-grid" style="overflow: hidden;">
 
       <div class="stats-grid">
 
@@ -608,8 +596,6 @@
 
     </section>
 
-
-
     <!-- TRANSFORMATION ARC -->
 
     <section class="section fade-in">
@@ -636,13 +622,11 @@
 
     </section>
 
-
-
     <div class="divider"></div>
 
     <!-- ALL CLIENTS TABLE -->
 
-    <section class="section fade-in section-warm">
+    <section class="section fade-in">
 
       <div style="text-align: center; margin-bottom: 40px;">
 
@@ -707,8 +691,6 @@
           <tbody>
 
                             
-
-
 
 <tr><td>Endeavour</td><td>$90.15</td><td>EDV</td><td>TSX</td><td>$22.17B</td><td>Gold</td><td>West Africa</td></tr>
 <tr><td>Discovery Silver</td><td>$9.75</td><td>DSV</td><td>TSX</td><td>$7.90B</td><td>Silver</td><td>Mexico</td></tr>
@@ -961,10 +943,6 @@
 <tr><td>US American</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Gold / Silver</td><td>USA</td></tr>
 <tr><td>Vulcan</td><td>—</td><td>—</td><td>Private</td><td>—</td><td>Copper / Gold</td><td>Australia</td></tr>
 
-
-
-
-
           </tbody>
 
         </table>
@@ -975,11 +953,9 @@
 
     <div class="divider"></div>
 
-
-
     <!-- MONTAGE GOLD -->
 
-    <section class="section fade-in section-warm">
+    <section class="section fade-in">
 
       <div class="section-grid">
 
@@ -1027,11 +1003,7 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- FIREWEED METALS -->
 
@@ -1083,15 +1055,11 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- WEST RED LAKE GOLD -->
 
-    <section class="section fade-in section-warm">
+    <section class="section fade-in">
 
       <div class="section-grid">
 
@@ -1139,11 +1107,7 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- DOLLY VARDEN SILVER -->
 
@@ -1195,15 +1159,11 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- HERCULES METALS -->
 
-    <section class="section fade-in section-warm">
+    <section class="section fade-in">
 
       <div class="section-grid">
 
@@ -1251,11 +1211,7 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- THE TAKEAWAY -->
 
@@ -1285,11 +1241,9 @@
 
     </section>
 
-
-
     <!-- ALL CLIENTS LOGO GRID -->
 
-    <section class="section fade-in section-warm">
+    <section class="section fade-in">
 
       <div style="text-align: center; margin-bottom: 40px;">
 
@@ -1725,11 +1679,7 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- CTA -->
 
@@ -1749,11 +1699,7 @@
 
     </section>
 
-
-
     <div class="divider"></div>
-
-
 
     <!-- FOOTER -->
 
@@ -1839,11 +1785,7 @@
 
     </footer>
 
-
-
   </div>
-
-
 
   <script>
 
@@ -1869,8 +1811,6 @@
 
     });
 
-
-
     // Scroll-reveal animation
 
     var observer = new IntersectionObserver(function(entries) {
@@ -1889,17 +1829,61 @@
 
     }, { threshold: 0.1 });
 
-
-
     document.querySelectorAll('.fade-in').forEach(function(el) {
 
       observer.observe(el);
 
     });
 
+
+    // Table sorting
+    var currentSort = {col: 4, dir: 'desc'};
+    function sortTable(col, type) {
+      var tbody = document.querySelector('.client-table tbody');
+      if (!tbody) return;
+      var rows = Array.from(tbody.rows);
+      var dir = (currentSort.col === col && currentSort.dir === 'desc') ? 'asc' : 'desc';
+      currentSort = {col: col, dir: dir};
+      rows.sort(function(a, b) {
+        var at = a.cells[col] ? a.cells[col].textContent.trim() : '';
+        var bt = b.cells[col] ? b.cells[col].textContent.trim() : '';
+        var av, bv;
+        if (type === 'mcap' || type === 'price') {
+          av = (function(s) {
+            if (!s || s.charAt(0) !== '$') return -1;
+            var n = parseFloat(s.replace(/[^0-9.]/g, ''));
+            if (isNaN(n)) return -1;
+            if (s.indexOf('B') !== -1) return n * 1e9;
+            if (s.indexOf('M') !== -1) return n * 1e6;
+            if (s.indexOf('K') !== -1) return n * 1e3;
+            return n;
+          })(at);
+          bv = (function(s) {
+            if (!s || s.charAt(0) !== '$') return -1;
+            var n = parseFloat(s.replace(/[^0-9.]/g, ''));
+            if (isNaN(n)) return -1;
+            if (s.indexOf('B') !== -1) return n * 1e9;
+            if (s.indexOf('M') !== -1) return n * 1e6;
+            if (s.indexOf('K') !== -1) return n * 1e3;
+            return n;
+          })(bt);
+        } else {
+          av = at.toLowerCase();
+          bv = bt.toLowerCase();
+          if (av === '' || av.charCodeAt(0) > 8000) av = 'zzzzz';
+          if (bv === '' || bv.charCodeAt(0) > 8000) bv = 'zzzzz';
+        }
+        if (av < bv) return dir === 'asc' ? -1 : 1;
+        if (av > bv) return dir === 'asc' ? 1 : -1;
+        return 0;
+      });
+      for (var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
+      document.querySelectorAll('.client-table thead th').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.sort-arrow').forEach(function(s) { s.className = 'sort-arrow'; });
+      var th = document.querySelector('th[data-col="' + col + '"]');
+      if (th) { th.classList.add('active'); var ar = th.querySelector('.sort-arrow'); if (ar) ar.className = 'sort-arrow ' + dir; }
+    }
   </script>
-
-
 
 </body>
 
