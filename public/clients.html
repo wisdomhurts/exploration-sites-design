@@ -608,6 +608,8 @@
         .client-table tbody tr:hover { background: rgba(23,53,89,0.03); }
 
         .client-table td:nth-child(2), .client-table td:nth-child(5), .client-table th:nth-child(2), .client-table th:nth-child(5) { text-align: right; }
+        .client-table td:nth-child(3), .client-table th:nth-child(3) { text-align: right; font-weight: 700; }
+        .client-table td:nth-child(5), .client-table th:nth-child(5) { white-space: nowrap; width: 80px; }
 
         .client-table td:first-child { font-weight: 500; color: var(--navy); }
         .client-table thead th {
@@ -634,7 +636,7 @@
               <th>Price</th>
               <th>Ticker</th>
               <th>Exchange</th>
-              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Market Cap</th>
+              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Mkt Cap</th>
               <th class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity</th>
               <th class="sortable" data-col="6" onclick="sortTable(6,'text')">Country</th>
             </tr>
