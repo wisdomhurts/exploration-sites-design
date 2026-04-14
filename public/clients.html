@@ -626,8 +626,7 @@
 
     <!-- ALL CLIENTS TABLE -->
 
-    <section class="section fade-in">
-
+    <section class="section">
       <div style="text-align: center; margin-bottom: 40px;">
 
         <div class="section-counter">[ 03 /03 ]</div>
@@ -660,8 +659,7 @@
         .client-table thead th.sortable { cursor: pointer; user-select: none; }
         .client-table thead th.sortable:hover { color: var(--navy); }
         .client-table thead th.active { color: var(--navy); }
-        .sort-icon { display: inline-block; width: 12px; height: 12px; vertical-align: middle; margin-left: 4px; opacity: 0.3; }
-        .client-table thead th.active .sort-icon { opacity: 1; }
+        .sort-icon { display: inline-block; width: 12px; height: 12px; vertical-align: middle; margin-left: 4px; opacity: 0.7; }
 
         @media (max-width: 768px) { .client-table { font-size: 11px; } .client-table thead th, .client-table tbody td { padding: 6px 8px; } .client-table td:nth-child(6), .client-table td:nth-child(7), .client-table th:nth-child(6), .client-table th:nth-child(7) { display: none; } }
 
@@ -673,13 +671,13 @@
 
           <thead>
             <tr>
-              <th class="sortable" data-col="0" onclick="sortTable(0,'text')">Company <svg class="sort-icon" viewBox="0 0 124.63 124.63" fill="currentColor"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></th>
+              <th class="sortable" data-col="0" onclick="sortTable(0,'text')">Company</th>
               <th>Price</th>
               <th>Ticker</th>
               <th>Exchange</th>
-              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Market Cap <svg class="sort-icon" viewBox="0 0 124.63 124.63" fill="currentColor"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></th>
-              <th class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity <svg class="sort-icon" viewBox="0 0 124.63 124.63" fill="currentColor"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></th>
-              <th class="sortable" data-col="6" onclick="sortTable(6,'text')">Country <svg class="sort-icon" viewBox="0 0 124.63 124.63" fill="currentColor"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></th>
+              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Market Cap</th>
+              <th class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity</th>
+              <th class="sortable" data-col="6" onclick="sortTable(6,'text')">Country</th>
             </tr>
           </thead>
 
@@ -1223,8 +1221,7 @@
 
     <!-- ALL CLIENTS LOGO GRID -->
 
-    <section class="section fade-in">
-
+    <section class="section">
       <div style="text-align: center; margin-bottom: 40px;">
 
         <div class="section-counter">[ 03 /03 ]</div>
@@ -1860,8 +1857,10 @@
       for (var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
       document.querySelectorAll('.client-table thead th').forEach(function(t) { t.classList.remove('active'); });
       
+      var logoSvg = '<svg class="sort-icon" viewBox="0 0 124.63 124.63" fill="currentColor"><g><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>';
+      document.querySelectorAll('.sort-icon').forEach(function(i) { i.remove(); });
       var th = document.querySelector('th[data-col="' + col + '"]');
-      if (th) { th.classList.add('active');  }
+      if (th) { th.classList.add('active'); th.insertAdjacentHTML('beforeend', ' ' + logoSvg); }
     }
   </script>
 
