@@ -998,20 +998,19 @@
       font-size: 20px;
       font-weight: 600;
       color: var(--navy);
-      margin-top: 12px;
+      margin-bottom: 2px;
     }
 
     .team-role {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 2px;
+      margin-bottom: 12px;
     }
 
     .team-bio {
       font-size: 15px;
       color: var(--body);
       line-height: 175%;
-      padding-top: 16px;
       max-width: 680px;
     }
 
