@@ -724,11 +724,12 @@
       padding-top: 8px;
     }
     .testimonial-logo {
-      height: 112px;
+      height: 80px;
       object-fit: contain;
+      object-position: right bottom;
       opacity: 0.5;
       flex-shrink: 0;
-      align-self: flex-end;
+      margin-top: 12px;
     }
     .testimonial-name {
       font-size: 14px;
