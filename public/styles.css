@@ -697,36 +697,31 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: start;
     }
     .testimonial {
-      padding: 24px 28px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      display: flex;
-      flex-direction: column;
+      padding: 24px;
     }
     .testimonial-quote {
       font-family: var(--font-serif);
       font-size: 16px;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.55;
       color: var(--graphite);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
     .testimonial-bottom {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 16px;
+      gap: 12px;
     }
     .testimonial-logo {
-      height: 80px;
+      height: 48px;
       object-fit: contain;
       object-position: right bottom;
-      opacity: 0.5;
+      opacity: 0.4;
       flex-shrink: 0;
-      margin-top: 12px;
     }
     .testimonial-name {
       font-size: 14px;
