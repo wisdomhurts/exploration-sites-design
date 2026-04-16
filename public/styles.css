@@ -1,23 +1,10 @@
-    /* --- SELF-HOSTED PREMIUM FONTS ---
-       Drop GT Sectra and Söhne .woff2 files into /fonts/ to activate.
-       Falls back to Source Serif 4 and Inter (Google Fonts) gracefully.
-    */
-    @font-face { font-family: "GT Sectra Display"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/GTSectraDisplay-Regular.woff2") format("woff2"); }
-    @font-face { font-family: "GT Sectra Display"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/GTSectraDisplay-Medium.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne"; font-weight: 300; font-style: normal; font-display: swap; src: url("fonts/Soehne-Leicht.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/Soehne-Buch.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/Soehne-Kraftig.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/Soehne-Halbfett.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/SoehneMono-Buch.woff2") format("woff2"); }
-    @font-face { font-family: "Söhne Mono"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/SoehneMono-Kraftig.woff2") format("woff2"); }
-
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      /* --- FONT STACKS (commercial → free fallback) --- */
-      --font-serif: "GT Sectra Display", "Source Serif 4", Georgia, serif;
-      --font-sans: "Söhne", "Inter", -apple-system, sans-serif;
-      --font-mono: "Söhne Mono", "JetBrains Mono", "SF Mono", monospace;
+      /* --- FONT STACKS --- */
+      --font-serif: "Source Serif 4", Georgia, serif;
+      --font-sans: "Inter", -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", "SF Mono", monospace;
 
       /* --- BRAND PALETTE — 70/20/8/2 usage ratio --- */
       --graphite: #1A101F;     /* 70% — Primary dark. Type, backgrounds, render environments */
@@ -702,6 +689,102 @@
       color: var(--muted);
     }
 
+    /* --- SCROLLING LOGO ROW --- */
+    .logo-scroll-wrapper {
+      overflow: hidden;
+      padding: 40px 0;
+      position: relative;
+    }
+    .logo-scroll-wrapper::before,
+    .logo-scroll-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .logo-scroll-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--quartz), transparent);
+    }
+    .logo-scroll-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--quartz), transparent);
+    }
+    .logo-scroll-track {
+      display: flex;
+      gap: 56px;
+      align-items: center;
+      animation: scroll-logos 40s linear infinite;
+      width: max-content;
+    }
+    .logo-scroll-track img {
+      height: 32px;
+      object-fit: contain;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .logo-scroll-track img:hover { opacity: 1; }
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --- TEAM LEADERSHIP --- */
+    .team-leadership {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .team-leadership .team-lead {
+      text-align: center;
+    }
+    .team-leadership .team-photo {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1;
+      margin: 0 auto 16px;
+    }
+    .team-leadership .team-name {
+      font-size: 18px;
+    }
+    .team-leadership .team-role {
+      margin-bottom: 10px;
+    }
+    .team-leadership .team-bio {
+      font-size: 14px;
+      max-width: 100%;
+      line-height: 165%;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 32px;
+      padding: 48px 0;
+    }
+    .team-grid-member {
+      text-align: center;
+    }
+    .team-grid-member .team-photo {
+      width: 100%;
+      max-width: 180px;
+      aspect-ratio: 1;
+      margin: 0 auto 12px;
+    }
+    .team-grid-member .team-name {
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+    .team-grid-member .team-role {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+
     /* --- HOW WE WORK ROWS --- */
     .principle-row {
       display: flex;
@@ -1248,6 +1331,7 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .retainer-grid { grid-template-columns: 1fr; }
       .team-member { grid-template-columns: 1fr; gap: 24px; }
+      .team-leadership { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .contact-grid { grid-template-columns: 1fr; }
       .mega-menu-panel { max-width: 680px; }
       .mega-menu-cards { grid-template-columns: repeat(2, 1fr); }
