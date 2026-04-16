@@ -712,7 +712,7 @@
       font-weight: 300;
       line-height: 1.6;
       color: var(--graphite);
-      margin-bottom: 16px;
+      margin-bottom: 10px;
       flex: 1;
     }
     .testimonial-bottom {
@@ -720,9 +720,6 @@
       justify-content: space-between;
       align-items: flex-end;
       gap: 16px;
-    }
-    .testimonial-bottom .testimonial-logo {
-      margin-bottom: -2px;
     }
     .testimonial-name {
       font-size: 14px;
@@ -772,10 +769,13 @@
       width: max-content;
     }
     .logo-scroll-track img {
-      height: 96px;
+      height: 110px;
       object-fit: contain;
       opacity: 0.5;
       transition: opacity 0.2s;
+    }
+    .logo-scroll-track img.logo-sm {
+      height: 80px;
     }
     .logo-scroll-track img:hover { opacity: 0.8; }
     @keyframes scroll-logos {
