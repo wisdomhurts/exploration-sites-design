@@ -712,16 +712,13 @@
       font-weight: 300;
       line-height: 1.6;
       color: var(--graphite);
-      margin-bottom: 12px;
-      flex: 1;
+      margin-bottom: 8px;
     }
     .testimonial-bottom {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 16px;
-      margin-top: auto;
-      padding-top: 8px;
     }
     .testimonial-logo {
       height: 80px;
