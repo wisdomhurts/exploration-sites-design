@@ -588,6 +588,22 @@
       align-items: start;
     }
 
+    .case-logo {
+      height: 196px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .case-multiplier {
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--graphite);
+      margin-top: 8px;
+    }
+
+    .tv-chart-col { padding-top: 30px; }
+    .tv-chart-col iframe { border: none !important; }
+
     .section-counter {
       font-family: var(--font-sans);
       font-size: 12px;

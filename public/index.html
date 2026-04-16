@@ -460,6 +460,21 @@
       });
     });
 
+    // Mega menu aria-expanded toggle
+    var trigger = document.querySelector('.mega-menu-trigger');
+    var wrapper = document.querySelector('.mega-menu-wrapper');
+    if (trigger && wrapper) {
+      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
+      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.focus();
+        }
+      });
+    }
+
   </script>
 
 </body>

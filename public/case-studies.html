@@ -267,18 +267,13 @@
 
     <div class="divider"></div>
 
-    <style>
-      .tv-chart-col { padding-top: 30px; }
-      .tv-chart-col iframe { border: none !important; }
-    </style>
-
     <!-- MONTAGE GOLD -->
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/montage.avif" alt="Montage Gold" style="height: 196px; object-fit: contain; margin-bottom: 20px;">
+          <img src="images/clients/montage.avif" alt="Montage Gold" class="case-logo" width="260" height="196">
           <h2 class="section-headline">$67M &rarr; $6.0B</h2>
-          <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">90x</p>
+          <p class="case-multiplier">90x</p>
         </div>
         <div>
           <div class="principle-row">
@@ -313,9 +308,9 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
+          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" class="case-logo" width="260" height="196" loading="lazy">
           <h2 class="section-headline">$16.5M &rarr; $1.03B</h2>
-          <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">62x</p>
+          <p class="case-multiplier">62x</p>
         </div>
         <div>
           <div class="principle-row">
@@ -349,9 +344,9 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
+          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" class="case-logo" width="260" height="196" loading="lazy">
           <h2 class="section-headline">$40M &rarr; $409M</h2>
-          <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">10x</p>
+          <p class="case-multiplier">10x</p>
         </div>
         <div>
           <div class="principle-row">
@@ -385,9 +380,9 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
+          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" class="case-logo" width="260" height="196" loading="lazy">
           <h2 class="section-headline">$65M &rarr; $551M peak</h2>
-          <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">~8x</p>
+          <p class="case-multiplier">~8x</p>
         </div>
         <div>
           <div class="principle-row">
@@ -444,9 +439,9 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
+          <img src="images/clients/hercules.avif" alt="Hercules Metals" class="case-logo" width="260" height="196" loading="lazy">
           <h2 class="section-headline">$24M &rarr; $194M</h2>
-          <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">8x</p>
+          <p class="case-multiplier">8x</p>
         </div>
         <div>
           <div class="principle-row">
@@ -494,9 +489,9 @@
 
         <div>
 
-          <p style="font-size: 15px; color: var(--body); line-height: 175%; margin-bottom: 24px;">We don't take credit for the drill results. We don't move the rocks. But when the geology is ready to be seen &mdash; when the assays come back strong and the resource is growing &mdash; the companies that win are the ones whose story is already investable.</p>
+          <p class="body-text">We don't take credit for the drill results. We don't move the rocks. But when the geology is ready to be seen &mdash; when the assays come back strong and the resource is growing &mdash; the companies that win are the ones whose story is already investable.</p>
 
-          <p style="font-size: 15px; color: var(--body); line-height: 175%;">That's what we build. The maps, the websites, the presentations, the brand, the investor communications &mdash; the entire visual layer that turns invisible geology into capital markets conviction. We've done it 500+ times across five continents. And the pattern is always the same: the understanding changes, and the capital follows.</p>
+          <p class="body-text">That's what we build. The maps, the websites, the presentations, the brand, the investor communications &mdash; the entire visual layer that turns invisible geology into capital markets conviction. We've done it 500+ times across five continents. And the pattern is always the same: the understanding changes, and the capital follows.</p>
 
         </div>
 
@@ -561,6 +556,19 @@
         if (panel) panel.classList.add('is-active');
       });
     });
+    var trigger = document.querySelector('.mega-menu-trigger');
+    var wrapper = document.querySelector('.mega-menu-wrapper');
+    if (trigger && wrapper) {
+      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
+      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.focus();
+        }
+      });
+    }
   </script>
 
 </body>
