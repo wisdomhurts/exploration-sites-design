@@ -273,8 +273,7 @@
       <div class="section-grid">
 
         <div>
-          <img src="images/clients/montage.avif" alt="Montage Gold" style="height: 144px; object-fit: contain; margin-bottom: 24px;">
-          <div class="section-label">Montage Gold</div>
+          <img src="images/clients/montage.avif" alt="Montage Gold" style="height: 216px; object-fit: contain; margin-bottom: 24px;">
           <h2 class="section-headline">$67M &rarr; $6.0B</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">90x</p>
         </div>
@@ -282,10 +281,10 @@
         <div>
 
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap;">TSX: <strong>MAU</strong></span>
+            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSX:</span> <span style="font-weight: 700;">MAU</span></span>
             <div>
               <div class="principle-title">Client since November 2021</div>
-              <p class="principle-desc">We produced the investor maps for Montage as they defined their Kon&eacute; Gold deposit in C&ocirc;te d'Ivoire &mdash; locators, property maps, geological maps, and cross sections through every stage of the resource's growth.</p>
+              <p class="principle-desc">We produced the investor maps for Montage as they defined their Kon&eacute; Gold deposit in C&ocirc;te d'Ivoire &mdash; <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">locators</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">property maps</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">geological maps</a>, and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">cross sections</a> used in their <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">corporate presentations</a> and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">news releases</a> through every stage of the resource's growth.</p>
             </div>
           </div>
 
@@ -298,24 +297,39 @@
 
           <!-- TradingView Chart -->
           <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
+            <div class="tradingview-widget-container" style="height: 320px;">
+              <div id="tv-chart-mau" style="height: 100%;"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+              <script type="text/javascript">
+              new TradingView.widget({
+                "container_id": "tv-chart-mau",
                 "symbol": "TSX:MAU",
-                "width": "100%",
-                "height": 220,
+                "interval": "W",
+                "range": "60M",
+                "timezone": "America/Vancouver",
+                "theme": "light",
+                "style": "3",
                 "locale": "en",
-                "dateRange": "ALL",
-                "colorTheme": "light",
-                "isTransparent": true,
-                "autosize": false,
-                "largeChartUrl": "",
-                "trendLineColor": "#B8823A",
-                "underLineColor": "rgba(184, 130, 58, 0.12)",
-                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
-                "noTimeScale": false
-              }
+                "hide_top_toolbar": true,
+                "hide_legend": true,
+                "allow_symbol_change": false,
+                "save_image": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "rgba(244, 241, 236, 1)",
+                "gridColor": "rgba(200, 194, 180, 0.15)",
+                "overrides": {
+                  "paneProperties.background": "rgba(244, 241, 236, 1)",
+                  "paneProperties.backgroundType": "solid",
+                  "mainSeriesProperties.areaStyle.color1": "rgba(184, 130, 58, 0.15)",
+                  "mainSeriesProperties.areaStyle.color2": "rgba(184, 130, 58, 0.01)",
+                  "mainSeriesProperties.areaStyle.linecolor": "#B8823A",
+                  "mainSeriesProperties.areaStyle.linewidth": 2,
+                  "scalesProperties.textColor": "#5A5F63"
+                }
+              });
               </script>
             </div>
           </div>
@@ -335,8 +349,7 @@
       <div class="section-grid">
 
         <div>
-          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 144px; object-fit: contain; margin-bottom: 24px;">
-          <div class="section-label">Fireweed Metals</div>
+          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 216px; object-fit: contain; margin-bottom: 24px;">
           <h2 class="section-headline">$16.5M &rarr; $1.03B</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">62x</p>
         </div>
@@ -344,7 +357,7 @@
         <div>
 
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap;">TSXV: <strong>FWZ</strong></span>
+            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">FWZ</span></span>
             <div>
               <div class="principle-title">Client since 2018</div>
               <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">documentary film</a> about Fireweed's deposits. Since then we've created their investor maps and run their website &mdash; from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit.</p>
@@ -360,24 +373,38 @@
 
           <!-- TradingView Chart -->
           <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
+            <div class="tradingview-widget-container" style="height: 320px;">
+              <div id="tv-chart-fwz" style="height: 100%;"></div>
+              <script type="text/javascript">
+              new TradingView.widget({
+                "container_id": "tv-chart-fwz",
                 "symbol": "TSXV:FWZ",
-                "width": "100%",
-                "height": 220,
+                "interval": "W",
+                "range": "60M",
+                "timezone": "America/Vancouver",
+                "theme": "light",
+                "style": "3",
                 "locale": "en",
-                "dateRange": "ALL",
-                "colorTheme": "light",
-                "isTransparent": true,
-                "autosize": false,
-                "largeChartUrl": "",
-                "trendLineColor": "#B8823A",
-                "underLineColor": "rgba(184, 130, 58, 0.12)",
-                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
-                "noTimeScale": false
-              }
+                "hide_top_toolbar": true,
+                "hide_legend": true,
+                "allow_symbol_change": false,
+                "save_image": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "rgba(244, 241, 236, 1)",
+                "gridColor": "rgba(200, 194, 180, 0.15)",
+                "overrides": {
+                  "paneProperties.background": "rgba(244, 241, 236, 1)",
+                  "paneProperties.backgroundType": "solid",
+                  "mainSeriesProperties.areaStyle.color1": "rgba(184, 130, 58, 0.15)",
+                  "mainSeriesProperties.areaStyle.color2": "rgba(184, 130, 58, 0.01)",
+                  "mainSeriesProperties.areaStyle.linecolor": "#B8823A",
+                  "mainSeriesProperties.areaStyle.linewidth": 2,
+                  "scalesProperties.textColor": "#5A5F63"
+                }
+              });
               </script>
             </div>
           </div>
@@ -397,8 +424,7 @@
       <div class="section-grid">
 
         <div>
-          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 144px; object-fit: contain; margin-bottom: 24px;">
-          <div class="section-label">West Red Lake Gold</div>
+          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 216px; object-fit: contain; margin-bottom: 24px;">
           <h2 class="section-headline">$40M &rarr; $409M</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">10x</p>
         </div>
@@ -406,7 +432,7 @@
         <div>
 
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap;">TSXV: <strong>WRLG</strong></span>
+            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">WRLG</span></span>
             <div>
               <div class="principle-title">Client since August 2023</div>
               <p class="principle-desc">Every single piece of digital investor relations. We designed their logo, business cards, Christmas cards, tradeshow booth, fact sheet, investor presentation, and website. We produce approximately 10 maps per month for news releases as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
@@ -422,24 +448,38 @@
 
           <!-- TradingView Chart -->
           <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
+            <div class="tradingview-widget-container" style="height: 320px;">
+              <div id="tv-chart-wrlg" style="height: 100%;"></div>
+              <script type="text/javascript">
+              new TradingView.widget({
+                "container_id": "tv-chart-wrlg",
                 "symbol": "TSXV:WRLG",
-                "width": "100%",
-                "height": 220,
+                "interval": "W",
+                "range": "60M",
+                "timezone": "America/Vancouver",
+                "theme": "light",
+                "style": "3",
                 "locale": "en",
-                "dateRange": "ALL",
-                "colorTheme": "light",
-                "isTransparent": true,
-                "autosize": false,
-                "largeChartUrl": "",
-                "trendLineColor": "#B8823A",
-                "underLineColor": "rgba(184, 130, 58, 0.12)",
-                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
-                "noTimeScale": false
-              }
+                "hide_top_toolbar": true,
+                "hide_legend": true,
+                "allow_symbol_change": false,
+                "save_image": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "rgba(244, 241, 236, 1)",
+                "gridColor": "rgba(200, 194, 180, 0.15)",
+                "overrides": {
+                  "paneProperties.background": "rgba(244, 241, 236, 1)",
+                  "paneProperties.backgroundType": "solid",
+                  "mainSeriesProperties.areaStyle.color1": "rgba(184, 130, 58, 0.15)",
+                  "mainSeriesProperties.areaStyle.color2": "rgba(184, 130, 58, 0.01)",
+                  "mainSeriesProperties.areaStyle.linecolor": "#B8823A",
+                  "mainSeriesProperties.areaStyle.linewidth": 2,
+                  "scalesProperties.textColor": "#5A5F63"
+                }
+              });
               </script>
             </div>
           </div>
@@ -459,8 +499,7 @@
       <div class="section-grid">
 
         <div>
-          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 144px; object-fit: contain; margin-bottom: 24px;">
-          <div class="section-label">Dolly Varden Silver</div>
+          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 216px; object-fit: contain; margin-bottom: 24px;">
           <h2 class="section-headline">$65M &rarr; $551M peak</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">~8x</p>
         </div>
@@ -468,7 +507,7 @@
         <div>
 
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap;">TSXV: <strong>DV</strong></span>
+            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">DV</span></span>
             <div>
               <div class="principle-title">Client since August 2020</div>
               <p class="principle-desc">We worked with Dolly Varden for nearly six years on their Kitsault Valley silver project in BC's Golden Triangle. Maps, presentations, and investor communications through every stage of growth.</p>
@@ -484,24 +523,38 @@
 
           <!-- TradingView Chart -->
           <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
+            <div class="tradingview-widget-container" style="height: 320px;">
+              <div id="tv-chart-dv" style="height: 100%;"></div>
+              <script type="text/javascript">
+              new TradingView.widget({
+                "container_id": "tv-chart-dv",
                 "symbol": "TSXV:DV",
-                "width": "100%",
-                "height": 220,
+                "interval": "W",
+                "range": "60M",
+                "timezone": "America/Vancouver",
+                "theme": "light",
+                "style": "3",
                 "locale": "en",
-                "dateRange": "ALL",
-                "colorTheme": "light",
-                "isTransparent": true,
-                "autosize": false,
-                "largeChartUrl": "",
-                "trendLineColor": "#B8823A",
-                "underLineColor": "rgba(184, 130, 58, 0.12)",
-                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
-                "noTimeScale": false
-              }
+                "hide_top_toolbar": true,
+                "hide_legend": true,
+                "allow_symbol_change": false,
+                "save_image": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "rgba(244, 241, 236, 1)",
+                "gridColor": "rgba(200, 194, 180, 0.15)",
+                "overrides": {
+                  "paneProperties.background": "rgba(244, 241, 236, 1)",
+                  "paneProperties.backgroundType": "solid",
+                  "mainSeriesProperties.areaStyle.color1": "rgba(184, 130, 58, 0.15)",
+                  "mainSeriesProperties.areaStyle.color2": "rgba(184, 130, 58, 0.01)",
+                  "mainSeriesProperties.areaStyle.linecolor": "#B8823A",
+                  "mainSeriesProperties.areaStyle.linewidth": 2,
+                  "scalesProperties.textColor": "#5A5F63"
+                }
+              });
               </script>
             </div>
           </div>
@@ -521,8 +574,7 @@
       <div class="section-grid">
 
         <div>
-          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 144px; object-fit: contain; margin-bottom: 24px;">
-          <div class="section-label">Hercules Metals</div>
+          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 216px; object-fit: contain; margin-bottom: 24px;">
           <h2 class="section-headline">$24M &rarr; $194M</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">8x</p>
         </div>
@@ -530,7 +582,7 @@
         <div>
 
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap;">TSXV: <strong>BIG</strong></span>
+            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">BIG</span></span>
             <div>
               <div class="principle-title">Client since 2023</div>
               <p class="principle-desc">We built their investor maps, presentation materials, and conference booth design. What started as a small epithermal silver project turned into a significant porphyry copper discovery in late 2023.</p>
@@ -546,24 +598,38 @@
 
           <!-- TradingView Chart -->
           <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
+            <div class="tradingview-widget-container" style="height: 320px;">
+              <div id="tv-chart-big" style="height: 100%;"></div>
+              <script type="text/javascript">
+              new TradingView.widget({
+                "container_id": "tv-chart-big",
                 "symbol": "TSXV:BIG",
-                "width": "100%",
-                "height": 220,
+                "interval": "W",
+                "range": "60M",
+                "timezone": "America/Vancouver",
+                "theme": "light",
+                "style": "3",
                 "locale": "en",
-                "dateRange": "ALL",
-                "colorTheme": "light",
-                "isTransparent": true,
-                "autosize": false,
-                "largeChartUrl": "",
-                "trendLineColor": "#B8823A",
-                "underLineColor": "rgba(184, 130, 58, 0.12)",
-                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
-                "noTimeScale": false
-              }
+                "hide_top_toolbar": true,
+                "hide_legend": true,
+                "allow_symbol_change": false,
+                "save_image": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com",
+                "width": "100%",
+                "height": "100%",
+                "backgroundColor": "rgba(244, 241, 236, 1)",
+                "gridColor": "rgba(200, 194, 180, 0.15)",
+                "overrides": {
+                  "paneProperties.background": "rgba(244, 241, 236, 1)",
+                  "paneProperties.backgroundType": "solid",
+                  "mainSeriesProperties.areaStyle.color1": "rgba(184, 130, 58, 0.15)",
+                  "mainSeriesProperties.areaStyle.color2": "rgba(184, 130, 58, 0.01)",
+                  "mainSeriesProperties.areaStyle.linecolor": "#B8823A",
+                  "mainSeriesProperties.areaStyle.linewidth": 2,
+                  "scalesProperties.textColor": "#5A5F63"
+                }
+              });
               </script>
             </div>
           </div>
@@ -603,445 +669,6 @@
       </div>
 
     </section>
-
-    <!-- ALL CLIENTS LOGO GRID -->
-
-    <section class="section">
-      <div style="text-align: center; margin-bottom: 40px;">
-
-        <div class="section-counter">[ 03 /03 ]</div>
-
-        <div class="section-label">100+ Companies</div>
-
-        <h2 class="section-headline" style="max-width: 640px; margin: 0 auto 16px;">Our clients, sorted by market cap.</h2>
-
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; max-width: 960px; margin: 0 auto;">
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/discovery.avif" alt="Discovery Silver" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Discovery Silver</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/montage.avif" alt="Montage Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Montage Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/aris.avif" alt="Aris Mining" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Aris Mining</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/fortuna.avif" alt="Fortuna Mining" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Fortuna Mining</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/southern-cross.avif" alt="Southern Cross Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Southern Cross Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/snowline.avif" alt="Snowline Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Snowline Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/western-copper.avif" alt="Western Copper &amp; Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Western Copper &amp; Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Fireweed Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/newfound.avif" alt="New Found Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">New Found Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/asante.avif" alt="Asante Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Asante Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/magna.avif" alt="Magna Mining" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Magna Mining</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/avino.avif" alt="Avino Silver &amp; Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Avino Silver &amp; Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Dolly Varden Silver</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">West Red Lake Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/nexgold.avif" alt="NexGold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">NexGold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/white-gold.avif" alt="White Gold Corp" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">White Gold Corp</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Hercules Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/atha.avif" alt="Atha Energy" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Atha Energy</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/liberty.avif" alt="Liberty Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Liberty Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/revival.avif" alt="Revival Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Revival Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/gr-silver.avif" alt="GR Silver Mining" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">GR Silver Mining</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/nations.avif" alt="Nations Royalty" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Nations Royalty</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/surge-copper.avif" alt="Surge Copper" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Surge Copper</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/denarius.avif" alt="Denarius Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Denarius Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/f3.avif" alt="F3 Uranium" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">F3 Uranium</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/skyharbour.avif" alt="Skyharbour Resources" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Skyharbour Resources</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/brixton.avif" alt="Brixton Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Brixton Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/westhaven.avif" alt="Westhaven Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Westhaven Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/mogotes.avif" alt="Mogotes Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Mogotes Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/silver47.avif" alt="Silver47" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Silver47</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/nexmetals.avif" alt="NexMetals Mining" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">NexMetals Mining</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/district.avif" alt="District Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">District Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/argenta.avif" alt="Argenta Silver" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Argenta Silver</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/waratah.avif" alt="Waratah Minerals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Waratah Minerals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/emperor.avif" alt="Emperor Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Emperor Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/first-atlantic.avif" alt="First Atlantic Nickel" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">First Atlantic Nickel</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/enduro.avif" alt="Enduro Metals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Enduro Metals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/headwater.avif" alt="Headwater Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Headwater Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/cabral.avif" alt="Cabral Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Cabral Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/mithril.avif" alt="Mithril Silver x Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Mithril Silver x Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/appia.avif" alt="Appia Rare Earths" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Appia Rare Earths</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/kincora.avif" alt="Kincora Copper" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Kincora Copper</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/scorpio.avif" alt="Scorpio Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Scorpio Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/sun-summit.avif" alt="Sun Summit Minerals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Sun Summit Minerals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/fitzroy.avif" alt="Fitzroy Minerals" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Fitzroy Minerals</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/radius.avif" alt="Radius Gold" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Radius Gold</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/electrum.avif" alt="Electrum Discovery" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Electrum Discovery</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/metallis.avif" alt="Metallis Resources" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Metallis Resources</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/mustang.avif" alt="Mustang Energy" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Mustang Energy</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/spc-nickel.avif" alt="SPC Nickel" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">SPC Nickel</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/inflection.avif" alt="Inflection Resources" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Inflection Resources</span>
-
-        </div>
-
-        <div style="background: white; border-radius: 8px; padding: 20px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--border);">
-
-          <img src="images/clients/max.avif" alt="Max Resources" style="height: 40px; object-fit: contain;">
-
-          <span style="font-size: 11px; color: var(--muted); text-align: center;">Max Resources</span>
-
-        </div>
-
-      </div>
-
-      <p style="font-size: 13px; color: var(--muted); text-align: center; margin-top: 24px;">Plus 40+ additional clients across five continents.</p>
-
-    </section>
-
-    <div class="divider"></div>
 
     <!-- FOOTER -->
     <!-- FOOTER -->
