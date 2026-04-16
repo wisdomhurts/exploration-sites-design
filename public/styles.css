@@ -1,31 +1,34 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      /* Brand palette — Exploration Sites */
-      --navy: #1A1D1F;       /* Graphite — primary dark */
+      /* Brand palette — Exploration Sites · Brand Foundation 2026 */
+      --graphite: #1A101F;   /* Graphite — primary dark, near-black with cool undertone */
+      --navy: #1A101F;       /* Alias for graphite (compat) */
       --basalt: #2C3338;     /* Basalt — dark secondary */
-      --slate: #5A5F63;      /* Slate — technical mid-tone */
+      --slate: #5A5F63;      /* Slate — secondary type, rule lines, cartographic strokes */
       --graticule: #C8C2B4;  /* Graticule — warm mid */
       --vellum: #E8E2D5;     /* Vellum — warm light */
-      --quartz: #F4F1EC;     /* Quartz — light background */
-      --ore: #B8823A;        /* Ore — accent gold */
+      --quartz: #F4F1EC;     /* Quartz — warm off-white, the default paper. Never pure white. */
+      --ore: #B8823A;        /* Ore — restrained accent, use ≤2% */
       --ice: #B8823A;        /* Alias for ore (compat) */
-      --body: #5A5F63;
-      --muted: #C8C2B4;
-      --border: rgba(26,29,31,0.08);
-      --surface: #F4F1EC;
-      --warm-surface: #E8E2D5;
+      --body: #5A5F63;       /* Slate for body text */
+      --muted: #C8C2B4;      /* Graticule for captions, metadata */
+      --border: rgba(26,16,31,0.08);
+      --surface: #FFFFFF;    /* White for cards and elevated surfaces */
+      --warm-surface: #E8E2D5; /* Vellum for alternating sections */
       --white: #FFFFFF;
-      --shadow-card: rgba(26,29,31,0.04) 0px 4px 18px, rgba(26,29,31,0.027) 0px 2px 8px, rgba(26,29,31,0.02) 0px 0.8px 3px, rgba(26,29,31,0.01) 0px 0.2px 1px;
-      --shadow-deep: rgba(26,29,31,0.01) 0px 1px 3px, rgba(26,29,31,0.02) 0px 3px 7px, rgba(26,29,31,0.02) 0px 7px 15px, rgba(26,29,31,0.04) 0px 14px 28px, rgba(26,29,31,0.05) 0px 23px 52px;
+      --shadow-card: rgba(26,16,31,0.04) 0px 4px 18px, rgba(26,16,31,0.027) 0px 2px 8px, rgba(26,16,31,0.02) 0px 0.8px 3px, rgba(26,16,31,0.01) 0px 0.2px 1px;
+      --shadow-deep: rgba(26,16,31,0.01) 0px 1px 3px, rgba(26,16,31,0.02) 0px 3px 7px, rgba(26,16,31,0.02) 0px 7px 15px, rgba(26,16,31,0.04) 0px 14px 28px, rgba(26,16,31,0.05) 0px 23px 52px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: "Inter", sans-serif;
-      color: var(--navy);
-      background: var(--white);
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--graphite);
+      background: var(--quartz);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -55,20 +58,14 @@
       z-index: 1;
     }
 
-    /* --- GRADIENT TEXT --- */
+    /* --- ACCENT TEXT --- */
     .gradient-text {
-      background: linear-gradient(90deg, var(--navy) 0%, var(--ore) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--ore);
       display: block;
     }
 
     .gradient-text-inline {
-      background: linear-gradient(90deg, var(--navy) 0%, var(--ore) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--ore);
     }
 
     /* --- DECORATIVE CROSSHAIR --- */
@@ -113,7 +110,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
+      background: var(--quartz);
     }
 
     .nav-inner {
@@ -149,9 +146,11 @@
 
     .nav-logo-text {
       font-family: "Inter", sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--navy);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: lowercase;
+      color: var(--ore);
     }
 
     .nav-links {
@@ -260,26 +259,19 @@
     }
 
     .nav-cta {
-      background: var(--navy);
+      background: var(--graphite);
       color: var(--white) !important;
       padding: 10px 24px;
       border-radius: 6px;
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
-      box-shadow:
-        0 0 0 1.5px rgba(184,130,58,0.45),
-        0 0 10px rgba(184,130,58,0.25),
-        0 0 25px rgba(184,130,58,0.12);
-      transition: box-shadow 0.3s ease;
+      transition: background 0.2s ease;
     }
 
     .nav-cta:hover {
       opacity: 1 !important;
-      box-shadow:
-        0 0 0 2px rgba(184,130,58,0.6),
-        0 0 16px rgba(184,130,58,0.4),
-        0 0 35px rgba(184,130,58,0.2);
+      background: var(--basalt);
     }
 
     .nav-strip {
@@ -503,9 +495,9 @@
       background: var(--border);
     }
 
-    /* Warm alternating sections (Notion-inspired) */
+    /* Alternating sections — Vellum on Quartz base */
     .section-warm {
-      background: var(--warm-surface);
+      background: var(--vellum);
     }
 
     /* --- HERO --- */
@@ -524,12 +516,12 @@
     }
 
     .hero-headline {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 66px;
+      font-family: "Source Serif 4", serif;
+      font-size: 64px;
       font-weight: 300;
-      line-height: 92%;
-      letter-spacing: -0.035em;
-      color: var(--navy);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--graphite);
       max-width: 860px;
       margin-bottom: 28px;
     }
@@ -550,7 +542,7 @@
 
     .btn-primary {
       display: inline-block;
-      background: var(--navy);
+      background: var(--graphite);
       color: var(--white);
       font-family: "Inter", sans-serif;
       font-size: 15px;
@@ -560,19 +552,11 @@
       border: none;
       cursor: pointer;
       text-decoration: none;
-      box-shadow:
-        0 0 0 2px rgba(184,130,58,0.45),
-        0 0 14px rgba(184,130,58,0.3),
-        0 0 35px rgba(184,130,58,0.12);
-      transition: box-shadow 0.3s ease, background 0.2s ease;
+      transition: background 0.2s ease;
     }
 
     .btn-primary:hover {
       background: var(--basalt);
-      box-shadow:
-        0 0 0 2px rgba(184,130,58,0.6),
-        0 0 20px rgba(184,130,58,0.4),
-        0 0 45px rgba(184,130,58,0.2);
     }
 
     .btn-secondary {
@@ -622,12 +606,12 @@
     }
 
     .section-headline {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 48px;
+      font-family: "Source Serif 4", serif;
+      font-size: 40px;
       font-weight: 300;
-      line-height: 98%;
-      letter-spacing: -0.025em;
-      color: var(--navy);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--graphite);
     }
 
     /* --- SERVICE ROWS --- */
@@ -681,12 +665,12 @@
     }
 
     .stat-number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 48px;
-      font-weight: 300;
-      line-height: 100%;
-      letter-spacing: -0.02em;
-      color: var(--navy);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--graphite);
       margin-bottom: 8px;
     }
 
@@ -756,12 +740,12 @@
     }
 
     .cta-headline {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 42px;
+      font-family: "Source Serif 4", serif;
+      font-size: 36px;
       font-weight: 300;
-      line-height: 110%;
+      line-height: 1.2;
       letter-spacing: -0.02em;
-      color: var(--navy);
+      color: var(--graphite);
       max-width: 640px;
       margin: 0 auto 16px;
     }
@@ -794,12 +778,12 @@
     }
 
     .pricing-block-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 32px;
+      font-family: "Source Serif 4", serif;
+      font-size: 28px;
       font-weight: 300;
-      line-height: 110%;
-      letter-spacing: -0.02em;
-      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--graphite);
       margin-bottom: 24px;
     }
 
@@ -826,26 +810,13 @@
 
     /* --- PACKAGE HIGHLIGHT --- */
     .package-highlight {
-      background: var(--navy);
+      background: var(--graphite);
       border-radius: 12px;
       padding: 40px;
       color: var(--white);
       margin-top: 40px;
       position: relative;
       overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(184,130,58,0.2),
-        0 0 40px rgba(184,130,58,0.08),
-        0 20px 60px rgba(26,29,31,0.3);
-    }
-
-    .package-highlight::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(184,130,58,0.06) 1px, transparent 1px);
-      background-size: 24px 24px;
-      pointer-events: none;
     }
 
     .package-highlight .pricing-block-label { color: var(--ice); }
@@ -886,9 +857,9 @@
     }
 
     .package-total-price {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 42px;
-      font-weight: 300;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 36px;
+      font-weight: 400;
       color: var(--white);
     }
 
@@ -945,10 +916,10 @@
     }
 
     .retainer-price {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 32px;
-      font-weight: 300;
-      color: var(--navy);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--graphite);
       margin-bottom: 4px;
     }
 
@@ -982,16 +953,22 @@
 
     .team-photo {
       width: 200px;
-      height: 260px;
+      height: 200px;
       background: var(--surface);
-      border-radius: 12px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 13px;
       color: var(--muted);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .team-name {
@@ -1226,7 +1203,7 @@
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .hero-headline { font-size: 48px; }
+      .hero-headline { font-size: 44px; }
       .pricing-grid { grid-template-columns: 1fr; }
       .retainer-grid { grid-template-columns: 1fr; }
       .team-member { grid-template-columns: 1fr; gap: 24px; }
@@ -1241,13 +1218,13 @@
       .nav-links { display: none; }
       .nav-hamburger { display: block; }
       .hero { padding: 60px 0 48px; }
-      .hero-headline { font-size: 36px; }
+      .hero-headline { font-size: 32px; }
       .hero-buttons { flex-direction: column; align-items: flex-start; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .stat-number { font-size: 36px; }
+      .stat-number { font-size: 28px; }
       .section { padding: 48px 0; }
-      .section-headline { font-size: 32px; }
-      .cta-headline { font-size: 32px; }
+      .section-headline { font-size: 28px; }
+      .cta-headline { font-size: 28px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 16px; }
       .package-highlight { padding: 24px; }

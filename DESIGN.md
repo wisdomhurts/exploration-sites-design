@@ -1,313 +1,152 @@
-# Exploration Sites — Design System
+# Exploration Sites — Brand System 2026
 
-> Inspired by Firecrawl's sectioned, editorial layout patterns.
-> Adapted for mining IR — authoritative, clean, investor-grade.
-> Light mode. Fonts: Cormorant Garamond + DM Sans.
-
----
-
-## 1. Visual Theme & Atmosphere
-
-Firecrawl's website is a masterclass in structured, developer-first design — a system that manages to feel simultaneously technical and approachable through strict editorial rhythm. The page is organized into numbered sections (`[ 01 /07 ]`) with consistent two-column layouts: a left-hand label column anchoring context, and a right-hand content column delivering substance. The overall impression is of a well-edited whitepaper — every section earns its place.
-
-Applied to Exploration Sites, this structure maps naturally onto a services agency that needs to communicate authority, pricing transparency, and technical competence to mining executives and investor relations teams. The editorial rhythm replaces the typical agency "scroll of cards" with something closer to a structured prospectus.
-
-**Key Characteristics:**
-- Numbered section markers (`[ 01 /06 ]`) for editorial rhythm
-- Strict two-column layout: label (380px) + content (840px) within 1280px content area
-- Cormorant Garamond at weight 300 for headlines — serif authority without heaviness
-- DM Sans for all UI and body text — geometric, modern, readable
-- Navy (`#173559`) as the singular brand color — no competing hues
-- Ice blue (`#9ECDE4`) as the sole accent — cold, mineral, geographic
-- 1px horizontal rules as section dividers — not cards, not shadows
-- Generous whitespace replaces visual decoration
+> Source: ES Vibes brand foundation deck (Paper)
+> Three typographic voices. Deep neutral palette. Ore accent at ≤2%.
+> Understated, authoritative, sector-native.
 
 ---
 
-## 2. Color Palette & Roles
+## 1. Brand Positioning
 
-### Primary
-| Token | Value | Role |
-|-------|-------|------|
-| Navy | `#173559` | Headlines, nav text, primary buttons, stat numbers, icons |
-| White | `#FFFFFF` | Page background, button text, card surfaces |
-| Ice Blue | `#9ECDE4` | Section labels, accent text, active states, button glow |
+**For:** Junior mining and exploration-stage resource companies who need to command investor attention in a crowded, skeptical market.
 
-### Neutral Scale
-| Token | Value | Role |
-|-------|-------|------|
-| Body | `#888888` | Body copy, descriptions, secondary text |
-| Muted | `#AAAAAA` | Captions, footer text, metadata, stat labels |
-| Border | `#E8E8E8` | Section dividers, card borders, table rules |
-| Surface | `#F5F5F5` | Card backgrounds, callout blocks, hover fills |
-| Off-white | `#FAFAFA` | Alternating section backgrounds |
+**Mission:** To give every serious exploration company the visual credibility of a major — so the best projects get the capital they deserve.
 
-### Accent Effects
-| Token | Value | Role |
-|-------|-------|------|
-| Ice Glow Inner | `#9ECDE426` | Button glow inner ring |
-| Ice Glow Outer | `#9ECDE440` | Button glow outer halo |
+**Brand Promise:** If it carries our name, it will hold up in front of an institutional investor. That's the bar. Every deliverable, every map, every frame of video.
 
-### Color Philosophy
-The palette is deliberately minimal — two chromatic colors (navy + ice blue) and a neutral gray scale. This mirrors Firecrawl's approach where orange is the only chromatic accent against neutrals. For a mining IR agency, the restraint signals professionalism. The ice blue reads as cartographic and geological — a color that could appear on a topographic map or mineral survey.
+**Purpose:** Capital flows toward clarity. In a sector where most investor materials look like they were built in 2008, the companies that present their science with precision and beauty win the room. We exist to close that gap.
 
 ---
 
-## 3. Typography Rules
+## 2. Brand Personality & Tone
 
-### Font Families
-- **Headlines:** `"Cormorant Garamond"`, serif — weight 300 (light)
-- **Body / UI:** `"DM Sans"`, sans-serif — weights 400, 500, 600
+### Five Traits
+1. **Authoritative** — We've seen 100+ stories and we know what works.
+2. **Understated** — We let the work speak; we don't shout.
+3. **Meticulous** — Obsessive about the detail the investor will never consciously notice.
+4. **Cinematic** — Unafraid of beauty, scale, and drama when the geology earns it.
+5. **Sector-native** — We're of this industry, not servicing it from the outside.
 
-### Hierarchy
+### Tone of Voice
+Confident, precise, quietly expert. Think *The Economist* meets a senior exploration geologist meets a fund's quarterly letter.
 
-| Role | Family | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|--------|------|--------|-------------|----------------|-------|
-| Hero Headline | Cormorant Garamond | 64px | 300 | 95% | -0.03em | max-width: 860px |
-| Section Headline | Cormorant Garamond | 48px | 300 | 100% | -0.02em | Left column or full-width |
-| CTA Headline | Cormorant Garamond | 42px | 300 | 110% | -0.02em | Centered closing sections |
-| Section Label | DM Sans | 11px | 600 | 14px | 2px | uppercase, color: ice-blue |
-| Card Title / H3 | DM Sans | 18px | 600 | 140% | 0 | Service names, team names |
-| Body | DM Sans | 15px | 400 | 165% | 0 | max-width: 520px |
-| Nav Link | DM Sans | 14px | 500 | 100% | 0 | color: navy |
-| Caption | DM Sans | 13px | 400 | 150% | 0 | color: muted |
-| Stat Number | Cormorant Garamond | 48px | 300 | 100% | -0.02em | color: navy |
-| Stat Label | DM Sans | 11px | 600 | 14px | 2px | uppercase, color: muted |
-| Price | DM Sans | 16px | 600 | 100% | 0 | color: navy, right-aligned |
-| Footer Link | DM Sans | 14px | 400 | 160% | 0 | color: muted |
-| Section Counter | DM Sans | 12px | 500 | 100% | 1px | color: muted, `[ 01 /06 ]` |
+- Numbers over adjectives. "2.4 g/t Au over 48 m" beats "strong gold intercepts."
+- Active voice, short sentences for weight. Long sentences for nuance.
+- Respect the reader. Assume they've read a thousand decks.
+- No hype words. No "world-class," "game-changing," "revolutionary," "cutting-edge."
 
-### Typography Principles
-- **Light serif headlines:** Cormorant Garamond at 300 is the typographic signature. Like Firecrawl's Suisse at light weight, the headlines don't shout — they command through proportion and whitespace.
-- **Geometric sans body:** DM Sans handles everything that isn't a headline. Its geometric letterforms complement Cormorant's classical structure.
-- **Two-font discipline:** No third font. No monospace. No display face for decorative moments. Two families, strictly applied.
-- **Progressive tracking:** Negative letter-spacing at display sizes (-0.03em at 64px, -0.02em at 48px), normal at body sizes.
+### Words We Use
+Clarity. Precision. Discovery. Thesis. Interval. Structure. Narrative. Institutional. Definitive. Intercept. Target. Section. Strike. Dip. Grade. Continuity. Evidence. Measured.
+
+### Words We Never Use
+~~World-class. Game-changing. Revolutionary. Cutting-edge. Unlock. Disrupt. Best-in-class. Synergy. Solutions. Empower. Transform. Immersive. Captivate. Seamless. Robust.~~
 
 ---
 
-## 4. Component Stylings
+## 3. Color System
 
-### Navigation Bar
-- Height: 68px
-- Background: `#FFFFFF`
-- Bottom accent: 4px solid `#173559` strip below nav
-- Logo: left-aligned, icon + "Exploration Sites" wordmark
-- Links: DM Sans 14px/500, color `#173559`, centered
-- CTA: "Inquire" button, right-aligned
-- Sticky behavior: white background with subtle border-bottom on scroll
+"Deep neutrals that feel excavated, paper tones that feel surveyed, and a single restrained accent that earns its appearances."
 
-### Primary Button
-- Background: `#173559`
-- Text: `#FFFFFF`, DM Sans 15px/600
-- Padding: 14px 32px
-- Border-radius: 6px
-- Box-shadow: `#9ECDE426 0px 0px 0px 3px, #9ECDE440 0px 0px 12px`
-- Hover: lighten background slightly, intensify glow
+### Primary — Use 90% of the Time
+| Token | Hex | Role |
+|-------|-----|------|
+| Graphite | `#1A101F` | Primary dark. Near-black with a cool undertone. Type, backgrounds, render environments. |
+| Quartz | `#F4F1EC` | Warm off-white. Quality map stock. The default paper. **Never pure white.** |
+| Slate | `#5A5F63` | Secondary type, rule lines, and cartographic strokes. |
 
-### Secondary Button
-- Background: transparent
-- Border: 1.5px solid `#173559`
-- Text: `#173559`, DM Sans 15px/500
-- Padding: 14px 32px
-- Border-radius: 6px
-- Hover: background shifts to `#F5F5F5`
+### Secondary & Accent
+| Token | Hex | Role |
+|-------|-----|------|
+| Basalt | `#2C3338` | Dark secondary surfaces |
+| Vellum | `#E8E2D5` | Warm light, alternating section backgrounds |
+| Graticule | `#C8C2B4` | Warm mid, captions, muted text |
+| Ore | `#B8823A` | Restrained gold accent. Use ≤2%. |
 
-### Text Link / Arrow Link
-- Text: `#173559`, DM Sans 15px/500
-- Suffix: ` →` arrow character
-- Underline: 1px solid on hover
-- Use: "View Maps pricing →", "See all clients →"
-
-### Cards
-- Background: `#FFFFFF`
-- Border: 1px solid `#E8E8E8`
-- Border-radius: 8px
-- Padding: 24px
-- Shadow: none (flat, minimal — Firecrawl-style)
-- Hover: border color darkens to `#CCCCCC`
-
-### Content Row (Service/Price List)
-```
-┌──────────────────────────────────────────────┐
-│  Title        DM Sans 18px/600         Price │
-│  Description  DM Sans 13px/400, muted        │
-├──────────────────────────────────────────────┤  ← 1px #E8E8E8
-```
-- Height: ~83px per row
-- Padding: 16px 0
-- Title and price on same baseline, description below
-
-### Section Divider
-- 1px solid `#E8E8E8`
-- Width: 1280px (content width, not full bleed)
-- Centered in 1440px frame
-
-### Stat Block
-```
-500+              Cormorant Garamond 48px/300, navy
-PROJECTS COMPLETED   DM Sans 11px/600, uppercase, muted
-```
-- Arranged in a horizontal row of 3-4 stats
-- Separated by implicit column gaps (no visible dividers)
-
-### Pricing Tier Card
-- Background: `#FFFFFF`
-- Border: 1px solid `#E8E8E8`
-- Border-radius: 8px
-- Padding: 32px
-- "Most Popular" badge: `#173559` background, white text, 4px radius, positioned top-center
-- Price: DM Sans 36px/700, color navy
-- Rate: DM Sans 14px/400, color muted
-- Features: DM Sans 14px/400, bullet list
-
-### Form Elements
-- Input border: 1px solid `#E8E8E8`
-- Border-radius: 6px
-- Padding: 14px 16px
-- Focus: border-color `#9ECDE4`, box-shadow `#9ECDE426 0 0 0 3px`
-- Label: DM Sans 11px/600, uppercase, letter-spacing 2px, color navy
-- Placeholder: DM Sans 15px/400, color `#AAAAAA`
-
-### Callout Block (e.g. "Rush Available")
-- Background: `#F5F5F5`
-- Border-left: 3px solid `#9ECDE4`
-- Padding: 20px 24px
-- Border-radius: 0 6px 6px 0
-- Title: DM Sans 16px/600, navy
-- Body: DM Sans 14px/400, body
+### Usage Ratio
+70% Quartz/Graphite · 20% Slate type · 8% Secondary · ≤2% Ore
 
 ---
 
-## 5. Layout Principles
+## 4. Typography
 
-### Page Frame
-- Artboard width: 1440px
-- Horizontal padding: 80px per side
+"Three voices. Never a fourth."
+
+Serif headlines, sans body, mono for anything numeric or cartographic.
+
+### Voice 01 — Editorial Serif
+**Font:** `"Source Serif 4"`, serif
+**Role:** Headlines, display moments, pull quotes, section dividers. Signals editorial, book, annual report. "This is a considered document."
+
+| Size | Use |
+|------|-----|
+| 64px | Display / Hero headline |
+| 40px–44px | H1 / Page headlines |
+| 28px | H2 / Section headlines |
+
+Line-height: 1.1–1.2 · Tracking: slight positive on large sizes
+
+### Voice 02 — Technical Sans
+**Font:** `"Inter"`, sans-serif
+**Role:** Body copy, UI, tables, long-form reading. Neutral enough to disappear, refined enough to read as intentional. Its only purpose is to carry content.
+
+| Size | Use |
+|------|-----|
+| 16px | Body text |
+| 18px | Large body / intro text |
+| 13px | Captions, metadata |
+| 11px | Labels (uppercase, 2px letter-spacing) |
+
+Line-height: 1.5–1.6 · Tracking: 0
+
+### Voice 03 — Precision Mono
+**Font:** `"JetBrains Mono"`, monospace
+**Role:** Drill intercepts, coordinates, figure captions, source attributions. Reads as measured, logged, recorded. "This is fact, not opinion."
+
+| Size | Use |
+|------|-----|
+| 13px | Data labels, coordinates |
+| 16–20px | Callout numbers |
+| 28–42px | Stat numbers, prices |
+
+Line-height: 1.5 · Tracking: -0.03em
+
+### Typography Rules
+- Tabular figures in all tables
+- Curly apostrophes, true ellipses
+- No all-caps in long passages
+- Never bold and italic simultaneously
+
+---
+
+## 5. Core Values
+
+1. **Geological Literacy** — We speak the language of the rock before we speak the language of design.
+2. **Institutional Standard** — Every deliverable survives portfolio-manager scrutiny.
+3. **Craft Over Volume** — We'd rather produce one definitive deck than ten forgettable ones.
+4. **Discretion** — Our clients trust us with pre-disclosure material. That trust is the product.
+5. **Long Horizons** — Exploration is a decade-long game. We build relationships that compound.
+
+---
+
+## 6. Visual Approach
+
+- **No glow effects, no gradient text, no decorative orbs.** The brand says "understated."
+- **No flashy shadows.** Structure comes from whitespace, type hierarchy, and 1px rules.
+- **Quartz (#F4F1EC) as body background.** Never pure white. Cards and elevated surfaces use white.
+- **Vellum (#E8E2D5) for alternating sections.** Creates warmth against the Quartz base.
+- **Ore accent is earned, not decorative.** Used for the logo wordmark, section labels, and select callouts only.
+- **Editorial rhythm.** Numbered section markers `[ 01 /05 ]`, two-column layouts, horizontal rules.
+- **Logo text:** lowercase `exploration sites` with letter-spacing in Ore color.
+
+---
+
+## 7. Layout
+
+- Page frame: 1440px max-width, 80px horizontal padding
 - Content area: 1280px
-- Background: `#FFFFFF`
-
-### Firecrawl Section Pattern
-Every major page section follows this structure:
-
-```
-┌──────────────────────────────────────────────────────┐
-│  [ 01 /06 ] · Section Counter (optional)             │
-│                                                      │
-│  80px padding                                   80px │
-│                                                      │
-│  ┌─ Left (380px) ──┐  ┌─── Right (840px) ───────┐   │
-│  │ SECTION LABEL    │  │ Content rows / cards     │   │
-│  │ 11px DM Sans     │  │ 1px rules between items  │   │
-│  │ uppercase         │  │                          │   │
-│  │ ice-blue          │  │                          │   │
-│  │                   │  │                          │   │
-│  │ Headline          │  │                          │   │
-│  │ 48px Cormorant   │  │                          │   │
-│  │ navy              │  │                          │   │
-│  │                   │  │                          │   │
-│  │ Description       │  │                          │   │
-│  │ 15px DM Sans     │  │                          │   │
-│  │ body-text         │  │                          │   │
-│  └──────────────────┘  └─────────────────────────┘   │
-│                                                      │
-│  ──────────── 1px #E8E8E8 divider ───────────────    │
-└──────────────────────────────────────────────────────┘
-```
-
-### Section Numbering
-Firecrawl uses `[ 01 /07 ]` counters to give pages an editorial, almost magazine-like structure. For Exploration Sites, use these sparingly — on the home page and pricing page where the numbered progression reinforces a logical flow. Skip them on service-specific pages (Maps, Websites) where the content is self-contained.
-
-### Hero Section Pattern
-```
-┌──────────────────────────────────────────────────────┐
-│  Nav bar (68px)                                      │
-│  4px navy accent strip                               │
-│                                                      │
-│  SECTION LABEL   · 11px uppercase, ice-blue          │
-│  Hero Headline   · 64px Cormorant, navy              │
-│  Subtext         · 15px DM Sans, body                │
-│  [Primary CTA]  [Secondary CTA]                      │
-│                                                      │
-│  ──────────── 1px divider ───────────────            │
-└──────────────────────────────────────────────────────┘
-```
-
-### CTA / Closing Section Pattern
-```
-┌──────────────────────────────────────────────────────┐
-│                    centered                          │
-│  Headline  · 42px Cormorant, navy                    │
-│  Subtext   · 15px DM Sans, muted                     │
-│  [Primary Button]                                    │
-│                                                      │
-│  ──────────── 1px divider ───────────────            │
-└──────────────────────────────────────────────────────┘
-```
-
-### Footer Pattern
-```
-┌──────────────────────────────────────────────────────┐
-│  Brand          Services       More        Contact   │
-│  Company name   Maps           Clients     Phone     │
-│  Tagline        Websites       Pricing     Email     │
-│  Location       Presentations  Team                  │
-│                 Movies         Contact               │
-│                                                      │
-│  ──────────── 1px divider ───────────────            │
-│  © 2026 ...                    Legal disclaimer      │
-└──────────────────────────────────────────────────────┘
-```
-
-### Spacing Scale (8px base)
-| Token | Value | Usage |
-|-------|-------|-------|
-| xs | 4px | Inline icon gap |
-| sm | 8px | Tight element spacing |
-| md | 16px | Default gap between elements |
-| lg | 24px | Section internal padding |
-| xl | 40px | Between content groups |
-| 2xl | 64px | Section top padding |
-| 3xl | 80px | Page horizontal padding |
-| 4xl | 120px | Between major page sections |
-
----
-
-## 6. Depth & Elevation
-
-Firecrawl's approach is almost entirely flat. Elevation comes from spatial hierarchy and typography scale, not shadows. Exploration Sites follows this philosophy:
-
-| Level | Treatment | Use |
-|-------|-----------|-----|
-| Flat (default) | No shadow | All page sections, text blocks |
-| Subtle lift | `0 1px 3px rgba(0,0,0,0.06)` | Nav on scroll, dropdowns |
-| Button glow | `#9ECDE426 0 0 0 3px, #9ECDE440 0 0 12px` | Primary button only |
-| Card border | `1px solid #E8E8E8` | Cards, pricing tiers, mega menu items |
-
-**Shadow Philosophy:** Shadows are almost nonexistent. Structure comes from whitespace, typography hierarchy, and 1px rules. The only real "glow" effect is on the primary CTA button, where the ice-blue halo creates a cold, mineral luminance — like light refracting through quartz.
-
----
-
-## 7. Do's and Don'ts
-
-### Do
-- Use Cormorant Garamond weight 300 for all headlines — lightness is the signature
-- Use DM Sans for everything else — body, labels, nav, buttons, captions
-- Apply the two-column (380/840) layout pattern for all content sections
-- Use 1px `#E8E8E8` rules as section dividers — they're the structural backbone
-- Keep the palette to navy + ice blue + grays — no warm colors
-- Use section labels (11px uppercase DM Sans in ice blue) to introduce every section
-- Maintain 80px horizontal padding consistently
-- Use `[ 01 /06 ]` section counters on editorially structured pages
-
-### Don't
-- Don't use bold (700) weight on Cormorant Garamond — weight 300 only
-- Don't introduce new colors — no greens, oranges, or purples
-- Don't use shadows on content sections — use 1px borders and whitespace
-- Don't use card-heavy layouts — prefer flat list rows with rules
-- Don't center body text — left-align within the two-column grid
-- Don't use decorative elements (gradients, illustrations, patterns)
-- Don't use pill-shaped buttons (high border-radius) — keep 6-8px
-- Don't mix fonts — only Cormorant Garamond and DM Sans
+- Two-column grid: 380px label + 840px content
+- Section dividers: 1px solid `rgba(26,16,31,0.08)`
+- Spacing: 8px base grid (16px default gap, 24px section internal, 40px between groups, 80px between major sections)
 
 ---
 
@@ -315,47 +154,17 @@ Firecrawl's approach is almost entirely flat. Elevation comes from spatial hiera
 
 ### Home
 1. Hero (headline + CTAs)
-2. Services overview (6 rows)
-3. Stats bar (4 metrics)
-4. How we work (3 principles)
-5. Social proof (headline + CTA)
+2. Services overview (7 rows)
+3. Stats bar (4 metrics, JetBrains Mono)
+4. Values (3 principles from brand deck)
+5. Social proof CTA
 6. Footer
 
-### Service Pages (Maps, Websites, etc.)
-1. Hero (service headline + description)
-2. Offerings (two-column list with prices)
-3. CTA closing section
+### Why We Exist
+1. Brand story hero
+2. The Beginning / The Pattern / The Turning Point / The Truth / The Standard
+3. CTA
 4. Footer
 
-### Pricing
-1. Hero (headline + qualifier)
-2. À la carte services (grouped by category)
-3. Launch package (bundled offering)
-4. Monthly retainers (3 tier cards)
-5. CTA closing section
-6. Footer
-
-### Team
-1. Hero (headline + description)
-2. Team members (photo + bio rows)
-3. CTA closing section
-4. Footer
-
-### Contact
-1. Hero (headline + description)
-2. Contact form + timelines sidebar
-3. Footer (expanded with sitemap)
-
----
-
-## 9. Agent Prompt Guide
-
-### Quick Reference
-- Hero headline: `font-family: "Cormorant Garamond"; font-size: 64px; font-weight: 300; line-height: 95%; letter-spacing: -0.03em; color: #173559;`
-- Section headline: `font-family: "Cormorant Garamond"; font-size: 48px; font-weight: 300; line-height: 100%; letter-spacing: -0.02em; color: #173559;`
-- Section label: `font-family: "DM Sans"; font-size: 11px; font-weight: 600; line-height: 14px; letter-spacing: 2px; text-transform: uppercase; color: #9ECDE4;`
-- Body text: `font-family: "DM Sans"; font-size: 15px; font-weight: 400; line-height: 165%; color: #888888;`
-- Primary button: `background: #173559; color: #FFFFFF; font-family: "DM Sans"; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 6px; box-shadow: #9ECDE426 0px 0px 0px 3px, #9ECDE440 0px 0px 12px;`
-- Card: `background: #FFFFFF; border: 1px solid #E8E8E8; border-radius: 8px; padding: 24px;`
-- Page frame: `width: 1440px; padding: 0 80px; background: #FFFFFF;`
-- Section divider: `width: 1280px; height: 1px; background: #E8E8E8;`
+### Services, Pricing, Team, Clients, Case Studies, Contact
+Follow established two-column editorial pattern with brand typography and color system.
