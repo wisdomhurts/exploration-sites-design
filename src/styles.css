@@ -712,6 +712,12 @@
       color: var(--graphite);
       margin-bottom: 24px;
     }
+    .testimonial-attribution {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
     .testimonial-name {
       font-size: 14px;
       font-weight: 600;
@@ -720,6 +726,12 @@
     .testimonial-role {
       font-size: 13px;
       color: var(--muted);
+    }
+    .testimonial-logo {
+      height: 28px;
+      object-fit: contain;
+      opacity: 0.6;
+      flex-shrink: 0;
     }
 
     /* --- SCROLLING LOGO ROW --- */
