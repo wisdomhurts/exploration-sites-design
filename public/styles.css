@@ -694,11 +694,12 @@
     }
 
     .stat-number {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 42px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
       color: var(--graphite);
       margin-bottom: 8px;
     }
@@ -886,9 +887,10 @@
     }
 
     .package-total-price {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 36px;
-      font-weight: 400;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
       color: var(--white);
     }
 
@@ -945,9 +947,10 @@
     }
 
     .retainer-price {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 28px;
-      font-weight: 400;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
       color: var(--graphite);
       margin-bottom: 4px;
     }
