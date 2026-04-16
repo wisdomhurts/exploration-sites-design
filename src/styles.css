@@ -772,7 +772,7 @@
       width: max-content;
     }
     .logo-scroll-track img {
-      height: 64px;
+      height: 96px;
       object-fit: contain;
       opacity: 0.5;
       transition: opacity 0.2s;
