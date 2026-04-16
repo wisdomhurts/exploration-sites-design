@@ -495,9 +495,9 @@
       background: var(--border);
     }
 
-    /* Alternating sections — Vellum on Quartz base */
+    /* Alternating sections — disabled, flat Quartz base throughout */
     .section-warm {
-      background: var(--vellum);
+      background: transparent;
     }
 
     /* --- HERO --- */
@@ -1090,16 +1090,9 @@
       margin-top: 4px;
     }
 
-    /* --- SCROLL ANIMATIONS --- */
+    /* --- SCROLL ANIMATIONS — disabled --- */
     .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.is-visible {
       opacity: 1;
-      transform: translateY(0);
     }
 
     /* --- HOVER LIFTS --- */
