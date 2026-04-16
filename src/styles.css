@@ -691,15 +691,15 @@
 
     /* --- TESTIMONIALS --- */
     .testimonials {
-      padding: 64px 0;
+      padding: 48px 0;
     }
     .testimonials-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 24px;
     }
     .testimonial {
-      padding: 32px;
+      padding: 24px 28px;
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--surface);
@@ -712,7 +712,7 @@
       font-weight: 300;
       line-height: 1.6;
       color: var(--graphite);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       flex: 1;
     }
     .testimonial-bottom {
@@ -720,6 +720,15 @@
       justify-content: space-between;
       align-items: flex-end;
       gap: 16px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+    .testimonial-logo {
+      height: 112px;
+      object-fit: contain;
+      opacity: 0.5;
+      flex-shrink: 0;
+      align-self: flex-end;
     }
     .testimonial-name {
       font-size: 14px;
@@ -729,12 +738,6 @@
     .testimonial-role {
       font-size: 13px;
       color: var(--muted);
-    }
-    .testimonial-logo {
-      height: 112px;
-      object-fit: contain;
-      opacity: 0.5;
-      flex-shrink: 0;
     }
 
     /* --- SCROLLING LOGO ROW --- */
