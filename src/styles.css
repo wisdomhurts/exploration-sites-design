@@ -689,6 +689,39 @@
       color: var(--muted);
     }
 
+    /* --- TESTIMONIALS --- */
+    .testimonials {
+      padding: 64px 0;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .testimonial {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--graphite);
+      margin-bottom: 24px;
+    }
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--graphite);
+    }
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
     /* --- SCROLLING LOGO ROW --- */
     .logo-scroll-wrapper {
       overflow: hidden;
@@ -1363,6 +1396,7 @@
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
       .section-grid-3col { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .hero-headline { font-size: 44px; }
       .pricing-grid { grid-template-columns: 1fr; }
