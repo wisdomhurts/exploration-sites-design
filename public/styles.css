@@ -608,6 +608,13 @@
       gap: 60px;
     }
 
+    .section-grid-3col {
+      display: grid;
+      grid-template-columns: 260px 1fr 340px;
+      gap: 40px;
+      align-items: start;
+    }
+
     .section-counter {
       font-family: var(--font-sans);
       font-size: 12px;
@@ -1216,6 +1223,7 @@
       .nav-inner { padding: 0 40px; }
       .page { padding: 0 40px; }
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
+      .section-grid-3col { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .hero-headline { font-size: 44px; }
