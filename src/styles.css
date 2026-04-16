@@ -695,28 +695,33 @@
     }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
     }
     .testimonial {
       padding: 32px;
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--surface);
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-logo {
+      height: 112px;
+      object-fit: contain;
+      object-position: left;
+      opacity: 0.5;
+      margin-bottom: 24px;
+      align-self: flex-start;
     }
     .testimonial-quote {
       font-family: var(--font-serif);
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 300;
       line-height: 1.6;
       color: var(--graphite);
       margin-bottom: 24px;
-    }
-    .testimonial-attribution {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+      flex: 1;
     }
     .testimonial-name {
       font-size: 14px;
@@ -726,12 +731,6 @@
     .testimonial-role {
       font-size: 13px;
       color: var(--muted);
-    }
-    .testimonial-logo {
-      height: 28px;
-      object-fit: contain;
-      opacity: 0.6;
-      flex-shrink: 0;
     }
 
     /* --- SCROLLING LOGO ROW --- */
@@ -1408,7 +1407,7 @@
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
       .section-grid-3col { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .hero-headline { font-size: 44px; }
       .pricing-grid { grid-template-columns: 1fr; }
@@ -1439,6 +1438,7 @@
       .package-highlight { padding: 24px; }
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .onboarding-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
       .onboarding-step + .onboarding-step::before { display: none; }
     }
