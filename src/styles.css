@@ -695,7 +695,7 @@
     }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 32px;
     }
     .testimonial {
@@ -706,14 +706,6 @@
       display: flex;
       flex-direction: column;
     }
-    .testimonial-logo {
-      height: 112px;
-      object-fit: contain;
-      object-position: left;
-      opacity: 0.5;
-      margin-bottom: 24px;
-      align-self: flex-start;
-    }
     .testimonial-quote {
       font-family: var(--font-serif);
       font-size: 16px;
@@ -723,6 +715,12 @@
       margin-bottom: 24px;
       flex: 1;
     }
+    .testimonial-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+    }
     .testimonial-name {
       font-size: 14px;
       font-weight: 600;
@@ -731,6 +729,12 @@
     .testimonial-role {
       font-size: 13px;
       color: var(--muted);
+    }
+    .testimonial-logo {
+      height: 112px;
+      object-fit: contain;
+      opacity: 0.5;
+      flex-shrink: 0;
     }
 
     /* --- SCROLLING LOGO ROW --- */
@@ -1407,7 +1411,7 @@
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
       .section-grid-3col { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .hero-headline { font-size: 44px; }
       .pricing-grid { grid-template-columns: 1fr; }
