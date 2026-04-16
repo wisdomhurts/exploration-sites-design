@@ -817,6 +817,35 @@
       margin-bottom: 24px;
     }
 
+    /* Map type hover tooltip */
+    .map-tooltip-trigger { position: relative; }
+    .map-tooltip {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 8px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      z-index: 50;
+      min-width: 200px;
+      box-shadow: var(--shadow-card);
+    }
+    .map-tooltip a {
+      display: block;
+      font-size: 13px;
+      color: var(--slate);
+      text-decoration: none;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+    .map-tooltip a:last-child { border-bottom: none; }
+    .map-tooltip a:hover { color: var(--ore); }
+    .map-tooltip-trigger:hover .map-tooltip { display: block; }
+
     .pricing-line {
       display: flex;
       justify-content: space-between;
@@ -840,7 +869,7 @@
 
     /* --- PACKAGE HIGHLIGHT --- */
     .package-highlight {
-      background: var(--graphite);
+      background: var(--slate);
       border-radius: 12px;
       padding: 40px;
       color: var(--white);
