@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav">
@@ -256,7 +257,7 @@
     <a href="contact.html" class="nav-mobile-cta">Inquire</a>
   </div>
 
-  <div class="page">
+  <div class="page" id="main">
 
     <!-- PAGE HERO -->
     <section class="hero" style="padding: 40px 0 24px;">
@@ -296,7 +297,7 @@
         </div>
         <div class="tv-chart-col">
           <div class="tradingview-widget-container" style="height: 100%; min-height: 300px;">
-            <div id="tv-chart-mau" style="height: 100%;"></div>
+            <div id="tv-chart-mau" style="height: 100%;"><p class="sr-only">Stock chart for TSX:MAU</p></div>
             <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
             <script type="text/javascript">
             new TradingView.widget({"container_id":"tv-chart-mau","symbol":"TSX:MAU","interval":"W","range":"60M","timezone":"America/Vancouver","theme":"light","style":"3","locale":"en","hide_top_toolbar":true,"hide_legend":true,"allow_symbol_change":false,"save_image":false,"hide_volume":true,"support_host":"https://www.tradingview.com","width":"100%","height":"100%","backgroundColor":"rgba(244,241,236,1)","gridColor":"rgba(200,194,180,0.08)","overrides":{"paneProperties.background":"rgba(244,241,236,1)","paneProperties.backgroundType":"solid","mainSeriesProperties.areaStyle.color1":"rgba(184,130,58,0.12)","mainSeriesProperties.areaStyle.color2":"rgba(184,130,58,0.01)","mainSeriesProperties.areaStyle.linecolor":"#B8823A","mainSeriesProperties.areaStyle.linewidth":1,"scalesProperties.textColor":"rgba(90,95,99,0.5)","scalesProperties.borderColor":"rgba(0,0,0,0)"}});
@@ -312,7 +313,7 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;">
+          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
           <h2 class="section-headline">$16.5M &rarr; $1.03B</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">62x</p>
         </div>
@@ -333,7 +334,7 @@
         </div>
         <div class="tv-chart-col">
           <div class="tradingview-widget-container" style="height: 100%; min-height: 300px;">
-            <div id="tv-chart-fwz" style="height: 100%;"></div>
+            <div id="tv-chart-fwz" style="height: 100%;"><p class="sr-only">Stock chart for TSXV:FWZ</p></div>
             <script type="text/javascript">
             new TradingView.widget({"container_id":"tv-chart-fwz","symbol":"TSXV:FWZ","interval":"W","range":"60M","timezone":"America/Vancouver","theme":"light","style":"3","locale":"en","hide_top_toolbar":true,"hide_legend":true,"allow_symbol_change":false,"save_image":false,"hide_volume":true,"support_host":"https://www.tradingview.com","width":"100%","height":"100%","backgroundColor":"rgba(244,241,236,1)","gridColor":"rgba(200,194,180,0.08)","overrides":{"paneProperties.background":"rgba(244,241,236,1)","paneProperties.backgroundType":"solid","mainSeriesProperties.areaStyle.color1":"rgba(184,130,58,0.12)","mainSeriesProperties.areaStyle.color2":"rgba(184,130,58,0.01)","mainSeriesProperties.areaStyle.linecolor":"#B8823A","mainSeriesProperties.areaStyle.linewidth":1,"scalesProperties.textColor":"rgba(90,95,99,0.5)","scalesProperties.borderColor":"rgba(0,0,0,0)"}});
             </script>
@@ -348,7 +349,7 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 196px; object-fit: contain; margin-bottom: 20px;">
+          <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
           <h2 class="section-headline">$40M &rarr; $409M</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">10x</p>
         </div>
@@ -369,7 +370,7 @@
         </div>
         <div class="tv-chart-col">
           <div class="tradingview-widget-container" style="height: 100%; min-height: 300px;">
-            <div id="tv-chart-wrlg" style="height: 100%;"></div>
+            <div id="tv-chart-wrlg" style="height: 100%;"><p class="sr-only">Stock chart for TSXV:WRLG</p></div>
             <script type="text/javascript">
             new TradingView.widget({"container_id":"tv-chart-wrlg","symbol":"TSXV:WRLG","interval":"W","range":"60M","timezone":"America/Vancouver","theme":"light","style":"3","locale":"en","hide_top_toolbar":true,"hide_legend":true,"allow_symbol_change":false,"save_image":false,"hide_volume":true,"support_host":"https://www.tradingview.com","width":"100%","height":"100%","backgroundColor":"rgba(244,241,236,1)","gridColor":"rgba(200,194,180,0.08)","overrides":{"paneProperties.background":"rgba(244,241,236,1)","paneProperties.backgroundType":"solid","mainSeriesProperties.areaStyle.color1":"rgba(184,130,58,0.12)","mainSeriesProperties.areaStyle.color2":"rgba(184,130,58,0.01)","mainSeriesProperties.areaStyle.linecolor":"#B8823A","mainSeriesProperties.areaStyle.linewidth":1,"scalesProperties.textColor":"rgba(90,95,99,0.5)","scalesProperties.borderColor":"rgba(0,0,0,0)"}});
             </script>
@@ -384,7 +385,7 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 196px; object-fit: contain; margin-bottom: 20px;">
+          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
           <h2 class="section-headline">$65M &rarr; $551M peak</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">~8x</p>
         </div>
@@ -443,7 +444,7 @@
     <section class="section">
       <div class="section-grid-3col">
         <div>
-          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;">
+          <img src="images/clients/hercules.avif" alt="Hercules Metals" style="height: 196px; object-fit: contain; margin-bottom: 20px;" loading="lazy">
           <h2 class="section-headline">$24M &rarr; $194M</h2>
           <p style="font-size: 36px; font-weight: 600; color: var(--navy); margin-top: 8px;">8x</p>
         </div>
@@ -464,7 +465,7 @@
         </div>
         <div class="tv-chart-col">
           <div class="tradingview-widget-container" style="height: 100%; min-height: 300px;">
-            <div id="tv-chart-big" style="height: 100%;"></div>
+            <div id="tv-chart-big" style="height: 100%;"><p class="sr-only">Stock chart for TSXV:BIG</p></div>
             <script type="text/javascript">
             new TradingView.widget({"container_id":"tv-chart-big","symbol":"TSXV:BIG","interval":"W","range":"60M","timezone":"America/Vancouver","theme":"light","style":"3","locale":"en","hide_top_toolbar":true,"hide_legend":true,"allow_symbol_change":false,"save_image":false,"hide_volume":true,"support_host":"https://www.tradingview.com","width":"100%","height":"100%","backgroundColor":"rgba(244,241,236,1)","gridColor":"rgba(200,194,180,0.08)","overrides":{"paneProperties.background":"rgba(244,241,236,1)","paneProperties.backgroundType":"solid","mainSeriesProperties.areaStyle.color1":"rgba(184,130,58,0.12)","mainSeriesProperties.areaStyle.color2":"rgba(184,130,58,0.01)","mainSeriesProperties.areaStyle.linecolor":"#B8823A","mainSeriesProperties.areaStyle.linewidth":1,"scalesProperties.textColor":"rgba(90,95,99,0.5)","scalesProperties.borderColor":"rgba(0,0,0,0)"}});
             </script>
@@ -559,20 +560,6 @@
         var panel = document.getElementById('panel-' + tabId);
         if (panel) panel.classList.add('is-active');
       });
-    });
-
-    // Scroll-reveal animation
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      observer.observe(el);
     });
   </script>
 

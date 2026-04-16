@@ -39,6 +39,7 @@
 </head>
 
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
 
@@ -509,7 +510,7 @@
 
   </div>
 
-  <div class="page">
+  <div class="page" id="main">
 
     <!-- PAGE HERO -->
 
@@ -604,19 +605,20 @@
       <div style="overflow-x: auto; max-width: 1200px; margin: 0 auto;">
 
         <table class="client-table">
+          <caption class="sr-only">Client companies sorted by market capitalization</caption>
 
           <thead>
             <tr>
-              <th class="sortable" data-col="0" onclick="sortTable(0,'text')">Company</th>
-              <th>Price</th>
-              <th>Ticker</th>
-              <th>Exchange</th>
-              <th class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Mkt Cap</th>
-              <th class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity</th>
-              <th class="sortable" data-col="6" onclick="sortTable(6,'text')">Country</th>
-              <th style="width:36px; text-align:center; font-size:10px;">Map</th>
-              <th style="width:36px; text-align:center; font-size:10px;">Deck</th>
-              <th style="width:36px; text-align:center; font-size:10px;">Web</th>
+              <th scope="col" class="sortable" data-col="0" onclick="sortTable(0,'text')">Company</th>
+              <th scope="col">Price</th>
+              <th scope="col">Ticker</th>
+              <th scope="col">Exchange</th>
+              <th scope="col" class="sortable" data-col="4" onclick="sortTable(4,'mcap')">Mkt Cap</th>
+              <th scope="col" class="sortable" data-col="5" onclick="sortTable(5,'text')">Commodity</th>
+              <th scope="col" class="sortable" data-col="6" onclick="sortTable(6,'text')">Country</th>
+              <th scope="col" style="width:36px; text-align:center; font-size:10px;">Map</th>
+              <th scope="col" style="width:36px; text-align:center; font-size:10px;">Deck</th>
+              <th scope="col" style="width:36px; text-align:center; font-size:10px;">Web</th>
             </tr>
           </thead>
 
@@ -984,29 +986,6 @@
 
     });
 
-    // Scroll-reveal animation
-
-    var observer = new IntersectionObserver(function(entries) {
-
-      entries.forEach(function(entry) {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add('is-visible');
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-
-      observer.observe(el);
-
-    });
 
 
     // Table sorting

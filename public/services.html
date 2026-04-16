@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav">
@@ -257,7 +258,7 @@
     <a href="contact.html" class="nav-mobile-cta">Inquire</a>
   </div>
 
-  <div class="page">
+  <div class="page" id="main">
 
     <!-- PAGE HERO -->
     <section class="hero" style="padding: 60px 0 40px;">
@@ -276,7 +277,7 @@
           <h2 class="section-headline">Publication-ready maps from your geological data.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">We produce eight types of GIS maps &mdash; from simple locators to complex 3D block models. Every map is built from your raw data using QGIS, styled for investor communications, and delivered print-ready.</p>
+          <p class="body-text">We produce eight types of GIS maps &mdash; from simple locators to complex 3D block models. Every map is built from your raw data using QGIS, styled for investor communications, and delivered print-ready.</p>
           <a href="pricing.html" class="service-row">
             <div>
               <div class="service-title">Locator Maps</div>
@@ -347,7 +348,7 @@
           <h2 class="section-headline">Investor-grade web presence.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">Modern, fast-loading websites built specifically for exploration-stage mining companies. Designed to communicate your story to investors, analysts, and stakeholders.</p>
+          <p class="body-text">Modern, fast-loading websites built specifically for exploration-stage mining companies. Designed to communicate your story to investors, analysts, and stakeholders.</p>
           <a href="pricing.html" class="service-row">
             <div>
               <div class="service-title">Webflow Sites</div>
@@ -376,7 +377,7 @@
           <h2 class="section-headline">Pitch decks and factsheets that close.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">Investor decks, development presentations, and one-page factsheets &mdash; built for boardrooms, roadshows, and conference booths.</p>
+          <p class="body-text">Investor decks, development presentations, and one-page factsheets &mdash; built for boardrooms, roadshows, and conference booths.</p>
           <a href="pricing.html" class="service-row">
             <div>
               <div class="service-title">Investor Deck</div>
@@ -412,7 +413,7 @@
           <h2 class="section-headline">Bring your property to life.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">3D flyovers, animated geological models, and cinematic site videos that give investors a visceral understanding of your property.</p>
+          <p class="body-text">3D flyovers, animated geological models, and cinematic site videos that give investors a visceral understanding of your property.</p>
           <a href="contact.html" class="service-row">
             <div>
               <div class="service-title">3D Property Flyovers</div>
@@ -448,7 +449,7 @@
           <h2 class="section-headline">Visual identity built for resource companies.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">Logo creation, brand guidelines, and visual identity systems designed specifically for the mining and exploration sector.</p>
+          <p class="body-text">Logo creation, brand guidelines, and visual identity systems designed specifically for the mining and exploration sector.</p>
           <a href="pricing.html" class="service-row">
             <div>
               <div class="service-title">Logo &amp; Brand Creation</div>
@@ -477,7 +478,7 @@
           <h2 class="section-headline">Investor relations and outreach.</h2>
         </div>
         <div>
-          <p style="font-size: 15px; color: var(--body); line-height: 165%; margin-bottom: 24px;">Manage your investor relationships and social presence with purpose-built tools and content strategies for the mining sector.</p>
+          <p class="body-text">Manage your investor relationships and social presence with purpose-built tools and content strategies for the mining sector.</p>
           <a href="pricing.html" class="service-row">
             <div>
               <div class="service-title">CRM Platform</div>
@@ -564,19 +565,6 @@
       });
     });
 
-    // Scroll-reveal animation
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      observer.observe(el);
-    });
   </script>
 
 </body>
