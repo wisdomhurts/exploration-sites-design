@@ -1,0 +1,25 @@
+.git
+.DS_Store
+.agents
+.claude
+.vscode
+.firecrawl
+.mcp.json
+Claude-Memory
+ES Brand
+ES Client Work
+Map Review
+Sitka
+awesome-design-md
+health-metrics
+skills
+headshots
+notion
+*.blend1
+*.psd
+*.docx
+*.xls
+*.jpg
+*.html
+!src/**
+!public/**
