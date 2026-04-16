@@ -296,26 +296,27 @@
             </div>
           </div>
 
-          <!-- Stock chart -->
-          <div style="margin-top: 32px; padding: 24px 0 0; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Nov 2021</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Today</span>
-            </div>
-            <svg viewBox="0 0 500 120" fill="none" style="width: 100%; height: auto; display: block;">
-              <defs>
-                <linearGradient id="fill-mau" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#B8823A" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#B8823A" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,105 C30,102 60,100 100,95 C140,90 170,88 200,80 C230,72 260,60 300,45 C340,30 380,18 430,10 C460,6 480,4 500,2" stroke="#B8823A" stroke-width="2" fill="none"/>
-              <path d="M0,105 C30,102 60,100 100,95 C140,90 170,88 200,80 C230,72 260,60 300,45 C340,30 380,18 430,10 C460,6 480,4 500,2 L500,120 L0,120 Z" fill="url(#fill-mau)"/>
-              <line x1="0" y1="118" x2="500" y2="118" stroke="#C8C2B4" stroke-width="0.5"/>
-            </svg>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate);">$67M</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: var(--graphite);">$6.0B</span>
+          <!-- TradingView Chart -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {
+                "symbol": "TSX:MAU",
+                "width": "100%",
+                "height": 220,
+                "locale": "en",
+                "dateRange": "ALL",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": "",
+                "trendLineColor": "#B8823A",
+                "underLineColor": "rgba(184, 130, 58, 0.12)",
+                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
+                "noTimeScale": false
+              }
+              </script>
             </div>
           </div>
 
@@ -357,26 +358,27 @@
             </div>
           </div>
 
-          <!-- Stock chart -->
-          <div style="margin-top: 32px; padding: 24px 0 0; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">2018</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Today</span>
-            </div>
-            <svg viewBox="0 0 500 120" fill="none" style="width: 100%; height: auto; display: block;">
-              <defs>
-                <linearGradient id="fill-fwz" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#B8823A" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#B8823A" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,108 C40,106 80,104 120,100 C160,96 200,93 240,88 C270,84 290,78 320,65 C350,52 380,35 420,20 C450,12 475,7 500,4" stroke="#B8823A" stroke-width="2" fill="none"/>
-              <path d="M0,108 C40,106 80,104 120,100 C160,96 200,93 240,88 C270,84 290,78 320,65 C350,52 380,35 420,20 C450,12 475,7 500,4 L500,120 L0,120 Z" fill="url(#fill-fwz)"/>
-              <line x1="0" y1="118" x2="500" y2="118" stroke="#C8C2B4" stroke-width="0.5"/>
-            </svg>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate);">$16.5M</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: var(--graphite);">$1.03B</span>
+          <!-- TradingView Chart -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {
+                "symbol": "TSXV:FWZ",
+                "width": "100%",
+                "height": 220,
+                "locale": "en",
+                "dateRange": "ALL",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": "",
+                "trendLineColor": "#B8823A",
+                "underLineColor": "rgba(184, 130, 58, 0.12)",
+                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
+                "noTimeScale": false
+              }
+              </script>
             </div>
           </div>
 
@@ -418,26 +420,27 @@
             </div>
           </div>
 
-          <!-- Stock chart -->
-          <div style="margin-top: 32px; padding: 24px 0 0; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Aug 2023</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Today</span>
-            </div>
-            <svg viewBox="0 0 500 120" fill="none" style="width: 100%; height: auto; display: block;">
-              <defs>
-                <linearGradient id="fill-wrlg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#B8823A" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#B8823A" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,105 C40,98 80,85 140,65 C180,52 220,38 280,25 C320,18 370,12 420,8 C460,5 485,3 500,2" stroke="#B8823A" stroke-width="2" fill="none"/>
-              <path d="M0,105 C40,98 80,85 140,65 C180,52 220,38 280,25 C320,18 370,12 420,8 C460,5 485,3 500,2 L500,120 L0,120 Z" fill="url(#fill-wrlg)"/>
-              <line x1="0" y1="118" x2="500" y2="118" stroke="#C8C2B4" stroke-width="0.5"/>
-            </svg>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate);">$40M</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: var(--graphite);">$409M</span>
+          <!-- TradingView Chart -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {
+                "symbol": "TSXV:WRLG",
+                "width": "100%",
+                "height": 220,
+                "locale": "en",
+                "dateRange": "ALL",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": "",
+                "trendLineColor": "#B8823A",
+                "underLineColor": "rgba(184, 130, 58, 0.12)",
+                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
+                "noTimeScale": false
+              }
+              </script>
             </div>
           </div>
 
@@ -479,27 +482,27 @@
             </div>
           </div>
 
-          <!-- Stock chart -->
-          <div style="margin-top: 32px; padding: 24px 0 0; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Aug 2020</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Mar 2026 (merger)</span>
-            </div>
-            <svg viewBox="0 0 500 120" fill="none" style="width: 100%; height: auto; display: block;">
-              <defs>
-                <linearGradient id="fill-dv" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#B8823A" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#B8823A" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,108 C30,105 70,100 110,92 C150,84 190,72 230,55 C260,44 290,32 330,20 C360,13 390,8 410,5 C430,8 450,14 470,22 C485,28 500,35 500,35" stroke="#B8823A" stroke-width="2" fill="none"/>
-              <path d="M0,108 C30,105 70,100 110,92 C150,84 190,72 230,55 C260,44 290,32 330,20 C360,13 390,8 410,5 C430,8 450,14 470,22 C485,28 500,35 500,35 L500,120 L0,120 Z" fill="url(#fill-dv)"/>
-              <line x1="410" y1="5" x2="410" y2="118" stroke="#C8C2B4" stroke-width="0.5" stroke-dasharray="3,3"/>
-              <line x1="0" y1="118" x2="500" y2="118" stroke="#C8C2B4" stroke-width="0.5"/>
-            </svg>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate);">$65M</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: var(--graphite);">$551M peak</span>
+          <!-- TradingView Chart -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {
+                "symbol": "TSXV:DV",
+                "width": "100%",
+                "height": 220,
+                "locale": "en",
+                "dateRange": "ALL",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": "",
+                "trendLineColor": "#B8823A",
+                "underLineColor": "rgba(184, 130, 58, 0.12)",
+                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
+                "noTimeScale": false
+              }
+              </script>
             </div>
           </div>
 
@@ -541,27 +544,27 @@
             </div>
           </div>
 
-          <!-- Stock chart -->
-          <div style="margin-top: 32px; padding: 24px 0 0; border-top: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">2023</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">Today</span>
-            </div>
-            <svg viewBox="0 0 500 120" fill="none" style="width: 100%; height: auto; display: block;">
-              <defs>
-                <linearGradient id="fill-big" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#B8823A" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#B8823A" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,108 C20,106 50,104 80,100 C120,94 150,85 180,60 C200,42 220,18 250,5 C280,15 310,28 340,38 C370,45 400,50 440,48 C470,46 490,44 500,42" stroke="#B8823A" stroke-width="2" fill="none"/>
-              <path d="M0,108 C20,106 50,104 80,100 C120,94 150,85 180,60 C200,42 220,18 250,5 C280,15 310,28 340,38 C370,45 400,50 440,48 C470,46 490,44 500,42 L500,120 L0,120 Z" fill="url(#fill-big)"/>
-              <line x1="250" y1="5" x2="250" y2="118" stroke="#C8C2B4" stroke-width="0.5" stroke-dasharray="3,3"/>
-              <line x1="0" y1="118" x2="500" y2="118" stroke="#C8C2B4" stroke-width="0.5"/>
-            </svg>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px;">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate);">$24M</span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: var(--graphite);">$194M</span>
+          <!-- TradingView Chart -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+              {
+                "symbol": "TSXV:BIG",
+                "width": "100%",
+                "height": 220,
+                "locale": "en",
+                "dateRange": "ALL",
+                "colorTheme": "light",
+                "isTransparent": true,
+                "autosize": false,
+                "largeChartUrl": "",
+                "trendLineColor": "#B8823A",
+                "underLineColor": "rgba(184, 130, 58, 0.12)",
+                "underLineBottomColor": "rgba(184, 130, 58, 0.01)",
+                "noTimeScale": false
+              }
+              </script>
             </div>
           </div>
 
