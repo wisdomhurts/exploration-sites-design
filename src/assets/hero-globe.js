@@ -16,13 +16,16 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const PROJECT_COLOR   = 0x2C3338;   // Basalt
 const FILL_COLOR      = 0xF4F1EC;   // Quartz
 const DOT_SIZE_PX     = 1;
-const PROJECT_SIZE_PX = 3;
 
-// Victoria, BC — Exploration Sites HQ
+// Victoria, BC — Exploration Sites HQ (rendered as an HTML pin overlay)
 const VICTORIA = { lat: 48.4284, lon: -123.3656 };
+
+// Pin magnetism
+const MAGNET_RADIUS  = 160;         // px — within this distance the pin attracts
+const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
+const PIN_MAX_SCALE  = 4;           // 400% peak scale at peak attraction
 
 // Orientation — Western Canada (≈ 55°N, 125°W) centered in view.
 // Three.js camera looks down −Z, so camera-facing local lon = α + 90°.
@@ -182,17 +185,20 @@ async function init() {
     new THREE.MeshBasicMaterial({ color: FILL_COLOR })
   );
 
-  // Single project marker on Victoria, BC
-  const vic = latLonToXYZ(VICTORIA.lat, VICTORIA.lon);
-
   const group = new THREE.Group();
   group.add(fillSphere);
   group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
   group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
-  group.add(makePoints(vic, PROJECT_COLOR, dpr, PROJECT_SIZE_PX, true));
   group.rotation.x = INITIAL_TILT_X;
   group.rotation.y = INITIAL_ROT_Y;
   scene.add(group);
+
+  // Victoria pin is an HTML element overlaid on the canvas (for magnetism,
+  // scale animation, and tooltip). Projected each frame from 3D.
+  const pin = document.querySelector('.hero-globe-pin');
+  const vicLocal = new THREE.Vector3(...latLonToXYZ(VICTORIA.lat, VICTORIA.lon));
+  const vicWorld = new THREE.Vector3();
+  const vicNDC   = new THREE.Vector3();
 
   // --- OrbitControls: drag-to-rotate + wheel zoom, idle auto-rotate ---
   const controls = new OrbitControls(camera, canvas);
@@ -217,7 +223,7 @@ async function init() {
     controls.autoRotate = true;
   });
 
-  // --- Mouse repulsion: track hover point in the group's local space ---
+  // --- Mouse tracking (shared by repulsion + pin magnetism) ---
   const raycaster = new THREE.Raycaster();
   const mouseNDC = new THREE.Vector2();
   const hitSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 1);
@@ -225,15 +231,24 @@ async function init() {
   const invGroupMatrix = new THREE.Matrix4();
   const targetMouseLocal = new THREE.Vector3();
   let mouseOverGlobe = false;
+  let mouseClientX = -9999;
+  let mouseClientY = -9999;
 
   function onPointerMove(e) {
+    mouseClientX = e.clientX;
+    mouseClientY = e.clientY;
+
     const r = canvas.getBoundingClientRect();
-    mouseNDC.x = ((e.clientX - r.left) / r.width) * 2 - 1;
-    mouseNDC.y = -((e.clientY - r.top) / r.height) * 2 + 1;
-    if (Math.abs(mouseNDC.x) > 1 || Math.abs(mouseNDC.y) > 1) {
+    const overCanvas = (
+      e.clientX >= r.left && e.clientX <= r.right &&
+      e.clientY >= r.top  && e.clientY <= r.bottom
+    );
+    if (!overCanvas) {
       mouseOverGlobe = false;
       return;
     }
+    mouseNDC.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    mouseNDC.y = -((e.clientY - r.top) / r.height) * 2 + 1;
     raycaster.setFromCamera(mouseNDC, camera);
     if (raycaster.ray.intersectSphere(hitSphere, hitPoint)) {
       group.updateMatrixWorld();
@@ -244,18 +259,81 @@ async function init() {
       mouseOverGlobe = false;
     }
   }
-  canvas.addEventListener('pointermove', onPointerMove, { passive: true });
-  canvas.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
+  window.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
+
+  function updatePin() {
+    if (!pin) return;
+    group.updateMatrixWorld();
+    vicWorld.copy(vicLocal).applyMatrix4(group.matrixWorld);
+
+    // Is Victoria on the near hemisphere?
+    const frontSide = vicWorld.dot(camera.position) > 0;
+    if (!frontSide) {
+      pin.classList.add('is-hidden');
+      pin.classList.remove('is-touched');
+      return;
+    }
+
+    vicNDC.copy(vicWorld).project(camera);
+    if (Math.abs(vicNDC.x) > 1.1 || Math.abs(vicNDC.y) > 1.1) {
+      pin.classList.add('is-hidden');
+      pin.classList.remove('is-touched');
+      return;
+    }
+    pin.classList.remove('is-hidden');
+
+    // Pin's base screen position relative to pin's parent (.hero-globe)
+    const parentBox = pin.parentElement.getBoundingClientRect();
+    const canvasBox = canvas.getBoundingClientRect();
+    const offsetX = canvasBox.left - parentBox.left;
+    const offsetY = canvasBox.top  - parentBox.top;
+    const pinX = offsetX + (vicNDC.x * 0.5 + 0.5) * canvasBox.width;
+    const pinY = offsetY + (-vicNDC.y * 0.5 + 0.5) * canvasBox.height;
+
+    // Mouse in parent-relative space
+    const mx = mouseClientX - parentBox.left;
+    const my = mouseClientY - parentBox.top;
+
+    let displayX = pinX;
+    let displayY = pinY;
+    let scale = 1;
+    let touched = false;
+
+    if (!isDragging) {
+      const dx = mx - pinX;
+      const dy = my - pinY;
+      const dist = Math.hypot(dx, dy);
+      if (dist < MAGNET_RADIUS) {
+        const t = 1 - dist / MAGNET_RADIUS;
+        const eased = t * t * (3 - 2 * t);       // smoothstep
+        // Attract: lerp a fraction of the way toward the cursor
+        const pull = eased * 0.7;
+        displayX = pinX + dx * pull;
+        displayY = pinY + dy * pull;
+        scale = 1 + eased * (PIN_MAX_SCALE - 1);
+
+        const effDist = Math.hypot(mx - displayX, my - displayY);
+        if (effDist < TOUCH_RADIUS) {
+          touched = true;
+        }
+      }
+    }
+
+    pin.style.transform = `translate(${displayX}px, ${displayY}px) scale(${scale})`;
+    pin.classList.toggle('is-touched', touched);
+  }
 
   function frame() {
     controls.update();
 
-    // Repulsion only when hovering AND not dragging (so drag doesn't trigger
-    // chaotic ripples while rotating).
+    // Repulsion on land/ocean dots only when hovering AND not dragging
     const active = mouseOverGlobe && !isDragging;
     const targetStrength = active ? MOUSE_STRENGTH : 0;
     sharedUniforms.uStrength.value += (targetStrength - sharedUniforms.uStrength.value) * MOUSE_LERP;
     sharedUniforms.uMouse.value.lerp(targetMouseLocal, MOUSE_LERP);
+
+    updatePin();
 
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
