@@ -498,6 +498,18 @@
       padding: 0 80px;
       position: relative;
       z-index: 2;
+      /* Container itself doesn't capture pointer events — empty areas pass
+         through to the globe behind. Only actual text blocks and buttons
+         capture, so the globe stays draggable everywhere else. */
+      pointer-events: none;
+    }
+
+    .hero-content > .hero-label,
+    .hero-content > .hero-headline,
+    .hero-content > .hero-body,
+    .hero-content > .hero-buttons > a,
+    .hero-content > .hero-buttons > button {
+      pointer-events: auto;
     }
 
     .hero-globe {
