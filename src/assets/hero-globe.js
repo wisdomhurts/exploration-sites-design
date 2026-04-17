@@ -16,7 +16,6 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const DOT_OPACITY     = 1.0;        // colors carry their own weight — no fade
 const DOT_SIZE_PX     = 2;          // true pixel size (no perspective attenuation)
 
 // Orientation
@@ -74,9 +73,7 @@ function makePoints(positions, color, dpr) {
     color,
     size: DOT_SIZE_PX * dpr,
     sizeAttenuation: false,
-    transparent: true,
-    opacity: DOT_OPACITY,
-    depthWrite: false,
+    transparent: false,
   });
   return new THREE.Points(geom, mat);
 }
