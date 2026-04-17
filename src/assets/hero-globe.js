@@ -1,38 +1,38 @@
 // Hero dotted globe — Three.js point cloud driven by a real-world land mask.
-//
-// Fibonacci sphere candidates are split into two buckets: continents (sampled
-// from the Natural Earth 1:110m land mask) and ocean (everything else).
-// Each bucket renders as its own Points mesh so they can carry different
-// colors while sharing rotation via a parent Group.
+// Fibonacci sphere candidates are split into continents (Slate) and ocean
+// (Graticule). Client projects are overlaid as Basalt circle markers.
+// OrbitControls handle drag-to-rotate + wheel zoom; auto-rotates at rest.
 
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CLIENT_PROJECTS } from './client-projects.js';
 
 const CANVAS_SELECTOR = '.hero-globe-canvas';
 const MASK_URL = '/assets/world-mask.png';
 
-// Total candidates. ~30% become continent dots, ~70% ocean dots.
 const N_CANDIDATES = 60000;
 
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const PROJECT_COLOR   = 0x2C3338;   // Basalt — client projects
-const FILL_COLOR      = 0xF4F1EC;   // Quartz — solid sphere behind dots (occludes back side)
-const DOT_SIZE_PX     = 1;          // continent/ocean pixel size
-const PROJECT_SIZE_PX = 3;          // client projects — rendered as circles
+const PROJECT_COLOR   = 0x2C3338;   // Basalt
+const FILL_COLOR      = 0xF4F1EC;   // Quartz
+const DOT_SIZE_PX     = 1;
+const PROJECT_SIZE_PX = 3;
 
 // Orientation
 const INITIAL_TILT_X = -0.18;
 const INITIAL_ROT_Y  = 0.8;
 
-// Rotation speed (radians per millisecond → ~50s per revolution)
-const ROT_SPEED_Y = 0.00012;
+// Camera
+const CAMERA_FOV     = 26;
+const CAMERA_Z       = 4.6;
+const MIN_DISTANCE   = 2.2;   // zoom-in limit
+const MAX_DISTANCE   = 8.0;   // zoom-out limit
 
-// Mouse repulsion
-const MOUSE_RADIUS   = 0.35;        // influence radius in sphere-local units
-const MOUSE_STRENGTH = 0.28;        // how far points displace at peak
-const MOUSE_LERP     = 0.30;        // per-frame smoothing for position + strength
+// OrbitControls autoRotateSpeed is in units of ~30s-per-revolution when = 2.
+// We want ~50s/rev, so autoRotateSpeed = 2 * (30 / 50) = 1.2.
+const AUTO_ROTATE_SPEED = 1.2;
 
 async function loadMask(url) {
   const img = new Image();
@@ -75,14 +75,6 @@ function fibonacciPoints(n) {
   return pts;
 }
 
-// Shared uniforms driven from the host — every Points material reads the same
-// mouse position and strength so the three layers repel together.
-const sharedUniforms = {
-  uMouse:    { value: new THREE.Vector3(0, 0, 0) },
-  uStrength: { value: 0 },
-  uRadius:   { value: MOUSE_RADIUS },
-};
-
 function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = false) {
   const geom = new THREE.BufferGeometry();
   geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
@@ -90,40 +82,21 @@ function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = fals
     color,
     size: sizePx * dpr,
     sizeAttenuation: false,
-    transparent: circular,         // circular dots need alpha for the discarded corners
+    transparent: circular,
     alphaTest: circular ? 0.5 : 0,
   });
-  // Inject mouse-repulsion into the built-in points vertex shader, and
-  // (for circular points) clip the square sprite corners to a disc.
-  mat.onBeforeCompile = (shader) => {
-    shader.uniforms.uMouse    = sharedUniforms.uMouse;
-    shader.uniforms.uStrength = sharedUniforms.uStrength;
-    shader.uniforms.uRadius   = sharedUniforms.uRadius;
-    shader.vertexShader =
-      'uniform vec3 uMouse;\nuniform float uStrength;\nuniform float uRadius;\n' +
-      shader.vertexShader.replace(
-        '#include <begin_vertex>',
-        `vec3 transformed = position;
-         vec3 diff = transformed - uMouse;
-         float d = length(diff);
-         float fall = exp(-(d * d) / (uRadius * uRadius));
-         vec3 tangent = d > 0.0001 ? diff / d : vec3(0.0);
-         vec3 outward = normalize(transformed);
-         transformed += (tangent * 0.65 + outward * 0.35) * fall * uStrength;`
-      );
-    if (circular) {
+  if (circular) {
+    mat.onBeforeCompile = (shader) => {
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <clipping_planes_fragment>',
         `#include <clipping_planes_fragment>
          if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard;`
       );
-    }
-  };
+    };
+  }
   return new THREE.Points(geom, mat);
 }
 
-// Convert lat/lon (degrees) to a unit-sphere xyz matching our candidate points.
-// Inverse of: lat = asin(y); lon = atan2(z, x) * 180/π
 function latLonToXYZ(lat, lon, radius = 1.002) {
   const phi = (90 - lat) * Math.PI / 180;
   const theta = lon * Math.PI / 180;
@@ -146,10 +119,8 @@ async function init() {
   renderer.setClearColor(0x000000, 0);
 
   const scene = new THREE.Scene();
-  // Camera pulled back + narrower FOV so the full sphere fits with margin.
-  const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 10);
-  camera.position.set(0, 0, 4.6);
-  camera.lookAt(0, 0, 0);
+  const camera = new THREE.PerspectiveCamera(CAMERA_FOV, 1, 0.1, 20);
+  camera.position.set(0, 0, CAMERA_Z);
 
   let mask;
   try {
@@ -172,14 +143,11 @@ async function init() {
     }
   }
 
-  // Solid fill sphere — sits just inside the dot radius so front dots still
-  // show but back-side dots are occluded.
   const fillSphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.99, 64, 48),
     new THREE.MeshBasicMaterial({ color: FILL_COLOR })
   );
 
-  // Client project markers — Ore-colored highlights at each lat/lon
   const projectPos = [];
   for (const p of CLIENT_PROJECTS) {
     const [px, py, pz] = latLonToXYZ(p.lat, p.lon);
@@ -195,48 +163,24 @@ async function init() {
   group.rotation.y = INITIAL_ROT_Y;
   scene.add(group);
 
-  // --- Mouse repulsion ---
-  const raycaster = new THREE.Raycaster();
-  const mouseNDC = new THREE.Vector2();
-  const hitSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 1);
-  const hitPoint = new THREE.Vector3();
-  const invGroupMatrix = new THREE.Matrix4();
-  const targetMouseLocal = new THREE.Vector3();
-  let targetStrength = 0;
-  let mouseOverGlobe = false;
+  // --- Interaction: drag-to-rotate + wheel zoom, idle auto-rotate ---
+  const controls = new OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.08;
+  controls.enablePan = false;
+  controls.enableZoom = true;
+  controls.minDistance = MIN_DISTANCE;
+  controls.maxDistance = MAX_DISTANCE;
+  controls.rotateSpeed = 0.6;
+  controls.zoomSpeed = 0.8;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = AUTO_ROTATE_SPEED;
+  // Pause auto-rotate while the user is actively interacting
+  controls.addEventListener('start', () => { controls.autoRotate = false; });
+  controls.addEventListener('end',   () => { controls.autoRotate = true;  });
 
-  function onPointer(e) {
-    const r = canvas.getBoundingClientRect();
-    mouseNDC.x = ((e.clientX - r.left) / r.width) * 2 - 1;
-    mouseNDC.y = -((e.clientY - r.top) / r.height) * 2 + 1;
-    if (Math.abs(mouseNDC.x) > 1 || Math.abs(mouseNDC.y) > 1) {
-      mouseOverGlobe = false;
-      return;
-    }
-    raycaster.setFromCamera(mouseNDC, camera);
-    if (raycaster.ray.intersectSphere(hitSphere, hitPoint)) {
-      group.updateMatrixWorld();
-      invGroupMatrix.copy(group.matrixWorld).invert();
-      targetMouseLocal.copy(hitPoint).applyMatrix4(invGroupMatrix);
-      mouseOverGlobe = true;
-    } else {
-      mouseOverGlobe = false;
-    }
-  }
-  canvas.addEventListener('pointermove', onPointer, { passive: true });
-  canvas.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
-
-  let last = performance.now();
-  function frame(now) {
-    const dt = now - last;
-    last = now;
-    group.rotation.y += ROT_SPEED_Y * dt;
-
-    // Lerp strength toward target; lerp mouse position toward target
-    targetStrength = mouseOverGlobe ? MOUSE_STRENGTH : 0;
-    sharedUniforms.uStrength.value += (targetStrength - sharedUniforms.uStrength.value) * MOUSE_LERP;
-    sharedUniforms.uMouse.value.lerp(targetMouseLocal, MOUSE_LERP);
-
+  function frame() {
+    controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
