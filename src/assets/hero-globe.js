@@ -17,10 +17,10 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const PROJECT_COLOR   = 0xB8823A;   // Ore — client projects
+const PROJECT_COLOR   = 0x5A5F63;   // Slate — client projects (same hue, bigger/round)
 const FILL_COLOR      = 0xF4F1EC;   // Quartz — solid sphere behind dots (occludes back side)
 const DOT_SIZE_PX     = 1;          // continent/ocean pixel size
-const PROJECT_SIZE_PX = 4;          // client projects, bigger to read as highlights
+const PROJECT_SIZE_PX = 5;          // client projects, 5× base size, rendered as circles
 
 // Orientation
 const INITIAL_TILT_X = -0.18;
@@ -31,8 +31,8 @@ const ROT_SPEED_Y = 0.00012;
 
 // Mouse repulsion
 const MOUSE_RADIUS   = 0.35;        // influence radius in sphere-local units
-const MOUSE_STRENGTH = 0.18;        // how far points displace at peak
-const MOUSE_LERP     = 0.12;        // per-frame smoothing for position + strength
+const MOUSE_STRENGTH = 0.28;        // how far points displace at peak
+const MOUSE_LERP     = 0.30;        // per-frame smoothing for position + strength
 
 async function loadMask(url) {
   const img = new Image();
@@ -83,16 +83,18 @@ const sharedUniforms = {
   uRadius:   { value: MOUSE_RADIUS },
 };
 
-function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX) {
+function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = false) {
   const geom = new THREE.BufferGeometry();
   geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
   const mat = new THREE.PointsMaterial({
     color,
     size: sizePx * dpr,
     sizeAttenuation: false,
-    transparent: false,
+    transparent: circular,         // circular dots need alpha for the discarded corners
+    alphaTest: circular ? 0.5 : 0,
   });
-  // Inject mouse-repulsion into the built-in points vertex shader.
+  // Inject mouse-repulsion into the built-in points vertex shader, and
+  // (for circular points) clip the square sprite corners to a disc.
   mat.onBeforeCompile = (shader) => {
     shader.uniforms.uMouse    = sharedUniforms.uMouse;
     shader.uniforms.uStrength = sharedUniforms.uStrength;
@@ -109,6 +111,13 @@ function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX) {
          vec3 outward = normalize(transformed);
          transformed += (tangent * 0.65 + outward * 0.35) * fall * uStrength;`
       );
+    if (circular) {
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <clipping_planes_fragment>',
+        `#include <clipping_planes_fragment>
+         if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard;`
+      );
+    }
   };
   return new THREE.Points(geom, mat);
 }
@@ -181,7 +190,7 @@ async function init() {
   group.add(fillSphere);
   group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
   group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
-  group.add(makePoints(projectPos, PROJECT_COLOR, dpr, PROJECT_SIZE_PX));
+  group.add(makePoints(projectPos, PROJECT_COLOR, dpr, PROJECT_SIZE_PX, true));
   group.rotation.x = INITIAL_TILT_X;
   group.rotation.y = INITIAL_ROT_Y;
   scene.add(group);
