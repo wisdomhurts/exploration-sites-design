@@ -27,12 +27,10 @@ const MAGNET_RADIUS  = 160;         // px — within this distance the pin attra
 const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
 const PIN_MAX_SCALE  = 4;           // 400% peak scale at peak attraction
 
-// Orientation — Western Canada (≈ 55°N, 125°W) centered in view.
-// Three.js camera looks down −Z, so camera-facing local lon = α + 90°.
-// For lon ≈ −120° we need α ≈ −210° ≡ +150° ≈ 2.62 rad.
-// Positive X tilt rotates the north pole TOWARD the camera so higher-latitude
-// regions (like BC/Yukon) sit in the center of the visible disc.
-const INITIAL_TILT_X = 0.55;        // ≈ 31° — north pole tips forward
+// Orientation — north directly up (no tilt), Western Canada centered.
+// Camera looks down −Z, so camera-facing local lon = α + 90°.
+// For lon ≈ −120° (Western Canada) we need α ≈ 2.62 rad.
+const INITIAL_TILT_X = 0;           // true north up
 const INITIAL_ROT_Y  = 2.62;        // ≈ 150° — lon 120°W faces camera
 
 // Camera
@@ -41,8 +39,10 @@ const CAMERA_Z       = 4.6;
 const MIN_DISTANCE   = 2.2;
 const MAX_DISTANCE   = 8.0;
 
-// Auto-rotate (~50s per revolution)
-const AUTO_ROTATE_SPEED = 1.2;
+// Auto-rotate (~50s per revolution). Negative = globe spins west→east
+// (real Earth direction from a northern viewer), so continents move left→right
+// across the visible disc.
+const AUTO_ROTATE_SPEED = -1.2;
 
 // Mouse repulsion
 const MOUSE_RADIUS   = 0.35;
@@ -320,7 +320,10 @@ async function init() {
       }
     }
 
-    pin.style.transform = `translate(${displayX}px, ${displayY}px) scale(${scale})`;
+    // Translate only on the pin container; scale is applied separately to the
+    // dot via a CSS custom property so the tooltip can grow at a different rate.
+    pin.style.transform = `translate(${displayX}px, ${displayY}px)`;
+    pin.style.setProperty('--pin-scale', scale);
     pin.classList.toggle('is-touched', touched);
   }
 

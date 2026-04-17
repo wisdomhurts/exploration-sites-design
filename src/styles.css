@@ -555,10 +555,15 @@
       inset: 0;
       border-radius: 50%;
       background: currentColor;
+      transform: scale(var(--pin-scale, 1));
+      transform-origin: center center;
+      transition: transform 80ms linear;
     }
+    /* Tooltip scale grows at 25% of the pin's scale so it stays readable
+       rather than ballooning to 4× when the dot is at peak magnetism. */
     .hero-globe-pin-tooltip {
       position: absolute;
-      bottom: calc(100% + 14px);
+      bottom: calc(100% + 14px + max(0px, (var(--pin-scale, 1) - 1) * 6px));
       left: 50%;
       white-space: nowrap;
       background: var(--graphite);
@@ -570,10 +575,11 @@
       font-weight: 500;
       letter-spacing: 0.02em;
       opacity: 0;
-      transform: translate(-50%, 6px) scale(0.7);
+      transform: translate(-50%, 6px) scale(calc(0.7 * (1 + (var(--pin-scale, 1) - 1) * 0.25)));
       transform-origin: bottom center;
       transition: opacity 220ms cubic-bezier(.2,.8,.2,1),
-                  transform 220ms cubic-bezier(.2,.8,.2,1);
+                  transform 220ms cubic-bezier(.2,.8,.2,1),
+                  bottom 80ms linear;
       pointer-events: none;
     }
     .hero-globe-pin-tooltip::after {
@@ -587,7 +593,7 @@
     }
     .hero-globe-pin.is-touched .hero-globe-pin-tooltip {
       opacity: 1;
-      transform: translate(-50%, 0) scale(1);
+      transform: translate(-50%, 0) scale(calc(1 + (var(--pin-scale, 1) - 1) * 0.25));
     }
 
     .hero-globe {
