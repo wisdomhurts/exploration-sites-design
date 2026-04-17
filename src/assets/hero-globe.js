@@ -17,10 +17,10 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const PROJECT_COLOR   = 0x5A5F63;   // Slate — client projects (same hue, bigger/round)
+const PROJECT_COLOR   = 0x2C3338;   // Basalt — client projects
 const FILL_COLOR      = 0xF4F1EC;   // Quartz — solid sphere behind dots (occludes back side)
 const DOT_SIZE_PX     = 1;          // continent/ocean pixel size
-const PROJECT_SIZE_PX = 5;          // client projects, 5× base size, rendered as circles
+const PROJECT_SIZE_PX = 3;          // client projects — rendered as circles
 
 // Orientation
 const INITIAL_TILT_X = -0.18;
