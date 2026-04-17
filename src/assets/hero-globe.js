@@ -1,11 +1,12 @@
 // Hero dotted globe — Three.js point cloud driven by a real-world land mask.
-// Fibonacci sphere candidates are split into continents (Slate) and ocean
-// (Graticule). Client projects are overlaid as Basalt circle markers.
-// OrbitControls handle drag-to-rotate + wheel zoom; auto-rotates at rest.
+// Continents (Slate) and ocean (Graticule) come from a Fibonacci sphere
+// filtered by the Natural Earth 1:110m mask. One highlight marker sits on
+// Victoria, BC. OrbitControls handle drag-to-rotate + wheel zoom, with idle
+// auto-rotate. On hover (no drag), all points repel away from the cursor
+// with a smooth Gaussian falloff.
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { CLIENT_PROJECTS } from './client-projects.js';
 
 const CANVAS_SELECTOR = '.hero-globe-canvas';
 const MASK_URL = '/assets/world-mask.png';
@@ -20,6 +21,9 @@ const FILL_COLOR      = 0xF4F1EC;   // Quartz
 const DOT_SIZE_PX     = 1;
 const PROJECT_SIZE_PX = 3;
 
+// Victoria, BC — Exploration Sites HQ
+const VICTORIA = { lat: 48.4284, lon: -123.3656 };
+
 // Orientation
 const INITIAL_TILT_X = -0.18;
 const INITIAL_ROT_Y  = 0.8;
@@ -27,12 +31,16 @@ const INITIAL_ROT_Y  = 0.8;
 // Camera
 const CAMERA_FOV     = 26;
 const CAMERA_Z       = 4.6;
-const MIN_DISTANCE   = 2.2;   // zoom-in limit
-const MAX_DISTANCE   = 8.0;   // zoom-out limit
+const MIN_DISTANCE   = 2.2;
+const MAX_DISTANCE   = 8.0;
 
-// OrbitControls autoRotateSpeed is in units of ~30s-per-revolution when = 2.
-// We want ~50s/rev, so autoRotateSpeed = 2 * (30 / 50) = 1.2.
+// Auto-rotate (~50s per revolution)
 const AUTO_ROTATE_SPEED = 1.2;
+
+// Mouse repulsion
+const MOUSE_RADIUS   = 0.35;
+const MOUSE_STRENGTH = 0.28;
+const MOUSE_LERP     = 0.30;
 
 async function loadMask(url) {
   const img = new Image();
@@ -75,6 +83,20 @@ function fibonacciPoints(n) {
   return pts;
 }
 
+function latLonToXYZ(lat, lon, radius = 1.002) {
+  const phi = (90 - lat) * Math.PI / 180;
+  const theta = lon * Math.PI / 180;
+  const r = radius * Math.sin(phi);
+  return [r * Math.cos(theta), radius * Math.cos(phi), r * Math.sin(theta)];
+}
+
+// Shared uniforms so all three Points meshes repel together in lockstep.
+const sharedUniforms = {
+  uMouse:    { value: new THREE.Vector3(0, 0, 0) },
+  uStrength: { value: 0 },
+  uRadius:   { value: MOUSE_RADIUS },
+};
+
 function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = false) {
   const geom = new THREE.BufferGeometry();
   geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
@@ -85,23 +107,31 @@ function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = fals
     transparent: circular,
     alphaTest: circular ? 0.5 : 0,
   });
-  if (circular) {
-    mat.onBeforeCompile = (shader) => {
+  mat.onBeforeCompile = (shader) => {
+    shader.uniforms.uMouse    = sharedUniforms.uMouse;
+    shader.uniforms.uStrength = sharedUniforms.uStrength;
+    shader.uniforms.uRadius   = sharedUniforms.uRadius;
+    shader.vertexShader =
+      'uniform vec3 uMouse;\nuniform float uStrength;\nuniform float uRadius;\n' +
+      shader.vertexShader.replace(
+        '#include <begin_vertex>',
+        `vec3 transformed = position;
+         vec3 diff = transformed - uMouse;
+         float d = length(diff);
+         float fall = exp(-(d * d) / (uRadius * uRadius));
+         vec3 tangent = d > 0.0001 ? diff / d : vec3(0.0);
+         vec3 outward = normalize(transformed);
+         transformed += (tangent * 0.65 + outward * 0.35) * fall * uStrength;`
+      );
+    if (circular) {
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <clipping_planes_fragment>',
         `#include <clipping_planes_fragment>
          if (length(gl_PointCoord - vec2(0.5)) > 0.5) discard;`
       );
-    };
-  }
+    }
+  };
   return new THREE.Points(geom, mat);
-}
-
-function latLonToXYZ(lat, lon, radius = 1.002) {
-  const phi = (90 - lat) * Math.PI / 180;
-  const theta = lon * Math.PI / 180;
-  const r = radius * Math.sin(phi);
-  return [r * Math.cos(theta), radius * Math.cos(phi), r * Math.sin(theta)];
 }
 
 async function init() {
@@ -148,22 +178,19 @@ async function init() {
     new THREE.MeshBasicMaterial({ color: FILL_COLOR })
   );
 
-  const projectPos = [];
-  for (const p of CLIENT_PROJECTS) {
-    const [px, py, pz] = latLonToXYZ(p.lat, p.lon);
-    projectPos.push(px, py, pz);
-  }
+  // Single project marker on Victoria, BC
+  const vic = latLonToXYZ(VICTORIA.lat, VICTORIA.lon);
 
   const group = new THREE.Group();
   group.add(fillSphere);
   group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
   group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
-  group.add(makePoints(projectPos, PROJECT_COLOR, dpr, PROJECT_SIZE_PX, true));
+  group.add(makePoints(vic, PROJECT_COLOR, dpr, PROJECT_SIZE_PX, true));
   group.rotation.x = INITIAL_TILT_X;
   group.rotation.y = INITIAL_ROT_Y;
   scene.add(group);
 
-  // --- Interaction: drag-to-rotate + wheel zoom, idle auto-rotate ---
+  // --- OrbitControls: drag-to-rotate + wheel zoom, idle auto-rotate ---
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
@@ -175,12 +202,57 @@ async function init() {
   controls.zoomSpeed = 0.8;
   controls.autoRotate = true;
   controls.autoRotateSpeed = AUTO_ROTATE_SPEED;
-  // Pause auto-rotate while the user is actively interacting
-  controls.addEventListener('start', () => { controls.autoRotate = false; });
-  controls.addEventListener('end',   () => { controls.autoRotate = true;  });
+
+  let isDragging = false;
+  controls.addEventListener('start', () => {
+    isDragging = true;
+    controls.autoRotate = false;
+  });
+  controls.addEventListener('end', () => {
+    isDragging = false;
+    controls.autoRotate = true;
+  });
+
+  // --- Mouse repulsion: track hover point in the group's local space ---
+  const raycaster = new THREE.Raycaster();
+  const mouseNDC = new THREE.Vector2();
+  const hitSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 1);
+  const hitPoint = new THREE.Vector3();
+  const invGroupMatrix = new THREE.Matrix4();
+  const targetMouseLocal = new THREE.Vector3();
+  let mouseOverGlobe = false;
+
+  function onPointerMove(e) {
+    const r = canvas.getBoundingClientRect();
+    mouseNDC.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+    mouseNDC.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+    if (Math.abs(mouseNDC.x) > 1 || Math.abs(mouseNDC.y) > 1) {
+      mouseOverGlobe = false;
+      return;
+    }
+    raycaster.setFromCamera(mouseNDC, camera);
+    if (raycaster.ray.intersectSphere(hitSphere, hitPoint)) {
+      group.updateMatrixWorld();
+      invGroupMatrix.copy(group.matrixWorld).invert();
+      targetMouseLocal.copy(hitPoint).applyMatrix4(invGroupMatrix);
+      mouseOverGlobe = true;
+    } else {
+      mouseOverGlobe = false;
+    }
+  }
+  canvas.addEventListener('pointermove', onPointerMove, { passive: true });
+  canvas.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
 
   function frame() {
     controls.update();
+
+    // Repulsion only when hovering AND not dragging (so drag doesn't trigger
+    // chaotic ripples while rotating).
+    const active = mouseOverGlobe && !isDragging;
+    const targetStrength = active ? MOUSE_STRENGTH : 0;
+    sharedUniforms.uStrength.value += (targetStrength - sharedUniforms.uStrength.value) * MOUSE_LERP;
+    sharedUniforms.uMouse.value.lerp(targetMouseLocal, MOUSE_LERP);
+
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
