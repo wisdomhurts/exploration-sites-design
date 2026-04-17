@@ -1,29 +1,27 @@
 // Hero dotted globe — Three.js point cloud driven by a real-world land mask.
 //
-// The mask (src/assets/world-mask.png) is Natural Earth 1:110m land data
-// rasterized to 2048×1024 equirectangular black/white. We generate a
-// Fibonacci sphere of candidate points, sample the mask at each point's
-// lat/lon, and keep only those that fall on land. The result is real
-// continent geometry as ~18k evenly-distributed 2px dots.
-//
-// Design: Vellum dots at 50% opacity, slow Y rotation, no lighting, no glow.
+// Fibonacci sphere candidates are split into two buckets: continents (sampled
+// from the Natural Earth 1:110m land mask) and ocean (everything else).
+// Each bucket renders as its own Points mesh so they can carry different
+// colors while sharing rotation via a parent Group.
 
 import * as THREE from 'three';
 
 const CANVAS_SELECTOR = '.hero-globe-canvas';
 const MASK_URL = '/assets/world-mask.png';
 
-// How many sphere points to try — final count is about 30% (the global land fraction).
+// Total candidates. ~30% become continent dots, ~70% ocean dots.
 const N_CANDIDATES = 60000;
 
 // Visual
-const DOT_COLOR   = 0xE8E2D5;   // Vellum
-const DOT_OPACITY = 0.5;
-const DOT_SIZE_PX = 2;          // true pixel size (no perspective attenuation)
+const CONTINENT_COLOR = 0x5A5F63;   // Slate
+const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
+const DOT_OPACITY     = 1.0;        // colors carry their own weight — no fade
+const DOT_SIZE_PX     = 2;          // true pixel size (no perspective attenuation)
 
-// Orientation — tilt slightly so the poles aren't on axis
-const INITIAL_TILT_X = -0.18;   // radians (≈ -10°)
-const INITIAL_ROT_Y  = 0.8;     // radians — starts showing Americas/Europe
+// Orientation
+const INITIAL_TILT_X = -0.18;
+const INITIAL_ROT_Y  = 0.8;
 
 // Rotation speed (radians per millisecond → ~50s per revolution)
 const ROT_SPEED_Y = 0.00012;
@@ -57,7 +55,6 @@ function isLand(mask, lat, lon) {
   return mask.data[i] > 128;
 }
 
-// Golden-ratio (Fibonacci) sphere — uniform distribution, no pole clustering.
 function fibonacciPoints(n) {
   const pts = [];
   const goldenAngle = Math.PI * (Math.sqrt(5) - 1);
@@ -65,11 +62,23 @@ function fibonacciPoints(n) {
     const y = 1 - (i / (n - 1)) * 2;
     const r = Math.sqrt(Math.max(0, 1 - y * y));
     const theta = goldenAngle * i;
-    const x = Math.cos(theta) * r;
-    const z = Math.sin(theta) * r;
-    pts.push([x, y, z]);
+    pts.push([Math.cos(theta) * r, y, Math.sin(theta) * r]);
   }
   return pts;
+}
+
+function makePoints(positions, color, dpr) {
+  const geom = new THREE.BufferGeometry();
+  geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  const mat = new THREE.PointsMaterial({
+    color,
+    size: DOT_SIZE_PX * dpr,
+    sizeAttenuation: false,
+    transparent: true,
+    opacity: DOT_OPACITY,
+    depthWrite: false,
+  });
+  return new THREE.Points(geom, mat);
 }
 
 async function init() {
@@ -81,21 +90,17 @@ async function init() {
   const size = Math.min(rect.width, rect.height);
   const dpr = Math.min(window.devicePixelRatio, 2);
 
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    alpha: true,
-  });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(dpr);
   renderer.setSize(size, size, false);
   renderer.setClearColor(0x000000, 0);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 10);
-  camera.position.set(0, 0, 3.4);
+  // Camera pulled back + narrower FOV so the full sphere fits with margin.
+  const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 10);
+  camera.position.set(0, 0, 4.6);
   camera.lookAt(0, 0, 0);
 
-  // Load world mask and build the point cloud
   let mask;
   try {
     mask = await loadMask(MASK_URL);
@@ -105,49 +110,39 @@ async function init() {
   }
 
   const candidates = fibonacciPoints(N_CANDIDATES);
-  const positions = [];
+  const landPos = [];
+  const oceanPos = [];
   for (const [x, y, z] of candidates) {
     const lat = Math.asin(y) * 180 / Math.PI;
     const lon = Math.atan2(z, x) * 180 / Math.PI;
     if (isLand(mask, lat, lon)) {
-      positions.push(x, y, z);
+      landPos.push(x, y, z);
+    } else {
+      oceanPos.push(x, y, z);
     }
   }
 
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  const group = new THREE.Group();
+  group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
+  group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
+  group.rotation.x = INITIAL_TILT_X;
+  group.rotation.y = INITIAL_ROT_Y;
+  scene.add(group);
 
-  const material = new THREE.PointsMaterial({
-    color: DOT_COLOR,
-    size: DOT_SIZE_PX * dpr,     // pixel-sized when sizeAttenuation=false
-    sizeAttenuation: false,
-    transparent: true,
-    opacity: DOT_OPACITY,
-    depthWrite: false,
-  });
-
-  const points = new THREE.Points(geometry, material);
-  points.rotation.x = INITIAL_TILT_X;
-  points.rotation.y = INITIAL_ROT_Y;
-  scene.add(points);
-
-  // Render loop — continuous slow rotation
   let last = performance.now();
   function frame(now) {
     const dt = now - last;
     last = now;
-    points.rotation.y += ROT_SPEED_Y * dt;
+    group.rotation.y += ROT_SPEED_Y * dt;
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 
-  // Fade canvas in after first paint
   requestAnimationFrame(() => {
     requestAnimationFrame(() => canvas.classList.add('is-active'));
   });
 
-  // Resize: preserve square aspect and update renderer
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);

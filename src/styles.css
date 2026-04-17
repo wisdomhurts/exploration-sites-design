@@ -521,6 +521,7 @@
       height: 720px;
       max-width: 52vw;
       max-height: 92vh;
+      transform: translateX(-280px);
       opacity: 0;
       transition: opacity 600ms ease-out;
     }
