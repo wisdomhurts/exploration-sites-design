@@ -16,7 +16,8 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
-const DOT_SIZE_PX     = 2;          // true pixel size (no perspective attenuation)
+const FILL_COLOR      = 0xF4F1EC;   // Quartz — solid sphere behind dots (occludes back side)
+const DOT_SIZE_PX     = 1;          // true pixel size (no perspective attenuation)
 
 // Orientation
 const INITIAL_TILT_X = -0.18;
@@ -119,7 +120,15 @@ async function init() {
     }
   }
 
+  // Solid fill sphere — sits just inside the dot radius so front dots still
+  // show but back-side dots are occluded.
+  const fillSphere = new THREE.Mesh(
+    new THREE.SphereGeometry(0.99, 64, 48),
+    new THREE.MeshBasicMaterial({ color: FILL_COLOR })
+  );
+
   const group = new THREE.Group();
+  group.add(fillSphere);
   group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
   group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
   group.rotation.x = INITIAL_TILT_X;
