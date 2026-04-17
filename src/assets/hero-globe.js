@@ -24,9 +24,11 @@ const PROJECT_SIZE_PX = 3;
 // Victoria, BC — Exploration Sites HQ
 const VICTORIA = { lat: 48.4284, lon: -123.3656 };
 
-// Orientation
+// Orientation — North America faces the camera on load.
+// (Camera looks down −Z; a point with local lon = α − 90° faces it, so α = 2.7 rad
+// ≈ 155° puts lon ≈ 65°W at center, keeping Victoria BC visible on the left.)
 const INITIAL_TILT_X = -0.18;
-const INITIAL_ROT_Y  = 0.8;
+const INITIAL_ROT_Y  = 2.7;
 
 // Camera
 const CAMERA_FOV     = 26;
