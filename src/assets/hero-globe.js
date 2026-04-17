@@ -24,11 +24,13 @@ const PROJECT_SIZE_PX = 3;
 // Victoria, BC — Exploration Sites HQ
 const VICTORIA = { lat: 48.4284, lon: -123.3656 };
 
-// Orientation — North America faces the camera on load.
-// (Camera looks down −Z; a point with local lon = α − 90° faces it, so α = 2.7 rad
-// ≈ 155° puts lon ≈ 65°W at center, keeping Victoria BC visible on the left.)
-const INITIAL_TILT_X = -0.18;
-const INITIAL_ROT_Y  = 2.7;
+// Orientation — Western Canada (≈ 55°N, 125°W) centered in view.
+// Three.js camera looks down −Z, so camera-facing local lon = α + 90°.
+// For lon ≈ −120° we need α ≈ −210° ≡ +150° ≈ 2.62 rad.
+// Positive X tilt rotates the north pole TOWARD the camera so higher-latitude
+// regions (like BC/Yukon) sit in the center of the visible disc.
+const INITIAL_TILT_X = 0.55;        // ≈ 31° — north pole tips forward
+const INITIAL_ROT_Y  = 2.62;        // ≈ 150° — lon 120°W faces camera
 
 // Camera
 const CAMERA_FOV     = 26;
