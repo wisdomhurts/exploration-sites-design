@@ -511,6 +511,12 @@
       padding-right: 0;
     }
 
+    /* Canvas captures pointer events even though its container does not,
+       so the mouse-repulsion effect fires when hovering the globe. */
+    .hero-globe-canvas {
+      pointer-events: auto;
+    }
+
     .hero-globe {
       padding-right: 60px;
     }
