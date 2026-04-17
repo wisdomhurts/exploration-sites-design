@@ -6,6 +6,7 @@
 // colors while sharing rotation via a parent Group.
 
 import * as THREE from 'three';
+import { CLIENT_PROJECTS } from './client-projects.js';
 
 const CANVAS_SELECTOR = '.hero-globe-canvas';
 const MASK_URL = '/assets/world-mask.png';
@@ -16,8 +17,10 @@ const N_CANDIDATES = 60000;
 // Visual
 const CONTINENT_COLOR = 0x5A5F63;   // Slate
 const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
+const PROJECT_COLOR   = 0xB8823A;   // Ore — client projects
 const FILL_COLOR      = 0xF4F1EC;   // Quartz — solid sphere behind dots (occludes back side)
-const DOT_SIZE_PX     = 1;          // true pixel size (no perspective attenuation)
+const DOT_SIZE_PX     = 1;          // continent/ocean pixel size
+const PROJECT_SIZE_PX = 4;          // client projects, bigger to read as highlights
 
 // Orientation
 const INITIAL_TILT_X = -0.18;
@@ -67,16 +70,25 @@ function fibonacciPoints(n) {
   return pts;
 }
 
-function makePoints(positions, color, dpr) {
+function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX) {
   const geom = new THREE.BufferGeometry();
   geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
   const mat = new THREE.PointsMaterial({
     color,
-    size: DOT_SIZE_PX * dpr,
+    size: sizePx * dpr,
     sizeAttenuation: false,
     transparent: false,
   });
   return new THREE.Points(geom, mat);
+}
+
+// Convert lat/lon (degrees) to a unit-sphere xyz matching our candidate points.
+// Inverse of: lat = asin(y); lon = atan2(z, x) * 180/π
+function latLonToXYZ(lat, lon, radius = 1.002) {
+  const phi = (90 - lat) * Math.PI / 180;
+  const theta = lon * Math.PI / 180;
+  const r = radius * Math.sin(phi);
+  return [r * Math.cos(theta), radius * Math.cos(phi), r * Math.sin(theta)];
 }
 
 async function init() {
@@ -127,10 +139,18 @@ async function init() {
     new THREE.MeshBasicMaterial({ color: FILL_COLOR })
   );
 
+  // Client project markers — Ore-colored highlights at each lat/lon
+  const projectPos = [];
+  for (const p of CLIENT_PROJECTS) {
+    const [px, py, pz] = latLonToXYZ(p.lat, p.lon);
+    projectPos.push(px, py, pz);
+  }
+
   const group = new THREE.Group();
   group.add(fillSphere);
   group.add(makePoints(oceanPos, OCEAN_COLOR, dpr));
   group.add(makePoints(landPos, CONTINENT_COLOR, dpr));
+  group.add(makePoints(projectPos, PROJECT_COLOR, dpr, PROJECT_SIZE_PX));
   group.rotation.x = INITIAL_TILT_X;
   group.rotation.y = INITIAL_ROT_Y;
   scene.add(group);
