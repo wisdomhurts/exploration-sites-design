@@ -526,7 +526,7 @@
     }
 
     .hero-globe-canvas.is-active {
-      opacity: 0.5;
+      opacity: 1;
     }
 
     @media (max-width: 767px) {
