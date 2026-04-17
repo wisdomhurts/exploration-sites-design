@@ -27,11 +27,12 @@ const MAGNET_RADIUS  = 160;         // px — within this distance the pin attra
 const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
 const PIN_MAX_SCALE  = 4;           // 400% peak scale at peak attraction
 
-// Orientation — north directly up (no tilt), Western Canada centered.
-// Camera looks down −Z, so camera-facing local lon = α + 90°.
-// For lon ≈ −120° (Western Canada) we need α ≈ 2.62 rad.
+// Orientation — north directly up, Western Canada centered.
+// With the geographic convention x=cos(lat)·sin(lon), z=cos(lat)·cos(lon),
+// camera at +Z sees lon=0 at center. To center lon=−120° (Victoria BC) we
+// rotate the globe by α = +120° = 2π/3.
 const INITIAL_TILT_X = 0;           // true north up
-const INITIAL_ROT_Y  = 2.62;        // ≈ 150° — lon 120°W faces camera
+const INITIAL_ROT_Y  = 2 * Math.PI / 3;  // = 2.094 rad, puts lon −120° at world +Z
 
 // Camera
 const CAMERA_FOV     = 26;
@@ -90,11 +91,18 @@ function fibonacciPoints(n) {
   return pts;
 }
 
+// Geographic → scene position: north pole = +Y, lon=0 meridian = +Z,
+// lon=+90°E = +X. This matches how we decode lon from Fibonacci candidates
+// below (`atan2(x, z)`), so east is always to the viewer's right.
 function latLonToXYZ(lat, lon, radius = 1.002) {
-  const phi = (90 - lat) * Math.PI / 180;
-  const theta = lon * Math.PI / 180;
-  const r = radius * Math.sin(phi);
-  return [r * Math.cos(theta), radius * Math.cos(phi), r * Math.sin(theta)];
+  const phi = lat * Math.PI / 180;
+  const lambda = lon * Math.PI / 180;
+  const cosLat = Math.cos(phi);
+  return [
+    radius * cosLat * Math.sin(lambda),
+    radius * Math.sin(phi),
+    radius * cosLat * Math.cos(lambda),
+  ];
 }
 
 // Shared uniforms so all three Points meshes repel together in lockstep.
@@ -171,8 +179,10 @@ async function init() {
   const landPos = [];
   const oceanPos = [];
   for (const [x, y, z] of candidates) {
+    // Geographic convention: x = cos(lat)·sin(lon), z = cos(lat)·cos(lon)
+    // ⇒ lon = atan2(x, z) so east (+lon) maps to the viewer's right (+X).
     const lat = Math.asin(y) * 180 / Math.PI;
-    const lon = Math.atan2(z, x) * 180 / Math.PI;
+    const lon = Math.atan2(x, z) * 180 / Math.PI;
     if (isLand(mask, lat, lon)) {
       landPos.push(x, y, z);
     } else {
