@@ -20,23 +20,27 @@ function init() {
 
   let phi = 0.5;
 
+  // Render at much higher resolution than display so each Fibonacci dot
+  // occupies fewer CSS pixels — gives visually tiny dots without needing
+  // cobe shader modifications. Combined with max mapSamples for density.
+  const RENDER_MULTIPLIER = 4;
   createGlobe(canvas, {
-    devicePixelRatio: Math.min(window.devicePixelRatio, 2),
-    width: size * 2,
-    height: size * 2,
+    devicePixelRatio: 2,
+    width: size * RENDER_MULTIPLIER,
+    height: size * RENDER_MULTIPLIER,
     phi,
-    theta: 0.18,
+    theta: 0,
     dark: 0,
     diffuse: 0,
     glowColor: QUARTZ,
     opacity: 1,
-    scale: 1.02,
+    scale: 1.22,                // 20% zoom
     offset: [0, 0],
     baseColor: VELLUM,
     markerColor: VELLUM,
-    mapSamples: 64000,
+    mapSamples: 128000,         // max density
     mapBrightness: 5,
-    mapBaseBrightness: 0.08,
+    mapBaseBrightness: 0.02,    // very faint ocean dots
     markers: [],
     onRender: (state) => {
       state.phi = phi;

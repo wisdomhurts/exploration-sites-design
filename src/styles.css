@@ -508,15 +508,16 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding-right: max(40px, calc(50vw - 620px));
+      padding-right: 0;
     }
 
     .hero-globe-canvas {
       display: block;
-      width: 620px;
-      height: 620px;
-      max-width: 70vw;
-      max-height: 70vw;
+      width: 760px;
+      height: 760px;
+      max-width: 62vw;
+      max-height: 90vh;
+      transform: translateX(8%);
       opacity: 0;
       transition: opacity 600ms ease-out;
     }
