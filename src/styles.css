@@ -511,13 +511,16 @@
       padding-right: 0;
     }
 
+    .hero-globe {
+      padding-right: 60px;
+    }
+
     .hero-globe-canvas {
       display: block;
-      width: 760px;
-      height: 760px;
-      max-width: 62vw;
-      max-height: 90vh;
-      transform: translateX(8%);
+      width: 720px;
+      height: 720px;
+      max-width: 52vw;
+      max-height: 92vh;
       opacity: 0;
       transition: opacity 600ms ease-out;
     }

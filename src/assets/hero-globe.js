@@ -21,15 +21,14 @@ function init() {
   let phi = 0.5;
 
   // Render at much higher resolution than display so each Fibonacci dot
-  // occupies fewer CSS pixels — gives visually tiny dots without needing
-  // cobe shader modifications. Combined with max mapSamples for density.
+  // occupies fewer CSS pixels.
   const RENDER_MULTIPLIER = 4;
   createGlobe(canvas, {
     devicePixelRatio: 2,
     width: size * RENDER_MULTIPLIER,
     height: size * RENDER_MULTIPLIER,
     phi,
-    theta: 0,
+    theta: 0.32,                // tilt hides north-pole Fibonacci convergence
     dark: 0,
     diffuse: 0,
     glowColor: QUARTZ,
@@ -38,9 +37,9 @@ function init() {
     offset: [0, 0],
     baseColor: VELLUM,
     markerColor: VELLUM,
-    mapSamples: 128000,         // max density
-    mapBrightness: 5,
-    mapBaseBrightness: 0.02,    // very faint ocean dots
+    mapSamples: 128000,
+    mapBrightness: 2.2,         // softer continent dots — same visual weight as ocean
+    mapBaseBrightness: 0.9,     // ocean nearly as bright as continents
     markers: [],
     onRender: (state) => {
       state.phi = phi;
