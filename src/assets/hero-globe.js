@@ -24,6 +24,12 @@ const MAGNET_RADIUS  = 160;         // px — within this distance the pin attra
 const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
 const PIN_MAX_SCALE  = 4;           // 400% peak scale at peak attraction
 
+// Pin-to-pin repulsion (only applied to pins currently attracted to the cursor,
+// so at rest pins sit exactly on their geographic coords; clusters only fan
+// out while the user is interacting with them).
+const REPEL_RADIUS     = 72;        // px — pins within this distance push apart
+const REPEL_ITERATIONS = 2;         // chain-cluster stabilization
+
 // Orientation — north directly up, Western Canada centered.
 // With the geographic convention x=cos(lat)·sin(lon), z=cos(lat)·cos(lon),
 // camera at +Z sees lon=0 at center. To center lon=−120° (Victoria BC) we
@@ -280,7 +286,7 @@ async function init() {
     if (!pins.length) return;
     group.updateMatrixWorld();
 
-    // Shared geometry for the batch — all pins live in the same parent/canvas
+    // Shared geometry
     const parentBox = pins[0].el.parentElement.getBoundingClientRect();
     const canvasBox = canvas.getBoundingClientRect();
     const offsetX = canvasBox.left - parentBox.left;
@@ -288,51 +294,90 @@ async function init() {
     const mx = mouseClientX - parentBox.left;
     const my = mouseClientY - parentBox.top;
 
+    // Pass 1 — project each pin, compute visibility, base screen position,
+    // and initial display position with cursor attraction.
     for (const pin of pins) {
       pin.world.copy(pin.local).applyMatrix4(group.matrixWorld);
+      pin.visible = pin.world.dot(camera.position) > 0;
+      if (!pin.visible) continue;
 
-      // Near-hemisphere visibility check
-      if (pin.world.dot(camera.position) <= 0) {
-        pin.el.classList.add('is-hidden');
-        pin.el.classList.remove('is-touched');
-        continue;
-      }
       pin.ndc.copy(pin.world).project(camera);
       if (Math.abs(pin.ndc.x) > 1.1 || Math.abs(pin.ndc.y) > 1.1) {
+        pin.visible = false;
+        continue;
+      }
+
+      pin.baseX = offsetX + (pin.ndc.x * 0.5 + 0.5) * canvasBox.width;
+      pin.baseY = offsetY + (-pin.ndc.y * 0.5 + 0.5) * canvasBox.height;
+
+      const dx = mx - pin.baseX;
+      const dy = my - pin.baseY;
+      const dist = Math.hypot(dx, dy);
+      pin.active = !isDragging && dist < MAGNET_RADIUS;
+
+      if (pin.active) {
+        const t = 1 - dist / MAGNET_RADIUS;
+        const eased = t * t * (3 - 2 * t);
+        pin.scale    = 1 + eased * (PIN_MAX_SCALE - 1);
+        pin.displayX = pin.baseX + dx * eased * 0.7;
+        pin.displayY = pin.baseY + dy * eased * 0.7;
+      } else {
+        pin.scale = 1;
+        pin.displayX = pin.baseX;
+        pin.displayY = pin.baseY;
+      }
+    }
+
+    // Pass 2 — pair-wise repulsion. Only *active* pins move, but they repel
+    // from every visible pin (active or not) so clusters fan around the cursor
+    // without displacing stationary neighbors. Iterate a couple of times so
+    // chains of close pins settle rather than overshoot.
+    for (let iter = 0; iter < REPEL_ITERATIONS; iter++) {
+      for (const pin of pins) {
+        if (!pin.visible || !pin.active) continue;
+        let rx = 0, ry = 0;
+        for (const other of pins) {
+          if (other === pin || !other.visible) continue;
+          const dx = pin.displayX - other.displayX;
+          const dy = pin.displayY - other.displayY;
+          const d = Math.hypot(dx, dy);
+          if (d < REPEL_RADIUS && d > 0.001) {
+            // Move this pin half the overlap along the pin-to-pin axis.
+            // After one iteration two active pins will sit exactly REPEL_RADIUS apart.
+            const overlap = REPEL_RADIUS - d;
+            rx += (dx / d) * overlap * 0.5;
+            ry += (dy / d) * overlap * 0.5;
+          }
+        }
+        pin.displayX += rx;
+        pin.displayY += ry;
+      }
+    }
+
+    // Pass 3 — pick the single nearest active pin to the cursor for the
+    // tooltip. Prevents multiple tooltips showing when clusters overlap.
+    let touchedPin = null;
+    let bestEff = TOUCH_RADIUS;
+    for (const pin of pins) {
+      if (!pin.visible || !pin.active) continue;
+      const eff = Math.hypot(mx - pin.displayX, my - pin.displayY);
+      if (eff < bestEff) {
+        bestEff = eff;
+        touchedPin = pin;
+      }
+    }
+
+    // Pass 4 — commit styles.
+    for (const pin of pins) {
+      if (!pin.visible) {
         pin.el.classList.add('is-hidden');
         pin.el.classList.remove('is-touched');
         continue;
       }
       pin.el.classList.remove('is-hidden');
-
-      const baseX = offsetX + (pin.ndc.x * 0.5 + 0.5) * canvasBox.width;
-      const baseY = offsetY + (-pin.ndc.y * 0.5 + 0.5) * canvasBox.height;
-
-      let displayX = baseX;
-      let displayY = baseY;
-      let scale = 1;
-      let touched = false;
-
-      if (!isDragging) {
-        const dx = mx - baseX;
-        const dy = my - baseY;
-        const dist = Math.hypot(dx, dy);
-        if (dist < MAGNET_RADIUS) {
-          const t = 1 - dist / MAGNET_RADIUS;
-          const eased = t * t * (3 - 2 * t);
-          const pull = eased * 0.7;
-          displayX = baseX + dx * pull;
-          displayY = baseY + dy * pull;
-          scale = 1 + eased * (PIN_MAX_SCALE - 1);
-
-          const effDist = Math.hypot(mx - displayX, my - displayY);
-          if (effDist < TOUCH_RADIUS) touched = true;
-        }
-      }
-
-      pin.el.style.transform = `translate(${displayX}px, ${displayY}px)`;
-      pin.el.style.setProperty('--pin-scale', scale);
-      pin.el.classList.toggle('is-touched', touched);
+      pin.el.style.transform = `translate(${pin.displayX}px, ${pin.displayY}px)`;
+      pin.el.style.setProperty('--pin-scale', pin.scale);
+      pin.el.classList.toggle('is-touched', pin === touchedPin);
     }
   }
 
