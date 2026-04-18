@@ -551,6 +551,7 @@
       opacity: 0;
       pointer-events: none;
     }
+    .hero-globe-pin--ore { color: var(--ore); }
     .hero-globe-pin-dot {
       position: absolute;
       inset: 0;

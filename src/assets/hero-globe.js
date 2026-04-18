@@ -19,9 +19,6 @@ const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
 const FILL_COLOR      = 0xF4F1EC;   // Quartz
 const DOT_SIZE_PX     = 1;
 
-// Victoria, BC — Exploration Sites HQ (rendered as an HTML pin overlay)
-const VICTORIA = { lat: 48.4284, lon: -123.3656 };
-
 // Pin magnetism
 const MAGNET_RADIUS  = 160;         // px — within this distance the pin attracts
 const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
@@ -205,11 +202,17 @@ async function init() {
 
   // Victoria pin is an HTML element overlaid on the canvas (for magnetism,
   // scale animation, and tooltip). Projected each frame from 3D.
-  // Pin color (moss) is set in CSS via var(--moss).
-  const pin = document.querySelector('.hero-globe-pin');
-  const vicLocal = new THREE.Vector3(...latLonToXYZ(VICTORIA.lat, VICTORIA.lon));
-  const vicWorld = new THREE.Vector3();
-  const vicNDC   = new THREE.Vector3();
+  // Collect every .hero-globe-pin in the DOM and build a projection record
+  // for each. Coordinates come from data-lat / data-lon; color comes from CSS.
+  const pins = Array.from(document.querySelectorAll('.hero-globe-pin')).map(el => ({
+    el,
+    local: new THREE.Vector3(...latLonToXYZ(
+      parseFloat(el.dataset.lat),
+      parseFloat(el.dataset.lon)
+    )),
+    world: new THREE.Vector3(),
+    ndc:   new THREE.Vector3(),
+  }));
 
   // --- OrbitControls: drag-to-rotate + wheel zoom, idle auto-rotate ---
   const controls = new OrbitControls(camera, canvas);
@@ -273,69 +276,64 @@ async function init() {
   window.addEventListener('pointermove', onPointerMove, { passive: true });
   window.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
 
-  function updatePin() {
-    if (!pin) return;
+  function updatePins() {
+    if (!pins.length) return;
     group.updateMatrixWorld();
-    vicWorld.copy(vicLocal).applyMatrix4(group.matrixWorld);
 
-    // Is Victoria on the near hemisphere?
-    const frontSide = vicWorld.dot(camera.position) > 0;
-    if (!frontSide) {
-      pin.classList.add('is-hidden');
-      pin.classList.remove('is-touched');
-      return;
-    }
-
-    vicNDC.copy(vicWorld).project(camera);
-    if (Math.abs(vicNDC.x) > 1.1 || Math.abs(vicNDC.y) > 1.1) {
-      pin.classList.add('is-hidden');
-      pin.classList.remove('is-touched');
-      return;
-    }
-    pin.classList.remove('is-hidden');
-
-    // Pin's base screen position relative to pin's parent (.hero-globe)
-    const parentBox = pin.parentElement.getBoundingClientRect();
+    // Shared geometry for the batch — all pins live in the same parent/canvas
+    const parentBox = pins[0].el.parentElement.getBoundingClientRect();
     const canvasBox = canvas.getBoundingClientRect();
     const offsetX = canvasBox.left - parentBox.left;
     const offsetY = canvasBox.top  - parentBox.top;
-    const pinX = offsetX + (vicNDC.x * 0.5 + 0.5) * canvasBox.width;
-    const pinY = offsetY + (-vicNDC.y * 0.5 + 0.5) * canvasBox.height;
-
-    // Mouse in parent-relative space
     const mx = mouseClientX - parentBox.left;
     const my = mouseClientY - parentBox.top;
 
-    let displayX = pinX;
-    let displayY = pinY;
-    let scale = 1;
-    let touched = false;
+    for (const pin of pins) {
+      pin.world.copy(pin.local).applyMatrix4(group.matrixWorld);
 
-    if (!isDragging) {
-      const dx = mx - pinX;
-      const dy = my - pinY;
-      const dist = Math.hypot(dx, dy);
-      if (dist < MAGNET_RADIUS) {
-        const t = 1 - dist / MAGNET_RADIUS;
-        const eased = t * t * (3 - 2 * t);       // smoothstep
-        // Attract: lerp a fraction of the way toward the cursor
-        const pull = eased * 0.7;
-        displayX = pinX + dx * pull;
-        displayY = pinY + dy * pull;
-        scale = 1 + eased * (PIN_MAX_SCALE - 1);
+      // Near-hemisphere visibility check
+      if (pin.world.dot(camera.position) <= 0) {
+        pin.el.classList.add('is-hidden');
+        pin.el.classList.remove('is-touched');
+        continue;
+      }
+      pin.ndc.copy(pin.world).project(camera);
+      if (Math.abs(pin.ndc.x) > 1.1 || Math.abs(pin.ndc.y) > 1.1) {
+        pin.el.classList.add('is-hidden');
+        pin.el.classList.remove('is-touched');
+        continue;
+      }
+      pin.el.classList.remove('is-hidden');
 
-        const effDist = Math.hypot(mx - displayX, my - displayY);
-        if (effDist < TOUCH_RADIUS) {
-          touched = true;
+      const baseX = offsetX + (pin.ndc.x * 0.5 + 0.5) * canvasBox.width;
+      const baseY = offsetY + (-pin.ndc.y * 0.5 + 0.5) * canvasBox.height;
+
+      let displayX = baseX;
+      let displayY = baseY;
+      let scale = 1;
+      let touched = false;
+
+      if (!isDragging) {
+        const dx = mx - baseX;
+        const dy = my - baseY;
+        const dist = Math.hypot(dx, dy);
+        if (dist < MAGNET_RADIUS) {
+          const t = 1 - dist / MAGNET_RADIUS;
+          const eased = t * t * (3 - 2 * t);
+          const pull = eased * 0.7;
+          displayX = baseX + dx * pull;
+          displayY = baseY + dy * pull;
+          scale = 1 + eased * (PIN_MAX_SCALE - 1);
+
+          const effDist = Math.hypot(mx - displayX, my - displayY);
+          if (effDist < TOUCH_RADIUS) touched = true;
         }
       }
-    }
 
-    // Translate only on the pin container; scale is applied separately to the
-    // dot via a CSS custom property so the tooltip can grow at a different rate.
-    pin.style.transform = `translate(${displayX}px, ${displayY}px)`;
-    pin.style.setProperty('--pin-scale', scale);
-    pin.classList.toggle('is-touched', touched);
+      pin.el.style.transform = `translate(${displayX}px, ${displayY}px)`;
+      pin.el.style.setProperty('--pin-scale', scale);
+      pin.el.classList.toggle('is-touched', touched);
+    }
   }
 
   function frame() {
@@ -347,7 +345,7 @@ async function init() {
     sharedUniforms.uStrength.value += (targetStrength - sharedUniforms.uStrength.value) * MOUSE_LERP;
     sharedUniforms.uMouse.value.lerp(targetMouseLocal, MOUSE_LERP);
 
-    updatePin();
+    updatePins();
 
     renderer.render(scene, camera);
     requestAnimationFrame(frame);
