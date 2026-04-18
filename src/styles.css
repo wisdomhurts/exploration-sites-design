@@ -15,6 +15,7 @@
       --vellum: #E8E2D5;       /* 8% — Warm light, alternating sections */
       --graticule: #C8C2B4;    /* 8% — Hairline rules, muted text, map grids */
       --ore: #B8823A;          /* ≤2% — Restrained accent. Earns its appearances */
+      --moss: #5F7052;         /* Muted sage moss. Used for active-project markers. */
 
       /* --- SEMANTIC ALIASES --- */
       --ice: #B8823A;          /* Legacy alias for --ore */
@@ -537,7 +538,7 @@
       width: 12px;
       height: 12px;
       margin: -6px 0 0 -6px;
-      color: var(--basalt);
+      color: var(--moss);
       text-decoration: none;
       cursor: pointer;
       pointer-events: auto;
@@ -563,19 +564,19 @@
        rather than ballooning to 4× when the dot is at peak magnetism. */
     .hero-globe-pin-tooltip {
       position: absolute;
-      bottom: calc(100% + 14px + max(0px, (var(--pin-scale, 1) - 1) * 6px));
+      bottom: calc(100% + 10px + max(0px, (var(--pin-scale, 1) - 1) * 6px));
       left: 50%;
       white-space: nowrap;
       background: var(--graphite);
       color: var(--quartz);
-      padding: 7px 12px;
-      border-radius: 4px;
+      padding: 3px 7px;
+      border-radius: 3px;
       font-family: var(--font-sans);
-      font-size: 12px;
+      font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.02em;
       opacity: 0;
-      transform: translate(-50%, 6px) scale(calc(0.7 * (1 + (var(--pin-scale, 1) - 1) * 0.25)));
+      transform: translate(-50%, 4px) scale(calc(0.7 * (1 + (var(--pin-scale, 1) - 1) * 0.25)));
       transform-origin: bottom center;
       transition: opacity 220ms cubic-bezier(.2,.8,.2,1),
                   transform 220ms cubic-bezier(.2,.8,.2,1),
@@ -588,7 +589,7 @@
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      border: 4px solid transparent;
+      border: 3px solid transparent;
       border-top-color: var(--graphite);
     }
     .hero-globe-pin.is-touched .hero-globe-pin-tooltip {
@@ -609,6 +610,9 @@
       transform: translateX(-280px);
       opacity: 0;
       transition: opacity 600ms ease-out;
+      /* Soften the silhouette — outer ~24% of the canvas fades into the page. */
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 76%, transparent 100%);
+              mask-image: radial-gradient(circle at 50% 50%, #000 76%, transparent 100%);
     }
 
     .hero-globe-canvas.is-active {
@@ -751,6 +755,90 @@
       line-height: 1.15;
       letter-spacing: -0.02em;
       color: var(--graphite);
+    }
+
+    /* --- SERVICES EDITORIAL (homepage What We Do) ---
+       Numbered, full-width index with 4-column grid: number / name / description / arrow.
+       Hairline rules between rows. Hover nudges the whole row right by 12px. */
+    .services-editorial-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      margin-bottom: 48px;
+      align-items: baseline;
+    }
+    .services-editorial-head .section-headline {
+      max-width: 640px;
+    }
+    .services-editorial-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding: 0;
+      margin: 0;
+    }
+    .services-editorial-list > li {
+      border-bottom: 1px solid var(--border);
+    }
+    .services-editorial-row {
+      display: grid;
+      grid-template-columns: 72px 1.1fr 2fr 28px;
+      gap: 40px;
+      align-items: baseline;
+      padding: 26px 0;
+      text-decoration: none;
+      color: var(--graphite);
+      transition: padding-left 0.28s cubic-bezier(.2,.8,.2,1);
+    }
+    .services-editorial-row:hover {
+      padding-left: 12px;
+    }
+    .services-editorial-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .services-editorial-name {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+    }
+    .services-editorial-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--body);
+    }
+    .services-editorial-arrow {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--muted);
+      text-align: right;
+      transition: transform 0.28s cubic-bezier(.2,.8,.2,1), color 0.2s ease;
+    }
+    .services-editorial-row:hover .services-editorial-arrow {
+      transform: translateX(6px);
+      color: var(--ore);
+    }
+    @media (max-width: 900px) {
+      .services-editorial-head {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .services-editorial-row {
+        grid-template-columns: 44px 1fr 18px;
+        grid-template-areas:
+          "num name arrow"
+          ".   desc desc";
+        gap: 10px 16px;
+        padding: 20px 0;
+      }
+      .services-editorial-num  { grid-area: num; }
+      .services-editorial-name { grid-area: name; font-size: 24px; }
+      .services-editorial-desc { grid-area: desc; font-size: 13px; }
+      .services-editorial-arrow{ grid-area: arrow; }
     }
 
     /* --- SERVICE ROWS --- */

@@ -205,6 +205,7 @@ async function init() {
 
   // Victoria pin is an HTML element overlaid on the canvas (for magnetism,
   // scale animation, and tooltip). Projected each frame from 3D.
+  // Pin color (moss) is set in CSS via var(--moss).
   const pin = document.querySelector('.hero-globe-pin');
   const vicLocal = new THREE.Vector3(...latLonToXYZ(VICTORIA.lat, VICTORIA.lon));
   const vicWorld = new THREE.Vector3();
