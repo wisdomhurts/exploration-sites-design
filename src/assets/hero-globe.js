@@ -22,7 +22,7 @@ const DOT_SIZE_PX     = 1;
 // Pin magnetism
 const MAGNET_RADIUS  = 160;         // px — within this distance the pin attracts
 const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
-const PIN_MAX_SCALE  = 4;           // 400% peak scale at peak attraction
+const PIN_MAX_SCALE  = 2.5;         // 250% peak scale at peak attraction
 
 // Pin-to-pin repulsion (only applied to pins currently attracted to the cursor,
 // so at rest pins sit exactly on their geographic coords; clusters only fan
@@ -50,7 +50,7 @@ const AUTO_ROTATE_SPEED = -1.2;
 
 // Mouse repulsion
 const MOUSE_RADIUS   = 0.35;
-const MOUSE_STRENGTH = 0.28;
+const MOUSE_STRENGTH = 0.21;       // 75% of previous 0.28 — gentler repulsion
 const MOUSE_LERP     = 0.30;
 
 async function loadMask(url) {
