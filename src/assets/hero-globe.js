@@ -20,9 +20,10 @@ const FILL_COLOR      = 0xF4F1EC;   // Quartz
 const DOT_SIZE_PX     = 1;
 
 // Pin magnetism
-const MAGNET_RADIUS  = 160;         // px — within this distance the pin attracts
-const TOUCH_RADIUS   = 28;          // px — tooltip appears when effective distance is ≤ this
+const MAGNET_RADIUS  = 80;          // px — within this distance the pin attracts (halved from 160)
+const TOUCH_RADIUS   = 24;          // px — tooltip gated on cursor↔base distance, not display
 const PIN_MAX_SCALE  = 2.5;         // 250% peak scale at peak attraction
+const RELEASE_LERP   = 0.18;        // how fast an inactive pin glides back to its geographic home
 
 // Pin-to-pin repulsion (only applied to pins currently attracted to the cursor,
 // so at rest pins sit exactly on their geographic coords; clusters only fan
@@ -218,6 +219,10 @@ async function init() {
     )),
     world: new THREE.Vector3(),
     ndc:   new THREE.Vector3(),
+    // Current displayed state (smoothed). `null` until first projection.
+    displayX: null,
+    displayY: null,
+    scale:    1,
   }));
 
   // --- OrbitControls: drag-to-rotate + wheel zoom, idle auto-rotate ---
@@ -295,7 +300,9 @@ async function init() {
     const my = mouseClientY - parentBox.top;
 
     // Pass 1 — project each pin, compute visibility, base screen position,
-    // and initial display position with cursor attraction.
+    // and the attracted target. Active pins snap to their attracted target;
+    // inactive pins glide back toward their base so rotation smoothly
+    // releases the highlight instead of snapping it off.
     for (const pin of pins) {
       pin.world.copy(pin.local).applyMatrix4(group.matrixWorld);
       pin.visible = pin.world.dot(camera.position) > 0;
@@ -312,19 +319,26 @@ async function init() {
 
       const dx = mx - pin.baseX;
       const dy = my - pin.baseY;
-      const dist = Math.hypot(dx, dy);
-      pin.active = !isDragging && dist < MAGNET_RADIUS;
+      pin.baseDist = Math.hypot(dx, dy);
+      pin.active = !isDragging && pin.baseDist < MAGNET_RADIUS;
 
-      if (pin.active) {
-        const t = 1 - dist / MAGNET_RADIUS;
-        const eased = t * t * (3 - 2 * t);
-        pin.scale    = 1 + eased * (PIN_MAX_SCALE - 1);
-        pin.displayX = pin.baseX + dx * eased * 0.7;
-        pin.displayY = pin.baseY + dy * eased * 0.7;
-      } else {
-        pin.scale = 1;
+      // First frame: seed display at base so the initial render doesn't glide in.
+      if (pin.displayX === null) {
         pin.displayX = pin.baseX;
         pin.displayY = pin.baseY;
+      }
+
+      if (pin.active) {
+        const t = 1 - pin.baseDist / MAGNET_RADIUS;
+        const eased = t * t * (3 - 2 * t);
+        pin.displayX = pin.baseX + dx * eased * 0.7;
+        pin.displayY = pin.baseY + dy * eased * 0.7;
+        pin.scale    = 1 + eased * (PIN_MAX_SCALE - 1);
+      } else {
+        // Smooth glide back to geographic home
+        pin.displayX += (pin.baseX - pin.displayX) * RELEASE_LERP;
+        pin.displayY += (pin.baseY - pin.displayY) * RELEASE_LERP;
+        pin.scale    += (1 - pin.scale) * RELEASE_LERP;
       }
     }
 
@@ -354,15 +368,16 @@ async function init() {
       }
     }
 
-    // Pass 3 — pick the single nearest active pin to the cursor for the
-    // tooltip. Prevents multiple tooltips showing when clusters overlap.
+    // Pass 3 — pick the tooltip pin. Gate on the cursor's distance to the
+    // BASE (geographic) position, not the attracted display position. That
+    // way auto-rotate naturally releases the highlight as soon as the pin's
+    // geographic home has moved far enough from the cursor.
     let touchedPin = null;
-    let bestEff = TOUCH_RADIUS;
+    let bestBaseDist = TOUCH_RADIUS;
     for (const pin of pins) {
       if (!pin.visible || !pin.active) continue;
-      const eff = Math.hypot(mx - pin.displayX, my - pin.displayY);
-      if (eff < bestEff) {
-        bestEff = eff;
+      if (pin.baseDist < bestBaseDist) {
+        bestBaseDist = pin.baseDist;
         touchedPin = pin;
       }
     }
