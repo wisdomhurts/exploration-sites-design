@@ -27,7 +27,7 @@ const PIN_MAX_SCALE  = 2.5;         // 250% peak scale at peak attraction
 // Pin-to-pin repulsion (only applied to pins currently attracted to the cursor,
 // so at rest pins sit exactly on their geographic coords; clusters only fan
 // out while the user is interacting with them).
-const REPEL_RADIUS     = 72;        // px — pins within this distance push apart
+const REPEL_RADIUS     = 36;        // px — pins within this distance push apart (halved from 72)
 const REPEL_ITERATIONS = 2;         // chain-cluster stabilization
 
 // Orientation — north directly up, Western Canada centered.
@@ -50,7 +50,7 @@ const AUTO_ROTATE_SPEED = -1.2;
 
 // Mouse repulsion
 const MOUSE_RADIUS   = 0.35;
-const MOUSE_STRENGTH = 0.21;       // 75% of previous 0.28 — gentler repulsion
+const MOUSE_STRENGTH = 0.28;
 const MOUSE_LERP     = 0.30;
 
 async function loadMask(url) {
