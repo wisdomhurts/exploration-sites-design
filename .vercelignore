@@ -1,25 +1,62 @@
 .git
 .DS_Store
-.agents
-.claude
 .vscode
-.firecrawl
 .mcp.json
-Claude-Memory
-ES Brand
-ES Client Work
-Map Review
-Sitka
-awesome-design-md
-health-metrics
-skills
-headshots
-notion
+
+# Dotfolders created by AI-agent skill installers
+.adal
+.agents
+.augment
+.bob
+.cascade
+.claude
+.cline
+.codebuddy
+.codex
+.commandcode
+.continue
+.cortex
+.crush
+.cursor
+.factory
+.firecrawl
+.gemini
+.goose
+.github
+.opencode
+.plandex
+.q
+.roo
+.ruler
+.serena
+.sourcegraph
+.windsurf
+
+# Root-level data dirs only (leading slash anchors to root so src/images/headshots/ is NOT matched)
+/Claude-Memory
+/ES Brand
+/ES Client Work
+/Map Review
+/Sitka
+/awesome-design-md
+/health-metrics
+/skills
+/headshots
+/notion
+/es site
+
+# Large binary source assets anywhere
 *.blend1
+*.blend
 *.psd
+*.psb
 *.docx
 *.xls
-*.jpg
-*.html
-!src/**
-!public/**
+*.xlsx
+
+# Top-level globe renders only
+/globe_*.jpg
+/globe_*.png
+
+# Phantom broken-ACL directory (rebuild artifact)
+src/assets/globe
