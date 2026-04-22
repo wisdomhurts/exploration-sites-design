@@ -26,4 +26,161 @@
       });
     }
 
+    // Scroll-triggered entry for marked elements
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-revealed'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+    })();
+
+    // Animated count-up numbers
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('[data-count-to]');
+      if (!els.length) return;
+      function format(val, decimals, prefix, suffix) {
+        var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+        if (decimals === 0) {
+          n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        return (prefix || '') + n + (suffix || '');
+      }
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-count-to'));
+        var decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-count-prefix') || '';
+        var suffix = el.getAttribute('data-count-suffix') || '';
+        if (prefersReduced || isNaN(target)) {
+          el.textContent = format(target, decimals, prefix, suffix);
+          return;
+        }
+        var duration = 1400;
+        var start = performance.now();
+        function tick(now) {
+          var t = Math.min(1, (now - start) / duration);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = format(target * eased, decimals, prefix, suffix);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(animate);
+        return;
+      }
+      var countIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { countIo.observe(el); });
+    })();
+
+    // Scroll-pinned case: track current step
+    (function () {
+      var pinned = document.querySelector('[data-pinned]');
+      if (!pinned) return;
+      var steps = pinned.querySelectorAll('.pinned-case-step');
+      var indicator = pinned.querySelector('[data-current-step]');
+      if (!steps.length || !indicator) return;
+      if (!('IntersectionObserver' in window)) {
+        steps.forEach(function (s) { s.classList.add('is-current'); });
+        return;
+      }
+      var pio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            steps.forEach(function (s) { s.classList.remove('is-current'); });
+            entry.target.classList.add('is-current');
+            var step = entry.target.getAttribute('data-step');
+            if (step) indicator.textContent = step;
+          }
+        });
+      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+      steps.forEach(function (s) { pio.observe(s); });
+    })();
+
+    // Timeline activation
+    (function () {
+      var timelines = document.querySelectorAll('[data-timeline]');
+      if (!timelines.length) return;
+      if (!('IntersectionObserver' in window)) {
+        timelines.forEach(function (t) { t.classList.add('is-active'); });
+        return;
+      }
+      var tio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            tio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      timelines.forEach(function (t) { tio.observe(t); });
+    })();
+
+    // Before/after compare slider
+    (function () {
+      var containers = document.querySelectorAll('.compare');
+      if (!containers.length) return;
+      containers.forEach(function (c) {
+        var handle = c.querySelector('.compare-handle');
+        if (!handle) return;
+        var isDragging = false;
+        function setPos(pct) {
+          pct = Math.max(0, Math.min(100, pct));
+          c.style.setProperty('--compare-pos', pct + '%');
+          handle.setAttribute('aria-valuenow', Math.round(pct));
+        }
+        function fromClientX(x) {
+          var rect = c.getBoundingClientRect();
+          setPos(((x - rect.left) / rect.width) * 100);
+        }
+        function onDown(e) {
+          isDragging = true;
+          c.style.cursor = 'ew-resize';
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+          e.preventDefault();
+        }
+        function onMove(e) {
+          if (!isDragging) return;
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+        }
+        function onUp() { isDragging = false; c.style.cursor = ''; }
+        handle.addEventListener('mousedown', onDown);
+        handle.addEventListener('touchstart', onDown, { passive: false });
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, { passive: true });
+        window.addEventListener('mouseup', onUp);
+        window.addEventListener('touchend', onUp);
+        c.addEventListener('click', function (e) {
+          if (e.target === handle || handle.contains(e.target)) return;
+          fromClientX(e.clientX);
+        });
+        handle.addEventListener('keydown', function (e) {
+          var current = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
+          var step = e.shiftKey ? 10 : 2;
+          if (e.key === 'ArrowLeft') { setPos(current - step); e.preventDefault(); }
+          else if (e.key === 'ArrowRight') { setPos(current + step); e.preventDefault(); }
+          else if (e.key === 'Home') { setPos(0); e.preventDefault(); }
+          else if (e.key === 'End') { setPos(100); e.preventDefault(); }
+        });
+      });
+    })();
   </script>

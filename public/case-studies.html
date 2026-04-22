@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
 
 </head>
 <body>
@@ -40,31 +49,21 @@
               <div class="mega-menu-sidebar">
                 <a href="services.html" class="mega-menu-tab is-active" data-tab="maps">
                   <div class="mega-menu-tab-title">Investor Maps</div>
-                  <div class="mega-menu-tab-sub">7 map types</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="websites">
                   <div class="mega-menu-tab-title">Websites</div>
-                  <div class="mega-menu-tab-sub">Webflow &middot; WordPress</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="presentations">
                   <div class="mega-menu-tab-title">Presentations</div>
-                  <div class="mega-menu-tab-sub">Decks &middot; Collateral</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="motion">
-                  <div class="mega-menu-tab-title">Motion &amp; 3D</div>
-                  <div class="mega-menu-tab-sub">Flyovers &middot; Animation</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="design">
                   <div class="mega-menu-tab-title">Design</div>
-                  <div class="mega-menu-tab-sub">Brand &middot; Infographics</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="investorhub">
                   <div class="mega-menu-tab-title">Investor Hub</div>
-                  <div class="mega-menu-tab-sub">CRM &middot; Analytics &middot; Webinars</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="socials">
                   <div class="mega-menu-tab-title">Socials</div>
-                  <div class="mega-menu-tab-sub">Strategy &middot; AI Content</div>
                 </a>
               </div>
               <div class="mega-menu-content">
@@ -73,149 +72,97 @@
                   <div class="mega-menu-content-header">Investor Map Types</div>
                   <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Locator Maps</div>
-                      <div class="mega-menu-card-desc">Regional context for property location</div>
+                      <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Area Plays</div>
-                      <div class="mega-menu-card-desc">District-scale geology and land position</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Property &amp; Claim Maps</div>
-                      <div class="mega-menu-card-desc">Claim boundaries and infrastructure</div>
+                      <div class="mega-menu-card-title">Property &amp; Target Maps</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Geo / Geochem / Geophys</div>
-                      <div class="mega-menu-card-desc">Lithology, assay contours, magnetics &amp; EM</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Sections &amp; Long Sections</div>
-                      <div class="mega-menu-card-desc">Drill collar and interval visualization</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Models &amp; Block Models</div>
-                      <div class="mega-menu-card-desc">Resource model and drill hole renders</div>
+                      <div class="mega-menu-card-title">3D Models</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conceptual &amp; Schematic</div>
-                      <div class="mega-menu-card-desc">Custom figures for technical reports and presentations</div>
                     </a>
                   </div>
                 </div>
                 <!-- Websites Panel -->
                 <div class="mega-menu-tab-panel" id="panel-websites">
                   <div class="mega-menu-content-header">Web Platforms &amp; Support</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webflow</div>
-                      <div class="mega-menu-card-desc">Design-forward sites with cinematic motion and interactive project maps</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">WordPress</div>
-                      <div class="mega-menu-card-desc">CMS-driven builds with investor portal, news feed, and full content control</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Updates</div>
-                      <div class="mega-menu-card-desc">Ongoing content changes, press releases, and page additions</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Hosting</div>
-                      <div class="mega-menu-card-desc">24-hour backups, SSL, live metal prices, stock quotes &amp; charts</div>
                     </a>
                   </div>
                 </div>
                 <!-- Presentations Panel -->
                 <div class="mega-menu-tab-panel" id="panel-presentations">
                   <div class="mega-menu-content-header">Presentations &amp; Collateral</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Deck</div>
-                      <div class="mega-menu-card-desc">Pitch decks built for boardrooms and roadshows</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Development Deck</div>
-                      <div class="mega-menu-card-desc">Full build with data analysis, animation, and interactive elements</div>
+                      <div class="mega-menu-card-title">Fact Sheets</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Fact Sheet</div>
-                      <div class="mega-menu-card-desc">One-page property summary for investors</div>
+                      <div class="mega-menu-card-title">GIS Movies</div>
                     </a>
                   </div>
-                </div>
-                <!-- Motion & 3D Panel -->
-                <div class="mega-menu-tab-panel" id="panel-motion">
-                  <div class="mega-menu-content-header">Motion &amp; 3D</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Property Flyovers</div>
-                      <div class="mega-menu-card-desc">Aerial visualization from DEM data and satellite imagery</div>
-                    </a>
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Animated Models</div>
-                      <div class="mega-menu-card-desc">Geological models and mineralization envelopes brought to life</div>
-                    </a>
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Cinematic Site Videos</div>
-                      <div class="mega-menu-card-desc">Professional site documentation and investor-ready video content</div>
-                    </a>
-                  </div>
-                  <a href="contact.html" class="mega-menu-footer-link">Contact for quote &rarr;</a>
                 </div>
                 <!-- Design Panel -->
                 <div class="mega-menu-tab-panel" id="panel-design">
                   <div class="mega-menu-content-header">Design &amp; Brand</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Logos &amp; Branding</div>
-                      <div class="mega-menu-card-desc">Complete visual identity system built for resource companies</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Infographics</div>
-                      <div class="mega-menu-card-desc">Custom data visualizations, process diagrams, and visual explainers</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Fact Sheets</div>
-                      <div class="mega-menu-card-desc">Condensed investor-ready property and corporate summaries</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conference / Booth Design</div>
-                      <div class="mega-menu-card-desc">Banners, displays, and booth graphics for trade shows and conferences</div>
                     </a>
                   </div>
                 </div>
                 <!-- Investor Hub Panel -->
                 <div class="mega-menu-tab-panel" id="panel-investorhub">
                   <div class="mega-menu-content-header">Investor Hub</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">CRM</div>
-                      <div class="mega-menu-card-desc">Investor relations platform with contact management and outreach tracking</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Analytics</div>
-                      <div class="mega-menu-card-desc">Engagement tracking, website metrics, and monthly insights reporting</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Nurture</div>
-                      <div class="mega-menu-card-desc">Email campaigns, news distribution, and automated investor communications</div>
                     </a>
                     <a href="contact.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webinars</div>
-                      <div class="mega-menu-card-desc">Produced investor webinars with branded content, hosted on your platform</div>
                     </a>
                   </div>
                 </div>
                 <!-- Socials Panel -->
                 <div class="mega-menu-tab-panel" id="panel-socials">
                   <div class="mega-menu-content-header">Social Media</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Strategy / Managed</div>
-                      <div class="mega-menu-card-desc">Content creation, scheduling, and community management across all channels</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">AI / Exploration Today</div>
-                      <div class="mega-menu-card-desc">AI-curated mining news, market context, and commodity intel for your audience</div>
+                      <div class="mega-menu-card-title">Exploration Today</div>
                     </a>
                   </div>
                 </div>
@@ -229,7 +176,6 @@
         <li><a href="case-studies.html">Case Studies</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html" class="nav-cta">Inquire</a></li>
       </ul>
       <button class="nav-hamburger" onclick="document.querySelector('.nav-mobile-overlay').classList.add('is-open');document.querySelector('.nav-mobile-panel').classList.add('is-open');" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -262,45 +208,81 @@
   <div class="page" id="main">
     
     <!-- PAGE HERO -->
-    <section class="hero" style="padding: 40px 0 24px;">
-      <h1 class="hero-headline" style="font-size: 48px;">Case Studies</h1>
-      <p class="hero-body">The geology never changed. The comprehension did.</p>
+    <section class="case-hero">
+      <canvas class="paper-shader" aria-hidden="true"></canvas>
+      <div class="case-hero-inner">
+        <div class="section-label">Case Studies</div>
+        <h1 class="case-hero-headline">The geology never changed.<br><em>The comprehension did.</em></h1>
+        <p class="case-hero-body">Five clients. Years of investor-grade communication. A pattern that repeats: when the story becomes legible, capital finds the rocks.</p>
+        <dl class="case-kpis">
+          <div>
+            <dt>Combined market-cap uplift</dt>
+            <dd>~$8.8B</dd>
+          </div>
+          <div>
+            <dt>Largest multiplier</dt>
+            <dd>90&times;</dd>
+          </div>
+          <div>
+            <dt>Featured cases</dt>
+            <dd>5</dd>
+          </div>
+          <div>
+            <dt>Projects since 1994</dt>
+            <dd>500+</dd>
+          </div>
+        </dl>
+      </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- MONTAGE GOLD -->
-    <section class="section">
-      <div class="section-grid-3col">
-        <div>
-          <img src="images/clients/montage.avif" alt="Montage Gold" class="case-logo" width="260" height="196">
-          <h2 class="section-headline">$67M &rarr; $6.0B</h2>
-          <p class="case-multiplier">90x</p>
-        </div>
-        <div>
-          <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSX:</span> <span style="font-weight: 700;">MAU</span></span>
-            <div>
-              <div class="principle-title">Client since November 2021</div>
-              <p class="principle-desc">We produced the investor <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">maps</a> for Montage as they defined their Kon&eacute; Gold deposit in C&ocirc;te d'Ivoire &mdash; <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">locators</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">property maps</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">geological maps</a>, and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">cross sections</a> used in their <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">corporate presentations</a> and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">news releases</a> through every stage of the resource's growth.</p>
-            </div>
+    <!-- MONTAGE GOLD (scroll-pinned) -->
+    <section class="pinned-case" data-pinned>
+      <div class="pinned-case-visual">
+        <div class="pinned-case-sticky">
+          <div class="pinned-case-eyebrow">Featured case</div>
+          <img src="images/clients/montage.avif" alt="Montage Gold" class="pinned-case-logo">
+          <div class="pinned-case-headline">$67M &rarr; $6.0B</div>
+          <div class="pinned-case-multiplier">90x</div>
+          <div class="pinned-case-meta">
+            <span class="pinned-case-ticker">TSX:MAU</span>
+            <span class="pinned-case-dot-sep" aria-hidden="true">&middot;</span>
+            <span>Client since Nov 2021</span>
           </div>
-          <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center;">Result</span>
-            <div>
-              <p class="principle-desc">From a $67M junior explorer to a $6 billion gold developer. Same deposit. Same management. The story became investable.</p>
-            </div>
-          </div>
-        </div>
-        <div class="tv-chart-col">
-          <div class="tradingview-widget-container" style="height: 100%; min-height: 300px;">
+          <div class="pinned-case-chart" id="pinned-chart-container">
             <div id="tv-chart-mau" style="height: 100%;"><p class="sr-only">Stock chart for TSX:MAU</p></div>
             <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
             <script type="text/javascript">
             new TradingView.widget({"container_id":"tv-chart-mau","symbol":"TSX:MAU","interval":"W","range":"60M","timezone":"America/Vancouver","theme":"light","style":"3","locale":"en","hide_top_toolbar":true,"hide_legend":true,"allow_symbol_change":false,"save_image":false,"hide_volume":true,"support_host":"https://www.tradingview.com","width":"100%","height":"100%","backgroundColor":"rgba(244,241,236,1)","gridColor":"rgba(200,194,180,0.08)","overrides":{"paneProperties.background":"rgba(244,241,236,1)","paneProperties.backgroundType":"solid","mainSeriesProperties.areaStyle.color1":"rgba(184,130,58,0.12)","mainSeriesProperties.areaStyle.color2":"rgba(184,130,58,0.01)","mainSeriesProperties.areaStyle.linecolor":"#B8823A","mainSeriesProperties.areaStyle.linewidth":1,"scalesProperties.textColor":"rgba(90,95,99,0.5)","scalesProperties.borderColor":"rgba(0,0,0,0)"}});
             </script>
           </div>
+          <div class="pinned-case-indicator" aria-hidden="true">
+            <span class="pinned-case-indicator-label">Step</span>
+            <span class="pinned-case-indicator-num" data-current-step>01</span>
+            <span class="pinned-case-indicator-total">/ 04</span>
+          </div>
         </div>
+      </div>
+      <div class="pinned-case-narrative">
+        <article class="pinned-case-step" data-step="01">
+          <div class="pinned-case-step-num">01 &mdash; The deposit</div>
+          <h3 class="pinned-case-step-title">Kon&eacute; Gold, C&ocirc;te d&rsquo;Ivoire.</h3>
+          <p class="pinned-case-step-body">A West African gold system that most investors wouldn&rsquo;t find on a map. The geology was strong. The story wasn&rsquo;t legible.</p>
+        </article>
+        <article class="pinned-case-step" data-step="02">
+          <div class="pinned-case-step-num">02 &mdash; The work</div>
+          <h3 class="pinned-case-step-title">Locators, property maps, cross-sections.</h3>
+          <p class="pinned-case-step-body">We produced the <a href="services.html">investor maps</a> that carried every resource update &mdash; from first inferred ounces through each expansion. The same visual language appeared in <a href="services.html">corporate presentations</a>, news releases, and roadshow decks.</p>
+        </article>
+        <article class="pinned-case-step" data-step="03">
+          <div class="pinned-case-step-num">03 &mdash; The growth</div>
+          <h3 class="pinned-case-step-title">Every stage, consistently told.</h3>
+          <p class="pinned-case-step-body">As the resource grew, the visuals scaled with it. Institutional investors could read the story at a glance because the visual system had been engineered to communicate scale, grade, and continuity without translation.</p>
+        </article>
+        <article class="pinned-case-step" data-step="04">
+          <div class="pinned-case-step-num">04 &mdash; The result</div>
+          <h3 class="pinned-case-step-title">$67M to $6.0B. 90x.</h3>
+          <p class="pinned-case-step-body">Same deposit. Same management. The story became investable. This is what happens when geology is translated into the language capital markets already speak.</p>
+        </article>
       </div>
     </section>
 
@@ -316,14 +298,14 @@
         </div>
         <div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">FWZ</span></span>
+            <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">FWZ</span></span>
             <div>
               <div class="principle-title">Client since 2018</div>
-              <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">maps</a> and run their <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">website</a> &mdash; from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit.</p>
+              <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" class="case-link">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="services.html" class="case-link">maps</a> and run their <a href="services.html" class="case-link">website</a> &mdash; from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit.</p>
             </div>
           </div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center;">Result</span>
+            <span class="case-label">Result</span>
             <div>
               <p class="principle-desc">From $16.5M to over $1 billion. Secured $35.4M in joint US-Canadian government funding. Seven years of investable communication.</p>
             </div>
@@ -352,14 +334,14 @@
         </div>
         <div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">WRLG</span></span>
+            <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">WRLG</span></span>
             <div>
               <div class="principle-title">Client since August 2023</div>
-              <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">logo</a>, business cards, Christmas cards, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">tradeshow booth</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">fact sheet</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">investor presentation</a>, and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">website</a>. We produce approximately 10 <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">maps</a> per month for <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
+              <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="services.html" class="case-link">logo</a>, business cards, Christmas cards, <a href="services.html" class="case-link">tradeshow booth</a>, <a href="services.html" class="case-link">fact sheet</a>, <a href="services.html" class="case-link">investor presentation</a>, and <a href="services.html" class="case-link">website</a>. We produce approximately 10 <a href="services.html" class="case-link">maps</a> per month for <a href="services.html" class="case-link">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
             </div>
           </div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center;">Result</span>
+            <span class="case-label">Result</span>
             <div>
               <p class="principle-desc">From $40M to over $400M in under three years. Recent drill results include 139g/t Au over 7.8m.</p>
             </div>
@@ -388,14 +370,14 @@
         </div>
         <div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">DV</span></span>
+            <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">DV</span></span>
             <div>
               <div class="principle-title">Client since August 2020</div>
-              <p class="principle-desc">We worked with Dolly Varden for nearly six years on their Kitsault Valley silver project in BC's Golden Triangle. <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">Maps</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">presentations</a>, and investor communications through every stage of growth.</p>
+              <p class="principle-desc">We worked with Dolly Varden for nearly six years on their Kitsault Valley silver project in BC's Golden Triangle. <a href="services.html" class="case-link">Maps</a>, <a href="services.html" class="case-link">presentations</a>, and investor communications through every stage of growth.</p>
             </div>
           </div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center;">Result</span>
+            <span class="case-label">Result</span>
             <div>
               <p class="principle-desc">From $65M to a peak of $551M. Merged with Contango Ore in March 2026 to create a new mid-tier silver &amp; gold producer. 98.78% shareholder approval.</p>
             </div>
@@ -447,14 +429,14 @@
         </div>
         <div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center; white-space: nowrap; font-weight: 300;"><span style="font-weight: 300;">TSXV:</span> <span style="font-weight: 700;">BIG</span></span>
+            <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">BIG</span></span>
             <div>
               <div class="principle-title">Client since 2023</div>
-              <p class="principle-desc">We built their investor <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">maps</a>, <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">presentation</a> materials, news release <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">cross sections</a>, and <a href="services.html" style="color: var(--ore); text-decoration: none; border-bottom: 1px solid var(--ore);">conference booth</a> design. What started as a small epithermal silver project turned into a significant porphyry copper discovery in late 2023.</p>
+              <p class="principle-desc">We built their investor <a href="services.html" class="case-link">maps</a>, <a href="services.html" class="case-link">presentation</a> materials, news release <a href="services.html" class="case-link">cross sections</a>, and <a href="services.html" class="case-link">conference booth</a> design. What started as a small epithermal silver project turned into a significant porphyry copper discovery in late 2023.</p>
             </div>
           </div>
           <div class="principle-row">
-            <span class="principle-num" style="font-size: 11px; min-width: 60px; width: auto; padding: 0 12px; text-align: center;">Result</span>
+            <span class="case-label">Result</span>
             <div>
               <p class="principle-desc">From $24M to $194M &mdash; peaking at $319M during the discovery year. A 13x move in 12 months when the geology hit and the story was ready.</p>
             </div>
@@ -502,45 +484,84 @@
   </div>
 
       <footer class="footer">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-name">Exploration Sites</div>
-          <div class="footer-brand-tagline">The communication layer between your deposit and the capital markets.</div>
-          <div class="footer-brand-meta">Vancouver, BC &middot; Since 1994</div>
+      <canvas class="footer-canvas" aria-hidden="true"></canvas>
+
+      <div class="footer-inner">
+
+        <div class="footer-top">
+
+          <div class="footer-brand">
+            <a href="index.html" class="footer-mark" aria-label="Exploration Sites home">
+              <svg viewBox="0 0 124.63 124.63" fill="currentColor" aria-hidden="true">
+                <polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/>
+                <polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/>
+                <polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/>
+                <polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/>
+                <path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/>
+                <path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/>
+              </svg>
+              <span class="footer-mark-text">exploration sites</span>
+            </a>
+            <p class="footer-statement">The communication layer between your deposit and the capital markets.</p>
+            <ul class="footer-social" aria-label="Social media">
+              <li><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.4-1.9.5-3.8.5-5.8s-.1-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+              </a></li>
+              <li><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+              </a></li>
+              <li><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3 1-.4 2.1C2.7 8.5 2.7 8.8 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.8.6 1.2.8.4.1 1 .3 2.1.4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-1 .4-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.8-.6-1.2-.8-.4-.1-1-.3-2.1-.4-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg>
+              </a></li>
+              <li><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a></li>
+            </ul>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer">
+            <div class="footer-col">
+              <div class="footer-col-title">Quick Links</div>
+              <ul>
+                <li><a href="services.html">What we do</a></li>
+                <li><a href="why.html">Why we exist</a></li>
+                <li><a href="clients.html">Our clients</a></li>
+                <li><a href="team.html">Our team</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="footer-cta">
+            <a href="contact.html" class="btn-primary footer-cta-btn">Book a Discovery Call</a>
+            <p class="footer-cta-note">Trusted by hundreds of explorers across five continents.<br>From early-stage juniors to established producers.</p>
+          </div>
+
+          <div class="footer-contact">
+            <div class="footer-col-title">Contact</div>
+            <ul>
+              <li><a href="tel:6046889997">604 688 9997</a></li>
+              <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
+              <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
+              <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
+              <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
+            </ul>
+          </div>
+
         </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Services</div>
-          <ul>
-            <li><a href="services.html">Maps</a></li>
-            <li><a href="services.html">Websites</a></li>
-            <li><a href="services.html">Presentations</a></li>
-            <li><a href="services.html">Films</a></li>
+
+        <div class="footer-rule"></div>
+
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; 2026 Exploration Sites. All rights reserved.</span>
+          <ul class="footer-legal">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <div class="footer-col-title">More</div>
-          <ul>
-            <li><a href="clients.html">Clients</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Contact</div>
-          <ul>
-            <li><a href="tel:6046889997">604 688 9997</a></li>
-            <li><a href="mailto:info@explorationsites.com">info@explorationsites.com</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Exploration Sites. All rights reserved.</span>
-        <span class="footer-disclaimer">Projects initiated once contract signed and deposit made. GST not included. All prices in CAD.</span>
+
       </div>
     </footer>
+    <script type="module" src="/assets/footer-shader.js"></script>
 
     <script>
     // Mega menu tab switching
@@ -570,6 +591,163 @@
       });
     }
 
+    // Scroll-triggered entry for marked elements
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-revealed'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+    })();
+
+    // Animated count-up numbers
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('[data-count-to]');
+      if (!els.length) return;
+      function format(val, decimals, prefix, suffix) {
+        var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+        if (decimals === 0) {
+          n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        return (prefix || '') + n + (suffix || '');
+      }
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-count-to'));
+        var decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-count-prefix') || '';
+        var suffix = el.getAttribute('data-count-suffix') || '';
+        if (prefersReduced || isNaN(target)) {
+          el.textContent = format(target, decimals, prefix, suffix);
+          return;
+        }
+        var duration = 1400;
+        var start = performance.now();
+        function tick(now) {
+          var t = Math.min(1, (now - start) / duration);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = format(target * eased, decimals, prefix, suffix);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(animate);
+        return;
+      }
+      var countIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { countIo.observe(el); });
+    })();
+
+    // Scroll-pinned case: track current step
+    (function () {
+      var pinned = document.querySelector('[data-pinned]');
+      if (!pinned) return;
+      var steps = pinned.querySelectorAll('.pinned-case-step');
+      var indicator = pinned.querySelector('[data-current-step]');
+      if (!steps.length || !indicator) return;
+      if (!('IntersectionObserver' in window)) {
+        steps.forEach(function (s) { s.classList.add('is-current'); });
+        return;
+      }
+      var pio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            steps.forEach(function (s) { s.classList.remove('is-current'); });
+            entry.target.classList.add('is-current');
+            var step = entry.target.getAttribute('data-step');
+            if (step) indicator.textContent = step;
+          }
+        });
+      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+      steps.forEach(function (s) { pio.observe(s); });
+    })();
+
+    // Timeline activation
+    (function () {
+      var timelines = document.querySelectorAll('[data-timeline]');
+      if (!timelines.length) return;
+      if (!('IntersectionObserver' in window)) {
+        timelines.forEach(function (t) { t.classList.add('is-active'); });
+        return;
+      }
+      var tio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            tio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      timelines.forEach(function (t) { tio.observe(t); });
+    })();
+
+    // Before/after compare slider
+    (function () {
+      var containers = document.querySelectorAll('.compare');
+      if (!containers.length) return;
+      containers.forEach(function (c) {
+        var handle = c.querySelector('.compare-handle');
+        if (!handle) return;
+        var isDragging = false;
+        function setPos(pct) {
+          pct = Math.max(0, Math.min(100, pct));
+          c.style.setProperty('--compare-pos', pct + '%');
+          handle.setAttribute('aria-valuenow', Math.round(pct));
+        }
+        function fromClientX(x) {
+          var rect = c.getBoundingClientRect();
+          setPos(((x - rect.left) / rect.width) * 100);
+        }
+        function onDown(e) {
+          isDragging = true;
+          c.style.cursor = 'ew-resize';
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+          e.preventDefault();
+        }
+        function onMove(e) {
+          if (!isDragging) return;
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+        }
+        function onUp() { isDragging = false; c.style.cursor = ''; }
+        handle.addEventListener('mousedown', onDown);
+        handle.addEventListener('touchstart', onDown, { passive: false });
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, { passive: true });
+        window.addEventListener('mouseup', onUp);
+        window.addEventListener('touchend', onUp);
+        c.addEventListener('click', function (e) {
+          if (e.target === handle || handle.contains(e.target)) return;
+          fromClientX(e.clientX);
+        });
+        handle.addEventListener('keydown', function (e) {
+          var current = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
+          var step = e.shiftKey ? 10 : 2;
+          if (e.key === 'ArrowLeft') { setPos(current - step); e.preventDefault(); }
+          else if (e.key === 'ArrowRight') { setPos(current + step); e.preventDefault(); }
+          else if (e.key === 'Home') { setPos(0); e.preventDefault(); }
+          else if (e.key === 'End') { setPos(100); e.preventDefault(); }
+        });
+      });
+    })();
   </script>
 
 </body>

@@ -48,6 +48,8 @@ const MAX_DISTANCE   = 8.0;
 // (real Earth direction from a northern viewer), so continents move left→right
 // across the visible disc.
 const AUTO_ROTATE_SPEED = -1.2;
+const HOVER_SLOW_FACTOR = 0.1;   // slow to 10% of base speed when a pin is highlighted
+const ROTATE_SPEED_LERP = 0.08;  // smoothing factor — keeps the transition unnoticeable
 
 // Mouse repulsion
 const MOUSE_RADIUS   = 0.35;
@@ -287,6 +289,8 @@ async function init() {
   window.addEventListener('pointermove', onPointerMove, { passive: true });
   window.addEventListener('pointerleave', () => { mouseOverGlobe = false; }, { passive: true });
 
+  let touchedPinRef = null;
+
   function updatePins() {
     if (!pins.length) return;
     group.updateMatrixWorld();
@@ -394,6 +398,8 @@ async function init() {
       pin.el.style.setProperty('--pin-scale', pin.scale);
       pin.el.classList.toggle('is-touched', pin === touchedPin);
     }
+
+    touchedPinRef = touchedPin;
   }
 
   function frame() {
@@ -406,6 +412,15 @@ async function init() {
     sharedUniforms.uMouse.value.lerp(targetMouseLocal, MOUSE_LERP);
 
     updatePins();
+
+    // Slow auto-rotation while a pin is highlighted so the user can read it.
+    if (controls.autoRotate) {
+      const targetRotateSpeed = touchedPinRef
+        ? AUTO_ROTATE_SPEED * HOVER_SLOW_FACTOR
+        : AUTO_ROTATE_SPEED;
+      controls.autoRotateSpeed +=
+        (targetRotateSpeed - controls.autoRotateSpeed) * ROTATE_SPEED_LERP;
+    }
 
     renderer.render(scene, camera);
     requestAnimationFrame(frame);

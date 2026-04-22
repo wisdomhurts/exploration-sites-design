@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
 
 </head>
 <body>
@@ -40,31 +49,21 @@
               <div class="mega-menu-sidebar">
                 <a href="services.html" class="mega-menu-tab is-active" data-tab="maps">
                   <div class="mega-menu-tab-title">Investor Maps</div>
-                  <div class="mega-menu-tab-sub">7 map types</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="websites">
                   <div class="mega-menu-tab-title">Websites</div>
-                  <div class="mega-menu-tab-sub">Webflow &middot; WordPress</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="presentations">
                   <div class="mega-menu-tab-title">Presentations</div>
-                  <div class="mega-menu-tab-sub">Decks &middot; Collateral</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="motion">
-                  <div class="mega-menu-tab-title">Motion &amp; 3D</div>
-                  <div class="mega-menu-tab-sub">Flyovers &middot; Animation</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="design">
                   <div class="mega-menu-tab-title">Design</div>
-                  <div class="mega-menu-tab-sub">Brand &middot; Infographics</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="investorhub">
                   <div class="mega-menu-tab-title">Investor Hub</div>
-                  <div class="mega-menu-tab-sub">CRM &middot; Analytics &middot; Webinars</div>
                 </a>
                 <a href="services.html" class="mega-menu-tab" data-tab="socials">
                   <div class="mega-menu-tab-title">Socials</div>
-                  <div class="mega-menu-tab-sub">Strategy &middot; AI Content</div>
                 </a>
               </div>
               <div class="mega-menu-content">
@@ -73,149 +72,97 @@
                   <div class="mega-menu-content-header">Investor Map Types</div>
                   <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Locator Maps</div>
-                      <div class="mega-menu-card-desc">Regional context for property location</div>
+                      <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Area Plays</div>
-                      <div class="mega-menu-card-desc">District-scale geology and land position</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Property &amp; Claim Maps</div>
-                      <div class="mega-menu-card-desc">Claim boundaries and infrastructure</div>
+                      <div class="mega-menu-card-title">Property &amp; Target Maps</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Geo / Geochem / Geophys</div>
-                      <div class="mega-menu-card-desc">Lithology, assay contours, magnetics &amp; EM</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Sections &amp; Long Sections</div>
-                      <div class="mega-menu-card-desc">Drill collar and interval visualization</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Models &amp; Block Models</div>
-                      <div class="mega-menu-card-desc">Resource model and drill hole renders</div>
+                      <div class="mega-menu-card-title">3D Models</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conceptual &amp; Schematic</div>
-                      <div class="mega-menu-card-desc">Custom figures for technical reports and presentations</div>
                     </a>
                   </div>
                 </div>
                 <!-- Websites Panel -->
                 <div class="mega-menu-tab-panel" id="panel-websites">
                   <div class="mega-menu-content-header">Web Platforms &amp; Support</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webflow</div>
-                      <div class="mega-menu-card-desc">Design-forward sites with cinematic motion and interactive project maps</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">WordPress</div>
-                      <div class="mega-menu-card-desc">CMS-driven builds with investor portal, news feed, and full content control</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Updates</div>
-                      <div class="mega-menu-card-desc">Ongoing content changes, press releases, and page additions</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Hosting</div>
-                      <div class="mega-menu-card-desc">24-hour backups, SSL, live metal prices, stock quotes &amp; charts</div>
                     </a>
                   </div>
                 </div>
                 <!-- Presentations Panel -->
                 <div class="mega-menu-tab-panel" id="panel-presentations">
                   <div class="mega-menu-content-header">Presentations &amp; Collateral</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Deck</div>
-                      <div class="mega-menu-card-desc">Pitch decks built for boardrooms and roadshows</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Development Deck</div>
-                      <div class="mega-menu-card-desc">Full build with data analysis, animation, and interactive elements</div>
+                      <div class="mega-menu-card-title">Fact Sheets</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Fact Sheet</div>
-                      <div class="mega-menu-card-desc">One-page property summary for investors</div>
+                      <div class="mega-menu-card-title">GIS Movies</div>
                     </a>
                   </div>
-                </div>
-                <!-- Motion & 3D Panel -->
-                <div class="mega-menu-tab-panel" id="panel-motion">
-                  <div class="mega-menu-content-header">Motion &amp; 3D</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Property Flyovers</div>
-                      <div class="mega-menu-card-desc">Aerial visualization from DEM data and satellite imagery</div>
-                    </a>
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Animated Models</div>
-                      <div class="mega-menu-card-desc">Geological models and mineralization envelopes brought to life</div>
-                    </a>
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Cinematic Site Videos</div>
-                      <div class="mega-menu-card-desc">Professional site documentation and investor-ready video content</div>
-                    </a>
-                  </div>
-                  <a href="contact.html" class="mega-menu-footer-link">Contact for quote &rarr;</a>
                 </div>
                 <!-- Design Panel -->
                 <div class="mega-menu-tab-panel" id="panel-design">
                   <div class="mega-menu-content-header">Design &amp; Brand</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Logos &amp; Branding</div>
-                      <div class="mega-menu-card-desc">Complete visual identity system built for resource companies</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Infographics</div>
-                      <div class="mega-menu-card-desc">Custom data visualizations, process diagrams, and visual explainers</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Fact Sheets</div>
-                      <div class="mega-menu-card-desc">Condensed investor-ready property and corporate summaries</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conference / Booth Design</div>
-                      <div class="mega-menu-card-desc">Banners, displays, and booth graphics for trade shows and conferences</div>
                     </a>
                   </div>
                 </div>
                 <!-- Investor Hub Panel -->
                 <div class="mega-menu-tab-panel" id="panel-investorhub">
                   <div class="mega-menu-content-header">Investor Hub</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">CRM</div>
-                      <div class="mega-menu-card-desc">Investor relations platform with contact management and outreach tracking</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Analytics</div>
-                      <div class="mega-menu-card-desc">Engagement tracking, website metrics, and monthly insights reporting</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Nurture</div>
-                      <div class="mega-menu-card-desc">Email campaigns, news distribution, and automated investor communications</div>
                     </a>
                     <a href="contact.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webinars</div>
-                      <div class="mega-menu-card-desc">Produced investor webinars with branded content, hosted on your platform</div>
                     </a>
                   </div>
                 </div>
                 <!-- Socials Panel -->
                 <div class="mega-menu-tab-panel" id="panel-socials">
                   <div class="mega-menu-content-header">Social Media</div>
-                  <div class="mega-menu-cards" style="grid-template-columns: 1fr 1fr;">
+                  <div class="mega-menu-cards">
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Strategy / Managed</div>
-                      <div class="mega-menu-card-desc">Content creation, scheduling, and community management across all channels</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">AI / Exploration Today</div>
-                      <div class="mega-menu-card-desc">AI-curated mining news, market context, and commodity intel for your audience</div>
+                      <div class="mega-menu-card-title">Exploration Today</div>
                     </a>
                   </div>
                 </div>
@@ -229,7 +176,6 @@
         <li><a href="case-studies.html">Case Studies</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html" class="nav-cta">Inquire</a></li>
       </ul>
       <button class="nav-hamburger" onclick="document.querySelector('.nav-mobile-overlay').classList.add('is-open');document.querySelector('.nav-mobile-panel').classList.add('is-open');" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -262,96 +208,95 @@
   <div class="page" id="main">
     
     <!-- PAGE HERO -->
-    <section class="hero" style="padding: 60px 0 40px;">
+    <section class="hero hero--page">
       <div class="section-label">Our Team</div>
-      <h1 class="hero-headline" style="font-size: 44px;">Sector-native. Not outsiders learning as they go.</h1>
-      <p class="hero-body">We speak the language of the rock before we speak the language of design. A tight team with deep expertise in GIS, visualization, and investor communications &mdash; of this industry, not servicing it from the outside.</p>
+      <h1 class="hero-headline" style="font-size: 44px;">Sector-native.<br>We understand the geology first.<br>Then we make it investable.</h1>
     </section>
 
     <div class="divider"></div>
 
     <!-- LEADERSHIP -->
-    <section class="section" style="padding-bottom: 0;">
+    <section class="section" style="padding: 32px 0 0;">
       <div class="section-label">Leadership</div>
       <div class="team-leadership">
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/dorian.jpg" alt="Dorian Leslie" width="220" height="220"></div>
+          <div class="team-photo"><img src="images/headshots/dorian.jpg" alt="Dorian Leslie" width="275" height="275"></div>
           <div class="team-name">Dorian Leslie</div>
           <div class="team-role">CEO</div>
           <div class="team-bio">Over 30 years in mineral exploration. Leads the multidisciplinary team dedicated to transforming complex exploration data into clear, investor-ready visuals.</div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="220" height="220"></div>
+          <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Anastasia Schoeps</div>
           <div class="team-role">Operations Director</div>
           <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data is transformed into credible, compelling materials.</div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="220" height="220"></div>
+          <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Kai Erfle</div>
           <div class="team-role">Creative Director</div>
-          <div class="team-bio">BCIT graduate specializing in UI/UX design. The creative force behind many of our most successful and impactful client websites and brand systems.</div>
+          <div class="team-bio">Leads the creative direction behind our most impactful client work &mdash; translating complex exploration stories into clear, compelling digital experiences that build trust and drive investor engagement.</div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="220" height="220"></div>
+          <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Jake Galbraith</div>
           <div class="team-role">Project Manager</div>
-          <div class="team-bio">Map Lead and Graphic Designer. University for the Creative Arts graduate combining strong design foundation with deep understanding of spatial data.</div>
+          <div class="team-bio">Leads map production from concept to delivery, ensuring every figure is accurate and accurate. Combines strong design execution with a deep understanding of spatial data to deliver consistently high-quality results.</div>
         </div>
       </div>
     </section>
 
     <!-- TEAM -->
-    <section class="section">
+    <section class="section" style="padding: 24px 0;">
       <div class="section-label">Team</div>
       <div class="team-grid">
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/gregor.jpg" alt="Gregor Smith" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/gregor.jpg" alt="Gregor Smith" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Gregor Smith</div>
           <div class="team-role">Map Technician</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/mark.jpg" alt="Mark Aimon Pangan" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/mark.jpg" alt="Mark Aimon Pangan" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Mark Aimon Pangan</div>
           <div class="team-role">Map Technician</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/adrian.jpg" alt="Adrian Sarabia" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/adrian.jpg" alt="Adrian Sarabia" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Adrian Sarabia</div>
           <div class="team-role">Designer / Developer</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/marvin.jpg" alt="Marvin Del Rosario" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/marvin.jpg" alt="Marvin Del Rosario" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Marvin Del Rosario</div>
           <div class="team-role">Senior Web Developer</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/paul.jpg" alt="Paul Joshua Villora" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/paul.jpg" alt="Paul Joshua Villora" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Paul Joshua Villora</div>
           <div class="team-role">Map Technician</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/piyush.jpg" alt="Piyush Lamba" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/piyush.jpg" alt="Piyush Lamba" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Piyush Lamba</div>
           <div class="team-role">Developer</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/belle.jpg" alt="Belle Ely" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/belle.jpg" alt="Belle Ely" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Belle Ely</div>
           <div class="team-role">Web &amp; Graphic Design</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/rebecca.jpg" alt="Rebecca Krayenhoff" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/rebecca.jpg" alt="Rebecca Krayenhoff" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Rebecca Krayenhoff</div>
           <div class="team-role">Administrative Assistant</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/elijah.jpg" alt="Elijah Mahri" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/elijah.jpg" alt="Elijah Mahri" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Elijah Mahri</div>
           <div class="team-role">GIS Support</div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/vince.jpg" alt="Vincent Ca&ntilde;as" loading="lazy" width="180" height="180"></div>
+          <div class="team-photo"><img src="images/headshots/vince.jpg" alt="Vincent Ca&ntilde;as" loading="lazy" width="225" height="225"></div>
           <div class="team-name">Vincent Ca&ntilde;as</div>
           <div class="team-role">Web Development Support</div>
         </div>
@@ -372,45 +317,84 @@
   </div>
 
       <footer class="footer">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-name">Exploration Sites</div>
-          <div class="footer-brand-tagline">The communication layer between your deposit and the capital markets.</div>
-          <div class="footer-brand-meta">Vancouver, BC &middot; Since 1994</div>
+      <canvas class="footer-canvas" aria-hidden="true"></canvas>
+
+      <div class="footer-inner">
+
+        <div class="footer-top">
+
+          <div class="footer-brand">
+            <a href="index.html" class="footer-mark" aria-label="Exploration Sites home">
+              <svg viewBox="0 0 124.63 124.63" fill="currentColor" aria-hidden="true">
+                <polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/>
+                <polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/>
+                <polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/>
+                <polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/>
+                <path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/>
+                <path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/>
+              </svg>
+              <span class="footer-mark-text">exploration sites</span>
+            </a>
+            <p class="footer-statement">The communication layer between your deposit and the capital markets.</p>
+            <ul class="footer-social" aria-label="Social media">
+              <li><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.4-1.9.5-3.8.5-5.8s-.1-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+              </a></li>
+              <li><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+              </a></li>
+              <li><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3 1-.4 2.1C2.7 8.5 2.7 8.8 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.8.6 1.2.8.4.1 1 .3 2.1.4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-1 .4-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.8-.6-1.2-.8-.4-.1-1-.3-2.1-.4-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg>
+              </a></li>
+              <li><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a></li>
+            </ul>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer">
+            <div class="footer-col">
+              <div class="footer-col-title">Quick Links</div>
+              <ul>
+                <li><a href="services.html">What we do</a></li>
+                <li><a href="why.html">Why we exist</a></li>
+                <li><a href="clients.html">Our clients</a></li>
+                <li><a href="team.html">Our team</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="footer-cta">
+            <a href="contact.html" class="btn-primary footer-cta-btn">Book a Discovery Call</a>
+            <p class="footer-cta-note">Trusted by hundreds of explorers across five continents.<br>From early-stage juniors to established producers.</p>
+          </div>
+
+          <div class="footer-contact">
+            <div class="footer-col-title">Contact</div>
+            <ul>
+              <li><a href="tel:6046889997">604 688 9997</a></li>
+              <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
+              <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
+              <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
+              <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
+            </ul>
+          </div>
+
         </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Services</div>
-          <ul>
-            <li><a href="services.html">Maps</a></li>
-            <li><a href="services.html">Websites</a></li>
-            <li><a href="services.html">Presentations</a></li>
-            <li><a href="services.html">Films</a></li>
+
+        <div class="footer-rule"></div>
+
+        <div class="footer-bottom">
+          <span class="footer-copy">&copy; 2026 Exploration Sites. All rights reserved.</span>
+          <ul class="footer-legal">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <div class="footer-col-title">More</div>
-          <ul>
-            <li><a href="clients.html">Clients</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Contact</div>
-          <ul>
-            <li><a href="tel:6046889997">604 688 9997</a></li>
-            <li><a href="mailto:info@explorationsites.com">info@explorationsites.com</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Exploration Sites. All rights reserved.</span>
-        <span class="footer-disclaimer">Projects initiated once contract signed and deposit made. GST not included. All prices in CAD.</span>
+
       </div>
     </footer>
+    <script type="module" src="/assets/footer-shader.js"></script>
 
     <script>
     // Mega menu tab switching
@@ -440,6 +424,163 @@
       });
     }
 
+    // Scroll-triggered entry for marked elements
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-revealed'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+    })();
+
+    // Animated count-up numbers
+    (function () {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = document.querySelectorAll('[data-count-to]');
+      if (!els.length) return;
+      function format(val, decimals, prefix, suffix) {
+        var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+        if (decimals === 0) {
+          n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        return (prefix || '') + n + (suffix || '');
+      }
+      function animate(el) {
+        var target = parseFloat(el.getAttribute('data-count-to'));
+        var decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-count-prefix') || '';
+        var suffix = el.getAttribute('data-count-suffix') || '';
+        if (prefersReduced || isNaN(target)) {
+          el.textContent = format(target, decimals, prefix, suffix);
+          return;
+        }
+        var duration = 1400;
+        var start = performance.now();
+        function tick(now) {
+          var t = Math.min(1, (now - start) / duration);
+          var eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = format(target * eased, decimals, prefix, suffix);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(animate);
+        return;
+      }
+      var countIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { countIo.observe(el); });
+    })();
+
+    // Scroll-pinned case: track current step
+    (function () {
+      var pinned = document.querySelector('[data-pinned]');
+      if (!pinned) return;
+      var steps = pinned.querySelectorAll('.pinned-case-step');
+      var indicator = pinned.querySelector('[data-current-step]');
+      if (!steps.length || !indicator) return;
+      if (!('IntersectionObserver' in window)) {
+        steps.forEach(function (s) { s.classList.add('is-current'); });
+        return;
+      }
+      var pio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            steps.forEach(function (s) { s.classList.remove('is-current'); });
+            entry.target.classList.add('is-current');
+            var step = entry.target.getAttribute('data-step');
+            if (step) indicator.textContent = step;
+          }
+        });
+      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+      steps.forEach(function (s) { pio.observe(s); });
+    })();
+
+    // Timeline activation
+    (function () {
+      var timelines = document.querySelectorAll('[data-timeline]');
+      if (!timelines.length) return;
+      if (!('IntersectionObserver' in window)) {
+        timelines.forEach(function (t) { t.classList.add('is-active'); });
+        return;
+      }
+      var tio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            tio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      timelines.forEach(function (t) { tio.observe(t); });
+    })();
+
+    // Before/after compare slider
+    (function () {
+      var containers = document.querySelectorAll('.compare');
+      if (!containers.length) return;
+      containers.forEach(function (c) {
+        var handle = c.querySelector('.compare-handle');
+        if (!handle) return;
+        var isDragging = false;
+        function setPos(pct) {
+          pct = Math.max(0, Math.min(100, pct));
+          c.style.setProperty('--compare-pos', pct + '%');
+          handle.setAttribute('aria-valuenow', Math.round(pct));
+        }
+        function fromClientX(x) {
+          var rect = c.getBoundingClientRect();
+          setPos(((x - rect.left) / rect.width) * 100);
+        }
+        function onDown(e) {
+          isDragging = true;
+          c.style.cursor = 'ew-resize';
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+          e.preventDefault();
+        }
+        function onMove(e) {
+          if (!isDragging) return;
+          if (e.touches) fromClientX(e.touches[0].clientX);
+          else fromClientX(e.clientX);
+        }
+        function onUp() { isDragging = false; c.style.cursor = ''; }
+        handle.addEventListener('mousedown', onDown);
+        handle.addEventListener('touchstart', onDown, { passive: false });
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, { passive: true });
+        window.addEventListener('mouseup', onUp);
+        window.addEventListener('touchend', onUp);
+        c.addEventListener('click', function (e) {
+          if (e.target === handle || handle.contains(e.target)) return;
+          fromClientX(e.clientX);
+        });
+        handle.addEventListener('keydown', function (e) {
+          var current = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
+          var step = e.shiftKey ? 10 : 2;
+          if (e.key === 'ArrowLeft') { setPos(current - step); e.preventDefault(); }
+          else if (e.key === 'ArrowRight') { setPos(current + step); e.preventDefault(); }
+          else if (e.key === 'Home') { setPos(0); e.preventDefault(); }
+          else if (e.key === 'End') { setPos(100); e.preventDefault(); }
+        });
+      });
+    })();
   </script>
 
 </body>

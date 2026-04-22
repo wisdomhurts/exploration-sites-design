@@ -4,21 +4,11 @@
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
     <span class="hero-globe-pin-tooltip">Victoria BC Corporate Head Office</span>
   </a>
-  <a class="hero-globe-pin hero-globe-pin--ore" href="contact.html" data-lat="51.6" data-lon="-55.7">
+  {% for p in projects %}
+  <a class="hero-globe-pin hero-globe-pin--ore" href="clients.html" data-lat="{{ p.lat }}" data-lon="{{ p.lon }}">
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
-    <span class="hero-globe-pin-tooltip">Gold Hunter</span>
+    <span class="hero-globe-pin-tooltip">{{ p.name }}</span>
   </a>
-  <a class="hero-globe-pin hero-globe-pin--ore" href="contact.html" data-lat="47.5" data-lon="14.5">
-    <span class="hero-globe-pin-dot" aria-hidden="true"></span>
-    <span class="hero-globe-pin-tooltip">Ekometall</span>
-  </a>
-  <a class="hero-globe-pin hero-globe-pin--ore" href="contact.html" data-lat="38.07" data-lon="-117.23">
-    <span class="hero-globe-pin-dot" aria-hidden="true"></span>
-    <span class="hero-globe-pin-tooltip">Black Rock Silver</span>
-  </a>
-  <a class="hero-globe-pin hero-globe-pin--ore" href="contact.html" data-lat="49.0" data-lon="-55.0">
-    <span class="hero-globe-pin-dot" aria-hidden="true"></span>
-    <span class="hero-globe-pin-tooltip">New Found Gold</span>
-  </a>
+  {% endfor %}
 </div>
 <script type="module" src="/assets/hero-globe.js"></script>
