@@ -1,0 +1,59 @@
+# Vercel
+.vercel
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editors / IDEs
+.vscode/
+.idea/
+
+# Phantom dir with broken local ACLs — see commit e6d3846
+src/assets/globe/
+
+# Claude Code / agent tooling
+.claude/scheduled_tasks.lock
+.claude/settings.local.json
+.adal/
+.agents/
+.augment/
+.bob/
+.codebuddy/
+.commandcode/
+.continue/
+.cortex/
+.crush/
+.factory/
+.firecrawl/
+.goose/
+.iflow/
+.junie/
+.kilocode/
+.kiro/
+.kode/
+.mcp.json
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.pochi/
+.qoder/
+.qwen/
+.roo/
+.superpowers/
+.trae/
+.vibe/
+.windsurf/
+.zencoder/
+skills/
+skills-lock.json
+
+# Blender working files
+*.blend
+*.blend1
