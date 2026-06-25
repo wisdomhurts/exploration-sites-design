@@ -130,6 +130,66 @@ eleventyExcludeFromCollections: true
   }
   .btn-disc--underline:hover::after { transform: scaleX(1); }
 
+  /* ----- Round 2: more expressive, still institutional ----- */
+  .batch-head {
+    margin-top: clamp(52px, 7vw, 96px);
+    padding-top: clamp(32px, 5vw, 52px);
+    border-top: 2px solid var(--graphite);
+  }
+  .batch-note { font-size: 15px; color: var(--body); max-width: 58ch; margin-top: 14px; }
+
+  /* ④ Terminal status chip */
+  .btn-disc--status {
+    gap: 11px; padding: 12px 22px;
+    border: 1px solid var(--graticule); border-radius: 4px;
+    background: var(--quartz); color: var(--graphite);
+    font-size: 14.5px;
+    transition: border-color .25s var(--ease);
+  }
+  .btn-disc--status .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--moss); flex: 0 0 auto;
+    box-shadow: 0 0 0 3px rgba(95,112,82,0.16);
+  }
+  .btn-disc--status .avail {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    padding-left: 12px; border-left: 1px solid var(--graticule);
+  }
+  .btn-disc--status:hover { border-color: var(--ore); }
+
+  /* ⑤ Segmented plate */
+  .btn-disc--split {
+    padding: 0; border: 1px solid var(--graphite); border-radius: 4px;
+    overflow: hidden; color: var(--graphite);
+  }
+  .btn-disc--split .lbl { padding: 13px 22px; }
+  .btn-disc--split .seg {
+    display: inline-flex; align-items: center; align-self: stretch;
+    padding: 0 16px; border-left: 1px solid var(--graphite);
+    transition: background .25s var(--ease), color .25s var(--ease);
+  }
+  .btn-disc--split:hover .seg { background: var(--ore); color: var(--quartz); }
+
+  /* ⑥ Registration-mark frame */
+  .btn-disc--crop {
+    position: relative; padding: 15px 30px; color: var(--graphite);
+    background: transparent;
+  }
+  .btn-disc--crop .crop { position: absolute; inset: 0; pointer-events: none; }
+  .btn-disc--crop::before, .btn-disc--crop::after,
+  .btn-disc--crop .crop::before, .btn-disc--crop .crop::after {
+    content: ""; position: absolute; width: 9px; height: 9px;
+    border: 0 solid var(--slate);
+    transition: border-color .25s var(--ease);
+  }
+  .btn-disc--crop::before { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+  .btn-disc--crop::after  { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+  .btn-disc--crop .crop::before { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+  .btn-disc--crop .crop::after  { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+  .btn-disc--crop:hover::before, .btn-disc--crop:hover::after,
+  .btn-disc--crop:hover .crop::before, .btn-disc--crop:hover .crop::after { border-color: var(--ore); }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition-duration: .01ms !important; }
   }
@@ -169,6 +229,45 @@ eleventyExcludeFromCollections: true
       <a href="contact.html" class="btn-disc btn-disc--underline">Book a discovery call</a>
     </div>
     <p class="variant-desc">Reads like a confident text link; a 2px Ore underline wipes left-to-right on hover. Quietest, most premium.</p>
+  </section>
+
+  <div class="batch-head">
+    <span class="eyebrow">Round 2 · more expressive</span>
+    <p class="batch-note">Pushed further — a terminal-style status chip, a segmented plate, and a crop-mark frame — while holding the institutional line: hairlines, JetBrains Mono, Ore only on hover, no glow or gradient.</p>
+  </div>
+
+  <section class="variant">
+    <div class="variant-label"><b>④</b> Terminal status chip</div>
+    <div class="stage">
+      <a href="contact.html" class="btn-primary">Start a project</a>
+      <a href="contact.html" class="btn-disc btn-disc--status">
+        <span class="dot" aria-hidden="true"></span>
+        Book a discovery call
+        <span class="avail">Open · 20 min</span>
+      </a>
+    </div>
+    <p class="variant-desc">Reads like a live availability indicator on a finance terminal — a Moss “open” dot and a mono status tag. Signals “we’re reachable now”; border warms to Ore on hover.</p>
+  </section>
+
+  <section class="variant">
+    <div class="variant-label"><b>⑤</b> Segmented plate</div>
+    <div class="stage">
+      <a href="contact.html" class="btn-primary">Start a project</a>
+      <a href="contact.html" class="btn-disc btn-disc--split">
+        <span class="lbl">Book a discovery call</span>
+        <span class="seg" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <p class="variant-desc">A divided control, like a stamped form field. The action segment fills Ore on hover while the label holds. Structured and deliberate.</p>
+  </section>
+
+  <section class="variant">
+    <div class="variant-label"><b>⑥</b> Registration-mark frame</div>
+    <div class="stage">
+      <a href="contact.html" class="btn-primary">Start a project</a>
+      <a href="contact.html" class="btn-disc btn-disc--crop">Book a discovery call<i class="crop" aria-hidden="true"></i></a>
+    </div>
+    <p class="variant-desc">Four crop-mark corners frame the label like a print registration mark — a nod to the studio’s cartographic craft. Corners snap to Ore on hover. Most distinctive, still quiet.</p>
   </section>
 </div>
 </body>
