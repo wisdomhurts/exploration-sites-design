@@ -2596,3 +2596,6 @@
     .booking-main .booking-embed { max-width: none; margin: 0; }
     .booking-embed iframe { width: 100%; min-height: 620px; border: none; display: block; }
     @media (max-width: 900px) { .booking-layout { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; } }
+
+    /* tighten booking iframe height (crop GHL widget bottom gap) */
+    .booking-main .booking-embed iframe { height: 640px !important; min-height: 0 !important; }

@@ -5,26 +5,367 @@ description: "How Exploration Sites collects, uses, and protects your personal i
 permalink: "privacy.html"
 ---
 
-    <section class="hero" style="padding: 80px 0 40px;">
-      <div class="section-label">Legal</div>
-      <h1 class="hero-headline" style="font-size: 44px;">Privacy policy.</h1>
-      <p class="hero-body">Last updated April 2026.</p>
-    </section>
+<style>
+  /* ============================================================
+     Privacy Policy — page-scoped styles (lgl- prefix)
+     Reuses brand tokens from styles.css (:root). No globals touched.
+     ============================================================ */
 
-    <div class="divider"></div>
+  .lgl {
+    --lgl-measure: 66ch;
+    padding-bottom: 96px;
+  }
 
-    <section class="section">
-      <div style="max-width: 720px;">
-        <h2 class="section-headline" style="font-size: 24px; margin-bottom: 16px;">What we collect</h2>
-        <p class="body-text">When you contact us through the website, we collect the information you provide &mdash; typically your name, company, email, and project details. We do not use third-party advertising trackers or sell your data.</p>
+  /* ---- Hero ---- */
+  .lgl-hero {
+    padding: 72px 0 40px;
+  }
+  .lgl-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ore);
+    margin: 0 0 22px;
+  }
+  .lgl-title {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 5.4vw, 60px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin: 0 0 28px;
+  }
+  .lgl-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    color: var(--slate);
+  }
+  .lgl-meta-key {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+  }
+  .lgl-intro {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--body);
+    max-width: 56ch;
+    margin: 26px 0 0;
+  }
 
-        <h2 class="section-headline" style="font-size: 24px; margin: 32px 0 16px;">How we use it</h2>
-        <p class="body-text">Submitted information is used only to respond to your inquiry, deliver contracted work, and send invoices. Project files and communications are stored on standard business software (email, cloud storage, CRM) with access limited to our team.</p>
+  .lgl-rule {
+    height: 1px;
+    background: var(--border);
+    border: 0;
+    margin: 0;
+  }
 
-        <h2 class="section-headline" style="font-size: 24px; margin: 32px 0 16px;">Analytics</h2>
-        <p class="body-text">We use basic, privacy-respecting analytics to understand which pages are visited and how the site performs. This data is aggregated and does not identify individual visitors.</p>
+  /* ---- Body: content + sticky TOC ---- */
+  .lgl-body {
+    display: grid;
+    grid-template-columns: 1fr 232px;
+    gap: 80px;
+    align-items: start;
+    padding-top: 56px;
+  }
+  .lgl-prose {
+    max-width: var(--lgl-measure);
+    min-width: 0;
+  }
 
-        <h2 class="section-headline" style="font-size: 24px; margin: 32px 0 16px;">Contact</h2>
-        <p class="body-text">Questions about this policy, or requests to access or delete your data, can be sent to <a href="mailto:info@explorationsites.com">info@explorationsites.com</a>.</p>
-      </div>
-    </section>
+  /* ---- Section ---- */
+  .lgl-section {
+    padding: 0 0 44px;
+    margin: 0 0 44px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 88px;
+  }
+  .lgl-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+  .lgl-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0 0 18px;
+  }
+  .lgl-section-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--ore);
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+  .lgl-section-title {
+    font-family: var(--font-serif);
+    font-size: 27px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+    margin: 0;
+  }
+  .lgl-section-body {
+    /* indent body to align under the title, past the section number */
+    padding-left: 33px;
+  }
+  .lgl-section-body p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.72;
+    color: var(--body);
+    margin: 0 0 18px;
+  }
+  .lgl-section-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ---- Inline links ---- */
+  .lgl-link {
+    color: var(--graphite);
+    text-decoration: none;
+    background-image: linear-gradient(var(--ore), var(--ore));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: color 0.2s var(--ease-out-soft),
+                background-size 0.3s var(--ease-out-quart);
+  }
+  .lgl-link:hover {
+    color: var(--ore);
+    background-size: 100% 2px;
+  }
+
+  /* ---- Sticky table of contents ---- */
+  .lgl-toc {
+    position: sticky;
+    top: 96px;
+  }
+  .lgl-toc-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lgl-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .lgl-toc-link {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 9px 0;
+    text-decoration: none;
+    color: var(--slate);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .lgl-toc-link:hover,
+  .lgl-toc-link.is-active {
+    color: var(--graphite);
+  }
+  .lgl-toc-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    flex-shrink: 0;
+    width: 18px;
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .lgl-toc-link:hover .lgl-toc-num,
+  .lgl-toc-link.is-active .lgl-toc-num {
+    color: var(--ore);
+  }
+  .lgl-toc-text {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* ---- Footer note ---- */
+  .lgl-foot {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+    max-width: var(--lgl-measure);
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .lgl-body {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: 40px;
+    }
+    .lgl-prose { max-width: 100%; }
+    .lgl-toc {
+      position: static;
+      order: -1;
+      margin-bottom: 44px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+  @media (max-width: 640px) {
+    .lgl-hero { padding: 48px 0 32px; }
+    .lgl-section-body { padding-left: 0; }
+    .lgl-section-head { gap: 12px; }
+  }
+</style>
+
+<div class="lgl">
+
+  <header class="lgl-hero">
+    <p class="lgl-eyebrow">Legal</p>
+    <h1 class="lgl-title">Privacy Policy</h1>
+    <div class="lgl-meta">
+      <span class="lgl-meta-key">Last updated</span>
+      <span>April 2026</span>
+    </div>
+    <p class="lgl-intro">How Exploration Sites collects, uses, and protects the information you share with us.</p>
+  </header>
+
+  <hr class="lgl-rule">
+
+  <div class="lgl-body">
+
+    <main class="lgl-prose">
+
+      <section class="lgl-section" id="what-we-collect">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">01</span>
+          <h2 class="lgl-section-title">What we collect</h2>
+        </div>
+        <div class="lgl-section-body">
+          <p>When you contact us through the website, we collect the information you provide &mdash; typically your name, company, email, and project details. We do not use third-party advertising trackers or sell your data.</p>
+        </div>
+      </section>
+
+      <section class="lgl-section" id="how-we-use-it">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">02</span>
+          <h2 class="lgl-section-title">How we use it</h2>
+        </div>
+        <div class="lgl-section-body">
+          <p>Submitted information is used only to respond to your inquiry, deliver contracted work, and send invoices. Project files and communications are stored on standard business software (email, cloud storage, CRM) with access limited to our team.</p>
+        </div>
+      </section>
+
+      <section class="lgl-section" id="analytics">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">03</span>
+          <h2 class="lgl-section-title">Analytics</h2>
+        </div>
+        <div class="lgl-section-body">
+          <p>We use basic, privacy-respecting analytics to understand which pages are visited and how the site performs. This data is aggregated and does not identify individual visitors.</p>
+        </div>
+      </section>
+
+      <section class="lgl-section" id="contact">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">04</span>
+          <h2 class="lgl-section-title">Contact</h2>
+        </div>
+        <div class="lgl-section-body">
+          <p>Questions about this policy, or requests to access or delete your data, can be sent to <a class="lgl-link" href="mailto:info@explorationsites.com">info@explorationsites.com</a>.</p>
+        </div>
+      </section>
+
+      <p class="lgl-foot">Exploration Sites &middot; Victoria, British Columbia</p>
+
+    </main>
+
+    <nav class="lgl-toc" aria-label="Table of contents">
+      <p class="lgl-toc-label">On this page</p>
+      <ul class="lgl-toc-list">
+        <li>
+          <a class="lgl-toc-link" href="#what-we-collect">
+            <span class="lgl-toc-num">01</span>
+            <span class="lgl-toc-text">What we collect</span>
+          </a>
+        </li>
+        <li>
+          <a class="lgl-toc-link" href="#how-we-use-it">
+            <span class="lgl-toc-num">02</span>
+            <span class="lgl-toc-text">How we use it</span>
+          </a>
+        </li>
+        <li>
+          <a class="lgl-toc-link" href="#analytics">
+            <span class="lgl-toc-num">03</span>
+            <span class="lgl-toc-text">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a class="lgl-toc-link" href="#contact">
+            <span class="lgl-toc-num">04</span>
+            <span class="lgl-toc-text">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.lgl-toc-link'));
+    var sections = links
+      .map(function (a) {
+        var id = a.getAttribute('href').slice(1);
+        var el = document.getElementById(id);
+        return el ? { link: a, el: el } : null;
+      })
+      .filter(Boolean);
+
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    var active = null;
+    function setActive(link) {
+      if (active === link) return;
+      sections.forEach(function (s) { s.link.classList.remove('is-active'); });
+      if (link) link.classList.add('is-active');
+      active = link;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      // Pick the topmost section currently intersecting the upper viewport band.
+      var visible = entries
+        .filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      if (visible.length) {
+        var match = sections.find(function (s) { return s.el === visible[0].target; });
+        if (match) setActive(match.link);
+      }
+    }, { rootMargin: '-88px 0px -65% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s.el); });
+  })();
+</script>
