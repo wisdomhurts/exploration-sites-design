@@ -2579,3 +2579,9 @@
     /* GHL booking embed (book.html) */
     .booking-embed { max-width: 900px; margin: 0 auto; }
     .booking-embed iframe { width: 100%; min-height: 740px; border: none; display: block; }
+
+    /* book.html booking-page framing */
+    .booking-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(26,16,31,0.10); border: 1px solid rgba(26,16,31,0.10); border-radius: 6px; overflow: hidden; max-width: 900px; margin: 0 auto 40px; }
+    .booking-meta-item { background: var(--quartz); padding: 20px 24px; display: flex; gap: 12px; align-items: baseline; font-size: 14.5px; color: var(--slate); line-height: 1.4; }
+    .booking-meta-num { font-family: var(--font-mono, "JetBrains Mono", monospace); font-size: 11px; letter-spacing: 0.14em; color: var(--ore); flex: 0 0 auto; }
+    @media (max-width: 700px) { .booking-meta { grid-template-columns: 1fr; } }
