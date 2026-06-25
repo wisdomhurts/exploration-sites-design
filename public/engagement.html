@@ -690,6 +690,11 @@
     .btn-cta:hover, .nav-cta:hover { transform: none; }
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
+
+  /* clickable model cards */
+  a.model { text-decoration: none; color: inherit; cursor: pointer; transition: background .2s var(--ease-out-soft); }
+  a.model:hover { background: var(--vellum); }
+  a.model:hover h3 { color: var(--ore); }
 </style>
 </head>
 <body>
@@ -725,18 +730,7 @@
   </div>
 </header>
 
-<!-- ===== STICKY SECTION RAIL ===== -->
-<nav class="rail" aria-label="On this page">
-  <div class="rail-inner shell-reset">
-    <span class="rail-label">Engagement Tearsheet</span>
-    <ul class="rail-links">
-      <li><a href="#models" data-rail><span class="ix">01</span>Models</a></li>
-      <li><a href="#retainers" data-rail><span class="ix">02</span>Launch Package</a></li>
-      <li><a href="#retainers-tiers" data-rail><span class="ix">03</span>Retainers</a></li>
-      <li><a href="#process" data-rail><span class="ix">04</span>Process</a></li>
-    </ul>
-  </div>
-</nav>
+<!-- section rail removed -->
 
 <main id="main">
 
@@ -745,7 +739,6 @@
     <div class="shell">
       <div class="masthead-grid">
         <div>
-          <span class="eyebrow">Engagement</span>
           <h1 class="title">How&nbsp;we&nbsp;engage.</h1>
         </div>
         <p class="intro">Three ways to work together — <strong>discrete project work</strong>, a <strong>complete launch package</strong>, and <strong>ongoing retainers</strong> — each scoped to your raise, your timeline, and the standard the capital markets expect.</p>
@@ -764,7 +757,7 @@
 
       <!-- Three compact model cards -->
       <div class="models reveal">
-        <article class="model">
+        <a class="model" href="#deliverables">
           <div class="model-top">
             <span class="model-ref">Model 01</span>
             <span class="model-tag">À la carte</span>
@@ -775,9 +768,9 @@
             <span class="lbl">Best for</span>
             Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader programme.
           </p>
-        </article>
+        </a>
 
-        <article class="model">
+        <a class="model" href="#launch">
           <div class="model-top">
             <span class="model-ref">Model 02</span>
             <span class="model-tag">Bundled</span>
@@ -788,9 +781,9 @@
             <span class="lbl">Best for</span>
             Companies coming to market — or relaunching — that need the maps, deck, site, fact sheet, and brand to land together and speak with one voice.
           </p>
-        </article>
+        </a>
 
-        <article class="model">
+        <a class="model" href="#retainers">
           <div class="model-top">
             <span class="model-ref">Model 03</span>
             <span class="model-tag">Recurring</span>
@@ -801,11 +794,11 @@
             <span class="lbl">Best for</span>
             Issuers in an active programme who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
           </p>
-        </article>
+        </a>
       </div>
 
       <!-- Model 01 deliverable register -->
-      <div class="sec-head reveal" style="margin-top:clamp(48px,6vw,80px);">
+      <div class="sec-head reveal" id="deliverables" style="margin-top:clamp(48px,6vw,80px); scroll-margin-top:80px;">
         <span class="sec-reg">[ §<b>01</b>.A ]&nbsp;&nbsp;Project deliverables</span>
         <h2>Scope your own programme.</h2>
         <p class="sec-note">Six deliverable groups. Mix freely; each is quoted line by line.</p>
