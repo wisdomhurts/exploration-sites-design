@@ -2365,3 +2365,213 @@
     .site-card-visit { font-size: 13px; font-weight: 600; color: var(--graphite); }
     .site-card:hover .site-card-visit { color: var(--ore); }
     @media (max-width: 760px) { .site-grid { grid-template-columns: 1fr; } }
+
+    /* ===== Homepage maps gallery + case-studies (merged from es-draft1) ===== */
+
+    /* --- WHAT WE DO SHOWCASE: work cards --- */
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      color: inherit;
+      cursor: zoom-in;
+    }
+    .work-card-media {
+      display: block;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--vellum);
+    }
+    .work-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .work-card:hover .work-card-media img,
+    .work-card:focus-visible .work-card-media img { transform: scale(1.04); }
+    .work-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 14px 2px 0;
+    }
+    .work-card-title { font-size: 15px; font-weight: 600; color: var(--graphite); }
+    .work-card-type { font-size: 13px; color: var(--muted); }
+
+    /* --- WHAT WE DO SHOWCASE: groups + grids --- */
+    .showcase .services-editorial-head { margin-bottom: 8px; }
+    .showcase-group { margin-top: 56px; }
+    .showcase-group:first-of-type { margin-top: 40px; }
+    .showcase-group-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .showcase-group-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--graphite);
+      margin: 0;
+    }
+    .showcase-group-link {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ore);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+    .showcase-group-link:hover { opacity: 0.65; }
+
+    .showcase-grid { display: grid; gap: 24px; }
+    .showcase-grid--maps  { grid-template-columns: repeat(4, 1fr); }
+    .showcase-grid--sites { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid--decks { grid-template-columns: repeat(3, 1fr); }
+    .showcase-grid--mini  { grid-template-columns: repeat(3, 1fr); }
+
+    /* category eyebrow on a card */
+    .work-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ore);
+      margin-bottom: 4px;
+    }
+    a.work-card { text-decoration: none; cursor: pointer; }
+
+    /* wide media for site screenshots & deck covers */
+    .work-card-media--wide { aspect-ratio: 16 / 10; }
+
+    /* placeholder tile for map types without a sample image yet */
+    .work-card--tile .work-card-media--tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+      background:
+        radial-gradient(circle at 1px 1px, var(--graticule) 1px, transparent 0) 0 0 / 16px 16px,
+        var(--vellum);
+    }
+    .work-card-tile-mark {
+      width: 34px; height: 34px;
+      border: 1.5px solid var(--ore);
+      border-radius: 50%;
+      position: relative;
+      opacity: 0.85;
+    }
+    .work-card-tile-mark::before,
+    .work-card-tile-mark::after { content: ""; position: absolute; background: var(--ore); }
+    .work-card-tile-mark::before { left: 50%; top: 9px; bottom: 9px; width: 1.5px; transform: translateX(-50%); }
+    .work-card-tile-mark::after  { top: 50%; left: 9px; right: 9px; height: 1.5px; transform: translateY(-50%); }
+    .work-card-tile-label { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.5px; }
+    .work-card--tile:hover .work-card-media--tile { border-color: var(--ore); }
+
+    /* mini text cards: design / investor hub / socials */
+    .mini-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 26px 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--vellum);
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .mini-card:hover { border-color: var(--ore); transform: translateY(-2px); }
+    .mini-card-title { font-size: 17px; font-weight: 600; color: var(--graphite); }
+    .mini-card-desc { font-size: 14px; line-height: 1.5; color: var(--muted); }
+    .mini-card-arrow { color: var(--ore); font-size: 16px; margin-top: 2px; }
+
+    @media (max-width: 1024px) {
+      .showcase-grid--maps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .showcase-grid--mini { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .showcase-grid--maps,
+      .showcase-grid--sites,
+      .showcase-grid--decks { grid-template-columns: 1fr; }
+      .showcase-group-title { font-size: 20px; }
+    }
+
+    /* --- HERO: demo-reel film link/play button --- */
+    .hero-film-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; background: none; border: none; padding: 0; font: inherit; font-size: 15px; font-weight: 500; color: var(--graphite); cursor: pointer; }
+    .hero-film-play { position: relative; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--ore); flex: none; transition: background 0.2s ease; }
+    .hero-film-play::after { content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent var(--ore); }
+    .hero-film-link:hover .hero-film-play { background: var(--ore); }
+    .hero-film-link:hover .hero-film-play::after { border-left-color: #fff; }
+    .hero-buttons .hero-film-link { margin-top: 0; margin-left: 4px; }
+
+    /* --- CASE STUDIES: market-cap journey (3rd column on each case) --- */
+    .case-journey { align-self: start; padding-top: 4px; }
+    .case-journey-cap {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .case-journey-track { position: relative; padding-left: 24px; }
+    .case-journey-track::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0.6em;
+      bottom: 0.6em;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--ore), var(--graticule));
+    }
+    .case-journey-stop { position: relative; }
+    .case-journey-stop--end { margin-bottom: 60px; }
+    .case-journey-stop::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 0.55em;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .case-journey-stop--end::before { background: var(--ore); }
+    .case-journey-stop--start::before {
+      background: var(--quartz);
+      border: 1.5px solid var(--slate);
+    }
+    .case-journey-val { font-family: var(--font-mono); letter-spacing: -0.02em; line-height: 1; }
+    .case-journey-stop--end .case-journey-val { font-size: 26px; color: var(--graphite); }
+    .case-journey-stop--start .case-journey-val { font-size: 16px; color: var(--muted); }
+    .case-journey-meta {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-top: 22px;
+      padding-left: 24px;
+    }
