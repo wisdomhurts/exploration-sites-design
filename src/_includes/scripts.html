@@ -183,4 +183,50 @@
         });
       });
     })();
+
+    // Lightbox — images (selected work / map galleries) and YouTube videos (films).
+    // Ported from the service-detail pages. No-ops on any page without a
+    // #work-lightbox element, so it is safe site-wide.
+    (function () {
+      var lb = document.getElementById('work-lightbox');
+      if (!lb) return;
+      var img = lb.querySelector('.lightbox-img');
+      var vid = lb.querySelector('.lightbox-video');
+      var cap = lb.querySelector('.lightbox-cap');
+      function show() { lb.hidden = false; document.body.style.overflow = 'hidden'; }
+      function openImg(full, caption, alt) {
+        if (!img) return;
+        img.src = full; img.alt = alt || caption || ''; img.hidden = false;
+        if (vid) { vid.hidden = true; vid.innerHTML = ''; }
+        if (cap) cap.textContent = caption || '';
+        show();
+      }
+      function openVideo(id, caption) {
+        if (!vid) return;
+        vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
+          '?autoplay=1&rel=0" title="' + (caption || 'Video') +
+          '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+        vid.hidden = false;
+        if (img) { img.hidden = true; img.src = ''; }
+        if (cap) cap.textContent = caption || '';
+        show();
+      }
+      function close() {
+        lb.hidden = true;
+        if (img) img.src = '';
+        if (vid) vid.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var v = el.getAttribute('data-video');
+          if (v) { openVideo(v, el.getAttribute('data-caption')); }
+          else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
+        });
+      });
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+    })();
   </script>

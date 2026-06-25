@@ -2178,3 +2178,190 @@
       .onboarding-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
       .onboarding-step + .onboarding-step::before { display: none; }
     }
+
+    /* ===== Service-detail pages (merged from es-draft1) ===== */
+    /* Image-gallery + lightbox styles for the ported service-detail pages
+       (map types, sections, 3D models, conceptual schematics, movies,
+       presentations, websites/webflow/wordpress). All custom properties
+       referenced here (--border, --vellum, --muted, --graphite, --ore,
+       --quartz, --basalt, --surface, fonts) already exist in :root above. */
+
+    /* Head-guard hook: pages add .motion-prep to <html> on load and a 1.5s
+       failsafe removes it. Keeps hero copy hidden only if a (GSAP) reveal is
+       wired; self-removes otherwise, so it no-ops on the base site. */
+    .motion-prep .hero .hero-headline,
+    .motion-prep .hero .hero-body,
+    .motion-prep .hero .hero-buttons { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .motion-prep .hero .hero-headline,
+      .motion-prep .hero .hero-body,
+      .motion-prep .hero .hero-buttons { opacity: 1; }
+    }
+
+    /* Lightbox (shared by every gallery on these pages) */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 16, 31, 0.9);
+      padding: 4vmin;
+    }
+    .lightbox[hidden] { display: none; }
+    .lightbox-figure {
+      margin: 0;
+      max-width: 94vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .lightbox-cap {
+      color: var(--quartz);
+      font-size: 14px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: var(--quartz);
+      font-size: 38px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 8px;
+    }
+    /* Video lightbox */
+    .lightbox-video { width: min(92vw, 1200px); aspect-ratio: 16 / 9; }
+    .lightbox-video iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); }
+
+    /* --- MAP GALLERY (map-type pages) --- */
+    .map-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .map-thumb { display: block; padding: 0; margin: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; }
+    .map-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .map-thumb:hover img, .map-thumb:focus-visible img { transform: scale(1.05); }
+    @media (max-width: 1024px) { .map-gallery { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .map-gallery { grid-template-columns: 1fr; } }
+
+    /* --- MAP FEATURE (locators & area plays page) --- */
+    .map-feature {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 44px;
+      align-items: center;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .map-feature:last-child { border-bottom: none; }
+    .map-feature-media {
+      display: block;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--vellum);
+      cursor: zoom-in;
+    }
+    .map-feature-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .map-feature-media:hover img,
+    .map-feature-media:focus-visible img { transform: scale(1.03); }
+    .map-feature-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--graphite);
+      margin: 4px 0 12px;
+    }
+    .map-feature-text a {
+      color: var(--graphite);
+      text-decoration: underline;
+      text-decoration-color: var(--ore);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+    .map-feature-text a:hover { color: var(--ore); }
+    @media (max-width: 768px) {
+      .map-feature { grid-template-columns: 1fr; gap: 22px; padding: 28px 0; }
+    }
+
+    /* --- PRESENTATIONS (deck gallery) --- */
+    .deck-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .deck-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+    .deck-card-media {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--vellum);
+    }
+    .deck-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .deck-card:hover .deck-card-media img,
+    .deck-card:focus-visible .deck-card-media img { transform: scale(1.04); }
+    .deck-card-meta { padding: 14px 2px 0; display: flex; flex-direction: column; gap: 3px; }
+    .deck-card-title { font-size: 16px; font-weight: 600; color: var(--graphite); }
+    .deck-card-type { font-size: 13px; color: var(--muted); }
+    .deck-card-view { font-size: 13px; font-weight: 600; color: var(--graphite); margin-top: 8px; }
+    .deck-card:hover .deck-card-view { color: var(--ore); }
+    @media (max-width: 1024px) { .deck-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .deck-grid { grid-template-columns: 1fr; } }
+
+    /* --- GIS MOVIES --- */
+    .movie-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    .movie-card { display: flex; flex-direction: column; background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; }
+    .movie-card-media { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 10px; border: 1px solid var(--border); background: var(--basalt); }
+    .movie-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .movie-card:hover .movie-card-media img, .movie-card:focus-visible .movie-card-media img { transform: scale(1.04); }
+    .movie-play { position: absolute; top: 50%; left: 50%; width: 54px; height: 54px; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(26, 16, 31, 0.55); transition: background 0.2s ease, transform 0.2s ease; }
+    .movie-play::after { content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; }
+    .movie-card:hover .movie-play, .movie-card:focus-visible .movie-play { background: var(--ore); transform: translate(-50%, -50%) scale(1.06); }
+    .movie-card-title { font-size: 15px; font-weight: 600; color: var(--graphite); padding: 12px 2px 0; }
+    @media (max-width: 1024px) { .movie-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .movie-grid { grid-template-columns: 1fr; } }
+
+    /* --- WEBSITES (platform builds) --- */
+    .platform-builds { margin-top: 26px; }
+    .platform-builds-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; }
+    .platform-builds-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .platform-builds-row img { height: 34px; width: auto; object-fit: contain; }
+
+    /* --- SITE GALLERY (webflow / wordpress pages) --- */
+    .site-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; }
+    .site-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+    .site-card-media { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(26,16,31,0.06); background: var(--vellum); }
+    .site-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.6s ease; }
+    .site-card:hover .site-card-media img, .site-card:focus-visible .site-card-media img { transform: scale(1.03); }
+    .site-card-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 2px 0; }
+    .site-card-title { font-size: 16px; font-weight: 600; color: var(--graphite); }
+    .site-card-visit { font-size: 13px; font-weight: 600; color: var(--graphite); }
+    .site-card:hover .site-card-visit { color: var(--ore); }
+    @media (max-width: 760px) { .site-grid { grid-template-columns: 1fr; } }

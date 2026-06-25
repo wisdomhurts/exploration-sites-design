@@ -74,22 +74,22 @@
                 <div class="mega-menu-tab-panel is-active" id="panel-maps">
                   <div class="mega-menu-content-header">Investor Map Types</div>
                   <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="locators-area-plays.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="property-target.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Property &amp; Target Maps</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="geoscience-maps.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Geo / Geochem / Geophys</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="sections.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Sections &amp; Long Sections</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="3d-models.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">3D Models</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="conceptual-schematic.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conceptual &amp; Schematic</div>
                     </a>
                   </div>
@@ -98,10 +98,10 @@
                 <div class="mega-menu-tab-panel" id="panel-websites">
                   <div class="mega-menu-content-header">Web Platforms &amp; Support</div>
                   <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="webflow.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webflow</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="wordpress.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">WordPress</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
@@ -113,13 +113,13 @@
                 <div class="mega-menu-tab-panel" id="panel-presentations">
                   <div class="mega-menu-content-header">Presentations &amp; Collateral</div>
                   <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="presentations.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Deck</div>
                     </a>
                     <a href="pricing.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Fact Sheets</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="movies.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">GIS Movies</div>
                     </a>
                   </div>
@@ -502,6 +502,52 @@
           else if (e.key === 'End') { setPos(100); e.preventDefault(); }
         });
       });
+    })();
+
+    // Lightbox — images (selected work / map galleries) and YouTube videos (films).
+    // Ported from the service-detail pages. No-ops on any page without a
+    // #work-lightbox element, so it is safe site-wide.
+    (function () {
+      var lb = document.getElementById('work-lightbox');
+      if (!lb) return;
+      var img = lb.querySelector('.lightbox-img');
+      var vid = lb.querySelector('.lightbox-video');
+      var cap = lb.querySelector('.lightbox-cap');
+      function show() { lb.hidden = false; document.body.style.overflow = 'hidden'; }
+      function openImg(full, caption, alt) {
+        if (!img) return;
+        img.src = full; img.alt = alt || caption || ''; img.hidden = false;
+        if (vid) { vid.hidden = true; vid.innerHTML = ''; }
+        if (cap) cap.textContent = caption || '';
+        show();
+      }
+      function openVideo(id, caption) {
+        if (!vid) return;
+        vid.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id +
+          '?autoplay=1&rel=0" title="' + (caption || 'Video') +
+          '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+        vid.hidden = false;
+        if (img) { img.hidden = true; img.src = ''; }
+        if (cap) cap.textContent = caption || '';
+        show();
+      }
+      function close() {
+        lb.hidden = true;
+        if (img) img.src = '';
+        if (vid) vid.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var v = el.getAttribute('data-video');
+          if (v) { openVideo(v, el.getAttribute('data-caption')); }
+          else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
+        });
+      });
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
     })();
   </script>
 
