@@ -255,7 +255,8 @@
     <section class="section">
       <div class="contact-grid">
         <div>
-          <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('.btn-primary').textContent='Sent — we\u2019ll be in touch';this.querySelector('.btn-primary').style.background='#2d6a4f';">
+          <!-- TODO: replace YOUR_FORM_ID with the Formspree form ID (formspree.io → New Form → the part after /f/) -->
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-success="Sent — we’ll be in touch">
             <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="name">Name</label>
@@ -291,7 +292,45 @@
             </div>
             <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Submit Inquiry</button>
             <p class="form-hint">We respond within one business day. For urgent requests, call 604 688 9997.</p>
+            <p class="form-hint form-error" hidden></p>
           </form>
+          <script>
+            (function () {
+              var form = document.getElementById('contact-form');
+              if (!form) return;
+              var btn = form.querySelector('.btn-primary');
+              var err = form.querySelector('.form-error');
+              var defaultLabel = btn.textContent;
+              form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
+                  console.warn('Contact form: set the Formspree endpoint in src/contact.html');
+                }
+                err.hidden = true;
+                btn.disabled = true;
+                btn.textContent = 'Sending…';
+                fetch(form.action, {
+                  method: 'POST',
+                  body: new FormData(form),
+                  headers: { Accept: 'application/json' }
+                }).then(function (res) {
+                  if (res.ok) {
+                    form.reset();
+                    btn.textContent = form.dataset.success || 'Sent — we’ll be in touch';
+                    btn.style.background = '#2d6a4f';
+                  } else {
+                    fail();
+                  }
+                }).catch(fail);
+                function fail() {
+                  btn.disabled = false;
+                  btn.textContent = defaultLabel;
+                  err.textContent = 'Something went wrong. Email info@explorationsites.com or call 604 688 9997.';
+                  err.hidden = false;
+                }
+              });
+            })();
+          </script>
         </div>
 
         <div>

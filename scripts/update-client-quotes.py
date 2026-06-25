@@ -15,7 +15,7 @@ import subprocess
 import os
 from datetime import datetime
 
-HTML_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'public', 'clients.html')
+HTML_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src', 'clients.html')
 
 def parse_rows(html):
     """Extract all table rows with their data."""

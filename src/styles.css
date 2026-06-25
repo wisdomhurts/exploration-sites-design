@@ -1693,9 +1693,31 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 32px;
       padding: 48px 0;
+      position: relative; /* anchor for .timeline-track */
     }
     .onboarding-step {
       position: relative;
+    }
+    /* Timeline scaffolding — markup hooks for a future scroll-progress
+       indicator. Positioned absolutely so they don't occupy grid cells
+       and break the 4-column row. .timeline-dot is hidden until styled. */
+    .timeline-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 60px; /* aligned with the row of step numbers */
+      height: 1px;
+      background: var(--border);
+      pointer-events: none;
+    }
+    .timeline-track-fill {
+      width: 0;
+      height: 100%;
+      background: var(--ore);
+      transition: width 0.4s ease;
+    }
+    .timeline-dot {
+      display: none;
     }
     .onboarding-step-num {
       font-family: var(--font-mono);
@@ -1828,6 +1850,12 @@
       font-size: 13px;
       color: var(--muted);
       margin-top: 4px;
+    }
+    .form-error {
+      color: #a3392f;
+    }
+    .form-error[hidden] {
+      display: none;
     }
 
 
