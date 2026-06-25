@@ -290,6 +290,36 @@
       gap: 32px;
     }
 
+    /* "Book a discovery call" button — editorial outline + arrow (variation 1) */
+    .btn-discovery {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--graphite);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border: 1px solid var(--slate);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.25s var(--ease-out-quart), color 0.25s var(--ease-out-quart);
+    }
+    .btn-discovery .arw {
+      transition: transform 0.25s var(--ease-out-quart), color 0.25s var(--ease-out-quart);
+    }
+    .btn-discovery:hover { border-color: var(--ore); }
+    .btn-discovery:hover .arw { transform: translateX(4px); color: var(--ore); }
+
+    /* On dark surfaces (footer, dark CTA bands) */
+    .btn-discovery--on-dark { border-color: rgba(244,241,236,0.38); color: var(--quartz); }
+    .btn-discovery--on-dark:hover { border-color: var(--ore); }
+    .btn-discovery--on-dark:hover .arw { color: var(--ore); }
+
+    /* Compact in the header */
+    .nav-right .btn-discovery { font-size: 14px; padding: 9px 20px; }
+
     .nav-strip {
       height: 1px;
       background: var(--border);
