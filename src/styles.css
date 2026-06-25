@@ -284,6 +284,12 @@
       background: var(--basalt);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
     .nav-strip {
       height: 1px;
       background: var(--border);
@@ -2124,6 +2130,7 @@
       .nav-inner { padding: 0 20px; }
       .page { padding: 0 20px; }
       .nav-links { display: none; }
+      .nav-cta { display: none; }
       .nav-hamburger { display: block; }
       .hero { padding: 60px 0 48px; }
       .hero-headline { font-size: 32px; }

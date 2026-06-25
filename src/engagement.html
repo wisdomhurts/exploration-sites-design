@@ -1,0 +1,1161 @@
+---
+permalink: "engagement.html"
+title: "Engagement — Exploration Sites"
+description: "How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your raise and timeline."
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement — Exploration Sites</title>
+<meta name="description" content="How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your raise and timeline.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 124.63 124.63'%3E%3Cg fill='%231A101F'%3E%3Cpolygon points='41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32'/%3E%3Cpolygon points='41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64'/%3E%3Cpolygon points='83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63'/%3E%3Cpolygon points='111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51'/%3E%3Cpath d='M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z'/%3E%3Cpath d='M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --font-serif: "Source Serif 4", Georgia, serif;
+    --font-sans: "Inter", -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", monospace;
+
+    --graphite: #1A101F;
+    --quartz:   #F4F1EC;
+    --slate:    #5A5F63;
+    --basalt:   #2C3338;
+    --vellum:   #E8E2D5;
+    --graticule:#C8C2B4;
+    --ore:      #B8823A;
+    --moss:     #5F7052;
+
+    --body:     #5A5F63;
+    --muted:    #8A8478;
+    --border:   rgba(26,16,31,0.08);
+    --border-strong: rgba(26,16,31,0.16);
+    --hairline: rgba(26,16,31,0.12);
+    --surface:  #FFFFFF;
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 80px;
+
+    --ease-out-quart: cubic-bezier(.2,.8,.2,1);
+    --ease-out-soft:  cubic-bezier(.33,1,.68,1);
+
+    --shell: 1320px;
+    --pad: clamp(20px, 5vw, 64px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--graphite);
+    background: var(--quartz);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Account for the two stacked sticky bars when jumping to anchors */
+  :target { scroll-margin-top: 132px; }
+
+  ::selection { background: rgba(184,130,58,0.22); }
+
+  a { color: inherit; }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- ACCESSIBILITY ---------- */
+  .skip-link {
+    position: absolute;
+    top: -100px; left: 16px;
+    background: var(--graphite);
+    color: var(--quartz);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px; font-weight: 600;
+    z-index: 999; text-decoration: none;
+    transition: top .15s;
+  }
+  .skip-link:focus { top: 16px; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ore);
+    outline-offset: 3px;
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* ---------- SHELL ---------- */
+  .shell {
+    max-width: var(--shell);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+  }
+
+  /* ---------- TOP NAV ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 120;
+    background: color-mix(in oklab, var(--quartz) 92%, transparent);
+    backdrop-filter: saturate(140%) blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--shell);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: clamp(16px, 3vw, 40px);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
+  .nav-logo svg { width: 24px; height: 24px; display: block; }
+  .nav-logo-text {
+    font-family: var(--font-sans);
+    font-size: 14px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: lowercase;
+    color: var(--graphite);
+  }
+  .nav-cluster { display: flex; align-items: center; gap: clamp(20px, 3vw, 36px); }
+  .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.2vw, 28px); list-style: none; }
+  .nav-links a {
+    position: relative;
+    font-size: 13.5px; font-weight: 500;
+    color: var(--graphite); text-decoration: none;
+    padding-bottom: 3px;
+    white-space: nowrap;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; right: 100%; bottom: 0;
+    height: 1px; background: var(--ore);
+    transition: right .32s var(--ease-out-quart);
+  }
+  .nav-links a:hover::after { right: 0; }
+
+  /* Header CTA — adapts B's .btn-cta language, sized for a 64px header */
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--ore); color: var(--graphite);
+    font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+    letter-spacing: -0.005em;
+    padding: 9px 17px; border-radius: 4px;
+    text-decoration: none; white-space: nowrap; flex: 0 0 auto;
+    transition: transform .2s var(--ease-out-soft), background .2s var(--ease-out-soft);
+  }
+  .nav-cta svg { width: 14px; height: 14px; }
+  .nav-cta:hover { transform: translateY(-1px); background: #C9923F; }
+  .nav-cta:active { transform: translateY(0); }
+
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--graphite); padding: 6px;
+  }
+  .nav-toggle svg { width: 22px; height: 22px; }
+
+  /* ---------- SECTION RAIL (sticky in-page nav) ---------- */
+  .rail {
+    position: sticky; top: 64px; z-index: 110;
+    background: var(--graphite);
+    color: var(--quartz);
+  }
+  .rail-inner {
+    max-width: var(--shell);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+    height: 52px;
+    display: flex; align-items: center; gap: clamp(16px, 4vw, 48px);
+  }
+  .rail-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--graticule);
+    white-space: nowrap;
+  }
+  .rail-links {
+    display: flex; align-items: center; gap: clamp(14px, 3vw, 34px);
+    list-style: none; margin-left: auto;
+  }
+  .rail-links a {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    font-size: 13px; font-weight: 500; color: var(--quartz);
+    text-decoration: none; opacity: .72;
+    transition: opacity .2s var(--ease-out-soft);
+    white-space: nowrap;
+  }
+  .rail-links a:hover, .rail-links a.is-active { opacity: 1; }
+  .rail-links a .ix {
+    font-family: var(--font-mono);
+    font-size: 10.5px; color: var(--ore);
+    font-variant-numeric: tabular-nums;
+  }
+  .rail-links a.is-active { color: #fff; }
+
+  /* ---------- DOCUMENT MASTHEAD ---------- */
+  .masthead { padding-top: clamp(48px, 8vw, 96px); padding-bottom: clamp(40px, 6vw, 72px); }
+  .doc-meta {
+    display: flex; flex-wrap: wrap; gap: 12px 28px;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .doc-meta .ore { color: var(--ore); }
+  .doc-meta .sep { color: var(--graticule); }
+
+  .masthead-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: end;
+    padding-top: clamp(32px, 5vw, 56px);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ore); margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ore);
+  }
+  h1.title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(46px, 7vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .intro {
+    font-size: clamp(16px, 1.6vw, 18.5px);
+    line-height: 1.62;
+    color: var(--body);
+    max-width: 46ch;
+    padding-top: 6px;
+  }
+  .intro strong { color: var(--graphite); font-weight: 600; }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section[id] { padding-block: clamp(56px, 8vw, 104px); }
+  .band-vellum { background: var(--vellum); }
+
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    padding-bottom: clamp(28px, 4vw, 44px);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: clamp(32px, 4vw, 52px);
+  }
+  .sec-reg {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sec-reg b { color: var(--ore); font-weight: 600; }
+  .sec-head h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    flex: 1 1 auto;
+  }
+  .sec-note {
+    font-size: 14px; color: var(--body); max-width: 36ch; text-align: right;
+  }
+
+  /* ---------- MODEL CARDS ---------- */
+  .models {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+  }
+  .model {
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px clamp(22px, 2.4vw, 32px) 32px;
+    display: flex; flex-direction: column;
+    background: var(--surface);
+  }
+  .model-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .model-ref {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ore);
+  }
+  .model-tag {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border-strong);
+    padding: 3px 8px; border-radius: 2px;
+  }
+  .model h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 25px; line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .model-lede {
+    font-size: 14.5px; line-height: 1.62; color: var(--body);
+    margin-bottom: 22px;
+  }
+  .model-bestfor {
+    font-size: 13px; line-height: 1.6; color: var(--slate);
+    padding: 14px 0 18px;
+    border-top: 1px dotted var(--graticule);
+    margin-top: auto;
+  }
+  .model-bestfor .lbl {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 7px;
+  }
+
+  /* Deliverable groups inside Model 01 */
+  .deliverables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    border-top: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+    margin-top: 6px;
+  }
+  .deliv-group {
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 20px 22px 22px;
+    background: var(--surface);
+  }
+  .deliv-kick {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .deliv-title {
+    font-family: var(--font-serif);
+    font-weight: 500; font-size: 18px;
+    letter-spacing: -0.01em; margin-bottom: 14px;
+  }
+  .deliv-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .deliv-list li {
+    font-size: 13.5px; color: var(--body);
+    padding: 7px 0; line-height: 1.4;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  .deliv-list li::before {
+    content: ""; flex: 0 0 4px; width: 4px; height: 4px;
+    background: var(--graticule); border-radius: 50%;
+    transform: translateY(-2px);
+  }
+
+  /* ---------- LAUNCH PACKAGE ---------- */
+  .launch {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+  }
+  .launch-left {
+    padding: clamp(28px, 3vw, 44px);
+    border-right: 1px solid var(--hairline);
+    background: var(--graphite);
+    color: var(--quartz);
+    display: flex; flex-direction: column;
+  }
+  .launch-left .model-ref { color: var(--ore); }
+  .launch-left h3 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(26px, 3vw, 34px); line-height: 1.06;
+    letter-spacing: -0.015em; margin: 16px 0 18px;
+  }
+  .launch-left p { font-size: 15px; line-height: 1.66; color: var(--graticule); }
+  .launch-save {
+    margin-top: auto; padding-top: 28px;
+    display: flex; align-items: baseline; gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--graticule);
+  }
+  .launch-save b { color: var(--ore); font-weight: 600; }
+
+  .launch-right { padding: clamp(28px, 3vw, 44px); }
+  .launch-right .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 18px;
+  }
+  .launch-incl { list-style: none; counter-reset: incl; }
+  .launch-incl li {
+    counter-increment: incl;
+    display: grid; grid-template-columns: auto 1fr; gap: 16px;
+    align-items: baseline;
+    padding: 15px 0;
+    border-top: 1px solid var(--hairline);
+    font-size: 15.5px; color: var(--graphite);
+  }
+  .launch-incl li:last-child { border-bottom: 1px solid var(--hairline); }
+  .launch-incl li::before {
+    content: counter(incl, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 12px; color: var(--ore);
+    font-variant-numeric: tabular-nums;
+  }
+  .launch-note {
+    margin-top: 22px; padding-top: 20px;
+    border-top: 1px dotted var(--graticule);
+    font-size: 13.5px; line-height: 1.6; color: var(--slate);
+  }
+
+  /* ---------- RETAINER MATRIX ---------- */
+  .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .matrix {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    table-layout: fixed;
+  }
+  .matrix col.feat { width: 30%; }
+  .matrix col.tier { width: 23.33%; }
+  .matrix th, .matrix td {
+    border: 1px solid var(--hairline);
+    padding: 14px 18px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .matrix thead th { border-top: none; }
+  .matrix .feat-head, .matrix tbody th { font-weight: 500; }
+
+  /* column header cells */
+  .tier-head {
+    background: var(--surface);
+    position: relative;
+  }
+  .tier-head.is-pop { background: var(--vellum); }
+  .tier-name {
+    font-family: var(--font-serif);
+    font-weight: 500; font-size: 21px; letter-spacing: -0.01em;
+    line-height: 1.1; margin-bottom: 4px;
+    color: var(--graphite);
+  }
+  .tier-pop-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--quartz); background: var(--ore);
+    padding: 3px 7px; border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .tier-for {
+    font-size: 12.5px; line-height: 1.5; color: var(--body);
+    font-weight: 400;
+  }
+  .feat-head {
+    background: var(--graphite); color: var(--quartz);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    vertical-align: bottom;
+  }
+
+  /* feature rows */
+  .matrix tbody th {
+    background: var(--quartz);
+    font-size: 13.5px; color: var(--graphite); font-weight: 500;
+    line-height: 1.4;
+  }
+  .matrix tbody td { background: var(--surface); }
+  .matrix tbody td.is-pop { background: color-mix(in oklab, var(--vellum) 55%, var(--surface)); }
+  .matrix tbody tr:hover th,
+  .matrix tbody tr:hover td { background: color-mix(in oklab, var(--vellum) 38%, var(--surface)); }
+  .matrix tbody tr:hover td.is-pop { background: color-mix(in oklab, var(--vellum) 80%, var(--surface)); }
+
+  .cell { display: flex; align-items: baseline; gap: 10px; }
+  .check {
+    flex: 0 0 auto;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+    color: var(--moss); line-height: 1;
+    transform: translateY(1px);
+  }
+  .cell.is-pop .check { color: var(--ore); }
+  .cell .val {
+    font-size: 13px; line-height: 1.4; color: var(--slate);
+    font-variant-numeric: tabular-nums;
+  }
+  .cell.is-pop .val { color: var(--graphite); }
+  .cell.muted { color: var(--graticule); }
+  .cell.muted .dash {
+    font-family: var(--font-mono); font-size: 13px; color: var(--graticule);
+  }
+  .matrix tfoot td { background: var(--surface); border-bottom: none; }
+  .matrix tfoot .tier-cta {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .matrix tfoot .tier-cta a {
+    text-decoration: none; color: var(--graphite);
+    border-bottom: 1px solid var(--ore); padding-bottom: 2px;
+    transition: color .2s var(--ease-out-soft);
+  }
+  .matrix tfoot .tier-cta a:hover { color: var(--ore); }
+  .matrix tfoot td.is-pop { background: var(--vellum); }
+
+  /* ============================================================
+     PROCESS — horizontal numbered ledger on a Vellum band.
+     Ported from engagement-a.html. Every process-only class is
+     prefixed `apr-` so it cannot collide with the tearsheet system.
+     Tokens remapped onto B's palette (--hairline, etc.) and the
+     header reuses B's .sec-head / .sec-reg pattern, so this section
+     reads as native to the document.
+     ============================================================ */
+  #process.apr-band {
+    background: var(--vellum);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .apr-ledger {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid var(--graphite);
+  }
+  .apr-step {
+    padding: clamp(24px, 2.6vw, 34px) clamp(18px, 1.8vw, 28px) clamp(30px, 3.2vw, 44px) 0;
+    border-right: 1px solid var(--hairline);
+    position: relative;
+  }
+  .apr-step:last-child { border-right: 0; padding-right: 0; }
+  .apr-step-num {
+    display: flex; align-items: baseline; gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--slate);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: clamp(28px, 3.5vw, 48px);
+  }
+  .apr-step-num .of { font-size: 10.5px; color: var(--ore); letter-spacing: 0.06em; }
+  .apr-step-title {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 1.7vw, 22px); font-weight: 500;
+    letter-spacing: -0.01em; color: var(--graphite);
+    line-height: 1.1; margin-bottom: 12px;
+  }
+  .apr-step-text {
+    font-size: 13.5px; line-height: 1.56; color: var(--body);
+    max-width: 30ch;
+  }
+
+  @media (max-width: 940px) {
+    .apr-ledger { grid-template-columns: repeat(2, 1fr); }
+    .apr-step:nth-child(2n) { border-right: 0; }
+    .apr-step { padding-right: clamp(16px, 3vw, 28px); }
+    .apr-step:nth-child(2n) { padding-right: 0; }
+    .apr-step-text { max-width: 42ch; }
+  }
+  @media (max-width: 560px) {
+    .apr-ledger { grid-template-columns: 1fr; }
+    .apr-step {
+      border-right: 0; padding-right: 0;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: clamp(24px, 6vw, 32px);
+    }
+    .apr-step:last-child { border-bottom: 0; }
+    .apr-step-num { margin-bottom: 16px; }
+    .apr-step-text { max-width: none; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta { background: var(--graphite); color: var(--quartz); }
+  .cta-inner {
+    padding-block: clamp(64px, 9vw, 120px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .cta-reg {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ore); margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .cta-reg::before { content: ""; width: 28px; height: 1px; background: var(--ore); }
+  .cta h2 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(32px, 4.6vw, 54px); line-height: 1.04;
+    letter-spacing: -0.02em; max-width: 18ch;
+  }
+  .cta p {
+    margin-top: 18px; font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.6; color: var(--graticule); max-width: 44ch;
+  }
+  .btn-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--ore); color: var(--graphite);
+    font-family: var(--font-sans); font-size: 15px; font-weight: 600;
+    padding: 16px 30px; border-radius: 4px;
+    text-decoration: none; white-space: nowrap;
+    transition: transform .2s var(--ease-out-soft), background .2s var(--ease-out-soft);
+  }
+  .btn-cta:hover { transform: translateY(-1px); background: #C9923F; }
+  .btn-cta:active { transform: translateY(0); }
+  .btn-cta svg { width: 16px; height: 16px; }
+
+  /* ---------- FOOTER ---------- */
+  .footer { background: var(--graphite); color: var(--graticule); border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-inner {
+    max-width: var(--shell); margin: 0 auto;
+    padding: clamp(40px, 5vw, 64px) var(--pad) 32px;
+    display: flex; flex-wrap: wrap; gap: 32px 64px;
+    align-items: flex-start; justify-content: space-between;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .footer-brand svg { width: 22px; height: 22px; }
+  .footer-brand-text {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: lowercase; color: var(--quartz);
+  }
+  .footer-tag {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: var(--muted); margin-top: 12px; max-width: 30ch;
+    line-height: 1.6;
+  }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; }
+  .footer-nav a {
+    font-size: 13px; color: var(--graticule); text-decoration: none;
+    transition: color .2s var(--ease-out-soft);
+  }
+  .footer-nav a:hover { color: var(--quartz); }
+  .footer-bottom {
+    max-width: var(--shell); margin: 0 auto;
+    padding: 18px var(--pad);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.06em; color: var(--muted);
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity .6s var(--ease-out-quart), transform .6s var(--ease-out-quart); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1080px) {
+    .models { grid-template-columns: 1fr 1fr; }
+    .model:last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: inline-flex; }
+  }
+  @media (max-width: 860px) {
+    .masthead-grid { grid-template-columns: 1fr; gap: 24px; align-items: start; }
+    .intro { max-width: 60ch; }
+    .models { grid-template-columns: 1fr; }
+    .model:last-child { grid-column: auto; }
+    .launch { grid-template-columns: 1fr; }
+    .launch-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .cta-inner { grid-template-columns: 1fr; }
+    .sec-note { text-align: left; }
+    .rail-label { display: none; }
+    .rail-links { margin-left: 0; width: 100%; justify-content: space-between; }
+  }
+  @media (max-width: 460px) {
+    .nav-cta span { display: none; }
+    .nav-cta { padding: 9px 11px; gap: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn-cta:hover, .nav-cta:hover { transform: none; }
+    *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== TOP NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Exploration Sites — home">
+      <svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g fill="#1A101F"><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
+      <span class="nav-logo-text">exploration sites</span>
+    </a>
+    <div class="nav-cluster">
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="services.html">What We Do</a></li>
+          <li><a href="why.html">Why We Exist</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="contact.html">
+        <span>Book a discovery call</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.querySelector('.nav-links').scrollIntoView()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== STICKY SECTION RAIL ===== -->
+<nav class="rail" aria-label="On this page">
+  <div class="rail-inner shell-reset">
+    <span class="rail-label">Engagement Tearsheet</span>
+    <ul class="rail-links">
+      <li><a href="#models" data-rail><span class="ix">01</span>Models</a></li>
+      <li><a href="#retainers" data-rail><span class="ix">02</span>Launch Package</a></li>
+      <li><a href="#retainers-tiers" data-rail><span class="ix">03</span>Retainers</a></li>
+      <li><a href="#process" data-rail><span class="ix">04</span>Process</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ===== MASTHEAD ===== -->
+  <div class="masthead">
+    <div class="shell">
+      <div class="doc-meta">
+        <span>Exploration Sites <span class="sep">/</span> Engagement</span>
+        <span>Ref. <span class="ore">ENG-2026</span></span>
+        <span>Victoria, BC</span>
+        <span>Three engagement models</span>
+        <span>Fixed-quote basis</span>
+      </div>
+      <div class="masthead-grid">
+        <div>
+          <span class="eyebrow">Engagement</span>
+          <h1 class="title">How&nbsp;we&nbsp;engage.</h1>
+        </div>
+        <p class="intro">Three ways to work together — <strong>discrete project work</strong>, a <strong>complete launch package</strong>, and <strong>ongoing retainers</strong> — each scoped to your raise, your timeline, and the standard the capital markets expect.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODELS ===== -->
+  <section id="models">
+    <div class="shell">
+      <div class="sec-head reveal">
+        <span class="sec-reg">[ §<b>01</b> / 04 ]&nbsp;&nbsp;Engagement models</span>
+        <h2>Three ways to engage.</h2>
+        <p class="sec-note">Each model is scoped on its own terms and returned as a single fixed quote.</p>
+      </div>
+
+      <!-- Three compact model cards -->
+      <div class="models reveal">
+        <article class="model">
+          <div class="model-top">
+            <span class="model-ref">Model 01</span>
+            <span class="model-tag">À la carte</span>
+          </div>
+          <h3>Project work.</h3>
+          <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
+          <p class="model-bestfor">
+            <span class="lbl">Best for</span>
+            Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader programme.
+          </p>
+        </article>
+
+        <article class="model">
+          <div class="model-top">
+            <span class="model-ref">Model 02</span>
+            <span class="model-tag">Bundled</span>
+          </div>
+          <h3>The Launch Package.</h3>
+          <p class="model-lede">The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
+          <p class="model-bestfor">
+            <span class="lbl">Best for</span>
+            Companies coming to market — or relaunching — that need the maps, deck, site, fact sheet, and brand to land together and speak with one voice.
+          </p>
+        </article>
+
+        <article class="model">
+          <div class="model-top">
+            <span class="model-ref">Model 03</span>
+            <span class="model-tag">Recurring</span>
+          </div>
+          <h3>Monthly retainer.</h3>
+          <p class="model-lede">For companies in continuous market — ongoing map updates, presentation refreshes, site maintenance, and investor support, retained at a predictable monthly commitment.</p>
+          <p class="model-bestfor">
+            <span class="lbl">Best for</span>
+            Issuers in an active programme who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
+          </p>
+        </article>
+      </div>
+
+      <!-- Model 01 deliverable register -->
+      <div class="sec-head reveal" style="margin-top:clamp(48px,6vw,80px);">
+        <span class="sec-reg">[ §<b>01</b>.A ]&nbsp;&nbsp;Project deliverables</span>
+        <h2>Scope your own programme.</h2>
+        <p class="sec-note">Six deliverable groups. Mix freely; each is quoted line by line.</p>
+      </div>
+
+      <div class="deliverables reveal">
+        <div class="deliv-group">
+          <div class="deliv-kick">Make your geology investable</div>
+          <div class="deliv-title">Investor Maps</div>
+          <ul class="deliv-list">
+            <li>Locators &amp; Area Plays</li>
+            <li>Property &amp; Target Maps</li>
+            <li>Geo / Geochem / Geophys</li>
+            <li>Sections &amp; Long Sections</li>
+            <li>3D Isometric Models</li>
+            <li>Conceptual &amp; Schematic</li>
+          </ul>
+        </div>
+        <div class="deliv-group">
+          <div class="deliv-kick">Your digital presence</div>
+          <div class="deliv-title">Websites</div>
+          <ul class="deliv-list">
+            <li>WordPress Site</li>
+            <li>Webflow Site</li>
+            <li>Hosting</li>
+          </ul>
+        </div>
+        <div class="deliv-group">
+          <div class="deliv-kick">Tell a compelling story</div>
+          <div class="deliv-title">Presentations</div>
+          <ul class="deliv-list">
+            <li>Investor Deck</li>
+            <li>Development Deck</li>
+            <li>GIS Movies</li>
+          </ul>
+        </div>
+        <div class="deliv-group">
+          <div class="deliv-kick">Shape your identity</div>
+          <div class="deliv-title">Design</div>
+          <ul class="deliv-list">
+            <li>Logos &amp; Branding</li>
+            <li>Fact Sheets</li>
+            <li>Infographics</li>
+            <li>Conference / Booth Design</li>
+          </ul>
+        </div>
+        <div class="deliv-group">
+          <div class="deliv-kick">Scale your investor relations</div>
+          <div class="deliv-title">Investor Hub</div>
+          <ul class="deliv-list">
+            <li>CRM Platform</li>
+            <li>Investor Analytics</li>
+            <li>Nurture Campaigns</li>
+            <li>Webinars</li>
+          </ul>
+        </div>
+        <div class="deliv-group">
+          <div class="deliv-kick">Reach &amp; engage</div>
+          <div class="deliv-title">Socials</div>
+          <ul class="deliv-list">
+            <li>Strategy / Managed</li>
+            <li>AI / Exploration Today</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAUNCH PACKAGE ===== -->
+  <section id="launch">
+    <div class="shell">
+      <div class="sec-head reveal">
+        <span class="sec-reg">[ §<b>02</b> / 04 ]&nbsp;&nbsp;Bundled engagement · Model 02</span>
+        <h2>The Launch Package.</h2>
+        <p class="sec-note">One scope, one voice, one fixed quote.</p>
+      </div>
+
+      <div class="launch reveal">
+        <div class="launch-left">
+          <span class="model-ref">Model 02 — Bundled</span>
+          <h3>Everything, in one engagement.</h3>
+          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
+          <div class="launch-save"><b>Single fixed quote</b> <span>at a saving vs. piecewise</span></div>
+        </div>
+        <div class="launch-right">
+          <div class="lbl">Included in the package</div>
+          <ul class="launch-incl">
+            <li>A complete investor map set</li>
+            <li>A polished investor deck</li>
+            <li>A purpose-built website</li>
+            <li>A clean, current fact sheet</li>
+            <li>A coherent brand identity</li>
+          </ul>
+          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice — and priced as one fixed quote, at a saving over piecing it together deliverable by deliverable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RETAINERS (comparison matrix) ===== -->
+  <section id="retainers" class="band-vellum">
+    <div class="shell">
+      <div class="sec-head reveal" id="retainers-tiers" style="scroll-margin-top:132px;">
+        <span class="sec-reg">[ §<b>03</b> / 04 ]&nbsp;&nbsp;Monthly retainer · Model 03</span>
+        <h2>Retainer tiers, side by side.</h2>
+        <p class="sec-note">For companies in continuous market — retained at a predictable monthly commitment.</p>
+      </div>
+
+      <div class="matrix-wrap reveal">
+        <table class="matrix">
+          <caption class="sr-only">Comparison of Essentials, Growth, and Enterprise retainer tiers across features.</caption>
+          <colgroup>
+            <col class="feat"><col class="tier"><col class="tier"><col class="tier">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col" class="feat-head">Tier&nbsp;/&nbsp;Feature</th>
+              <th scope="col" class="tier-head">
+                <span class="tier-name">Essentials</span>
+                <span class="tier-for">For early-stage teams keeping their core materials current between milestones.</span>
+              </th>
+              <th scope="col" class="tier-head is-pop">
+                <span class="tier-pop-tag">Most Popular</span>
+                <span class="tier-name">Growth</span>
+                <span class="tier-for">For companies in an active programme who need steady production across maps, decks, and web.</span>
+              </th>
+              <th scope="col" class="tier-head">
+                <span class="tier-name">Enterprise</span>
+                <span class="tier-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Monthly allotment of design time</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Monthly allotment</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Larger allotment</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Substantial allotment</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Rollover of unused time</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Map updates &amp; revisions</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">New map production</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Website maintenance</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Hosting included</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Presentation updates</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Motion &amp; 3D projects</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop muted"><span class="dash">—</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">CRM access included</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop muted"><span class="dash">—</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Investor analytics</th>
+              <td><span class="cell muted"><span class="dash">—</span></span></td>
+              <td class="is-pop"><span class="cell is-pop muted"><span class="dash">—</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Dedicated contact</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Coordinator</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Account manager</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Account manager</span></span></td>
+            </tr>
+            <tr>
+              <th scope="row">Priority turnaround</th>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td class="tier-cta"><a href="contact.html">Enquire →</a></td>
+              <td class="tier-cta is-pop"><a href="contact.html">Enquire →</a></td>
+              <td class="tier-cta"><a href="contact.html">Enquire →</a></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS (ported from engagement-a.html — horizontal numbered ledger on a Vellum band) ===== -->
+  <section id="process" class="apr-band">
+    <div class="shell">
+      <div class="sec-head reveal">
+        <span class="sec-reg">[ §<b>04</b> / 04 ]&nbsp;&nbsp;Method</span>
+        <h2>How an engagement works.</h2>
+        <p class="sec-note">No open-ended estimates. No surprises. Approval before any work begins.</p>
+      </div>
+
+      <ol class="apr-ledger reveal">
+        <li class="apr-step">
+          <div class="apr-step-num">01<span class="of">/05</span></div>
+          <h3 class="apr-step-title">Discovery call</h3>
+          <p class="apr-step-text">We learn about your deposit, your raise, and your timeline — and where the gaps are in how the market sees you.</p>
+        </li>
+        <li class="apr-step">
+          <div class="apr-step-num">02<span class="of">/05</span></div>
+          <h3 class="apr-step-title">Scope &amp; fixed quote</h3>
+          <p class="apr-step-text">We define the deliverables and return a clear, fixed quote — no open-ended estimates, no surprises.</p>
+        </li>
+        <li class="apr-step">
+          <div class="apr-step-num">03<span class="of">/05</span></div>
+          <h3 class="apr-step-title">You approve</h3>
+          <p class="apr-step-text">You review the scope and quote, ask questions, and give us the go-ahead before any work begins.</p>
+        </li>
+        <li class="apr-step">
+          <div class="apr-step-num">04<span class="of">/05</span></div>
+          <h3 class="apr-step-title">We build</h3>
+          <p class="apr-step-text">We produce the work to an institutional standard, with checkpoints so you stay informed throughout.</p>
+        </li>
+        <li class="apr-step">
+          <div class="apr-step-num">05<span class="of">/05</span></div>
+          <h3 class="apr-step-title">Ongoing support</h3>
+          <p class="apr-step-text">As your story advances, we keep your materials current — on a project basis or under a retainer.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="shell">
+      <div class="cta-inner">
+        <div>
+          <span class="cta-reg">Next step</span>
+          <h2 id="cta-h">Ready to make your deposit investable?</h2>
+          <p>Tell us about your raise and timeline, and we’ll recommend the right way to engage.</p>
+        </div>
+        <a class="btn-cta" href="contact.html">
+          Book a discovery call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="footer-brand" href="index.html" aria-label="Exploration Sites — home">
+        <svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g fill="#F4F1EC"><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
+        <span class="footer-brand-text">exploration sites</span>
+      </a>
+      <p class="footer-tag">Investor-relations &amp; visualization for exploration-stage resource companies. Victoria, BC.</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="why.html">Why We Exist</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Exploration Sites</span>
+    <span>Engagement Tearsheet · Ref. ENG-2026</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Staggered reveals
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      revealEls.forEach(function (el) { ro.observe(el); });
+    }
+
+    // Active section in the sticky rail (scrollspy)
+    var railLinks = Array.prototype.slice.call(document.querySelectorAll('.rail-links a[data-rail]'));
+    var sections = railLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    if ('IntersectionObserver' in window && sections.length) {
+      var current = null;
+      var so = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) current = e.target.id;
+        });
+        railLinks.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+          if (a.getAttribute('href') === '#' + current) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (s) { so.observe(s); });
+    }
+  })();
+</script>
+</body>
+</html>
