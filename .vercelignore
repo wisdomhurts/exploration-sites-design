@@ -1,62 +1,23 @@
-.git
-.DS_Store
-.vscode
-.mcp.json
+# Whitelist deploy. The x:\ESOS folder on disk is a general workspace holding
+# dozens of large, untracked sibling projects (Blender scenes, site backups,
+# git worktrees, video/data dumps). A denylist kept missing newly-added ones,
+# and the upload blew past Vercel's 2 GiB-per-file limit ("File size ... is
+# greater than 2 GiB"). So: ignore EVERYTHING by default, then re-include only
+# the Eleventy site. This mirrors exactly what the git repo tracks
+# (src/, scripts/, and root config files).
 
-# Dotfolders created by AI-agent skill installers
-.adal
-.agents
-.augment
-.bob
-.cascade
-.claude
-.cline
-.codebuddy
-.codex
-.commandcode
-.continue
-.cortex
-.crush
-.cursor
-.factory
-.firecrawl
-.gemini
-.goose
-.github
-.opencode
-.plandex
-.q
-.roo
-.ruler
-.serena
-.sourcegraph
-.windsurf
+# 1. Ignore every top-level entry.
+/*
 
-# Root-level data dirs only (leading slash anchors to root so src/images/headshots/ is NOT matched)
-/Claude-Memory
-/ES Brand
-/ES Client Work
-/Map Review
-/Sitka
-/awesome-design-md
-/health-metrics
-/skills
-/headshots
-/notion
-/es site
+# 2. Re-include only the site.
+!/src
+!/scripts
+!/.eleventy.js
+!/package.json
+!/package-lock.json
+!/vercel.json
 
-# Large binary source assets anywhere
-*.blend1
-*.blend
-*.psd
-*.psb
-*.docx
-*.xls
-*.xlsx
-
-# Top-level globe renders only
-/globe_*.jpg
-/globe_*.png
-
-# Phantom broken-ACL directory (rebuild artifact)
-src/assets/globe
+# 3. Re-exclude the phantom broken-ACL directory inside src/ — it has corrupt
+#    local ACLs that crash the file walker (see commit e6d3846). The live globe
+#    files (hero-globe.js, world-mask.png) live directly under src/assets/.
+/src/assets/globe
