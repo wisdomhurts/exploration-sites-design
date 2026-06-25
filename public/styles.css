@@ -2575,3 +2575,7 @@
       margin-top: 22px;
       padding-left: 24px;
     }
+
+    /* GHL booking embed (book.html) */
+    .booking-embed { max-width: 900px; margin: 0 auto; }
+    .booking-embed iframe { width: 100%; min-height: 740px; border: none; display: block; }
