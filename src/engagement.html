@@ -207,7 +207,7 @@ description: "How we engage with exploration-stage companies — project work on
   .rail-links a.is-active { color: #fff; }
 
   /* ---------- DOCUMENT MASTHEAD ---------- */
-  .masthead { padding-top: clamp(48px, 8vw, 96px); padding-bottom: clamp(40px, 6vw, 72px); }
+  .masthead { padding-top: clamp(40px, 6vw, 64px); padding-bottom: clamp(8px, 1.2vw, 14px); }
   .doc-meta {
     display: flex; flex-wrap: wrap; gap: 12px 28px;
     align-items: center;
@@ -696,10 +696,11 @@ description: "How we engage with exploration-stage companies — project work on
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
 
-  /* clickable model cards */
-  a.model { text-decoration: none; color: inherit; cursor: pointer; transition: background .2s var(--ease-out-soft); }
-  a.model:hover { background: var(--vellum); }
-  a.model:hover h3 { color: var(--ore); }
+  /* clickable model cards — outline on hover */
+  a.model { text-decoration: none; color: inherit; cursor: pointer; position: relative; transition: box-shadow .2s var(--ease-out-soft); }
+  a.model:hover { box-shadow: inset 0 0 0 1.5px var(--ore); z-index: 1; }
+  /* tighten the gap below the masthead */
+  #models { padding-top: clamp(16px, 3vw, 32px); }
 </style>
 </head>
 <body>
