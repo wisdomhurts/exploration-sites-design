@@ -1368,16 +1368,34 @@ description: "How we engage with exploration-stage companies — project work on
       </div>
 
       <style>
-        /* Retainer cards — match the pricing-page treatment, without dollar values */
-        .retainer-card { display: flex; flex-direction: column; }
-        .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 18px; }
-        .retainer-cta {
+        /* Retainer cards — match the pricing-page treatment, without dollar values.
+           ID-scoped so these win the cascade over any conflicting global rules. */
+        #retainers .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+        #retainers .retainer-card {
+          display: flex; flex-direction: column; position: relative;
+          border: 1px solid var(--border); border-radius: 12px;
+          padding: 28px 24px; background: var(--surface); box-shadow: var(--shadow-card);
+        }
+        #retainers .retainer-card.is-popular { border-color: var(--navy); box-shadow: var(--shadow-deep); }
+        #retainers .retainer-badge {
+          position: absolute; top: -10px; left: 24px;
+          background: var(--navy); color: var(--on-dark);
+          font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+          padding: 3px 10px; border-radius: 4px;
+        }
+        #retainers .retainer-tier { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
+        #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 18px; }
+        #retainers .retainer-features { list-style: none; margin: 0; padding: 0; }
+        #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 6px 0; line-height: 1.5; }
+        #retainers .retainer-cta {
           margin-top: auto; padding-top: 24px;
           font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
           text-transform: uppercase; color: var(--navy); text-decoration: none;
-          align-self: flex-start; transition: color 0.2s var(--ease-out-soft);
+          align-self: flex-start; border-bottom: 1px solid var(--ore); padding-bottom: 3px;
+          transition: color 0.2s var(--ease-out-soft);
         }
-        .retainer-cta:hover { color: var(--ore); }
+        #retainers .retainer-cta:hover { color: var(--ore); }
+        @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
       </style>
     </div>
   </section>
