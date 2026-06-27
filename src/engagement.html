@@ -1,7 +1,7 @@
 ---
 permalink: "engagement.html"
 title: "Engagement — Exploration Sites"
-description: "How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your raise and timeline."
+description: "How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your project and timeline."
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ description: "How we engage with exploration-stage companies — project work on
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Engagement — Exploration Sites</title>
-<meta name="description" content="How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your raise and timeline.">
+<meta name="description" content="How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your project and timeline.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 124.63 124.63'%3E%3Cg fill='%231A101F'%3E%3Cpolygon points='41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32'/%3E%3Cpolygon points='41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64'/%3E%3Cpolygon points='83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63'/%3E%3Cpolygon points='111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51'/%3E%3Cpath d='M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z'/%3E%3Cpath d='M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,7 @@ description: "How we engage with exploration-stage companies — project work on
     --font-mono: "JetBrains Mono", "SF Mono", monospace;
 
     --graphite: #1A101F;
+    --navy:     #1A101F;   /* compat alias for shared nav.html logo SVG fill="var(--navy)" */
     --quartz:   #F4F1EC;
     --slate:    #5A5F63;
     --basalt:   #2C3338;
@@ -78,16 +79,20 @@ description: "How we engage with exploration-stage companies — project work on
   }
 
   /* ---------- ACCESSIBILITY ---------- */
+  /* --- ACCESSIBILITY (ported from src/styles.css) --- */
   .skip-link {
     position: absolute;
-    top: -100px; left: 16px;
+    top: -100px;
+    left: 16px;
     background: var(--graphite);
-    color: var(--quartz);
+    color: var(--surface);
     padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 14px; font-weight: 600;
-    z-index: 999; text-decoration: none;
-    transition: top .15s;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 999;
+    text-decoration: none;
+    transition: top 0.15s;
   }
   .skip-link:focus { top: 16px; }
 
@@ -109,64 +114,416 @@ description: "How we engage with exploration-stage companies — project work on
     padding-inline: var(--pad);
   }
 
-  /* ---------- TOP NAV ---------- */
+  /* ---------- TOP NAV (ported verbatim from src/styles.css; --navy→--graphite, --white→--surface, --ice→--ore, --shadow-deep inlined) ---------- */
   .nav {
-    position: sticky; top: 0; z-index: 120;
-    background: color-mix(in oklab, var(--quartz) 92%, transparent);
-    backdrop-filter: saturate(140%) blur(6px);
-    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--quartz);
   }
+
   .nav-inner {
-    max-width: var(--shell);
+    max-width: 1440px;
     margin: 0 auto;
-    padding-inline: var(--pad);
-    height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: clamp(16px, 3vw, 40px);
+    padding: 0 80px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
-  .nav-logo svg { width: 24px; height: 24px; display: block; }
-  .nav-logo-text {
-    font-family: var(--font-sans);
-    font-size: 14px; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: lowercase;
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
     color: var(--graphite);
   }
-  .nav-cluster { display: flex; align-items: center; gap: clamp(20px, 3vw, 36px); }
-  .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.2vw, 28px); list-style: none; }
+
+  .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav-logo-text {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
+    color: var(--graphite);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
   .nav-links a {
     position: relative;
-    font-size: 13.5px; font-weight: 500;
-    color: var(--graphite); text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
     padding-bottom: 3px;
-    white-space: nowrap;
+    transition: color 0.2s var(--ease-out-soft);
   }
   .nav-links a::after {
-    content: ""; position: absolute; left: 0; right: 100%; bottom: 0;
-    height: 1px; background: var(--ore);
-    transition: right .32s var(--ease-out-quart);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: var(--ore);
+    transition: right 0.32s var(--ease-out-quart);
   }
+  .nav-links a:hover { color: var(--graphite); }
   .nav-links a:hover::after { right: 0; }
 
-  /* Header CTA — adapts B's .btn-cta language, sized for a 64px header */
-  .nav-cta {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: transparent; color: var(--graphite);
-    font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
-    letter-spacing: -0.005em;
-    padding: 9px 18px; border: 1px solid var(--slate); border-radius: 4px;
-    text-decoration: none; white-space: nowrap; flex: 0 0 auto;
-    transition: border-color .25s var(--ease-out-soft), color .25s var(--ease-out-soft);
+  /* Mobile hamburger */
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--graphite);
   }
-  .nav-cta svg { width: 14px; height: 14px; transition: transform .25s var(--ease-out-soft), color .25s var(--ease-out-soft); }
-  .nav-cta:hover { border-color: var(--ore); }
-  .nav-cta:hover svg { transform: translateX(3px); color: var(--ore); }
 
-  .nav-toggle {
-    display: none; background: none; border: none; cursor: pointer;
-    color: var(--graphite); padding: 6px;
+  .nav-hamburger svg { width: 24px; height: 24px; }
+
+  .nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 150;
   }
-  .nav-toggle svg { width: 22px; height: 22px; }
+
+  .nav-mobile-overlay.is-open { display: block; }
+
+  .nav-mobile-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--surface);
+    z-index: 200;
+    padding: 24px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .nav-mobile-panel.is-open { transform: translateX(0); }
+
+  .nav-mobile-close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 32px;
+  }
+
+  .nav-mobile-close button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--graphite);
+  }
+
+  .nav-mobile-close button svg { width: 24px; height: 24px; }
+
+  .nav-mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-mobile-links li a {
+    display: block;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-links li:first-child a { border-top: 1px solid var(--border); }
+
+  .nav-mobile-links li a:hover { color: var(--graphite); }
+
+  .nav-mobile-cta {
+    display: block;
+    margin-top: 24px;
+    background: var(--graphite);
+    color: var(--surface);
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .nav-cta {
+    background: var(--graphite);
+    color: var(--surface) !important;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    opacity: 1 !important;
+    background: var(--basalt);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  /* "Book a discovery call" button — editorial outline + arrow (variation 1) */
+  .btn-discovery {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--graphite);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 26px;
+    border: 1px solid var(--slate);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.25s var(--ease-out-quart), color 0.25s var(--ease-out-quart);
+  }
+  .btn-discovery .arw {
+    transition: transform 0.25s var(--ease-out-quart), color 0.25s var(--ease-out-quart);
+  }
+  .btn-discovery:hover { border-color: var(--ore); }
+  .btn-discovery:hover .arw { transform: translateX(4px); color: var(--ore); }
+
+  /* On dark surfaces (footer, dark CTA bands) */
+  .btn-discovery--on-dark { border-color: rgba(244,241,236,0.38); color: var(--quartz); }
+  .btn-discovery--on-dark:hover { border-color: var(--ore); }
+  .btn-discovery--on-dark:hover .arw { color: var(--ore); }
+
+  /* Compact in the header */
+  .nav-right .btn-discovery { font-size: 14px; padding: 9px 20px; }
+
+  .nav-strip {
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* --- MEGA MENU --- */
+  .mega-menu-wrapper {
+    position: relative;
+  }
+
+  .mega-menu-trigger {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.15s;
+  }
+
+  .mega-menu-trigger:hover { opacity: 0.7; }
+
+  .mega-menu-trigger svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .mega-menu-wrapper:hover .mega-menu-trigger svg {
+    transform: rotate(180deg);
+  }
+
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+  }
+
+  .mega-menu-wrapper:hover .mega-menu,
+  .mega-menu-wrapper:focus-within .mega-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mega-menu-arrow {
+    width: 16px;
+    height: 8px;
+    margin: 0 0 -1px 36px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .mega-menu-arrow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid rgba(0,0,0,0.08);
+  }
+
+  .mega-menu-arrow::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--surface);
+  }
+
+  .mega-menu-panel {
+    width: 480px;
+    max-width: calc(100vw - 80px);
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: rgba(26,16,31,0.01) 0px 1px 3px, rgba(26,16,31,0.02) 0px 3px 7px, rgba(26,16,31,0.02) 0px 7px 15px, rgba(26,16,31,0.04) 0px 14px 28px, rgba(26,16,31,0.05) 0px 23px 52px;
+    display: flex;
+    padding: 20px 24px;
+    gap: 20px;
+  }
+
+  .mega-menu-sidebar {
+    width: 160px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(0,0,0,0.06);
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mega-menu-tab {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+
+  .mega-menu-tab:hover,
+  .mega-menu-tab.is-active {
+    color: var(--graphite);
+  }
+  .mega-menu-tab.is-active .mega-menu-tab-title {
+    font-weight: 500;
+  }
+
+  .mega-menu-tab-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--graphite);
+  }
+
+  .mega-menu-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mega-menu-content-header {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .mega-menu-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 16px;
+  }
+
+  .mega-menu-card {
+    display: block;
+    padding: 10px 0;
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+
+  .mega-menu-card:hover { color: var(--graphite); }
+
+  .mega-menu-card-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: inherit;
+  }
+
+  .mega-menu-card-price {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ore);
+    margin-top: 6px;
+  }
+
+  .mega-menu-footer-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .mega-menu-footer-link:hover { opacity: 0.7; }
+
+  /* Tab content panels — show/hide via JS */
+  .mega-menu-tab-panel { display: none; }
+  .mega-menu-tab-panel.is-active { display: block; }
 
   /* ---------- SECTION RAIL (sticky in-page nav) ---------- */
   .rail {
@@ -222,10 +579,10 @@ description: "How we engage with exploration-stage companies — project work on
 
   .masthead-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: clamp(28px, 5vw, 72px);
-    align-items: end;
-    padding-top: clamp(32px, 5vw, 56px);
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+    padding-top: clamp(28px, 4vw, 48px);
   }
   .eyebrow {
     font-family: var(--font-mono);
@@ -238,12 +595,13 @@ description: "How we engage with exploration-stage companies — project work on
   }
   h1.title {
     font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: clamp(46px, 7vw, 84px);
-    line-height: 0.98;
+    font-weight: 300;
+    font-size: clamp(40px, 5.2vw, 62px);
+    line-height: 1.0;
     letter-spacing: -0.02em;
   }
   .intro {
+    font-weight: 400;
     font-size: clamp(16px, 1.6vw, 18.5px);
     line-height: 1.62;
     color: var(--body);
@@ -259,11 +617,10 @@ description: "How we engage with exploration-stage companies — project work on
   .sec-head {
     display: flex; align-items: baseline; justify-content: space-between;
     gap: 24px; flex-wrap: wrap;
-    padding-bottom: clamp(28px, 4vw, 44px);
-    border-bottom: 1px solid var(--hairline);
     margin-bottom: clamp(32px, 4vw, 52px);
   }
   .sec-reg {
+    display: none;
     font-family: var(--font-mono);
     font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--muted);
@@ -371,6 +728,8 @@ description: "How we engage with exploration-stage companies — project work on
     background: var(--graticule); border-radius: 50%;
     transform: translateY(-2px);
   }
+  .deliv-list a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .deliv-list a:hover { color: var(--ore); }
 
   /* ---------- LAUNCH PACKAGE ---------- */
   .launch {
@@ -417,7 +776,8 @@ description: "How we engage with exploration-stage companies — project work on
     border-top: 1px solid var(--hairline);
     font-size: 15.5px; color: var(--graphite);
   }
-  .launch-incl li:last-child { border-bottom: 1px solid var(--hairline); }
+  .launch-incl li:first-child { border-top: 0; }
+  .launch-incl li:last-child { border-bottom: 0; }
   .launch-incl li::before {
     content: counter(incl, decimal-leading-zero);
     font-family: var(--font-mono);
@@ -429,6 +789,35 @@ description: "How we engage with exploration-stage companies — project work on
     border-top: 1px dotted var(--graticule);
     font-size: 13.5px; line-height: 1.6; color: var(--slate);
   }
+  /* Pricing links inside the launch panel */
+  .launch-link {
+    color: var(--ore); text-decoration: none;
+    border-bottom: 1px solid rgba(184,130,58,0.4);
+    transition: border-color 0.2s var(--ease-out-soft);
+  }
+  .launch-link:hover { border-color: var(--ore); }
+  .launch-note-link {
+    color: var(--graphite); text-decoration: none;
+    border-bottom: 1px solid var(--ore);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .launch-note-link:hover { color: var(--ore); }
+  /* Launch price block (in the dark left panel) */
+  .launch-price {
+    margin-top: auto; padding-top: 28px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .launch-price-fig {
+    font-size: clamp(30px, 3.4vw, 40px); font-weight: 500;
+    letter-spacing: -0.01em; color: var(--quartz);
+    line-height: 1;
+  }
+  .launch-price-note {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--graticule);
+  }
+  .launch-price-note .launch-link { color: var(--ore); border-bottom-color: rgba(184,130,58,0.5); }
 
   /* ---------- RETAINER MATRIX ---------- */
   .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -541,16 +930,17 @@ description: "How we engage with exploration-stage companies — project work on
   .apr-ledger {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    border-top: 1px solid var(--graphite);
+    list-style: none;
   }
   .apr-step {
-    padding: clamp(24px, 2.6vw, 34px) clamp(18px, 1.8vw, 28px) clamp(30px, 3.2vw, 44px) 0;
+    padding: clamp(24px, 2.6vw, 34px) clamp(26px, 2.6vw, 40px) clamp(30px, 3.2vw, 44px) clamp(26px, 2.6vw, 40px);
     border-right: 1px solid var(--hairline);
     position: relative;
   }
+  .apr-step:first-child { padding-left: 0; }
   .apr-step:last-child { border-right: 0; padding-right: 0; }
   .apr-step-num {
-    display: flex; align-items: baseline; gap: 7px;
+    display: none; align-items: baseline; gap: 7px;
     font-family: var(--font-mono);
     font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
     color: var(--slate);
@@ -625,38 +1015,93 @@ description: "How we engage with exploration-stage companies — project work on
   .btn-cta:active { transform: translateY(0); }
   .btn-cta svg { width: 16px; height: 16px; }
 
+  /* Trust strip on the dark CTA band */
+  .eng-trust {
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    padding-top: clamp(48px, 7vw, 88px);
+  }
+  .eng-trust-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--graticule);
+  }
+  .eng-trust-logos {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: clamp(28px, 5vw, 56px);
+  }
+  .eng-trust-logos img {
+    height: 36px; width: auto;
+    opacity: 0.6; filter: grayscale(1) brightness(0) invert(1);
+    transition: opacity 0.2s var(--ease-out-soft);
+  }
+  .eng-trust-logos img:hover { opacity: 0.9; }
+  .cta .cta-inner { padding-top: clamp(40px, 5vw, 64px); }
+  @media (max-width: 560px) { .eng-trust-logos img { height: 28px; } }
+
   /* ---------- FOOTER ---------- */
-  .footer { background: var(--graphite); color: var(--graticule); border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer { background: var(--quartz); border-top: 1px solid var(--border); position: relative; overflow: hidden; isolation: isolate; }
+  .footer-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: -1; }
   .footer-inner {
     max-width: var(--shell); margin: 0 auto;
-    padding: clamp(40px, 5vw, 64px) var(--pad) 32px;
-    display: flex; flex-wrap: wrap; gap: 32px 64px;
-    align-items: flex-start; justify-content: space-between;
+    padding: clamp(48px, 6vw, 80px) var(--pad) 28px;
   }
-  .footer-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-  .footer-brand svg { width: 22px; height: 22px; }
-  .footer-brand-text {
-    font-size: 13px; font-weight: 500; letter-spacing: 0.15em;
-    text-transform: lowercase; color: var(--quartz);
+  .footer-top {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.1fr) minmax(0, 1fr) minmax(240px, 1.1fr);
+    gap: 48px;
+    align-items: start;
+    padding-bottom: 24px;
   }
-  .footer-tag {
-    font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: 0.06em; color: var(--muted); margin-top: 12px; max-width: 30ch;
-    line-height: 1.6;
+  .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
+  .footer-mark {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--graphite); text-decoration: none;
+    transition: opacity 0.3s var(--ease-out-soft); margin-bottom: 18px;
   }
-  .footer-nav { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; }
-  .footer-nav a {
-    font-size: 13px; color: var(--graticule); text-decoration: none;
-    transition: color .2s var(--ease-out-soft);
+  .footer-mark:hover { opacity: 0.75; }
+  .footer-mark svg { width: 28px; height: 28px; flex: 0 0 28px; }
+  .footer-mark-text {
+    font-family: var(--font-sans); font-size: 16px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: lowercase; color: var(--graphite);
   }
-  .footer-nav a:hover { color: var(--quartz); }
+  .footer-statement {
+    font-family: var(--font-serif); font-size: 17px; font-weight: 300;
+    line-height: 1.35; letter-spacing: -0.01em; color: var(--graphite);
+    max-width: 28ch; margin: 0;
+  }
+  .footer-nav { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; list-style: none; }
+  .footer-social { list-style: none; padding: 0; margin: 22px 0 0; display: flex; gap: 14px; }
+  .footer-social a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; color: var(--muted);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .footer-social a:hover { color: var(--ore); }
+  .footer-social svg { width: 18px; height: 18px; }
+  .footer-contact { display: flex; flex-direction: column; text-align: right; }
+  .footer-contact .email-local { color: var(--graphite); }
+  .footer-col ul, .footer-contact ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col ul li, .footer-contact ul li { margin-bottom: 6px; }
+  .footer-col ul a, .footer-contact ul a {
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    line-height: 1.5; transition: color 0.2s var(--ease-out-soft);
+  }
+  .footer-col ul a:hover, .footer-contact ul a:hover { color: var(--graphite); }
+  .footer-rule { height: 1px; background: var(--border); margin: 0; }
   .footer-bottom {
-    max-width: var(--shell); margin: 0 auto;
-    padding: 18px var(--pad);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
-    font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: 0.06em; color: var(--muted);
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px; font-size: 11px; letter-spacing: 0.02em; color: var(--muted);
+  }
+  .footer-legal { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
+  .footer-legal a {
+    font-size: 11px; color: var(--muted); text-decoration: none;
+    letter-spacing: 0.02em; transition: color 0.2s var(--ease-out-soft);
+  }
+  .footer-legal a:hover { color: var(--graphite); }
+  @media (max-width: 768px) {
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .footer-contact { text-align: left; }
+    .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
   }
 
   /* ---------- REVEAL ---------- */
@@ -668,9 +1113,17 @@ description: "How we engage with exploration-stage companies — project work on
     .models { grid-template-columns: 1fr 1fr; }
     .model:last-child { grid-column: 1 / -1; }
   }
-  @media (max-width: 980px) {
+  /* Nav responsive — ported from src/styles.css so the shared nav collapses
+     to the hamburger / mobile panel exactly like every other page. */
+  @media (max-width: 1024px) {
+    .nav-inner { padding: 0 40px; }
+    .mega-menu-panel { max-width: 680px; }
+  }
+  @media (max-width: 640px) {
+    .nav-inner { padding: 0 20px; }
     .nav-links { display: none; }
-    .nav-toggle { display: inline-flex; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: block; }
   }
   @media (max-width: 860px) {
     .masthead-grid { grid-template-columns: 1fr; gap: 24px; align-items: start; }
@@ -684,15 +1137,10 @@ description: "How we engage with exploration-stage companies — project work on
     .rail-label { display: none; }
     .rail-links { margin-left: 0; width: 100%; justify-content: space-between; }
   }
-  @media (max-width: 460px) {
-    .nav-cta span { display: none; }
-    .nav-cta { padding: 9px 11px; gap: 0; }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
-    .btn-cta:hover, .nav-cta:hover { transform: none; }
+    .btn-cta:hover, .nav-cta:hover, .btn-discovery:hover { transform: none; }
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
 
@@ -704,37 +1152,7 @@ description: "How we engage with exploration-stage companies — project work on
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<!-- ===== TOP NAV ===== -->
-<header class="nav">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Exploration Sites — home">
-      <svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g fill="#1A101F"><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
-      <span class="nav-logo-text">exploration sites</span>
-    </a>
-    <div class="nav-cluster">
-      <nav aria-label="Primary">
-        <ul class="nav-links">
-          <li><a href="services.html">What We Do</a></li>
-          <li><a href="why.html">Why We Exist</a></li>
-          <li><a href="engagement.html">Engagement</a></li>
-          <li><a href="clients.html">Clients</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="team.html">Our Team</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <a class="nav-cta" href="book.html">
-        <span>Book a discovery call</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.querySelector('.nav-links').scrollIntoView()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </div>
-</header>
+{% include "nav.html" %}
 
 <!-- section rail removed -->
 
@@ -744,10 +1162,9 @@ description: "How we engage with exploration-stage companies — project work on
   <div class="masthead">
     <div class="shell">
       <div class="masthead-grid">
-        <div>
-          <h1 class="title">How&nbsp;we&nbsp;engage.</h1>
-        </div>
-        <p class="intro">Three ways to work together — <strong>discrete project work</strong>, a <strong>complete launch package</strong>, and <strong>ongoing retainers</strong> — each scoped to your raise, your timeline, and the standard the capital markets expect.</p>
+        <div class="eyebrow">Engagement</div>
+        <h1 class="title">How we engage.</h1>
+        <p class="intro">Three ways to work together — <strong>discrete project work</strong>, a <strong>complete launch package</strong>, and <strong>ongoing retainers</strong> — each scoped to your project, your timeline, and the standard the capital markets expect.</p>
       </div>
     </div>
   </div>
@@ -757,8 +1174,6 @@ description: "How we engage with exploration-stage companies — project work on
     <div class="shell">
       <div class="sec-head reveal">
         <span class="sec-reg">[ §<b>01</b> / 04 ]&nbsp;&nbsp;Engagement models</span>
-        <h2>Three ways to engage.</h2>
-        <p class="sec-note">Each model is scoped on its own terms and returned as a single fixed quote.</p>
       </div>
 
       <!-- Three compact model cards -->
@@ -772,7 +1187,7 @@ description: "How we engage with exploration-stage companies — project work on
           <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
           <p class="model-bestfor">
             <span class="lbl">Best for</span>
-            Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader programme.
+            Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader program.
           </p>
         </a>
 
@@ -798,7 +1213,7 @@ description: "How we engage with exploration-stage companies — project work on
           <p class="model-lede">For companies in continuous market — ongoing map updates, presentation refreshes, site maintenance, and investor support, retained at a predictable monthly commitment.</p>
           <p class="model-bestfor">
             <span class="lbl">Best for</span>
-            Issuers in an active programme who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
+            Issuers in an active program who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
           </p>
         </a>
       </div>
@@ -806,67 +1221,57 @@ description: "How we engage with exploration-stage companies — project work on
       <!-- Model 01 deliverable register -->
       <div class="sec-head reveal" id="deliverables" style="margin-top:clamp(48px,6vw,80px); scroll-margin-top:80px;">
         <span class="sec-reg">[ §<b>01</b>.A ]&nbsp;&nbsp;Project deliverables</span>
-        <h2>Scope your own programme.</h2>
-        <p class="sec-note">Six deliverable groups. Mix freely; each is quoted line by line.</p>
+        <h2>Scope your own program.</h2>
+        <p class="sec-note" style="max-width:none;">5 deliverable groups. Mix freely; each is quoted individually.</p>
       </div>
 
       <div class="deliverables reveal">
         <div class="deliv-group">
-          <div class="deliv-kick">Make your geology investable</div>
+          <div class="deliv-kick">Make geology investable</div>
           <div class="deliv-title">Investor Maps</div>
           <ul class="deliv-list">
-            <li>Locators &amp; Area Plays</li>
-            <li>Property &amp; Target Maps</li>
-            <li>Geo / Geochem / Geophys</li>
-            <li>Sections &amp; Long Sections</li>
-            <li>3D Isometric Models</li>
-            <li>Conceptual &amp; Schematic</li>
+            <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a></li>
+            <li><a href="property-target.html">Property &amp; Target Maps</a></li>
+            <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a></li>
+            <li><a href="sections.html">Sections &amp; Long Sections</a></li>
+            <li><a href="3d-models.html">3D Isometric Models</a></li>
+            <li><a href="conceptual-schematic.html">Conceptual &amp; Schematic</a></li>
           </ul>
         </div>
         <div class="deliv-group">
           <div class="deliv-kick">Your digital presence</div>
           <div class="deliv-title">Websites</div>
           <ul class="deliv-list">
-            <li>WordPress Site</li>
-            <li>Webflow Site</li>
-            <li>Hosting</li>
+            <li><a href="webflow.html">Webflow</a></li>
+            <li><a href="wordpress.html">WordPress</a></li>
+            <li><a href="hosting.html">Hosting</a></li>
           </ul>
         </div>
         <div class="deliv-group">
-          <div class="deliv-kick">Tell a compelling story</div>
+          <div class="deliv-kick">Tell your story</div>
           <div class="deliv-title">Presentations</div>
           <ul class="deliv-list">
-            <li>Investor Deck</li>
-            <li>Development Deck</li>
-            <li>GIS Movies</li>
+            <li><a href="presentations.html">Investor Deck</a></li>
+            <li><a href="fact-sheets.html">Fact Sheets</a></li>
+            <li><a href="movies.html">GIS Films</a></li>
           </ul>
         </div>
         <div class="deliv-group">
           <div class="deliv-kick">Shape your identity</div>
           <div class="deliv-title">Design</div>
           <ul class="deliv-list">
-            <li>Logos &amp; Branding</li>
-            <li>Fact Sheets</li>
-            <li>Infographics</li>
-            <li>Conference / Booth Design</li>
+            <li><a href="logos-branding.html">Logos &amp; Branding</a></li>
+            <li><a href="infographics.html">Infographics</a></li>
+            <li><a href="conference-booth.html">Conference / Booth Design</a></li>
           </ul>
         </div>
         <div class="deliv-group">
-          <div class="deliv-kick">Scale your investor relations</div>
+          <div class="deliv-kick">Scale investor relations</div>
           <div class="deliv-title">Investor Hub</div>
           <ul class="deliv-list">
-            <li>CRM Platform</li>
-            <li>Investor Analytics</li>
-            <li>Nurture Campaigns</li>
-            <li>Webinars</li>
-          </ul>
-        </div>
-        <div class="deliv-group">
-          <div class="deliv-kick">Reach &amp; engage</div>
-          <div class="deliv-title">Socials</div>
-          <ul class="deliv-list">
-            <li>Strategy / Managed</li>
-            <li>AI / Exploration Today</li>
+            <li><a href="nurture-crm.html">Nurture CRM</a></li>
+            <li><a href="investor-analytics.html">Investor Analytics</a></li>
+            <li><a href="exploration-today-ai.html">Exploration Today AI</a></li>
           </ul>
         </div>
       </div>
@@ -886,19 +1291,22 @@ description: "How we engage with exploration-stage companies — project work on
         <div class="launch-left">
           <span class="model-ref">Model 02 — Bundled</span>
           <h3>Everything, in one engagement.</h3>
-          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
-          <div class="launch-save"><b>Single fixed quote</b> <span>at a saving vs. piecewise</span></div>
+          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a <a href="pricing.html" class="launch-link">single fixed quote</a> at a meaningful saving versus commissioning each piece on its own.</p>
+          <div class="launch-price">
+            <span class="launch-price-fig mono">$24,000</span>
+            <span class="launch-price-note">complete package · <a href="pricing.html" class="launch-link">save 20% vs. à la carte</a></span>
+          </div>
         </div>
         <div class="launch-right">
           <div class="lbl">Included in the package</div>
           <ul class="launch-incl">
-            <li>A complete investor map set</li>
+            <li>A complete investor map set (8 maps)</li>
             <li>A polished investor deck</li>
-            <li>A purpose-built website</li>
+            <li>A purpose-built website (WordPress)</li>
             <li>A clean, current fact sheet</li>
             <li>A coherent brand identity</li>
           </ul>
-          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice — and priced as one fixed quote, at a saving over piecing it together deliverable by deliverable.</p>
+          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice — and priced as one fixed quote, <a href="pricing.html" class="launch-note-link">at a saving</a> over piecing it together deliverable by deliverable.</p>
         </div>
       </div>
     </div>
@@ -910,7 +1318,7 @@ description: "How we engage with exploration-stage companies — project work on
       <div class="sec-head reveal" id="retainers-tiers" style="scroll-margin-top:132px;">
         <span class="sec-reg">[ §<b>03</b> / 04 ]&nbsp;&nbsp;Monthly retainer · Model 03</span>
         <h2>Retainer tiers, side by side.</h2>
-        <p class="sec-note">For companies in continuous market — retained at a predictable monthly commitment.</p>
+        <p class="sec-note" style="max-width:none;">For companies in continuous market — retained at a predictable monthly commitment.</p>
       </div>
 
       <div class="matrix-wrap reveal">
@@ -929,7 +1337,7 @@ description: "How we engage with exploration-stage companies — project work on
               <th scope="col" class="tier-head is-pop">
                 <span class="tier-pop-tag">Most Popular</span>
                 <span class="tier-name">Growth</span>
-                <span class="tier-for">For companies in an active programme who need steady production across maps, decks, and web.</span>
+                <span class="tier-for">For companies in an active program who need steady production across maps, decks, and web.</span>
               </th>
               <th scope="col" class="tier-head">
                 <span class="tier-name">Enterprise</span>
@@ -940,15 +1348,15 @@ description: "How we engage with exploration-stage companies — project work on
           <tbody>
             <tr>
               <th scope="row">Monthly allotment of design time</th>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Monthly allotment</span></span></td>
-              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Larger allotment</span></span></td>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Substantial allotment</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">10 hours</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">20 hours</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">50 hours</span></span></td>
             </tr>
             <tr>
               <th scope="row">Rollover of unused time</th>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
-              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Up to 4 hours</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Up to 8 hours</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">Up to 20 hours</span></span></td>
             </tr>
             <tr>
               <th scope="row">Map updates &amp; revisions</th>
@@ -1006,17 +1414,17 @@ description: "How we engage with exploration-stage companies — project work on
             </tr>
             <tr>
               <th scope="row">Priority turnaround</th>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
-              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">Included</span></span></td>
-              <td><span class="cell"><span class="check">✓</span><span class="val">Included</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">48 hours</span></span></td>
+              <td class="is-pop"><span class="cell is-pop"><span class="check">✓</span><span class="val">48 hours</span></span></td>
+              <td><span class="cell"><span class="check">✓</span><span class="val">24 hours</span></span></td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td></td>
-              <td class="tier-cta"><a href="contact.html">Enquire →</a></td>
-              <td class="tier-cta is-pop"><a href="contact.html">Enquire →</a></td>
-              <td class="tier-cta"><a href="contact.html">Enquire →</a></td>
+              <td class="tier-cta"><a href="book.html?tier=Essentials">Book a call →</a></td>
+              <td class="tier-cta is-pop"><a href="book.html?tier=Growth">Book a call →</a></td>
+              <td class="tier-cta"><a href="book.html?tier=Enterprise">Book a call →</a></td>
             </tr>
           </tfoot>
         </table>
@@ -1066,11 +1474,21 @@ description: "How we engage with exploration-stage companies — project work on
   <!-- ===== CTA ===== -->
   <section class="cta" aria-labelledby="cta-h">
     <div class="shell">
+      <!-- TRUST STRIP -->
+      <div class="eng-trust" aria-label="A selection of companies we work with">
+        <span class="eng-trust-label">Trusted by exploration teams</span>
+        <div class="eng-trust-logos">
+          <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
+          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
+          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" loading="lazy">
+          <img src="images/clients/snowline.avif" alt="Snowline Gold" loading="lazy">
+        </div>
+      </div>
       <div class="cta-inner">
         <div>
           <span class="cta-reg">Next step</span>
-          <h2 id="cta-h">Ready to make your deposit investable?</h2>
-          <p>Tell us about your raise and timeline, and we’ll recommend the right way to engage.</p>
+          <h2 id="cta-h">Not sure which model fits your stage?</h2>
+          <p>Bring your deposit, your raise, and your timeline. A 30-minute call and we&rsquo;ll point you to the right way to engage.</p>
         </div>
         <a class="btn-cta" href="book.html">
           Book a discovery call
@@ -1084,31 +1502,97 @@ description: "How we engage with exploration-stage companies — project work on
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
+  <canvas class="footer-canvas" aria-hidden="true"></canvas>
   <div class="footer-inner">
-    <div>
-      <a class="footer-brand" href="index.html" aria-label="Exploration Sites — home">
-        <svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g fill="#F4F1EC"><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
-        <span class="footer-brand-text">exploration sites</span>
-      </a>
-      <p class="footer-tag">Investor-relations &amp; visualization for exploration-stage resource companies. Victoria, BC.</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-mark" aria-label="Exploration Sites home">
+          <svg viewBox="0 0 124.63 124.63" fill="currentColor" aria-hidden="true">
+            <polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/>
+            <polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/>
+            <polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/>
+            <polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/>
+            <path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/>
+            <path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/>
+          </svg>
+          <span class="footer-mark-text">exploration sites</span>
+        </a>
+        <p class="footer-statement">The communication layer between your deposit and the capital markets.</p>
+        <ul class="footer-social" aria-label="Social media">
+          <li><a href="https://www.youtube.com/@ExplorationSites1/videos" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.4-1.9.5-3.8.5-5.8s-.1-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
+          <li><a href="https://x.com/explorationsite" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/explorationsites" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3 1-.4 2.1C2.7 8.5 2.7 8.8 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.8.6 1.2.8.4.1 1 .3 2.1.4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-1 .4-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.8-.6-1.2-.8-.4-.1-1-.3-2.1-.4-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/exploration-sites/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+        </ul>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <ul>
+            <li><a href="services.html">What we do</a></li>
+            <li><a href="engagement.html">Engagement</a></li>
+            <li><a href="why.html">Why we exist</a></li>
+            <li><a href="clients.html">Our clients</a></li>
+            <li><a href="case-studies.html">Case studies</a></li>
+            <li><a href="team.html">Our team</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer-contact">
+        <ul>
+          <li><a href="tel:6046889997">604 688 9997</a></li>
+          <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
+          <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
+          <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
+          <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
+        </ul>
+      </div>
     </div>
-    <ul class="footer-nav">
-      <li><a href="services.html">What We Do</a></li>
-      <li><a href="why.html">Why We Exist</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="clients.html">Clients</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="team.html">Our Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Exploration Sites</span>
-    <span>Engagement Tearsheet · Ref. ENG-2026</span>
+
+    <div class="footer-rule"></div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Exploration Sites. All rights reserved.</span>
+      <ul class="footer-legal">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
 
 <script>
+  // ===== Shared nav: mega-menu + mobile nav (ported from src/_includes/scripts.html) =====
+  // Mega menu tab switching
+  document.querySelectorAll('.mega-menu-tab').forEach(function(tab) {
+    tab.addEventListener('mouseenter', function() {
+      var tabId = this.getAttribute('data-tab');
+      document.querySelectorAll('.mega-menu-tab').forEach(function(t) { t.classList.remove('is-active'); });
+      document.querySelectorAll('.mega-menu-tab-panel').forEach(function(p) { p.classList.remove('is-active'); });
+      this.classList.add('is-active');
+      var panel = document.getElementById('panel-' + tabId);
+      if (panel) panel.classList.add('is-active');
+    });
+  });
+
+  // Mega menu aria-expanded toggle
+  (function () {
+    var trigger = document.querySelector('.mega-menu-trigger');
+    var wrapper = document.querySelector('.mega-menu-wrapper');
+    if (trigger && wrapper) {
+      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
+      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.focus();
+        }
+      });
+    }
+  })();
+
   (function () {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1144,5 +1628,6 @@ description: "How we engage with exploration-stage companies — project work on
     }
   })();
 </script>
+<script type="module" src="/assets/footer-shader.js"></script>
 </body>
 </html>

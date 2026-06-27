@@ -1,11 +1,12 @@
 <div class="hero-globe">
   <canvas class="hero-globe-canvas" aria-hidden="true"></canvas>
-  <a class="hero-globe-pin" href="contact.html" data-lat="48.4284" data-lon="-123.3656">
+  <div class="hero-globe-fallback" aria-hidden="true"></div>
+  <a class="hero-globe-pin" href="contact.html" data-lat="48.4284" data-lon="-123.3656" tabindex="-1" aria-hidden="true">
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
     <span class="hero-globe-pin-tooltip">Victoria BC Corporate Head Office</span>
   </a>
   {% for p in projects %}
-  <a class="hero-globe-pin hero-globe-pin--ore" href="clients.html" data-lat="{{ p.lat }}" data-lon="{{ p.lon }}">
+  <a class="hero-globe-pin hero-globe-pin--ore" href="clients.html" data-lat="{{ p.lat }}" data-lon="{{ p.lon }}" tabindex="-1" aria-hidden="true">
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
     <span class="hero-globe-pin-tooltip">{{ p.name }}</span>
   </a>

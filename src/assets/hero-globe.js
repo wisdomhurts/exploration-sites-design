@@ -5,8 +5,14 @@
 // auto-rotate. On hover (no drag), all points repel away from the cursor
 // with a smooth Gaussian falloff.
 
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// NOTE (ITEM 5): Three.js is no longer imported at module top level. It is
+// dynamically imported inside init() only when the globe is actually going to
+// run (desktop width, motion allowed, hero near viewport). This keeps the
+// ~600KB Three.js bundle off the mobile / reduced-motion critical path.
+// `THREE` and `OrbitControls` are assigned to module-scoped bindings inside
+// init() so the helpers below (sharedUniforms, makePoints) can use them.
+let THREE = null;
+let OrbitControls = null;
 
 const CANVAS_SELECTOR = '.hero-globe-canvas';
 const MASK_URL = '/assets/world-mask.png';
@@ -112,11 +118,8 @@ function latLonToXYZ(lat, lon, radius = 1.002) {
 }
 
 // Shared uniforms so all three Points meshes repel together in lockstep.
-const sharedUniforms = {
-  uMouse:    { value: new THREE.Vector3(0, 0, 0) },
-  uStrength: { value: 0 },
-  uRadius:   { value: MOUSE_RADIUS },
-};
+// Built inside init() once THREE is available (see ITEM 5 note above).
+let sharedUniforms = null;
 
 function makePoints(positions, color, dpr, sizePx = DOT_SIZE_PX, circular = false) {
   const geom = new THREE.BufferGeometry();
@@ -159,12 +162,36 @@ async function init() {
   const canvas = document.querySelector(CANVAS_SELECTOR);
   if (!canvas) return;
 
+  // ITEM 5: dynamically load Three.js + OrbitControls. The import map in
+  // head.html still resolves these bare specifiers for dynamic imports.
+  try {
+    THREE = await import('three');
+    ({ OrbitControls } = await import('three/addons/controls/OrbitControls.js'));
+  } catch (err) {
+    console.warn('[hero-globe] Three.js load failed; keeping static fallback:', err);
+    return;
+  }
+
+  // Build the shared repulsion uniforms now that THREE exists.
+  sharedUniforms = {
+    uMouse:    { value: new THREE.Vector3(0, 0, 0) },
+    uStrength: { value: 0 },
+    uRadius:   { value: MOUSE_RADIUS },
+  };
+
   const parent = canvas.parentElement;
   const rect = parent.getBoundingClientRect();
   const size = Math.min(rect.width, rect.height);
   const dpr = Math.min(window.devicePixelRatio, 2);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  } catch (err) {
+    // No WebGL context — leave the static fallback in place.
+    console.warn('[hero-globe] WebGL unavailable; keeping static fallback:', err);
+    return;
+  }
   renderer.setPixelRatio(dpr);
   renderer.setSize(size, size, false);
   renderer.setClearColor(0x000000, 0);
@@ -428,7 +455,11 @@ async function init() {
   requestAnimationFrame(frame);
 
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => canvas.classList.add('is-active'));
+    requestAnimationFrame(() => {
+      canvas.classList.add('is-active');
+      // The live WebGL globe is up — hide the static fallback (ITEM 5).
+      if (parent) parent.classList.add('is-live');
+    });
   });
 
   let resizeTimer;
@@ -442,8 +473,57 @@ async function init() {
   }, { passive: true });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
+// --- Gated bootstrap (ITEM 5) -------------------------------------------------
+// Only load + initialise the Three.js globe when ALL of these hold:
+//   • viewport is desktop-width  (min-width: 1024px)
+//   • the user has not asked to reduce motion
+// On phones / tablets / reduced-motion the static CSS fallback stays visible
+// and Three.js is never fetched. When the gate passes, init() is deferred until
+// the hero is near the viewport (IntersectionObserver) — or, if IO is
+// unavailable, until the browser is idle (requestIdleCallback / timeout).
+let booted = false;
+
+function bootGlobe() {
+  if (booted) return;
+  booted = true;
   init();
+}
+
+function maybeBootGlobe() {
+  const wideEnough     = window.matchMedia('(min-width: 1024px)').matches;
+  const motionAllowed  = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  if (!wideEnough || !motionAllowed) return;   // keep the static fallback
+
+  const hero = document.querySelector('.hero-globe');
+
+  // Defer until the hero is near/in the viewport, falling back to idle time.
+  if (hero && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      if (entries.some(e => e.isIntersecting)) {
+        obs.disconnect();
+        bootGlobe();
+      }
+    }, { rootMargin: '200px' });
+    io.observe(hero);
+    // Safety net: the hero is at the top of the page, so it should intersect
+    // immediately — but boot on idle regardless so we never wait forever.
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(bootGlobe, { timeout: 2500 });
+    } else {
+      setTimeout(bootGlobe, 1200);
+    }
+    return;
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(bootGlobe, { timeout: 2500 });
+  } else {
+    setTimeout(bootGlobe, 200);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', maybeBootGlobe);
+} else {
+  maybeBootGlobe();
 }

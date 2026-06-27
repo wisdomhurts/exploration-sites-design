@@ -1,0 +1,1379 @@
+---
+layout: base.html
+permalink: "case-study-montage.html"
+title: "Montage Gold — Case Study | Exploration Sites"
+description: "How Exploration Sites' investor maps helped Montage Gold communicate the scale of its Kone Gold Project — supporting a US$825M financing and a ~45x rise in market cap."
+---
+
+<style>
+  /* ============================================================
+     Montage Gold case study — scoped under csm-* prefix.
+     Nothing here leaks to other pages. Reuses brand tokens
+     (--graphite, --quartz, --slate, --ore, font stacks).
+     ============================================================ */
+
+  .csm {
+    --csm-line: rgba(26, 16, 31, 0.10);
+    --csm-line-soft: rgba(26, 16, 31, 0.06);
+  }
+
+  /* ---- HERO ------------------------------------------------ */
+  .csm-hero {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background-image:
+      linear-gradient(to bottom,
+        rgba(244, 241, 236, 0) 0%,
+        rgba(244, 241, 236, 0.05) 34%,
+        rgba(244, 241, 236, 0.52) 60%,
+        rgba(244, 241, 236, 0.90) 80%,
+        var(--quartz) 100%),
+      url('images/case-studies/montage/montage-hero.jpg');
+    background-size: cover;
+    background-position: center 26%;
+    background-repeat: no-repeat;
+  }
+  .csm-hero-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px clamp(20px, 5.5vw, 80px) 0;
+  }
+  .csm-hero-photospace { height: clamp(40px, 5.5vw, 110px); }
+  .csm-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--slate);
+    text-decoration: none;
+    margin-bottom: 44px;
+    transition: color 0.2s var(--ease-out-quart);
+  }
+  .csm-back:hover { color: var(--ore); }
+  .csm-back .csm-arw { transition: transform 0.2s var(--ease-out-quart); }
+  .csm-back:hover .csm-arw { transform: translateX(-3px); }
+
+  .csm-hero-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  .csm-hero-body { max-width: 52ch; }
+  .csm-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ore);
+    margin-bottom: 22px;
+  }
+  .csm-h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(52px, 7.2vw, 88px);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--graphite);
+    margin: 0;
+  }
+  .csm-dek {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 1.6vw, 17px);
+    letter-spacing: 0.01em;
+    color: var(--slate);
+    margin: 22px 0 0;
+  }
+  .csm-summary {
+    font-family: var(--font-serif);
+    font-size: clamp(21px, 2.5vw, 30px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--graphite);
+    max-width: 30ch;
+    margin: 24px 0 0;
+  }
+  /* Single editorial stat anchoring the hero's open right field */
+  .csm-hero-stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid var(--csm-line);
+  }
+  .csm-hero-stat-num {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ore);
+  }
+  .csm-hero-stat-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate);
+    max-width: 14ch;
+  }
+  .csm-logo-wrap {
+    flex: 0 0 auto;
+    padding-bottom: 6px;
+  }
+  .csm-logo {
+    height: clamp(210px, 24vw, 330px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Key-facts strip in mono, divided by gold ticks */
+  .csm-facts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 0;
+    margin-top: 40px;
+    padding-top: 0;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--graphite);
+  }
+  .csm-facts .csm-fact { padding: 0 22px; }
+  .csm-facts .csm-fact:first-child { padding-left: 0; padding-right: 8px; }
+  .csm-facts .csm-fact--price { padding-left: 4px; }
+  .csm-facts .csm-sep {
+    color: var(--ore);
+    font-size: 10px;
+    user-select: none;
+  }
+  .csm-facts b { font-weight: 600; }
+
+  /* ---- OUTCOMES BAND (centrepiece) ------------------------- */
+  .csm-outcomes {
+    background: var(--graphite);
+    color: var(--quartz);
+    width: 100vw;
+    margin: 96px calc(50% - 50vw);
+    padding: clamp(28px, 3.5vw, 48px) 0;
+  }
+  .csm-outcomes-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5.5vw, 80px);
+  }
+  .csm-outcomes-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .csm-outcomes-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ore);
+  }
+  .csm-outcomes-note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: rgba(244, 241, 236, 0.55);
+  }
+
+  /* Feature stat: the market-cap journey */
+  .csm-cap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+    padding-bottom: 44px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid rgba(244, 241, 236, 0.16);
+  }
+  .csm-cap-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 236, 0.6);
+    margin-bottom: 26px;
+  }
+  .csm-cap-flow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+  }
+  .csm-cap-from {
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(244, 241, 236, 0.5);
+    letter-spacing: -0.02em;
+  }
+  .csm-cap-arrow {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    color: var(--ore);
+    transform: translateY(-2px);
+  }
+  .csm-cap-to {
+    font-family: var(--font-serif);
+    font-size: clamp(56px, 9vw, 116px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--quartz);
+  }
+  .csm-cap-delta {
+    text-align: right;
+    flex: 0 0 auto;
+  }
+  .csm-cap-delta-num {
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 5.5vw, 72px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ore);
+  }
+  .csm-cap-delta-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 236, 0.6);
+    margin-top: 12px;
+  }
+
+  /* Three supporting figures */
+  .csm-figs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(244, 241, 236, 0.16);
+  }
+  .csm-fig {
+    background: var(--graphite);
+    padding: 4px 36px 4px 0;
+  }
+  .csm-fig:first-child { padding-left: 0; }
+  .csm-fig:not(:first-child) { padding-left: 36px; }
+  .csm-fig-num {
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 4vw, 50px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--quartz);
+  }
+  .csm-fig-unit { color: var(--ore); }
+  .csm-fig-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: rgba(244, 241, 236, 0.62);
+    margin-top: 16px;
+    max-width: 26ch;
+  }
+  .csm-fig-points {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(244, 241, 236, 0.62);
+  }
+  .csm-fig-points li { position: relative; padding-left: 16px; }
+  .csm-fig-points li + li { margin-top: 7px; }
+  .csm-fig-points li::before { content: "\2014"; position: absolute; left: 0; color: var(--ore); }
+
+  /* ---- BODY: editorial two-column ------------------------- */
+  .csm-section { padding: 76px 0; }
+  .csm-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .csm-grid .csm-aside { position: sticky; top: 96px; }
+  .csm-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ore);
+    margin-bottom: 14px;
+  }
+  .csm-h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.4vw, 38px);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin: 0;
+    max-width: 14ch;
+  }
+  .csm-body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--body);
+    max-width: 64ch;
+    margin: 0 0 22px;
+  }
+  .csm-body:last-child { margin-bottom: 0; }
+  .csm-body strong { color: var(--graphite); font-weight: 600; }
+  .csm-body--lead { font-size: 18px; line-height: 1.6; color: var(--graphite); }
+  .csm-bigstat {
+    font-family: var(--font-serif);
+    font-size: clamp(27px, 3.6vw, 42px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.26;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+    max-width: 24ch;
+    margin: 38px 0 0;
+  }
+  .csm-bigstat .csm-bigstat-x { color: var(--ore); font-style: italic; white-space: nowrap; }
+
+  /* Inline data callouts inside background section */
+  .csm-quickstats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--csm-line);
+    border: 1px solid var(--csm-line);
+    margin-top: 36px;
+  }
+  .csm-quickstat {
+    background: var(--quartz);
+    padding: 24px 26px;
+  }
+  .csm-quickstat-num {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--graphite);
+  }
+  .csm-quickstat-label {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--slate);
+    margin-top: 8px;
+  }
+
+  /* ---- APPROACH: numbered steps on hairlines -------------- */
+  .csm-steps {
+    margin-top: 8px;
+    border-top: 1px solid var(--graphite);
+  }
+  .csm-step {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 40px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--csm-line);
+    align-items: start;
+  }
+  .csm-step-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ore);
+    padding-top: 6px;
+  }
+  .csm-step-title {
+    font-family: var(--font-serif);
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--graphite);
+    margin: 0 0 12px;
+  }
+  .csm-step-desc {
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    line-height: 1.66;
+    color: var(--body);
+    max-width: 70ch;
+    margin: 0;
+  }
+
+  /* ---- MAP PROGRAM GALLERY -------------------------------- */
+  .csm-maps-intro { max-width: 60ch; }
+  .csm-statline {
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 1.7vw, 19px);
+    letter-spacing: 0.02em;
+    color: var(--graphite);
+    margin: 30px 0 0;
+  }
+  .csm-statline b { font-weight: 600; color: var(--graphite); }
+  .csm-statline .csm-sep { color: var(--ore); font-size: 11px; padding: 0 12px; }
+  .csm-maps3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .csm-maps-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 44px;
+    margin-top: 44px;
+  }
+  .csm-maps2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 44px;
+    align-items: start;
+  }
+
+  /* ---- BEFORE/AFTER COMPARE SLIDER ------------------------ */
+  .csm-ba { margin-top: 40px; }
+  .csm-ba-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid var(--csm-line);
+    border-radius: 4px;
+    background: var(--vellum);
+    touch-action: pan-y;
+    user-select: none;
+    cursor: ew-resize;
+  }
+  .csm-ba-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    pointer-events: none;
+  }
+  /* Before layer is clipped to the left of the handle via clip-path,
+     so the image always covers the full frame (clean, registered wipe). */
+  .csm-ba-before-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+    will-change: clip-path;
+  }
+  .csm-ba-badge {
+    position: absolute;
+    top: 16px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--quartz);
+    background: rgba(26, 16, 31, 0.78);
+    padding: 6px 11px;
+    border-radius: 3px;
+    pointer-events: none;
+  }
+  .csm-ba-badge--before { left: 16px; }
+  .csm-ba-badge--after { right: 16px; }
+  .csm-ba-badge--after { color: var(--quartz); }
+  .csm-ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: ew-resize;
+    display: grid;
+    place-items: center;
+  }
+  .csm-ba-handle:focus { outline: none; }
+  .csm-ba-handle-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: var(--quartz);
+    box-shadow: 0 0 0 1px rgba(26, 16, 31, 0.18);
+  }
+  .csm-ba-handle-grip {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--quartz);
+    border: 1px solid rgba(26, 16, 31, 0.18);
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s var(--ease-out-quart);
+  }
+  .csm-ba-handle-grip::before,
+  .csm-ba-handle-grip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+  }
+  .csm-ba-handle-grip::before {
+    left: 10px;
+    transform: translateY(-50%);
+    border-right: 6px solid var(--ore);
+  }
+  .csm-ba-handle-grip::after {
+    right: 10px;
+    transform: translateY(-50%);
+    border-left: 6px solid var(--ore);
+  }
+  .csm-ba-handle:hover .csm-ba-handle-grip,
+  .csm-ba-handle:focus-visible .csm-ba-handle-grip { transform: scale(1.08); }
+  .csm-ba-handle:focus-visible .csm-ba-handle-grip {
+    outline: 2px solid var(--ore);
+    outline-offset: 3px;
+  }
+  .csm-ba-help { margin-top: 14px; }
+  .csm-map { margin: 0; }
+  .csm-map-media {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--csm-line);
+    background: var(--vellum);
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: zoom-in;
+  }
+  .csm-map-media img { width: 100%; height: auto; display: block; transform: scale(1.01); }
+  .csm-map-cap {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: baseline;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--csm-line);
+  }
+  .csm-map-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ore);
+    white-space: nowrap;
+  }
+  .csm-map-text {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--slate);
+    margin: 0;
+  }
+  @media (max-width: 680px) {
+    .csm-maps3 { grid-template-columns: 1fr; gap: 28px; }
+    .csm-maps2 { grid-template-columns: 1fr; gap: 28px; }
+    .csm-map-cap { grid-template-columns: 1fr; gap: 6px; }
+    .csm-ba-frame { aspect-ratio: 4 / 5; }
+  }
+
+  /* ---- PULL QUOTE / TESTIMONIAL --------------------------- */
+  .csm-quote {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    padding: clamp(64px, 9vw, 120px) 0;
+    background: var(--vellum);
+    border-top: 1px solid var(--csm-line);
+    border-bottom: 1px solid var(--csm-line);
+  }
+  .csm-quote-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5.5vw, 80px);
+  }
+  .csm-quote-mark {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    line-height: 0.4;
+    color: var(--ore);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .csm-quote-text {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3.6vw, 42px);
+    font-weight: 300;
+    line-height: 1.26;
+    letter-spacing: -0.015em;
+    color: var(--graphite);
+    max-width: 22ch;
+    margin: 0;
+  }
+  .csm-quote-cite {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--slate);
+    margin-top: 36px;
+    font-style: normal;
+  }
+
+  /* ---- TAKEAWAY + CTA ------------------------------------- */
+  .csm-cta {
+    padding: 96px 0 40px;
+  }
+  .csm-cta-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 300;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    max-width: 18ch;
+    margin: 0 0 24px;
+  }
+  .csm-cta-body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--body);
+    max-width: 56ch;
+    margin: 0 0 44px;
+  }
+  .csm-cta-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
+  .csm-cta-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    text-decoration: none;
+    transition: color 0.2s var(--ease-out-quart);
+  }
+  .csm-cta-link:hover { color: var(--ore); }
+
+  /* ---- LIGHTBOX ------------------------------------------- */
+  .csm-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    place-items: center;
+    padding: clamp(16px, 4vw, 48px);
+    background: rgba(20, 12, 24, 0.92);
+    opacity: 0;
+    transition: opacity 0.28s var(--ease-out-quart);
+  }
+  .csm-lightbox.is-open { display: grid; }
+  .csm-lightbox.is-visible { opacity: 1; }
+  .csm-lightbox-fig {
+    margin: 0;
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    transform: scale(0.985);
+    transition: transform 0.28s var(--ease-out-quart);
+  }
+  .csm-lightbox.is-visible .csm-lightbox-fig { transform: none; }
+  .csm-lightbox-img {
+    display: block;
+    max-width: 95vw;
+    max-height: calc(95vh - 40px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  }
+  .csm-lightbox-cap {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: rgba(244, 241, 236, 0.78);
+    text-align: center;
+    max-width: 70ch;
+  }
+  .csm-lightbox-cap b { color: var(--ore); font-weight: 500; margin-right: 10px; }
+  .csm-lightbox-close {
+    position: fixed;
+    top: clamp(14px, 2.4vw, 28px);
+    right: clamp(14px, 2.4vw, 28px);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 241, 236, 0.28);
+    background: rgba(244, 241, 236, 0.06);
+    color: var(--quartz);
+    font-family: var(--font-sans);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s var(--ease-out-quart), border-color 0.2s var(--ease-out-quart);
+  }
+  .csm-lightbox-close:hover { background: rgba(244, 241, 236, 0.14); border-color: var(--ore); }
+  .csm-lightbox-close:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .csm-lightbox,
+    .csm-lightbox-fig { transition: none; }
+    .csm-ba-handle-grip { transition: none; }
+  }
+
+  /* ---- SECTION FIGURE (inline narrative maps) ------------- */
+  .csm-section-figure { margin-top: 40px; }
+  .csm-section-figure .csm-map { max-width: 920px; }
+
+  /* ---- BACKGROUND: 3-column (map / story / stats) -------- */
+  .csm-bg3 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+  }
+  .csm-bg3 .csm-kicker { margin-bottom: 14px; }
+  .csm-bg3 .csm-h2 { max-width: 20ch; margin-bottom: 22px; }
+  .csm-bg3 .csm-body:first-of-type { margin-top: 0; }
+  .csm-quickstats--col { grid-template-columns: 1fr; margin-top: 0; }
+  @media (max-width: 900px) {
+    .csm-bg3 { grid-template-columns: 1fr; gap: 34px; }
+    .csm-quickstats--col { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---- APPROACH: four horizontal cards -------------------- */
+  .csm-approach4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 40px;
+    background: var(--csm-line);
+    border: 1px solid var(--csm-line);
+  }
+  .csm-approach-box {
+    background: var(--quartz);
+    padding: 30px 26px 34px;
+    display: flex;
+    flex-direction: column;
+  }
+  .csm-approach-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ore);
+    margin-bottom: 22px;
+  }
+  .csm-approach-title {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--graphite);
+    margin: 0 0 12px;
+  }
+  .csm-approach-desc {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--body);
+    margin: 0;
+  }
+
+  /* ---- FOREST INTERSTITIAL BAND --------------------------- */
+  .csm-band {
+    position: relative;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    height: clamp(220px, 28vw, 400px);
+    background-image: url('images/case-studies/montage/montage-forest-band.jpg');
+    background-size: cover;
+    background-position: center 56%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+  }
+  .csm-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 16, 31, 0.46) 0%, rgba(26, 16, 31, 0) 44%);
+    pointer-events: none;
+  }
+  .csm-band-cap {
+    position: relative;
+    z-index: 1;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5.5vw, 80px) 22px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 236, 0.92);
+  }
+
+  /* ---- FINALE: quote + takeaway side by side -------------- */
+  .csm-finale {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    padding: clamp(54px, 7vw, 100px) 0;
+    background: var(--vellum);
+    border-top: 1px solid var(--csm-line);
+    border-bottom: 1px solid var(--csm-line);
+  }
+  .csm-finale-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5.5vw, 80px);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  .csm-finale-takeaway { border-left: 1px solid var(--csm-line); padding-left: clamp(28px, 4vw, 64px); }
+
+  /* ---- LIGHTBOX NAV --------------------------------------- */
+  .csm-lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 241, 236, 0.28);
+    background: rgba(244, 241, 236, 0.06);
+    color: var(--quartz);
+    font-family: var(--font-sans);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 1001;
+    transition: background 0.2s var(--ease-out-quart), border-color 0.2s var(--ease-out-quart);
+  }
+  .csm-lightbox-nav:hover { background: rgba(244, 241, 236, 0.14); border-color: var(--ore); }
+  .csm-lightbox-nav:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
+  .csm-lightbox-prev { left: clamp(10px, 3vw, 36px); }
+  .csm-lightbox-next { right: clamp(10px, 3vw, 36px); }
+  .csm-lightbox-count {
+    position: fixed;
+    bottom: clamp(14px, 3vw, 30px);
+    left: 0; right: 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: rgba(244, 241, 236, 0.6);
+    z-index: 1001;
+  }
+
+  @media (max-width: 900px) {
+    .csm-approach4 { grid-template-columns: repeat(2, 1fr); }
+    .csm-finale-inner { grid-template-columns: 1fr; gap: 44px; }
+    .csm-finale-takeaway { border-left: 0; padding-left: 0; border-top: 1px solid var(--csm-line); padding-top: 40px; }
+  }
+  @media (max-width: 560px) {
+    .csm-approach4 { grid-template-columns: 1fr; }
+    .csm-lightbox-nav { width: 42px; height: 42px; font-size: 20px; }
+  }
+
+  /* ---- RESPONSIVE ----------------------------------------- */
+  @media (max-width: 900px) {
+    .csm-hero-grid { grid-template-columns: 1fr; gap: 36px; align-items: start; }
+    .csm-summary { max-width: 32ch; }
+    .csm-logo-wrap { order: -1; padding-bottom: 0; }
+    .csm-grid { grid-template-columns: 1fr; gap: 28px; }
+    .csm-grid .csm-aside { position: static; }
+    .csm-h2 { max-width: none; }
+    .csm-cap { grid-template-columns: 1fr; gap: 28px; align-items: start; }
+    .csm-cap-delta { text-align: left; }
+    .csm-figs { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 680px) {
+    .csm-figs { grid-template-columns: 1fr; }
+    .csm-fig:not(:first-child) { padding-left: 0; padding-top: 28px; }
+    .csm-fig { padding-right: 0; }
+    .csm-quickstats { grid-template-columns: 1fr; }
+    .csm-step { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+    .csm-figcaption { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+
+<div class="csm">
+
+  <!-- ============== HERO ============== -->
+  <section class="csm-hero">
+    <div class="csm-hero-inner">
+    <a href="case-studies.html" class="csm-back"><span class="csm-arw" aria-hidden="true">&larr;</span> All case studies</a>
+    <div class="csm-hero-photospace" aria-hidden="true"></div>
+
+    <div class="csm-hero-grid">
+      <div class="csm-logo-wrap">
+        <img src="images/clients/montage.avif" alt="Montage Gold" class="csm-logo" width="260" height="196">
+      </div>
+      <div class="csm-hero-body">
+        <div class="csm-eyebrow">Case Study</div>
+        <p class="csm-dek">Kon&eacute; Gold Project &middot; C&ocirc;te d&rsquo;Ivoire</p>
+        <p class="csm-summary">How clear investor cartography helped a technically strong gold developer communicate its scale &mdash; as it grew into a billion-dollar developer.</p>
+        <div class="csm-hero-stat">
+          <span class="csm-hero-stat-num">~45&times;</span>
+          <span class="csm-hero-stat-label">market cap since 2023</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="csm-facts">
+      <span class="csm-fact"><b>TSX: MAU</b></span>
+      <span class="csm-fact csm-fact--price">$14.77</span>
+      <span class="csm-sep" aria-hidden="true">&#9670;</span>
+      <span class="csm-fact">Market Cap: $5.96B</span>
+      <span class="csm-sep" aria-hidden="true">&#9670;</span>
+      <span class="csm-fact">Gold</span>
+      <span class="csm-sep" aria-hidden="true">&#9670;</span>
+      <span class="csm-fact">C&ocirc;te d&rsquo;Ivoire</span>
+      <span class="csm-sep" aria-hidden="true">&#9670;</span>
+      <span class="csm-fact">Birimian Greenstone Belt</span>
+    </div>
+    </div>
+  </section>
+
+  <!-- ============== OUTCOMES BAND (centrepiece) ============== -->
+  <section class="csm-outcomes" aria-label="Outcomes">
+    <div class="csm-outcomes-inner">
+      <div class="csm-outcomes-head">
+        <span class="csm-outcomes-label">The Outcome</span>
+      </div>
+
+      <!-- Headline figure: market-cap journey -->
+      <div class="csm-cap">
+        <div>
+          <div class="csm-cap-label">Market capitalisation</div>
+          <div class="csm-cap-flow">
+            <span class="csm-cap-from">$130M</span>
+            <span class="csm-cap-arrow" aria-hidden="true">&rarr;</span>
+            <span class="csm-cap-to">$6.0B</span>
+          </div>
+        </div>
+        <div class="csm-cap-delta">
+          <div class="csm-cap-delta-num">~45&times;</div>
+          <div class="csm-cap-delta-label">2023 &rarr; today</div>
+        </div>
+      </div>
+
+      <!-- Supporting figures -->
+      <div class="csm-figs">
+        <div class="csm-fig">
+          <div class="csm-fig-num"><span class="csm-fig-unit">US$</span>825M</div>
+          <p class="csm-fig-label">Project financing</p>
+          <ul class="csm-fig-points">
+            <li>Wheaton Precious Metals stream</li>
+            <li>Zijin Mining stream</li>
+          </ul>
+        </div>
+        <div class="csm-fig">
+          <div class="csm-fig-num"><span class="csm-fig-unit">C$</span>180M</div>
+          <p class="csm-fig-label">Private placement, 2024</p>
+        </div>
+        <div class="csm-fig">
+          <div class="csm-fig-num">4M<span class="csm-fig-unit">+&nbsp;oz</span></div>
+          <p class="csm-fig-label">Measured &amp; indicated resource</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CLIENT BACKGROUND ============== -->
+  <section class="csm-section">
+    <div class="csm-bg3">
+      <div class="csm-bg3-map">
+        <figure class="csm-map">
+          <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-01.jpg" alt="Location map of the Kon&eacute; Gold Project in C&ocirc;te d&rsquo;Ivoire" width="1600" height="1598" loading="lazy" decoding="async"></span>
+          <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 01</span><p class="csm-map-text">Project location &mdash; C&ocirc;te d&rsquo;Ivoire.</p></figcaption>
+        </figure>
+      </div>
+      <div class="csm-bg3-body">
+        <div class="csm-kicker">01 &mdash; Background</div>
+        <h2 class="csm-h2">A large-scale gold developer in West Africa.</h2>
+        <p class="csm-body">Kon&eacute; is a large-scale, near-surface open-pit opportunity with a measured &amp; indicated resource of <strong>4M+ ounces</strong> &mdash; with access to power, water, and transport, designed as a low-cost, long-life operation.</p>
+        <p class="csm-body">The project covers <strong>2,259 km&sup2;</strong> across the Kon&eacute; and Gbongogo permits, backed by 100,000+ metres of drilling plus airborne geophysics, soil geochemistry, and 3D resource models.</p>
+      </div>
+      <div class="csm-bg3-stats">
+        <div class="csm-quickstats csm-quickstats--col">
+          <div class="csm-quickstat">
+            <div class="csm-quickstat-num">2,259 km&sup2;</div>
+            <div class="csm-quickstat-label">Kon&eacute; &amp; Gbongogo permits</div>
+          </div>
+          <div class="csm-quickstat">
+            <div class="csm-quickstat-num">100,000 m+</div>
+            <div class="csm-quickstat-label">Drilling completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============== THE CHALLENGE ============== -->
+  <section class="csm-section">
+    <div class="csm-bg3">
+      <div class="csm-bg3-side">
+        <div class="csm-kicker">02 &mdash; The Challenge</div>
+        <h2 class="csm-h2">Precise for geologists. Opaque for investors.</h2>
+      </div>
+      <div class="csm-bg3-body">
+        <p class="csm-body">Their maps were technically precise but visually complex &mdash; drilling density, resource outlines, and geophysical layers presented for geologists, not investors. Palettes, legends, and annotation varied across maps, decks, and news releases, weakening the corporate identity.</p>
+        <p class="csm-body">Investors understood Kon&eacute;&rsquo;s fundamentals but couldn&rsquo;t grasp its true scale and continuity. Feedback called the materials &ldquo;too dense and overly technical.&rdquo;</p>
+        <p class="csm-body">In a crowded West African gold market &mdash; peers like Endeavour Mining, Tietto Minerals, and Roxgold &mdash; Montage needed clear, investor-focused visuals.</p>
+      </div>
+      <div class="csm-bg3-map">
+        <figure class="csm-map">
+          <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-geology.jpg" alt="Regional geology of C&ocirc;te d&rsquo;Ivoire showing the Kon&eacute; Gold Project on the Birimian greenstone belt among regional gold deposits" width="1281" height="1195" loading="lazy" decoding="async"></span>
+          <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 02</span><p class="csm-map-text">Regional geology &amp; gold endowment &mdash; the Birimian belt, C&ocirc;te d&rsquo;Ivoire.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== OUR APPROACH ============== -->
+  <section class="csm-section">
+    <div class="csm-kicker" style="margin-bottom:14px;">03 &mdash; Our Approach</div>
+    <h2 class="csm-h2" style="max-width:26ch; margin-bottom:6px;">One visual standard, scalable everywhere.</h2>
+    <div class="csm-approach4">
+      <div class="csm-approach-box">
+        <span class="csm-approach-num">01</span>
+        <h3 class="csm-approach-title">Discovery &amp; audit</h3>
+        <p class="csm-approach-desc">Reviewed every geological dataset, GIS file, and existing map &mdash; surfacing gaps, redundancies, and inconsistencies in colour, scale, and symbology.</p>
+      </div>
+      <div class="csm-approach-box">
+        <span class="csm-approach-num">02</span>
+        <h3 class="csm-approach-title">Strategy &amp; design plan</h3>
+        <p class="csm-approach-desc">Pinned the story to the key datasets &mdash; drill traces, pit shells, resource outlines, lithology, geophysics &mdash; then built one cartographic framework on Montage&rsquo;s style guide, scalable across every channel.</p>
+      </div>
+      <div class="csm-approach-box">
+        <span class="csm-approach-num">03</span>
+        <h3 class="csm-approach-title">Execution</h3>
+        <p class="csm-approach-desc">Produced a full suite of investor-grade maps &mdash; regional and competitor, location and infrastructure, deposit and resource, drill-plan and cross-section &mdash; each held to one visual standard.</p>
+      </div>
+      <div class="csm-approach-box">
+        <span class="csm-approach-num">04</span>
+        <h3 class="csm-approach-title">Collaboration &amp; iteration</h3>
+        <p class="csm-approach-desc">Worked hand-in-hand with Montage&rsquo;s GIS and management teams &mdash; cross-checked against the latest interpretations, with fast Zoom reviews and internal QA at every stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOREST BAND ============== -->
+  <section class="csm-band" role="img" aria-label="Aerial view of forest and river on the Birimian greenstone belt in Cote d'Ivoire">
+    <div class="csm-band-cap">Kon&eacute; Gold Project &middot; C&ocirc;te d&rsquo;Ivoire &mdash; Birimian greenstone belt</div>
+  </section>
+
+  <!-- ============== THE MAP PROGRAM ============== -->
+  <section class="csm-section">
+    <div class="csm-kicker" style="margin-bottom:18px;">The Map Program</div>
+    <h2 class="csm-h2" style="max-width:20ch; margin-bottom:24px;">One program, every audience.</h2>
+    <p class="csm-body csm-maps-intro">From West African context down to the drill section &mdash; the full suite of investor maps produced for Montage Gold, every sheet held to one corporate standard so scale, grade, and continuity read at a glance.</p>
+    <p class="csm-statline"><b>70+</b> investor maps <span class="csm-sep" aria-hidden="true">&#9670;</span> <b>25+</b> news releases <span class="csm-sep" aria-hidden="true">&#9670;</span> 2023&ndash;2026</p>
+
+    <!-- Three detail maps, compact 3-up (cross-section last) -->
+    <div class="csm-maps3">
+      <figure class="csm-map">
+        <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-09.jpg" alt="3D resource block model of the Kon&eacute; deposit" width="1600" height="1313" loading="lazy" decoding="async"></span>
+        <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 03</span><p class="csm-map-text">3D resource block model.</p></figcaption>
+      </figure>
+      <figure class="csm-map">
+        <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-10.jpg" alt="1.3 km A&ndash;A&prime; long section through the Kon&eacute; deposit" width="1600" height="866" loading="lazy" decoding="async"></span>
+        <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 04</span><p class="csm-map-text">Long section through the deposit &mdash; 1.3&nbsp;km, grade-shaded.</p></figcaption>
+      </figure>
+      <figure class="csm-map">
+        <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-06.jpg" alt="Gbongogo South cross-section showing drill intercepts and pit shell" width="1600" height="835" loading="lazy" decoding="async"></span>
+        <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 05</span><p class="csm-map-text">Gbongogo South &mdash; cross-section &amp; intercepts.</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============== RESULTS & IMPACT ============== -->
+  <section class="csm-section">
+    <div class="csm-grid">
+      <div class="csm-aside">
+        <div class="csm-kicker">04 &mdash; Results &amp; Impact</div>
+        <h2 class="csm-h2">Scale, read at a glance.</h2>
+      </div>
+      <div>
+        <p class="csm-body csm-body--lead">The new map suite let investors grasp scale, resource growth, and regional positioning at a glance.</p>
+        <p class="csm-body">Analyst coverage expanded, with figures featured at PDAC 2024 and Mining Indaba 2024.</p>
+        <p class="csm-body">The clarity supported a <strong>C$180M private placement</strong> and a <strong>US$825M project financing</strong> with Zijin Mining and Wheaton Precious Metals &mdash; one of West Africa&rsquo;s largest gold development financings.</p>
+        <p class="csm-statline" style="margin: 24px 0 22px;"><b>~US$1B</b> raised since 2023 <span class="csm-sep" aria-hidden="true">&#9670;</span> incl. the <b>US$825M</b> Kon&eacute; construction package</p>
+        <p class="csm-bigstat">Over the same window, Montage&rsquo;s market cap rose from ~$130M (2023) to ~$6.0B today &mdash; roughly <span class="csm-bigstat-x">45&times;</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FINALE: QUOTE + TAKEAWAY ============== -->
+  <section class="csm-finale">
+    <div class="csm-finale-inner">
+      <div class="csm-finale-quote">
+        <span class="csm-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="csm-quote-text">
+          When scale, grade, and continuity read at a glance, an investor can finally weigh what the deposit is worth.
+          <cite class="csm-quote-cite">&mdash; Exploration Sites</cite>
+        </blockquote>
+        <!--
+          Client testimonial pending verified attribution (name + title + written consent).
+          Reinstate with a named officer once on file. Original received copy:
+          "The updated figures made a real difference in how we present the Koné Project.
+           They're clear, consistent, and visually strong — something investors immediately notice."
+        -->
+      </div>
+      <div class="csm-finale-takeaway">
+        <div class="csm-kicker">The Takeaway</div>
+        <h2 class="csm-cta-headline">Let the market see your deposit the way you do.</h2>
+        <p class="csm-cta-body">As the deposit grew and the team evolved, strategic cartography helped Montage tell a sharper story on its climb to a billion-dollar developer. The rocks did the work &mdash; clear maps let the market see it.</p>
+        <div class="csm-cta-actions">
+          <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <a href="case-studies.html" class="csm-cta-link">&larr; All case studies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="csm-source-note" style="max-width: 980px; margin: 32px auto 0; padding: 0 24px; font-size: 12px; line-height: 1.65; color: var(--body);">Project figures &mdash; mineral resource, drilling, and financings &mdash; are as reported by Montage Gold Corp. in its public disclosure; refer to the company&rsquo;s filings on SEDAR+ and its NI&nbsp;43-101 technical report for complete information. Market-capitalisation figures are approximate and shown for context only. Exploration Sites provides communications and visualisation services and makes no representation regarding the company&rsquo;s securities or performance. Past performance is not indicative of future results.</p>
+
+  <div class="divider"></div>
+
+  <!-- ============== LIGHTBOX ============== -->
+  <div class="csm-lightbox" id="csmLightbox" role="dialog" aria-modal="true" aria-label="Enlarged map" hidden>
+    <button type="button" class="csm-lightbox-close" id="csmLightboxClose" aria-label="Close enlarged map">&times;</button>
+    <button type="button" class="csm-lightbox-nav csm-lightbox-prev" id="csmLightboxPrev" aria-label="Previous image">&#8249;</button>
+    <button type="button" class="csm-lightbox-nav csm-lightbox-next" id="csmLightboxNext" aria-label="Next image">&#8250;</button>
+    <figure class="csm-lightbox-fig">
+      <img class="csm-lightbox-img" id="csmLightboxImg" src="" alt="">
+      <figcaption class="csm-lightbox-cap" id="csmLightboxCap"></figcaption>
+    </figure>
+    <div class="csm-lightbox-count" id="csmLightboxCount"></div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.csm');
+  if (!root) return;
+
+  /* ---------- LIGHTBOX (gallery with prev / next) ---------- */
+  var lb = document.getElementById('csmLightbox');
+  var lbImg = document.getElementById('csmLightboxImg');
+  var lbCap = document.getElementById('csmLightboxCap');
+  var lbClose = document.getElementById('csmLightboxClose');
+  var lbPrev = document.getElementById('csmLightboxPrev');
+  var lbNext = document.getElementById('csmLightboxNext');
+  var lbCount = document.getElementById('csmLightboxCount');
+  var lastFocus = null;
+  var visTimer = null;
+  var items = [];
+  var current = 0;
+
+  // Collect every map figure on the page, in document order
+  Array.prototype.slice.call(root.querySelectorAll('.csm-map')).forEach(function (fig) {
+    var img = fig.querySelector('.csm-map-media img');
+    if (!img) return;
+    var tagEl = fig.querySelector('.csm-map-tag');
+    var textEl = fig.querySelector('.csm-map-text');
+    var media = fig.querySelector('.csm-map-media');
+    var idx = items.length;
+    items.push({
+      el: img,
+      tag: tagEl ? tagEl.textContent.trim() : '',
+      text: textEl ? textEl.textContent.trim() : ''
+    });
+    media.setAttribute('role', 'button');
+    media.setAttribute('tabindex', '0');
+    media.setAttribute('aria-label', 'Enlarge map: ' + (img.getAttribute('alt') || ''));
+    media.addEventListener('click', function () { openAt(idx); });
+    media.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAt(idx); }
+    });
+  });
+
+  var multi = items.length > 1;
+
+  function render() {
+    var it = items[current];
+    if (!it) return;
+    lbImg.setAttribute('src', it.el.currentSrc || it.el.src);
+    lbImg.setAttribute('alt', it.el.getAttribute('alt') || '');
+    var cap = '';
+    if (it.tag) cap += '<b>' + it.tag + '</b>';
+    if (it.text) cap += it.text;
+    lbCap.innerHTML = cap;
+    if (lbCount) lbCount.textContent = multi ? (current + 1) + ' / ' + items.length : '';
+  }
+
+  function openAt(i) {
+    if (!lb || !items.length) return;
+    current = (i + items.length) % items.length;
+    lastFocus = document.activeElement;
+    render();
+    lb.hidden = false;
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    void lb.offsetWidth;          // force reflow for the transition
+    lb.classList.add('is-visible');
+    lbClose.focus();
+    document.addEventListener('keydown', onKeydown);
+  }
+
+  function step(d) { current = (current + d + items.length) % items.length; render(); }
+
+  function closeLightbox() {
+    if (!lb || !lb.classList.contains('is-open')) return;
+    lb.classList.remove('is-visible');
+    clearTimeout(visTimer);
+    visTimer = setTimeout(function () {
+      lb.classList.remove('is-open');
+      lb.hidden = true;
+      lbImg.setAttribute('src', '');
+      document.body.style.overflow = '';
+    }, 280);
+    document.removeEventListener('keydown', onKeydown);
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+
+  function onKeydown(e) {
+    if (e.key === 'Escape') { closeLightbox(); }
+    else if (multi && e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    else if (multi && e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+  }
+
+  if (lb) {
+    lbClose.addEventListener('click', closeLightbox);
+    if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+    if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+    if (!multi) {
+      if (lbPrev) lbPrev.style.display = 'none';
+      if (lbNext) lbNext.style.display = 'none';
+    }
+    lb.addEventListener('click', function (e) {
+      // backdrop / figure click closes (but not the nav buttons or image)
+      if (e.target === lb || e.target.classList.contains('csm-lightbox-fig')) closeLightbox();
+    });
+  }
+
+  /* ---------- BEFORE / AFTER COMPARE SLIDER ---------- */
+  document.querySelectorAll('[data-csm-ba]').forEach(function (ba) {
+    var frame = ba.querySelector('.csm-ba-frame');
+    var clip = ba.querySelector('[data-csm-ba-clip]');
+    var handle = ba.querySelector('[data-csm-ba-handle]');
+    if (!frame || !clip || !handle) return;
+
+    var pos = 50;        // percent
+    var dragging = false;
+    var moved = false;
+
+    function setPos(p, announce) {
+      pos = Math.max(0, Math.min(100, p));
+      clip.style.clipPath = 'inset(0 ' + (100 - pos) + '% 0 0)';
+      handle.style.left = pos + '%';
+      handle.setAttribute('aria-valuenow', Math.round(pos));
+    }
+
+    function posFromEvent(clientX) {
+      var rect = frame.getBoundingClientRect();
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    function onDown(e) {
+      dragging = true;
+      moved = false;
+      frame.setPointerCapture && e.pointerId != null && frame.setPointerCapture(e.pointerId);
+      setPos(posFromEvent(e.clientX));
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      moved = true;
+      setPos(posFromEvent(e.clientX));
+    }
+    function onUp() { dragging = false; }
+
+    // Pointer events (covers mouse + touch + pen)
+    frame.addEventListener('pointerdown', function (e) { onDown(e); });
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+
+    // Keyboard on the handle
+    handle.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 10 : 4;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { e.preventDefault(); setPos(pos - step); }
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { e.preventDefault(); setPos(pos + step); }
+      else if (e.key === 'Home') { e.preventDefault(); setPos(0); }
+      else if (e.key === 'End') { e.preventDefault(); setPos(100); }
+    });
+
+    // Click (not drag) opens the relevant image in the lightbox
+    if (lb) {
+      frame.addEventListener('click', function (e) {
+        if (moved) { moved = false; return; }   // ignore the click that ends a drag
+        var beforeImg = frame.querySelector('.csm-ba-before');
+        var afterImg = frame.querySelector('.csm-ba-after');
+        var rect = frame.getBoundingClientRect();
+        var atPct = ((e.clientX - rect.left) / rect.width) * 100;
+        var target = atPct < pos ? beforeImg : afterImg;
+        var tag = atPct < pos ? 'Before' : 'After — ES';
+        var text = atPct < pos
+          ? 'The original Montage sheet — dense, inconsistent, hard for investors to read.'
+          : 'Rebuilt to the corporate standard — scale, structure, and continuity at a glance.';
+        openLightbox(target.currentSrc || target.src, target.getAttribute('alt'), tag, text);
+      });
+    }
+
+    setPos(50);
+  });
+})();
+</script>

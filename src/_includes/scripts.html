@@ -1,30 +1,158 @@
   <script>
-    // Mega menu tab switching
-    document.querySelectorAll('.mega-menu-tab').forEach(function(tab) {
-      tab.addEventListener('mouseenter', function() {
-        var tabId = this.getAttribute('data-tab');
-        document.querySelectorAll('.mega-menu-tab').forEach(function(t) { t.classList.remove('is-active'); });
-        document.querySelectorAll('.mega-menu-tab-panel').forEach(function(p) { p.classList.remove('is-active'); });
-        this.classList.add('is-active');
-        var panel = document.getElementById('panel-' + tabId);
-        if (panel) panel.classList.add('is-active');
-      });
-    });
+    // Desktop mega menu — tabs + open/close (hover, click, keyboard, focus)
+    (function () {
+      var wrapper = document.querySelector('.mega-menu-wrapper');
+      var trigger = wrapper && wrapper.querySelector('.mega-menu-trigger');
+      if (!wrapper || !trigger) return;
 
-    // Mega menu aria-expanded toggle
-    var trigger = document.querySelector('.mega-menu-trigger');
-    var wrapper = document.querySelector('.mega-menu-wrapper');
-    if (trigger && wrapper) {
-      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
-      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
-          trigger.setAttribute('aria-expanded', 'false');
-          trigger.focus();
+      var tabs = Array.prototype.slice.call(wrapper.querySelectorAll('.mega-menu-tab'));
+      var panels = Array.prototype.slice.call(wrapper.querySelectorAll('.mega-menu-tab-panel'));
+
+      // --- Tab selection -------------------------------------------------
+      function selectTab(tab, focusIt) {
+        if (!tab) return;
+        var tabId = tab.getAttribute('data-tab');
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.setAttribute('tabindex', on ? '0' : '-1');
+        });
+        panels.forEach(function (p) {
+          var on = p.id === 'panel-' + tabId;
+          p.classList.toggle('is-active', on);
+          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        });
+        if (focusIt) tab.focus();
+      }
+
+      tabs.forEach(function (tab, i) {
+        // Switch on hover (desktop), click, and focus (keyboard Tab into list).
+        tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
+        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('focus', function () { selectTab(tab, false); });
+        // Roving-tabindex arrow-key navigation within the tablist.
+        tab.addEventListener('keydown', function (e) {
+          var idx = null;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+          else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') idx = 0;
+          else if (e.key === 'End') idx = tabs.length - 1;
+          if (idx !== null) { e.preventDefault(); selectTab(tabs[idx], true); }
+        });
+      });
+
+      // --- Open / close --------------------------------------------------
+      function openMenu() {
+        wrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      function closeMenu(returnFocus) {
+        wrapper.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        if (returnFocus) trigger.focus();
+      }
+      function isOpen() { return wrapper.classList.contains('is-open'); }
+
+      // Click toggles the menu (touch + mouse).
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (isOpen()) closeMenu(false); else openMenu();
+      });
+      // Enter / Space open it explicitly (button click already fires, but make
+      // Space reliable and move focus into the active tab on open).
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          if (!isOpen()) { openMenu(); }
+          var active = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          if (active) active.focus();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (!isOpen()) openMenu();
+          var first = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          if (first) first.focus();
         }
       });
-    }
+
+      // Escape closes and returns focus to the trigger.
+      wrapper.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeMenu(true); }
+      });
+
+      // Close on outside click.
+      document.addEventListener('click', function (e) {
+        if (isOpen() && !wrapper.contains(e.target)) closeMenu(false);
+      });
+
+      // Close when focus leaves the whole menu (e.g. Tab out of the last link).
+      wrapper.addEventListener('focusout', function (e) {
+        if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
+      });
+    })();
+
+    // Mobile nav panel — open/close, focus trap, services accordion
+    (function () {
+      var hamburger = document.querySelector('.nav-hamburger');
+      var overlay = document.querySelector('.nav-mobile-overlay');
+      var panel = document.querySelector('.nav-mobile-panel');
+      if (!hamburger || !overlay || !panel) return;
+      var closeBtn = panel.querySelector('.nav-mobile-close button');
+
+      function focusable() {
+        return Array.prototype.slice.call(
+          panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+        ).filter(function (el) {
+          return el.offsetParent !== null || el === document.activeElement;
+        });
+      }
+
+      function openPanel() {
+        overlay.classList.add('is-open');
+        panel.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+      }
+      function closePanel(returnFocus) {
+        overlay.classList.remove('is-open');
+        panel.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        if (returnFocus) hamburger.focus();
+      }
+      function isOpen() { return panel.classList.contains('is-open'); }
+
+      hamburger.addEventListener('click', openPanel);
+      overlay.addEventListener('click', function () { closePanel(false); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { closePanel(true); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!isOpen()) return;
+        if (e.key === 'Escape') { e.preventDefault(); closePanel(true); return; }
+        if (e.key === 'Tab') {
+          var items = focusable();
+          if (!items.length) return;
+          var first = items[0], last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+        }
+      });
+
+      // Services accordion inside the mobile panel
+      var accTrigger = panel.querySelector('.nav-mobile-acc-trigger');
+      var accBody = panel.querySelector('.nav-mobile-acc-body');
+      if (accTrigger && accBody) {
+        accTrigger.addEventListener('click', function () {
+          var expanded = accTrigger.getAttribute('aria-expanded') === 'true';
+          accTrigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          if (expanded) { accBody.setAttribute('hidden', ''); } else { accBody.removeAttribute('hidden'); }
+        });
+      }
+    })();
 
     // Scroll-triggered entry for marked elements
     (function () {

@@ -5,17 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WordPress Websites — Exploration Sites</title>
 <meta name="description" content="Investor websites built and maintained on WordPress for exploration and mining companies — flexible, bespoke, and built for credibility in the capital markets.">
+<meta name="theme-color" content="#1A101F">
+<link rel="canonical" href="https://es-draft-1.vercel.app/wordpress.html">
 <meta property="og:title" content="WordPress Websites — Exploration Sites">
 <meta property="og:description" content="Investor websites built and maintained on WordPress for exploration and mining companies — flexible, bespoke, and built for credibility in the capital markets.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/images/og-default.jpg">
-<meta property="twitter:image" content="/images/og-default.jpg">
+<meta property="og:url" content="https://es-draft-1.vercel.app/wordpress.html">
+<meta property="og:site_name" content="Exploration Sites">
+<meta property="og:image" content="https://es-draft-1.vercel.app/images/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="WordPress Websites — Exploration Sites">
 <meta name="twitter:description" content="Investor websites built and maintained on WordPress for exploration and mining companies — flexible, bespoke, and built for credibility in the capital markets.">
+<meta name="twitter:image" content="https://es-draft-1.vercel.app/images/og-default.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 124.63 124.63'%3E%3Cg fill='%231A101F'%3E%3Cpolygon points='41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32'/%3E%3Cpolygon points='41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64'/%3E%3Cpolygon points='83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63'/%3E%3Cpolygon points='111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51'/%3E%3Cpath d='M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z'/%3E%3Cpath d='M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -27,6 +32,32 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Exploration Sites",
+  "url": "https://es-draft-1.vercel.app",
+  "logo": "https://es-draft-1.vercel.app/images/og-default.jpg",
+  "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
+  "email": "info@explorationsites.com",
+  "telephone": "+1-604-688-9997",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Victoria",
+    "addressRegion": "BC",
+    "addressCountry": "CA"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/exploration-sites/",
+    "https://x.com/explorationsite",
+    "https://www.youtube.com/@ExplorationSites1",
+    "https://www.instagram.com/explorationsites"
+  ]
+}
+</script>
+<!-- TODO: replace logo URL with a dedicated square brand logo (e.g. /images/logo-512.png) once one exists; og-default.jpg is a stand-in. -->
+<!-- TODO: add streetAddress + postalCode to PostalAddress if a public mailing address is available. -->
 
 </head>
 <body>
@@ -42,37 +73,33 @@
       <div class="nav-right">
         <ul class="nav-links">
         <li class="mega-menu-wrapper">
-          <button class="mega-menu-trigger" aria-expanded="false" aria-haspopup="true">
+          <button class="mega-menu-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="mega-menu">
             What We Do
             <svg viewBox="0 0 10 10" fill="none"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
-          <div class="mega-menu">
+          <div class="mega-menu" id="mega-menu">
             <div class="mega-menu-arrow"></div>
             <div class="mega-menu-panel">
-              <div class="mega-menu-sidebar">
-                <a href="services.html" class="mega-menu-tab is-active" data-tab="maps">
-                  <div class="mega-menu-tab-title">Investor Maps</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="websites">
-                  <div class="mega-menu-tab-title">Websites</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="presentations">
-                  <div class="mega-menu-tab-title">Presentations</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="design">
-                  <div class="mega-menu-tab-title">Design</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="investorhub">
-                  <div class="mega-menu-tab-title">Investor Hub</div>
-                </a>
-                <a href="services.html" class="mega-menu-tab" data-tab="socials">
-                  <div class="mega-menu-tab-title">Socials</div>
-                </a>
+              <div class="mega-menu-sidebar" role="tablist" aria-label="What we do" aria-orientation="vertical">
+                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" aria-selected="true" aria-controls="panel-maps" tabindex="0">
+                  <span class="mega-menu-tab-title">Investor Maps</span>
+                </button>
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
+                  <span class="mega-menu-tab-title">Websites</span>
+                </button>
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
+                  <span class="mega-menu-tab-title">Presentations</span>
+                </button>
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" aria-selected="false" aria-controls="panel-design" tabindex="-1">
+                  <span class="mega-menu-tab-title">Design</span>
+                </button>
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
+                  <span class="mega-menu-tab-title">Investor Hub</span>
+                </button>
               </div>
               <div class="mega-menu-content">
                 <!-- Investor Maps Panel -->
-                <div class="mega-menu-tab-panel is-active" id="panel-maps">
-                  <div class="mega-menu-content-header">Investor Map Types</div>
+                <div class="mega-menu-tab-panel is-active" id="panel-maps" role="tabpanel" aria-labelledby="tab-maps" tabindex="0">
                   <div class="mega-menu-cards">
                     <a href="locators-area-plays.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
@@ -87,7 +114,7 @@
                       <div class="mega-menu-card-title">Sections &amp; Long Sections</div>
                     </a>
                     <a href="3d-models.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Models</div>
+                      <div class="mega-menu-card-title">3D Isometric Models</div>
                     </a>
                     <a href="conceptual-schematic.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conceptual &amp; Schematic</div>
@@ -95,8 +122,7 @@
                   </div>
                 </div>
                 <!-- Websites Panel -->
-                <div class="mega-menu-tab-panel" id="panel-websites">
-                  <div class="mega-menu-content-header">Web Platforms &amp; Support</div>
+                <div class="mega-menu-tab-panel" id="panel-websites" role="tabpanel" aria-labelledby="tab-websites" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="webflow.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webflow</div>
@@ -104,68 +130,50 @@
                     <a href="wordpress.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">WordPress</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="hosting.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Hosting</div>
                     </a>
                   </div>
                 </div>
                 <!-- Presentations Panel -->
-                <div class="mega-menu-tab-panel" id="panel-presentations">
-                  <div class="mega-menu-content-header">Presentations &amp; Collateral</div>
+                <div class="mega-menu-tab-panel" id="panel-presentations" role="tabpanel" aria-labelledby="tab-presentations" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="presentations.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Deck</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="fact-sheets.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Fact Sheets</div>
                     </a>
                     <a href="movies.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">GIS Movies</div>
+                      <div class="mega-menu-card-title">GIS Films</div>
                     </a>
                   </div>
                 </div>
                 <!-- Design Panel -->
-                <div class="mega-menu-tab-panel" id="panel-design">
-                  <div class="mega-menu-content-header">Design &amp; Brand</div>
+                <div class="mega-menu-tab-panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design" tabindex="0" hidden>
                   <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="logos-branding.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Logos &amp; Branding</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="infographics.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Infographics</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="conference-booth.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Conference / Booth Design</div>
                     </a>
                   </div>
                 </div>
                 <!-- Investor Hub Panel -->
-                <div class="mega-menu-tab-panel" id="panel-investorhub">
-                  <div class="mega-menu-content-header">Investor Hub</div>
+                <div class="mega-menu-tab-panel" id="panel-investorhub" role="tabpanel" aria-labelledby="tab-investorhub" tabindex="0" hidden>
                   <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">CRM</div>
+                    <a href="nurture-crm.html" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Nurture CRM</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
+                    <a href="investor-analytics.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Investor Analytics</div>
                     </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Nurture</div>
-                    </a>
-                    <a href="contact.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Webinars</div>
-                    </a>
-                  </div>
-                </div>
-                <!-- Socials Panel -->
-                <div class="mega-menu-tab-panel" id="panel-socials">
-                  <div class="mega-menu-content-header">Social Media</div>
-                  <div class="mega-menu-cards">
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Strategy / Managed</div>
-                    </a>
-                    <a href="pricing.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Exploration Today</div>
+                    <a href="exploration-today-ai.html" class="mega-menu-card">
+                      <div class="mega-menu-card-title">Exploration Today AI</div>
                     </a>
                   </div>
                 </div>
@@ -175,6 +183,7 @@
         </li>
         <li><a href="why.html">Why We Exist</a></li>
         <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="clients.html">Clients</a></li>
         <li><a href="case-studies.html">Case Studies</a></li>
         <li><a href="team.html">Our Team</a></li>
@@ -182,7 +191,7 @@
         </ul>
         <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
       </div>
-      <button class="nav-hamburger" onclick="document.querySelector('.nav-mobile-overlay').classList.add('is-open');document.querySelector('.nav-mobile-panel').classList.add('is-open');" aria-label="Open menu">
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
@@ -190,17 +199,58 @@
   </nav>
 
   <!-- Mobile Nav Panel -->
-  <div class="nav-mobile-overlay" onclick="this.classList.remove('is-open');document.querySelector('.nav-mobile-panel').classList.remove('is-open');"></div>
-  <div class="nav-mobile-panel">
+  <div class="nav-mobile-overlay"></div>
+  <div class="nav-mobile-panel" id="nav-mobile-panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="nav-mobile-close">
-      <button onclick="document.querySelector('.nav-mobile-overlay').classList.remove('is-open');document.querySelector('.nav-mobile-panel').classList.remove('is-open');" aria-label="Close menu">
+      <button type="button" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     <ul class="nav-mobile-links">
-      <li><a href="services.html">What We Do</a></li>
+      <li class="nav-mobile-accordion">
+        <button type="button" class="nav-mobile-acc-trigger" aria-expanded="false" aria-controls="nav-mobile-acc-services">
+          <span>What We Do</span>
+          <svg class="nav-mobile-acc-chevron" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="nav-mobile-acc-body" id="nav-mobile-acc-services" hidden>
+          <div class="nav-mobile-acc-group">
+            <div class="nav-mobile-acc-group-title">Investor Maps</div>
+            <a href="locators-area-plays.html">Locators &amp; Area Plays</a>
+            <a href="property-target.html">Property &amp; Target Maps</a>
+            <a href="geoscience-maps.html">Geo / Geochem / Geophys</a>
+            <a href="sections.html">Sections &amp; Long Sections</a>
+            <a href="3d-models.html">3D Isometric Models</a>
+            <a href="conceptual-schematic.html">Conceptual &amp; Schematic</a>
+          </div>
+          <div class="nav-mobile-acc-group">
+            <div class="nav-mobile-acc-group-title">Websites</div>
+            <a href="webflow.html">Webflow</a>
+            <a href="wordpress.html">WordPress</a>
+            <a href="hosting.html">Hosting</a>
+          </div>
+          <div class="nav-mobile-acc-group">
+            <div class="nav-mobile-acc-group-title">Presentations</div>
+            <a href="presentations.html">Investor Deck</a>
+            <a href="fact-sheets.html">Fact Sheets</a>
+            <a href="movies.html">GIS Films</a>
+          </div>
+          <div class="nav-mobile-acc-group">
+            <div class="nav-mobile-acc-group-title">Design</div>
+            <a href="logos-branding.html">Logos &amp; Branding</a>
+            <a href="infographics.html">Infographics</a>
+            <a href="conference-booth.html">Conference / Booth Design</a>
+          </div>
+          <div class="nav-mobile-acc-group">
+            <div class="nav-mobile-acc-group-title">Investor Hub</div>
+            <a href="nurture-crm.html">Nurture CRM</a>
+            <a href="investor-analytics.html">Investor Analytics</a>
+            <a href="exploration-today-ai.html">Exploration Today AI</a>
+          </div>
+        </div>
+      </li>
       <li><a href="why.html">Why We Exist</a></li>
       <li><a href="engagement.html">Engagement</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="clients.html">Clients</a></li>
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="team.html">Our Team</a></li>
@@ -208,6 +258,104 @@
     </ul>
     <a href="book.html" class="nav-mobile-cta">Book a discovery call</a>
   </div>
+
+  <style>
+    /* Mega-menu open state is JS-driven (.is-open) via click/keyboard, plus
+       desktop :hover. styles.css also opens it on :focus-within, which fights
+       click-toggle + Escape (focus on the trigger would keep it visually open).
+       Neutralise :focus-within here (this block loads after styles.css) so the
+       menu only opens on hover or the explicit .is-open class. */
+    .mega-menu-wrapper:focus-within .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .mega-menu-wrapper:hover .mega-menu,
+    .mega-menu-wrapper.is-open .mega-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mega-menu-wrapper.is-open .mega-menu-trigger svg {
+      transform: rotate(180deg);
+    }
+
+    /* Tab controls are <button>s now — neutralise default button chrome */
+    .mega-menu-tab {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .mega-menu-tab:focus-visible {
+      outline: 2px solid var(--ore);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* Mobile services accordion */
+    .nav-mobile-accordion { border-bottom: 1px solid var(--border); }
+    .nav-mobile-links li.nav-mobile-accordion:first-child { border-top: 1px solid var(--border); }
+
+    .nav-mobile-acc-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 0;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      text-align: left;
+    }
+    .nav-mobile-acc-trigger:hover { color: var(--graphite); }
+
+    .nav-mobile-acc-chevron {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.2s var(--ease-out-soft);
+    }
+    .nav-mobile-acc-trigger[aria-expanded="true"] .nav-mobile-acc-chevron {
+      transform: rotate(180deg);
+    }
+
+    .nav-mobile-acc-body { padding: 4px 0 16px; }
+
+    .nav-mobile-acc-group { margin-bottom: 18px; }
+    .nav-mobile-acc-group:last-child { margin-bottom: 4px; }
+
+    .nav-mobile-acc-group-title {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .nav-mobile-acc-group a {
+      display: block;
+      padding: 8px 0 8px 12px;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--body);
+      text-decoration: none;
+      border: 0;
+    }
+    .nav-mobile-acc-group a:hover { color: var(--graphite); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-mobile-acc-chevron,
+      .mega-menu-trigger svg { transition: none; }
+    }
+  </style>
 
 
   <div class="page" id="main">
@@ -380,16 +528,16 @@
             </a>
             <p class="footer-statement">The communication layer between your deposit and the capital markets.</p>
             <ul class="footer-social" aria-label="Social media">
-              <li><a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noopener">
+              <li><a href="https://www.youtube.com/@ExplorationSites1/videos" aria-label="YouTube" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.4-1.9.5-3.8.5-5.8s-.1-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
               </a></li>
-              <li><a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">
+              <li><a href="https://x.com/explorationsite" aria-label="X" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
               </a></li>
-              <li><a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
+              <li><a href="https://www.instagram.com/explorationsites" aria-label="Instagram" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3 1-.4 2.1C2.7 8.5 2.7 8.8 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.8.6 1.2.8.4.1 1 .3 2.1.4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-1 .4-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.8-.6-1.2-.8-.4-.1-1-.3-2.1-.4-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg>
               </a></li>
-              <li><a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <li><a href="https://www.linkedin.com/company/exploration-sites/" aria-label="LinkedIn" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
               </a></li>
             </ul>
@@ -400,20 +548,17 @@
               <ul>
                 <li><a href="services.html">What we do</a></li>
                 <li><a href="engagement.html">Engagement</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="why.html">Why we exist</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
                 <li><a href="team.html">Our team</a></li>
+                <li><a href="book.html">Book a discovery call</a></li>
               </ul>
             </div>
           </nav>
 
-          <div class="footer-cta">
-            <a href="book.html" class="btn-discovery btn-discovery--on-dark">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
-          </div>
-
           <div class="footer-contact">
-            <div class="footer-col-title">Contact</div>
             <ul>
               <li><a href="tel:6046889997">604 688 9997</a></li>
               <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
@@ -440,32 +585,160 @@
     <script type="module" src="/assets/footer-shader.js"></script>
 
     <script>
-    // Mega menu tab switching
-    document.querySelectorAll('.mega-menu-tab').forEach(function(tab) {
-      tab.addEventListener('mouseenter', function() {
-        var tabId = this.getAttribute('data-tab');
-        document.querySelectorAll('.mega-menu-tab').forEach(function(t) { t.classList.remove('is-active'); });
-        document.querySelectorAll('.mega-menu-tab-panel').forEach(function(p) { p.classList.remove('is-active'); });
-        this.classList.add('is-active');
-        var panel = document.getElementById('panel-' + tabId);
-        if (panel) panel.classList.add('is-active');
-      });
-    });
+    // Desktop mega menu — tabs + open/close (hover, click, keyboard, focus)
+    (function () {
+      var wrapper = document.querySelector('.mega-menu-wrapper');
+      var trigger = wrapper && wrapper.querySelector('.mega-menu-trigger');
+      if (!wrapper || !trigger) return;
 
-    // Mega menu aria-expanded toggle
-    var trigger = document.querySelector('.mega-menu-trigger');
-    var wrapper = document.querySelector('.mega-menu-wrapper');
-    if (trigger && wrapper) {
-      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
-      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
-          trigger.setAttribute('aria-expanded', 'false');
-          trigger.focus();
+      var tabs = Array.prototype.slice.call(wrapper.querySelectorAll('.mega-menu-tab'));
+      var panels = Array.prototype.slice.call(wrapper.querySelectorAll('.mega-menu-tab-panel'));
+
+      // --- Tab selection -------------------------------------------------
+      function selectTab(tab, focusIt) {
+        if (!tab) return;
+        var tabId = tab.getAttribute('data-tab');
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.setAttribute('tabindex', on ? '0' : '-1');
+        });
+        panels.forEach(function (p) {
+          var on = p.id === 'panel-' + tabId;
+          p.classList.toggle('is-active', on);
+          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        });
+        if (focusIt) tab.focus();
+      }
+
+      tabs.forEach(function (tab, i) {
+        // Switch on hover (desktop), click, and focus (keyboard Tab into list).
+        tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
+        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('focus', function () { selectTab(tab, false); });
+        // Roving-tabindex arrow-key navigation within the tablist.
+        tab.addEventListener('keydown', function (e) {
+          var idx = null;
+          if (e.key === 'ArrowDown' || e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+          else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') idx = 0;
+          else if (e.key === 'End') idx = tabs.length - 1;
+          if (idx !== null) { e.preventDefault(); selectTab(tabs[idx], true); }
+        });
+      });
+
+      // --- Open / close --------------------------------------------------
+      function openMenu() {
+        wrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      function closeMenu(returnFocus) {
+        wrapper.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        if (returnFocus) trigger.focus();
+      }
+      function isOpen() { return wrapper.classList.contains('is-open'); }
+
+      // Click toggles the menu (touch + mouse).
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (isOpen()) closeMenu(false); else openMenu();
+      });
+      // Enter / Space open it explicitly (button click already fires, but make
+      // Space reliable and move focus into the active tab on open).
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          if (!isOpen()) { openMenu(); }
+          var active = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          if (active) active.focus();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (!isOpen()) openMenu();
+          var first = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          if (first) first.focus();
         }
       });
-    }
+
+      // Escape closes and returns focus to the trigger.
+      wrapper.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeMenu(true); }
+      });
+
+      // Close on outside click.
+      document.addEventListener('click', function (e) {
+        if (isOpen() && !wrapper.contains(e.target)) closeMenu(false);
+      });
+
+      // Close when focus leaves the whole menu (e.g. Tab out of the last link).
+      wrapper.addEventListener('focusout', function (e) {
+        if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
+      });
+    })();
+
+    // Mobile nav panel — open/close, focus trap, services accordion
+    (function () {
+      var hamburger = document.querySelector('.nav-hamburger');
+      var overlay = document.querySelector('.nav-mobile-overlay');
+      var panel = document.querySelector('.nav-mobile-panel');
+      if (!hamburger || !overlay || !panel) return;
+      var closeBtn = panel.querySelector('.nav-mobile-close button');
+
+      function focusable() {
+        return Array.prototype.slice.call(
+          panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+        ).filter(function (el) {
+          return el.offsetParent !== null || el === document.activeElement;
+        });
+      }
+
+      function openPanel() {
+        overlay.classList.add('is-open');
+        panel.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+      }
+      function closePanel(returnFocus) {
+        overlay.classList.remove('is-open');
+        panel.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        if (returnFocus) hamburger.focus();
+      }
+      function isOpen() { return panel.classList.contains('is-open'); }
+
+      hamburger.addEventListener('click', openPanel);
+      overlay.addEventListener('click', function () { closePanel(false); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { closePanel(true); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!isOpen()) return;
+        if (e.key === 'Escape') { e.preventDefault(); closePanel(true); return; }
+        if (e.key === 'Tab') {
+          var items = focusable();
+          if (!items.length) return;
+          var first = items[0], last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault(); last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault(); first.focus();
+          }
+        }
+      });
+
+      // Services accordion inside the mobile panel
+      var accTrigger = panel.querySelector('.nav-mobile-acc-trigger');
+      var accBody = panel.querySelector('.nav-mobile-acc-body');
+      if (accTrigger && accBody) {
+        accTrigger.addEventListener('click', function () {
+          var expanded = accTrigger.getAttribute('aria-expanded') === 'true';
+          accTrigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          if (expanded) { accBody.setAttribute('hidden', ''); } else { accBody.removeAttribute('hidden'); }
+        });
+      }
+    })();
 
     // Scroll-triggered entry for marked elements
     (function () {

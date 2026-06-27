@@ -9,8 +9,65 @@ permalink: "contact.html"
     <section class="hero hero--page" style="padding-bottom: 24px;">
       <div class="section-label">Contact</div>
       <h1 class="hero-headline">Start a project.</h1>
-      <p class="hero-body">Tell us about your property and what you need. We&rsquo;ll follow up within one business day.</p>
+      <p class="hero-body" style="max-width: none;">The fastest way to begin is a 30-minute discovery call &mdash; we&rsquo;ll scope the right deliverables and return a fixed quote. Prefer to write? Send your project details below.</p>
+
+      <!-- TRUST STRIP -->
+      <div class="trust-strip" aria-label="A selection of companies we work with">
+        <span class="trust-strip-label">Trusted by exploration teams</span>
+        <div class="trust-strip-logos">
+          <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
+          <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
+          <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" loading="lazy">
+          <img src="images/clients/snowline.avif" alt="Snowline Gold" loading="lazy">
+        </div>
+      </div>
+
+      <div class="hero-buttons" style="margin-top: 32px;">
+        <a href="book.html" class="btn-primary">Book a discovery call</a>
+        <a href="#project-form" class="btn-secondary">Or send project details</a>
+      </div>
     </section>
+
+    <style>
+      /* Trust strip — restrained, monochrome logo row */
+      .trust-strip {
+        display: flex; flex-direction: column; align-items: flex-start;
+        gap: 16px; margin-top: 36px;
+      }
+      .trust-strip-label {
+        font-family: var(--font-mono);
+        font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--muted);
+      }
+      .trust-strip-logos {
+        display: flex; align-items: center; flex-wrap: wrap;
+        gap: clamp(24px, 4vw, 48px);
+      }
+      .trust-strip-logos img {
+        height: 36px; width: auto;
+        opacity: 0.55; filter: grayscale(1);
+        transition: opacity 0.2s var(--ease-out-soft);
+      }
+      .trust-strip-logos img:hover { opacity: 0.85; }
+      .form-confidential {
+        font-size: 13px; color: var(--muted); margin-top: 4px;
+      }
+      .form-confidential a {
+        color: var(--navy); text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        transition: border-color 0.2s var(--ease-out-soft);
+      }
+      .form-confidential a:hover { border-color: var(--ore); }
+      .contact-form-heading {
+        font-family: var(--font-serif);
+        font-size: 24px; font-weight: 300; letter-spacing: -0.01em;
+        color: var(--graphite); margin-bottom: 6px;
+      }
+      .contact-form-sub {
+        font-size: 14px; color: var(--muted); margin-bottom: 24px;
+      }
+      @media (max-width: 560px) { .trust-strip-logos img { height: 28px; } }
+    </style>
 
     <!-- HOW IT WORKS -->
     <section style="padding: 0;">
@@ -43,10 +100,11 @@ permalink: "contact.html"
     </section>
 
     <!-- CONTACT FORM + INFO -->
-    <section class="section">
+    <section class="section" id="project-form">
       <div class="contact-grid">
         <div>
-          <!-- TODO: replace YOUR_FORM_ID with the Formspree form ID (formspree.io → New Form → the part after /f/) -->
+          <h2 class="contact-form-heading">Or send your project details.</h2>
+          <p class="contact-form-sub">Prefer not to book a call yet? Tell us what you need and we&rsquo;ll follow up within one business day.</p>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
             <div class="form-row">
               <div class="form-field">
@@ -58,30 +116,49 @@ permalink: "contact.html"
                 <input class="form-input" type="text" id="company" name="company" placeholder="Company name">
               </div>
             </div>
-            <div class="form-field">
-              <label class="form-label" for="email">Email</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="phone">Phone <span style="color: var(--muted); font-weight: 400;">(optional)</span></label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="604 688 9997" autocomplete="tel">
+              </div>
             </div>
-            <div class="form-field">
-              <label class="form-label" for="service">Service Needed</label>
-              <select class="form-select" id="service" name="service">
-                <option value="">Select a service</option>
-                <option value="maps">GIS Maps</option>
-                <option value="websites">Websites</option>
-                <option value="presentations">Presentations</option>
-                <option value="films">Films &amp; Motion</option>
-                <option value="design">Design &amp; Branding</option>
-                <option value="crm">CRM &amp; Socials</option>
-                <option value="package">Launch Package</option>
-                <option value="retainer">Monthly Retainer</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="service">Service Needed</label>
+                <select class="form-select" id="service" name="service">
+                  <option value="">Select a service</option>
+                  <option value="package">Launch Package</option>
+                  <option value="retainer">Monthly Retainer</option>
+                  <option value="maps">GIS Maps</option>
+                  <option value="websites">Websites</option>
+                  <option value="presentations">Presentations</option>
+                  <option value="films">Films &amp; Motion</option>
+                  <option value="design">Design &amp; Branding</option>
+                  <option value="crm">CRM &amp; Socials</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="timeline">Timeline</label>
+                <select class="form-select" id="timeline" name="timeline">
+                  <option value="">When do you need this?</option>
+                  <option value="asap">As soon as possible</option>
+                  <option value="2-4-weeks">Within 2&ndash;4 weeks</option>
+                  <option value="1-3-months">1&ndash;3 months</option>
+                  <option value="exploring">Exploring / no fixed date</option>
+                </select>
+              </div>
             </div>
             <div class="form-field">
               <label class="form-label" for="message">Project Description</label>
               <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your property and what you need..."></textarea>
             </div>
             <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Submit Inquiry</button>
+            <p class="form-confidential">We never share your project details. See our <a href="privacy.html">privacy policy</a>.</p>
             <p class="form-hint">We respond within one business day. For urgent requests, call 604 688 9997.</p>
             <p class="form-hint form-error" hidden></p>
           </form>
@@ -94,9 +171,6 @@ permalink: "contact.html"
               var defaultLabel = btn.textContent;
               form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
-                  console.warn('Contact form: set the Formspree endpoint in src/contact.html');
-                }
                 err.hidden = true;
                 btn.disabled = true;
                 btn.textContent = 'Sending…';
@@ -145,16 +219,16 @@ permalink: "contact.html"
             <span class="contact-info-value">3&ndash;7 business days (rush available)</span>
           </div>
           <div class="contact-info-row">
-            <span class="contact-info-label">Websites</span>
-            <span class="contact-info-value">3&ndash;4 weeks</span>
-          </div>
-          <div class="contact-info-row">
             <span class="contact-info-label">Presentations</span>
-            <span class="contact-info-value">5&ndash;10 business days</span>
+            <span class="contact-info-value">4 weeks</span>
           </div>
           <div class="contact-info-row">
-            <span class="contact-info-label">Films</span>
-            <span class="contact-info-value">4&ndash;5 weeks</span>
+            <span class="contact-info-label">Websites</span>
+            <span class="contact-info-value">5 weeks</span>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-label">GIS films</span>
+            <span class="contact-info-value">6 weeks</span>
           </div>
         </div>
       </div>

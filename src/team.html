@@ -13,6 +13,39 @@ permalink: "team.html"
 
     <div class="divider"></div>
 
+    <!--
+      team.html owns a small inline <style> block (do NOT move to styles.css):
+      it standardizes leadership-card spacing and styles the per-leader LinkedIn link.
+      The LinkedIn links below are real, accessible markup with placeholder hrefs.
+      For each leader: replace the "#TODO-..." href with the real profile URL.
+      If a leader has no public profile yet, delete that single <a> line cleanly.
+    -->
+    <style>
+      /* Leadership card: keep name / role / bio / link rhythm consistent across all four */
+      .team-leadership .team-lead { display: flex; flex-direction: column; }
+      .team-leadership .team-bio { margin-bottom: 12px; }
+      /* Push the LinkedIn link to a consistent baseline so cards of varying bio length align */
+      .team-leadership .team-lead .team-links { margin-top: auto; }
+      .team-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 4px 0;
+        border-bottom: 1px solid var(--muted-rule);
+        align-self: flex-start;
+        transition: color 0.18s ease, border-color 0.18s ease;
+      }
+      .team-link:hover,
+      .team-link:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
+      .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
+    </style>
+
     <!-- LEADERSHIP -->
     <section class="section" style="padding: 32px 0 0;">
       <div class="section-label">Leadership</div>
@@ -20,26 +53,46 @@ permalink: "team.html"
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/dorian.jpg" alt="Dorian Leslie" width="275" height="275"></div>
           <div class="team-name">Dorian Leslie</div>
-          <div class="team-role">CEO</div>
-          <div class="team-bio">Over 30 years in mineral exploration. Leads the multidisciplinary team dedicated to transforming complex exploration data into clear, investor-ready visuals.</div>
+          <div class="team-role">Founder &amp; CEO</div>
+          <!-- TODO: confirm/add Dorian's credentials — degree(s), professional designation (e.g. P.Geo.), and notable prior roles. Do NOT publish until verified. -->
+          <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
+          <div class="team-links">
+            <!-- TODO: LinkedIn URL — replace href with Dorian's profile, or delete this <a> if none. -->
+            <a class="team-link" href="#TODO-linkedin-dorian" rel="noopener" aria-label="Dorian Leslie on LinkedIn">LinkedIn</a>
+          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Anastasia Schoeps</div>
           <div class="team-role">Operations Director</div>
-          <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data is transformed into credible, compelling materials.</div>
+          <!-- TODO: add Anastasia's credentials — geology/GIS degree(s), GISP or other designation, years of experience, prior roles. Do NOT invent. -->
+          <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
+          <div class="team-links">
+            <!-- TODO: LinkedIn URL — replace href with Anastasia's profile, or delete this <a> if none. -->
+            <a class="team-link" href="#TODO-linkedin-anastasia" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn">LinkedIn</a>
+          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Kai Erfle</div>
           <div class="team-role">Creative Director</div>
-          <div class="team-bio">Leads the creative direction behind our most impactful client work &mdash; translating complex exploration stories into clear, compelling digital experiences that build trust and drive investor engagement.</div>
+          <!-- TODO: add Kai's credentials — design/relevant degree, years of experience, prior roles or notable studios. Do NOT invent. -->
+          <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
+          <div class="team-links">
+            <!-- TODO: LinkedIn URL — replace href with Kai's profile, or delete this <a> if none. -->
+            <a class="team-link" href="#TODO-linkedin-kai" rel="noopener" aria-label="Kai Erfle on LinkedIn">LinkedIn</a>
+          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Jake Galbraith</div>
           <div class="team-role">Project Manager</div>
-          <div class="team-bio">Leads map production from concept to delivery, ensuring every figure is accurate and defensible. Combines strong design execution with a deep understanding of spatial data to deliver consistently high-quality results.</div>
+          <!-- TODO: add Jake's credentials — GIS/cartography/relevant degree, GISP or other designation, years of experience. Do NOT invent. -->
+          <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
+          <div class="team-links">
+            <!-- TODO: LinkedIn URL — replace href with Jake's profile, or delete this <a> if none. -->
+            <a class="team-link" href="#TODO-linkedin-jake" rel="noopener" aria-label="Jake Galbraith on LinkedIn">LinkedIn</a>
+          </div>
         </div>
       </div>
     </section>
@@ -107,7 +160,53 @@ permalink: "team.html"
     <section class="cta-section">
       <h2 class="cta-headline">Want to work with us?</h2>
       <p class="cta-sub">Tell us about your property and what you need.</p>
-      <a href="contact.html" class="btn-primary">Start a project</a>
+      <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
     </section>
 
     <div class="divider"></div>
+
+    <!-- Team photos: the still headshot is the resting state. On hover its motion loop
+         cross-dissolves in (opacity) and loops continuously; on mouse-off it dissolves
+         back out to the photo. The video only rewinds while it's hidden, so there's
+         never a visible snap. preload="auto" avoids a first-play stutter. -->
+    <script>
+      (function () {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return; // reduced motion: keep the still photo, no video
+        var photos = document.querySelectorAll('.team-photo');
+        Array.prototype.forEach.call(photos, function (photo) {
+          var img = photo.querySelector('img');
+          if (!img) return;
+          var src = img.getAttribute('src') || '';
+          var vsrc = src.replace('images/headshots/', 'images/team-loops/').replace(/\.(jpe?g|png|webp|avif)$/i, '.mp4');
+          if (vsrc === src) return;
+          var video = document.createElement('video');
+          video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'auto';
+          video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+          video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
+          video.src = vsrc;
+          photo.appendChild(video);
+
+          var resetTimer;
+          function start() {
+            clearTimeout(resetTimer);
+            photo.classList.add('is-playing');   // fade the loop in over the still photo
+            var p = video.play();
+            if (p && p.catch) p.catch(function () {});
+          }
+          function stop() {
+            photo.classList.remove('is-playing'); // fade back to the still photo
+            clearTimeout(resetTimer);
+            // rewind only after the fade-out completes, while the video is hidden
+            resetTimer = setTimeout(function () {
+              video.pause();
+              try { video.currentTime = 0; } catch (e) {}
+            }, 380);
+          }
+          photo.addEventListener('mouseenter', start);
+          photo.addEventListener('mouseleave', stop);
+          photo.addEventListener('focusin', start);
+          photo.addEventListener('focusout', stop);
+        });
+      })();
+    </script>
