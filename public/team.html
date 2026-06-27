@@ -38,7 +38,7 @@
   "@type": "Organization",
   "name": "Exploration Sites",
   "url": "https://es-draft-1.vercel.app",
-  "logo": "https://es-draft-1.vercel.app/images/og-default.jpg",
+  "logo": "https://es-draft-1.vercel.app/images/logo-512.png",
   "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
   "email": "info@explorationsites.com",
   "telephone": "+1-604-688-9997",
@@ -56,7 +56,6 @@
   ]
 }
 </script>
-<!-- TODO: replace logo URL with a dedicated square brand logo (e.g. /images/logo-512.png) once one exists; og-default.jpg is a stand-in. -->
 <!-- TODO: add streetAddress + postalCode to PostalAddress if a public mailing address is available. -->
 
 </head>
@@ -370,10 +369,10 @@
 
     <!--
       team.html owns a small inline <style> block (do NOT move to styles.css):
-      it standardizes leadership-card spacing and styles the per-leader LinkedIn link.
-      The LinkedIn links below are real, accessible markup with placeholder hrefs.
-      For each leader: replace the "#TODO-..." href with the real profile URL.
-      If a leader has no public profile yet, delete that single <a> line cleanly.
+      it standardizes leadership-card spacing.
+      Per-person LinkedIn links were removed pending real individual profile URLs;
+      the company LinkedIn lives in the footer site-wide. To add an individual
+      link, drop <a class="team-link" href="..."> into that leader's card.
     -->
     <style>
       /* Leadership card: keep name / role / bio / link rhythm consistent across all four */
@@ -411,10 +410,6 @@
           <div class="team-role">Founder &amp; CEO</div>
           <!-- TODO: confirm/add Dorian's credentials — degree(s), professional designation (e.g. P.Geo.), and notable prior roles. Do NOT publish until verified. -->
           <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
-          <div class="team-links">
-            <!-- TODO: LinkedIn URL — replace href with Dorian's profile, or delete this <a> if none. -->
-            <a class="team-link" href="#TODO-linkedin-dorian" rel="noopener" aria-label="Dorian Leslie on LinkedIn">LinkedIn</a>
-          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="275" height="275"></div>
@@ -422,10 +417,6 @@
           <div class="team-role">Operations Director</div>
           <!-- TODO: add Anastasia's credentials — geology/GIS degree(s), GISP or other designation, years of experience, prior roles. Do NOT invent. -->
           <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
-          <div class="team-links">
-            <!-- TODO: LinkedIn URL — replace href with Anastasia's profile, or delete this <a> if none. -->
-            <a class="team-link" href="#TODO-linkedin-anastasia" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn">LinkedIn</a>
-          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="275" height="275"></div>
@@ -433,10 +424,6 @@
           <div class="team-role">Creative Director</div>
           <!-- TODO: add Kai's credentials — design/relevant degree, years of experience, prior roles or notable studios. Do NOT invent. -->
           <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
-          <div class="team-links">
-            <!-- TODO: LinkedIn URL — replace href with Kai's profile, or delete this <a> if none. -->
-            <a class="team-link" href="#TODO-linkedin-kai" rel="noopener" aria-label="Kai Erfle on LinkedIn">LinkedIn</a>
-          </div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="275" height="275"></div>
@@ -444,10 +431,6 @@
           <div class="team-role">Project Manager</div>
           <!-- TODO: add Jake's credentials — GIS/cartography/relevant degree, GISP or other designation, years of experience. Do NOT invent. -->
           <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
-          <div class="team-links">
-            <!-- TODO: LinkedIn URL — replace href with Jake's profile, or delete this <a> if none. -->
-            <a class="team-link" href="#TODO-linkedin-jake" rel="noopener" aria-label="Jake Galbraith on LinkedIn">LinkedIn</a>
-          </div>
         </div>
       </div>
     </section>
