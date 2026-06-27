@@ -1676,8 +1676,12 @@
           display: flex; flex-direction: column; position: relative; overflow: hidden;
           border: 1px solid var(--border); border-radius: 12px;
           background: var(--surface); box-shadow: var(--shadow-card);
+          transition: transform 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart), border-color 0.3s var(--ease-out-quart);
         }
         #retainers .retainer-card.is-popular { border-color: var(--navy); box-shadow: var(--shadow-deep); }
+        #retainers .retainer-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-deep); border-color: var(--slate); }
+        #retainers .retainer-card.is-popular:hover { border-color: var(--navy); }
+        @media (prefers-reduced-motion: reduce) { #retainers .retainer-card:hover { transform: none; } }
         #retainers .retainer-head {
           display: flex; align-items: center; justify-content: space-between; gap: 12px;
           background: var(--graphite); color: var(--quartz); padding: 14px 22px;
@@ -1685,7 +1689,7 @@
         #retainers .retainer-head-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         #retainers .retainer-head .retainer-tier { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--quartz) !important; margin: 0; }
         #retainers .retainer-pop { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--graphite); background: var(--ore); padding: 2px 7px; border-radius: 3px; }
-        #retainers .retainer-dollars { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: 2px; color: var(--ore); line-height: 1; }
+        #retainers .retainer-dollars { font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 1px; color: var(--graticule); line-height: 1; }
         #retainers .retainer-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 26px; }
         #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px; }
         #retainers .retainer-features { list-style: none; margin: 0; padding: 0; }
