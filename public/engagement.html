@@ -1611,78 +1611,86 @@
 
       <div class="retainer-grid reveal">
         <div class="retainer-card">
-          <div class="retainer-tier">Essentials</div>
-          <p class="retainer-for">For early-stage teams keeping their core materials current between milestones.</p>
-          <ul class="retainer-features">
-            <li>10 hours of design time / month</li>
-            <li>Rollover up to 4 hours</li>
-            <li>Map updates &amp; revisions</li>
-            <li>Website maintenance</li>
-            <li>Dedicated coordinator</li>
-            <li>Priority 48-hour turnaround</li>
-          </ul>
-          <a class="retainer-cta" href="book.html?tier=Essentials">Book a call about Essentials &rarr;</a>
+          <div class="retainer-head">
+            <span class="retainer-head-left"><span class="retainer-tier">Essentials</span></span>
+            <span class="retainer-dollars" aria-hidden="true">$$$</span>
+          </div>
+          <div class="retainer-body">
+            <p class="retainer-for">For early-stage teams keeping their core materials current between milestones.</p>
+            <ul class="retainer-features">
+              <li>10 hours of design time / month</li>
+              <li>Rollover up to 4 hours</li>
+              <li>Map updates &amp; revisions</li>
+              <li>Website maintenance</li>
+              <li>Dedicated coordinator</li>
+              <li>Priority 48-hour turnaround</li>
+            </ul>
+          </div>
         </div>
         <div class="retainer-card is-popular">
-          <div class="retainer-badge">Most Popular</div>
-          <div class="retainer-tier">Growth</div>
-          <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
-          <ul class="retainer-features">
-            <li>20 hours of design time / month</li>
-            <li>Rollover up to 8 hours</li>
-            <li>New map production</li>
-            <li>Website maintenance &amp; hosting</li>
-            <li>Presentation updates</li>
-            <li>Dedicated account manager</li>
-            <li>Priority 48-hour turnaround</li>
-          </ul>
-          <a class="retainer-cta" href="book.html?tier=Growth">Book a call about Growth &rarr;</a>
+          <div class="retainer-head">
+            <span class="retainer-head-left"><span class="retainer-tier">Growth</span><span class="retainer-pop">Most popular</span></span>
+            <span class="retainer-dollars" aria-hidden="true">$$</span>
+          </div>
+          <div class="retainer-body">
+            <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
+            <ul class="retainer-features">
+              <li>20 hours of design time / month</li>
+              <li>Rollover up to 8 hours</li>
+              <li>New map production</li>
+              <li>Website maintenance &amp; hosting</li>
+              <li>Presentation updates</li>
+              <li>Dedicated account manager</li>
+              <li>Priority 48-hour turnaround</li>
+            </ul>
+          </div>
         </div>
         <div class="retainer-card">
-          <div class="retainer-tier">Enterprise</div>
-          <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>
-          <ul class="retainer-features">
-            <li>50 hours of design time / month</li>
-            <li>Rollover up to 20 hours</li>
-            <li>Everything in Growth</li>
-            <li>Motion &amp; 3D projects</li>
-            <li>CRM access included</li>
-            <li>Investor analytics</li>
-            <li>Dedicated account manager</li>
-            <li>Priority 24-hour turnaround</li>
-          </ul>
-          <a class="retainer-cta" href="book.html?tier=Enterprise">Book a call about Enterprise &rarr;</a>
+          <div class="retainer-head">
+            <span class="retainer-head-left"><span class="retainer-tier">Enterprise</span></span>
+            <span class="retainer-dollars" aria-hidden="true">$</span>
+          </div>
+          <div class="retainer-body">
+            <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>
+            <ul class="retainer-features">
+              <li>50 hours of design time / month</li>
+              <li>Rollover up to 20 hours</li>
+              <li>Everything in Growth</li>
+              <li>Motion &amp; 3D projects</li>
+              <li>CRM access included</li>
+              <li>Investor analytics</li>
+              <li>Dedicated account manager</li>
+              <li>Priority 24-hour turnaround</li>
+            </ul>
+          </div>
         </div>
       </div>
 
+      <p class="retainer-foot reveal">All retainers are based on a 12-month commitment.</p>
+
       <style>
-        /* Retainer cards — match the pricing-page treatment, without dollar values.
+        /* Retainer cards — pricing-style cards with a dark header (tier + $ rating).
            ID-scoped so these win the cascade over any conflicting global rules. */
-        #retainers .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+        #retainers .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; align-items: start; }
         #retainers .retainer-card {
-          display: flex; flex-direction: column; position: relative;
+          display: flex; flex-direction: column; position: relative; overflow: hidden;
           border: 1px solid var(--border); border-radius: 12px;
-          padding: 28px 24px; background: var(--surface); box-shadow: var(--shadow-card);
+          background: var(--surface); box-shadow: var(--shadow-card);
         }
         #retainers .retainer-card.is-popular { border-color: var(--navy); box-shadow: var(--shadow-deep); }
-        #retainers .retainer-badge {
-          position: absolute; top: -10px; left: 24px;
-          background: var(--navy); color: var(--on-dark);
-          font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-          padding: 3px 10px; border-radius: 4px;
+        #retainers .retainer-head {
+          display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          background: var(--graphite); padding: 14px 22px;
         }
-        #retainers .retainer-tier { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; }
-        #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 18px; }
+        #retainers .retainer-head-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        #retainers .retainer-tier { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--on-dark); margin: 0; }
+        #retainers .retainer-pop { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--graphite); background: var(--ore); padding: 2px 7px; border-radius: 3px; }
+        #retainers .retainer-dollars { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: 2px; color: var(--ore); line-height: 1; }
+        #retainers .retainer-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 26px; }
+        #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px; }
         #retainers .retainer-features { list-style: none; margin: 0; padding: 0; }
         #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 6px 0; line-height: 1.5; }
-        #retainers .retainer-cta {
-          margin-top: auto; padding-top: 24px;
-          font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-          text-transform: uppercase; color: var(--navy); text-decoration: none;
-          align-self: flex-start; border-bottom: 1px solid var(--ore); padding-bottom: 3px;
-          transition: color 0.2s var(--ease-out-soft);
-        }
-        #retainers .retainer-cta:hover { color: var(--ore); }
+        #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 12px; color: var(--muted); }
         @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
       </style>
     </div>
