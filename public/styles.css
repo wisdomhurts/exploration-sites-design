@@ -873,7 +873,7 @@
       position: relative;
       width: 100vw;
       margin: 0 calc(50% - 50vw) 24px;
-      padding: 96px 0 40px;
+      padding: 72px 0 40px;
       overflow: hidden;
       isolation: isolate;
     }
