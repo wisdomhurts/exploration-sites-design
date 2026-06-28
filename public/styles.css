@@ -106,6 +106,19 @@
       line-height: 175%;
       margin-bottom: 24px;
     }
+    .why-readmore {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 8px;
+      font-family: var(--font-sans);
+      font-size: 14px; font-weight: 500;
+      color: var(--graphite); text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      transition: border-color 0.2s var(--ease-out-soft);
+    }
+    .why-readmore:hover { border-color: var(--ore); }
+    .why-readmore span { transition: transform 0.2s var(--ease-out-soft); }
+    .why-readmore:hover span { transform: translateX(3px); }
     .body-text:last-child { margin-bottom: 0; }
 
     .sr-only {
