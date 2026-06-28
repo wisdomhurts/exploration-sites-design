@@ -2487,7 +2487,7 @@
 
     .showcase-grid { display: grid; gap: 24px; }
     .showcase-grid--maps  { grid-template-columns: repeat(4, 1fr); }
-    .showcase-grid--sites { grid-template-columns: repeat(2, 1fr); }
+    .showcase-grid--sites { grid-template-columns: repeat(3, 1fr); }
     .showcase-grid--decks { grid-template-columns: repeat(3, 1fr); }
     .showcase-grid--mini  { grid-template-columns: repeat(3, 1fr); }
 
