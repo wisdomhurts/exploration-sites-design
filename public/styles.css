@@ -1067,11 +1067,7 @@
        Numbered, full-width index with 4-column grid: number / name / description / arrow.
        Hairline rules between rows. Hover nudges the whole row right by 12px. */
     .services-editorial-head {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 80px;
       margin-bottom: 48px;
-      align-items: baseline;
     }
     .services-editorial-head .section-headline {
       max-width: none;
