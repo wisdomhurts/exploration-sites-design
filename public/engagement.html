@@ -591,16 +591,17 @@
   h1.title {
     font-family: var(--font-serif);
     font-weight: 300;
-    font-size: clamp(40px, 5.2vw, 62px);
-    line-height: 1.0;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.1;
     letter-spacing: -0.02em;
+    color: var(--graphite);
   }
   .intro {
     font-weight: 400;
-    font-size: clamp(16px, 1.6vw, 18.5px);
-    line-height: 1.62;
+    font-size: 15px;
+    line-height: 1.65;
     color: var(--body);
-    max-width: 46ch;
+    max-width: 65ch;
     padding-top: 6px;
   }
   .intro strong { color: var(--graphite); font-weight: 600; }
@@ -700,7 +701,15 @@
     border-bottom: 1px solid var(--hairline);
     padding: 20px 22px 22px;
     background: var(--surface);
+    position: relative;
+    transition: transform 0.3s var(--ease-out-quart), box-shadow 0.3s var(--ease-out-quart);
   }
+  .deliv-group:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-deep);
+    z-index: 1;
+  }
+  @media (prefers-reduced-motion: reduce) { .deliv-group:hover { transform: none; } }
   .deliv-kick {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
@@ -1474,7 +1483,7 @@
           <h3>Project work.</h3>
           <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
           <p class="model-bestfor">
-            <span class="lbl">Best for</span>
+            <span class="lbl">Ideal for</span>
             Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader program.
           </p>
         </a>
@@ -1487,7 +1496,7 @@
           <h3>The Launch Package.</h3>
           <p class="model-lede">The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
           <p class="model-bestfor">
-            <span class="lbl">Best for</span>
+            <span class="lbl">Ideal for</span>
             Companies coming to market — or relaunching — that need the maps, deck, site, fact sheet, and brand to land together and speak with one voice.
           </p>
         </a>
@@ -1500,7 +1509,7 @@
           <h3>Monthly retainer.</h3>
           <p class="model-lede">For companies in continuous market — ongoing map updates, presentation refreshes, site maintenance, and investor support, retained at a predictable monthly commitment.</p>
           <p class="model-bestfor">
-            <span class="lbl">Best for</span>
+            <span class="lbl">Ideal for</span>
             Issuers in an active program who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
           </p>
         </a>

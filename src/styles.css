@@ -1033,6 +1033,27 @@
       margin-bottom: 16px;
     }
 
+    /* Page-top eyebrow — gold mono with a leading rule (matches the Engagement masthead). */
+    .hero .section-label,
+    .case-hero .section-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: var(--ore);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero .section-label::before,
+    .case-hero .section-label::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--ore);
+      flex: 0 0 auto;
+    }
+
     .section-headline {
       font-family: var(--font-serif);
       font-size: 40px;
