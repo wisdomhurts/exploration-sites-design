@@ -1075,6 +1075,7 @@
     }
     .services-editorial-head .section-headline {
       max-width: none;
+      font-size: clamp(22px, 2.9vw, 36px);
     }
     .services-editorial-list {
       list-style: none;
