@@ -980,7 +980,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--slate);
-      padding: 10px 0 0;
+      padding: 0;
       min-width: 72px;
       flex-shrink: 0;
       align-self: flex-start;
@@ -1074,7 +1074,7 @@
       align-items: baseline;
     }
     .services-editorial-head .section-headline {
-      max-width: 640px;
+      max-width: none;
     }
     .services-editorial-list {
       list-style: none;
