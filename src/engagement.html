@@ -323,6 +323,19 @@ description: "How we engage with exploration-stage companies — project work on
   .btn-discovery:hover { border-color: var(--ore); }
   .btn-discovery:hover .arw { transform: translateX(4px); color: var(--ore); }
 
+  /* --- QA: keep the desktop nav on one line, collapse to hamburger before it crowds --- */
+  .nav-logo-text,
+  .nav .nav-links a,
+  .nav .mega-menu-trigger,
+  .nav-right .btn-discovery { white-space: nowrap; }
+  .nav-right { gap: 20px; }
+  .nav .nav-links { gap: 16px; }
+  @media (max-width: 1120px) {
+    .nav .nav-links { display: none; }
+    .nav .nav-right .btn-discovery { display: none; }
+    .nav .nav-hamburger { display: block; }
+  }
+
   /* On dark surfaces (footer, dark CTA bands) */
   .btn-discovery--on-dark { border-color: rgba(244,241,236,0.38); color: var(--quartz); }
   .btn-discovery--on-dark:hover { border-color: var(--ore); }
