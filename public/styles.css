@@ -204,15 +204,15 @@
     }
 
     .nav-logo-icon svg {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
     }
 
     .nav-logo-text {
       font-family: var(--font-sans);
       font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: lowercase;
       color: var(--graphite);
     }
@@ -2131,10 +2131,19 @@
     .footer-mark-text {
       font-family: var(--font-sans);
       font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: lowercase;
       color: var(--graphite);
+    }
+    /* "Est. 1996" credibility signature in the footer lockup (BRAND-07) */
+    .footer-est {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
     .footer-statement {
@@ -2682,8 +2691,9 @@
 
     /* --- HERO: demo-reel film link/play button --- */
     .hero-film-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; background: none; border: none; padding: 0; font: inherit; font-size: 15px; font-weight: 500; color: var(--graphite); cursor: pointer; }
-    .hero-film-play { position: relative; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--ore); flex: none; transition: background 0.2s ease; }
-    .hero-film-play::after { content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent var(--ore); }
+    .hero-film-play { position: relative; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--slate); flex: none; transition: background 0.2s ease, border-color 0.2s ease; }
+    .hero-film-play::after { content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent var(--slate); }
+    .hero-film-link:hover .hero-film-play { border-color: var(--ore); }
     .hero-film-link:hover .hero-film-play { background: var(--ore); }
     .hero-film-link:hover .hero-film-play::after { border-left-color: var(--on-dark); }
     .hero-buttons .hero-film-link { margin-top: 0; margin-left: 4px; }
