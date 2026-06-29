@@ -2720,36 +2720,25 @@
       color: var(--muted);
       margin-bottom: 22px;
     }
-    .case-journey-track { position: relative; padding-left: 24px; }
+    /* Silent Ledger — start value small/left, end value large/right, one Ore
+       hairline between; the whitespace IS the growth. Signature device. */
+    .case-journey-track { display: flex; align-items: baseline; gap: 16px; padding-left: 0; }
     .case-journey-track::before {
-      content: "";
-      position: absolute;
-      left: 4px;
-      top: 0.6em;
-      bottom: 0.6em;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--ore), var(--graticule));
+      content: ""; order: 2; flex: 1 1 auto; height: 1px; align-self: center;
+      background: var(--ore); opacity: 0.45;
     }
-    .case-journey-stop { position: relative; }
-    .case-journey-stop--end { margin-bottom: 60px; }
-    .case-journey-stop::before {
-      content: "";
-      position: absolute;
-      left: -24px;
-      top: 0.55em;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      transform: translateY(-50%);
-    }
-    .case-journey-stop--end::before { background: var(--ore); }
-    .case-journey-stop--start::before {
-      background: var(--quartz);
-      border: 1.5px solid var(--slate);
-    }
+    .case-journey-stop { position: relative; margin: 0; }
+    .case-journey-stop::before { display: none; }
+    .case-journey-stop--start { order: 1; }
+    .case-journey-stop--end { order: 3; text-align: right; }
     .case-journey-val { font-family: var(--font-mono); letter-spacing: -0.02em; line-height: 1; }
-    .case-journey-stop--end .case-journey-val { font-size: 26px; color: var(--graphite); }
-    .case-journey-stop--start .case-journey-val { font-size: 16px; color: var(--muted); }
+    .case-journey-stop--end .case-journey-val { font-size: 30px; color: var(--graphite); }
+    .case-journey-stop--start .case-journey-val { font-size: 15px; color: var(--muted); }
+    @media (max-width: 520px) {
+      .case-journey-track { flex-direction: column; align-items: flex-start; gap: 9px; }
+      .case-journey-track::before { width: 28px; height: 1px; flex: none; align-self: flex-start; margin-left: 4px; }
+      .case-journey-stop--end { text-align: left; }
+    }
     .case-journey-meta {
       display: block;
       font-family: var(--font-mono);
@@ -2759,6 +2748,41 @@
       margin-top: 22px;
       padding-left: 24px;
     }
+
+    /* Full-bleed thesis pullquote — an editorial pause that gives the philosophy
+       the space it earns (ideation: editorial-luxury). */
+    .thesis-quote {
+      width: 100vw; margin-left: calc(50% - 50vw);
+      background: var(--graphite); color: var(--on-dark, #F7F4EF);
+      padding: clamp(64px, 9vw, 120px) 24px;
+      text-align: center;
+    }
+    .thesis-quote-text {
+      max-width: 22ch; margin: 0 auto;
+      font-family: var(--font-serif); font-weight: 300;
+      font-size: clamp(27px, 4vw, 44px); line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .thesis-quote-text em { font-style: italic; color: var(--ore); }
+    .thesis-quote-cite {
+      display: block; margin-top: 22px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--graticule);
+    }
+
+    /* Variable section-padding rhythm tiers (ideation: editorial-luxury) */
+    .section--spacious { padding-top: clamp(72px, 10vw, 132px); padding-bottom: clamp(72px, 10vw, 132px); }
+    .section--tight { padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(28px, 4vw, 48px); }
+
+    /* In-prose wayfinding — a quiet next-step line at the foot of service pages
+       (ideation: japanese-minimal). */
+    .next-step {
+      max-width: 760px; margin: 8px 0 0;
+      font-family: var(--font-mono); font-size: 12px; line-height: 1.9;
+      letter-spacing: 0.02em; color: var(--muted);
+    }
+    .next-step a { color: var(--ore-text); text-decoration: none; font-weight: 500; white-space: nowrap; }
+    .next-step a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
     /* GHL booking embed (book.html) */
     .booking-embed { max-width: 900px; margin: 0 auto; }
