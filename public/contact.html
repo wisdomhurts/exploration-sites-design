@@ -528,9 +528,10 @@
           <p class="contact-form-sub">Prefer not to book a call yet? Tell us what you need and we&rsquo;ll follow up within one business day.</p>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
             <p id="form-status" class="form-hint" role="status" aria-live="polite"></p>
+            <p class="form-hint">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
             <div class="form-row">
               <div class="form-field">
-                <label class="form-label" for="name">Name</label>
+                <label class="form-label" for="name">Name <span class="req" aria-hidden="true">*</span></label>
                 <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required aria-required="true">
               </div>
               <div class="form-field">
@@ -540,11 +541,11 @@
             </div>
             <div class="form-row">
               <div class="form-field">
-                <label class="form-label" for="email">Email</label>
+                <label class="form-label" for="email">Email <span class="req" aria-hidden="true">*</span></label>
                 <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true">
               </div>
               <div class="form-field">
-                <label class="form-label" for="phone">Phone <span style="color: var(--muted); font-weight: 400;">(optional)</span></label>
+                <label class="form-label" for="phone">Phone</label>
                 <input class="form-input" type="tel" id="phone" name="phone" placeholder="604 688 9997" autocomplete="tel">
               </div>
             </div>

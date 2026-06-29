@@ -461,21 +461,21 @@ description: "The premium investor relations and visualization partner that tran
       <!-- Proof band -->
       <div class="stats" style="padding: 24px 0 32px;">
         <div class="stats-grid">
-          <div>
-            <div class="stat-number" data-count-to="{{ proof.projects }}" data-count-suffix="+">{{ proof.projects }}+</div>
-            <div class="stat-label">Projects Completed</div>
+          <div role="img" aria-label="{{ proof.projects }}+ projects completed">
+            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.projects }}" data-count-suffix="+">{{ proof.projects }}+</div>
+            <div class="stat-label" aria-hidden="true">Projects Completed</div>
           </div>
-          <div>
-            <div class="stat-number" data-count-to="{{ proof.websites }}" data-count-suffix="+">{{ proof.websites }}+</div>
-            <div class="stat-label">Websites Launched</div>
+          <div role="img" aria-label="{{ proof.websites }}+ websites launched">
+            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.websites }}" data-count-suffix="+">{{ proof.websites }}+</div>
+            <div class="stat-label" aria-hidden="true">Websites Launched</div>
           </div>
-          <div>
-            <div class="stat-number" data-count-to="{{ proof.marketCapB }}" data-count-prefix="$" data-count-suffix="B+">${{ proof.marketCapB }}B+</div>
-            <div class="stat-label">Clients&rsquo; Combined Market Cap</div>
+          <div role="img" aria-label="${{ proof.marketCapB }}B+ clients&rsquo; combined market cap">
+            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.marketCapB }}" data-count-prefix="$" data-count-suffix="B+">${{ proof.marketCapB }}B+</div>
+            <div class="stat-label" aria-hidden="true">Clients&rsquo; Combined Market Cap</div>
           </div>
-          <div>
-            <div class="stat-number" data-count-to="{{ proof.years }}" data-count-suffix="+">{{ proof.years }}+</div>
-            <div class="stat-label">Years in Business</div>
+          <div role="img" aria-label="{{ proof.years }}+ years in business">
+            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.years }}" data-count-suffix="+">{{ proof.years }}+</div>
+            <div class="stat-label" aria-hidden="true">Years in Business</div>
           </div>
         </div>
       </div>
@@ -709,36 +709,36 @@ description: "The premium investor relations and visualization partner that tran
         <div class="section-label">From the field</div>
       </div>
       <div class="testimonials-grid">
-        <div class="testimonial">
-          <p class="testimonial-quote">Extremely knowledgeable about the mining industry, very responsive &amp; committed to getting it right. They helped elevate our branding &amp; digital presence to better reflect the stage our company has grown to.</p>
-          <div class="testimonial-bottom">
+        <figure class="testimonial">
+          <blockquote class="testimonial-quote">Extremely knowledgeable about the mining industry, very responsive &amp; committed to getting it right. They helped elevate our branding &amp; digital presence to better reflect the stage our company has grown to.</blockquote>
+          <figcaption class="testimonial-bottom">
             <div>
-              <div class="testimonial-name">Stephanie Hansen</div>
-              <div class="testimonial-role">Director, Marketing &amp; IR</div>
+              <cite class="testimonial-name">Stephanie Hansen</cite>
+              <div class="testimonial-role">Director, Marketing &amp; IR &mdash; Snowline Gold</div>
             </div>
-            <img src="images/clients/snowline.avif" alt="Snowline Gold" class="testimonial-logo">
-          </div>
-        </div>
-        <div class="testimonial">
-          <p class="testimonial-quote">Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</p>
-          <div class="testimonial-bottom">
+            <img src="images/clients/snowline.avif" alt="" class="testimonial-logo">
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote class="testimonial-quote">Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</blockquote>
+          <figcaption class="testimonial-bottom">
             <div>
-              <div class="testimonial-name">Will Robinson</div>
-              <div class="testimonial-role">VP Exploration</div>
+              <cite class="testimonial-name">Will Robinson</cite>
+              <div class="testimonial-role">VP Exploration &mdash; West Red Lake Gold</div>
             </div>
-            <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" class="testimonial-logo">
-          </div>
-        </div>
-        <div class="testimonial">
-          <p class="testimonial-quote">When it comes to 2D and 3D maps, cross-sections and figures, they really are the industry standard. I&rsquo;m a GIS background myself, so I have a lot of respect for their quality of work.</p>
-          <div class="testimonial-bottom">
+            <img src="images/clients/wrlg.avif" alt="" class="testimonial-logo">
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote class="testimonial-quote">When it comes to 2D and 3D maps, cross-sections and figures, they really are the industry standard. I&rsquo;m a GIS background myself, so I have a lot of respect for their quality of work.</blockquote>
+          <figcaption class="testimonial-bottom">
             <div>
-              <div class="testimonial-name">Chris Paul</div>
-              <div class="testimonial-role">CEO &amp; Director</div>
+              <cite class="testimonial-name">Chris Paul</cite>
+              <div class="testimonial-role">CEO &amp; Director &mdash; Hercules Metals</div>
             </div>
-            <img src="images/clients/hercules.avif" alt="Hercules Metals" class="testimonial-logo">
-          </div>
-        </div>
+            <img src="images/clients/hercules.avif" alt="" class="testimonial-logo">
+          </figcaption>
+        </figure>
       </div>
     </section>
 

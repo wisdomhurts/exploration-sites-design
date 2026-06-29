@@ -1287,6 +1287,7 @@
     }
     .testimonial {
       position: relative;
+      margin: 0; /* it's a <figure> now — reset default figure margin (A11Y-07) */
       padding: 6px 24px 24px;
       border-top: 1px solid var(--border);
       transition: border-top-color 0.3s var(--ease-out-soft);
@@ -1311,7 +1312,7 @@
       font-weight: 300;
       line-height: 1.55;
       color: var(--graphite);
-      margin-bottom: 24px;
+      margin: 0 0 24px; /* it's a <blockquote> now — reset default indent (A11Y-07) */
       letter-spacing: -0.005em;
     }
     .testimonial-bottom {
@@ -1332,6 +1333,7 @@
     .testimonial-name {
       font-size: 14px;
       font-weight: 600;
+      font-style: normal; /* it's a <cite> now — cancel default italic (A11Y-07) */
       color: var(--graphite);
       letter-spacing: -0.005em;
     }
@@ -1985,6 +1987,7 @@
       font-weight: 500;
       color: var(--navy);
     }
+    .req { color: var(--ore-text); margin-left: 2px; } /* required-field marker (A11Y-10) */
 
     .form-input,
     .form-select,
