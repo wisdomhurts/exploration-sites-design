@@ -21,6 +21,38 @@ description: "The premium investor relations and visualization partner that tran
         letter-spacing: 0.01em;
         color: var(--muted);
       }
+      /* Accessible "clients by region" panel — the keyboard/SR route to the globe's
+         geographic proof (A11Y-09). Quiet mono row beneath the proof bar. */
+      .hero-clients {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 16px;
+        pointer-events: auto;
+      }
+      .hero-clients-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--graticule);
+      }
+      .hero-clients-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+      }
+      .hero-clients-list li {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.01em;
+        color: var(--muted);
+      }
+      .hero-clients-count { color: var(--graphite); font-weight: 500; }
       .hero-proof-link { /* small gold link — uses deepened --ore-text for AA contrast (A11Y-05) */
         font-family: var(--font-sans);
         font-size: 12px;
@@ -445,10 +477,17 @@ description: "The premium investor relations and visualization partner that tran
         </div>
         <div class="hero-proof">
           <span class="hero-proof-stat">${{ proof.marketCapB }}B+ combined client market cap</span>
-          <span class="hero-proof-stat">{{ proof.companies }}+ explorers &middot; 5 continents</span>
+          <span class="hero-proof-stat">{{ proof.companies }}+ explorers</span>
           <span class="hero-proof-stat">Mapping the markets since 1996</span>
           <a class="hero-proof-link" href="case-studies.html">See the outcomes &rarr;</a>
         </div>
+        <nav class="hero-clients" aria-label="Client projects by region">
+          <span class="hero-clients-label">Where we work</span>
+          <ul class="hero-clients-list">
+            {% for r in regions %}<li>{{ r.region }} <span class="hero-clients-count">{{ r.count }}</span></li>{% endfor %}
+          </ul>
+          <a class="hero-proof-link" href="clients.html">See all clients &rarr;</a>
+        </nav>
       </div>
     </section>
 
