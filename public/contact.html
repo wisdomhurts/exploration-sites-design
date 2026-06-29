@@ -384,8 +384,8 @@
         gap: clamp(24px, 4vw, 48px);
       }
       .trust-strip-logos img {
-        height: 36px; width: auto;
-        opacity: 0.55; filter: grayscale(1);
+        height: 56px; width: auto;
+        opacity: 0.6; filter: grayscale(1);
         transition: opacity 0.2s var(--ease-out-soft);
       }
       .trust-strip-logos img:hover { opacity: 0.85; }
@@ -406,7 +406,7 @@
       .contact-form-sub {
         font-size: 14px; color: var(--muted); margin-bottom: 24px;
       }
-      @media (max-width: 560px) { .trust-strip-logos img { height: 28px; } }
+      @media (max-width: 560px) { .trust-strip-logos img { height: 44px; } }
 
       /* Contact: 3-column layout — process (1/4) · details (1/4) · form (2/4) */
       .contact-3col {
@@ -416,10 +416,10 @@
         align-items: start;
       }
       .contact-steps { display: flex; flex-direction: column; }
-      .contact-step + .contact-step {
-        margin-top: 18px; padding-top: 18px;
-        border-top: 1px solid var(--border);
-      }
+      .contact-step { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; }
+      .contact-step + .contact-step { border-top: 1px solid var(--border); }
+      .contact-step .onboarding-step-num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--ore); flex-shrink: 0; }
+      .contact-step .onboarding-step-title { font-size: 17px; font-weight: 600; color: var(--graphite); margin: 0; line-height: 1.3; }
       .contact-form-col { min-width: 0; }
       @media (max-width: 860px) {
         .contact-3col { grid-template-columns: 1fr; gap: 40px; }
