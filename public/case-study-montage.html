@@ -35,27 +35,72 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Exploration Sites",
-  "url": "https://es-draft-1.vercel.app",
-  "logo": "https://es-draft-1.vercel.app/images/logo-512.png",
-  "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
-  "email": "info@explorationsites.com",
-  "telephone": "+1-604-688-9997",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Victoria",
-    "addressRegion": "BC",
-    "addressCountry": "CA"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/exploration-sites/",
-    "https://x.com/explorationsite",
-    "https://www.youtube.com/@ExplorationSites1",
-    "https://www.instagram.com/explorationsites"
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://es-draft-1.vercel.app/#org",
+      "name": "Exploration Sites",
+      "url": "https://es-draft-1.vercel.app",
+      "logo": "https://es-draft-1.vercel.app/images/logo-512.png",
+      "image": "https://es-draft-1.vercel.app/images/og-default.jpg",
+      "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
+      "email": "info@explorationsites.com",
+      "telephone": "+1-604-688-9997",
+      "priceRange": "$$$",
+      "areaServed": "Worldwide",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Victoria",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.4284,
+        "longitude": -123.3656
+      },
+      "knowsAbout": [
+        "Mining investor relations",
+        "Investor presentations",
+        "Geological visualization",
+        "GIS cartography",
+        "Mineral exploration communications"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/exploration-sites/",
+        "https://x.com/explorationsite",
+        "https://www.youtube.com/@ExplorationSites1",
+        "https://www.instagram.com/explorationsites"
+      ],
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Stephanie Hansen", "jobTitle": "Director, Marketing & IR", "worksFor": "Snowline Gold" },
+          "reviewBody": "Extremely knowledgeable about the mining industry, very responsive & committed to getting it right. They helped elevate our branding & digital presence to better reflect the stage our company has grown to."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Will Robinson", "jobTitle": "VP Exploration", "worksFor": "West Red Lake Gold" },
+          "reviewBody": "Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Chris Paul", "jobTitle": "CEO & Director", "worksFor": "Hercules Metals" },
+          "reviewBody": "When it comes to 2D and 3D maps, cross-sections and figures, they really are the industry standard. I'm a GIS background myself, so I have a lot of respect for their quality of work."
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://es-draft-1.vercel.app/#website",
+      "url": "https://es-draft-1.vercel.app",
+      "name": "Exploration Sites",
+      "publisher": { "@id": "https://es-draft-1.vercel.app/#org" }
+    }
   ]
 }
 </script>
+
 <!-- TODO: add streetAddress + postalCode to PostalAddress if a public mailing address is available. -->
 
 </head>

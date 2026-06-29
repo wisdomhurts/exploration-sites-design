@@ -35,27 +35,72 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Exploration Sites",
-  "url": "https://es-draft-1.vercel.app",
-  "logo": "https://es-draft-1.vercel.app/images/logo-512.png",
-  "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
-  "email": "info@explorationsites.com",
-  "telephone": "+1-604-688-9997",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Victoria",
-    "addressRegion": "BC",
-    "addressCountry": "CA"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/exploration-sites/",
-    "https://x.com/explorationsite",
-    "https://www.youtube.com/@ExplorationSites1",
-    "https://www.instagram.com/explorationsites"
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://es-draft-1.vercel.app/#org",
+      "name": "Exploration Sites",
+      "url": "https://es-draft-1.vercel.app",
+      "logo": "https://es-draft-1.vercel.app/images/logo-512.png",
+      "image": "https://es-draft-1.vercel.app/images/og-default.jpg",
+      "description": "Investor-relations and investor-visualization studio for junior mining companies. The communication layer between your deposit and the capital markets.",
+      "email": "info@explorationsites.com",
+      "telephone": "+1-604-688-9997",
+      "priceRange": "$$$",
+      "areaServed": "Worldwide",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Victoria",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.4284,
+        "longitude": -123.3656
+      },
+      "knowsAbout": [
+        "Mining investor relations",
+        "Investor presentations",
+        "Geological visualization",
+        "GIS cartography",
+        "Mineral exploration communications"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/exploration-sites/",
+        "https://x.com/explorationsite",
+        "https://www.youtube.com/@ExplorationSites1",
+        "https://www.instagram.com/explorationsites"
+      ],
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Stephanie Hansen", "jobTitle": "Director, Marketing & IR", "worksFor": "Snowline Gold" },
+          "reviewBody": "Extremely knowledgeable about the mining industry, very responsive & committed to getting it right. They helped elevate our branding & digital presence to better reflect the stage our company has grown to."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Will Robinson", "jobTitle": "VP Exploration", "worksFor": "West Red Lake Gold" },
+          "reviewBody": "Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Chris Paul", "jobTitle": "CEO & Director", "worksFor": "Hercules Metals" },
+          "reviewBody": "When it comes to 2D and 3D maps, cross-sections and figures, they really are the industry standard. I'm a GIS background myself, so I have a lot of respect for their quality of work."
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://es-draft-1.vercel.app/#website",
+      "url": "https://es-draft-1.vercel.app",
+      "name": "Exploration Sites",
+      "publisher": { "@id": "https://es-draft-1.vercel.app/#org" }
+    }
   ]
 }
 </script>
+
 <!-- TODO: add streetAddress + postalCode to PostalAddress if a public mailing address is available. -->
 
 </head>
@@ -380,7 +425,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSX:</span><span class="case-ticker-symbol">MAU</span></span>
         <div>
           <div class="principle-title">Client since 2023</div>
-          <p class="principle-desc">Kon&eacute; Gold in C&ocirc;te d&rsquo;Ivoire was a strong West African gold system most investors couldn&rsquo;t place on a map. We produced the <a href="services.html" class="case-link">investor maps</a> that carried every resource update &mdash; from first inferred ounces through each expansion &mdash; and the same visual language ran through their <a href="services.html" class="case-link">corporate presentations</a>, news releases, and roadshow decks.</p>
+          <p class="principle-desc">Kon&eacute; Gold in C&ocirc;te d&rsquo;Ivoire was a strong West African gold system most investors couldn&rsquo;t place on a map. We produced the <a href="locators-area-plays.html" class="case-link">investor maps</a> that carried every resource update &mdash; from first inferred ounces through each expansion &mdash; and the same visual language ran through their <a href="presentations.html" class="case-link">corporate presentations</a>, news releases, and roadshow decks.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -413,7 +458,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">FWZ</span></span>
         <div>
           <div class="principle-title">Client since 2018</div>
-          <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" class="case-link">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="services.html" class="case-link">maps</a> and run their <a href="services.html" class="case-link">website</a> &mdash; from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit.</p>
+          <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" class="case-link">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="locators-area-plays.html" class="case-link">maps</a> and run their <a href="webflow.html" class="case-link">website</a> &mdash; from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -446,7 +491,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">WRLG</span></span>
         <div>
           <div class="principle-title">Client since August 2023</div>
-          <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="services.html" class="case-link">logo</a>, business cards, Christmas cards, <a href="services.html" class="case-link">tradeshow booth</a>, <a href="services.html" class="case-link">fact sheet</a>, <a href="services.html" class="case-link">investor presentation</a>, and <a href="services.html" class="case-link">website</a>. We produce approximately 10 <a href="services.html" class="case-link">maps</a> per month for <a href="services.html" class="case-link">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
+          <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="logos-branding.html" class="case-link">logo</a>, business cards, Christmas cards, <a href="conference-booth.html" class="case-link">tradeshow booth</a>, <a href="fact-sheets.html" class="case-link">fact sheet</a>, <a href="presentations.html" class="case-link">investor presentation</a>, and <a href="webflow.html" class="case-link">website</a>. We produce approximately 10 <a href="locators-area-plays.html" class="case-link">maps</a> per month for <a href="movies.html" class="case-link">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -479,7 +524,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">DV</span></span>
         <div>
           <div class="principle-title">Client since August 2020</div>
-          <p class="principle-desc">We worked with Dolly Varden for nearly six years on their Kitsault Valley silver project in BC's Golden Triangle. <a href="services.html" class="case-link">Maps</a>, <a href="services.html" class="case-link">presentations</a>, and investor communications through every stage of growth.</p>
+          <p class="principle-desc">We worked with Dolly Varden for nearly six years on their Kitsault Valley silver project in BC's Golden Triangle. <a href="locators-area-plays.html" class="case-link">Maps</a>, <a href="presentations.html" class="case-link">presentations</a>, and investor communications through every stage of growth.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -512,7 +557,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">BIG</span></span>
         <div>
           <div class="principle-title">Client since 2023</div>
-          <p class="principle-desc">We built their investor <a href="services.html" class="case-link">maps</a>, <a href="services.html" class="case-link">presentation</a> materials, news release <a href="services.html" class="case-link">cross sections</a>, and <a href="services.html" class="case-link">conference booth</a> design. What started as a small epithermal silver project turned into a significant porphyry copper discovery in late 2023.</p>
+          <p class="principle-desc">We built their investor <a href="locators-area-plays.html" class="case-link">maps</a>, <a href="presentations.html" class="case-link">presentation</a> materials, news release <a href="sections.html" class="case-link">cross sections</a>, and <a href="conference-booth.html" class="case-link">conference booth</a> design. What started as a small epithermal silver project turned into a significant porphyry copper discovery in late 2023.</p>
         </div>
       </div>
       <div class="principle-row">

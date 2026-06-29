@@ -1524,6 +1524,47 @@
       margin-bottom: 40px;
     }
 
+    /* Two-door closing CTA: primary call + quiet "still evaluating" door */
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px 28px;
+    }
+    .cta-actions-alt {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s var(--ease-out-soft);
+    }
+    .cta-actions-alt:hover { color: var(--graphite); }
+    .cta-actions-alt span { transition: transform 0.2s var(--ease-out-soft); display: inline-block; }
+    .cta-actions-alt:hover span { transform: translateX(3px); color: var(--ore); }
+
+    /* Risk-reversal assurance micro-lines (cta-assurance.html include) */
+    .cta-assurance {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .cta-section .cta-assurance { justify-content: center; }
+    .cta-assurance li { position: relative; }
+    .cta-assurance li + li::before {
+      content: "·";
+      position: absolute;
+      left: -12px;
+      color: var(--graticule);
+    }
+
     /* --- PRICING SECTION --- */
     .pricing-grid {
       display: grid;

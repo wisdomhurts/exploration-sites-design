@@ -34,10 +34,17 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
            scrolling enabled so the widget isn't clipped on mobile. -->
       <div class="booking-main">
         <div class="booking-embed">
-          <iframe src="https://api.leadconnectorhq.com/widget/booking/crmOWrJrs7L7EgkOWF6q"
+          <!-- src is set by JS (below) with the visitor's detected IANA timezone so the
+               GHL widget never defaults to UTC. <noscript> below is the no-JS fallback. -->
+          <iframe data-base="https://api.leadconnectorhq.com/widget/booking/crmOWrJrs7L7EgkOWF6q"
                   title="Book a discovery call with Exploration Sites"
                   scrolling="yes" id="crmOWrJrs7L7EgkOWF6q_booking"></iframe>
+          <noscript>
+            <iframe src="https://api.leadconnectorhq.com/widget/booking/crmOWrJrs7L7EgkOWF6q"
+                    title="Book a discovery call with Exploration Sites" scrolling="yes"></iframe>
+          </noscript>
         </div>
+        <p class="booking-tz" id="booking-tz">Times are shown in your local time zone.</p>
       </div>
 
     </section>
@@ -105,4 +112,22 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
       .booking-logos-row img:hover { opacity: 0.85; }
     </style>
 
+<script>
+  // Load the GHL booking widget in the visitor's own timezone (it otherwise defaults to UTC,
+  // which surfaces awkward evening slots to North-American CEOs). CRO-01 / TRUST-05.
+  (function () {
+    var iframe = document.getElementById('crmOWrJrs7L7EgkOWF6q_booking');
+    if (!iframe) return;
+    var base = iframe.getAttribute('data-base');
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    iframe.src = tz ? base + '?timezone=' + encodeURIComponent(tz) : base;
+    if (tz) {
+      var note = document.getElementById('booking-tz');
+      if (note) {
+        note.textContent = 'Times are shown in your local time (' + tz.split('/').pop().replace(/_/g, ' ') + ').';
+      }
+    }
+  })();
+</script>
 <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
