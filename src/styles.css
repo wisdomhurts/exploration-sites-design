@@ -510,6 +510,14 @@
       flex-direction: column;
       gap: 2px;
     }
+    /* Always-visible "not sure where to start?" guidance + CTA inside the mega-menu (CRO-10) */
+    .mega-menu-help { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08); }
+    .mega-menu-help-title { font-family: var(--font-serif); font-size: 15px; font-weight: 400; letter-spacing: -0.01em; color: var(--graphite); margin: 0 0 5px; }
+    .mega-menu-help-text { font-size: 12px; line-height: 1.45; color: var(--muted); margin: 0 0 10px; }
+    .mega-menu-help-cta { display: inline-block; font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: var(--ore-text); text-decoration: none; }
+    .mega-menu-help-cta:hover { text-decoration: underline; text-underline-offset: 2px; }
+    .mega-menu-help-link { display: block; margin-top: 7px; font-size: 11px; color: var(--muted); text-decoration: none; }
+    .mega-menu-help-link:hover { color: var(--graphite); }
 
     .mega-menu-tab {
       display: block;
