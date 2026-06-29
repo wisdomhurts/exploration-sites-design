@@ -874,6 +874,8 @@
                   0 2px 4px  rgba(26,16,31,0.06);
     }
     .btn-primary:active { transform: translateY(0); }
+    /* Form-submitted success state (replaces inline style; locks the button) */
+    .btn-primary.is-sent { background: #2d6a4f; pointer-events: none; transform: none; }
 
     .btn-secondary {
       display: inline-block;
