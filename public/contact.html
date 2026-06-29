@@ -527,10 +527,11 @@
           <h2 class="contact-form-heading">Or send your project details.</h2>
           <p class="contact-form-sub">Prefer not to book a call yet? Tell us what you need and we&rsquo;ll follow up within one business day.</p>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
+            <p id="form-status" class="form-hint" role="status" aria-live="polite"></p>
             <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required aria-required="true">
               </div>
               <div class="form-field">
                 <label class="form-label" for="company">Company</label>
@@ -540,7 +541,7 @@
             <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true">
               </div>
               <div class="form-field">
                 <label class="form-label" for="phone">Phone <span style="color: var(--muted); font-weight: 400;">(optional)</span></label>
@@ -581,7 +582,7 @@
             <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Submit Inquiry</button>
             <p class="form-confidential">We never share your project details. See our <a href="privacy.html">privacy policy</a>.</p>
             <p class="form-hint">We respond within one business day. For urgent requests, call 604 688 9997.</p>
-            <p class="form-hint form-error" hidden></p>
+            <p class="form-hint form-error" role="alert" hidden></p>
           </form>
           <script>
             (function () {
@@ -589,10 +590,12 @@
               if (!form) return;
               var btn = form.querySelector('.btn-primary');
               var err = form.querySelector('.form-error');
+              var status = document.getElementById('form-status');
               var defaultLabel = btn.textContent;
               form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 err.hidden = true;
+                if (status) status.textContent = '';
                 btn.disabled = true;
                 btn.textContent = 'Sending…';
                 fetch(form.action, {
@@ -604,6 +607,9 @@
                     form.reset();
                     btn.textContent = form.dataset.success || 'Sent — we’ll be in touch';
                     btn.style.background = '#2d6a4f';
+                    // Announce success on a real status region (A11Y-04) — not the trigger button —
+                    // and explain the cleared fields so the reset doesn't read as failure (A11Y-10).
+                    if (status) status.textContent = 'Thanks — your inquiry was sent and the form has been cleared. We’ll be in touch within one business day.';
                   } else {
                     fail();
                   }
@@ -718,9 +724,7 @@
         </div>
 
       </div>
-    </footer>
-    <script type="module" src="/assets/footer-shader.js"></script>
-
+    </footer><script type="module" src="/assets/footer-shader.js"></script>
     <script>
     // Desktop mega menu — tabs + open/close (hover, click, keyboard, focus)
     (function () {
@@ -1045,7 +1049,26 @@
       var img = lb.querySelector('.lightbox-img');
       var vid = lb.querySelector('.lightbox-video');
       var cap = lb.querySelector('.lightbox-cap');
-      function show() { lb.hidden = false; document.body.style.overflow = 'hidden'; }
+      var closeBtn = lb.querySelector('.lightbox-close');
+      var lastTrigger = null;
+
+      // Promote the shared lightbox to a proper modal dialog (A11Y-03): role/aria-modal,
+      // focus-in on open, Tab focus-trap while open, focus-restore to the trigger on close.
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Media viewer');
+      if (closeBtn && !closeBtn.getAttribute('aria-label')) closeBtn.setAttribute('aria-label', 'Close');
+
+      function focusables() {
+        return Array.prototype.slice.call(
+          lb.querySelectorAll('button, a[href], iframe, [tabindex]:not([tabindex="-1"])')
+        ).filter(function (el) { return el === closeBtn || el.offsetParent !== null; });
+      }
+      function show() {
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+      }
       function openImg(full, caption, alt) {
         if (!img) return;
         img.src = full; img.alt = alt || caption || ''; img.hidden = false;
@@ -1068,9 +1091,11 @@
         if (img) img.src = '';
         if (vid) vid.innerHTML = '';
         document.body.style.overflow = '';
+        if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
       }
       document.querySelectorAll('[data-lightbox]').forEach(function (el) {
         el.addEventListener('click', function () {
+          lastTrigger = el;
           var v = el.getAttribute('data-video');
           if (v) { openVideo(v, el.getAttribute('data-caption')); }
           else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
@@ -1078,6 +1103,14 @@
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
+      });
+      lb.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = focusables();
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
     })();

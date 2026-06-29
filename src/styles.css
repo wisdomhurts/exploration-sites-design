@@ -15,6 +15,7 @@
       --vellum: #E8E2D5;       /* 8% — Warm light, alternating sections */
       --graticule: #C8C2B4;    /* 8% — Hairline rules, muted text, map grids */
       --ore: #B8823A;          /* ≤2% — Restrained accent. Earns its appearances */
+      --ore-text: #8A5E22;     /* Deepened Ore for SMALL gold text only — ~4.6:1 on Quartz (AA). --ore stays for large/decorative */
       --moss: #5F7052;         /* Muted sage moss. Used for active-project markers. */
 
       /* --- SEMANTIC ALIASES --- */
@@ -656,7 +657,7 @@
       margin: 8px 0 24px;
       border-left: 1px solid var(--slate);
     }
-    .pullquote em { font-style: italic; color: var(--ore); }
+    .pullquote em { font-style: italic; color: var(--ore-text); }
 
     .hero-content {
       max-width: 1280px;
@@ -1091,7 +1092,7 @@
       font-size: 12px;
       font-weight: 400;
       letter-spacing: 0.22em;
-      color: var(--ore);
+      color: var(--ore-text); /* small gold eyebrow text — AA on Quartz; rule below stays --ore (A11Y-05) */
       display: inline-flex;
       align-items: center;
       gap: 12px;

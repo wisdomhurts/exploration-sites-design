@@ -124,10 +124,11 @@ permalink: "contact.html"
           <h2 class="contact-form-heading">Or send your project details.</h2>
           <p class="contact-form-sub">Prefer not to book a call yet? Tell us what you need and we&rsquo;ll follow up within one business day.</p>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
+            <p id="form-status" class="form-hint" role="status" aria-live="polite"></p>
             <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="name">Name</label>
-                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required aria-required="true">
               </div>
               <div class="form-field">
                 <label class="form-label" for="company">Company</label>
@@ -137,7 +138,7 @@ permalink: "contact.html"
             <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+                <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required aria-required="true">
               </div>
               <div class="form-field">
                 <label class="form-label" for="phone">Phone <span style="color: var(--muted); font-weight: 400;">(optional)</span></label>
@@ -178,7 +179,7 @@ permalink: "contact.html"
             <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer;">Submit Inquiry</button>
             <p class="form-confidential">We never share your project details. See our <a href="privacy.html">privacy policy</a>.</p>
             <p class="form-hint">We respond within one business day. For urgent requests, call 604 688 9997.</p>
-            <p class="form-hint form-error" hidden></p>
+            <p class="form-hint form-error" role="alert" hidden></p>
           </form>
           <script>
             (function () {
@@ -186,10 +187,12 @@ permalink: "contact.html"
               if (!form) return;
               var btn = form.querySelector('.btn-primary');
               var err = form.querySelector('.form-error');
+              var status = document.getElementById('form-status');
               var defaultLabel = btn.textContent;
               form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 err.hidden = true;
+                if (status) status.textContent = '';
                 btn.disabled = true;
                 btn.textContent = 'Sending…';
                 fetch(form.action, {
@@ -201,6 +204,9 @@ permalink: "contact.html"
                     form.reset();
                     btn.textContent = form.dataset.success || 'Sent — we’ll be in touch';
                     btn.style.background = '#2d6a4f';
+                    // Announce success on a real status region (A11Y-04) — not the trigger button —
+                    // and explain the cleared fields so the reset doesn't read as failure (A11Y-10).
+                    if (status) status.textContent = 'Thanks — your inquiry was sent and the form has been cleared. We’ll be in touch within one business day.';
                   } else {
                     fail();
                   }

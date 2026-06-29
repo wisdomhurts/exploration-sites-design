@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://es-draft-1.vercel.app/404.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/websites.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/wordpress.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/movies.html</loc></url>
@@ -14,9 +13,6 @@
   <url><loc>https://es-draft-1.vercel.app/logos-branding.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/property-target.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/sections.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/terms.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/privacy.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/disclosures.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/case-study-montage.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/nurture-crm.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/investor-analytics.html</loc></url>
@@ -26,13 +22,17 @@
   <url><loc>https://es-draft-1.vercel.app/engagement.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/pricing.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/team.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/book.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/services.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/presentations.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/webflow.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/locators-area-plays.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/contact.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/case-studies.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/clients.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/contact.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/privacy.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/terms.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/disclosures.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/404.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/book.html</loc></url>
 </urlset>

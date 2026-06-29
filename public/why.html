@@ -834,9 +834,7 @@
         </div>
 
       </div>
-    </footer>
-    <script type="module" src="/assets/footer-shader.js"></script>
-
+    </footer><script type="module" src="/assets/footer-shader.js"></script>
     <script>
     // Desktop mega menu — tabs + open/close (hover, click, keyboard, focus)
     (function () {
@@ -1161,7 +1159,26 @@
       var img = lb.querySelector('.lightbox-img');
       var vid = lb.querySelector('.lightbox-video');
       var cap = lb.querySelector('.lightbox-cap');
-      function show() { lb.hidden = false; document.body.style.overflow = 'hidden'; }
+      var closeBtn = lb.querySelector('.lightbox-close');
+      var lastTrigger = null;
+
+      // Promote the shared lightbox to a proper modal dialog (A11Y-03): role/aria-modal,
+      // focus-in on open, Tab focus-trap while open, focus-restore to the trigger on close.
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Media viewer');
+      if (closeBtn && !closeBtn.getAttribute('aria-label')) closeBtn.setAttribute('aria-label', 'Close');
+
+      function focusables() {
+        return Array.prototype.slice.call(
+          lb.querySelectorAll('button, a[href], iframe, [tabindex]:not([tabindex="-1"])')
+        ).filter(function (el) { return el === closeBtn || el.offsetParent !== null; });
+      }
+      function show() {
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+      }
       function openImg(full, caption, alt) {
         if (!img) return;
         img.src = full; img.alt = alt || caption || ''; img.hidden = false;
@@ -1184,9 +1201,11 @@
         if (img) img.src = '';
         if (vid) vid.innerHTML = '';
         document.body.style.overflow = '';
+        if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
       }
       document.querySelectorAll('[data-lightbox]').forEach(function (el) {
         el.addEventListener('click', function () {
+          lastTrigger = el;
           var v = el.getAttribute('data-video');
           if (v) { openVideo(v, el.getAttribute('data-caption')); }
           else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
@@ -1194,6 +1213,14 @@
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
+      });
+      lb.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = focusables();
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
     })();
