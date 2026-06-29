@@ -1348,6 +1348,14 @@
       color: var(--graphite);
       letter-spacing: -0.005em;
     }
+    /* Factual ES caption tying each quote to the work delivered (COPY-03) */
+    .testimonial-fact {
+      margin-top: 7px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+    }
     .testimonial-role {
       font-size: 12px;
       font-weight: 400;
