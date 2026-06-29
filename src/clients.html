@@ -140,6 +140,17 @@ permalink: "clients.html"
           .cmdy-legend { font-size: 9px; }
         }
 
+        /* Filter pills (UX-04) — view-layer only; never touches row source */
+        .client-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 1200px; margin: 0 auto 16px; }
+        .client-filter { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; padding: 6px 11px; border: 1px solid var(--border); background: none; color: var(--muted); cursor: pointer; border-radius: 2px; transition: color 0.15s var(--ease-out-soft), border-color 0.15s var(--ease-out-soft), background 0.15s var(--ease-out-soft); }
+        .client-filter:hover { border-color: var(--slate); color: var(--navy); }
+        .client-filter.is-active { background: var(--navy); border-color: var(--navy); color: var(--quartz); }
+        .client-filter:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
+        .client-filter .cf-count { opacity: 0.6; margin-left: 3px; }
+        .client-filter.is-active .cf-count { opacity: 0.85; }
+        .client-filters-count { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-left: auto; }
+        @media (max-width: 560px) { .client-filters-count { margin-left: 0; width: 100%; } }
+
       </style>
 
       <div class="cmdy-legend" aria-hidden="true">
@@ -153,6 +164,17 @@ permalink: "clients.html"
       </div>
 
       <div id="client-table-status" class="sr-only" aria-live="polite"></div>
+
+      <div class="client-filters" role="group" aria-label="Filter the client roster by commodity">
+        <button type="button" class="client-filter is-active" data-filter="all">All <span class="cf-count" data-count="all"></span></button>
+        <button type="button" class="client-filter" data-filter="commodity" data-value="gold">Gold <span class="cf-count" data-count="gold"></span></button>
+        <button type="button" class="client-filter" data-filter="commodity" data-value="silver">Silver <span class="cf-count" data-count="silver"></span></button>
+        <button type="button" class="client-filter" data-filter="commodity" data-value="copper">Copper <span class="cf-count" data-count="copper"></span></button>
+        <button type="button" class="client-filter" data-filter="commodity" data-value="uranium">Uranium <span class="cf-count" data-count="uranium"></span></button>
+        <button type="button" class="client-filter" data-filter="commodity" data-value="lithium">Lithium <span class="cf-count" data-count="lithium"></span></button>
+        <button type="button" class="client-filter" data-filter="work" data-value="web">Has website</button>
+        <span class="client-filters-count" aria-live="polite"></span>
+      </div>
 
       <div style="overflow-x: auto; max-width: 1200px; margin: 0 auto;">
 
@@ -616,7 +638,43 @@ permalink: "clients.html"
         btn.addEventListener('click', function(){ sortBy(+btn.dataset.col, btn.dataset.type); });
       });
 
+      // -------- filter pills (UX-04) — show/hide rows; source untouched --------
+      var filterBtns = document.querySelectorAll('.client-filter');
+      var filterCount = document.querySelector('.client-filters-count');
+      function applyFilter(type, value){
+        var rows = tbody.rows, shown = 0;
+        for (var i = 0; i < rows.length; i++){
+          var r = rows[i], show = true;
+          if (type === 'commodity') show = !!(r.cells[5] && r.cells[5].textContent.toLowerCase().indexOf(value) !== -1);
+          else if (type === 'work') { var ci = value === 'web' ? 9 : value === 'deck' ? 8 : 7; show = !!(r.cells[ci] && r.cells[ci].dataset.has === '1'); }
+          r.style.display = show ? '' : 'none';
+          if (show) shown++;
+        }
+        if (filterCount) filterCount.textContent = (type === 'all') ? (rows.length + ' companies') : ('Showing ' + shown + ' of ' + rows.length);
+      }
+      filterBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          filterBtns.forEach(function(b){ b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          applyFilter(btn.dataset.filter, btn.dataset.value);
+        });
+      });
+
       enhance();
       setAriaSort(4, 'desc');
+
+      // commodity tallies for the pills (after enhance) — counts are polymetallic-inclusive
+      (function(){
+        var rows = tbody.rows, keys = ['gold', 'silver', 'copper', 'uranium', 'lithium'], c = {};
+        keys.forEach(function(k){ c[k] = 0; });
+        for (var i = 0; i < rows.length; i++){
+          var t = rows[i].cells[5] ? rows[i].cells[5].textContent.toLowerCase() : '';
+          keys.forEach(function(k){ if (t.indexOf(k) !== -1) c[k]++; });
+        }
+        function setc(k, v){ var el = document.querySelector('.cf-count[data-count="' + k + '"]'); if (el) el.textContent = v; }
+        setc('all', rows.length);
+        keys.forEach(function(k){ setc(k, c[k]); });
+        if (filterCount) filterCount.textContent = rows.length + ' companies';
+      })();
     })();
     </script>
