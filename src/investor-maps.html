@@ -1,0 +1,225 @@
+---
+layout: base.html
+title: "Investor Maps — Exploration Sites"
+description: "The full range of investor maps we build for exploration and mining companies — locators, property & target, geoscience, sections, 3D models, and conceptual figures."
+permalink: "investor-maps.html"
+---
+
+<style>
+  /* Investor Maps hub — page-scoped (mhub- prefix). Recreates the privacy
+     page's sticky table-of-contents pattern for jumping between map types. */
+  .mhub { padding-bottom: 96px; }
+
+  .mhub-hero { padding: 72px 0 36px; }
+  .mhub-eyebrow {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ore);
+    margin: 0 0 22px;
+  }
+  .mhub-title {
+    font-family: var(--font-serif); font-size: clamp(40px, 5.4vw, 60px);
+    font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--graphite); margin: 0 0 24px; max-width: 18ch;
+  }
+  .mhub-intro {
+    font-family: var(--font-sans); font-size: 18px; line-height: 1.6;
+    color: var(--body); max-width: 56ch; margin: 0;
+  }
+
+  .mhub-rule { height: 1px; background: var(--border); border: 0; margin: 0; }
+
+  .mhub-body {
+    display: grid; grid-template-columns: 1fr 232px; gap: 80px;
+    align-items: start; padding-top: 56px;
+  }
+  .mhub-prose { max-width: 66ch; min-width: 0; }
+
+  .mhub-section {
+    padding: 0 0 44px; margin: 0 0 44px;
+    border-bottom: 1px solid var(--border); scroll-margin-top: 96px;
+  }
+  .mhub-section:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+  .mhub-section-head { display: flex; align-items: baseline; gap: 16px; margin: 0 0 16px; }
+  .mhub-section-num {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; color: var(--ore); flex-shrink: 0; line-height: 1.6;
+  }
+  .mhub-section-title {
+    font-family: var(--font-serif); font-size: 27px; font-weight: 300;
+    line-height: 1.2; letter-spacing: -0.015em; color: var(--graphite); margin: 0;
+  }
+  .mhub-section-body { padding-left: 33px; }
+  .mhub-section-body p {
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.72;
+    color: var(--body); margin: 0 0 18px;
+  }
+  .mhub-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    color: var(--graphite); text-decoration: none;
+    border-bottom: 1px solid var(--border); padding-bottom: 3px;
+    transition: border-color 0.2s var(--ease-out-soft);
+  }
+  .mhub-link:hover { border-color: var(--ore); }
+  .mhub-link span { transition: transform 0.2s var(--ease-out-soft); }
+  .mhub-link:hover span { transform: translateX(3px); }
+
+  /* Sticky table of contents */
+  .mhub-toc { position: sticky; top: 96px; }
+  .mhub-toc-label {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+    margin: 0 0 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+  }
+  .mhub-toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .mhub-toc-link {
+    display: flex; align-items: baseline; gap: 12px; padding: 9px 0;
+    text-decoration: none; color: var(--slate);
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .mhub-toc-link:hover, .mhub-toc-link.is-active { color: var(--graphite); }
+  .mhub-toc-num {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    color: var(--muted); flex-shrink: 0; width: 18px;
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  .mhub-toc-link:hover .mhub-toc-num, .mhub-toc-link.is-active .mhub-toc-num { color: var(--ore); }
+  .mhub-toc-text { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; }
+
+  @media (max-width: 900px) {
+    .mhub-body { grid-template-columns: 1fr; gap: 0; padding-top: 40px; }
+    .mhub-prose { max-width: 100%; }
+    .mhub-toc {
+      position: static; order: -1; margin-bottom: 44px;
+      padding-bottom: 36px; border-bottom: 1px solid var(--border);
+    }
+  }
+  @media (max-width: 640px) {
+    .mhub-hero { padding: 48px 0 28px; }
+    .mhub-section-body { padding-left: 0; }
+  }
+</style>
+
+<div class="mhub">
+
+  <header class="mhub-hero">
+    <p class="mhub-eyebrow">Investor Maps</p>
+    <h1 class="mhub-title">Every map an investor needs to see.</h1>
+    <p class="mhub-intro">Six kinds of map, one house standard &mdash; each built to make a different part of your story legible to the people who fund it. Jump to any type.</p>
+  </header>
+
+  <hr class="mhub-rule">
+
+  <div class="mhub-body">
+
+    <main class="mhub-prose">
+
+      <section class="mhub-section" id="locators">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">01</span>
+          <h2 class="mhub-section-title">Locators &amp; area plays</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>The first map an investor sees &mdash; the one that places your project on the world stage. Locators and area plays show where you sit relative to the majors, past producers, and the belts that define a district, so the opportunity reads in seconds.</p>
+          <a class="mhub-link" href="locators-area-plays.html">See locator &amp; area-play examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="mhub-section" id="property-target">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">02</span>
+          <h2 class="mhub-section-title">Property &amp; target maps</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>Property, drill-plan, and target maps that orient investors on the ground &mdash; claims, infrastructure, drilling, and the priority targets that drive the program.</p>
+          <a class="mhub-link" href="property-target.html">See property &amp; target examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="mhub-section" id="geoscience">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">03</span>
+          <h2 class="mhub-section-title">Geology, geochem &amp; geophysics</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>Geological, geochemical, and geophysical maps &mdash; soil grids, magnetics, IP chargeability, and more &mdash; that show why the targets sit where they do.</p>
+          <a class="mhub-link" href="geoscience-maps.html">See geoscience examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="mhub-section" id="sections">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">04</span>
+          <h2 class="mhub-section-title">Sections &amp; long sections</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>Cross-sections and long sections that reveal the third dimension &mdash; turning drillhole data into a clear picture of grade, geometry, and continuity at depth.</p>
+          <a class="mhub-link" href="sections.html">See section examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="mhub-section" id="3d-models">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">05</span>
+          <h2 class="mhub-section-title">3D isometric models</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>3D isometric and perspective views that let investors grasp the scale, shape, and setting of a deposit at a glance &mdash; terrain, drilling, and orebody in one frame.</p>
+          <a class="mhub-link" href="3d-models.html">See 3D model examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="mhub-section" id="conceptual">
+        <div class="mhub-section-head">
+          <span class="mhub-section-num">06</span>
+          <h2 class="mhub-section-title">Conceptual &amp; schematic</h2>
+        </div>
+        <div class="mhub-section-body">
+          <p>Conceptual and schematic figures &mdash; exploration models, deposit footprints, and stratigraphy &mdash; that frame the geological thesis for a non-technical audience.</p>
+          <a class="mhub-link" href="conceptual-schematic.html">See conceptual &amp; schematic examples <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="mhub-toc" aria-label="Investor map types">
+      <p class="mhub-toc-label">Map types</p>
+      <ul class="mhub-toc-list">
+        <li><a class="mhub-toc-link" href="#locators"><span class="mhub-toc-num">01</span><span class="mhub-toc-text">Locators &amp; Area Plays</span></a></li>
+        <li><a class="mhub-toc-link" href="#property-target"><span class="mhub-toc-num">02</span><span class="mhub-toc-text">Property &amp; Target</span></a></li>
+        <li><a class="mhub-toc-link" href="#geoscience"><span class="mhub-toc-num">03</span><span class="mhub-toc-text">Geo / Geochem / Geophys</span></a></li>
+        <li><a class="mhub-toc-link" href="#sections"><span class="mhub-toc-num">04</span><span class="mhub-toc-text">Sections &amp; Long Sections</span></a></li>
+        <li><a class="mhub-toc-link" href="#3d-models"><span class="mhub-toc-num">05</span><span class="mhub-toc-text">3D Isometric Models</span></a></li>
+        <li><a class="mhub-toc-link" href="#conceptual"><span class="mhub-toc-num">06</span><span class="mhub-toc-text">Conceptual &amp; Schematic</span></a></li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.mhub-toc-link'));
+    var sections = links.map(function (a) {
+      var el = document.getElementById(a.getAttribute('href').slice(1));
+      return el ? { link: a, el: el } : null;
+    }).filter(Boolean);
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+    var active = null;
+    function setActive(link) {
+      if (active === link) return;
+      sections.forEach(function (s) { s.link.classList.remove('is-active'); });
+      if (link) link.classList.add('is-active');
+      active = link;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      var visible = entries.filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      if (visible.length) {
+        var match = sections.find(function (s) { return s.el === visible[0].target; });
+        if (match) setActive(match.link);
+      }
+    }, { rootMargin: '-96px 0px -65% 0px', threshold: 0 });
+    sections.forEach(function (s) { observer.observe(s.el); });
+  })();
+</script>
