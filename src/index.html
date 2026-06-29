@@ -37,6 +37,14 @@ description: "The premium investor relations and visualization partner that tran
         outline-offset: 3px;
         border-radius: 2px;
       }
+      .hero-text-link {
+        font-family: var(--font-sans);
+        font-size: 14px; font-weight: 500;
+        color: var(--slate); text-decoration: none;
+        align-self: center;
+        transition: color 0.2s var(--ease-out-soft);
+      }
+      .hero-text-link:hover { color: var(--ore); }
 
       /* --- Static globe fallback (ITEM 5) ---
          Shown when the WebGL globe is NOT initialised (mobile, reduced-motion,
@@ -79,7 +87,7 @@ description: "The premium investor relations and visualization partner that tran
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-globe">
+      <div class="hero-globe" role="img" aria-label="Interactive globe of Exploration Sites client projects across five continents, headquartered in Victoria, British Columbia.">
   <canvas class="hero-globe-canvas" aria-hidden="true"></canvas>
   <div class="hero-globe-fallback" aria-hidden="true"></div>
   <a class="hero-globe-pin" href="contact.html" data-lat="48.4284" data-lon="-123.3656" tabindex="-1" aria-hidden="true">
@@ -426,14 +434,19 @@ description: "The premium investor relations and visualization partner that tran
 <script type="module" src="/assets/hero-globe.js"></script>
 
       <div class="hero-content">
-        <h1 class="hero-headline" style="max-width: 18ch;">Institutional-grade investor relations tools for exploration &amp; mining companies.</h1>
-        <p class="hero-body">We transform complex geology into clear narratives. Maps, presentations, websites and systems built for the capital markets that fund discovery.</p>
+        <h1 class="hero-headline" style="max-width: 20ch;">We are the <em>translation layer</em> between your deposit and the capital markets.</h1>
+        <p class="hero-body">Brilliant geology stays mispriced when capital can&rsquo;t read it. We make the asset legible &mdash; maps, decks, websites, and brand built to survive an institutional desk &mdash; so the market can price what&rsquo;s actually in the ground.</p>
         <div class="hero-buttons">
           <a href="book.html" class="btn-primary">Book a discovery call</a>
-          <a href="engagement.html" class="btn-secondary">How we engage</a>
+          <a href="engagement.html" class="hero-text-link">How we engage &rarr;</a>
           <button type="button" class="hero-film-link" data-lightbox data-video="zyZQ9F8zeZQ" data-caption="Exploration Sites — Demo Reel">
-            <span class="hero-film-play" aria-hidden="true"></span> Demo Reel
+            <span class="hero-film-play" aria-hidden="true"></span> Demo reel
           </button>
+        </div>
+        <div class="hero-proof">
+          <span class="hero-proof-stat">${{ proof.marketCapB }}B+ combined client market cap</span>
+          <span class="hero-proof-stat">{{ proof.companies }}+ explorers &middot; 5 continents</span>
+          <a class="hero-proof-link" href="case-studies.html">See the outcomes &rarr;</a>
         </div>
       </div>
     </section>
