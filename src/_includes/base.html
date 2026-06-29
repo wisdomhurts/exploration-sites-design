@@ -7,7 +7,14 @@
 {% include "nav.html" %}
 
   <div class="page" id="main">
+    {% if mapType %}
+    <div class="maps-page">
+      {% include "maps-rail.html" %}
+      <div class="maps-page-main">{{ content }}</div>
+    </div>
+    {% else %}
     {{ content }}
+    {% endif %}
   </div>
 
   {% include "footer.html" %}
