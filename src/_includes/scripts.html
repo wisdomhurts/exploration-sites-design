@@ -29,7 +29,7 @@
       tabs.forEach(function (tab, i) {
         // Switch on hover (desktop), click, and focus (keyboard Tab into list).
         tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
-        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('click', function () { var href = tab.getAttribute('data-href'); if (href) { window.location.href = href; } else { selectTab(tab, false); } });
         tab.addEventListener('focus', function () { selectTab(tab, false); });
         // Roving-tabindex arrow-key navigation within the tablist.
         tab.addEventListener('keydown', function (e) {

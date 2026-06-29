@@ -80,19 +80,19 @@
             <div class="mega-menu-arrow"></div>
             <div class="mega-menu-panel">
               <div class="mega-menu-sidebar" role="tablist" aria-label="What we do" aria-orientation="vertical">
-                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" aria-selected="true" aria-controls="panel-maps" tabindex="0">
+                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" data-href="investor-maps.html" aria-selected="true" aria-controls="panel-maps" tabindex="0">
                   <span class="mega-menu-tab-title">Investor Maps</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" data-href="webflow.html" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
                   <span class="mega-menu-tab-title">Websites</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" data-href="presentations.html" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
                   <span class="mega-menu-tab-title">Presentations</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" aria-selected="false" aria-controls="panel-design" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" data-href="logos-branding.html" aria-selected="false" aria-controls="panel-design" tabindex="-1">
                   <span class="mega-menu-tab-title">Design</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" data-href="nurture-crm.html" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
                   <span class="mega-menu-tab-title">Investor Hub</span>
                 </button>
               </div>
@@ -1844,7 +1844,7 @@
       tabs.forEach(function (tab, i) {
         // Switch on hover (desktop), click, and focus (keyboard Tab into list).
         tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
-        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('click', function () { var href = tab.getAttribute('data-href'); if (href) { window.location.href = href; } else { selectTab(tab, false); } });
         tab.addEventListener('focus', function () { selectTab(tab, false); });
         // Roving-tabindex arrow-key navigation within the tablist.
         tab.addEventListener('keydown', function (e) {
