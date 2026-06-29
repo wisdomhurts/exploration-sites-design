@@ -809,8 +809,8 @@
             <div class="stat-label">Websites Launched</div>
           </div>
           <div>
-            <div class="stat-number" data-count-to="75" data-count-prefix="$" data-count-suffix="B+">$75B+</div>
-            <div class="stat-label">Clients Combined Market Cap</div>
+            <div class="stat-number" data-count-to="76" data-count-prefix="$" data-count-suffix="B+">$76B+</div>
+            <div class="stat-label">Clients&rsquo; Combined Market Cap</div>
           </div>
           <div>
             <div class="stat-number" data-count-to="30" data-count-suffix="+">30+</div>
@@ -1374,6 +1374,7 @@
       var els = document.querySelectorAll('[data-count-to]');
       if (!els.length) return;
       function format(val, decimals, prefix, suffix) {
+        if (!isFinite(val) || val < 0) val = 0; /* never paint a negative/NaN frame */
         var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
         if (decimals === 0) {
           n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

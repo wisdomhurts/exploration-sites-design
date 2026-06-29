@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: "Clients — Exploration Sites"
-description: "Trusted by over 100 exploration-stage mining companies across five continents. See who works with Exploration Sites."
+description: "Trusted by over 300 exploration-stage mining companies across five continents. See who works with Exploration Sites."
 permalink: "clients.html"
 ---
 
@@ -28,7 +28,7 @@ permalink: "clients.html"
 
         <div>
 
-          <div class="stat-number ">$76B+</div>
+          <div class="stat-number ">${{ proof.marketCapB }}B+</div>
 
           <div class="stat-label">Combined Client Market Cap</div>
 
@@ -36,7 +36,7 @@ permalink: "clients.html"
 
         <div>
 
-          <div class="stat-number ">300+</div>
+          <div class="stat-number ">{{ proof.companies }}+</div>
 
           <div class="stat-label">Companies served</div>
 
@@ -44,7 +44,7 @@ permalink: "clients.html"
 
         <div>
 
-          <div class="stat-number ">5</div>
+          <div class="stat-number ">{{ proof.continents }}</div>
 
           <div class="stat-label">Continents</div>
 
@@ -52,7 +52,7 @@ permalink: "clients.html"
 
         <div>
 
-          <div class="stat-number ">30+</div>
+          <div class="stat-number ">{{ proof.years }}+</div>
 
           <div class="stat-label">Years</div>
 

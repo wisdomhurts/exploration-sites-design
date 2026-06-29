@@ -385,14 +385,14 @@
       <div class="principle-row">
         <span class="case-label">Over this period</span>
         <div>
-          <p class="principle-desc">As the resource grew, the visuals scaled with it &mdash; institutional investors could read scale, grade, and continuity at a glance. From ~$130M to ~$6.0B since 2023 &mdash; about 45x.</p>
+          <p class="principle-desc">As the resource grew, the visuals scaled with it &mdash; institutional investors could read scale, grade, and continuity at a glance. From ~$130M to ~$6.4B since 2023 &mdash; about 49x.</p>
         </div>
       </div>
     </div>
     <div class="case-journey" aria-hidden="true">
       <span class="case-journey-cap">Market cap</span>
       <div class="case-journey-track">
-        <div class="case-journey-stop case-journey-stop--end"><span class="case-journey-val">$6.0B</span></div>
+        <div class="case-journey-stop case-journey-stop--end"><span class="case-journey-val">$6.4B</span></div>
         <div class="case-journey-stop case-journey-stop--start"><span class="case-journey-val">$130M</span></div>
       </div>
       <span class="case-journey-meta">2023 &rarr; today</span>
@@ -837,6 +837,7 @@
       var els = document.querySelectorAll('[data-count-to]');
       if (!els.length) return;
       function format(val, decimals, prefix, suffix) {
+        if (!isFinite(val) || val < 0) val = 0; /* never paint a negative/NaN frame */
         var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
         if (decimals === 0) {
           n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

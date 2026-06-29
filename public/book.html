@@ -717,6 +717,7 @@
       var els = document.querySelectorAll('[data-count-to]');
       if (!els.length) return;
       function format(val, decimals, prefix, suffix) {
+        if (!isFinite(val) || val < 0) val = 0; /* never paint a negative/NaN frame */
         var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
         if (decimals === 0) {
           n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
