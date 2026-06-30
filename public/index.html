@@ -913,21 +913,136 @@
           <h3 class="showcase-group-title">Investor Maps</h3>
           <a class="showcase-group-link" href="investor-maps.html">All map types &rarr;</a>
         </div>
+        <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
         <div class="maps-showcase-2col">
-        <aside class="maps-rail" aria-label="Investor map types">
-  <p class="maps-rail-label">Map types</p>
-  <ul class="maps-rail-list">
-    <li><a class="maps-rail-link" href="locators-area-plays.html"><span class="maps-rail-num">01</span><span class="maps-rail-text">Locators &amp; Area Plays</span></a></li>
-    <li><a class="maps-rail-link" href="property-target.html"><span class="maps-rail-num">02</span><span class="maps-rail-text">Property &amp; Target</span></a></li>
-    <li><a class="maps-rail-link" href="geoscience-maps.html"><span class="maps-rail-num">03</span><span class="maps-rail-text">Geo / Geochem / Geophys</span></a></li>
-    <li><a class="maps-rail-link" href="sections.html"><span class="maps-rail-num">04</span><span class="maps-rail-text">Sections &amp; Long Sections</span></a></li>
-    <li><a class="maps-rail-link" href="3d-models.html"><span class="maps-rail-num">05</span><span class="maps-rail-text">3D Isometric Models</span></a></li>
-    <li><a class="maps-rail-link" href="conceptual-schematic.html"><span class="maps-rail-num">06</span><span class="maps-rail-text">Conceptual &amp; Schematic</span></a></li>
-  </ul>
-  <a class="maps-rail-all" href="investor-maps.html">All investor maps &rarr;</a>
-</aside>
+        <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
+          <p class="maps-rail-label">Map types</p>
+          <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
+            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-num">01</span><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-num">02</span><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-num">03</span><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-num">04</span><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-num">05</span><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-num">06</span><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+          </ul>
+          <a class="maps-rail-all" href="investor-maps.html">All investor maps &rarr;</a>
+        </aside>
+        <div class="maps-rotator" id="maps-rotator" role="tabpanel" aria-live="polite"></div>
+        <style>
+          .maps-rail--tabs .maps-tab { position: relative; display: flex; align-items: baseline; gap: 12px; width: 100%; background: none; border: 0; padding: 9px 0; font: inherit; text-align: left; color: var(--muted); cursor: pointer; transition: color 0.2s var(--ease-out-soft); }
+          .maps-rail--tabs .maps-tab:hover, .maps-rail--tabs .maps-tab.is-active { color: var(--graphite); }
+          .maps-rail--tabs .maps-tab.is-active .maps-rail-num { color: var(--ore); }
+          .maps-rail--tabs .maps-tab:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
+          .maps-tab-bar { position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--ore); }
+          @keyframes mapsProgress { from { width: 0; } to { width: 100%; } }
+          .maps-rotator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-content: start; transition: opacity 0.35s var(--ease-out-soft); }
+          .maps-rotator.is-fading { opacity: 0; }
+          .maps-rotator .map-cell { display: block; padding: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; }
+          .maps-rotator .map-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s var(--ease-out-soft); }
+          .maps-rotator .map-cell:hover img { transform: scale(1.04); }
+          @media (max-width: 900px) { .maps-rotator { grid-template-columns: repeat(2, 1fr); } }
+          @media (prefers-reduced-motion: reduce) { .maps-rotator { transition: none; } .maps-tab-bar { display: none; } }
+        </style>
+        <script>
+          (function () {
+            var rotator = document.getElementById('maps-rotator');
+            if (!rotator) return;
+            var A = 'https://cdn.prod.website-files.com/69289f23036f2c7a8ac67581/';
+            var B = 'https://cdn.prod.website-files.com/691e3c06e01ecf028670e084/';
+            var TYPES = [
+              { key: 'locators', label: 'Locators & Area Plays', maps: [
+                A+'6973c7281329a77bade7f534_Snowline_Yukon_Locator_SQUARE%20copy.webp',
+                A+'6973c728dec078b88a7e64af_NFG_Map085-Locator_V1%20copy.webp',
+                A+'696e77e98502aa90fc197411_1_MontageGold_NR_GoldBelt_KoneGoldProject-copy-scaled.avif',
+                A+'6973ccd74cb7c0683025530e_Hercules_areaplay%20copy.webp',
+                A+'6973c728c3da04f1c182f9b3_GoldTerra_CanadaGreenstoneLocator_DM%20copy.webp',
+                A+'6973d56562f682492b4e2c28_Asante_SouthGhana_Greenstone_Belt_Map%20copy.webp',
+                A+'696e76ffc6d4587f5c1234a8_2_VulcanResources_NevadaLocator-copy-scaled.avif',
+                A+'6973c728bcea646c802e2989_AlgoGrande_Sonora-Locator_DM_HS%20copy.webp'
+              ]},
+              { key: 'property', label: 'Property & Target', maps: [
+                A+'696e77bbfafa1ac89c37b619_2_WRLG_Plan_Madsen-copy.webp',
+                A+'6973ceaf554e40fc41648326_Snowline_Rogue_Detail_New%20copy.webp',
+                A+'6973ceafd185cc6888e851a6_AlgoGrande_AdelitaClaim_Targets_V2%20copy.webp',
+                A+'6973d56517a6d4f921a9a4cf_EmperorMetals_AbitibiBeltMap%20copy.webp',
+                A+'6973d5654384d2b226d9ec8a_Endeavour_Hounde%20copy.webp',
+                A+'696e77d916deca73fcd5bab0_1_WesternAlaska_LF_Target_Zones-copy.webp',
+                A+'696e77f8a4e2f0defba53646_1_ATHA_PPT_AthabascaBasin_NorthRim_V2_wValour-copy-scaled.avif',
+                A+'696e77da4472ce6285bc3b7c_3_ArgentaSilver_Quevar_Google_maps_claim-copy-scaled.avif'
+              ]},
+              { key: 'geo', label: 'Geo / Geochem / Geophys', maps: [
+                B+'696e693fe5de57c207ae3101_MontageGold_Full_Geo_CIV_map.webp',
+                A+'696e77bb54baa59b5a6eb0ac_4_Hercules_IP_Isometric-copy.webp',
+                A+'696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif',
+                A+'696e77e9a3a203234c319dac_1_WarabaGold_RegionalAreaplay-geo-1x1-copy-scaled.webp',
+                A+'696e77f879c40da838396931_2_magnetics-copy-scaled.avif',
+                A+'696e781395a555cbcddfb39a_1_FNM_Storjuktan_Geochem_Cu-copy-scaled.avif',
+                A+'696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp',
+                A+'6973d7f758ec5ee5c5842cc0_GENU_Yath-Property-Geophysics_V1%20copy.webp'
+              ]},
+              { key: 'sections', label: 'Sections & Long Sections', maps: [
+                A+'696e77bb8acf5961c08d9949_1_DollyVarden_Wolf_LongSection-DV22273-removed-copy-scaled.avif',
+                A+'696e77bb8d7dae472088d4cd_4_MontageGold_Gbongogo_Section1-copy-scaled.avif',
+                A+'696e77bbd222e6156b2ceec6_1_CopperCorp_LF_Alpine_BB_SectionLookingNE-copy-scaled.avif',
+                A+'696e77bb13d3a33c62fcd336_1_Reefton_LF_PACSectionMap-copy.webp',
+                A+'696e77bb96dead22878ea4d9_2_PPT_SONORO_CerroCaliche_Cuervos-Section-copy.webp',
+                A+'6973d355becb45cfaf55f197_Stallion_Section_DDH_CF24-003_V2%20copy.webp',
+                A+'6973d39068a1ab6e1e370c9c_Miata_Jons_Pit_Cross%20Section3%20copy.webp',
+                A+'6973d400e0b1f46193e58966_Waratah_Consols_CrossSection_Expanded%20copy.webp'
+              ]},
+              { key: 'models', label: '3D Isometric Models', maps: [
+                B+'696e693fffa1f3594b798a2d_NFG_086Map-3D.webp',
+                A+'696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif',
+                A+'696e77dabaa6b099dedaad82_1_CopperCorp_3DPerspective-copy-scaled.avif',
+                A+'696e77dac7afb9ed21516ca9_2_Radius_el_cuervo_3D-copy.webp',
+                A+'696e77da4e08a5fc1b195e5f_3_RUA_3D_Glamorgan_Claim_With_OLD-copy-scaled.avif',
+                A+'6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model%20copy.webp',
+                A+'6973d105de53ad64aca86f1c_NexMining_Selkirk_3D_Model%20copy.webp',
+                A+'696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif'
+              ]},
+              { key: 'conceptual', label: 'Conceptual & Schematic', maps: [
+                A+'696e77a89f502a2370c9d5c3_1_MontageGold_Kone_Exploration_Strat_v1-copy-scaled.avif',
+                A+'696e77d9cd4f08e88a0814cf_2_Metallis_MultiFigureDraft3-ExplorationPotentialAdded-copy.webp',
+                A+'6973da9d84226f912c445978_AlgoGrande_Deposit_footprint_comp%20copy.webp'
+              ]}
+            ];
+            var DURATION = 8000;
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.maps-tab'));
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var idx = 0, timer = null, paused = false;
 
-        <div class="showcase-grid showcase-grid--maps">
+            function fill(t) {
+              rotator.innerHTML = t.maps.map(function (u) {
+                return '<button type="button" class="map-cell" data-lightbox data-full="' + u + '" data-caption="' + t.label + ' — Exploration Sites">'
+                  + '<img src="' + u + '" alt="' + t.label + ' map by Exploration Sites" loading="lazy" decoding="async"></button>';
+              }).join('');
+            }
+            function runBar(i) {
+              tabs.forEach(function (t) { var b = t.querySelector('.maps-tab-bar'); if (b) { b.style.animation = 'none'; b.style.width = '0'; } });
+              if (reduce) return;
+              var bar = tabs[i] && tabs[i].querySelector('.maps-tab-bar');
+              if (bar) { void bar.offsetWidth; bar.style.animation = 'mapsProgress ' + (DURATION / 1000) + 's linear forwards'; }
+            }
+            function show(i) {
+              idx = i;
+              tabs.forEach(function (t, j) { t.classList.toggle('is-active', j === i); t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+              if (reduce) { fill(TYPES[i]); }
+              else {
+                rotator.classList.add('is-fading');
+                setTimeout(function () { fill(TYPES[i]); rotator.classList.remove('is-fading'); }, 200);
+              }
+              runBar(i);
+            }
+            function schedule() { if (reduce) return; clearTimeout(timer); timer = setTimeout(function () { if (!paused) { show((idx + 1) % TYPES.length); schedule(); } else { schedule(); } }, DURATION); }
+            tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); schedule(); }); });
+            // pause auto-rotate while hovering the gallery
+            var wrap = rotator.parentNode;
+            wrap.addEventListener('mouseenter', function () { paused = true; });
+            wrap.addEventListener('mouseleave', function () { paused = false; });
+            show(0); schedule();
+          })();
+        </script>
+        <div class="showcase-grid showcase-grid--maps" style="display:none" hidden>
 
           <button type="button" class="work-card" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
             <span class="work-card-media"><img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030"></span>
@@ -1672,13 +1787,13 @@
         document.body.style.overflow = '';
         if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
       }
-      document.querySelectorAll('[data-lightbox]').forEach(function (el) {
-        el.addEventListener('click', function () {
-          lastTrigger = el;
-          var v = el.getAttribute('data-video');
-          if (v) { openVideo(v, el.getAttribute('data-caption')); }
-          else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
-        });
+      document.addEventListener('click', function (e) {
+        var el = e.target.closest('[data-lightbox]');
+        if (!el) return;
+        lastTrigger = el;
+        var v = el.getAttribute('data-video');
+        if (v) { openVideo(v, el.getAttribute('data-caption')); }
+        else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
