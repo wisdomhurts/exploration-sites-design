@@ -136,13 +136,6 @@
                 <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" data-href="nurture-crm.html" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
                   <span class="mega-menu-tab-title">Investor Hub</span>
                 </button>
-                <div class="mega-menu-help">
-                  <p class="mega-menu-help-title">Not sure where to start?</p>
-                  <p class="mega-menu-help-text">Tell us your raise and timeline &mdash; we&rsquo;ll scope the right work.</p>
-                  <a href="book.html" class="mega-menu-help-cta">Book a discovery call &rarr;</a>
-                  <a href="engagement.html" class="mega-menu-help-link">See how we engage</a>
-                  <a href="pricing.html" class="mega-menu-help-link">See pricing</a>
-                </div>
               </div>
               <div class="mega-menu-content">
                 <!-- Investor Maps Panel -->
@@ -925,9 +918,7 @@
 
     <section class="cta-section">
 
-      <h2 class="cta-headline">Ready to make your project legible to investors?</h2>
-
-      <p class="cta-sub">Tell us about your property and what you need.</p>
+      <h2 class="cta-headline">Ready to make your project<br>legible to investors?</h2>
 
       <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
 
@@ -1016,11 +1007,7 @@
             var has = c.dataset.has === '1' || !!c.querySelector('svg');
             c.dataset.has = has ? '1' : '0';
             if (has) tally[ci]++;
-            if (!c.classList.contains('workcell')) {
-              c.classList.add('workcell');
-              c.removeAttribute('style');
-              c.innerHTML = has ? '<span class="has" role="img" aria-label="Yes"></span>' : '<span class="sr-only">No</span>';
-            }
+            // Keep the original ES logo glyph in Map/Deck/Web cells (per request).
           });
         });
 
@@ -1186,8 +1173,6 @@
           </div>
 
         </div>
-
-        <p class="footer-disclaimer" style="font-family: var(--font-mono); font-size: 11px; line-height: 1.65; letter-spacing: 0.02em; color: var(--muted); max-width: 92ch; margin: 0 0 22px;">Exploration Sites provides communications, design, and visualisation services. We are not a registered securities dealer or adviser, do not provide investment advice, and do not solicit investors on behalf of our clients. Results vary; we do not guarantee any financing, market, or share-price outcome. Company figures are as reported by each issuer &mdash; see <a href="disclosures.html" style="color: var(--slate); text-decoration: underline;">full disclosures</a>.</p>
 
         <div class="footer-rule"></div>
 

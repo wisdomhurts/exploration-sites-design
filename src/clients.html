@@ -524,9 +524,7 @@ permalink: "clients.html"
 
     <section class="cta-section">
 
-      <h2 class="cta-headline">Ready to make your project legible to investors?</h2>
-
-      <p class="cta-sub">Tell us about your property and what you need.</p>
+      <h2 class="cta-headline">Ready to make your project<br>legible to investors?</h2>
 
       <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
 
@@ -615,11 +613,7 @@ permalink: "clients.html"
             var has = c.dataset.has === '1' || !!c.querySelector('svg');
             c.dataset.has = has ? '1' : '0';
             if (has) tally[ci]++;
-            if (!c.classList.contains('workcell')) {
-              c.classList.add('workcell');
-              c.removeAttribute('style');
-              c.innerHTML = has ? '<span class="has" role="img" aria-label="Yes"></span>' : '<span class="sr-only">No</span>';
-            }
+            // Keep the original ES logo glyph in Map/Deck/Web cells (per request).
           });
         });
 

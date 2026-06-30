@@ -819,21 +819,11 @@
   }
   .launch-incl { list-style: none; counter-reset: incl; }
   .launch-incl li {
-    counter-increment: incl;
-    display: grid; grid-template-columns: auto 1fr; gap: 16px;
-    align-items: baseline;
-    padding: 15px 0;
-    border-top: 1px solid var(--hairline);
+    display: block;
+    padding: 11px 0;
     font-size: 15.5px; color: var(--graphite);
   }
-  .launch-incl li:first-child { border-top: 0; }
-  .launch-incl li:last-child { border-bottom: 0; }
-  .launch-incl li::before {
-    content: counter(incl, decimal-leading-zero);
-    font-family: var(--font-mono);
-    font-size: 12px; color: var(--ore);
-    font-variant-numeric: tabular-nums;
-  }
+  .launch-incl li::before { display: none; }
   .launch-note {
     margin-top: 22px; padding-top: 20px;
     border-top: 1px dotted var(--graticule);
@@ -1085,8 +1075,9 @@
     transition: opacity 0.2s var(--ease-out-soft);
   }
   .eng-trust-logos img:hover { opacity: 0.9; }
-  .eng-trust-logos img[alt="Fireweed Metals"] { height: 72px; }
-  .eng-trust-logos img[alt="Montage Gold"] { height: 66px; }
+  .eng-trust-logos img[alt="Fireweed Metals"] { height: 104px; }
+  .eng-trust-logos img[alt="Montage Gold"] { height: 84px; }
+  .eng-trust-logos img[alt="Endeavour Mining"] { height: 72px; }
   .cta .cta-inner { padding-top: clamp(40px, 5vw, 64px); }
   @media (max-width: 560px) { .eng-trust-logos img { height: 44px; } }
 
@@ -1240,13 +1231,6 @@
                 <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" data-href="nurture-crm.html" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
                   <span class="mega-menu-tab-title">Investor Hub</span>
                 </button>
-                <div class="mega-menu-help">
-                  <p class="mega-menu-help-title">Not sure where to start?</p>
-                  <p class="mega-menu-help-text">Tell us your raise and timeline &mdash; we&rsquo;ll scope the right work.</p>
-                  <a href="book.html" class="mega-menu-help-cta">Book a discovery call &rarr;</a>
-                  <a href="engagement.html" class="mega-menu-help-link">See how we engage</a>
-                  <a href="pricing.html" class="mega-menu-help-link">See pricing</a>
-                </div>
               </div>
               <div class="mega-menu-content">
                 <!-- Investor Maps Panel -->
@@ -1682,7 +1666,7 @@
         <div class="retainer-card">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">Essentials</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$1,900<span style="color: var(--graticule);">/mo</span></span><span style="display: block; font-size: 10.5px; color: var(--graticule); letter-spacing: 0.03em; margin-top: 2px;">$190/hr &middot; Save 5%</span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$1,900<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For early-stage teams keeping their core materials current between milestones.</p>
@@ -1695,11 +1679,12 @@
               <li>Priority 48-hour turnaround</li>
             </ul>
           </div>
+          <div class="retainer-rate">$190/hr &middot; Save 5%</div>
         </div>
         <div class="retainer-card is-popular">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">Growth</span><span class="retainer-pop">Most popular</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$3,500<span style="color: var(--graticule);">/mo</span></span><span style="display: block; font-size: 10.5px; color: var(--graticule); letter-spacing: 0.03em; margin-top: 2px;">$175/hr &middot; Save 13%</span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$3,500<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
@@ -1713,11 +1698,12 @@
               <li>Priority 48-hour turnaround</li>
             </ul>
           </div>
+          <div class="retainer-rate">$175/hr &middot; Save 13%</div>
         </div>
         <div class="retainer-card">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">Enterprise</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$7,500<span style="color: var(--graticule);">/mo</span></span><span style="display: block; font-size: 10.5px; color: var(--graticule); letter-spacing: 0.03em; margin-top: 2px;">$150/hr &middot; Save 25%</span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$7,500<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>
@@ -1732,6 +1718,7 @@
               <li>Priority 24-hour turnaround</li>
             </ul>
           </div>
+          <div class="retainer-rate">$150/hr &middot; Save 25%</div>
         </div>
       </div>
 
@@ -1763,7 +1750,8 @@
         #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px; }
         #retainers .retainer-features { list-style: none; margin: 0; padding: 0; }
         #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 6px 0; line-height: 1.5; }
-        #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 12px; color: var(--muted); }
+        #retainers .retainer-rate { margin-top: auto; padding: 14px 22px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.03em; }
+        #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 14px; color: var(--muted); }
         @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
       </style>
     </div>
@@ -1786,7 +1774,7 @@
         </li>
         <li class="apr-step">
           <div class="apr-step-num">02<span class="of">/05</span></div>
-          <h3 class="apr-step-title">Scope &amp; fixed quote</h3>
+          <h3 class="apr-step-title">Scope &amp; quote</h3>
           <p class="apr-step-text">We define the deliverables and return a clear, fixed quote — no open-ended estimates, no surprises.</p>
         </li>
         <li class="apr-step">
