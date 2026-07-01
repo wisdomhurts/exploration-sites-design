@@ -1026,8 +1026,8 @@ description: "How we engage with exploration-stage companies — project work on
   .cta-inner {
     padding-block: clamp(64px, 9vw, 120px);
     display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-    gap: clamp(36px, 5vw, 80px);
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    gap: clamp(32px, 4vw, 60px);
     align-items: center;
   }
   .cta-reg {
@@ -1039,7 +1039,7 @@ description: "How we engage with exploration-stage companies — project work on
   .cta-reg::before { content: ""; width: 28px; height: 1px; background: var(--ore); }
   .cta h2 {
     font-family: var(--font-serif); font-weight: 300;
-    font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12;
+    font-size: clamp(26px, 2.7vw, 34px); line-height: 1.12;
     letter-spacing: -0.02em; max-width: none;
   }
   .cta p {
@@ -1047,16 +1047,24 @@ description: "How we engage with exploration-stage companies — project work on
     line-height: 1.6; color: var(--graticule); max-width: 44ch;
   }
   .btn-cta {
-    display: inline-flex; align-items: center; gap: 12px;
+    position: relative;
+    display: inline-flex; align-items: center; gap: 14px;
     background: var(--ore); color: var(--graphite);
     font-family: var(--font-sans); font-size: 15px; font-weight: 600;
-    padding: 16px 30px; border-radius: 4px;
+    letter-spacing: 0.01em;
+    padding: 17px 30px; border-radius: 4px;
     text-decoration: none; white-space: nowrap;
-    transition: transform .2s var(--ease-out-soft), background .2s var(--ease-out-soft);
+    transition: background .28s var(--ease-out-soft), box-shadow .28s var(--ease-out-soft), transform .28s var(--ease-out-soft);
   }
-  .btn-cta:hover { transform: translateY(-1px); background: #C9923F; }
+  .btn-cta:hover { background: #C9923F; transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(244, 241, 236, 0.28); }
   .btn-cta:active { transform: translateY(0); }
-  .btn-cta svg { width: 16px; height: 16px; }
+  /* Arrow-loop: on hover the arrow advances out to the right while a fresh one slides in from the left */
+  .btn-cta-arrow { position: relative; display: inline-block; width: 16px; height: 16px; overflow: hidden; }
+  .btn-cta-arrow svg { position: absolute; top: 0; left: 0; width: 16px; height: 16px; transition: transform .42s var(--ease-out-soft); }
+  .btn-cta-arrow svg:last-child { transform: translateX(-150%); }
+  .btn-cta:hover .btn-cta-arrow svg:first-child { transform: translateX(150%); }
+  .btn-cta:hover .btn-cta-arrow svg:last-child { transform: translateX(0); }
+  @media (prefers-reduced-motion: reduce) { .btn-cta-arrow svg { transition: none; } }
   .cta-lead .btn-cta { margin-top: clamp(28px, 3vw, 36px); }
   /* Right-side panel — what the discovery call delivers (fills the CTA void purposefully) */
   .cta-aside { border: 1px solid rgba(244, 241, 236, 0.16); border-radius: 10px; padding: clamp(24px, 2.6vw, 34px); background: rgba(244, 241, 236, 0.025); }
@@ -1533,10 +1541,12 @@ description: "How we engage with exploration-stage companies — project work on
         <div class="cta-lead">
           <span class="cta-reg">Next step</span>
           <h2 id="cta-h">Tell us your plan and timeline;<br>we&rsquo;ll scope the right engagement.</h2>
-          <p>You&rsquo;ll leave knowing the two or three things hurting how the market reads you &mdash; whether or not we work together.</p>
           <a class="btn-cta" href="book.html">
-            Book a discovery call
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span class="btn-cta-label">Book a discovery call</span>
+            <span class="btn-cta-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
           </a>
         </div>
         <aside class="cta-aside" aria-label="What the discovery call covers">
