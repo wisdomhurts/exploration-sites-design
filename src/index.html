@@ -532,13 +532,13 @@ description: "The premium investor relations and visualization partner that tran
           .maps-rail--tabs .maps-tab:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
           .maps-tab-bar { position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--ore); }
           @keyframes mapsProgress { from { width: 0; } to { width: 100%; } }
-          .maps-rotator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-content: start; transition: opacity 0.35s var(--ease-out-soft); }
-          .maps-rotator.is-fading { opacity: 0; }
-          .maps-rotator .map-cell { display: block; padding: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; }
+          .maps-rotator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-content: start; }
+          .maps-rotator .map-cell { display: block; padding: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; opacity: 0; transform: translateY(10px) scale(0.99); transition: opacity 0.5s var(--ease-out-soft), transform 0.5s var(--ease-out-soft); }
+          .maps-rotator .map-cell.in { opacity: 1; transform: none; }
           .maps-rotator .map-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s var(--ease-out-soft); }
           .maps-rotator .map-cell:hover img { transform: scale(1.04); }
           @media (max-width: 900px) { .maps-rotator { grid-template-columns: repeat(2, 1fr); } }
-          @media (prefers-reduced-motion: reduce) { .maps-rotator { transition: none; } .maps-tab-bar { display: none; } }
+          @media (prefers-reduced-motion: reduce) { .maps-rotator .map-cell { transition: none; transform: none; opacity: 1; } .maps-tab-bar { display: none; } }
         </style>
         <script>
           (function () {
@@ -613,6 +613,11 @@ description: "The premium investor relations and visualization partner that tran
                 return '<button type="button" class="map-cell" data-lightbox data-full="' + u + '" data-caption="' + t.label + ' — Exploration Sites">'
                   + '<img src="' + u + '" alt="' + t.label + ' map by Exploration Sites" loading="lazy" decoding="async"></button>';
               }).join('');
+              var cells = Array.prototype.slice.call(rotator.querySelectorAll('.map-cell'));
+              if (reduce) { cells.forEach(function (c) { c.classList.add('in'); }); return; }
+              // Quick one-at-a-time cascade. Images are preloaded before fill() runs,
+              // so they're decoded and reveal smoothly instead of popping mid-load.
+              cells.forEach(function (c, k) { setTimeout(function () { c.classList.add('in'); }, k * 65); });
             }
             function runBar(i) {
               tabs.forEach(function (t) { var b = t.querySelector('.maps-tab-bar'); if (b) { b.style.animation = 'none'; b.style.width = '0'; } });
@@ -623,12 +628,19 @@ description: "The premium investor relations and visualization partner that tran
             function show(i) {
               idx = i;
               tabs.forEach(function (t, j) { t.classList.toggle('is-active', j === i); t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
-              if (reduce) { fill(TYPES[i]); }
-              else {
-                rotator.classList.add('is-fading');
-                setTimeout(function () { fill(TYPES[i]); rotator.classList.remove('is-fading'); }, 200);
-              }
               runBar(i);
+              var t = TYPES[i];
+              if (reduce) { fill(t); return; }
+              // Preload this category's 8 images while the current grid stays put, then
+              // swap + cascade so nothing pops. Capped at 900ms so one slow/404 image
+              // can't stall the swap; aborts if the user has since switched tabs.
+              var pending = t.maps.map(function (u) {
+                return new Promise(function (res) { var im = new Image(); im.onload = im.onerror = res; im.src = u; });
+              });
+              Promise.race([
+                Promise.all(pending),
+                new Promise(function (res) { setTimeout(res, 900); })
+              ]).then(function () { if (idx === i) fill(t); });
             }
             function schedule() { if (reduce) return; clearTimeout(timer); timer = setTimeout(function () { if (!paused) { show((idx + 1) % TYPES.length); schedule(); } else { schedule(); } }, DURATION); }
             tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); schedule(); }); });
