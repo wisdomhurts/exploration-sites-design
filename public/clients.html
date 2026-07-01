@@ -505,8 +505,8 @@
         .client-table td.mcap .mcap-val { position: relative; z-index: 1; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
         /* Commodity colour chips + legend (DATAVIZ-04) */
-        .cmdy-chips { display: inline-flex; vertical-align: middle; margin-right: 7px; border-radius: 2px; overflow: hidden; }
-        .cmdy-chip { display: block; width: 9px; height: 9px; }
+        .cmdy-chips { display: inline-flex; gap: 2px; vertical-align: middle; margin-right: 7px; }
+        .cmdy-chip { display: block; width: 9px; height: 9px; border-radius: 1px; }
         .cmdy-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; max-width: 1200px; margin: 0 auto 16px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
         .cmdy-legend span { display: inline-flex; align-items: center; gap: 6px; }
         .cmdy-legend i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
@@ -547,15 +547,6 @@
 
       </style>
 
-      <div class="cmdy-legend" aria-hidden="true">
-        <span><i style="background:#B8823A"></i>Gold</span>
-        <span><i style="background:#8C9196"></i>Silver</span>
-        <span><i style="background:#B5613C"></i>Copper</span>
-        <span><i style="background:#5F7052"></i>Uranium</span>
-        <span><i style="background:#7C8AA0"></i>Lithium</span>
-        <span><i style="background:#6E7E6A"></i>Nickel</span>
-        <span><i style="background:#C8C2B4"></i>Other</span>
-      </div>
 
       <div id="client-table-status" class="sr-only" aria-live="polite"></div>
 
@@ -584,9 +575,9 @@
               <th scope="col" aria-sort="descending"><button type="button" class="th-sort" data-col="4" data-type="mcap">Mkt Cap <span class="sort-icon" aria-hidden="true"></span></button></th>
               <th scope="col" aria-sort="none"><button type="button" class="th-sort" data-col="5" data-type="text">Commodity <span class="sort-icon" aria-hidden="true"></span></button></th>
               <th scope="col" aria-sort="none"><button type="button" class="th-sort" data-col="6" data-type="text">Country <span class="sort-icon" aria-hidden="true"></span></button></th>
-              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="7" data-type="work">Map<span class="th-tally" data-tally="7"></span></button></th>
-              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="8" data-type="work">Deck<span class="th-tally" data-tally="8"></span></button></th>
-              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="9" data-type="work">Web<span class="th-tally" data-tally="9"></span></button></th>
+              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="7" data-type="work">Map</button></th>
+              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="8" data-type="work">Deck</button></th>
+              <th scope="col" aria-sort="none" style="width:54px; text-align:center; font-size:10px;"><button type="button" class="th-sort th-sort--center" data-col="9" data-type="work">Web</button></th>
             </tr>
           </thead>
 
@@ -1155,13 +1146,10 @@
             <div class="footer-col">
               <ul>
                 <li><a href="services.html">What we do</a></li>
-                <li><a href="investor-maps.html">Investor maps</a></li>
-                <li><a href="engagement.html">Engagement</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="why.html">Why we exist</a></li>
+                <li><a href="engagement.html">Engagement</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
-                <li><a href="fundable-materials-scorecard.html">Fundable scorecard</a></li>
                 <li><a href="team.html">Our team</a></li>
               </ul>
             </div>
