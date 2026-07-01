@@ -27,7 +27,10 @@
       --graticule: #C8C2B4;    /* 8% — Hairline rules, muted text, map grids */
       --ore: #B8823A;          /* ≤2% — Restrained accent. Earns its appearances */
       --ore-text: #8A5E22;     /* Deepened Ore for SMALL gold text only — ~4.6:1 on Quartz (AA). --ore stays for large/decorative */
-      --moss: #5F7052;         /* Muted sage moss. Used for active-project markers. */
+      --moss: #5F7052;         /* Muted sage moss. Land / active-ground / present-state. Subordinate to --ore. */
+      --moss-text: #4C5B41;    /* Deepened moss for SMALL sage text on Quartz — ~6.8:1 (AA). */
+      --moss-rule: rgba(95,112,82,0.14); /* Sage hairlines / dividers — non-text only. */
+      --sage-surface: color-mix(in oklab, var(--quartz) 92%, var(--moss)); /* 8% land bias — mineral paper, not "green". */
 
       /* --- SEMANTIC ALIASES --- */
       --body: #5A5F63;
@@ -128,7 +131,7 @@
       padding-bottom: 3px;
       transition: border-color 0.2s var(--ease-out-soft);
     }
-    .why-readmore:hover { border-color: var(--ore); }
+    .why-readmore:hover { border-color: var(--moss); }
     .why-readmore span { transition: transform 0.2s var(--ease-out-soft); }
     .why-readmore:hover span { transform: translateX(3px); }
 
@@ -1118,11 +1121,23 @@
       align-items: center;
       gap: 12px;
     }
+    /* In-page section eyebrow — a faint moss survey-line. The masthead
+       eyebrow (below) keeps its gold rule and overrides this. */
+    .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 1px;
+      margin-right: 12px;
+      vertical-align: middle;
+      background: var(--moss);
+    }
     .hero .section-label::before,
     .case-hero .section-label::before {
       content: "";
       width: 28px;
       height: 1px;
+      margin-right: 0;
       background: var(--ore);
       flex: 0 0 auto;
     }

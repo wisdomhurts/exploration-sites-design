@@ -63,6 +63,9 @@ void main() {
   // Every 15th band gets the ore tint — a quiet accent on the map.
   float bandIdx = floor(bandPos);
   float oreBand = step(0.5, 1.0 - abs(mod(bandIdx, 15.0)));
+  // Every 23rd band (prime vs 15 -> they never coincide) gets a rare moss
+  // tint — a "vegetated valley" contour. Quieter than the ore peak.
+  float mossBand = step(0.5, 1.0 - abs(mod(bandIdx, 23.0))) * (1.0 - oreBand);
 
   // Warm paper base (quartz, a hair darker than --quartz to read behind content)
   vec3 base  = vec3(0.949, 0.937, 0.917);
@@ -70,9 +73,13 @@ void main() {
   vec3 slateC = vec3(0.298, 0.318, 0.345);
   // Ore accent — brand --ore (#B8823A)
   vec3 oreC   = vec3(0.722, 0.510, 0.227);
+  // Moss accent — brand --moss (#5F7052)
+  vec3 mossC  = vec3(0.373, 0.439, 0.322);
   vec3 lineC  = mix(slateC, oreC, oreBand);
-  // Ore lines get a touch more opacity so the accent reads
+  lineC       = mix(lineC, mossC, mossBand);
+  // Ore lines get a touch more opacity so the accent reads; moss sits quieter
   float lineStrength = mix(0.17, 0.45, oreBand);
+  lineStrength = mix(lineStrength, 0.15, mossBand);
   vec3 col   = mix(base, lineC, line * lineStrength);
 
   // Barely-there horizontal wash — slightly brighter toward the right edge
