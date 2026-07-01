@@ -409,11 +409,8 @@
         <a href="book.html" class="btn-primary">Book a discovery call</a>
       </div>
       <ul class="cta-assurance" aria-label="What to expect">
-  <li>Fixed quote, never open-ended</li>
-  <li>20 min, no obligation, no pitch</li>
-  <li>We take a limited number of clients each quarter</li>
-</ul>
-
+        <li>We take a limited number of clients each quarter</li>
+      </ul>
     </section>
 
     <style>
@@ -437,9 +434,9 @@
         transition: opacity 0.2s var(--ease-out-soft);
       }
       .trust-strip-logos img:hover { opacity: 0.85; }
-      .trust-strip-logos img[alt="Fireweed Metals"] { height: 84px; }
-      .trust-strip-logos img[alt="Montage Gold"] { height: 84px; }
-      .trust-strip-logos img[alt="Endeavour Mining"] { height: 76px; }
+      .trust-strip-logos img[alt="Fireweed Metals"] { height: 109px; }
+      .trust-strip-logos img[alt="Montage Gold"] { height: 93px; }
+      .trust-strip-logos img[alt="Endeavour Mining"] { height: 84px; }
       .trust-strip-logos img[alt="Snowline Gold"] { height: 50px; }
       .form-confidential {
         font-size: 13px; color: var(--muted); margin-top: 4px;
@@ -463,16 +460,16 @@
       /* Contact: 3-column layout — process (1/4) · details (1/4) · form (2/4) */
       .contact-3col {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 2fr 1fr;
         gap: clamp(32px, 5vw, 72px);
         align-items: start;
       }
-      .contact-steps { display: flex; flex-direction: column; }
+      .contact-steps { display: flex; flex-direction: column; order: 2; }
       .contact-step { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; }
       .contact-step + .contact-step { border-top: 1px solid var(--border); }
       .contact-step .onboarding-step-num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; color: var(--ore); flex-shrink: 0; }
       .contact-step .onboarding-step-title { font-size: 17px; font-weight: 600; color: var(--graphite); margin: 0; line-height: 1.3; }
-      .contact-form-col { min-width: 0; }
+      .contact-form-col { min-width: 0; order: 1; }
       @media (max-width: 860px) {
         .contact-3col { grid-template-columns: 1fr; gap: 40px; }
       }
@@ -484,24 +481,7 @@
 
         <!-- col 1 — Process + typical timelines -->
         <div class="contact-steps">
-          <div class="contact-step" data-reveal>
-            <div class="onboarding-step-num">01</div>
-            <div class="onboarding-step-title">Discovery</div>
-          </div>
-          <div class="contact-step" data-reveal data-reveal-delay="1">
-            <div class="onboarding-step-num">02</div>
-            <div class="onboarding-step-title">Scope &amp; Proposal</div>
-          </div>
-          <div class="contact-step" data-reveal data-reveal-delay="2">
-            <div class="onboarding-step-num">03</div>
-            <div class="onboarding-step-title">Production</div>
-          </div>
-          <div class="contact-step" data-reveal data-reveal-delay="3">
-            <div class="onboarding-step-num">04</div>
-            <div class="onboarding-step-title">Delivery</div>
-          </div>
-
-          <div class="pricing-block-label" style="margin: 32px 0 4px;">Typical Timelines</div>
+          <div class="pricing-block-label" style="margin: 0 0 4px;">Typical Timelines</div>
           <div class="contact-info-row">
             <span class="contact-info-label">Maps</span>
             <span class="contact-info-value">3&ndash;7 business days</span>
@@ -517,6 +497,24 @@
           <div class="contact-info-row">
             <span class="contact-info-label">GIS films</span>
             <span class="contact-info-value">6 weeks</span>
+          </div>
+
+          <div class="pricing-block-label" style="margin: 32px 0 4px;">Process</div>
+          <div class="contact-step" data-reveal>
+            <div class="onboarding-step-num">01</div>
+            <div class="onboarding-step-title">Discovery</div>
+          </div>
+          <div class="contact-step" data-reveal data-reveal-delay="1">
+            <div class="onboarding-step-num">02</div>
+            <div class="onboarding-step-title">Scope &amp; Proposal</div>
+          </div>
+          <div class="contact-step" data-reveal data-reveal-delay="2">
+            <div class="onboarding-step-num">03</div>
+            <div class="onboarding-step-title">Production</div>
+          </div>
+          <div class="contact-step" data-reveal data-reveal-delay="3">
+            <div class="onboarding-step-num">04</div>
+            <div class="onboarding-step-title">Delivery</div>
           </div>
         </div>
 
