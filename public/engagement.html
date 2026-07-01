@@ -1082,6 +1082,9 @@
   .eng-trust-logos {
     display: flex; align-items: center; justify-content: center;
     flex-wrap: wrap; gap: clamp(28px, 5vw, 56px);
+    /* Pull the row up toward the label — the tall Fireweed logo otherwise
+       makes the centered row sit far below the "Trusted by" line. */
+    margin-top: clamp(-40px, -2.6vw, -20px);
   }
   .eng-trust-logos img {
     height: 56px; width: auto;
