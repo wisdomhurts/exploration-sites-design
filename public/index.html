@@ -910,22 +910,19 @@
         <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
-          <p class="maps-rail-label">Map types</p>
           <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
-            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-num">01</span><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-num">02</span><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-num">03</span><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-num">04</span><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-num">05</span><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-num">06</span><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
-          <a class="maps-rail-all" href="investor-maps.html">All investor maps &rarr;</a>
         </aside>
         <div class="maps-rotator" id="maps-rotator" role="tabpanel" aria-live="polite"></div>
         <style>
           .maps-rail--tabs .maps-tab { position: relative; display: flex; align-items: baseline; gap: 12px; width: 100%; background: none; border: 0; padding: 9px 0; font: inherit; text-align: left; color: var(--muted); cursor: pointer; transition: color 0.2s var(--ease-out-soft); }
           .maps-rail--tabs .maps-tab:hover, .maps-rail--tabs .maps-tab.is-active { color: var(--graphite); }
-          .maps-rail--tabs .maps-tab.is-active .maps-rail-num { color: var(--ore); }
           .maps-rail--tabs .maps-tab:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
           .maps-tab-bar { position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--ore); }
           @keyframes mapsProgress { from { width: 0; } to { width: 100%; } }
@@ -1752,6 +1749,7 @@
       var cap = lb.querySelector('.lightbox-cap');
       var closeBtn = lb.querySelector('.lightbox-close');
       var lastTrigger = null;
+      var group = [], gi = -1; // current image gallery + index, for prev/next paging
 
       // Promote the shared lightbox to a proper modal dialog (A11Y-03): role/aria-modal,
       // focus-in on open, Tab focus-trap while open, focus-restore to the trigger on close.
@@ -1759,6 +1757,18 @@
       lb.setAttribute('aria-modal', 'true');
       lb.setAttribute('aria-label', 'Media viewer');
       if (closeBtn && !closeBtn.getAttribute('aria-label')) closeBtn.setAttribute('aria-label', 'Close');
+
+      // Prev/next paging controls, created once and reused (hidden for single items / video).
+      var prevBtn = document.createElement('button');
+      prevBtn.type = 'button'; prevBtn.className = 'lightbox-nav lightbox-prev';
+      prevBtn.setAttribute('aria-label', 'Previous map'); prevBtn.innerHTML = '&#8249;';
+      var nextBtn = document.createElement('button');
+      nextBtn.type = 'button'; nextBtn.className = 'lightbox-nav lightbox-next';
+      nextBtn.setAttribute('aria-label', 'Next map'); nextBtn.innerHTML = '&#8250;';
+      prevBtn.hidden = true; nextBtn.hidden = true;
+      lb.appendChild(prevBtn); lb.appendChild(nextBtn);
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); nav(-1); });
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); nav(1); });
 
       function focusables() {
         return Array.prototype.slice.call(
@@ -1770,12 +1780,21 @@
         document.body.style.overflow = 'hidden';
         if (closeBtn) closeBtn.focus();
       }
-      function openImg(full, caption, alt) {
+      function setImg(full, caption, alt) {
         if (!img) return;
         img.src = full; img.alt = alt || caption || ''; img.hidden = false;
         if (vid) { vid.hidden = true; vid.innerHTML = ''; }
         if (cap) cap.textContent = caption || '';
-        show();
+      }
+      function openImg(full, caption, alt) { setImg(full, caption, alt); show(); }
+      // Advance within the current gallery (wraps around); keeps the lightbox open.
+      function nav(delta) {
+        if (group.length < 2) return;
+        gi = (gi + delta + group.length) % group.length;
+        var el = group[gi];
+        lastTrigger = el;
+        var t = el.querySelector('img');
+        setImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
       }
       function openVideo(id, caption) {
         if (!vid) return;
@@ -1792,6 +1811,7 @@
         if (img) img.src = '';
         if (vid) vid.innerHTML = '';
         document.body.style.overflow = '';
+        group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true;
         if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
       }
       document.addEventListener('click', function (e) {
@@ -1799,8 +1819,16 @@
         if (!el) return;
         lastTrigger = el;
         var v = el.getAttribute('data-video');
-        if (v) { openVideo(v, el.getAttribute('data-caption')); }
-        else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
+        if (v) { group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true; openVideo(v, el.getAttribute('data-caption')); return; }
+        // Build the image gallery from the sibling image-lightboxes in the same container
+        // (e.g. every map in the currently-shown category), so you can page through them.
+        group = Array.prototype.slice.call((el.parentNode || document).querySelectorAll('[data-lightbox][data-full]'))
+          .filter(function (n) { return n.offsetParent !== null; });
+        gi = group.indexOf(el);
+        var multi = group.length > 1 && gi !== -1;
+        prevBtn.hidden = !multi; nextBtn.hidden = !multi;
+        var t = el.querySelector('img');
+        openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
@@ -1813,7 +1841,12 @@
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') { nav(-1); e.preventDefault(); }
+        else if (e.key === 'ArrowRight') { nav(1); e.preventDefault(); }
+      });
     })();
   </script>
 

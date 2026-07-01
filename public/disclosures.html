@@ -896,6 +896,7 @@
       var cap = lb.querySelector('.lightbox-cap');
       var closeBtn = lb.querySelector('.lightbox-close');
       var lastTrigger = null;
+      var group = [], gi = -1; // current image gallery + index, for prev/next paging
 
       // Promote the shared lightbox to a proper modal dialog (A11Y-03): role/aria-modal,
       // focus-in on open, Tab focus-trap while open, focus-restore to the trigger on close.
@@ -903,6 +904,18 @@
       lb.setAttribute('aria-modal', 'true');
       lb.setAttribute('aria-label', 'Media viewer');
       if (closeBtn && !closeBtn.getAttribute('aria-label')) closeBtn.setAttribute('aria-label', 'Close');
+
+      // Prev/next paging controls, created once and reused (hidden for single items / video).
+      var prevBtn = document.createElement('button');
+      prevBtn.type = 'button'; prevBtn.className = 'lightbox-nav lightbox-prev';
+      prevBtn.setAttribute('aria-label', 'Previous map'); prevBtn.innerHTML = '&#8249;';
+      var nextBtn = document.createElement('button');
+      nextBtn.type = 'button'; nextBtn.className = 'lightbox-nav lightbox-next';
+      nextBtn.setAttribute('aria-label', 'Next map'); nextBtn.innerHTML = '&#8250;';
+      prevBtn.hidden = true; nextBtn.hidden = true;
+      lb.appendChild(prevBtn); lb.appendChild(nextBtn);
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); nav(-1); });
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); nav(1); });
 
       function focusables() {
         return Array.prototype.slice.call(
@@ -914,12 +927,21 @@
         document.body.style.overflow = 'hidden';
         if (closeBtn) closeBtn.focus();
       }
-      function openImg(full, caption, alt) {
+      function setImg(full, caption, alt) {
         if (!img) return;
         img.src = full; img.alt = alt || caption || ''; img.hidden = false;
         if (vid) { vid.hidden = true; vid.innerHTML = ''; }
         if (cap) cap.textContent = caption || '';
-        show();
+      }
+      function openImg(full, caption, alt) { setImg(full, caption, alt); show(); }
+      // Advance within the current gallery (wraps around); keeps the lightbox open.
+      function nav(delta) {
+        if (group.length < 2) return;
+        gi = (gi + delta + group.length) % group.length;
+        var el = group[gi];
+        lastTrigger = el;
+        var t = el.querySelector('img');
+        setImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
       }
       function openVideo(id, caption) {
         if (!vid) return;
@@ -936,6 +958,7 @@
         if (img) img.src = '';
         if (vid) vid.innerHTML = '';
         document.body.style.overflow = '';
+        group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true;
         if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
       }
       document.addEventListener('click', function (e) {
@@ -943,8 +966,16 @@
         if (!el) return;
         lastTrigger = el;
         var v = el.getAttribute('data-video');
-        if (v) { openVideo(v, el.getAttribute('data-caption')); }
-        else { var t = el.querySelector('img'); openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : ''); }
+        if (v) { group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true; openVideo(v, el.getAttribute('data-caption')); return; }
+        // Build the image gallery from the sibling image-lightboxes in the same container
+        // (e.g. every map in the currently-shown category), so you can page through them.
+        group = Array.prototype.slice.call((el.parentNode || document).querySelectorAll('[data-lightbox][data-full]'))
+          .filter(function (n) { return n.offsetParent !== null; });
+        gi = group.indexOf(el);
+        var multi = group.length > 1 && gi !== -1;
+        prevBtn.hidden = !multi; nextBtn.hidden = !multi;
+        var t = el.querySelector('img');
+        openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
@@ -957,7 +988,12 @@
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowLeft') { nav(-1); e.preventDefault(); }
+        else if (e.key === 'ArrowRight') { nav(1); e.preventDefault(); }
+      });
     })();
   </script>
 

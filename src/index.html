@@ -516,22 +516,19 @@ description: "The premium investor relations and visualization partner that tran
         <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
-          <p class="maps-rail-label">Map types</p>
           <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
-            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-num">01</span><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-num">02</span><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-num">03</span><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-num">04</span><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-num">05</span><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-num">06</span><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
-          <a class="maps-rail-all" href="investor-maps.html">All investor maps &rarr;</a>
         </aside>
         <div class="maps-rotator" id="maps-rotator" role="tabpanel" aria-live="polite"></div>
         <style>
           .maps-rail--tabs .maps-tab { position: relative; display: flex; align-items: baseline; gap: 12px; width: 100%; background: none; border: 0; padding: 9px 0; font: inherit; text-align: left; color: var(--muted); cursor: pointer; transition: color 0.2s var(--ease-out-soft); }
           .maps-rail--tabs .maps-tab:hover, .maps-rail--tabs .maps-tab.is-active { color: var(--graphite); }
-          .maps-rail--tabs .maps-tab.is-active .maps-rail-num { color: var(--ore); }
           .maps-rail--tabs .maps-tab:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
           .maps-tab-bar { position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--ore); }
           @keyframes mapsProgress { from { width: 0; } to { width: 100%; } }
