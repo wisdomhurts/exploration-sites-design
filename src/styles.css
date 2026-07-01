@@ -1877,9 +1877,9 @@
       display: block;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.5s linear;
     }
-    .team-photo.is-playing video { opacity: 1; }
+    .team-photo.is-playing video.tv-on { opacity: 1; }
 
     .team-name {
       font-size: 20px;

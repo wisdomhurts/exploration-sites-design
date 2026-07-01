@@ -146,14 +146,15 @@ permalink: "team.html"
 
     <div class="divider"></div>
 
-    <!-- Team photos: the still headshot is the resting state. On hover its motion loop
-         cross-dissolves in (opacity) and loops continuously; on mouse-off it dissolves
-         back out to the photo. The video only rewinds while it's hidden, so there's
-         never a visible snap. preload="auto" avoids a first-play stutter. -->
+    <!-- Team photos: still headshot at rest. On hover the motion loop cross-dissolves in
+         and CROSSFADE-LOOPS — two stacked copies of the clip dissolve across the loop seam
+         (a second copy restarts from 0 and fades in ~0.5s before the first ends), so there's
+         no hard jump at the loop point no matter how long you hover. -->
     <script>
       (function () {
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reduce) return; // reduced motion: keep the still photo, no video
+        var FADE = 0.5; // crossfade overlap (must match the CSS opacity transition)
         var photos = document.querySelectorAll('.team-photo');
         Array.prototype.forEach.call(photos, function (photo) {
           var img = photo.querySelector('img');
@@ -161,28 +162,46 @@ permalink: "team.html"
           var src = img.getAttribute('src') || '';
           var vsrc = src.replace('images/headshots/', 'images/team-loops/').replace(/\.(jpe?g|png|webp|avif)$/i, '.mp4');
           if (vsrc === src) return;
-          var video = document.createElement('video');
-          video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'auto';
-          video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
-          video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
-          video.src = vsrc;
-          photo.appendChild(video);
+          function make() {
+            var v = document.createElement('video');
+            v.muted = true; v.playsInline = true; v.preload = 'auto'; v.tabIndex = -1;
+            v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+            v.src = vsrc;
+            photo.appendChild(v);
+            return v;
+          }
+          var a = make(), b = make();
+          var cur = a, nxt = b, active = false, raf = null, swapping = false, off = null;
 
-          var resetTimer;
+          function tick() {
+            if (!active) return;
+            if (cur.duration && cur.currentTime >= cur.duration - FADE && !swapping) {
+              swapping = true;
+              try { nxt.currentTime = 0; } catch (e) {}
+              var p = nxt.play(); if (p && p.catch) p.catch(function () {});
+              nxt.classList.add('tv-on'); cur.classList.remove('tv-on');
+              var ending = cur;
+              setTimeout(function () { ending.pause(); swapping = false; }, FADE * 1000 + 60);
+              var t = cur; cur = nxt; nxt = t;
+            }
+            raf = requestAnimationFrame(tick);
+          }
           function start() {
-            clearTimeout(resetTimer);
-            photo.classList.add('is-playing');   // fade the loop in over the still photo
-            var p = video.play();
-            if (p && p.catch) p.catch(function () {});
+            active = true; clearTimeout(off);
+            photo.classList.add('is-playing');
+            cur.classList.add('tv-on');
+            var p = cur.play(); if (p && p.catch) p.catch(function () {});
+            cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
           }
           function stop() {
-            photo.classList.remove('is-playing'); // fade back to the still photo
-            clearTimeout(resetTimer);
-            // rewind only after the fade-out completes, while the video is hidden
-            resetTimer = setTimeout(function () {
-              video.pause();
-              try { video.currentTime = 0; } catch (e) {}
-            }, 380);
+            active = false; swapping = false;
+            photo.classList.remove('is-playing');
+            cancelAnimationFrame(raf);
+            off = setTimeout(function () {
+              a.pause(); b.pause();
+              try { a.currentTime = 0; b.currentTime = 0; } catch (e) {}
+              a.classList.add('tv-on'); b.classList.remove('tv-on'); cur = a; nxt = b;
+            }, 420);
           }
           photo.addEventListener('mouseenter', start);
           photo.addEventListener('mouseleave', stop);
