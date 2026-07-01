@@ -1021,8 +1021,8 @@
   .cta-inner {
     padding-block: clamp(64px, 9vw, 120px);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(28px, 5vw, 64px);
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+    gap: clamp(36px, 5vw, 80px);
     align-items: center;
   }
   .cta-reg {
@@ -1034,8 +1034,8 @@
   .cta-reg::before { content: ""; width: 28px; height: 1px; background: var(--ore); }
   .cta h2 {
     font-family: var(--font-serif); font-weight: 300;
-    font-size: clamp(32px, 4.6vw, 54px); line-height: 1.08;
-    letter-spacing: -0.02em; max-width: 18ch;
+    font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12;
+    letter-spacing: -0.02em; max-width: none;
   }
   .cta p {
     margin-top: 18px; font-size: clamp(15px, 1.6vw, 17px);
@@ -1052,6 +1052,14 @@
   .btn-cta:hover { transform: translateY(-1px); background: #C9923F; }
   .btn-cta:active { transform: translateY(0); }
   .btn-cta svg { width: 16px; height: 16px; }
+  .cta-lead .btn-cta { margin-top: clamp(28px, 3vw, 36px); }
+  /* Right-side panel — what the discovery call delivers (fills the CTA void purposefully) */
+  .cta-aside { border: 1px solid rgba(244, 241, 236, 0.16); border-radius: 10px; padding: clamp(24px, 2.6vw, 34px); background: rgba(244, 241, 236, 0.025); }
+  .cta-aside-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ore); display: block; margin-bottom: 2px; }
+  .cta-aside-list { list-style: none; margin: 0; padding: 0; }
+  .cta-aside-list li { display: flex; gap: 14px; align-items: baseline; padding: 16px 0; border-top: 1px solid rgba(244, 241, 236, 0.1); font-size: 15px; line-height: 1.5; color: var(--quartz); }
+  .cta-aside-list li:first-child { border-top: none; padding-top: 14px; }
+  .cta-aside-tick { color: var(--ore); flex: none; font-weight: 600; }
 
   /* Trust strip on the dark CTA band */
   .eng-trust {
@@ -1073,8 +1081,8 @@
     transition: opacity 0.2s var(--ease-out-soft);
   }
   .eng-trust-logos img:hover { opacity: 0.9; }
-  .eng-trust-logos img[alt="Fireweed Metals"] { height: 109px; }
-  .eng-trust-logos img[alt="Montage Gold"] { height: 93px; }
+  .eng-trust-logos img[alt="Fireweed Metals"] { height: 142px; }
+  .eng-trust-logos img[alt="Montage Gold"] { height: 112px; }
   .eng-trust-logos img[alt="Endeavour Mining"] { height: 84px; }
   .eng-trust-logos img[alt="Snowline Gold"] { height: 50px; }
   .cta .cta-inner { padding-top: clamp(40px, 5vw, 64px); }
@@ -1810,15 +1818,23 @@
         </div>
       </div>
       <div class="cta-inner">
-        <div>
+        <div class="cta-lead">
           <span class="cta-reg">Next step</span>
-          <h2 id="cta-h">Tell us your plan and<br>timeline; we&rsquo;ll scope<br>the right engagement.</h2>
+          <h2 id="cta-h">Tell us your plan and timeline;<br>we&rsquo;ll scope the right engagement.</h2>
           <p>You&rsquo;ll leave knowing the two or three things hurting how the market reads you &mdash; whether or not we work together.</p>
+          <a class="btn-cta" href="book.html">
+            Book a discovery call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
-        <a class="btn-cta" href="book.html">
-          Book a discovery call
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <aside class="cta-aside" aria-label="What the discovery call covers">
+          <span class="cta-aside-label">In the call</span>
+          <ul class="cta-aside-list">
+            <li><span class="cta-aside-tick" aria-hidden="true">+</span><span>A read on how the market sees you today.</span></li>
+            <li><span class="cta-aside-tick" aria-hidden="true">+</span><span>The two or three fixes that matter most, in priority order.</span></li>
+            <li><span class="cta-aside-tick" aria-hidden="true">+</span><span>A fixed-scope quote &mdash; no obligation, no pitch.</span></li>
+          </ul>
+        </aside>
       </div>
     </div>
   </section>

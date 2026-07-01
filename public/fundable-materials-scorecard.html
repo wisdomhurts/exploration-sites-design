@@ -437,7 +437,7 @@
       <div class="scorecard-offer-grid">
         <div>
           <div class="section-label">Free read</div>
-          <h2 class="section-headline" style="max-width: 16ch;">Want us to score your actual materials?</h2>
+          <h2 class="section-headline" style="max-width: 22ch;">Want us to score<br>your actual materials?</h2>
           <p class="body-text">Send a link to your current deck, website, or fact sheet. We&rsquo;ll run this scorecard against it and send back the two or three things hurting how the market reads you &mdash; in writing, free, no call required.</p>
           <p class="body-text" style="font-size: 14px; color: var(--muted);">Prefer to talk it through? <a href="book.html" style="color: var(--ore-text); font-weight: 600; text-decoration: none;">Book a 20-minute legibility read &rarr;</a></p>
         </div>
@@ -479,6 +479,9 @@
       .scorecard-scoreline strong { color: var(--graphite); font-weight: 600; }
       .scorecard-offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; max-width: 1000px; margin: 0 auto; }
       .scorecard-form { display: flex; flex-direction: column; gap: 16px; }
+      /* Match the site link treatment so this isn't the browser-default purple */
+      .form-confidential a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s var(--ease-out-soft); }
+      .form-confidential a:hover { border-color: var(--ore); }
       @media (max-width: 820px) { .scorecard-offer-grid { grid-template-columns: 1fr; gap: 32px; } }
     </style>
 
