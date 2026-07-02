@@ -220,6 +220,23 @@
       color: var(--graphite);
     }
 
+    /* Wordmark + Est. 1996 signature, right-aligned under the text */
+    .nav-logo-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+    .nav-logo-est {
+      font-family: var(--font-sans);
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -850,6 +867,13 @@
       text-wrap: balance;
       margin-bottom: 28px;
     }
+    /* The signature phrase: italic, a step bolder, Ore. #B07C35 is Ore nudged
+       to 3.2:1 on Quartz — clears large-text AA where #B8823A sat at 2.96. */
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 400;
+      color: #B07C35;
+    }
 
     .hero-body {
       font-size: 15px;
@@ -1246,6 +1270,40 @@
       .services-editorial-name { grid-area: name; font-size: 24px; }
       .services-editorial-desc { grid-area: desc; font-size: 13px; }
       .services-editorial-arrow{ grid-area: arrow; }
+    }
+
+    /* --- WORK PLATE (service hubs) --- */
+    /* One framed deliverable per discipline — the work as evidence. Click opens
+       the site-wide lightbox via [data-lightbox]. */
+    .work-plate {
+      display: block;
+      width: 100%;
+      margin: 26px 0 0;
+      padding: 0;
+      background: none;
+      border: 0;
+      cursor: zoom-in;
+      text-align: left;
+      font: inherit;
+    }
+    .work-plate img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s var(--ease-out-soft);
+    }
+    .work-plate:hover img { border-color: var(--graticule); }
+    .work-plate:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
+    .work-plate-cap {
+      display: block;
+      margin-top: 9px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     /* --- SERVICE ROWS --- */
@@ -2300,16 +2358,6 @@
     .footer-col ul a:hover,
     .footer-contact ul a:hover { color: var(--graphite); }
 
-    /* Quiet role labels so four sibling emails aren't a guessing game.
-       No opacity — --muted is calibrated to exactly clear AA on Quartz. */
-    .footer-contact .email-role {
-      display: inline-block;
-      margin-left: 8px;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
 
     .footer-loc {
       font-size: 13px;

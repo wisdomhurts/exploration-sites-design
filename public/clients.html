@@ -109,7 +109,10 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <div class="nav-logo-icon"><svg viewBox="0 0 124.63 124.63" fill="var(--navy)"><g><polygon fill="var(--ore)" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="var(--ore)" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="var(--ore)" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="var(--ore)" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg></div>
-        <span class="nav-logo-text">Exploration Sites</span>
+        <span class="nav-logo-stack">
+          <span class="nav-logo-text">Exploration Sites</span>
+          <span class="nav-logo-est">Est. 1996</span>
+        </span>
       </a>
       <div class="nav-right">
         <ul class="nav-links">
@@ -508,10 +511,9 @@
         .client-table thead th[aria-sort="ascending"] .sort-icon::after { content: "\25B2"; font-size: 7px; }
         .client-table thead th[aria-sort="descending"] .sort-icon::after { content: "\25BC"; font-size: 7px; }
 
-        /* Mkt-cap magnitude bar — log-scaled, injected at runtime (DATAVIZ-02) */
-        .client-table td.mcap { position: relative; }
-        .client-table td.mcap .mcap-bar { position: absolute; top: 4px; bottom: 4px; right: 0; background: var(--ore); opacity: 0.14; border-radius: 1px; z-index: 0; }
-        .client-table td.mcap .mcap-val { position: relative; z-index: 1; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+        /* Mkt cap: tabular numerals only (the runtime magnitude bars were
+           removed 2026-07 per Dorian — too chart-like for the register). */
+        .client-table td.mcap .mcap-val { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
         /* Commodity colour chips + legend (DATAVIZ-04) */
         .cmdy-chips { display: inline-flex; gap: 2px; vertical-align: middle; margin-right: 7px; }
@@ -577,7 +579,6 @@
           .js .client-table tbody td[data-has="0"] { display: none; }
           .js .client-table tbody td[data-has="1"]::after { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--ore); border-radius: 1px; }
           .client-table td.mcap { width: 100%; }
-          .client-table td.mcap .mcap-bar { display: none; }
           .cmdy-legend { font-size: 9px; }
           .client-sort { display: block; flex: 1 1 100%; }
           .client-search { flex: 1 1 100%; min-width: 0; }
@@ -1039,29 +1040,21 @@
 
       function enhance(){
         var rows = Array.prototype.slice.call(tbody.rows);
-        var logFloor = 5; // $100K
-        var max = 1;
-        rows.forEach(function(tr){ if (tr.cells[4]) { var v = parseCap(tr.cells[4].textContent); if (v > max) max = v; } });
-        var logMax = Math.max(logFloor + 0.5, Math.log10(max));
 
         rows.forEach(function(tr){
           var tds = tr.cells;
           if (tds.length < 10) return;
           for (var i = 0; i < tds.length && i < LABELS.length; i++) { tds[i].setAttribute('data-mlabel', LABELS[i]); }
 
-          // Market-cap magnitude bar
+          // Mkt cap: tabular numerals (the magnitude bars were removed 2026-07 per Dorian)
           var cap = tds[4];
           if (!cap.classList.contains('mcap')) {
             var txt = cap.textContent.trim();
             cap.classList.add('mcap');
             cap.textContent = '';
-            var _bar = document.createElement('span'); _bar.className = 'mcap-bar';
             var _val = document.createElement('span'); _val.className = 'mcap-val'; _val.textContent = txt;
-            cap.appendChild(_bar); cap.appendChild(_val);
+            cap.appendChild(_val);
           }
-          var v = parseCap(cap.textContent);
-          var w = v > 0 ? Math.max(3, Math.min(100, ((Math.log10(v) - logFloor) / (logMax - logFloor)) * 100)) : 0;
-          cap.querySelector('.mcap-bar').style.width = w.toFixed(1) + '%';
 
           // Commodity colour chip(s)
           var com = tds[5];
@@ -1305,10 +1298,10 @@
           <div class="footer-contact">
             <ul>
               <li><a href="tel:6046889997">604 688 9997</a></li>
-              <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a> <span class="email-role">New projects</span></li>
-              <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a> <span class="email-role">Client updates</span></li>
-              <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a> <span class="email-role">Billing</span></li>
-              <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a> <span class="email-role">Support</span></li>
+              <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
+              <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
+              <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
+              <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
               <li class="footer-loc">Victoria, BC, Canada</li>
             </ul>
           </div>
