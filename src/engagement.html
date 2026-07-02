@@ -8,6 +8,7 @@ description: "How we engage with exploration-stage companies — project work on
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
 <title>How We Work With Exploration Companies — Project, Launch &amp; Retainer — Exploration Sites</title>
 <meta name="description" content="How we engage with exploration-stage companies — project work on a single fixed quote, a complete launch package, and ongoing monthly retainers, each built around your project and timeline.">
 <meta name="theme-color" content="#1A101F">
@@ -52,10 +53,11 @@ description: "How we engage with exploration-stage companies — project work on
     --vellum:   #E8E2D5;
     --graticule:#C8C2B4;
     --ore:      #B8823A;
+    --ore-text: #815A20;  /* deepened ore for small text — AA on quartz/vellum/white; matches styles.css */
     --moss:     #5F7052;
 
     --body:     #5A5F63;
-    --muted:    #8A8478;
+    --muted:    #68635A;  /* AA on white (6.0), vellum (4.6), and quartz (5.3) — was #8A8478 at 3.7:1 on white */
     --border:   rgba(26,16,31,0.08);
     --border-strong: rgba(26,16,31,0.16);
     --hairline: rgba(26,16,31,0.12);
@@ -212,6 +214,10 @@ description: "How we engage with exploration-stage companies — project work on
   }
   .nav-links a:hover { color: var(--graphite); }
   .nav-links a:hover::after { right: 0; }
+  /* Current page: held-open underline — mirrors styles.css (this page doesn't load it) */
+  .nav-links a[aria-current="page"] { color: var(--graphite); }
+  .nav-links a[aria-current="page"]::after { right: 0; }
+  .nav-mobile-links > li > a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
 
   /* Mobile hamburger */
   .nav-hamburger {
@@ -542,7 +548,7 @@ description: "How we engage with exploration-stage companies — project work on
   .mega-menu-card-price {
     font-size: 11px;
     font-weight: 600;
-    color: var(--ore);
+    color: var(--ore-text);
     margin-top: 6px;
   }
 
@@ -609,7 +615,7 @@ description: "How we engage with exploration-stage companies — project work on
     padding-bottom: 22px;
     border-bottom: 1px solid var(--hairline);
   }
-  .doc-meta .ore { color: var(--ore); }
+  .doc-meta .ore { color: var(--ore-text); }
   .doc-meta .sep { color: var(--graticule); }
 
   .masthead-grid {
@@ -622,7 +628,7 @@ description: "How we engage with exploration-stage companies — project work on
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ore); margin-bottom: 20px;
+    color: var(--ore-text); margin-bottom: 20px;
     display: inline-flex; align-items: center; gap: 12px;
   }
   .eyebrow::before {
@@ -661,7 +667,7 @@ description: "How we engage with exploration-stage companies — project work on
     font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--muted);
   }
-  .sec-reg b { color: var(--ore); font-weight: 600; }
+  .sec-reg b { color: var(--ore-text); font-weight: 600; }
   .sec-head h2 {
     font-family: var(--font-serif);
     font-weight: 300;
@@ -695,7 +701,7 @@ description: "How we engage with exploration-stage companies — project work on
   .model-ref {
     font-family: var(--font-mono);
     font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ore);
+    color: var(--ore-text);
   }
   .model-tag {
     font-family: var(--font-mono);
@@ -834,7 +840,7 @@ description: "How we engage with exploration-stage companies — project work on
   }
   /* Pricing links inside the launch panel */
   .launch-link {
-    color: var(--ore); text-decoration: none;
+    color: var(--ore-text); text-decoration: none;
     border-bottom: 1px solid rgba(184,130,58,0.4);
     transition: border-color 0.2s var(--ease-out-soft);
   }
@@ -933,7 +939,7 @@ description: "How we engage with exploration-stage companies — project work on
     color: var(--moss); line-height: 1;
     transform: translateY(1px);
   }
-  .cell.is-pop .check { color: var(--ore); }
+  .cell.is-pop .check { color: var(--ore-text); }
   .cell .val {
     font-size: 13px; line-height: 1.4; color: var(--slate);
     font-variant-numeric: tabular-nums;
@@ -990,7 +996,7 @@ description: "How we engage with exploration-stage companies — project work on
     font-variant-numeric: tabular-nums;
     margin-bottom: clamp(28px, 3.5vw, 48px);
   }
-  .apr-step-num .of { font-size: 10.5px; color: var(--ore); letter-spacing: 0.06em; }
+  .apr-step-num .of { font-size: 10.5px; color: var(--ore-text); letter-spacing: 0.06em; }
   .apr-step-title {
     font-family: var(--font-serif);
     font-size: clamp(18px, 1.7vw, 22px); font-weight: 400;
@@ -1146,6 +1152,7 @@ description: "How we engage with exploration-stage companies — project work on
   .footer-social svg { width: 18px; height: 18px; }
   .footer-contact { display: flex; flex-direction: column; text-align: right; }
   .footer-contact .email-local { color: var(--graphite); }
+  .footer-contact .email-role { display: inline-block; margin-left: 8px; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
   .footer-col ul, .footer-contact ul { list-style: none; padding: 0; margin: 0; }
   .footer-col ul li, .footer-contact ul li { margin-bottom: 6px; }
   .footer-col ul a, .footer-contact ul a {
@@ -1170,9 +1177,11 @@ description: "How we engage with exploration-stage companies — project work on
     .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
   }
 
-  /* ---------- REVEAL ---------- */
-  .reveal { opacity: 0; transform: translateY(14px); }
-  .reveal.in { opacity: 1; transform: none; transition: opacity .6s var(--ease-out-quart), transform .6s var(--ease-out-quart); }
+  /* ---------- REVEAL ----------
+     Hidden state applies only when JS is running (html.js set inline in <head>),
+     so no-JS visitors, scrapers, and print get visible content. */
+  .js .reveal { opacity: 0; transform: translateY(14px); }
+  .js .reveal.in { opacity: 1; transform: none; transition: opacity .6s var(--ease-out-quart), transform .6s var(--ease-out-quart); }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 1080px) {
@@ -1242,6 +1251,7 @@ description: "How we engage with exploration-stage companies — project work on
     <div class="shell">
       <div class="sec-head reveal">
         <span class="sec-reg">[ §<b>01</b> / 04 ]&nbsp;&nbsp;Engagement models</span>
+        <h2 class="sr-only">Engagement models</h2>
       </div>
 
       <!-- Three compact model cards -->
@@ -1414,7 +1424,7 @@ description: "How we engage with exploration-stage companies — project work on
         </div>
         <div class="retainer-card is-popular">
           <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Growth</span><span class="retainer-pop">Most popular</span></span>
+            <span class="retainer-head-left"><span class="retainer-tier">Growth</span><span class="retainer-pop">Most retained tier</span></span>
             <span class="retainer-dollars" style="font-family: var(--font-mono); text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$3,500<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
@@ -1475,7 +1485,9 @@ description: "How we engage with exploration-stage companies — project work on
         }
         #retainers .retainer-head-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         #retainers .retainer-head .retainer-tier { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--quartz) !important; margin: 0; }
-        #retainers .retainer-pop { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--graphite); background: var(--ore); padding: 2px 7px; border-radius: 3px; }
+        /* Sits on the graphite retainer-card head — full-strength gold (5.5:1 on
+           #1A101F); --ore-text is a LIGHT-surface token and fails here. */
+        #retainers .retainer-pop { font-size: 9px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ore); border-bottom: 1px solid var(--ore); padding: 2px 0; }
         #retainers .retainer-dollars { font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 1px; color: var(--graticule); line-height: 1; }
         #retainers .retainer-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 26px; }
         #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px; }
@@ -1532,7 +1544,7 @@ description: "How we engage with exploration-stage companies — project work on
     <div class="shell">
       <!-- TRUST STRIP -->
       <div class="eng-trust" aria-label="A selection of companies we work with">
-        <span class="eng-trust-label">Trusted by the world&rsquo;s best exploration teams and miners</span>
+        <span class="eng-trust-label">Trusted by {{ proof.companies }}+ exploration teams across {{ proof.continents }} continents</span>
         <div class="eng-trust-logos">
           <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
           <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
@@ -1608,10 +1620,10 @@ description: "How we engage with exploration-stage companies — project work on
       <div class="footer-contact">
         <ul>
           <li><a href="tel:6046889997">604 688 9997</a></li>
-          <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
-          <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
-          <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
-          <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
+          <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a> <span class="email-role">New projects</span></li>
+          <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a> <span class="email-role">Client updates</span></li>
+          <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a> <span class="email-role">Billing</span></li>
+          <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a> <span class="email-role">Support</span></li>
         </ul>
       </div>
     </div>
@@ -1630,17 +1642,33 @@ description: "How we engage with exploration-stage companies — project work on
 
 <script>
   // ===== Shared nav: mega-menu + mobile nav (ported from src/_includes/scripts.html) =====
-  // Mega menu tab switching
-  document.querySelectorAll('.mega-menu-tab').forEach(function(tab) {
-    tab.addEventListener('mouseenter', function() {
-      var tabId = this.getAttribute('data-tab');
-      document.querySelectorAll('.mega-menu-tab').forEach(function(t) { t.classList.remove('is-active'); });
-      document.querySelectorAll('.mega-menu-tab-panel').forEach(function(p) { p.classList.remove('is-active'); });
-      this.classList.add('is-active');
-      var panel = document.getElementById('panel-' + tabId);
-      if (panel) panel.classList.add('is-active');
+  // Mega menu tab switching — click SELECTS the panel (never navigates), matching
+  // the shared scripts.html selectTab incl. aria-selected/tabindex sync.
+  // Node lists are cached once — the handlers fire on mouseenter/click/focus.
+  (function () {
+    var megaTabs = Array.prototype.slice.call(document.querySelectorAll('.mega-menu-tab'));
+    var megaPanels = Array.prototype.slice.call(document.querySelectorAll('.mega-menu-tab-panel'));
+    megaTabs.forEach(function(tab) {
+      function activateTab() {
+        if (tab.classList.contains('is-active')) return;
+        var tabId = tab.getAttribute('data-tab');
+        megaTabs.forEach(function(t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.setAttribute('tabindex', on ? '0' : '-1');
+        });
+        megaPanels.forEach(function(p) {
+          var on = p.id === 'panel-' + tabId;
+          p.classList.toggle('is-active', on);
+          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        });
+      }
+      tab.addEventListener('mouseenter', activateTab);
+      tab.addEventListener('click', activateTab);
+      tab.addEventListener('focus', activateTab);
     });
-  });
+  })();
 
   // Mega menu aria-expanded toggle
   (function () {

@@ -142,7 +142,7 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
         font-family: var(--font-sans);
         font-size: 12px;
         letter-spacing: 0.16em;
-        color: #B8823A;
+        color: var(--ore-text);
         margin-bottom: 12px;
       }
       .csv3-mech-title {
@@ -246,7 +246,7 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
       <div class="csv3-thesis" data-reveal>
         <span class="csv3-thesis-mark" aria-hidden="true">&ldquo;</span>
         <div class="section-label">Our Position</div>
-        <p class="csv3-thesis-quote">We are the <em>translation layer</em><br>between a deposit and<br>the capital markets.</p>
+        <p class="csv3-thesis-quote">We are the translation layer<br>between a deposit and<br>the capital markets.</p>
         <p class="csv3-thesis-sub">We started in 1996 as mapmakers &mdash; take the data, make it clean, get it into the news / report / deck. Three decades and 500+ projects later, the discipline is the same and the mandate is larger: convert invisible, buried, technical data into something an allocator can understand in the time they actually have.</p>
       </div>
     </section>
@@ -302,19 +302,19 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
     <section class="stats">
       <div class="stats-grid">
         <div data-reveal>
-          <div class="stat-number" data-count-to="{{ proof.projects }}" data-count-suffix="+">{{ proof.projects }}+</div>
+          <div class="stat-number">{{ proof.projects }}+</div>
           <div class="stat-label">Projects Completed</div>
         </div>
         <div data-reveal data-reveal-delay="1">
-          <div class="stat-number" data-count-to="{{ proof.companies }}" data-count-suffix="+">{{ proof.companies }}+</div>
+          <div class="stat-number">{{ proof.companies }}+</div>
           <div class="stat-label">Companies Served</div>
         </div>
         <div data-reveal data-reveal-delay="2">
-          <div class="stat-number" data-count-to="{{ proof.continents }}">{{ proof.continents }}</div>
+          <div class="stat-number">{{ proof.continents }}</div>
           <div class="stat-label">Continents</div>
         </div>
         <div data-reveal data-reveal-delay="3">
-          <div class="stat-number" data-count-to="{{ proof.years }}" data-count-suffix="+">{{ proof.years }}+</div>
+          <div class="stat-number">{{ proof.years }}+</div>
           <div class="stat-label">Years In The Work</div>
         </div>
       </div>

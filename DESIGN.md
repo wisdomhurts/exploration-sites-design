@@ -69,9 +69,10 @@ Clarity. Precision. Discovery. Thesis. Interval. Structure. Narrative. Instituti
 
 ## 4. Typography
 
-"Three voices. Never a fourth."
+"Two voices. Never a third."
 
-Serif headlines, sans body, mono for anything numeric or cartographic.
+Serif headlines and display numbers, sans for everything else. (The mono data
+voice was retired 2026-07 — see Voice 03 below.)
 
 ### Voice 01 — Editorial Serif
 **Font:** `"Source Serif 4"`, serif
@@ -98,17 +99,14 @@ Line-height: 1.1–1.2 · Tracking: slight positive on large sizes
 
 Line-height: 1.5–1.6 · Tracking: 0
 
-### Voice 03 — Precision Mono
-**Font:** `"JetBrains Mono"`, monospace
-**Role:** Drill intercepts, coordinates, figure captions, source attributions. Reads as measured, logged, recorded. "This is fact, not opinion."
-
-| Size | Use |
-|------|-----|
-| 13px | Data labels, coordinates |
-| 16–20px | Callout numbers |
-| 28–42px | Stat numbers, prices |
-
-Line-height: 1.5 · Tracking: -0.03em
+### Voice 03 — Precision Mono (RETIRED 2026-07)
+The JetBrains Mono data voice was retired per brand direction 2026-07 (`--font-mono`
+now aliases to Inter in `styles.css`; stat numbers are set in the serif display face).
+Its duties fold into the two remaining voices:
+- **Stat numbers, prices, callout numbers** → Source Serif 4 (display sizes)
+- **Data labels, coordinates, figure captions, source attributions** → Inter with
+  `font-variant-numeric: tabular-nums`, small sizes, uppercase + letter-spacing
+Do not reintroduce a monospace face without a deliberate brand decision.
 
 ### Typography Rules
 - Tabular figures in all tables
@@ -155,7 +153,7 @@ Line-height: 1.5 · Tracking: -0.03em
 ### Home
 1. Hero (headline + CTAs)
 2. Services overview (7 rows)
-3. Stats bar (4 metrics, JetBrains Mono)
+3. Stats bar (4 metrics, serif display numbers)
 4. Values (3 principles from brand deck)
 5. Social proof CTA
 6. Footer

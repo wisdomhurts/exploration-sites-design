@@ -2,7 +2,7 @@
 layout: base.html
 permalink: "index.html"
 title: "Exploration Sites — Institutional-Grade Investor Relations for Exploration Companies"
-description: "The premium investor relations and visualization partner that transforms complex geology into institutional-grade narratives. Maps, websites, presentations, and brand systems for exploration-stage mining companies."
+description: "Investor maps, decks, websites, and brand for exploration-stage mining companies — the translation layer between your deposit and the capital markets. 500+ projects since 1996."
 ---
 
     <style>
@@ -113,7 +113,19 @@ description: "The premium investor relations and visualization partner that tran
       /* Once the WebGL globe boots, hide the fallback. */
       .hero-globe.is-live .hero-globe-fallback { display: none; }
       @media (max-width: 767px) {
-        .hero-globe-fallback { right: 20px; width: 420px; height: 420px; transform: translate(0, -50%); opacity: 0.6; }
+        /* max-width:none / max-height:none kill the base 52vw + 92vh caps that
+           squashed the disc into an ellipse (portrait AND landscape phones);
+           aspect-ratio keeps it a circle. */
+        .hero-globe-fallback {
+          right: 20px;
+          width: min(420px, 80vw);
+          max-width: none;
+          max-height: none;
+          height: auto;
+          aspect-ratio: 1 / 1;
+          transform: translate(0, -50%);
+          opacity: 0.6;
+        }
       }
     </style>
 
@@ -489,19 +501,19 @@ description: "The premium investor relations and visualization partner that tran
       <div class="stats" style="padding: 24px 0 32px;">
         <div class="stats-grid">
           <div role="img" aria-label="{{ proof.projects }}+ projects completed">
-            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.projects }}" data-count-suffix="+">{{ proof.projects }}+</div>
+            <div class="stat-number" aria-hidden="true">{{ proof.projects }}+</div>
             <div class="stat-label" aria-hidden="true">Projects Completed</div>
           </div>
           <div role="img" aria-label="{{ proof.websites }}+ websites launched">
-            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.websites }}" data-count-suffix="+">{{ proof.websites }}+</div>
+            <div class="stat-number" aria-hidden="true">{{ proof.websites }}+</div>
             <div class="stat-label" aria-hidden="true">Websites Launched</div>
           </div>
           <div role="img" aria-label="Clients worth ${{ proof.marketCapB }}B+ in client market cap trust us with their visuals">
-            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.marketCapB }}" data-count-prefix="$" data-count-suffix="B+">${{ proof.marketCapB }}B+</div>
+            <div class="stat-number" aria-hidden="true">${{ proof.marketCapB }}B+</div>
             <div class="stat-label" aria-hidden="true">In client market cap trusts us</div>
           </div>
           <div role="img" aria-label="{{ proof.years }}+ years in business">
-            <div class="stat-number" aria-hidden="true" data-count-to="{{ proof.years }}" data-count-suffix="+">{{ proof.years }}+</div>
+            <div class="stat-number" aria-hidden="true">{{ proof.years }}+</div>
             <div class="stat-label" aria-hidden="true">Years in Business</div>
           </div>
         </div>
@@ -554,7 +566,7 @@ description: "The premium investor relations and visualization partner that tran
                 A+'6973ccd74cb7c0683025530e_Hercules_areaplay%20copy.webp',
                 A+'6973c728c3da04f1c182f9b3_GoldTerra_CanadaGreenstoneLocator_DM%20copy.webp',
                 A+'6973d56562f682492b4e2c28_Asante_SouthGhana_Greenstone_Belt_Map%20copy.webp',
-                A+'696e76ffc6d4587f5c1234a8_2_VulcanResources_NevadaLocator-copy-scaled.avif',
+                A+'696e76ffc9b8a5626e9c2981_2_VulcanResources_NevadaLocator-copy-scaled.avif',
                 A+'6973c728bcea646c802e2989_AlgoGrande_Sonora-Locator_DM_HS%20copy.webp'
               ]},
               { key: 'property', label: 'Property & Target', maps: [
@@ -608,6 +620,13 @@ description: "The premium investor relations and visualization partner that tran
             var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             var idx = 0, timer = null, paused = false;
 
+            // A dead CDN asset must never show a broken-image cell in the proof layer.
+            // One delegated capture-phase listener covers every img fill() ever renders
+            // (error events don't bubble, but they do capture).
+            rotator.addEventListener('error', function (e) {
+              var cell = e.target && e.target.closest ? e.target.closest('.map-cell') : null;
+              if (cell) cell.remove();
+            }, true);
             function fill(t) {
               rotator.innerHTML = t.maps.map(function (u) {
                 return '<button type="button" class="map-cell" data-lightbox data-full="' + u + '" data-caption="' + t.label + ' — Exploration Sites">'
@@ -644,10 +663,15 @@ description: "The premium investor relations and visualization partner that tran
             }
             function schedule() { if (reduce) return; clearTimeout(timer); timer = setTimeout(function () { if (!paused) { show((idx + 1) % TYPES.length); schedule(); } else { schedule(); } }, DURATION); }
             tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); schedule(); }); });
-            // pause auto-rotate while hovering the gallery
+            // pause auto-rotate while hovering, focused within (keyboard), or
+            // after a touch on the gallery — hover alone left touch/keyboard
+            // users unable to stop the 8s advance (Nielsen H3).
             var wrap = rotator.parentNode;
             wrap.addEventListener('mouseenter', function () { paused = true; });
             wrap.addEventListener('mouseleave', function () { paused = false; });
+            wrap.addEventListener('focusin', function () { paused = true; });
+            wrap.addEventListener('focusout', function () { if (!wrap.contains(document.activeElement)) paused = false; });
+            document.addEventListener('touchstart', function (e) { paused = wrap.contains(e.target); }, { passive: true });
             show(0); schedule();
           })();
         </script>

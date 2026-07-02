@@ -11,13 +11,28 @@ permalink: "pricing.html"
       <h1 class="hero-headline" style="font-size: 44px;">Transparent pricing. No surprises.</h1>
       <p class="hero-body">&Agrave; la carte services, a complete launch package, and ongoing retainers &mdash; all built for exploration-stage companies.</p>
       <p style="font-size: 13px; color: var(--muted); margin-top: -24px;">All prices in CAD. GST not included.</p>
+
+      <!-- Three-model chooser: decide first, then read the tearsheet (UX — the
+           page lists ~24 price points; give the reader a 3-way decision up top). -->
+      <style>
+        .pricing-chooser { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+        .pricing-chooser a { display: block; flex: 1 1 220px; max-width: 340px; padding: 14px 16px; border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s var(--ease-out-soft); }
+        .pricing-chooser a:hover { border-color: var(--slate); }
+        .pricing-chooser .pc-name { display: block; font-family: var(--font-serif); font-size: 19px; color: var(--graphite); margin-bottom: 3px; }
+        .pricing-chooser .pc-note { display: block; font-size: 12px; color: var(--muted); line-height: 1.5; }
+      </style>
+      <nav class="pricing-chooser" aria-label="Choose an engagement model">
+        <a href="#a-la-carte"><span class="pc-name">&Agrave; la carte</span><span class="pc-note">Pick single deliverables &mdash; maps from $1,200</span></a>
+        <a href="#launch-package"><span class="pc-name">Launch Package</span><span class="pc-note">The full IR foundation &mdash; $24,000</span></a>
+        <a href="#retainers"><span class="pc-name">Monthly retainer</span><span class="pc-note">Standing capacity &mdash; from $1,900/mo</span></a>
+      </nav>
     </section>
 
     <div class="divider"></div>
 
     <!-- A LA CARTE PRICING -->
     <section class="section">
-      <div class="pricing-grid">
+      <div class="pricing-grid" id="a-la-carte" style="scroll-margin-top: 90px;">
         <!-- Investor Maps -->
         <div class="pricing-block">
           <div class="pricing-block-label">Make Your Geology Investable</div>
@@ -90,7 +105,9 @@ permalink: "pricing.html"
       </div>
 
       <!-- Launch Package -->
-      <div class="package-intro">
+      <!-- SYNC NOTE: these figures are quoted on engagement.html's model cards
+           ($1,200 / $24,000 / $1,900-$3,500-$7,500). Change them together. -->
+      <div class="package-intro" id="launch-package" style="scroll-margin-top: 90px;">
         <div class="section-label">Everything You Need to Launch</div>
         <h2 class="package-intro-title">The complete investor relations package.</h2>
         <p class="package-intro-body">One package, one price. Maps, deck, website, fact sheet, and brand &mdash; everything an exploration company needs to become investable.</p>
@@ -111,7 +128,7 @@ permalink: "pricing.html"
       </div>
 
       <!-- Retainers -->
-      <div style="margin-top: 60px;">
+      <div style="margin-top: 60px; scroll-margin-top: 90px;" id="retainers">
         <div class="pricing-block-label">Ongoing Support</div>
         <div class="pricing-block-title" style="margin-bottom: 0;">Monthly retainers.</div>
         <div class="retainer-grid">
@@ -130,7 +147,7 @@ permalink: "pricing.html"
             <a class="retainer-cta" href="book.html?tier=Essentials">Book a call about Essentials &rarr;</a>
           </div>
           <div class="retainer-card is-popular">
-            <div class="retainer-badge">Most Popular</div>
+            <div class="retainer-badge">Most retained tier</div>
             <div class="retainer-tier">Growth</div>
             <div class="retainer-price">$3,500/mo</div>
             <div class="retainer-rate">$175/hr &middot; Save 13%</div>
@@ -189,7 +206,7 @@ permalink: "pricing.html"
     <section class="cta-section">
       <!-- TRUST STRIP -->
       <div class="trust-strip" aria-label="A selection of companies we work with">
-        <span class="trust-strip-label">Trusted by the world&rsquo;s best exploration teams and miners</span>
+        <span class="trust-strip-label">Trusted by {{ proof.companies }}+ exploration teams across {{ proof.continents }} continents</span>
         <div class="trust-strip-logos">
           <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
           <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
