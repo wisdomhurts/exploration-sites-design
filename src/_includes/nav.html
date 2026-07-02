@@ -18,19 +18,19 @@
             <div class="mega-menu-arrow"></div>
             <div class="mega-menu-panel">
               <div class="mega-menu-sidebar" role="tablist" aria-label="What we do" aria-orientation="vertical">
-                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" data-href="investor-maps.html" aria-selected="true" aria-controls="panel-maps" tabindex="0">
+                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" aria-selected="true" aria-controls="panel-maps" tabindex="0">
                   <span class="mega-menu-tab-title">Investor Maps</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" data-href="webflow.html" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
                   <span class="mega-menu-tab-title">Websites</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" data-href="presentations.html" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
                   <span class="mega-menu-tab-title">Presentations</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" data-href="logos-branding.html" aria-selected="false" aria-controls="panel-design" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" aria-selected="false" aria-controls="panel-design" tabindex="-1">
                   <span class="mega-menu-tab-title">Design</span>
                 </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" data-href="nurture-crm.html" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
+                <button type="button" class="mega-menu-tab" role="tab" id="tab-investorhub" data-tab="investorhub" aria-selected="false" aria-controls="panel-investorhub" tabindex="-1">
                   <span class="mega-menu-tab-title">Investor Hub</span>
                 </button>
               </div>
@@ -38,6 +38,9 @@
                 <!-- Investor Maps Panel -->
                 <div class="mega-menu-tab-panel is-active" id="panel-maps" role="tabpanel" aria-labelledby="tab-maps" tabindex="0">
                   <div class="mega-menu-cards">
+                    <a href="investor-maps.html" class="mega-menu-card mega-menu-card--all">
+                      <div class="mega-menu-card-title">All Investor Maps <span aria-hidden="true">&rarr;</span></div>
+                    </a>
                     <a href="locators-area-plays.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
                     </a>
@@ -61,6 +64,9 @@
                 <!-- Websites Panel -->
                 <div class="mega-menu-tab-panel" id="panel-websites" role="tabpanel" aria-labelledby="tab-websites" tabindex="0" hidden>
                   <div class="mega-menu-cards">
+                    <a href="websites.html" class="mega-menu-card mega-menu-card--all">
+                      <div class="mega-menu-card-title">All Websites <span aria-hidden="true">&rarr;</span></div>
+                    </a>
                     <a href="webflow.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Webflow</div>
                     </a>
@@ -118,12 +124,12 @@
             </div>
           </div>
         </li>
-        <li><a href="why.html">Why We Exist</a></li>
-        <li><a href="engagement.html">Engagement</a></li>
-        <li><a href="clients.html">Clients</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="why.html"{% if page.url == "/why.html" %} aria-current="page"{% endif %}>Why We Exist</a></li>
+        <li><a href="engagement.html"{% if page.url == "/engagement.html" %} aria-current="page"{% endif %}>Engagement</a></li>
+        <li><a href="clients.html"{% if page.url == "/clients.html" %} aria-current="page"{% endif %}>Clients</a></li>
+        <li><a href="case-studies.html"{% if page.url == "/case-studies.html" %} aria-current="page"{% endif %}>Case Studies</a></li>
+        <li><a href="team.html"{% if page.url == "/team.html" %} aria-current="page"{% endif %}>Our Team</a></li>
+        <li><a href="contact.html"{% if page.url == "/contact.html" %} aria-current="page"{% endif %}>Contact</a></li>
         </ul>
         <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
       </div>
@@ -184,12 +190,12 @@
           </div>
         </div>
       </li>
-      <li><a href="why.html">Why We Exist</a></li>
-      <li><a href="engagement.html">Engagement</a></li>
-      <li><a href="clients.html">Clients</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="team.html">Our Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="why.html"{% if page.url == "/why.html" %} aria-current="page"{% endif %}>Why We Exist</a></li>
+      <li><a href="engagement.html"{% if page.url == "/engagement.html" %} aria-current="page"{% endif %}>Engagement</a></li>
+      <li><a href="clients.html"{% if page.url == "/clients.html" %} aria-current="page"{% endif %}>Clients</a></li>
+      <li><a href="case-studies.html"{% if page.url == "/case-studies.html" %} aria-current="page"{% endif %}>Case Studies</a></li>
+      <li><a href="team.html"{% if page.url == "/team.html" %} aria-current="page"{% endif %}>Our Team</a></li>
+      <li><a href="contact.html"{% if page.url == "/contact.html" %} aria-current="page"{% endif %}>Contact</a></li>
     </ul>
     <a href="book.html" class="nav-mobile-cta">Book a discovery call</a>
   </div>
@@ -227,6 +233,9 @@
       outline-offset: 2px;
       border-radius: 3px;
     }
+
+    /* Category overview card at the head of a panel ("All Investor Maps →") */
+    .mega-menu-card--all .mega-menu-card-title { color: var(--ore-text, var(--ore)); font-weight: 600; }
 
     /* Mobile services accordion */
     .nav-mobile-accordion { border-bottom: 1px solid var(--border); }

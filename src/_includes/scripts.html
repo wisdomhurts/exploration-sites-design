@@ -28,8 +28,10 @@
 
       tabs.forEach(function (tab, i) {
         // Switch on hover (desktop), click, and focus (keyboard Tab into list).
+        // Click SELECTS the panel — it never navigates. Touch users tap a tab to
+        // see its cards; category pages are reached via the panel's links.
         tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
-        tab.addEventListener('click', function () { var href = tab.getAttribute('data-href'); if (href) { window.location.href = href; } else { selectTab(tab, false); } });
+        tab.addEventListener('click', function () { selectTab(tab, false); });
         tab.addEventListener('focus', function () { selectTab(tab, false); });
         // Roving-tabindex arrow-key navigation within the tablist.
         tab.addEventListener('keydown', function (e) {
@@ -172,52 +174,8 @@
       document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
     })();
 
-    // Animated count-up numbers
-    (function () {
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var els = document.querySelectorAll('[data-count-to]');
-      if (!els.length) return;
-      function format(val, decimals, prefix, suffix) {
-        if (!isFinite(val) || val < 0) val = 0; /* never paint a negative/NaN frame */
-        var n = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
-        if (decimals === 0) {
-          n = n.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
-        return (prefix || '') + n + (suffix || '');
-      }
-      function animate(el) {
-        var target = parseFloat(el.getAttribute('data-count-to'));
-        var decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
-        var prefix = el.getAttribute('data-count-prefix') || '';
-        var suffix = el.getAttribute('data-count-suffix') || '';
-        if (prefersReduced || isNaN(target)) {
-          el.textContent = format(target, decimals, prefix, suffix);
-          return;
-        }
-        var duration = 1400;
-        var start = performance.now();
-        function tick(now) {
-          var t = Math.min(1, (now - start) / duration);
-          var eased = 1 - Math.pow(1 - t, 3);
-          el.textContent = format(target * eased, decimals, prefix, suffix);
-          if (t < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(animate);
-        return;
-      }
-      var countIo = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animate(entry.target);
-            countIo.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      els.forEach(function (el) { countIo.observe(el); });
-    })();
+    // Stat numbers are static by design (2026-07): an understated brand doesn't
+    // perform its numbers. The markup carries the final values; no count-up.
 
     // Scroll-pinned case: track current step
     (function () {

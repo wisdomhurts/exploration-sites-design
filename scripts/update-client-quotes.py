@@ -22,6 +22,7 @@ Run manually:  python scripts/update-client-quotes.py
 Scheduled hourly via .github/workflows/hourly-quotes.yml
 """
 
+import json
 import re
 import os
 import time
@@ -32,7 +33,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLIENTS_HTML = os.path.join(ROOT, 'src', 'clients.html')
 MONTAGE_HTML = os.path.join(ROOT, 'src', 'case-study-montage.html')
 CASES_HTML   = os.path.join(ROOT, 'src', 'case-studies.html')
-INDEX_HTML   = os.path.join(ROOT, 'src', 'index.html')
+PROOF_JSON   = os.path.join(ROOT, 'src', '_data', 'proof.json')
 
 MONTAGE_TICKER = 'MAU'        # TSX
 MONTAGE_BASELINE = 130e6      # ~C$130M market cap when ES came on board, 2023
@@ -164,7 +165,7 @@ def apply_updates(html, updates):
     html = re.sub(r'>\$\d+B\+<', f'>{new_total}<', html)
 
     print(f"Updated {count} client rows. Combined market cap: {new_total}")
-    return html
+    return html, int(round(total / 1e9))
 
 
 def _sub(html, pattern, repl, label, count=0):
@@ -213,30 +214,25 @@ def update_montage_pages(montage):
         f.write(h)
 
 
-def sync_index_market_cap():
-    """Keep the homepage 'Client Market Cap' stat in lockstep with clients.html.
+def sync_index_market_cap(val):
+    """Keep the site-wide market-cap stat in lockstep with the clients table.
 
-    Reads the combined '$NNB+' figure that apply_updates() just wrote into
-    clients.html and mirrors it into the homepage count-up stat (both the
-    data-count-to attribute and the visible text)."""
-    with open(CLIENTS_HTML, 'r', encoding='utf-8') as f:
-        c = f.read()
-    m = re.search(r'>\$(\d+)B\+<', c)
-    if not m:
-        print("  [warn] could not read combined market cap from clients.html")
-        return
-    val = m.group(1)
-    with open(INDEX_HTML, 'r', encoding='utf-8') as f:
-        h = f.read()
-    h2 = re.sub(
-        r'(data-count-to=")\d+(" data-count-prefix="\$" data-count-suffix="B\+">)\$\d+B\+<',
-        rf'\g<1>{val}\g<2>${val}B+<', h)
-    if h2 != h:
-        with open(INDEX_HTML, 'w', encoding='utf-8') as f:
-            f.write(h2)
-        print(f"Synced homepage market cap -> ${val}B+")
+    Takes the combined total (in $B, computed by apply_updates from the freshly
+    fetched caps) and mirrors it into src/_data/proof.json (marketCapB), which
+    every page renders via Liquid ({{ proof.marketCapB }}): the homepage stat
+    strip, why.html, and the clients-page hero. (The old approach regexed a
+    data-count-to attribute in index.html; that markup is gone — the stat is
+    static text sourced from proof.json now.)"""
+    with open(PROOF_JSON, 'r', encoding='utf-8') as f:
+        proof = json.load(f)
+    if proof.get('marketCapB') != val:
+        proof['marketCapB'] = val
+        with open(PROOF_JSON, 'w', encoding='utf-8') as f:
+            json.dump(proof, f, indent=2)
+            f.write('\n')
+        print(f"Synced proof.json marketCapB -> {val}")
     else:
-        print("  [warn] homepage market-cap stat not found / unchanged")
+        print("proof.json marketCapB already current")
 
 
 def main():
@@ -248,11 +244,11 @@ def main():
     updates, montage = fetch_quotes(html)
 
     if updates:
-        html = apply_updates(html, updates)
+        html, total_b = apply_updates(html, updates)
         with open(CLIENTS_HTML, 'w', encoding='utf-8') as f:
             f.write(html)
         print(f"Saved {CLIENTS_HTML}")
-        sync_index_market_cap()
+        sync_index_market_cap(total_b)
     else:
         print("No client updates to apply")
 

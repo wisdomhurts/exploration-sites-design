@@ -26,7 +26,7 @@
       --vellum: #E8E2D5;       /* 8% — Warm light, alternating sections */
       --graticule: #C8C2B4;    /* 8% — Hairline rules, muted text, map grids */
       --ore: #B8823A;          /* ≤2% — Restrained accent. Earns its appearances */
-      --ore-text: #8A5E22;     /* Deepened Ore for SMALL gold text only — ~4.6:1 on Quartz (AA). --ore stays for large/decorative */
+      --ore-text: #815A20;     /* Deepened Ore for SMALL gold text only — AA on Quartz (5.5), Vellum (4.8), white (6.2). --ore stays for large/decorative */
       --moss: #5F7052;         /* Muted sage moss. Land / active-ground / present-state. Subordinate to --ore. */
       --moss-text: #4C5B41;    /* Deepened moss for SMALL sage text on Quartz — ~6.8:1 (AA). */
       --moss-rule: rgba(95,112,82,0.14); /* Sage hairlines / dividers — non-text only. */
@@ -149,9 +149,9 @@
     .maps-rail-link:hover, .maps-rail-link.is-active { color: var(--graphite); }
     .maps-rail-link.is-active { font-weight: 600; }
     .maps-rail-num { font-family: var(--font-mono); font-size: 11px; color: var(--muted); flex-shrink: 0; width: 16px; }
-    .maps-rail-link:hover .maps-rail-num, .maps-rail-link.is-active .maps-rail-num { color: var(--ore); }
+    .maps-rail-link:hover .maps-rail-num, .maps-rail-link.is-active .maps-rail-num { color: var(--ore-text); }
     .maps-rail-text { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.35; }
-    .maps-rail-all { font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--ore); text-decoration: none; }
+    .maps-rail-all { font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--ore-text); text-decoration: none; }
     .maps-rail-all:hover { text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 900px) {
       .maps-page { grid-template-columns: 1fr; gap: 0; }
@@ -248,6 +248,10 @@
     }
     .nav-links a:hover { color: var(--graphite); }
     .nav-links a:hover::after { right: 0; }
+    /* Current page: the hover underline held open (H1 visibility-of-status) */
+    .nav-links a[aria-current="page"] { color: var(--graphite); }
+    .nav-links a[aria-current="page"]::after { right: 0; }
+    .nav-mobile-links > li > a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
 
     /* Mobile hamburger */
     .nav-hamburger {
@@ -811,8 +815,19 @@
     @media (max-width: 767px) {
       .hero-content { padding: 0 40px; }
       .hero-globe { padding-right: 20px; justify-content: center; opacity: 0.6; }
-      .hero-globe-canvas { width: 420px; height: 420px; }
+      .hero-globe-canvas {
+        width: min(420px, 80vw);
+        max-width: none;
+        max-height: none; /* base 92vh cap would re-squash the circle in landscape */
+        height: auto;
+        aspect-ratio: 1 / 1;
+        transform: none;
+      }
     }
+
+    /* Until the WebGL globe boots (mobile, reduced-motion, no-WebGL), pins have
+       no projected position — they'd pile up as a tappable smudge at top-left. */
+    .hero-globe:not(.is-live) .hero-globe-pin { display: none; }
 
     .hero-label {
       font-family: var(--font-sans);
@@ -1178,10 +1193,11 @@
       padding: 26px 0;
       text-decoration: none;
       color: var(--graphite);
-      transition: padding-left 0.28s cubic-bezier(.2,.8,.2,1);
+      /* transform, not padding-left — compositor-only; the li carries the border */
+      transition: transform 0.28s cubic-bezier(.2,.8,.2,1);
     }
     .services-editorial-row:hover {
-      padding-left: 12px;
+      transform: translateX(12px);
     }
     .services-editorial-num {
       font-family: var(--font-mono);
@@ -1241,11 +1257,13 @@
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: padding-left 0.28s var(--ease-out-quart);
     }
 
     .service-row:first-child { border-top: 1px solid var(--border); }
-    .service-row:hover { padding-left: 12px; }
+    /* Nudge the children, not the row — keeps the border full-width and the
+       animation compositor-only (was transition: padding-left). */
+    .service-row > * { transition: transform 0.28s var(--ease-out-quart); }
+    .service-row:hover > * { transform: translateX(12px); }
 
     .service-title {
       font-size: 18px;
@@ -1271,9 +1289,14 @@
       transition: transform 0.28s var(--ease-out-quart), color 0.2s ease;
     }
     .service-row:hover .service-arrow {
-      transform: translateX(6px);
+      /* 12px row-shift (on the parent's children) + the original 6px lead */
+      transform: translateX(18px);
       color: var(--ore);
     }
+    /* Non-interactive rows (nurture-crm, investor-analytics, exploration-today-ai)
+       neutralised the OLD padding-left hover; cancel the transform mechanism too. */
+    .service-row--static:hover > *,
+    .service-row--static:hover .service-arrow { transform: none; color: var(--muted); }
 
     /* --- STATS --- */
     .stats {
@@ -1771,10 +1794,11 @@
       color: var(--on-dark);
     }
 
-    /* The one deliberate Ore moment on the dark panel — the savings figure */
+    /* Warm on-dark, not gold — slate is a mid-tone and 13px gold sat at 1.9:1.
+       The flagship gold price moment lives on engagement's graphite panel. */
     .package-savings {
       font-size: 13px;
-      color: var(--ore);
+      color: rgba(244,241,236,0.92);
       text-align: right;
       margin-top: 4px;
     }
@@ -2276,6 +2300,17 @@
     .footer-col ul a:hover,
     .footer-contact ul a:hover { color: var(--graphite); }
 
+    /* Quiet role labels so four sibling emails aren't a guessing game.
+       No opacity — --muted is calibrated to exactly clear AA on Quartz. */
+    .footer-contact .email-role {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     .footer-loc {
       font-size: 13px;
       color: var(--muted);
@@ -2740,7 +2775,7 @@
     .mini-card:hover { border-color: var(--slate); transform: translateY(-2px); }
     .mini-card-title { font-size: 17px; font-weight: 600; color: var(--graphite); }
     .mini-card-desc { font-size: 14px; line-height: 1.5; color: var(--muted); }
-    .mini-card-arrow { color: var(--ore); font-size: 16px; margin-top: 2px; }
+    .mini-card-arrow { color: var(--ore-text); font-size: 16px; margin-top: 2px; }
 
     @media (max-width: 1024px) {
       .showcase-grid--maps { grid-template-columns: repeat(2, 1fr); }
