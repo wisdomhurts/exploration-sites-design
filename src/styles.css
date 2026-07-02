@@ -215,23 +215,6 @@
       color: var(--graphite);
     }
 
-    /* Wordmark + Est. 1996 signature, right-aligned under the text */
-    .nav-logo-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 2px;
-    }
-    .nav-logo-est {
-      font-family: var(--font-sans);
-      font-size: 8.5px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      line-height: 1;
-    }
-
     .nav-links {
       display: flex;
       align-items: center;
