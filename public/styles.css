@@ -143,16 +143,11 @@
     .maps-showcase-2col { display: grid; grid-template-columns: 188px 1fr; gap: 52px; align-items: start; }
     .maps-showcase-2col .maps-rail { padding-top: 6px; position: sticky; top: 96px; }
     @media (max-width: 900px) { .maps-showcase-2col { grid-template-columns: 1fr; gap: 0; } .maps-showcase-2col .maps-rail { position: static; } }
-    .maps-rail-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .maps-rail-list { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; }
-    .maps-rail-link { display: flex; align-items: baseline; gap: 10px; padding: 8px 0; text-decoration: none; color: var(--slate); transition: color 0.2s var(--ease-out-soft); }
+    .maps-rail-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .maps-rail-link { display: flex; align-items: baseline; padding: 8px 0; text-decoration: none; color: var(--slate); transition: color 0.2s var(--ease-out-soft); }
     .maps-rail-link:hover, .maps-rail-link.is-active { color: var(--graphite); }
     .maps-rail-link.is-active { font-weight: 600; }
-    .maps-rail-num { font-family: var(--font-mono); font-size: 11px; color: var(--muted); flex-shrink: 0; width: 16px; }
-    .maps-rail-link:hover .maps-rail-num, .maps-rail-link.is-active .maps-rail-num { color: var(--ore-text); }
-    .maps-rail-text { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.35; }
-    .maps-rail-all { font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--ore-text); text-decoration: none; }
-    .maps-rail-all:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .maps-rail-text { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.35; white-space: nowrap; }
     @media (max-width: 900px) {
       .maps-page { grid-template-columns: 1fr; gap: 0; }
       .maps-rail { position: static; padding-top: 40px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
@@ -2244,14 +2239,20 @@
       text-transform: lowercase;
       color: var(--graphite);
     }
-    /* "Est. 1996" credibility signature in the footer lockup (BRAND-07) */
+    /* Wordmark + "Est. 1996" signature, right-aligned under the text (BRAND-07) */
+    .footer-mark-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+    }
     .footer-est {
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.16em;
+      font-size: 9px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 10px;
+      line-height: 1;
     }
 
     .footer-statement {
@@ -2263,6 +2264,12 @@
       color: var(--graphite);
       max-width: 28ch;
       margin: 0;
+    }
+    /* Signature phrase — --ore-text keeps 15px gold text AA on Quartz */
+    .footer-statement em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--ore-text);
     }
 
     /* --- nav grid (single Quick Links column) --- */
