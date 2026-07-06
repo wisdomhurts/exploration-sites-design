@@ -2837,44 +2837,70 @@
     .hero-film-link:hover .hero-film-play::after { border-left-color: var(--on-dark); }
     .hero-buttons .hero-film-link { margin-top: 0; margin-left: 4px; }
 
-    /* --- CASE STUDIES: market-cap journey (3rd column on each case) --- */
-    .case-journey { align-self: start; padding-top: 4px; }
-    .case-journey-cap {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.16em;
+    /* --- CASE STUDIES: deliverables ledger (3rd column on each case) ---
+       Replaces the retired market-cap "journey" rail (COMPLIANCE-01 / TRUST-04):
+       a quiet, factual record of what ES produced. Inter labels, static serif
+       numerals, 1px rules. No charts, no bars, no mono. */
+    .case-ledger { align-self: start; padding-top: 4px; }
+    .case-ledger-title {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 22px;
+      color: var(--slate);
+      margin-bottom: 18px;
     }
-    /* Silent Ledger — start value small/left, end value large/right, one Ore
-       hairline between; the whitespace IS the growth. Signature device. */
-    .case-journey-track { display: flex; align-items: baseline; gap: 16px; padding-left: 0; }
-    .case-journey-track::before {
-      content: ""; order: 2; flex: 1 1 auto; height: 1px; align-self: center;
-      background: var(--ore); opacity: 0.45;
+    .case-ledger-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--border);
     }
-    .case-journey-stop { position: relative; margin: 0; }
-    .case-journey-stop::before { display: none; }
-    .case-journey-stop--start { order: 1; }
-    .case-journey-stop--end { order: 3; text-align: right; }
-    .case-journey-val { font-family: var(--font-mono); letter-spacing: -0.02em; line-height: 1; }
-    .case-journey-stop--end .case-journey-val { font-size: 30px; color: var(--graphite); }
-    .case-journey-stop--start .case-journey-val { font-size: 15px; color: var(--muted); }
-    @media (max-width: 520px) {
-      .case-journey-track { flex-direction: column; align-items: flex-start; gap: 9px; }
-      .case-journey-track::before { width: 28px; height: 1px; flex: none; align-self: flex-start; margin-left: 4px; }
-      .case-journey-stop--end { text-align: left; }
+    .case-ledger-item {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--body);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .case-journey-meta {
-      display: block;
-      font-family: var(--font-mono);
+    .case-ledger-item--lead { color: var(--navy); font-weight: 600; }
+    .case-ledger-num { font-family: var(--font-serif); font-variant-numeric: tabular-nums; }
+    /* Dated market-cap footnote — mirrors the .client-table-note caption pattern */
+    .case-footnote {
+      margin-top: 18px;
+      font-family: var(--font-sans);
       font-size: 11px;
-      letter-spacing: 0.06em;
+      line-height: 1.6;
       color: var(--muted);
-      margin-top: 22px;
-      padding-left: 24px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* --- Compliance / source captions (COMPLIANCE-06 / COMPLIANCE-07) ---
+       Quiet muted legal captions on the homepage (stat source + logo-wall
+       identification note). Mirrors the clients-page note but uses --muted. */
+    .compliance-note {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .compliance-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .compliance-note a:hover { color: var(--graphite); }
+    .compliance-note--band { max-width: 760px; margin: 4px 0 0; }
+    .compliance-note--marquee { max-width: 900px; margin: 14px auto 0; padding: 0 24px; text-align: center; }
+
+    /* --- Footer non-adviser line (COMPLIANCE-04) --- */
+    .footer-disclaimer {
+      margin: 14px 0 0;
+      max-width: 720px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      color: var(--muted);
     }
 
     /* Full-bleed thesis pullquote — an editorial pause that gives the philosophy

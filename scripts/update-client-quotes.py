@@ -10,8 +10,9 @@ that shows a quote / market cap consistent from a single fetch:
   - src/case-study-montage.html  Montage hero price + market cap, the outcomes
                                  band "to" figure + multiple, the hero ~Nx stat,
                                  the big pull-quote, and the meta description
-  - src/case-studies.html        Montage market-cap journey end value + the
-                                 multiple in the result line and meta description
+  - src/case-studies.html        Montage's demoted market-cap footnote + the
+                                 intro-prose "today" figure (the old journey rail
+                                 was replaced by a deliverables ledger, 2026-07)
 
 Montage's multiple is computed against its ~C$130M market cap when Exploration
 Sites came on board in 2023 (MONTAGE_BASELINE). Because the clients-table Montage
@@ -205,11 +206,13 @@ def update_montage_pages(montage):
     # ---- case-studies.html (Montage is the FIRST case; only touch that one) ----
     with open(CASES_HTML, 'r', encoding='utf-8') as f:
         h = f.read()
-    # First journey end value belongs to Montage
-    h = _sub(h, r'(<div class="case-journey-stop case-journey-stop--end"><span class="case-journey-val">)\$[\d.]+B(</span>)',
-             rf'\g<1>{cap1}\g<2>', 'cases montage journey end', count=1)
-    h = _sub(h, r'(From ~\$130M to ~)\$[\d.]+B( since 2023 &mdash; about )\d+x',
-             rf'\g<1>{cap1}\g<2>{mult}x', 'cases montage result line')
+    # Montage is the FIRST case. Its old .case-journey market-cap rail was replaced
+    # (2026-07) by a deliverables ledger + a demoted, sourced footnote; keep that
+    # footnote and the intro-prose "today" figure fresh instead.
+    h = _sub(h, r'(Company-reported market cap ~\$130M \(2023\) to ~)\$[\d.]+B( \(today\))',
+             rf'\g<1>{cap1}\g<2>', 'cases montage footnote cap', count=1)
+    h = _sub(h, r'(reported market capitalisation grew from ~\$130M to ~)\$[\d.]+B',
+             rf'\g<1>{cap1}', 'cases montage prose cap', count=1)
     with open(CASES_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
