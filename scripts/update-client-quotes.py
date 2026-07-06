@@ -34,6 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLIENTS_HTML = os.path.join(ROOT, 'src', 'clients.html')
 MONTAGE_HTML = os.path.join(ROOT, 'src', 'case-study-montage.html')
 CASES_HTML   = os.path.join(ROOT, 'src', 'case-studies.html')
+INDEX_HTML   = os.path.join(ROOT, 'src', 'index.html')
 PROOF_JSON   = os.path.join(ROOT, 'src', '_data', 'proof.json')
 
 MONTAGE_TICKER = 'MAU'        # TSX
@@ -214,6 +215,15 @@ def update_montage_pages(montage):
     h = _sub(h, r'(reported market capitalisation grew from ~\$130M to ~)\$[\d.]+B',
              rf'\g<1>{cap1}', 'cases montage prose cap', count=1)
     with open(CASES_HTML, 'w', encoding='utf-8') as f:
+        f.write(h)
+
+    # ---- index.html (homepage "Outcomes" band — keep the Montage card's cap in
+    # lockstep with case-studies so the two pages never disagree) ----
+    with open(INDEX_HTML, 'r', encoding='utf-8') as f:
+        h = f.read()
+    h = _sub(h, r'(<span class="outcome-card-cap">Company-reported market cap ~\$130M \(2023\) to ~)\$[\d.]+B',
+             rf'\g<1>{cap1}', 'index montage outcomes cap', count=1)
+    with open(INDEX_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
 
