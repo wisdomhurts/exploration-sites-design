@@ -5,5 +5,8 @@
   "designFrom": "1,200",
   "motionFrom": "20,000",
   "launchPackage": "24,000",
-  "retainerFrom": "1,900"
+  "retainerFrom": "1,900",
+  "nrmpCadence": "2,500",
+  "nrmpActive": "3,500",
+  "nrmpFull": "4,500"
 }
