@@ -236,9 +236,19 @@
           </div>
         </li>
         <li><a href="why.html">Why We Exist</a></li>
-        <li><a href="engagement.html">Engagement</a></li>
-        <li><a href="clients.html">Clients</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="engagement.html">How We Work</a></li>
+        <li class="nav-dropdown-wrapper">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" aria-controls="work-menu">
+            Work
+            <svg viewBox="0 0 10 10" fill="none"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <div class="nav-dropdown" id="work-menu">
+            <div class="nav-dropdown-panel">
+              <a href="case-studies.html" class="nav-dropdown-link">Case Studies</a>
+              <a href="clients.html" class="nav-dropdown-link">Clients</a>
+            </div>
+          </div>
+        </li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -309,9 +319,19 @@
         </div>
       </li>
       <li><a href="why.html">Why We Exist</a></li>
-      <li><a href="engagement.html">Engagement</a></li>
-      <li><a href="clients.html">Clients</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="engagement.html">How We Work</a></li>
+      <li class="nav-mobile-accordion">
+        <button type="button" class="nav-mobile-acc-trigger" aria-expanded="false" aria-controls="nav-mobile-acc-work">
+          <span>Work</span>
+          <svg class="nav-mobile-acc-chevron" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3.5L5 7.5L9 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="nav-mobile-acc-body" id="nav-mobile-acc-work" hidden>
+          <div class="nav-mobile-acc-group">
+            <a href="case-studies.html">Case Studies</a>
+            <a href="clients.html">Clients</a>
+          </div>
+        </div>
+      </li>
       <li><a href="team.html">Our Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -413,9 +433,89 @@
     }
     .nav-mobile-acc-group a:hover { color: var(--graphite); }
 
+    /* --- "Work" nav dropdown (Case Studies + Clients) — a small single-panel
+       menu that mirrors the mega-menu's open/close mechanics (hover via CSS;
+       click / keyboard / Escape / outside-click via JS in scripts.html). Kept
+       here with the other nav-scoped rules; safe to consolidate into styles.css. */
+    .nav-dropdown-wrapper { position: relative; }
+
+    .nav-dropdown-trigger {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: opacity 0.15s, color 0.2s var(--ease-out-soft);
+    }
+    .nav-dropdown-trigger:hover { opacity: 0.7; }
+    /* Quiet current-section cue when on Case Studies / Clients (parity with the
+       held-open underline the top-level links used to show for these pages) */
+    .nav-dropdown-trigger.is-current { color: var(--graphite); }
+
+    .nav-dropdown-trigger svg {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s ease;
+    }
+    .nav-dropdown-wrapper:hover .nav-dropdown-trigger svg,
+    .nav-dropdown-wrapper.is-open .nav-dropdown-trigger svg { transform: rotate(180deg); }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+      z-index: 200;
+    }
+    .nav-dropdown-wrapper:hover .nav-dropdown,
+    .nav-dropdown-wrapper.is-open .nav-dropdown { opacity: 1; visibility: visible; }
+
+    .nav-dropdown-panel {
+      min-width: 190px;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-deep);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    /* Scoped to beat `.nav-links a` (these anchors live inside .nav-links) and to
+       suppress its animated ore underline pseudo-element inside the panel. */
+    .nav-dropdown-panel .nav-dropdown-link {
+      display: block;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s var(--ease-out-soft), background 0.2s var(--ease-out-soft);
+    }
+    .nav-dropdown-panel .nav-dropdown-link::after { display: none; }
+    .nav-dropdown-panel .nav-dropdown-link:hover { color: var(--graphite); background: rgba(0,0,0,0.03); }
+    .nav-dropdown-panel .nav-dropdown-link[aria-current="page"] { color: var(--graphite); font-weight: 500; }
+
+    /* Current-page cue for the grouped mobile "Work" sub-links */
+    .nav-mobile-acc-group a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
+
     @media (prefers-reduced-motion: reduce) {
       .nav-mobile-acc-chevron,
-      .mega-menu-trigger svg { transition: none; }
+      .mega-menu-trigger svg,
+      .nav-dropdown-trigger svg { transition: none; }
     }
   </style>
 
@@ -428,6 +528,7 @@
       <div class="section-label">Websites</div>
       <h1 class="hero-headline">Websites that earn investor trust.</h1>
       <p class="hero-body">Compelling websites built by industry professionals &mdash; designed to help mining companies tell their story and attract investors through quality visual information and a frictionless user experience.</p>
+      <p class="hero-from">From <b>$12,000</b></p>
     </section>
 
     <div class="divider"></div>
@@ -490,6 +591,7 @@
   <li>We take a limited number of clients each quarter</li>
 </ul>
 
+      <a href="case-studies.html" class="cta-actions-alt">Still evaluating? See the case studies <span aria-hidden="true">&rarr;</span></a>
     </section>
 
     <div class="divider"></div>
@@ -551,7 +653,7 @@
               <ul>
                 <li><a href="services.html">What we do</a></li>
                 <li><a href="why.html">Why we exist</a></li>
-                <li><a href="engagement.html">Engagement</a></li>
+                <li><a href="engagement.html">How We Work</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
                 <li><a href="team.html">Our team</a></li>
@@ -691,6 +793,54 @@
       });
     })();
 
+    // "Work" nav dropdown (Case Studies + Clients) — mirrors the mega-menu's
+    // open/close. Hover is CSS-driven; click, keyboard, Escape and outside-click
+    // are handled here. Distinct classes from the mega-menu, so the two don't
+    // interfere. No-ops if the dropdown isn't on the page.
+    (function () {
+      var wrapper = document.querySelector('.nav-dropdown-wrapper');
+      var trigger = wrapper && wrapper.querySelector('.nav-dropdown-trigger');
+      if (!wrapper || !trigger) return;
+      var links = Array.prototype.slice.call(wrapper.querySelectorAll('.nav-dropdown-link'));
+
+      function openMenu() {
+        wrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+      function closeMenu(returnFocus) {
+        wrapper.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        if (returnFocus) trigger.focus();
+      }
+      function isOpen() { return wrapper.classList.contains('is-open'); }
+
+      // Click toggles the menu (touch + mouse).
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (isOpen()) closeMenu(false); else openMenu();
+      });
+      // Enter / Space / ArrowDown open it and move focus to the first link.
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (!isOpen()) openMenu();
+          if (links[0]) links[0].focus();
+        }
+      });
+      // Escape closes and returns focus to the trigger.
+      wrapper.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeMenu(true); }
+      });
+      // Outside click closes.
+      document.addEventListener('click', function (e) {
+        if (isOpen() && !wrapper.contains(e.target)) closeMenu(false);
+      });
+      // Close when focus leaves the whole dropdown (e.g. Tab out of the last link).
+      wrapper.addEventListener('focusout', function (e) {
+        if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
+      });
+    })();
+
     // Mobile nav panel — open/close, focus trap, services accordion
     (function () {
       var hamburger = document.querySelector('.nav-hamburger');
@@ -742,16 +892,17 @@
         }
       });
 
-      // Services accordion inside the mobile panel
-      var accTrigger = panel.querySelector('.nav-mobile-acc-trigger');
-      var accBody = panel.querySelector('.nav-mobile-acc-body');
-      if (accTrigger && accBody) {
+      // Collapsible groups inside the mobile panel (What We Do, Work). Each
+      // trigger targets its body by aria-controls, so any number of accordions work.
+      Array.prototype.slice.call(panel.querySelectorAll('.nav-mobile-acc-trigger')).forEach(function (accTrigger) {
+        var accBody = document.getElementById(accTrigger.getAttribute('aria-controls'));
+        if (!accBody) return;
         accTrigger.addEventListener('click', function () {
           var expanded = accTrigger.getAttribute('aria-expanded') === 'true';
           accTrigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           if (expanded) { accBody.setAttribute('hidden', ''); } else { accBody.removeAttribute('hidden'); }
         });
-      }
+      });
     })();
 
     // Scroll-triggered entry for marked elements
