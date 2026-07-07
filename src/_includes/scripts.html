@@ -93,54 +93,6 @@
       });
     })();
 
-    // "Work" nav dropdown (Case Studies + Clients) — mirrors the mega-menu's
-    // open/close. Hover is CSS-driven; click, keyboard, Escape and outside-click
-    // are handled here. Distinct classes from the mega-menu, so the two don't
-    // interfere. No-ops if the dropdown isn't on the page.
-    (function () {
-      var wrapper = document.querySelector('.nav-dropdown-wrapper');
-      var trigger = wrapper && wrapper.querySelector('.nav-dropdown-trigger');
-      if (!wrapper || !trigger) return;
-      var links = Array.prototype.slice.call(wrapper.querySelectorAll('.nav-dropdown-link'));
-
-      function openMenu() {
-        wrapper.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-      function closeMenu(returnFocus) {
-        wrapper.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        if (returnFocus) trigger.focus();
-      }
-      function isOpen() { return wrapper.classList.contains('is-open'); }
-
-      // Click toggles the menu (touch + mouse).
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (isOpen()) closeMenu(false); else openMenu();
-      });
-      // Enter / Space / ArrowDown open it and move focus to the first link.
-      trigger.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          if (!isOpen()) openMenu();
-          if (links[0]) links[0].focus();
-        }
-      });
-      // Escape closes and returns focus to the trigger.
-      wrapper.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeMenu(true); }
-      });
-      // Outside click closes.
-      document.addEventListener('click', function (e) {
-        if (isOpen() && !wrapper.contains(e.target)) closeMenu(false);
-      });
-      // Close when focus leaves the whole dropdown (e.g. Tab out of the last link).
-      wrapper.addEventListener('focusout', function (e) {
-        if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
-      });
-    })();
-
     // Mobile nav panel — open/close, focus trap, services accordion
     (function () {
       var hamburger = document.querySelector('.nav-hamburger');

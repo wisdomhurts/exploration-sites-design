@@ -399,89 +399,9 @@
     }
     .nav-mobile-acc-group a:hover { color: var(--graphite); }
 
-    /* --- "Work" nav dropdown (Case Studies + Clients) — a small single-panel
-       menu that mirrors the mega-menu's open/close mechanics (hover via CSS;
-       click / keyboard / Escape / outside-click via JS in scripts.html). Kept
-       here with the other nav-scoped rules; safe to consolidate into styles.css. */
-    .nav-dropdown-wrapper { position: relative; }
-
-    .nav-dropdown-trigger {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      text-decoration: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: inherit;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-      transition: opacity 0.15s, color 0.2s var(--ease-out-soft);
-    }
-    .nav-dropdown-trigger:hover { opacity: 0.7; }
-    /* Quiet current-section cue when on Case Studies / Clients (parity with the
-       held-open underline the top-level links used to show for these pages) */
-    .nav-dropdown-trigger.is-current { color: var(--graphite); }
-
-    .nav-dropdown-trigger svg {
-      width: 10px;
-      height: 10px;
-      transition: transform 0.2s ease;
-    }
-    .nav-dropdown-wrapper:hover .nav-dropdown-trigger svg,
-    .nav-dropdown-wrapper.is-open .nav-dropdown-trigger svg { transform: rotate(180deg); }
-
-    .nav-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding-top: 18px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s ease, visibility 0.2s ease;
-      z-index: 200;
-    }
-    .nav-dropdown-wrapper:hover .nav-dropdown,
-    .nav-dropdown-wrapper.is-open .nav-dropdown { opacity: 1; visibility: visible; }
-
-    .nav-dropdown-panel {
-      min-width: 190px;
-      background: var(--surface);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-deep);
-      padding: 10px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    /* Scoped to beat `.nav-links a` (these anchors live inside .nav-links) and to
-       suppress its animated ore underline pseudo-element inside the panel. */
-    .nav-dropdown-panel .nav-dropdown-link {
-      display: block;
-      padding: 9px 12px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s var(--ease-out-soft), background 0.2s var(--ease-out-soft);
-    }
-    .nav-dropdown-panel .nav-dropdown-link::after { display: none; }
-    .nav-dropdown-panel .nav-dropdown-link:hover { color: var(--graphite); background: rgba(0,0,0,0.03); }
-    .nav-dropdown-panel .nav-dropdown-link[aria-current="page"] { color: var(--graphite); font-weight: 500; }
-
-    /* Current-page cue for the grouped mobile "Work" sub-links */
-    .nav-mobile-acc-group a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
-
     @media (prefers-reduced-motion: reduce) {
       .nav-mobile-acc-chevron,
-      .mega-menu-trigger svg,
-      .nav-dropdown-trigger svg { transition: none; }
+      .mega-menu-trigger svg { transition: none; }
     }
   </style>
 
@@ -1135,54 +1055,6 @@
       });
 
       // Close when focus leaves the whole menu (e.g. Tab out of the last link).
-      wrapper.addEventListener('focusout', function (e) {
-        if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
-      });
-    })();
-
-    // "Work" nav dropdown (Case Studies + Clients) — mirrors the mega-menu's
-    // open/close. Hover is CSS-driven; click, keyboard, Escape and outside-click
-    // are handled here. Distinct classes from the mega-menu, so the two don't
-    // interfere. No-ops if the dropdown isn't on the page.
-    (function () {
-      var wrapper = document.querySelector('.nav-dropdown-wrapper');
-      var trigger = wrapper && wrapper.querySelector('.nav-dropdown-trigger');
-      if (!wrapper || !trigger) return;
-      var links = Array.prototype.slice.call(wrapper.querySelectorAll('.nav-dropdown-link'));
-
-      function openMenu() {
-        wrapper.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-      function closeMenu(returnFocus) {
-        wrapper.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        if (returnFocus) trigger.focus();
-      }
-      function isOpen() { return wrapper.classList.contains('is-open'); }
-
-      // Click toggles the menu (touch + mouse).
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (isOpen()) closeMenu(false); else openMenu();
-      });
-      // Enter / Space / ArrowDown open it and move focus to the first link.
-      trigger.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          if (!isOpen()) openMenu();
-          if (links[0]) links[0].focus();
-        }
-      });
-      // Escape closes and returns focus to the trigger.
-      wrapper.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && isOpen()) { e.preventDefault(); closeMenu(true); }
-      });
-      // Outside click closes.
-      document.addEventListener('click', function (e) {
-        if (isOpen() && !wrapper.contains(e.target)) closeMenu(false);
-      });
-      // Close when focus leaves the whole dropdown (e.g. Tab out of the last link).
       wrapper.addEventListener('focusout', function (e) {
         if (isOpen() && !wrapper.contains(e.relatedTarget)) closeMenu(false);
       });

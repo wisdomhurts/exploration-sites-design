@@ -295,88 +295,8 @@
     }
     .nav-mobile-acc-group a:hover { color: var(--graphite); }
 
-    /* --- "Work" nav dropdown (Case Studies + Clients) — a small single-panel
-       menu that mirrors the mega-menu's open/close mechanics (hover via CSS;
-       click / keyboard / Escape / outside-click via JS in scripts.html). Kept
-       here with the other nav-scoped rules; safe to consolidate into styles.css. */
-    .nav-dropdown-wrapper { position: relative; }
-
-    .nav-dropdown-trigger {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      text-decoration: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: inherit;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-      transition: opacity 0.15s, color 0.2s var(--ease-out-soft);
-    }
-    .nav-dropdown-trigger:hover { opacity: 0.7; }
-    /* Quiet current-section cue when on Case Studies / Clients (parity with the
-       held-open underline the top-level links used to show for these pages) */
-    .nav-dropdown-trigger.is-current { color: var(--graphite); }
-
-    .nav-dropdown-trigger svg {
-      width: 10px;
-      height: 10px;
-      transition: transform 0.2s ease;
-    }
-    .nav-dropdown-wrapper:hover .nav-dropdown-trigger svg,
-    .nav-dropdown-wrapper.is-open .nav-dropdown-trigger svg { transform: rotate(180deg); }
-
-    .nav-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding-top: 18px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s ease, visibility 0.2s ease;
-      z-index: 200;
-    }
-    .nav-dropdown-wrapper:hover .nav-dropdown,
-    .nav-dropdown-wrapper.is-open .nav-dropdown { opacity: 1; visibility: visible; }
-
-    .nav-dropdown-panel {
-      min-width: 190px;
-      background: var(--surface);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-deep);
-      padding: 10px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    /* Scoped to beat `.nav-links a` (these anchors live inside .nav-links) and to
-       suppress its animated ore underline pseudo-element inside the panel. */
-    .nav-dropdown-panel .nav-dropdown-link {
-      display: block;
-      padding: 9px 12px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s var(--ease-out-soft), background 0.2s var(--ease-out-soft);
-    }
-    .nav-dropdown-panel .nav-dropdown-link::after { display: none; }
-    .nav-dropdown-panel .nav-dropdown-link:hover { color: var(--graphite); background: rgba(0,0,0,0.03); }
-    .nav-dropdown-panel .nav-dropdown-link[aria-current="page"] { color: var(--graphite); font-weight: 500; }
-
-    /* Current-page cue for the grouped mobile "Work" sub-links */
-    .nav-mobile-acc-group a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
-
     @media (prefers-reduced-motion: reduce) {
       .nav-mobile-acc-chevron,
-      .mega-menu-trigger svg,
-      .nav-dropdown-trigger svg { transition: none; }
+      .mega-menu-trigger svg { transition: none; }
     }
   </style>
