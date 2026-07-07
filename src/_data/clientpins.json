@@ -756,13 +756,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Western Star",
-  "lat": 50.72,
-  "lon": -118.62,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Alaska Energy",
   "lat": 63.15,
   "lon": -146.05,
@@ -861,13 +854,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Leocor",
-  "lat": 49.9,
-  "lon": -56.2,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Trifecta Gold",
   "lat": 63.9,
   "lon": -135.5,
@@ -952,13 +938,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Core Assets",
-  "lat": 59.4,
-  "lon": -133.6,
-  "color": "#B5613C",
-  "href": "clients.html"
- },
- {
   "name": "Waratah",
   "lat": -33.45,
   "lon": 149.0,
@@ -976,13 +955,6 @@
   "name": "Golden Sky",
   "lat": 63.7,
   "lon": -139.6,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Southern Empire",
-  "lat": 32.82,
-  "lon": -114.8,
   "color": "#B8823A",
   "href": "clients.html"
  },
@@ -1138,13 +1110,6 @@
   "lat": 21.6,
   "lon": -104.55,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "ACDC Battery",
-  "lat": 55.4,
-  "lon": -125.9,
-  "color": "#7C8AA0",
   "href": "clients.html"
  },
  {
@@ -1331,8 +1296,8 @@
  },
  {
   "name": "Primero Silver",
-  "lat": 24.12,
-  "lon": -105.9,
+  "lat": 5.15,
+  "lon": -74.9,
   "color": "#8C9196",
   "href": "clients.html"
  },
