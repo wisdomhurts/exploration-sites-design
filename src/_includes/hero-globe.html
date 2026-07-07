@@ -5,8 +5,8 @@
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
     <span class="hero-globe-pin-tooltip">Victoria BC Corporate Head Office</span>
   </a>
-  {% for p in projects %}
-  <a class="hero-globe-pin hero-globe-pin--ore" href="clients.html" data-lat="{{ p.lat }}" data-lon="{{ p.lon }}" tabindex="-1" aria-hidden="true">
+  {% for p in clientpins %}
+  <a class="hero-globe-pin" href="{{ p.href }}" data-lat="{{ p.lat }}" data-lon="{{ p.lon }}" style="color: {{ p.color }}" tabindex="-1" aria-hidden="true">
     <span class="hero-globe-pin-dot" aria-hidden="true"></span>
     <span class="hero-globe-pin-tooltip">{{ p.name }}</span>
   </a>

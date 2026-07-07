@@ -1,0 +1,1535 @@
+[
+ {
+  "name": "Endeavour",
+  "lat": 13.06,
+  "lon": -12.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Discovery Silver",
+  "lat": 48.4758,
+  "lon": -81.3305,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Montage Gold",
+  "lat": 8.05,
+  "lon": -6.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "NGEx",
+  "lat": -29.35,
+  "lon": -69.85,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Aris Mining",
+  "lat": 7.08,
+  "lon": -74.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Aura",
+  "lat": -11.58,
+  "lon": -47.17,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Fortuna",
+  "lat": 16.86,
+  "lon": -96.34,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Southern Cross Gold",
+  "lat": -37.12,
+  "lon": 145.1,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Snowline Gold",
+  "lat": 63.28,
+  "lon": -130.25,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Omai Gold",
+  "lat": 5.32,
+  "lon": -58.72,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Avino Silver & Gold",
+  "lat": 24.05,
+  "lon": -105.83,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Imperial",
+  "lat": 57.7,
+  "lon": -129.8,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Arkle",
+  "lat": 52.72,
+  "lon": -6.45,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Troilus Gold",
+  "lat": 50.5,
+  "lon": -74.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Core Lithium",
+  "lat": -12.72,
+  "lon": 130.87,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "New Found Gold",
+  "lat": 49.05,
+  "lon": -54.55,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Liberty Gold",
+  "lat": 42.15,
+  "lon": -113.35,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Fireweed",
+  "lat": 63.28,
+  "lon": -130.2,
+  "color": "#8F9BA3",
+  "href": "clients.html"
+ },
+ {
+  "name": "BMC",
+  "lat": 61.95,
+  "lon": -130.65,
+  "color": "#8F9BA3",
+  "href": "clients.html"
+ },
+ {
+  "name": "Asante Gold",
+  "lat": 6.46,
+  "lon": -2.32,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Western Copper & Gold",
+  "lat": 62.73,
+  "lon": -138.83,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Prime",
+  "lat": 24.4,
+  "lon": -106.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Magna Mining",
+  "lat": 46.4,
+  "lon": -81.3,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "San Lorenzo Gold",
+  "lat": -26.3,
+  "lon": -69.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "NG Energy",
+  "lat": 9.3,
+  "lon": -75.3,
+  "color": "#7E8A86",
+  "href": "clients.html"
+ },
+ {
+  "name": "Sitka Gold",
+  "lat": 63.85,
+  "lon": -137.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "First Nordic",
+  "lat": 65.0,
+  "lon": 17.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "White Gold",
+  "lat": 63.9,
+  "lon": -139.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Black Rock Silver",
+  "lat": 38.06,
+  "lon": -117.23,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Atha Energy",
+  "lat": 58.2,
+  "lon": -104.2,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Cambria Gold",
+  "lat": 56.05,
+  "lon": -130.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nexgold",
+  "lat": 49.78,
+  "lon": -92.65,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mogotes",
+  "lat": -26.45,
+  "lon": -68.95,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "West Red Lake Gold",
+  "lat": 50.96,
+  "lon": -93.92,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Capitan Silver",
+  "lat": 24.75,
+  "lon": -104.1,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Bunker Hill",
+  "lat": 47.54,
+  "lon": -116.12,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Revival Gold",
+  "lat": 45.05,
+  "lon": -114.15,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Surge Copper",
+  "lat": 53.78,
+  "lon": -127.4,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Selkirk Copper",
+  "lat": 62.6,
+  "lon": -137.24,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Altair",
+  "lat": 6.2,
+  "lon": -59.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Peninsula Energy",
+  "lat": 43.8,
+  "lon": -104.5,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Hercules",
+  "lat": 44.65,
+  "lon": -116.7,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Canyon",
+  "lat": 6.5,
+  "lon": 13.2,
+  "color": "#A8845C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Surge Battery",
+  "lat": 41.85,
+  "lon": -115.5,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Osino",
+  "lat": -21.9,
+  "lon": 16.05,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Apex Critical",
+  "lat": 40.28,
+  "lon": -96.13,
+  "color": "#87796A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Argenta Silver",
+  "lat": -24.28,
+  "lon": -66.75,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Denarius",
+  "lat": 6.05,
+  "lon": -75.79,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Lithium Ionic",
+  "lat": -16.6,
+  "lon": -41.8,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Fitzroy",
+  "lat": -27.5,
+  "lon": -70.15,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nations Royalties",
+  "lat": 55.2,
+  "lon": -129.4,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "District",
+  "lat": 60.5,
+  "lon": 15.4,
+  "color": "#8F9BA3",
+  "href": "clients.html"
+ },
+ {
+  "name": "First Atlantic Nickel",
+  "lat": 48.8,
+  "lon": -56.2,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Silver 47",
+  "lat": 63.55,
+  "lon": -148.2,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "American Lithium",
+  "lat": 38.15,
+  "lon": -117.35,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "NexMetals",
+  "lat": -21.98,
+  "lon": 27.85,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Abitibi",
+  "lat": 49.0,
+  "lon": -77.0,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Callinex",
+  "lat": 54.7,
+  "lon": -101.3,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Rua Gold",
+  "lat": -42.1183,
+  "lon": 171.86,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Scorpio Gold",
+  "lat": 37.77,
+  "lon": -117.66,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Group Ten",
+  "lat": 45.39,
+  "lon": -109.89,
+  "color": "#9B9486",
+  "href": "clients.html"
+ },
+ {
+  "name": "F3 Uranium",
+  "lat": 58.4,
+  "lon": -109.6,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Skyharbour",
+  "lat": 57.15,
+  "lon": -105.3,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Libero Copper",
+  "lat": 1.2,
+  "lon": -76.6,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Westhaven Gold",
+  "lat": 49.95,
+  "lon": -120.95,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Lac Gold",
+  "lat": 48.25,
+  "lon": -79.0,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Sonoro Gold",
+  "lat": 30.33,
+  "lon": -110.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Leviathan",
+  "lat": -21.7,
+  "lon": 23.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "GFG",
+  "lat": 48.55,
+  "lon": -81.85,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Seva",
+  "lat": 49.4,
+  "lon": -94.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Altamira Gold",
+  "lat": -9.8,
+  "lon": -56.3,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Future Fuels",
+  "lat": 58.6,
+  "lon": -104.7,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Brixton",
+  "lat": 58.6,
+  "lon": -132.7,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Silver Viper",
+  "lat": 26.5,
+  "lon": -108.4,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "First Tin",
+  "lat": 50.43,
+  "lon": 12.83,
+  "color": "#8A8377",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mithril Silver and Gold",
+  "lat": 24.85,
+  "lon": -106.15,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nevada Silver",
+  "lat": 38.85,
+  "lon": -116.9,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Lithium Africa",
+  "lat": -29.66,
+  "lon": 17.88,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Sun Summit",
+  "lat": 54.0,
+  "lon": -126.4,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "South Pacific",
+  "lat": -6.0,
+  "lon": 144.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Tiger Gold",
+  "lat": 5.34,
+  "lon": -75.73,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Kincora Copper",
+  "lat": -32.92,
+  "lon": 147.72,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Blue Star Gold",
+  "lat": 67.72,
+  "lon": -111.05,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Appia Rare Earths & Uranium",
+  "lat": 59.55,
+  "lon": -108.55,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mustang Energy",
+  "lat": 57.4,
+  "lon": -105.3,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Eminent Gold",
+  "lat": 40.9,
+  "lon": -117.35,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Jaguar Uranium",
+  "lat": 5.65,
+  "lon": -74.88,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Headwater Gold",
+  "lat": 38.6,
+  "lon": -118.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Volta",
+  "lat": 46.55,
+  "lon": -80.05,
+  "color": "#9B9486",
+  "href": "clients.html"
+ },
+ {
+  "name": "Firebird",
+  "lat": -21.5,
+  "lon": 121.1,
+  "color": "#7A6A6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "SPC Nickel",
+  "lat": 46.36,
+  "lon": -81.35,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "T2 Metals",
+  "lat": 55.1,
+  "lon": -101.1,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Puma",
+  "lat": 47.55,
+  "lon": -67.45,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Northern Superior",
+  "lat": 50.0,
+  "lon": -87.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nuclear Fuels",
+  "lat": 43.7,
+  "lon": -106.5,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Algo Grande",
+  "lat": 30.8,
+  "lon": -110.3,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Rackla",
+  "lat": 63.4,
+  "lon": -130.3,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "American Critical",
+  "lat": 38.6,
+  "lon": -109.9,
+  "color": "#87796A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Enduro",
+  "lat": 56.7,
+  "lon": -130.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Max Resource",
+  "lat": 9.8,
+  "lon": -73.5,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Iris",
+  "lat": 43.8,
+  "lon": -103.6,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Vertex",
+  "lat": -33.0,
+  "lon": 149.4,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Waraba Gold",
+  "lat": 10.3,
+  "lon": -6.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "CopAur",
+  "lat": 57.32,
+  "lon": -127.18,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Radius Gold",
+  "lat": -17.25,
+  "lon": -70.78,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Zacatecas Silver",
+  "lat": 22.95,
+  "lon": -102.52,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Pinnacle Silver and Gold",
+  "lat": 24.28,
+  "lon": -105.72,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Arena",
+  "lat": -24.55,
+  "lon": -66.9,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Emperor",
+  "lat": 48.48,
+  "lon": -79.25,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Inflection",
+  "lat": -31.5,
+  "lon": 147.2,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Garibaldi",
+  "lat": 56.63,
+  "lon": -130.45,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Golden Cross",
+  "lat": -37.02,
+  "lon": 146.15,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Western Star",
+  "lat": 50.72,
+  "lon": -118.62,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Alaska Energy",
+  "lat": 63.15,
+  "lon": -146.05,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Metallis",
+  "lat": 56.75,
+  "lon": -130.72,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Pacific Ridge",
+  "lat": 56.6,
+  "lon": -126.85,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Electrum",
+  "lat": 44.08,
+  "lon": 22.15,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Resouro Gold",
+  "lat": -19.0,
+  "lon": -45.95,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Stallion Uranium",
+  "lat": 57.9,
+  "lon": -109.5,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Orex",
+  "lat": 24.9,
+  "lon": -105.6,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Battery Age",
+  "lat": 49.6,
+  "lon": -93.5,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Evergold",
+  "lat": 57.3,
+  "lon": -127.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Canter",
+  "lat": 38.05,
+  "lon": -117.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Gold Mountain",
+  "lat": 49.85,
+  "lon": -120.4,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "MCF Energy",
+  "lat": 47.85,
+  "lon": 14.25,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "US Critical",
+  "lat": 41.9,
+  "lon": -117.6,
+  "color": "#7D7596",
+  "href": "clients.html"
+ },
+ {
+  "name": "F4 Uranium",
+  "lat": 58.6,
+  "lon": -108.7,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Leocor",
+  "lat": 49.9,
+  "lon": -56.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Taurus Gold",
+  "lat": 62.3,
+  "lon": -137.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Trifecta Gold",
+  "lat": 63.9,
+  "lon": -135.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Thunderbird",
+  "lat": 53.1,
+  "lon": -122.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Exploits Discovery",
+  "lat": 48.9,
+  "lon": -54.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Gold Hunter",
+  "lat": 49.7,
+  "lon": -56.85,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Phoenix Copper",
+  "lat": 43.9055,
+  "lon": -113.6055,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Viridian",
+  "lat": 54.3,
+  "lon": -61.6,
+  "color": "#7D7596",
+  "href": "clients.html"
+ },
+ {
+  "name": "York Harbour",
+  "lat": 49.052,
+  "lon": -58.36,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Azincourt Energy",
+  "lat": 57.65,
+  "lon": -109.55,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Strikepoint Gold",
+  "lat": 37.55,
+  "lon": -117.22,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Fathom",
+  "lat": 55.7,
+  "lon": -104.5,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Aben",
+  "lat": 56.75,
+  "lon": -130.65,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "First Andes Silver",
+  "lat": -11.9,
+  "lon": -76.3,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Teako",
+  "lat": 53.8,
+  "lon": -124.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Trans Canada Gold",
+  "lat": 52.3,
+  "lon": -122.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Melkior",
+  "lat": 48.2,
+  "lon": -78.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Core Assets",
+  "lat": 59.4,
+  "lon": -133.6,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Waratah",
+  "lat": -33.45,
+  "lon": 149.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Panther",
+  "lat": 49.6,
+  "lon": -89.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Golden Sky",
+  "lat": 63.7,
+  "lon": -139.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Southern Empire",
+  "lat": 32.82,
+  "lon": -114.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Prospect Ridge",
+  "lat": 54.65,
+  "lon": -128.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nexus Gold",
+  "lat": 13.2,
+  "lon": -1.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Stellar Africa Gold",
+  "lat": 7.43,
+  "lon": -6.05,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nevada Sunrise",
+  "lat": 39.9,
+  "lon": -114.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "GSP Resource",
+  "lat": 50.45,
+  "lon": -120.95,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Cross River",
+  "lat": 51.02,
+  "lon": -93.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Deep South",
+  "lat": -28.05,
+  "lon": 18.15,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Miata",
+  "lat": 4.9,
+  "lon": -54.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nine Mile",
+  "lat": 47.5,
+  "lon": -65.9,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "PC Gold",
+  "lat": 51.45,
+  "lon": -90.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Power Metal",
+  "lat": -21.25,
+  "lon": 27.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Silicon",
+  "lat": 47.68,
+  "lon": -70.45,
+  "color": "#9A9488",
+  "href": "clients.html"
+ },
+ {
+  "name": "Temas",
+  "lat": 49.5,
+  "lon": -68.85,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Usha Resource",
+  "lat": 6.2,
+  "lon": -59.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "CopperCorp",
+  "lat": -42.03,
+  "lon": 145.6,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Vortex",
+  "lat": -31.63,
+  "lon": -71.17,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Generation Uranium",
+  "lat": 58.3,
+  "lon": -103.8,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Volcanic Gold",
+  "lat": 15.15,
+  "lon": -89.3,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Adelayde",
+  "lat": 49.05,
+  "lon": -79.1,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Opawica",
+  "lat": 48.28,
+  "lon": -79.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Silver Valley",
+  "lat": 47.52,
+  "lon": -116.0,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Zeus",
+  "lat": -29.0,
+  "lon": 121.4,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Grid Battery",
+  "lat": 37.78,
+  "lon": -117.55,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mammoth",
+  "lat": -14.3,
+  "lon": -72.5,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Hertz Lithium",
+  "lat": 53.05,
+  "lon": -77.4,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Angel Wing",
+  "lat": 21.6,
+  "lon": -104.55,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "ACDC Battery",
+  "lat": 55.4,
+  "lon": -125.9,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Carlyle Commodities",
+  "lat": 52.2,
+  "lon": -124.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Element79 Gold",
+  "lat": -15.53,
+  "lon": -72.28,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Fremont Gold",
+  "lat": 40.65,
+  "lon": -116.93,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "K9 Gold",
+  "lat": 63.6,
+  "lon": -135.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Lancaster",
+  "lat": 57.6,
+  "lon": -105.5,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mountain Boy",
+  "lat": 56.1,
+  "lon": -129.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nevada Energy",
+  "lat": 37.8,
+  "lon": -117.5,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Newfoundland Discovery",
+  "lat": 48.9,
+  "lon": -55.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "West Gold",
+  "lat": 48.1,
+  "lon": -77.8,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Pacton Gold",
+  "lat": 50.9,
+  "lon": -93.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Seahawk Gold",
+  "lat": 48.6,
+  "lon": -77.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Tisdale Clean Energy",
+  "lat": 58.2,
+  "lon": -103.8,
+  "color": "#5F7052",
+  "href": "clients.html"
+ },
+ {
+  "name": "Toogood Gold",
+  "lat": 49.4,
+  "lon": -54.6,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Good Gold",
+  "lat": 51.5,
+  "lon": -121.0,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Rock Cliff",
+  "lat": 48.6,
+  "lon": -56.2,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Armory",
+  "lat": 54.5,
+  "lon": -126.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Ameriwest Lithium",
+  "lat": 38.9,
+  "lon": -116.8,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Goldrea",
+  "lat": 56.75,
+  "lon": -130.55,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Kesselrun",
+  "lat": 48.6,
+  "lon": -90.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Manning",
+  "lat": 49.35,
+  "lon": -87.9,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Renforth",
+  "lat": 48.13,
+  "lon": -78.15,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "X-Terra",
+  "lat": 52.2,
+  "lon": -75.4,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Norrland Gold",
+  "lat": 65.0,
+  "lon": 18.5,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Infini",
+  "lat": -28.0,
+  "lon": 122.0,
+  "color": "#7D7596",
+  "href": "clients.html"
+ },
+ {
+  "name": "Nova Lithium",
+  "lat": -25.4,
+  "lon": -66.9,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Badlands",
+  "lat": 44.13,
+  "lon": -103.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Mineral Mountain",
+  "lat": 44.25,
+  "lon": -103.62,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Spod Lithium",
+  "lat": 52.9,
+  "lon": -76.2,
+  "color": "#7C8AA0",
+  "href": "clients.html"
+ },
+ {
+  "name": "Ekometall",
+  "lat": 47.4,
+  "lon": 14.5,
+  "color": "#6E7E6A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Gemoil",
+  "lat": 41.64,
+  "lon": 41.64,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "GeoMinEx",
+  "lat": 49.28,
+  "lon": -123.12,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "Highlands Geo",
+  "lat": 39.74,
+  "lon": -104.99,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "Investor Events",
+  "lat": 49.2827,
+  "lon": -123.1207,
+  "color": "#C8C2B4",
+  "href": "clients.html"
+ },
+ {
+  "name": "New World Precious",
+  "lat": 39.46,
+  "lon": -116.85,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Orior",
+  "lat": 51.65,
+  "lon": -121.3,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Phoenix",
+  "lat": 49.09,
+  "lon": -118.6,
+  "color": "#B5613C",
+  "href": "clients.html"
+ },
+ {
+  "name": "Primero Silver",
+  "lat": 24.12,
+  "lon": -105.9,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Ptolemy",
+  "lat": -30.75,
+  "lon": 121.47,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Puddle Pond",
+  "lat": 48.9,
+  "lon": -55.7,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Ripasso",
+  "lat": 29.07,
+  "lon": -110.96,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "Telegraph Gold",
+  "lat": 56.8,
+  "lon": -131.1,
+  "color": "#B8823A",
+  "href": "clients.html"
+ },
+ {
+  "name": "TruSilver",
+  "lat": 22.77,
+  "lon": -102.58,
+  "color": "#8C9196",
+  "href": "clients.html"
+ },
+ {
+  "name": "Vulcan",
+  "lat": 54.5,
+  "lon": -128.6,
+  "color": "#B5613C",
+  "href": "clients.html"
+ }
+]
