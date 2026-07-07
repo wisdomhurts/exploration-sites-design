@@ -43,7 +43,7 @@ const REST_SNAP_PX   = 0.4;         // idle pin within this of home snaps exactl
 // feed back and oscillate), then eased into a smoothed per-pin offset scaled
 // by the pin's own attraction, so the fan-out ramps in continuously (no pop)
 // and is exactly zero at rest.
-const REPEL_RADIUS     = 44;        // px — pins within this push apart (clears the 30px peak-scale dot)
+const REPEL_RADIUS     = 35;        // px — how far clustered pins fan apart on hover (~20% gentler than 44)
 const REPEL_ITERATIONS = 3;         // relaxation passes so dense chains settle without overshoot
 const REPEL_LERP       = 0.32;      // ease the smoothed repulsion offset toward the solved target
 

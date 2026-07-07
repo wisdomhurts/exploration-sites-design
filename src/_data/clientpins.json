@@ -273,13 +273,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Peninsula Energy",
-  "lat": 43.8,
-  "lon": -104.5,
-  "color": "#5F7052",
-  "href": "clients.html"
- },
- {
   "name": "Hercules",
   "lat": 44.65,
   "lon": -116.7,
@@ -497,13 +490,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Nevada Silver",
-  "lat": 38.85,
-  "lon": -116.9,
-  "color": "#8C9196",
-  "href": "clients.html"
- },
- {
   "name": "Lithium Africa",
   "lat": -29.66,
   "lon": 17.88,
@@ -578,13 +564,6 @@
   "lat": 38.6,
   "lon": -118.8,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Volta",
-  "lat": 46.55,
-  "lon": -80.05,
-  "color": "#9B9486",
   "href": "clients.html"
  },
  {
@@ -924,13 +903,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Panther",
-  "lat": 49.6,
-  "lon": -89.5,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Golden Sky",
   "lat": 63.7,
   "lon": -139.6,
@@ -1039,13 +1011,6 @@
   "name": "Volcanic Gold",
   "lat": 15.15,
   "lon": -89.3,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Adelayde",
-  "lat": 49.05,
-  "lon": -79.1,
   "color": "#B8823A",
   "href": "clients.html"
  },
@@ -1232,13 +1197,6 @@
   "href": "clients.html"
  },
  {
-  "name": "GeoMinEx",
-  "lat": 49.28,
-  "lon": -123.12,
-  "color": "#C8C2B4",
-  "href": "clients.html"
- },
- {
   "name": "Highlands Geo",
   "lat": 39.74,
   "lon": -104.99,
@@ -1270,13 +1228,6 @@
   "name": "Puddle Pond",
   "lat": 48.9,
   "lon": -55.7,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Ripasso",
-  "lat": 29.07,
-  "lon": -110.96,
   "color": "#B8823A",
   "href": "clients.html"
  },
