@@ -546,13 +546,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Eminent Gold",
-  "lat": 40.9,
-  "lon": -117.35,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Jaguar Uranium",
   "lat": 5.65,
   "lon": -74.88,
@@ -990,13 +983,6 @@
   "name": "CopperCorp",
   "lat": -42.03,
   "lon": 145.6,
-  "color": "#B5613C",
-  "href": "clients.html"
- },
- {
-  "name": "Vortex",
-  "lat": -31.63,
-  "lon": -71.17,
   "color": "#B5613C",
   "href": "clients.html"
  },
