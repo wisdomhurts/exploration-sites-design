@@ -195,12 +195,9 @@ def update_montage_pages(montage):
         h = f.read()
     h = _sub(h, r'(<span class="csm-fact csm-fact--price">)\$[\d.]+(</span>)', rf'\g<1>{price}\g<2>', 'montage hero price')
     h = _sub(h, r'(Market Cap: )\$[\d.]+B', rf'\g<1>{cap2}', 'montage hero market cap')
-    h = _sub(h, r'(<span class="csm-cap-to">)\$[\d.]+B(</span>)', rf'\g<1>{cap1}\g<2>', 'montage outcomes cap-to')
-    h = _sub(h, r'(<div class="csm-cap-delta-num">~)\d+(&times;</div>)', rf'\g<1>{mult}\g<2>', 'montage outcomes multiple')
-    h = _sub(h, r'(<span class="csm-hero-stat-num">~)\d+(&times;</span>)', rf'\g<1>{mult}\g<2>', 'montage hero multiple')
-    h = _sub(h, r'(to ~)\$[\d.]+B( today)', rf'\g<1>{cap1}\g<2>', 'montage pull-quote cap')
-    h = _sub(h, r'(<span class="csm-bigstat-x">)\d+(&times;</span>)', rf'\g<1>{mult}\g<2>', 'montage pull-quote multiple')
-    h = _sub(h, r'(a ~)\d+(x rise in market cap)', rf'\g<1>{mult}\g<2>', 'montage meta multiple')
+    # The market-cap "journey" + ~Nx multiple were removed (2026-07 reframe); no multiple
+    # is published anymore. Keep only the demoted, sourced footnote cap fresh.
+    h = _sub(h, r'(grew from ~\$130M \(2023\) to ~)\$[\d.]+B( today)', rf'\g<1>{cap1}\g<2>', 'montage outcomes footnote cap', count=1)
     with open(MONTAGE_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 

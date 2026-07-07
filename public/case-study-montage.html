@@ -595,73 +595,6 @@
     color: rgba(244, 241, 236, 0.55);
   }
 
-  /* Feature stat: the market-cap journey */
-  .csm-cap {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 40px;
-    align-items: end;
-    padding-bottom: 44px;
-    margin-bottom: 44px;
-    border-bottom: 1px solid rgba(244, 241, 236, 0.16);
-  }
-  .csm-cap-label {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(244, 241, 236, 0.6);
-    margin-bottom: 26px;
-  }
-  .csm-cap-flow {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 10px 22px;
-  }
-  .csm-cap-from {
-    font-family: var(--font-serif);
-    font-size: clamp(30px, 4vw, 46px);
-    font-weight: 300;
-    line-height: 1;
-    color: rgba(244, 241, 236, 0.5);
-    letter-spacing: -0.02em;
-  }
-  .csm-cap-arrow {
-    font-family: var(--font-mono);
-    font-size: 22px;
-    color: var(--ore);
-    transform: translateY(-2px);
-  }
-  .csm-cap-to {
-    font-family: var(--font-serif);
-    font-size: clamp(56px, 9vw, 116px);
-    font-weight: 300;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    color: var(--quartz);
-  }
-  .csm-cap-delta {
-    text-align: right;
-    flex: 0 0 auto;
-  }
-  .csm-cap-delta-num {
-    font-family: var(--font-serif);
-    font-size: clamp(40px, 5.5vw, 72px);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--ore);
-  }
-  .csm-cap-delta-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(244, 241, 236, 0.6);
-    margin-top: 12px;
-  }
-
   /* Three supporting figures */
   .csm-figs {
     display: grid;
@@ -705,6 +638,12 @@
   .csm-fig-points li { position: relative; padding-left: 16px; }
   .csm-fig-points li + li { margin-top: 7px; }
   .csm-fig-points li::before { content: "\2014"; position: absolute; left: 0; color: var(--ore); }
+
+  /* Reframed outcomes band: deliverables lead + company-reported milestones + footnote */
+  .csm-outcomes-lead { font-family: var(--font-sans); font-size: 17px; line-height: 1.6; color: rgba(244, 241, 236, 0.9); max-width: 60ch; margin: 6px 0 40px; }
+  .csm-outcomes-subhead { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244, 241, 236, 0.55); margin-bottom: 18px; }
+  .csm-outcomes-subhead span { color: var(--ore); font-weight: 500; }
+  .csm-outcomes-note { font-family: var(--font-sans); font-size: 12px; line-height: 1.6; color: rgba(244, 241, 236, 0.5); margin-top: 28px; max-width: 72ch; }
 
   /* ---- BODY: editorial two-column ------------------------- */
   .csm-section { padding: 76px 0; }
@@ -1331,8 +1270,6 @@
     .csm-grid { grid-template-columns: 1fr; gap: 28px; }
     .csm-grid .csm-aside { position: static; }
     .csm-h2 { max-width: none; }
-    .csm-cap { grid-template-columns: 1fr; gap: 28px; align-items: start; }
-    .csm-cap-delta { text-align: left; }
     .csm-figs { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 680px) {
@@ -1362,8 +1299,8 @@
         <p class="csm-dek">Kon&eacute; Gold Project &middot; C&ocirc;te d&rsquo;Ivoire</p>
         <p class="csm-summary">How clear investor cartography helped a technically strong gold developer communicate its scale &mdash; as it grew into a billion-dollar developer.</p>
         <div class="csm-hero-stat">
-          <span class="csm-hero-stat-num">~53&times;</span>
-          <span class="csm-hero-stat-label">market cap since 2023</span>
+          <span class="csm-hero-stat-num">2023</span>
+          <span class="csm-hero-stat-label">client since</span>
         </div>
       </div>
     </div>
@@ -1387,26 +1324,13 @@
   <section class="csm-outcomes" aria-label="Outcomes">
     <div class="csm-outcomes-inner">
       <div class="csm-outcomes-head">
-        <span class="csm-outcomes-label">The Outcome</span>
+        <span class="csm-outcomes-label">What we produced</span>
       </div>
 
-      <!-- Headline figure: market-cap journey -->
-      <div class="csm-cap">
-        <div>
-          <div class="csm-cap-label">Market capitalisation</div>
-          <div class="csm-cap-flow">
-            <span class="csm-cap-from">$130M</span>
-            <span class="csm-cap-arrow" aria-hidden="true">&rarr;</span>
-            <span class="csm-cap-to">$6.9B</span>
-          </div>
-        </div>
-        <div class="csm-cap-delta">
-          <div class="csm-cap-delta-num">~53&times;</div>
-          <div class="csm-cap-delta-label">2023 &rarr; today</div>
-        </div>
-      </div>
+      <p class="csm-outcomes-lead">Investor maps for every resource update, corporate presentations, news-release graphics, and roadshow decks &mdash; one visual language carried from first inferred ounces through each expansion.</p>
 
-      <!-- Supporting figures -->
+      <!-- Company-reported milestones during the engagement (context, not attribution) -->
+      <div class="csm-outcomes-subhead">Company milestones during the engagement <span>&middot; company-reported</span></div>
       <div class="csm-figs">
         <div class="csm-fig">
           <div class="csm-fig-num"><span class="csm-fig-unit">US$</span>825M</div>
@@ -1425,6 +1349,7 @@
           <p class="csm-fig-label">Measured &amp; indicated resource</p>
         </div>
       </div>
+      <p class="csm-outcomes-note">Company-reported market capitalisation grew from ~$130M (2023) to ~$6.9B today. Figures are company-reported, drawn from the company&rsquo;s public disclosure (SEDAR+); shown for context, not a claim of attribution.</p>
     </div>
   </section>
 
