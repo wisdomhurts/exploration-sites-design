@@ -98,13 +98,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Core Lithium",
-  "lat": -12.72,
-  "lon": 130.87,
-  "color": "#7C8AA0",
-  "href": "clients.html"
- },
- {
   "name": "New Found Gold",
   "lat": 49.05,
   "lon": -54.55,
@@ -651,13 +644,6 @@
   "href": "clients.html"
  },
  {
-  "name": "American Critical",
-  "lat": 38.6,
-  "lon": -109.9,
-  "color": "#87796A",
-  "href": "clients.html"
- },
- {
   "name": "Enduro",
   "lat": 56.7,
   "lon": -130.9,
@@ -917,13 +903,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Teako",
-  "lat": 53.8,
-  "lon": -124.8,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Trans Canada Gold",
   "lat": 52.3,
   "lon": -122.0,
@@ -1099,13 +1078,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Hertz Lithium",
-  "lat": 53.05,
-  "lon": -77.4,
-  "color": "#7C8AA0",
-  "href": "clients.html"
- },
- {
   "name": "Angel Wing",
   "lat": 21.6,
   "lon": -104.55,
@@ -1274,13 +1246,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Investor Events",
-  "lat": 49.2827,
-  "lon": -123.1207,
-  "color": "#C8C2B4",
-  "href": "clients.html"
- },
- {
   "name": "Orior",
   "lat": 51.65,
   "lon": -121.3,
@@ -1312,13 +1277,6 @@
   "name": "Ripasso",
   "lat": 29.07,
   "lon": -110.96,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Telegraph Gold",
-  "lat": 56.8,
-  "lon": -131.1,
   "color": "#B8823A",
   "href": "clients.html"
  },
