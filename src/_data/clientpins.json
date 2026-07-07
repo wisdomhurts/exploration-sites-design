@@ -448,13 +448,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Sonoro Gold",
-  "lat": 30.33,
-  "lon": -110.7,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Leviathan",
   "lat": -21.7,
   "lon": 23.5,
@@ -480,13 +473,6 @@
   "lat": -9.8,
   "lon": -56.3,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Future Fuels",
-  "lat": 58.6,
-  "lon": -104.7,
-  "color": "#5F7052",
   "href": "clients.html"
  },
  {
@@ -882,23 +868,9 @@
   "href": "clients.html"
  },
  {
-  "name": "Taurus Gold",
-  "lat": 62.3,
-  "lon": -137.8,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Trifecta Gold",
   "lat": 63.9,
   "lon": -135.5,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Thunderbird",
-  "lat": 53.1,
-  "lon": -122.7,
   "color": "#B8823A",
   "href": "clients.html"
  },
@@ -928,13 +900,6 @@
   "lat": 54.3,
   "lon": -61.6,
   "color": "#7D7596",
-  "href": "clients.html"
- },
- {
-  "name": "Azincourt Energy",
-  "lat": 57.65,
-  "lon": -109.55,
-  "color": "#5F7052",
   "href": "clients.html"
  },
  {
@@ -1043,13 +1008,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Nevada Sunrise",
-  "lat": 39.9,
-  "lon": -114.2,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "GSP Resource",
   "lat": 50.45,
   "lon": -120.95,
@@ -1078,13 +1036,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Nine Mile",
-  "lat": 47.5,
-  "lon": -65.9,
-  "color": "#B5613C",
-  "href": "clients.html"
- },
- {
   "name": "PC Gold",
   "lat": 51.45,
   "lon": -90.2,
@@ -1096,13 +1047,6 @@
   "lat": -21.25,
   "lon": 27.6,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Silicon",
-  "lat": 47.68,
-  "lon": -70.45,
-  "color": "#9A9488",
   "href": "clients.html"
  },
  {
@@ -1159,13 +1103,6 @@
   "lat": 48.28,
   "lon": -79.2,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Silver Valley",
-  "lat": 47.52,
-  "lon": -116.0,
-  "color": "#8C9196",
   "href": "clients.html"
  },
  {
@@ -1232,20 +1169,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Lancaster",
-  "lat": 57.6,
-  "lon": -105.5,
-  "color": "#5F7052",
-  "href": "clients.html"
- },
- {
-  "name": "Mountain Boy",
-  "lat": 56.1,
-  "lon": -129.9,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Nevada Energy",
   "lat": 37.8,
   "lon": -117.5,
@@ -1278,13 +1201,6 @@
   "lat": 48.6,
   "lon": -77.2,
   "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Tisdale Clean Energy",
-  "lat": 58.2,
-  "lon": -103.8,
-  "color": "#5F7052",
   "href": "clients.html"
  },
  {
@@ -1323,23 +1239,9 @@
   "href": "clients.html"
  },
  {
-  "name": "Goldrea",
-  "lat": 56.75,
-  "lon": -130.55,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Kesselrun",
   "lat": 48.6,
   "lon": -90.5,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
-  "name": "Manning",
-  "lat": 49.35,
-  "lon": -87.9,
   "color": "#B8823A",
   "href": "clients.html"
  },
@@ -1386,13 +1288,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Spod Lithium",
-  "lat": 52.9,
-  "lon": -76.2,
-  "color": "#7C8AA0",
-  "href": "clients.html"
- },
- {
   "name": "Ekometall",
   "lat": 47.4,
   "lon": 14.5,
@@ -1421,13 +1316,6 @@
   "href": "clients.html"
  },
  {
-  "name": "New World Precious",
-  "lat": 39.46,
-  "lon": -116.85,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Orior",
   "lat": 51.65,
   "lon": -121.3,
@@ -1446,13 +1334,6 @@
   "lat": 24.12,
   "lon": -105.9,
   "color": "#8C9196",
-  "href": "clients.html"
- },
- {
-  "name": "Ptolemy",
-  "lat": -30.75,
-  "lon": 121.47,
-  "color": "#B8823A",
   "href": "clients.html"
  },
  {
