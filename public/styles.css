@@ -738,7 +738,8 @@
       background: currentColor;
       transform: scale(var(--pin-scale, 1));
       transform-origin: center center;
-      transition: transform 80ms linear;
+      /* No CSS transition — hero-globe.js eases --pin-scale per frame (SCALE_LERP);
+         a CSS transition here would double-smooth and feel rubbery. */
     }
     /* Tooltip scale grows at 25% of the pin's scale so it stays readable
        rather than ballooning to 4× when the dot is at peak magnetism. */
@@ -758,8 +759,8 @@
       opacity: 0;
       transform: translate(-50%, 4px) scale(calc(0.7 * (1 + (var(--pin-scale, 1) - 1) * 0.25)));
       transform-origin: bottom center;
-      transition: opacity 220ms cubic-bezier(.2,.8,.2,1),
-                  transform 220ms cubic-bezier(.2,.8,.2,1),
+      transition: opacity 150ms cubic-bezier(.2,.8,.2,1),
+                  transform 200ms cubic-bezier(.2,.8,.2,1),
                   bottom 80ms linear;
       pointer-events: none;
     }
