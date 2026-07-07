@@ -51,13 +51,15 @@ CSS is a single large hand-authored file: `src/styles.css` (passed through verba
 The homepage hero is a Three.js dotted-globe point cloud:
 
 - A Fibonacci sphere of ~60k candidate points is filtered against `src/assets/world-mask.png` (an equirectangular land mask) to color land (Slate) vs ocean (Graticule) over a Quartz fill sphere.
-- **Pins are HTML `<a>` elements, not 3D objects.** `hero-globe.html` renders one fixed Victoria HQ pin plus one pin per entry in `src/_data/projects.json` (looped with `{% for p in projects %}`, using `data-lat`/`data-lon`). `hero-globe.js` collects every `.hero-globe-pin` from the DOM and re-projects it from 3D to screen coords every frame, applying cursor magnetism, pin-to-pin repulsion, tooltip gating, and auto-rotate slowdown.
+- **Pins are HTML `<a>` elements, not 3D objects.** The pin markup lives **inline in `src/index.html`** (the `.hero-globe` block, ~line 134), not in an include. It renders one fixed Victoria HQ pin (hardcoded) plus one pin per entry in `src/_data/clientpins.json` (looped with `{% for p in clientpins %}`, using `data-lat`/`data-lon` and an inline `style="color: {{ p.color }}"` — the dot is `background: currentColor`, so each pin is tinted by its client's commodity color). `hero-globe.js` collects every `.hero-globe-pin` from the DOM and re-projects it from 3D to screen coords every frame, applying cursor magnetism, pin-to-pin repulsion, tooltip gating, and auto-rotate slowdown. (`src/_includes/hero-globe.html` is a **dead/unused** copy — no page includes it.)
 - Tunable constants (magnet radius, repulsion, scale, camera, auto-rotate speed, orientation) are all named consts at the top of `hero-globe.js`. The globe is oriented so Western Canada faces the viewer.
 - The footer has its own WebGL effect in `src/assets/footer-shader.js`.
 
 ### Data pipelines
 
-`src/_data/projects.json` (the globe's pin list — `{name, lat, lon, href}`) is **generated**, not hand-edited. Pipeline (Python, needs `pyshp` + `pyproj`):
+`src/_data/clientpins.json` (the globe's live pin list — `{name, lat, lon, color, href}`, one per unique client on `clients.html`) is the current source of the globe pins. Each entry's `color` is the client's commodity color (same palette as the clients-table `CMDY` map in `clients.html`; non-mining clients get the neutral fallback `#C8C2B4`). It was generated once by researching each client's flagship-project location; re-generating it means re-running that research against the current `clients.html` roster.
+
+`src/_data/projects.json` (`{name, lat, lon, href}`) is the **older** pin source and **no longer drives the globe**. It is now consumed only by `src/_data/regions.js` (a build-time continent-grouping helper whose output is currently un-rendered), so keep the file present — `regions.js` `require()`s it and the build fails without it. It is **generated**, not hand-edited. Pipeline (Python, needs `pyshp` + `pyproj`):
 
 1. `scripts/harvest_client_pins.py` — walks `ES Client Work/<client>/` shapefiles, picks the best project-scope extent per client (keyword + bbox-size heuristics, rejects regional basemaps), writes `scripts/projects.proposed.jsonc` for human review (with `confidence` and `review` flags).
 2. `scripts/promote_proposal.py` — strips comments/metadata from the proposal, adds `href`, merges in any original pins the harvester missed, and overwrites `src/_data/projects.json`.
@@ -66,7 +68,7 @@ The homepage hero is a Three.js dotted-globe point cloud:
 
 `scripts/build-world-mask.mjs` — downloads Natural Earth 1:110m land GeoJSON and rasterizes it to `world-mask.png` (uses `@resvg/resvg-js` + `sharp`). Run via `npm run build-mask`.
 
-`scripts/build-client-projects.mjs` / `src/assets/client-projects.js` — an older geocode-from-`clients.html` path. Note `client-projects.js` is **not currently imported by the globe** (pins come from `projects.json`); treat it as a decoupled artifact unless you re-wire it.
+`scripts/build-client-projects.mjs` / `src/assets/client-projects.js` — an older geocode-from-`clients.html` path. Note `client-projects.js` is **not currently imported by the globe** (pins come from `clientpins.json`); treat it as a decoupled artifact unless you re-wire it.
 
 ## Gotchas
 
