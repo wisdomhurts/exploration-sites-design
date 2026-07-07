@@ -294,13 +294,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Canyon",
-  "lat": 6.5,
-  "lon": 13.2,
-  "color": "#A8845C",
-  "href": "clients.html"
- },
- {
   "name": "Surge Battery",
   "lat": 41.85,
   "lon": -115.5,
@@ -340,13 +333,6 @@
   "lat": -16.6,
   "lon": -41.8,
   "color": "#7C8AA0",
-  "href": "clients.html"
- },
- {
-  "name": "Fitzroy",
-  "lat": -27.5,
-  "lon": -70.15,
-  "color": "#B5613C",
   "href": "clients.html"
  },
  {
@@ -945,13 +931,6 @@
   "href": "clients.html"
  },
  {
-  "name": "York Harbour",
-  "lat": 49.052,
-  "lon": -58.36,
-  "color": "#B5613C",
-  "href": "clients.html"
- },
- {
   "name": "Azincourt Energy",
   "lat": 57.65,
   "lon": -109.55,
@@ -1232,13 +1211,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Carlyle Commodities",
-  "lat": 52.2,
-  "lon": -124.0,
-  "color": "#B8823A",
-  "href": "clients.html"
- },
- {
   "name": "Element79 Gold",
   "lat": -15.53,
   "lon": -72.28,
@@ -1400,13 +1372,6 @@
   "href": "clients.html"
  },
  {
-  "name": "Nova Lithium",
-  "lat": -25.4,
-  "lon": -66.9,
-  "color": "#7C8AA0",
-  "href": "clients.html"
- },
- {
   "name": "Badlands",
   "lat": 44.13,
   "lon": -103.7,
@@ -1432,13 +1397,6 @@
   "lat": 47.4,
   "lon": 14.5,
   "color": "#6E7E6A",
-  "href": "clients.html"
- },
- {
-  "name": "Gemoil",
-  "lat": 41.64,
-  "lon": 41.64,
-  "color": "#C8C2B4",
   "href": "clients.html"
  },
  {

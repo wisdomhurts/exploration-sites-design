@@ -25,17 +25,34 @@ const OCEAN_COLOR     = 0xC8C2B4;   // Graticule
 const FILL_COLOR      = 0xF4F1EC;   // Quartz
 const DOT_SIZE_PX     = 1;
 
-// Pin magnetism
-const MAGNET_RADIUS  = 80;          // px — within this distance the pin attracts (halved from 160)
-const TOUCH_RADIUS   = 24;          // px — tooltip gated on cursor↔base distance, not display
+// Pin magnetism — every pin eases toward ONE continuous per-frame target
+// (its geographic home eased toward the cursor). Attraction + scale ramp
+// smoothly from 0 at MAGNET_RADIUS, and a single critically-damped position
+// lerp smooths the activation transient, the cursor motion, and the repulsion
+// together — so a pin never snaps when it crosses the radius and a dense
+// cluster never "bursts" when many pins activate on the same frame.
+const MAGNET_RADIUS  = 80;          // px — cursor influence radius
+const PIN_PULL       = 0.7;         // fraction of the cursor gap a fully-attracted pin closes
 const PIN_MAX_SCALE  = 2.5;         // 250% peak scale at peak attraction
-const RELEASE_LERP   = 0.18;        // how fast an inactive pin glides back to its geographic home
+const POSITION_LERP  = 0.25;        // per-frame ease of a pin toward its target position
+const SCALE_LERP     = 0.25;        // matching ease for scale
+const REST_SNAP_PX   = 0.4;         // idle pin within this of home snaps exactly on (zero drift)
 
-// Pin-to-pin repulsion (only applied to pins currently attracted to the cursor,
-// so at rest pins sit exactly on their geographic coords; clusters only fan
-// out while the user is interacting with them).
-const REPEL_RADIUS     = 36;        // px — pins within this distance push apart (halved from 72)
-const REPEL_ITERATIONS = 2;         // chain-cluster stabilization
+// Pin-to-pin repulsion — clusters fan out around the cursor. Solved on the
+// stable target positions (not the smoothed display positions, which would
+// feed back and oscillate), then eased into a smoothed per-pin offset scaled
+// by the pin's own attraction, so the fan-out ramps in continuously (no pop)
+// and is exactly zero at rest.
+const REPEL_RADIUS     = 44;        // px — pins within this push apart (clears the 30px peak-scale dot)
+const REPEL_ITERATIONS = 3;         // relaxation passes so dense chains settle without overshoot
+const REPEL_LERP       = 0.32;      // ease the smoothed repulsion offset toward the solved target
+
+// Tooltip selection — single winner, with hysteresis so the highlight doesn't
+// flicker between neighbours in a dense cluster. All distances are cursor↔BASE
+// (geographic) so auto-rotate still releases the highlight.
+const TOUCH_RADIUS         = 24;    // px — a pin must be this close to ACQUIRE the tooltip
+const TOUCH_RELEASE_RADIUS = 44;    // px — the current winner keeps it until the cursor drifts past this
+const TOUCH_SWITCH_MARGIN  = 12;    // px — a rival must be this much closer to steal it
 
 // Orientation — north directly up, Western Canada centered.
 // With the geographic convention x=cos(lat)·sin(lon), z=cos(lat)·cos(lon),
@@ -252,6 +269,12 @@ async function init() {
     displayX: null,
     displayY: null,
     scale:    1,
+    eased:    0,   // continuous attraction 0..1 this frame (drives pull, scale, repulsion)
+    repelX:   0,   // smoothed pin-to-pin repulsion offset (px)
+    repelY:   0,
+    repTX:    0,   // freshly-solved repulsion target offset for this frame (px)
+    repTY:    0,
+    visiblePrev: false,  // was this pin visible last frame (reseed on re-entry)
   }));
 
   // --- OrbitControls: drag-to-rotate + wheel zoom, idle auto-rotate ---
@@ -322,7 +345,7 @@ async function init() {
     if (!pins.length) return;
     group.updateMatrixWorld();
 
-    // Shared geometry
+    // Shared geometry (rects hoisted — one read per frame, no per-pin layout).
     const parentBox = pins[0].el.parentElement.getBoundingClientRect();
     const canvasBox = canvas.getBoundingClientRect();
     const offsetX = canvasBox.left - parentBox.left;
@@ -330,20 +353,18 @@ async function init() {
     const mx = mouseClientX - parentBox.left;
     const my = mouseClientY - parentBox.top;
 
-    // Pass 1 — project each pin, compute visibility, base screen position,
-    // and the attracted target. Active pins snap to their attracted target;
-    // inactive pins glide back toward their base so rotation smoothly
-    // releases the highlight instead of snapping it off.
+    // Pass 1 — project each pin and compute ONE continuous per-frame target:
+    // its geographic home eased toward the cursor. `eased` is a smoothstep that
+    // is exactly 0 at MAGNET_RADIUS, so the target collapses to `base` at the
+    // boundary — crossing the radius is continuous (no snap), and a whole
+    // cluster activating together just eases in together (no burst).
     for (const pin of pins) {
       pin.world.copy(pin.local).applyMatrix4(group.matrixWorld);
-      pin.visible = pin.world.dot(camera.position) > 0;
-      if (!pin.visible) continue;
+      if (pin.world.dot(camera.position) <= 0) { pin.visible = false; continue; }
 
       pin.ndc.copy(pin.world).project(camera);
-      if (Math.abs(pin.ndc.x) > 1.1 || Math.abs(pin.ndc.y) > 1.1) {
-        pin.visible = false;
-        continue;
-      }
+      if (Math.abs(pin.ndc.x) > 1.1 || Math.abs(pin.ndc.y) > 1.1) { pin.visible = false; continue; }
+      pin.visible = true;
 
       pin.baseX = offsetX + (pin.ndc.x * 0.5 + 0.5) * canvasBox.width;
       pin.baseY = offsetY + (-pin.ndc.y * 0.5 + 0.5) * canvasBox.height;
@@ -351,79 +372,166 @@ async function init() {
       const dx = mx - pin.baseX;
       const dy = my - pin.baseY;
       pin.baseDist = Math.hypot(dx, dy);
-      pin.active = !isDragging && pin.baseDist < MAGNET_RADIUS;
 
-      // First frame: seed display at base so the initial render doesn't glide in.
-      if (pin.displayX === null) {
-        pin.displayX = pin.baseX;
-        pin.displayY = pin.baseY;
-      }
-
-      if (pin.active) {
+      // Continuous activation 0..1 (smoothstep), exactly 0 outside the radius.
+      let eased = 0;
+      if (!isDragging && pin.baseDist < MAGNET_RADIUS) {
         const t = 1 - pin.baseDist / MAGNET_RADIUS;
-        const eased = t * t * (3 - 2 * t);
-        pin.displayX = pin.baseX + dx * eased * 0.7;
-        pin.displayY = pin.baseY + dy * eased * 0.7;
-        pin.scale    = 1 + eased * (PIN_MAX_SCALE - 1);
-      } else {
-        // Smooth glide back to geographic home
-        pin.displayX += (pin.baseX - pin.displayX) * RELEASE_LERP;
-        pin.displayY += (pin.baseY - pin.displayY) * RELEASE_LERP;
-        pin.scale    += (1 - pin.scale) * RELEASE_LERP;
+        eased = t * t * (3 - 2 * t);
+      }
+      pin.eased = eased;
+
+      // Attracted target (pre-repulsion). eased→0 ⇒ target === base.
+      pin.targetX = pin.baseX + dx * eased * PIN_PULL;
+      pin.targetY = pin.baseY + dy * eased * PIN_PULL;
+      pin.targetScale = 1 + eased * (PIN_MAX_SCALE - 1);
+      pin.repTX = 0;
+      pin.repTY = 0;
+
+      // Seed display at target on first projection OR when the pin has just
+      // rotated back into view, so it appears in place instead of gliding in
+      // from a stale off-screen position.
+      if (pin.displayX === null || !pin.visiblePrev) {
+        pin.displayX = pin.targetX;
+        pin.displayY = pin.targetY;
+        pin.scale    = pin.targetScale;
+        pin.repelX   = 0;
+        pin.repelY   = 0;
       }
     }
 
-    // Pass 2 — pair-wise repulsion. Only *active* pins move, but they repel
-    // from every visible pin (active or not) so clusters fan around the cursor
-    // without displacing stationary neighbors. Iterate a couple of times so
-    // chains of close pins settle rather than overshoot.
+    // Pass 2 — pair-wise repulsion solved on the STABLE target positions. Only
+    // attracted pins (eased>0) move; they push off every visible pin, so
+    // stationary neighbours aren't displaced. An axis bounding-box reject runs
+    // before the hypot, so a lone active pin does cheap comparisons rather than
+    // ~213 square roots. Reading the corrected positions each pass lets chains
+    // settle in ~2 iterations instead of overshooting.
     for (let iter = 0; iter < REPEL_ITERATIONS; iter++) {
       for (const pin of pins) {
-        if (!pin.visible || !pin.active) continue;
-        let rx = 0, ry = 0;
+        if (!pin.visible || pin.eased <= 0) continue;
+        const px = pin.targetX + pin.repTX;
+        const py = pin.targetY + pin.repTY;
+        let rx = pin.repTX, ry = pin.repTY;
         for (const other of pins) {
           if (other === pin || !other.visible) continue;
-          const dx = pin.displayX - other.displayX;
-          const dy = pin.displayY - other.displayY;
+          const dx = px - (other.targetX + other.repTX);
+          if (dx > REPEL_RADIUS || dx < -REPEL_RADIUS) continue;   // bbox prune
+          const dy = py - (other.targetY + other.repTY);
+          if (dy > REPEL_RADIUS || dy < -REPEL_RADIUS) continue;
           const d = Math.hypot(dx, dy);
           if (d < REPEL_RADIUS && d > 0.001) {
-            // Move this pin half the overlap along the pin-to-pin axis.
-            // After one iteration two active pins will sit exactly REPEL_RADIUS apart.
+            // Push half the overlap along the pin-to-pin axis; two pins settle
+            // exactly REPEL_RADIUS apart. Magnitude is bounded by ½·REPEL_RADIUS
+            // (unit axis × overlap), so near-coincident pins can't explode.
             const overlap = REPEL_RADIUS - d;
             rx += (dx / d) * overlap * 0.5;
             ry += (dy / d) * overlap * 0.5;
           }
         }
-        pin.displayX += rx;
-        pin.displayY += ry;
+        pin.repTX = rx;
+        pin.repTY = ry;
       }
     }
 
-    // Pass 3 — pick the tooltip pin. Gate on the cursor's distance to the
-    // BASE (geographic) position, not the attracted display position. That
-    // way auto-rotate naturally releases the highlight as soon as the pin's
-    // geographic home has moved far enough from the cursor.
-    let touchedPin = null;
-    let bestBaseDist = TOUCH_RADIUS;
+    // Pass 3 — settle. Ease the smoothed repulsion offset toward the freshly
+    // solved target (scaled by attraction so the fan-out ramps in continuously
+    // and vanishes on release), then critically-damp the display position toward
+    // (attracted target + repulsion). This single position lerp smooths the
+    // activation transient, the cursor motion, AND the repulsion, so nothing
+    // pops. At rest (eased 0) the residual decays and snaps to exactly the
+    // geographic home — zero drift.
     for (const pin of pins) {
-      if (!pin.visible || !pin.active) continue;
-      if (pin.baseDist < bestBaseDist) {
-        bestBaseDist = pin.baseDist;
-        touchedPin = pin;
+      if (!pin.visible) continue;
+      pin.repelX += (pin.repTX * pin.eased - pin.repelX) * REPEL_LERP;
+      pin.repelY += (pin.repTY * pin.eased - pin.repelY) * REPEL_LERP;
+
+      const goalX = pin.targetX + pin.repelX;
+      const goalY = pin.targetY + pin.repelY;
+      pin.displayX += (goalX - pin.displayX) * POSITION_LERP;
+      pin.displayY += (goalY - pin.displayY) * POSITION_LERP;
+      pin.scale    += (pin.targetScale - pin.scale) * SCALE_LERP;
+
+      if (pin.eased === 0) {
+        if (Math.abs(pin.repelX) < 0.05) pin.repelX = 0;
+        if (Math.abs(pin.repelY) < 0.05) pin.repelY = 0;
+        if (Math.abs(pin.displayX - pin.baseX) < REST_SNAP_PX) pin.displayX = pin.baseX;
+        if (Math.abs(pin.displayY - pin.baseY) < REST_SNAP_PX) pin.displayY = pin.baseY;
+        if (Math.abs(pin.scale - 1) < 0.01) pin.scale = 1;
       }
     }
 
-    // Pass 4 — commit styles.
+    // Pass 4 — pick the single tooltip pin WITH hysteresis, gated on cursor↔BASE
+    // distance (so auto-rotate still releases the highlight as the geographic
+    // home rotates away). Acquire within TOUCH_RADIUS; the incumbent keeps the
+    // tooltip until the cursor drifts past the larger TOUCH_RELEASE_RADIUS (or
+    // it hides / a drag starts); a rival only steals it by being
+    // TOUCH_SWITCH_MARGIN px closer. This stops the winner flickering between
+    // neighbours in a dense cluster.
+    let best = null;
+    let bestDist = TOUCH_RADIUS;
     for (const pin of pins) {
+      if (!pin.visible || pin.eased <= 0) continue;
+      if (pin.baseDist < bestDist) {
+        bestDist = pin.baseDist;
+        best = pin;
+      }
+    }
+
+    const prev = touchedPinRef;
+    let touchedPin;
+    if (prev && prev.visible && !isDragging && prev.baseDist < TOUCH_RELEASE_RADIUS) {
+      // Incumbent still inside its (enlarged) release zone — keep it unless a
+      // rival is closer by more than the switch margin.
+      touchedPin = (best && best !== prev && best.baseDist < prev.baseDist - TOUCH_SWITCH_MARGIN)
+        ? best
+        : prev;
+    } else {
+      touchedPin = best;
+    }
+
+    // Pass 5 — commit styles, writing ONLY when a value actually changed so we
+    // don't trigger a style-recalc storm across every pin element each frame
+    // (the --pin-scale and is-touched writes are static at rest; skipping them
+    // avoids needless recalc). Position stays on transform (compositor-friendly).
+    for (const pin of pins) {
+      const el = pin.el;
+
       if (!pin.visible) {
-        pin.el.classList.add('is-hidden');
-        pin.el.classList.remove('is-touched');
+        if (pin._hidden !== true) {
+          el.classList.add('is-hidden');
+          el.classList.remove('is-touched');
+          pin._hidden = true;
+          pin._touched = false;
+        }
+        pin.visiblePrev = false;
         continue;
       }
-      pin.el.classList.remove('is-hidden');
-      pin.el.style.transform = `translate(${pin.displayX}px, ${pin.displayY}px)`;
-      pin.el.style.setProperty('--pin-scale', pin.scale);
-      pin.el.classList.toggle('is-touched', pin === touchedPin);
+      if (pin._hidden !== false) {
+        el.classList.remove('is-hidden');
+        pin._hidden = false;
+      }
+
+      const rx = Math.round(pin.displayX * 100) / 100;
+      const ry = Math.round(pin.displayY * 100) / 100;
+      if (rx !== pin._wx || ry !== pin._wy) {
+        el.style.transform = `translate(${rx}px, ${ry}px)`;
+        pin._wx = rx;
+        pin._wy = ry;
+      }
+
+      const rs = Math.round(pin.scale * 1000) / 1000;
+      if (rs !== pin._ws) {
+        el.style.setProperty('--pin-scale', rs);
+        pin._ws = rs;
+      }
+
+      const touched = pin === touchedPin;
+      if (touched !== pin._touched) {
+        el.classList.toggle('is-touched', touched);
+        pin._touched = touched;
+      }
+
+      pin.visiblePrev = true;
     }
 
     touchedPinRef = touchedPin;
