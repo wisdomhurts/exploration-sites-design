@@ -23,43 +23,24 @@ permalink: "clients.html"
     <!-- STATS -->
 
     <section class="stats" style="padding: 32px 0;">
-
       <div class="stats-grid">
-
-        <div>
-
-          <div class="stat-number ">${{ proof.marketCapB }}B+</div>
-
-          <div class="stat-label">In client market cap trusts us</div>
-
+        <div role="img" aria-label="{{ proof.projects }}+ projects completed">
+          <div class="stat-number" aria-hidden="true">{{ proof.projects }}+</div>
+          <div class="stat-label" aria-hidden="true">Projects Completed</div>
         </div>
-
-        <div>
-
-          <div class="stat-number ">{{ proof.companies }}+</div>
-
-          <div class="stat-label">Companies served</div>
-
+        <div role="img" aria-label="{{ proof.websites }}+ websites launched">
+          <div class="stat-number" aria-hidden="true">{{ proof.websites }}+</div>
+          <div class="stat-label" aria-hidden="true">Websites Launched</div>
         </div>
-
-        <div>
-
-          <div class="stat-number ">{{ proof.continents }}</div>
-
-          <div class="stat-label">Continents</div>
-
+        <div role="img" aria-label="Clients worth ${{ proof.marketCapB }}B+ in client market cap trust us with their visuals">
+          <div class="stat-number" aria-hidden="true">${{ proof.marketCapB }}B+</div>
+          <div class="stat-label" aria-hidden="true">In client market cap trusts us</div>
         </div>
-
-        <div>
-
-          <div class="stat-number ">{{ proof.years }}+</div>
-
-          <div class="stat-label">Years</div>
-
+        <div role="img" aria-label="{{ proof.years }}+ years in business">
+          <div class="stat-number" aria-hidden="true">{{ proof.years }}+</div>
+          <div class="stat-label" aria-hidden="true">Years in Business</div>
         </div>
-
       </div>
-
     </section>
 
     <!-- ALL CLIENTS TABLE -->

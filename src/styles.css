@@ -2761,7 +2761,7 @@
     a.work-card { text-decoration: none; cursor: pointer; }
 
     /* wide media for site screenshots & deck covers */
-    .work-card-media--wide { aspect-ratio: 16 / 10; }
+    .work-card-media--wide { aspect-ratio: 16 / 11; }
 
     /* placeholder tile for map types without a sample image yet */
     .work-card--tile .work-card-media--tile {
@@ -2881,7 +2881,6 @@
     }
     .compliance-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
     .compliance-note a:hover { color: var(--graphite); }
-    .compliance-note--marquee { max-width: 900px; margin: 14px auto 0; padding: 0 24px; text-align: center; }
 
 
     /* Full-bleed thesis pullquote — an editorial pause that gives the philosophy
@@ -2948,28 +2947,6 @@
        CRO-03 outcomes band · CRO-04 price anchors + service from-lines · BRAND-05 flagship band
        (nav "Work" dropdown CSS lives in _includes/nav.html's own <style> block)
        ============================================================ */
-
-    /* CRO-04 — per-group "From $X" kicker on the homepage showcase */
-    .showcase-group-headline { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-    .showcase-group-price {
-      font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
-      color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap;
-    }
-    .showcase-group-price b { font-weight: 600; color: var(--slate); }
-
-    /* CRO-04 — Complete Launch Package callout (links to engagement.html) */
-    .launch-callout {
-      display: inline-flex; align-items: baseline; gap: 12px; margin-top: 18px;
-      padding: 10px 18px; border: 1px solid var(--border); border-radius: 999px;
-      background: var(--surface); text-decoration: none;
-      transition: border-color 0.2s var(--ease-out-soft);
-    }
-    .launch-callout:hover { border-color: var(--slate); }
-    .launch-callout:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
-    .launch-callout-label { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--graphite); }
-    .launch-callout-price { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--slate); font-variant-numeric: tabular-nums; }
-    .launch-callout-arrow { font-size: 14px; color: var(--ore-text); transition: transform 0.2s var(--ease-out-soft); }
-    .launch-callout:hover .launch-callout-arrow { transform: translateX(3px); }
 
     /* CRO-04 — quiet "from" price line in service-page hero/intro */
     .hero-from {
