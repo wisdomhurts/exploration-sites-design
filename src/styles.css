@@ -817,6 +817,30 @@
        no projected position — they'd pile up as a tappable smudge at top-left. */
     .hero-globe:not(.is-live) .hero-globe-pin { display: none; }
 
+    /* Quiet legend for the globe. Grid-aligned to the content's right edge so it
+       never collides with the left-aligned hero copy, and shown only once the
+       globe is live (i.e. exactly when the pins are visible) — so it hides on
+       mobile / reduced-motion / no-WebGL where there are no pins. */
+    .hero-globe-title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 80px;
+      text-align: right;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      pointer-events: none;
+    }
+    .hero-globe:not(.is-live) ~ .hero-globe-title { display: none; }
+
     .hero-label {
       font-family: var(--font-sans);
       font-size: 11px;
