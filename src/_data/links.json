@@ -1,0 +1,7 @@
+{
+  "_comment": "Payment links. Placeholders route to book.html until Stripe is live; then paste the Stripe Payment Link URLs here and every button updates.",
+  "payNrmpCadence": "book.html",
+  "payNrmpActive": "book.html",
+  "payNrmpFull": "book.html",
+  "payRetainer": "book.html"
+}
