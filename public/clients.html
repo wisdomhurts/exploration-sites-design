@@ -527,23 +527,6 @@
         .client-table-note strong { color: var(--navy); font-weight: 600; }
         .client-table-note a { color: var(--navy); text-decoration: underline; }
 
-        /* Filter pills + search + mobile sort (UX-04) — view-layer only; never touches row source.
-           Whole toolbar is JS-driven, so it only renders when html.js is set (head.html). */
-        .client-filters { display: none; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 1200px; margin: 0 auto 16px; }
-        .js .client-filters { display: flex; }
-        .client-search { font-family: var(--font-sans); font-size: 13px; padding: 6px 11px; border: 1px solid var(--border); background: none; color: var(--navy); border-radius: 2px; min-width: 220px; }
-        .client-search::placeholder { color: var(--muted); }
-        .client-search:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
-        .client-sort { display: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; padding: 6px 8px; border: 1px solid var(--border); background: none; color: var(--navy); border-radius: 2px; }
-        .client-sort:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
-        .client-filter { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; padding: 6px 11px; border: 1px solid var(--border); background: none; color: var(--muted); cursor: pointer; border-radius: 2px; transition: color 0.15s var(--ease-out-soft), border-color 0.15s var(--ease-out-soft), background 0.15s var(--ease-out-soft); }
-        .client-filter:hover { border-color: var(--slate); color: var(--navy); }
-        .client-filter.is-active { background: var(--navy); border-color: var(--navy); color: var(--quartz); }
-        .client-filter:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
-        .client-filter .cf-count { opacity: 0.6; margin-left: 3px; }
-        .client-filter.is-active .cf-count { opacity: 0.85; }
-        .client-filters-count { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-left: auto; }
-        @media (max-width: 560px) { .client-filters-count { margin-left: 0; width: 100%; } }
 
         /* Mobile: compact expandable client cards (UX-05).
            Default shows company / ticker / mkt cap / proof marks; tap opens the rest.
@@ -577,8 +560,6 @@
           .js .client-table tbody td[data-has="1"]::after { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--ore); border-radius: 1px; }
           .client-table td.mcap { width: 100%; }
           .cmdy-legend { font-size: 9px; }
-          .client-sort { display: block; flex: 1 1 100%; }
-          .client-search { flex: 1 1 100%; min-width: 0; }
         }
 
       </style>
@@ -586,29 +567,6 @@
 
       <div id="client-table-status" class="sr-only" aria-live="polite"></div>
 
-      <div class="client-filters" role="group" aria-label="Search and filter the client directory">
-        <input type="search" class="client-search" placeholder="Search company, ticker, country&hellip;" aria-label="Search clients by company, ticker, commodity, or country">
-        <button type="button" class="client-filter is-active" data-filter="all" data-value="">All <span class="cf-count" data-count="all"></span></button>
-        <button type="button" class="client-filter" data-filter="commodity" data-value="gold">Gold <span class="cf-count" data-count="gold"></span></button>
-        <button type="button" class="client-filter" data-filter="commodity" data-value="silver">Silver <span class="cf-count" data-count="silver"></span></button>
-        <button type="button" class="client-filter" data-filter="commodity" data-value="copper">Copper <span class="cf-count" data-count="copper"></span></button>
-        <button type="button" class="client-filter" data-filter="commodity" data-value="uranium">Uranium <span class="cf-count" data-count="uranium"></span></button>
-        <button type="button" class="client-filter" data-filter="commodity" data-value="lithium">Lithium <span class="cf-count" data-count="lithium"></span></button>
-        <button type="button" class="client-filter" data-filter="work" data-value="map">Has map</button>
-        <button type="button" class="client-filter" data-filter="work" data-value="deck">Has deck</button>
-        <button type="button" class="client-filter" data-filter="work" data-value="web">Has site</button>
-        <label class="sr-only" for="client-sort">Sort clients</label>
-        <select id="client-sort" class="client-sort">
-          <option value="4:mcap:desc">Sort: market cap, largest first</option>
-          <option value="0:text:asc">Sort: company A&ndash;Z</option>
-          <option value="5:text:asc">Sort: commodity</option>
-          <option value="6:text:asc">Sort: country</option>
-          <option value="7:work:asc">Sort: has map first</option>
-          <option value="8:work:asc">Sort: has deck first</option>
-          <option value="9:work:asc">Sort: has site first</option>
-        </select>
-        <span class="client-filters-count" aria-live="polite"></span>
-      </div>
 
       <div style="overflow-x: auto; max-width: 1200px; margin: 0 auto;">
 
@@ -1301,61 +1259,6 @@
         btn.addEventListener('click', function(){ sortBy(+btn.dataset.col, btn.dataset.type); });
       });
 
-      // -------- filter pills + search (UX-04) — show/hide rows; source untouched --------
-      var filterBtns = document.querySelectorAll('.client-filter');
-      var filterCount = document.querySelector('.client-filters-count');
-      var searchInput = document.querySelector('.client-search');
-      var activeType = 'all', activeValue = '', query = '';
-      // Search haystacks are cached per row — cell text never changes at runtime
-      // (the quote bot rewrites rows at build time, not in the browser).
-      var hayCache = new WeakMap();
-      function rowHay(r){
-        var h = hayCache.get(r);
-        if (h === undefined) {
-          h = [0, 2, 5, 6].map(function(ci){ return r.cells[ci] ? r.cells[ci].textContent : ''; }).join(' ').toLowerCase();
-          hayCache.set(r, h);
-        }
-        return h;
-      }
-      function rowMatches(r){
-        if (activeType === 'commodity' && !(r.cells[5] && r.cells[5].textContent.toLowerCase().indexOf(activeValue) !== -1)) return false;
-        if (activeType === 'work') {
-          var ci = activeValue === 'web' ? 9 : activeValue === 'deck' ? 8 : 7;
-          if (!(r.cells[ci] && r.cells[ci].dataset.has === '1')) return false;
-        }
-        if (query && rowHay(r).indexOf(query) === -1) return false;
-        return true;
-      }
-      function refreshRows(){
-        var rows = tbody.rows, shown = 0;
-        for (var i = 0; i < rows.length; i++){
-          var show = rowMatches(rows[i]);
-          rows[i].style.display = show ? '' : 'none';
-          if (show) shown++;
-        }
-        if (filterCount) filterCount.textContent = (activeType === 'all' && !query) ? (rows.length + ' companies') : ('Showing ' + shown + ' of ' + rows.length);
-      }
-      filterBtns.forEach(function(btn){
-        btn.addEventListener('click', function(){
-          filterBtns.forEach(function(b){ b.classList.remove('is-active'); });
-          btn.classList.add('is-active');
-          activeType = btn.dataset.filter;
-          activeValue = (btn.dataset.value || '').toLowerCase();
-          refreshRows();
-        });
-      });
-      if (searchInput) searchInput.addEventListener('input', function(){
-        query = searchInput.value.trim().toLowerCase();
-        refreshRows();
-      });
-
-      // -------- mobile sort select (thead is hidden on small screens) --------
-      var sortSel = document.querySelector('.client-sort');
-      if (sortSel) sortSel.addEventListener('change', function(){
-        var p = sortSel.value.split(':');
-        sortBy(+p[0], p[1], p[2]);
-      });
-
       // -------- mobile compact cards: tap to reveal secondary cells --------
       var cardMq = window.matchMedia('(max-width: 768px)');
       var cardsEnhanced = false; // skip the walk when nothing changes (desktop init = no-op)
@@ -1395,20 +1298,6 @@
       enhance();
       setAriaSort(4, 'desc');
 
-
-      // commodity tallies for the pills (after enhance) — counts are polymetallic-inclusive
-      (function(){
-        var rows = tbody.rows, keys = ['gold', 'silver', 'copper', 'uranium', 'lithium'], c = {};
-        keys.forEach(function(k){ c[k] = 0; });
-        for (var i = 0; i < rows.length; i++){
-          var t = rows[i].cells[5] ? rows[i].cells[5].textContent.toLowerCase() : '';
-          keys.forEach(function(k){ if (t.indexOf(k) !== -1) c[k]++; });
-        }
-        function setc(k, v){ var el = document.querySelector('.cf-count[data-count="' + k + '"]'); if (el) el.textContent = v; }
-        setc('all', rows.length);
-        keys.forEach(function(k){ setc(k, c[k]); });
-        if (filterCount) filterCount.textContent = rows.length + ' companies';
-      })();
     })();
     </script>
     
