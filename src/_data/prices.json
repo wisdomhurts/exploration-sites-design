@@ -8,5 +8,7 @@
   "retainerFrom": "1,900",
   "nrmpCadence": "2,500",
   "nrmpActive": "3,500",
-  "nrmpFull": "4,500"
+  "nrmpFull": "4,500",
+  "nrmpSetup": "2,500",
+  "nrmpOverage": "750"
 }
