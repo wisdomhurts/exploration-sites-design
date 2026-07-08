@@ -540,18 +540,18 @@
          1px rule, serif introduction + three ledger stats. No fill tricks,
          no shadow — presence comes from scale and whitespace. */
       .nrmp-comm {
-        margin: 44px 0 12px;
+        margin: 36px 0 8px;
         border: 1px solid var(--border);
         border-radius: 8px;
         background: var(--vellum);
-        padding: clamp(32px, 4.5vw, 56px);
+        padding: clamp(24px, 3vw, 38px) clamp(26px, 3.4vw, 44px);
         display: grid;
         grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-        gap: clamp(28px, 5vw, 72px);
+        gap: clamp(24px, 4vw, 64px);
         align-items: center;
       }
       .nrmp-comm-eyebrow {
-        margin: 0 0 14px;
+        margin: 0 0 10px;
         font-family: var(--font-sans);
         font-size: 11px;
         font-weight: 600;
@@ -560,10 +560,10 @@
         color: var(--ore-text);
       }
       .nrmp-comm-headline {
-        margin: 0 0 16px;
+        margin: 0 0 10px;
         font-family: var(--font-serif);
-        font-size: clamp(26px, 3vw, 38px);
-        line-height: 1.15;
+        font-size: clamp(21px, 2.1vw, 27px);
+        line-height: 1.2;
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--graphite);
@@ -571,34 +571,34 @@
       .nrmp-comm-body {
         margin: 0;
         font-family: var(--font-sans);
-        font-size: 15px;
-        line-height: 1.7;
+        font-size: 14px;
+        line-height: 1.65;
         color: var(--body);
-        max-width: 52ch;
+        max-width: 56ch;
       }
-      .nrmp-comm .btn-discovery { margin-top: 26px; }
+      .nrmp-comm .btn-discovery { margin-top: 16px; }
       .nrmp-comm-stats { display: grid; align-content: center; }
       .nrmp-comm-stat {
         display: flex;
         align-items: baseline;
-        gap: 18px;
-        padding: 16px 0;
+        gap: 16px;
+        padding: 10px 0;
         border-bottom: 1px solid var(--border);
       }
       .nrmp-comm-stat:first-child { padding-top: 0; }
       .nrmp-comm-stat:last-child { border-bottom: 0; padding-bottom: 0; }
       .nrmp-comm-num {
         font-family: var(--font-serif);
-        font-size: clamp(24px, 2.4vw, 30px);
+        font-size: clamp(19px, 1.7vw, 22px);
         font-weight: 500;
         color: var(--graphite);
         font-variant-numeric: tabular-nums;
         white-space: nowrap;
-        min-width: 7.4em;
+        min-width: 6.6em;
       }
       .nrmp-comm-lbl {
         font-family: var(--font-sans);
-        font-size: 13px;
+        font-size: 12.5px;
         line-height: 1.5;
         color: var(--muted);
       }
@@ -1586,8 +1586,8 @@
       <aside class="nrmp-comm" aria-label="Introducing the News-Release Map Program">
         <div>
           <p class="nrmp-comm-eyebrow">New &middot; For companies in active drilling</p>
-          <h3 class="nrmp-comm-headline">Introducing our new<br>News-Release Map Program.</h3>
-          <p class="nrmp-comm-body">Most release maps are the same map with new drill data. So we lock your house-styled base once &mdash; then every set of results comes back as an investor-ready map in 24&ndash;48 hours, guaranteed, with priority over everything else on our desk. One monthly fee. No per-map quotes.</p>
+          <h3 class="nrmp-comm-headline">Introducing our News-Release Map Program.</h3>
+          <p class="nrmp-comm-body">We lock your house-styled base once &mdash; then every set of results comes back as an investor-ready map in 24&ndash;48 hours, guaranteed. One monthly fee. No per-map quotes.</p>
           <a href="news-release-map-program.html" class="btn-discovery">See the program <span class="arw" aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="nrmp-comm-stats">
