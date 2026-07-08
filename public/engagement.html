@@ -807,8 +807,14 @@
   }
   .timelines-item .tl-key { color: var(--graphite); font-weight: 500; }
   .timelines-item .tl-val { color: var(--slate); }
+  .timelines-currency {
+    margin-left: auto;
+    font-size: 12.5px; color: var(--muted);
+    white-space: nowrap;
+  }
   @media (max-width: 560px) {
     .timelines { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .timelines-currency { margin-left: 0; }
   }
 
   /* ---------- LAUNCH PACKAGE ---------- */
@@ -1655,6 +1661,7 @@
         <span class="timelines-item"><span class="tl-key">Presentations</span><span class="tl-val mono">4 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">Websites</span><span class="tl-val mono">5 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">GIS films</span><span class="tl-val mono">6 weeks</span></span>
+        <span class="timelines-currency">Prices in CAD, excl. GST</span>
       </div>
 
       <!-- Model 03 deliverable register -->
@@ -1904,7 +1911,7 @@
         <li class="apr-step">
           <div class="apr-step-num">03<span class="of">/05</span></div>
           <h3 class="apr-step-title">You approve</h3>
-          <p class="apr-step-text">You review the scope and quote, ask questions, and give us the go-ahead before any work begins.</p>
+          <p class="apr-step-text">You review the scope and quote, ask questions, and give us the go-ahead before any work begins. Engagements are paid in full at approval &mdash; it&rsquo;s how fixed quotes stay fixed.</p>
         </li>
         <li class="apr-step">
           <div class="apr-step-num">04<span class="of">/05</span></div>
