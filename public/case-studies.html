@@ -214,13 +214,13 @@
                 <div class="mega-menu-tab-panel" id="panel-investorhub" role="tabpanel" aria-labelledby="tab-investorhub" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="nurture-crm.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Nurture CRM</div>
+                      <div class="mega-menu-card-title">Nurture CRM <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="investor-analytics.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Investor Analytics</div>
+                      <div class="mega-menu-card-title">Investor Analytics <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="exploration-today-ai.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Exploration Today AI</div>
+                      <div class="mega-menu-card-title">Exploration Today AI <span class="nav-status">Early access</span></div>
                     </a>
                   </div>
                 </div>
@@ -289,9 +289,9 @@
           </div>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Investor Hub</div>
-            <a href="nurture-crm.html">Nurture CRM</a>
-            <a href="investor-analytics.html">Investor Analytics</a>
-            <a href="exploration-today-ai.html">Exploration Today AI</a>
+            <a href="nurture-crm.html">Nurture CRM <span class="nav-status">Early access</span></a>
+            <a href="investor-analytics.html">Investor Analytics <span class="nav-status">Early access</span></a>
+            <a href="exploration-today-ai.html">Exploration Today AI <span class="nav-status">Early access</span></a>
           </div>
         </div>
       </li>
@@ -341,6 +341,23 @@
 
     /* Category overview card at the head of a panel ("All Investor Maps →") */
     .mega-menu-card--all .mega-menu-card-title { color: var(--ore-text, var(--ore)); font-weight: 600; }
+
+    /* Quiet pre-launch status chip (Investor Hub items) */
+    .nav-status {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid var(--graticule);
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
 
     /* Mobile services accordion */
     .nav-mobile-accordion { border-bottom: 1px solid var(--border); }
@@ -438,7 +455,7 @@
       <div class="principle-row">
         <span class="case-label">Over this period</span>
         <div>
-          <p class="principle-desc">As the resource grew, the visuals scaled with it &mdash; institutional investors could read scale, grade, and continuity at a glance. Over the same period the company&rsquo;s reported market capitalisation grew from ~$130M to ~$6.7B. The maps made the geology legible; the drilling, resource growth, and financings drove the valuation (company-reported, shown for context &mdash; not a claim of attribution).</p>
+          <p class="principle-desc">As the resource grew, the visuals scaled with it &mdash; institutional investors could read scale, grade, and continuity at a glance. Over the same period the company&rsquo;s reported market capitalisation grew from ~$130M to ~$6.7B. The maps made the geology legible; the drilling, resource growth, and financings drove the valuation (company-reported).</p>
         </div>
       </div>
     </div>
@@ -451,7 +468,7 @@
         <li class="case-ledger-item">News-release graphics</li>
         <li class="case-ledger-item">Roadshow decks</li>
       </ul>
-      <p class="case-footnote">Company-reported market cap ~$130M (2023) to ~$6.7B (today) &mdash; company disclosure; shown for context, not a claim of attribution.</p>
+      <p class="case-footnote">Company-reported market cap ~$130M (2023) to ~$6.7B (today) &mdash; company disclosure.</p>
     </aside>
   </div>
 </section>
@@ -468,7 +485,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">FWZ</span></span>
         <div>
           <div class="principle-title">Client since 2018</div>
-          <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" class="case-link">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="locators-area-plays.html" class="case-link">maps</a> and run their <a href="webflow.html" class="case-link">website</a> &mdash; work that ran alongside their growth from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit. Their discoveries and financings built that value; we kept it legible to the market.</p>
+          <p class="principle-desc">In 2018 we produced a <a href="https://youtu.be/hQzoQW-OAAo" target="_blank" class="case-link">GIS movie</a> about Fireweed's deposits. Since then we've created their investor <a href="locators-area-plays.html" class="case-link">maps</a> and run their <a href="wordpress.html" class="case-link">website</a> &mdash; work that ran alongside their growth from a micro-cap zinc explorer to a billion-dollar critical minerals company with the world's largest tungsten deposit. Their discoveries and financings built that value; we kept it legible to the market.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -486,7 +503,7 @@
         <li class="case-ledger-item">Investor maps</li>
         <li class="case-ledger-item">Website (ongoing)</li>
       </ul>
-      <p class="case-footnote">Company-reported market cap ~$16.5M (2018) to ~$1.03B (today) &mdash; company disclosure; shown for context, not a claim of attribution.</p>
+      <p class="case-footnote">Company-reported market cap ~$16.5M (2018) to ~$1.03B (today) &mdash; company disclosure.</p>
     </aside>
   </div>
 </section>
@@ -503,7 +520,7 @@
         <span class="case-ticker"><span class="case-ticker-exchange">TSXV:</span><span class="case-ticker-symbol">WRLG</span></span>
         <div>
           <div class="principle-title">Client since August 2023</div>
-          <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="logos-branding.html" class="case-link">logo</a>, business cards, Christmas cards, <a href="conference-booth.html" class="case-link">tradeshow booth</a>, <a href="fact-sheets.html" class="case-link">fact sheet</a>, <a href="presentations.html" class="case-link">investor presentation</a>, and <a href="webflow.html" class="case-link">website</a>. We produce approximately 10 <a href="locators-area-plays.html" class="case-link">maps</a> per month for <a href="movies.html" class="case-link">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
+          <p class="principle-desc">Every single piece of digital investor relations. We designed their <a href="logos-branding.html" class="case-link">logo</a>, business cards, Christmas cards, <a href="conference-booth.html" class="case-link">tradeshow booth</a>, <a href="fact-sheets.html" class="case-link">fact sheet</a>, <a href="presentations.html" class="case-link">investor presentation</a>, and <a href="wordpress.html" class="case-link">website</a>. We produce approximately 10 <a href="locators-area-plays.html" class="case-link">maps</a> per month for <a href="movies.html" class="case-link">news releases</a> as they advance toward restarting the high-grade Madsen Mine in Red Lake, Ontario.</p>
         </div>
       </div>
       <div class="principle-row">
@@ -525,7 +542,7 @@
         <li class="case-ledger-item">Website</li>
         <li class="case-ledger-item">News-release maps (~<span class="case-ledger-num">10</span>/month)</li>
       </ul>
-      <p class="case-footnote">Company-reported market cap ~$40M (Aug 2023) to ~$409M (today) &mdash; company disclosure; shown for context, not a claim of attribution.</p>
+      <p class="case-footnote">Company-reported market cap ~$40M (Aug 2023) to ~$409M (today) &mdash; company disclosure.</p>
     </aside>
   </div>
 </section>
@@ -560,7 +577,7 @@
         <li class="case-ledger-item">Presentations</li>
         <li class="case-ledger-item">Investor communications</li>
       </ul>
-      <p class="case-footnote">Company-reported market cap ~$65M (Aug 2020); merged with Contango Ore, March 2026 &mdash; company disclosure; shown for context, not a claim of attribution.</p>
+      <p class="case-footnote">Company-reported market cap ~$65M (Aug 2020); merged with Contango Ore, March 2026 &mdash; company disclosure.</p>
     </aside>
   </div>
 </section>
@@ -583,7 +600,7 @@
       <div class="principle-row">
         <span class="case-label">Over this period</span>
         <div>
-          <p class="principle-desc">The company&rsquo;s reported market cap grew from $24M to $194M after a significant porphyry copper discovery in late 2023 (company-reported; shown for context).</p>
+          <p class="principle-desc">The company&rsquo;s reported market cap grew from $24M to $194M after a significant porphyry copper discovery in late 2023 (company-reported).</p>
         </div>
       </div>
     </div>
@@ -596,7 +613,7 @@
         <li class="case-ledger-item">News-release cross sections</li>
         <li class="case-ledger-item">Conference booth design</li>
       </ul>
-      <p class="case-footnote">Company-reported market cap ~$24M (2023) to ~$194M (today) &mdash; company disclosure; shown for context, not a claim of attribution.</p>
+      <p class="case-footnote">Company-reported market cap ~$24M (2023) to ~$194M (today) &mdash; company disclosure.</p>
     </aside>
   </div>
 </section>
@@ -698,6 +715,7 @@
                 <li><a href="engagement.html">How We Work</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
+                <li><a href="fundable-materials-scorecard.html">Materials Scorecard</a></li>
                 <li><a href="team.html">Our team</a></li>
               </ul>
             </div>

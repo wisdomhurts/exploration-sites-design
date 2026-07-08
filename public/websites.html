@@ -214,13 +214,13 @@
                 <div class="mega-menu-tab-panel" id="panel-investorhub" role="tabpanel" aria-labelledby="tab-investorhub" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="nurture-crm.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Nurture CRM</div>
+                      <div class="mega-menu-card-title">Nurture CRM <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="investor-analytics.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Investor Analytics</div>
+                      <div class="mega-menu-card-title">Investor Analytics <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="exploration-today-ai.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Exploration Today AI</div>
+                      <div class="mega-menu-card-title">Exploration Today AI <span class="nav-status">Early access</span></div>
                     </a>
                   </div>
                 </div>
@@ -289,9 +289,9 @@
           </div>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Investor Hub</div>
-            <a href="nurture-crm.html">Nurture CRM</a>
-            <a href="investor-analytics.html">Investor Analytics</a>
-            <a href="exploration-today-ai.html">Exploration Today AI</a>
+            <a href="nurture-crm.html">Nurture CRM <span class="nav-status">Early access</span></a>
+            <a href="investor-analytics.html">Investor Analytics <span class="nav-status">Early access</span></a>
+            <a href="exploration-today-ai.html">Exploration Today AI <span class="nav-status">Early access</span></a>
           </div>
         </div>
       </li>
@@ -341,6 +341,23 @@
 
     /* Category overview card at the head of a panel ("All Investor Maps →") */
     .mega-menu-card--all .mega-menu-card-title { color: var(--ore-text, var(--ore)); font-weight: 600; }
+
+    /* Quiet pre-launch status chip (Investor Hub items) */
+    .nav-status {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid var(--graticule);
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
 
     /* Mobile services accordion */
     .nav-mobile-accordion { border-bottom: 1px solid var(--border); }
@@ -410,12 +427,24 @@
   <div class="page" id="main">
     
     
+    <style>
+      /* Page-scoped: platform tag on site cards + scope rows */
+      .site-card-platform { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+      .scope-rows { margin-top: 8px; }
+      .scope-rows .contact-info-row { align-items: baseline; gap: 24px; }
+      .scope-rows .contact-info-value { text-align: right; }
+      @media (max-width: 560px) {
+        .scope-rows .contact-info-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 0; }
+        .scope-rows .contact-info-value { text-align: left; }
+      }
+    </style>
+
     <!-- PAGE HERO -->
     <section class="hero hero--page">
       <div class="section-label">Websites</div>
       <h1 class="hero-headline">Websites that earn investor trust.</h1>
       <p class="hero-body">Compelling websites built by industry professionals &mdash; designed to help mining companies tell their story and attract investors through quality visual information and a frictionless user experience.</p>
-      <p class="hero-from">From <b>$12,000</b></p>
+      <p class="hero-from">From <b>$12,000</b> &middot; typically 5 weeks</p>
     </section>
 
     <div class="divider"></div>
@@ -432,10 +461,21 @@
           <p class="body-text">Best for companies that want a polished, design-led site that&rsquo;s quick to launch and easy to keep current.</p>
           <div class="platform-builds">
             <div class="platform-builds-label">Recent Webflow builds</div>
-            <div class="platform-builds-row">
-              <img src="images/clients/snowline.avif" alt="Snowline Gold" loading="lazy">
-              <img src="images/clients/avino.avif" alt="Avino Silver &amp; Gold Mines" loading="lazy">
-              <img src="images/clients/silver-viper.png" alt="Silver Viper Minerals" loading="lazy">
+            <div class="site-grid" style="margin-top: 0;">
+              <a class="site-card" href="https://snowlinegold.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/snowline.avif" alt="Snowline Gold website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Snowline Gold <span class="site-card-platform">Webflow</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://avino.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/avino.avif" alt="Avino Silver &amp; Gold Mines website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Avino Silver &amp; Gold Mines <span class="site-card-platform">Webflow</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -456,9 +496,57 @@
           <p class="body-text">Best for companies that need bespoke functionality or want to build on an existing WordPress investment.</p>
           <div class="platform-builds">
             <div class="platform-builds-label">Recent WordPress builds</div>
-            <div class="platform-builds-row">
-              <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
-              <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" loading="lazy">
+            <div class="site-grid" style="margin-top: 0;">
+              <a class="site-card" href="https://fireweedmetals.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/fireweed.avif" alt="Fireweed Metals website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Fireweed Metals <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://westredlakegold.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/west-red-lake.avif" alt="West Red Lake Gold website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">West Red Lake Gold <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://silverviperminerals.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/silver-viper.avif" alt="Silver Viper Minerals website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Silver Viper Minerals <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SCOPE -->
+    <section class="section" id="scope">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Scope</div>
+          <h2 class="section-headline">What an investor-grade site includes.</h2>
+        </div>
+        <div>
+          <p class="body-text">The design changes with each company; the scope below doesn&rsquo;t. Every build ships with the sections and IR plumbing an institutional reader expects to find.</p>
+          <div class="scope-rows">
+            <div class="contact-info-row">
+              <span class="contact-info-label">Core sections</span>
+              <span class="contact-info-value">Projects &middot; News &middot; Investors &middot; Corporate &middot; Contact</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">IR features</span>
+              <span class="contact-info-value">Live quote feed &middot; news-release archive &middot; SEDAR+ filing links</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">Revisions</span>
+              <span class="contact-info-value">Revision rounds defined per engagement, in the proposal</span>
             </div>
           </div>
         </div>
@@ -468,14 +556,28 @@
     <div class="divider"></div>
 
     <!-- CTA -->
+    <section class="section section--tight">
+      <p class="next-step">Need it hosted and maintained? <a href="hosting.html">Managed hosting &rarr;</a> &nbsp;&middot;&nbsp; Ongoing design support after launch? <a href="engagement.html#retainers">Monthly retainers &rarr;</a></p>
+    </section>
+
     <section class="cta-section">
       <h2 class="cta-headline">Ready for a site that does your geology justice?</h2>
       <p class="cta-sub">Tell us about your project and where you want to take it.</p>
       <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
       <ul class="cta-assurance" aria-label="What to expect">
   <li>20 min, no obligation, no pitch</li>
-  <li>We take a limited number of clients each quarter</li>
+  <li><a href="fundable-materials-scorecard.html">Not raising yet? Get your materials scored &mdash; free, no call &rarr;</a></li>
 </ul>
+<style>
+  /* Scorecard line is the only link in this list — keep it as quiet as its siblings */
+  .cta-assurance a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--graticule);
+    transition: color 0.2s var(--ease-out-soft), border-color 0.2s var(--ease-out-soft);
+  }
+  .cta-assurance a:hover { color: var(--graphite); border-color: var(--ore); }
+</style>
 
       <a href="case-studies.html" class="cta-actions-alt">Still evaluating? See the case studies <span aria-hidden="true">&rarr;</span></a>
     </section>
@@ -542,6 +644,7 @@
                 <li><a href="engagement.html">How We Work</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
+                <li><a href="fundable-materials-scorecard.html">Materials Scorecard</a></li>
                 <li><a href="team.html">Our team</a></li>
               </ul>
             </div>

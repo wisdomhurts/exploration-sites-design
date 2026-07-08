@@ -214,13 +214,13 @@
                 <div class="mega-menu-tab-panel" id="panel-investorhub" role="tabpanel" aria-labelledby="tab-investorhub" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="nurture-crm.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Nurture CRM</div>
+                      <div class="mega-menu-card-title">Nurture CRM <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="investor-analytics.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Investor Analytics</div>
+                      <div class="mega-menu-card-title">Investor Analytics <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="exploration-today-ai.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Exploration Today AI</div>
+                      <div class="mega-menu-card-title">Exploration Today AI <span class="nav-status">Early access</span></div>
                     </a>
                   </div>
                 </div>
@@ -289,9 +289,9 @@
           </div>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Investor Hub</div>
-            <a href="nurture-crm.html">Nurture CRM</a>
-            <a href="investor-analytics.html">Investor Analytics</a>
-            <a href="exploration-today-ai.html">Exploration Today AI</a>
+            <a href="nurture-crm.html">Nurture CRM <span class="nav-status">Early access</span></a>
+            <a href="investor-analytics.html">Investor Analytics <span class="nav-status">Early access</span></a>
+            <a href="exploration-today-ai.html">Exploration Today AI <span class="nav-status">Early access</span></a>
           </div>
         </div>
       </li>
@@ -341,6 +341,23 @@
 
     /* Category overview card at the head of a panel ("All Investor Maps →") */
     .mega-menu-card--all .mega-menu-card-title { color: var(--ore-text, var(--ore)); font-weight: 600; }
+
+    /* Quiet pre-launch status chip (Investor Hub items) */
+    .nav-status {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid var(--graticule);
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
 
     /* Mobile services accordion */
     .nav-mobile-accordion { border-bottom: 1px solid var(--border); }
@@ -430,6 +447,11 @@
     font-family: var(--font-sans); font-size: 18px; line-height: 1.6;
     color: var(--body); max-width: 56ch; margin: 0;
   }
+  .mhub-from {
+    margin: 20px 0 0; font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.03em; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .mhub-from b { font-weight: 600; color: var(--graphite); }
 
   .mhub-rule { height: 1px; background: var(--border); border: 0; margin: 0; }
 
@@ -491,6 +513,23 @@
   .mhub-toc-link:hover .mhub-toc-num, .mhub-toc-link.is-active .mhub-toc-num { color: var(--ore-text); }
   .mhub-toc-text { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; }
 
+  /* Quiet end-of-page bands: QP workflow + News-Release Map Program cross-link */
+  .mhub-band { padding-top: 44px; max-width: 66ch; }
+  .mhub-band-title {
+    font-family: var(--font-serif); font-size: 27px; font-weight: 300;
+    line-height: 1.2; letter-spacing: -0.015em; color: var(--graphite); margin: 0 0 14px;
+  }
+  .mhub-band-flow {
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    color: var(--graphite); margin: 0 0 10px;
+  }
+  .mhub-band-flow span { color: var(--ore-text); }
+  .mhub-band-text {
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.72;
+    color: var(--body); margin: 0 0 18px;
+  }
+  .mhub-band-text:last-child { margin-bottom: 0; }
+
   @media (max-width: 900px) {
     .mhub-body { grid-template-columns: 1fr; gap: 0; padding-top: 40px; }
     .mhub-prose { max-width: 100%; }
@@ -511,6 +550,7 @@
     <p class="mhub-eyebrow">Investor Maps</p>
     <h1 class="mhub-title">Every map an investor needs to see.</h1>
     <p class="mhub-intro">Six kinds of map, one house standard &mdash; each built to make a different part of your story legible to the people who fund it. Jump to any type.</p>
+    <p class="mhub-from">From <b>$1,200</b> &middot; typically 3&ndash;7 business days</p>
   </header>
 
   <hr class="mhub-rule">
@@ -624,6 +664,22 @@
     </nav>
 
   </div>
+
+  <hr class="mhub-rule" style="margin-top: 56px;">
+
+  <section class="mhub-band">
+    <h2 class="mhub-band-title">Built for your QP.</h2>
+    <p class="mhub-band-flow">Your data in <span aria-hidden="true">&rarr;</span> we draft <span aria-hidden="true">&rarr;</span> your QP reviews and approves <span aria-hidden="true">&rarr;</span> release.</p>
+    <p class="mhub-band-text">Every figure starts from your data and ends with your sign-off. Interpolations and renders are produced with, and approved by, your technical team &mdash; nothing goes out under your name that they haven&rsquo;t reviewed.</p>
+  </section>
+
+  <hr class="mhub-rule" style="margin-top: 44px;">
+
+  <section class="mhub-band">
+    <h2 class="mhub-band-title">On a drill program? Put your maps on a cadence.</h2>
+    <p class="mhub-band-text">A locked, house-styled base for your project, a set number of maps each month, and a scheduled 24&ndash;48 hour turnaround &mdash; from $2,500/month.</p>
+    <a class="mhub-link" href="news-release-map-program.html">See the News-Release Map Program <span aria-hidden="true">&rarr;</span></a>
+  </section>
 </div>
 
 <script>
@@ -703,6 +759,7 @@
                 <li><a href="engagement.html">How We Work</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
+                <li><a href="fundable-materials-scorecard.html">Materials Scorecard</a></li>
                 <li><a href="team.html">Our team</a></li>
               </ul>
             </div>

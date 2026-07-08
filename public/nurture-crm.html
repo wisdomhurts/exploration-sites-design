@@ -214,13 +214,13 @@
                 <div class="mega-menu-tab-panel" id="panel-investorhub" role="tabpanel" aria-labelledby="tab-investorhub" tabindex="0" hidden>
                   <div class="mega-menu-cards">
                     <a href="nurture-crm.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Nurture CRM</div>
+                      <div class="mega-menu-card-title">Nurture CRM <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="investor-analytics.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Investor Analytics</div>
+                      <div class="mega-menu-card-title">Investor Analytics <span class="nav-status">Early access</span></div>
                     </a>
                     <a href="exploration-today-ai.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Exploration Today AI</div>
+                      <div class="mega-menu-card-title">Exploration Today AI <span class="nav-status">Early access</span></div>
                     </a>
                   </div>
                 </div>
@@ -289,9 +289,9 @@
           </div>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Investor Hub</div>
-            <a href="nurture-crm.html">Nurture CRM</a>
-            <a href="investor-analytics.html">Investor Analytics</a>
-            <a href="exploration-today-ai.html">Exploration Today AI</a>
+            <a href="nurture-crm.html">Nurture CRM <span class="nav-status">Early access</span></a>
+            <a href="investor-analytics.html">Investor Analytics <span class="nav-status">Early access</span></a>
+            <a href="exploration-today-ai.html">Exploration Today AI <span class="nav-status">Early access</span></a>
           </div>
         </div>
       </li>
@@ -341,6 +341,23 @@
 
     /* Category overview card at the head of a panel ("All Investor Maps →") */
     .mega-menu-card--all .mega-menu-card-title { color: var(--ore-text, var(--ore)); font-weight: 600; }
+
+    /* Quiet pre-launch status chip (Investor Hub items) */
+    .nav-status {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border: 1px solid var(--graticule);
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
 
     /* Mobile services accordion */
     .nav-mobile-accordion { border-bottom: 1px solid var(--border); }
@@ -512,8 +529,18 @@
       <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
       <ul class="cta-assurance" aria-label="What to expect">
   <li>20 min, no obligation, no pitch</li>
-  <li>We take a limited number of clients each quarter</li>
+  <li><a href="fundable-materials-scorecard.html">Not raising yet? Get your materials scored &mdash; free, no call &rarr;</a></li>
 </ul>
+<style>
+  /* Scorecard line is the only link in this list — keep it as quiet as its siblings */
+  .cta-assurance a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--graticule);
+    transition: color 0.2s var(--ease-out-soft), border-color 0.2s var(--ease-out-soft);
+  }
+  .cta-assurance a:hover { color: var(--graphite); border-color: var(--ore); }
+</style>
 
       <a href="case-studies.html" class="cta-actions-alt">Still evaluating? See the case studies <span aria-hidden="true">&rarr;</span></a>
     </section>
@@ -570,6 +597,7 @@
                 <li><a href="engagement.html">How We Work</a></li>
                 <li><a href="clients.html">Our clients</a></li>
                 <li><a href="case-studies.html">Case studies</a></li>
+                <li><a href="fundable-materials-scorecard.html">Materials Scorecard</a></li>
                 <li><a href="team.html">Our team</a></li>
               </ul>
             </div>
