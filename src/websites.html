@@ -5,12 +5,24 @@ description: "Investor websites for exploration and mining companies, built on W
 permalink: "websites.html"
 ---
 
+    <style>
+      /* Page-scoped: platform tag on site cards + scope rows */
+      .site-card-platform { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+      .scope-rows { margin-top: 8px; }
+      .scope-rows .contact-info-row { align-items: baseline; gap: 24px; }
+      .scope-rows .contact-info-value { text-align: right; }
+      @media (max-width: 560px) {
+        .scope-rows .contact-info-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 0; }
+        .scope-rows .contact-info-value { text-align: left; }
+      }
+    </style>
+
     <!-- PAGE HERO -->
     <section class="hero hero--page">
       <div class="section-label">Websites</div>
       <h1 class="hero-headline">Websites that earn investor trust.</h1>
       <p class="hero-body">Compelling websites built by industry professionals &mdash; designed to help mining companies tell their story and attract investors through quality visual information and a frictionless user experience.</p>
-      <p class="hero-from">From <b>${{ prices.websiteFrom }}</b></p>
+      <p class="hero-from">From <b>${{ prices.websiteFrom }}</b> &middot; typically 5 weeks</p>
     </section>
 
     <div class="divider"></div>
@@ -27,10 +39,21 @@ permalink: "websites.html"
           <p class="body-text">Best for companies that want a polished, design-led site that&rsquo;s quick to launch and easy to keep current.</p>
           <div class="platform-builds">
             <div class="platform-builds-label">Recent Webflow builds</div>
-            <div class="platform-builds-row">
-              <img src="images/clients/snowline.avif" alt="Snowline Gold" loading="lazy">
-              <img src="images/clients/avino.avif" alt="Avino Silver &amp; Gold Mines" loading="lazy">
-              <img src="images/clients/silver-viper.png" alt="Silver Viper Minerals" loading="lazy">
+            <div class="site-grid" style="margin-top: 0;">
+              <a class="site-card" href="https://snowlinegold.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/snowline.avif" alt="Snowline Gold website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Snowline Gold <span class="site-card-platform">Webflow</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://avino.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/avino.avif" alt="Avino Silver &amp; Gold Mines website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Avino Silver &amp; Gold Mines <span class="site-card-platform">Webflow</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -51,9 +74,57 @@ permalink: "websites.html"
           <p class="body-text">Best for companies that need bespoke functionality or want to build on an existing WordPress investment.</p>
           <div class="platform-builds">
             <div class="platform-builds-label">Recent WordPress builds</div>
-            <div class="platform-builds-row">
-              <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
-              <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" loading="lazy">
+            <div class="site-grid" style="margin-top: 0;">
+              <a class="site-card" href="https://fireweedmetals.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/fireweed.avif" alt="Fireweed Metals website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Fireweed Metals <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://westredlakegold.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/west-red-lake.avif" alt="West Red Lake Gold website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">West Red Lake Gold <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+              <a class="site-card" href="https://silverviperminerals.com/" target="_blank" rel="noopener">
+                <span class="site-card-media"><img src="images/sites/silver-viper.avif" alt="Silver Viper Minerals website built by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+                <span class="site-card-meta">
+                  <span class="site-card-title">Silver Viper Minerals <span class="site-card-platform">WordPress</span></span>
+                  <span class="site-card-visit">Visit site &rarr;</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SCOPE -->
+    <section class="section" id="scope">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Scope</div>
+          <h2 class="section-headline">What an investor-grade site includes.</h2>
+        </div>
+        <div>
+          <p class="body-text">The design changes with each company; the scope below doesn&rsquo;t. Every build ships with the sections and IR plumbing an institutional reader expects to find.</p>
+          <div class="scope-rows">
+            <div class="contact-info-row">
+              <span class="contact-info-label">Core sections</span>
+              <span class="contact-info-value">Projects &middot; News &middot; Investors &middot; Corporate &middot; Contact</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">IR features</span>
+              <span class="contact-info-value">Live quote feed &middot; news-release archive &middot; SEDAR+ filing links</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">Revisions</span>
+              <span class="contact-info-value">Revision rounds defined per engagement, in the proposal</span>
             </div>
           </div>
         </div>
@@ -63,6 +134,10 @@ permalink: "websites.html"
     <div class="divider"></div>
 
     <!-- CTA -->
+    <section class="section section--tight">
+      <p class="next-step">Need it hosted and maintained? <a href="hosting.html">Managed hosting &rarr;</a> &nbsp;&middot;&nbsp; Ongoing design support after launch? <a href="engagement.html#retainers">Monthly retainers &rarr;</a></p>
+    </section>
+
     <section class="cta-section">
       <h2 class="cta-headline">Ready for a site that does your geology justice?</h2>
       <p class="cta-sub">Tell us about your project and where you want to take it.</p>

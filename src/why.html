@@ -1,7 +1,7 @@
 ---
 layout: base.html
 permalink: "why.html"
-title: "Why We Exist — Exploration Sites"
+title: "Investor Legibility — Why We Exist"
 description: "Capital flows toward clarity. Brilliant geology fails to raise when the story is illegible to investors. We are the translation layer between a deposit and the capital markets."
 ---
 
@@ -48,6 +48,23 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
         color: rgba(184, 130, 58, 0.12);
         pointer-events: none;
         user-select: none;
+      }
+
+      /* The canonical definition — one sentence, liftable verbatim */
+      .csv3-def {
+        font-family: var(--font-serif);
+        font-weight: 300;
+        font-size: clamp(26px, 3.6vw, 44px);
+        line-height: 1.22;
+        letter-spacing: -0.01em;
+        max-width: 26ch;
+        margin: 18px 0 0;
+        color: #1A101F;
+      }
+      .csv3-def em {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--ore-text);
       }
 
       /* The asymmetry ledger: deposit vs. comprehension */
@@ -186,6 +203,31 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
 
     <div class="divider"></div>
 
+    <!-- THE DEFINITION -->
+    <section class="section">
+      <div class="section-label" data-reveal>The Definition</div>
+      <p class="csv3-def" data-reveal data-reveal-delay="1"><em>Investor legibility</em> is the discipline of making a mineral asset readable &mdash; scale, grade, and context &mdash; by the capital that prices it.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- THE CATEGORY -->
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">The Category</div>
+          <h2 class="section-headline">Not decoration.<br>Legibility.</h2>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="body-text">Most investor-relations spend buys <em>decoration</em> &mdash; a prettier deck, a slicker site, a louder logo. It flatters the company and changes nothing about whether an allocator can actually read the asset. We do the other job. For three decades we have practiced the discipline defined above &mdash; making buried, technical geology legible to the generalists who price it.</p>
+          <p class="body-text">The distinction is the whole business. Decoration is judged by how it looks; legibility is judged by whether the market finally understands what you have. One is cosmetics. The other is what makes a real deposit read as fundable.</p>
+          <p class="body-text"><strong>Who it&rsquo;s for:</strong> exploration and development companies whose science is strong and whose story arrives illegible &mdash; the gap between a real deposit and the capital it deserves.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- THE INVESTOR'S PROBLEM -->
     <section class="section">
       <div class="section-grid">
@@ -260,23 +302,6 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
         <div class="section-label">Our Position</div>
         <p class="csv3-thesis-quote">We are the <em>translation layer</em><br>between a deposit and<br>the capital markets.</p>
         <p class="csv3-thesis-sub">We started in 1996 as mapmakers &mdash; take the data, make it clean, get it into the news / report / deck. Three decades and 500+ projects later, the discipline is the same and the mandate is larger: convert invisible, buried, technical data into something an allocator can understand in the time they actually have.</p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- THE CATEGORY -->
-    <section class="section">
-      <div class="section-grid">
-        <div data-reveal>
-          <div class="section-label">The Category</div>
-          <h2 class="section-headline">Not decoration.<br>Legibility.</h2>
-        </div>
-        <div data-reveal data-reveal-delay="1">
-          <p class="body-text">Most investor-relations spend buys <em>decoration</em> &mdash; a prettier deck, a slicker site, a louder logo. It flatters the company and changes nothing about whether an allocator can actually read the asset. We do the other job. For three decades we have built a single discipline &mdash; <em>investor legibility</em>: making buried, technical geology legible to the generalists who price it.</p>
-          <p class="body-text">The distinction is the whole business. Decoration is judged by how it looks; legibility is judged by whether the market finally understands what you have. One is cosmetics. The other moves capital.</p>
-          <p class="body-text"><strong>Who it&rsquo;s for:</strong> exploration and development companies whose science is strong and whose story arrives illegible &mdash; the gap between a real deposit and the capital it deserves.</p>
-        </div>
       </div>
     </section>
 

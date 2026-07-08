@@ -743,7 +743,7 @@ description: "How we engage with exploration-stage companies — project work on
     color: var(--muted); margin-bottom: 7px;
   }
 
-  /* Deliverable groups inside Model 01 */
+  /* Deliverable groups inside Model 03 (project work) */
   .deliverables {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -789,6 +789,32 @@ description: "How we engage with exploration-stage companies — project work on
   }
   .deliv-list a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   .deliv-list a:hover { color: var(--ore); }
+
+  /* ---------- TYPICAL TIMELINES ----------
+     Quiet hairline row under the model cards — values mirror contact.html. */
+  .timelines {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 10px clamp(24px, 4vw, 56px);
+    margin-top: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .timelines-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .timelines-item {
+    display: inline-flex; align-items: baseline; gap: 10px;
+    font-size: 13.5px; line-height: 1.4;
+    white-space: nowrap;
+  }
+  .timelines-item .tl-key { color: var(--graphite); font-weight: 500; }
+  .timelines-item .tl-val { color: var(--slate); }
+  @media (max-width: 560px) {
+    .timelines { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
 
   /* ---------- LAUNCH PACKAGE ---------- */
   .launch {
@@ -1094,7 +1120,7 @@ description: "How we engage with exploration-stage companies — project work on
     display: flex; align-items: center; justify-content: center;
     flex-wrap: wrap; gap: clamp(28px, 5vw, 56px);
     /* Pull the row up toward the label — the tall Fireweed logo otherwise
-       makes the centered row sit far below the "Trusted by" line. */
+       makes the centered row sit far below the trust-label line. */
     margin-top: clamp(-40px, -2.6vw, -20px);
   }
   .eng-trust-logos img {
@@ -1248,7 +1274,7 @@ description: "How we engage with exploration-stage companies — project work on
       <div class="masthead-grid">
         <div class="eyebrow">Engagement</div>
         <h1 class="title">How we engage.</h1>
-        <p class="intro">Three ways to work together — <strong>discrete project work</strong>, a <strong>complete launch package</strong>, and <strong>ongoing retainers</strong> — each scoped to your project, your timeline, and the standard the capital markets expect.</p>
+        <p class="intro">Three ways to work together — a <strong>complete launch package</strong>, <strong>ongoing retainers</strong>, and <strong>discrete project work</strong> — each scoped to your project, your timeline, and the standard the capital markets expect.</p>
       </div>
     </div>
   </div>
@@ -1263,28 +1289,14 @@ description: "How we engage with exploration-stage companies — project work on
 
       <!-- Three compact model cards -->
       <div class="models reveal">
-        <a class="model" href="#deliverables">
-          <div class="model-top">
-            <span class="model-ref">Model 01</span>
-            <span class="model-tag">À la carte</span>
-          </div>
-          <h3>Project work.</h3>
-          <p class="model-price">From <span class="mono">$1,200</span></p>
-          <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
-          <p class="model-bestfor">
-            <span class="lbl">Ideal for</span>
-            Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader program.
-          </p>
-        </a>
-
         <a class="model" href="#launch">
           <div class="model-top">
-            <span class="model-ref">Model 02</span>
+            <span class="model-ref">Model 01</span>
             <span class="model-tag">Bundled</span>
           </div>
           <h3>The Launch Package.</h3>
-          <p class="model-price">From <span class="mono">$24,000</span></p>
-          <p class="model-lede">The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
+          <p class="model-price">From <span class="mono">${{ prices.launchPackage }}</span></p>
+          <p class="model-lede">The full investor-relations foundation in one engagement — everything an exploration company needs to become fundable, delivered together on a single fixed quote.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
             Companies coming to market — or relaunching — that need the maps, deck, site, fact sheet, and brand to land together and speak with one voice.
@@ -1293,29 +1305,53 @@ description: "How we engage with exploration-stage companies — project work on
 
         <a class="model" href="#retainers">
           <div class="model-top">
-            <span class="model-ref">Model 03</span>
+            <span class="model-ref">Model 02</span>
             <span class="model-tag">Recurring</span>
           </div>
           <h3>Monthly retainer.</h3>
-          <p class="model-price">From <span class="mono">$1,900</span>/mo</p>
+          <p class="model-price">From <span class="mono">${{ prices.retainerFrom }}</span>/mo</p>
           <p class="model-lede">For companies in continuous market — ongoing map updates, presentation refreshes, site maintenance, and investor support, retained at a predictable monthly commitment.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
             Issuers in an active program who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
           </p>
         </a>
+
+        <a class="model" href="#deliverables">
+          <div class="model-top">
+            <span class="model-ref">Model 03</span>
+            <span class="model-tag">À la carte</span>
+          </div>
+          <h3>Project work.</h3>
+          <p class="model-price">From <span class="mono">${{ prices.mapFrom }}</span></p>
+          <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
+          <p class="model-bestfor">
+            <span class="lbl">Ideal for</span>
+            Companies addressing a specific gap — a deck ahead of a roadshow, a refreshed map set for a financing, a fact sheet before a conference — without committing to a broader program.
+          </p>
+        </a>
       </div>
 
-      <!-- Model 01 deliverable register -->
+      <!-- Typical timelines — quiet ledger row under the model cards.
+           Values mirror the Typical Timelines block on contact.html; keep the two in step. -->
+      <div class="timelines reveal" aria-label="Typical delivery timelines">
+        <span class="timelines-label">Typical timelines</span>
+        <span class="timelines-item"><span class="tl-key">Maps</span><span class="tl-val mono">3&ndash;7 business days</span></span>
+        <span class="timelines-item"><span class="tl-key">Presentations</span><span class="tl-val mono">4 weeks</span></span>
+        <span class="timelines-item"><span class="tl-key">Websites</span><span class="tl-val mono">5 weeks</span></span>
+        <span class="timelines-item"><span class="tl-key">GIS films</span><span class="tl-val mono">6 weeks</span></span>
+      </div>
+
+      <!-- Model 03 deliverable register -->
       <div class="sec-head reveal" id="deliverables" style="margin-top:clamp(48px,6vw,80px); scroll-margin-top:80px;">
         <span class="sec-reg">[ §<b>01</b>.A ]&nbsp;&nbsp;Project deliverables</span>
         <h2>Scope your own program.</h2>
-        <p class="sec-note" style="max-width:none;">5 deliverable groups. Mix freely &mdash; each quoted individually, with investor maps from $1,200.</p>
+        <p class="sec-note" style="max-width:none;">5 deliverable groups. Mix freely &mdash; each quoted individually.</p>
       </div>
 
       <div class="deliverables reveal">
         <div class="deliv-group">
-          <div class="deliv-kick">Make geology investable</div>
+          <div class="deliv-kick">Make geology legible</div>
           <div class="deliv-title">Investor Maps</div>
           <ul class="deliv-list">
             <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a></li>
@@ -1370,32 +1406,36 @@ description: "How we engage with exploration-stage companies — project work on
   <section id="launch">
     <div class="shell">
       <div class="sec-head reveal">
-        <span class="sec-reg">[ §<b>02</b> / 04 ]&nbsp;&nbsp;Bundled engagement · Model 02</span>
+        <span class="sec-reg">[ §<b>02</b> / 04 ]&nbsp;&nbsp;Bundled engagement · Model 01</span>
         <h2>The Launch Package.</h2>
         <p class="sec-note">One scope, one voice, one fixed quote.</p>
       </div>
 
       <div class="launch reveal">
         <div class="launch-left">
-          <span class="model-ref">Model 02 — Bundled</span>
+          <span class="model-ref">Model 01 — Bundled</span>
           <h3>Everything, in one engagement.</h3>
-          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become investable, delivered together as a single fixed quote at a meaningful saving versus commissioning each piece on its own.</p>
-          <div class="launch-price">
-            <span class="launch-price-lead" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">Starting at</span>
-            <span class="launch-price-fig mono" style="color: var(--ore);">$24,000</span>
+          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become fundable, delivered together on a single fixed quote.</p>
+          <div class="launch-save">
+            <span>Commissioned separately:</span>
+            <b>from ~$28&ndash;32,000</b>
+          </div>
+          <div class="launch-price" style="margin-top: 12px; padding-top: 0;">
+            <span class="launch-price-lead" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">As one engagement, starting at</span>
+            <span class="launch-price-fig mono" style="color: var(--ore);">${{ prices.launchPackage }}</span>
             <span class="launch-price-note">the complete investor foundation &mdash; built before you raise</span>
           </div>
         </div>
         <div class="launch-right">
           <div class="lbl">Included in the package</div>
           <ul class="launch-incl">
-            <li><a class="launch-link" href="locators-area-plays.html">A complete investor map set</a></li>
+            <li><a class="launch-link" href="locators-area-plays.html">An investor map set (locator, property, geology, sections, and a 3D view)</a></li>
             <li><a class="launch-link" href="presentations.html">A polished investor deck</a></li>
             <li><a class="launch-link" href="websites.html">A purpose-built website</a></li>
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
             <li><a class="launch-link" href="logos-branding.html">A coherent brand identity</a></li>
           </ul>
-          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice — and priced as one fixed quote, at a saving over piecing it together deliverable by deliverable.</p>
+          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice. Commissioned separately: from ~$28&ndash;32,000. As one engagement: ${{ prices.launchPackage }}.</p>
         </div>
       </div>
     </div>
@@ -1405,7 +1445,7 @@ description: "How we engage with exploration-stage companies — project work on
   <section id="retainers" class="band-vellum">
     <div class="shell">
       <div class="sec-head reveal" id="retainers-tiers" style="scroll-margin-top:132px;">
-        <span class="sec-reg">[ §<b>03</b> / 04 ]&nbsp;&nbsp;Monthly retainer · Model 03</span>
+        <span class="sec-reg">[ §<b>03</b> / 04 ]&nbsp;&nbsp;Monthly retainer · Model 02</span>
         <h2>Retainer tiers, side by side.</h2>
         <p class="sec-note" style="max-width:none;">For companies in continuous market — retained at a predictable monthly commitment.</p>
       </div>
@@ -1413,58 +1453,63 @@ description: "How we engage with exploration-stage companies — project work on
       <div class="retainer-grid reveal">
         <div class="retainer-card">
           <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Essentials</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$1,900<span style="color: var(--graticule);">/mo</span></span></span>
+            <span class="retainer-head-left"><span class="retainer-tier">Explorer Desk</span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerFrom }}<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For early-stage teams keeping their core materials current between milestones.</p>
             <ul class="retainer-features">
-              <li>10 hours of design time / month</li>
-              <li>Rollover up to 4 hours</li>
-              <li>Map updates &amp; revisions</li>
-              <li>Website maintenance</li>
+              <li>Maps, fact sheet &amp; site kept current</li>
+              <li>Capacity for ~4 figure or page updates / month</li>
+              <li>Up to 40% of unused capacity rolls forward</li>
               <li>Dedicated coordinator</li>
-              <li>Priority 48-hour turnaround</li>
+              <li>48-hour priority response</li>
             </ul>
           </div>
         </div>
         <div class="retainer-card is-popular">
           <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Growth</span><span class="retainer-pop">Most retained tier</span></span>
+            <span class="retainer-head-left"><span class="retainer-tier">Developer Desk</span><span class="retainer-pop">Most retained tier</span></span>
             <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$3,500<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
             <ul class="retainer-features">
-              <li>20 hours of design time / month</li>
-              <li>Rollover up to 8 hours</li>
-              <li>New map production</li>
+              <li>New map production alongside updates</li>
+              <li>Capacity for ~8 figures or revisions / month</li>
+              <li>Up to 40% of unused capacity rolls forward</li>
               <li>Website maintenance &amp; hosting</li>
               <li>Presentation updates</li>
               <li>Dedicated account manager</li>
-              <li>Priority 48-hour turnaround</li>
+              <li>48-hour priority response</li>
             </ul>
           </div>
         </div>
         <div class="retainer-card">
           <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Enterprise</span></span>
+            <span class="retainer-head-left"><span class="retainer-tier">Producer Desk</span></span>
             <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$7,500<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>
             <ul class="retainer-features">
-              <li>50 hours of design time / month</li>
-              <li>Rollover up to 20 hours</li>
-              <li>Everything in Growth</li>
+              <li>Everything in Developer Desk</li>
+              <li>Capacity for ~20 figures or revisions / month</li>
+              <li>Up to 40% of unused capacity rolls forward</li>
               <li>Motion &amp; 3D projects</li>
               <li>CRM access included</li>
               <li>Investor analytics</li>
               <li>Dedicated account manager</li>
-              <li>Priority 24-hour turnaround</li>
+              <li>24-hour priority response</li>
             </ul>
           </div>
         </div>
+      </div>
+
+      <!-- NRMP boundary — where the retainer ends and the map program begins -->
+      <div class="retainer-nrmp reveal">
+        <p>Retainers keep all your materials current, as standing capacity; drilling-season map cadence is the <strong>News-Release Map Program</strong>, in maps &mdash; from ${{ prices.nrmpCadence }}/mo.</p>
+        <a href="news-release-map-program.html">See the program &rarr;</a>
       </div>
 
       <p class="retainer-foot reveal">All retainers are based on a 12-month commitment.</p>
@@ -1499,6 +1544,23 @@ description: "How we engage with exploration-stage companies — project work on
         #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 6px 0; line-height: 1.5; }
         #retainers .retainer-rate { margin-top: auto; padding: 14px 22px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.03em; }
         #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 14px; color: var(--muted); }
+        /* NRMP boundary callout — quiet surface row under the tier cards */
+        #retainers .retainer-nrmp {
+          display: flex; align-items: baseline; justify-content: space-between;
+          gap: 12px 32px; flex-wrap: wrap;
+          margin-top: 24px; padding: 18px 22px;
+          border: 1px solid var(--border); border-radius: 12px;
+          background: var(--surface);
+        }
+        #retainers .retainer-nrmp p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--body); max-width: 78ch; }
+        #retainers .retainer-nrmp strong { color: var(--graphite); font-weight: 600; }
+        #retainers .retainer-nrmp a {
+          font-size: 13px; font-weight: 500; color: var(--graphite);
+          text-decoration: none; white-space: nowrap;
+          border-bottom: 1px solid var(--ore); padding-bottom: 2px;
+          transition: color 0.2s var(--ease-out-soft);
+        }
+        #retainers .retainer-nrmp a:hover { color: var(--ore); }
         @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
       </style>
     </div>
@@ -1548,7 +1610,7 @@ description: "How we engage with exploration-stage companies — project work on
     <div class="shell">
       <!-- TRUST STRIP -->
       <div class="eng-trust" aria-label="A selection of companies we work with">
-        <span class="eng-trust-label">Trusted by {{ proof.companies }}+ exploration teams across {{ proof.continents }} continents</span>
+        <span class="eng-trust-label">{{ proof.companies }}+ exploration teams served since 1996 across {{ proof.continents }} continents</span>
         <div class="eng-trust-logos">
           <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
           <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">

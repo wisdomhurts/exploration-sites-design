@@ -1,0 +1,121 @@
+---
+layout: base.html
+title: "For Advisors — Exploration Sites"
+description: "A one-page reference for bankers, lawyers, and brokers — what Exploration Sites builds for issuers, at what price, on what timeline."
+permalink: "advisors.html"
+---
+    <!-- PAGE HERO -->
+    <section class="hero hero--page">
+      <div class="section-label">For Advisors</div>
+      <h1 class="hero-headline">Forward this to the issuer that needs it.</h1>
+      <p class="hero-body">The full offer on one page &mdash; what we build, what it costs, and how long it takes. No pitch; the work is the argument.</p>
+    </section>
+
+    <style>
+      /* Advisor tearsheet — hairline offer table */
+      .adv-table { margin-top: 8px; }
+      .adv-row {
+        display: grid;
+        grid-template-columns: 220px 150px 190px 1fr;
+        gap: 20px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-top: 1px solid var(--border);
+      }
+      .adv-row:last-child { border-bottom: 1px solid var(--border); }
+      .adv-service { font-size: 16px; font-weight: 600; color: var(--graphite); }
+      .adv-price {
+        font-family: var(--font-serif);
+        font-size: 17px; font-weight: 400;
+        font-variant-numeric: tabular-nums;
+        color: var(--graphite);
+      }
+      .adv-timeline { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+      .adv-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+      .adv-proof { font-size: 14px; color: var(--muted); margin-top: 28px; }
+      .adv-contact { margin-top: 8px; }
+      .adv-contact-row { display: flex; flex-wrap: wrap; gap: 12px 40px; align-items: baseline; }
+      .adv-contact-row a.adv-email {
+        color: var(--navy); text-decoration: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .adv-contact-row a.adv-email:hover { border-color: var(--ore); }
+      @media (max-width: 860px) {
+        .adv-row { grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+        .adv-desc { grid-column: 1 / -1; }
+      }
+      /* Print: the page is meant to be forwarded and printed */
+      @media print {
+        .nav, .footer, .skip-link, .cta-section { display: none !important; }
+        .page { padding: 0; }
+        a { text-decoration: none; color: inherit; }
+      }
+    </style>
+
+    <div class="divider"></div>
+
+    <!-- OFFER STACK -->
+    <section class="section">
+      <div class="section-label">The Offer</div>
+      <h2 class="section-headline">What we build for issuers.</h2>
+
+      <div class="adv-table">
+        <div class="adv-row">
+          <div class="adv-service">Investor maps</div>
+          <div class="adv-price">From ${{ prices.mapFrom }}</div>
+          <div class="adv-timeline">3&ndash;7 business days</div>
+          <div class="adv-desc">Locators, property and target maps, geoscience figures, and sections &mdash; designed cartography for news releases, decks, and websites.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">Investor decks</div>
+          <div class="adv-price">From ${{ prices.deckFrom }}</div>
+          <div class="adv-timeline">4 weeks</div>
+          <div class="adv-desc">Corporate presentations built around the geology &mdash; the figures, the narrative, and the numbers in one coherent document.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">Corporate websites</div>
+          <div class="adv-price">From ${{ prices.websiteFrom }}</div>
+          <div class="adv-timeline">5 weeks</div>
+          <div class="adv-desc">Issuer websites that hold up to institutional scrutiny &mdash; projects, people, and disclosure, clearly organised.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">Motion &amp; 3D films</div>
+          <div class="adv-price">From ${{ prices.motionFrom }}</div>
+          <div class="adv-timeline">6 weeks</div>
+          <div class="adv-desc">GIS-accurate terrain films and 3D flyovers of the project &mdash; built from the real data, not stock footage.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">Design retainers</div>
+          <div class="adv-price">From ${{ prices.retainerFrom }}/mo</div>
+          <div class="adv-timeline">Ongoing, monthly</div>
+          <div class="adv-desc">A standing design desk for the issuer &mdash; maps, figures, and materials kept current as the program moves.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">Launch Package</div>
+          <div class="adv-price">From ${{ prices.launchPackage }}</div>
+          <div class="adv-timeline">Scoped at kickoff</div>
+          <div class="adv-desc">The full public-market starting kit &mdash; maps, deck, and website delivered together for a new listing or relaunch.</div>
+        </div>
+        <div class="adv-row">
+          <div class="adv-service">News-Release Map Program</div>
+          <div class="adv-price">${{ prices.nrmpCadence }}&ndash;{{ prices.nrmpFull }}/mo</div>
+          <div class="adv-timeline">Monthly program</div>
+          <div class="adv-desc">A publication-ready figure with every news release &mdash; on the issuer&rsquo;s cadence, in the issuer&rsquo;s house style.</div>
+        </div>
+      </div>
+
+      <p class="adv-proof">{{ proof.companies }}+ exploration teams served since 1996, across {{ proof.continents }} continents.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section class="section adv-contact">
+      <div class="section-label">Contact</div>
+      <div class="adv-contact-row">
+        <a class="adv-email" href="mailto:info@explorationsites.com">info@explorationsites.com</a>
+        <a href="book.html" class="btn-discovery">Book a discovery call <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <div class="divider"></div>

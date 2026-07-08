@@ -27,6 +27,17 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
           <div class="booking-host-role">CEO &amp; Founder, Exploration Sites</div>
         </div>
 
+        <div class="booking-logos">
+          <div class="booking-logos-label">{{ proof.companies }}+ exploration teams served since 1996</div>
+          <div class="booking-logos-row">
+            <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
+            <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
+            <img src="images/clients/endeavour.svg" alt="Endeavour Mining" loading="lazy">
+            <img src="images/clients/snowline.avif" alt="Snowline Gold" loading="lazy">
+            <img src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver" loading="lazy">
+          </div>
+        </div>
+
       </aside>
 
       <!-- GoHighLevel calendar: "Book a Free Consultation" (id crmOWrJrs7L7EgkOWF6q).
@@ -45,6 +56,7 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
           </noscript>
         </div>
         <p class="booking-tz" id="booking-tz">Times are shown in your local time zone.</p>
+        <p class="booking-fallback">Calendar not loading? Email <a href="mailto:info@explorationsites.com">info@explorationsites.com</a> or <a href="contact.html">send your project details <span aria-hidden="true">&rarr;</span></a></p>
       </div>
 
     </section>
@@ -90,6 +102,16 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
         font-size: 11px; letter-spacing: 0.06em;
         color: var(--muted);
       }
+      .booking-fallback {
+        margin-top: 8px;
+        font-size: 13px; line-height: 1.5; color: var(--muted);
+      }
+      .booking-fallback a { color: var(--graphite); }
+      .booking-program-note {
+        margin-bottom: 14px;
+        font-size: 13.5px; line-height: 1.5; color: var(--body, #5A5F63);
+        padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      }
       .booking-logos {
         margin-top: 32px; padding-top: 24px;
         border-top: 1px solid var(--border);
@@ -128,6 +150,22 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
         note.textContent = 'Times are shown in your local time (' + tz.split('/').pop().replace(/_/g, ' ') + ').';
       }
     }
+  })();
+
+  // If the visitor arrived from a News-Release Map Program tier button (?program=cadence|active|full),
+  // confirm which program they're booking to start. Unknown values are ignored.
+  (function () {
+    var names = { cadence: 'Cadence', active: 'Active Drill', full: 'Full Program' };
+    var key = '';
+    try { key = new URLSearchParams(location.search).get('program') || ''; } catch (e) {}
+    if (!Object.prototype.hasOwnProperty.call(names, key)) return;
+    var main = document.querySelector('.booking-main');
+    var embed = document.querySelector('.booking-embed');
+    if (!main || !embed) return;
+    var note = document.createElement('p');
+    note.className = 'booking-program-note';
+    note.textContent = 'You’re booking to start: News-Release Map Program — ' + names[key];
+    main.insertBefore(note, embed);
   })();
 </script>
 <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>

@@ -25,6 +25,11 @@ permalink: "investor-maps.html"
     font-family: var(--font-sans); font-size: 18px; line-height: 1.6;
     color: var(--body); max-width: 56ch; margin: 0;
   }
+  .mhub-from {
+    margin: 20px 0 0; font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.03em; color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .mhub-from b { font-weight: 600; color: var(--graphite); }
 
   .mhub-rule { height: 1px; background: var(--border); border: 0; margin: 0; }
 
@@ -86,6 +91,23 @@ permalink: "investor-maps.html"
   .mhub-toc-link:hover .mhub-toc-num, .mhub-toc-link.is-active .mhub-toc-num { color: var(--ore-text); }
   .mhub-toc-text { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; }
 
+  /* Quiet end-of-page bands: QP workflow + News-Release Map Program cross-link */
+  .mhub-band { padding-top: 44px; max-width: 66ch; }
+  .mhub-band-title {
+    font-family: var(--font-serif); font-size: 27px; font-weight: 300;
+    line-height: 1.2; letter-spacing: -0.015em; color: var(--graphite); margin: 0 0 14px;
+  }
+  .mhub-band-flow {
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    color: var(--graphite); margin: 0 0 10px;
+  }
+  .mhub-band-flow span { color: var(--ore-text); }
+  .mhub-band-text {
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.72;
+    color: var(--body); margin: 0 0 18px;
+  }
+  .mhub-band-text:last-child { margin-bottom: 0; }
+
   @media (max-width: 900px) {
     .mhub-body { grid-template-columns: 1fr; gap: 0; padding-top: 40px; }
     .mhub-prose { max-width: 100%; }
@@ -106,6 +128,7 @@ permalink: "investor-maps.html"
     <p class="mhub-eyebrow">Investor Maps</p>
     <h1 class="mhub-title">Every map an investor needs to see.</h1>
     <p class="mhub-intro">Six kinds of map, one house standard &mdash; each built to make a different part of your story legible to the people who fund it. Jump to any type.</p>
+    <p class="mhub-from">From <b>${{ prices.mapFrom }}</b> &middot; typically 3&ndash;7 business days</p>
   </header>
 
   <hr class="mhub-rule">
@@ -219,6 +242,22 @@ permalink: "investor-maps.html"
     </nav>
 
   </div>
+
+  <hr class="mhub-rule" style="margin-top: 56px;">
+
+  <section class="mhub-band">
+    <h2 class="mhub-band-title">Built for your QP.</h2>
+    <p class="mhub-band-flow">Your data in <span aria-hidden="true">&rarr;</span> we draft <span aria-hidden="true">&rarr;</span> your QP reviews and approves <span aria-hidden="true">&rarr;</span> release.</p>
+    <p class="mhub-band-text">Every figure starts from your data and ends with your sign-off. Interpolations and renders are produced with, and approved by, your technical team &mdash; nothing goes out under your name that they haven&rsquo;t reviewed.</p>
+  </section>
+
+  <hr class="mhub-rule" style="margin-top: 44px;">
+
+  <section class="mhub-band">
+    <h2 class="mhub-band-title">On a drill program? Put your maps on a cadence.</h2>
+    <p class="mhub-band-text">A locked, house-styled base for your project, a set number of maps each month, and a scheduled 24&ndash;48 hour turnaround &mdash; from ${{ prices.nrmpCadence }}/month.</p>
+    <a class="mhub-link" href="news-release-map-program.html">See the News-Release Map Program <span aria-hidden="true">&rarr;</span></a>
+  </section>
 </div>
 
 <script>

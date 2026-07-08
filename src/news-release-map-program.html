@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: "News-Release Map Program — Exploration Sites"
-description: "A monthly program for news-release maps: a locked house-styled base, a set number of investor-ready maps each month, and a guaranteed 24-48h turnaround for exploration companies in active drilling."
+description: "A monthly program for news-release maps: a locked house-styled base, a set number of investor-ready maps each month, and a scheduled 24-48h turnaround for exploration companies in active drilling."
 permalink: "news-release-map-program.html"
 ---
 
@@ -9,7 +9,7 @@ permalink: "news-release-map-program.html"
     <section class="hero hero--page">
       <div class="section-label">Investor Maps &middot; Program</div>
       <h1 class="hero-headline">The News-Release<br>Map Program.</h1>
-      <p class="hero-body">When you&rsquo;re drilling, every release needs a map &mdash; fast, on-brand, and consistent. We keep a locked, house-styled base for your project and turn each set of results into an investor-ready map on a guaranteed schedule. One monthly fee, no per-map back-and-forth.</p>
+      <p class="hero-body">When you&rsquo;re drilling, every release needs a map &mdash; fast, on-brand, and consistent. We keep a locked, house-styled base for your project and turn each set of results into an investor-ready map on a set schedule. One monthly fee, no per-map back-and-forth.</p>
       <p class="hero-from">From <b>${{ prices.nrmpCadence }}</b> / month</p>
     </section>
 
@@ -24,7 +24,7 @@ permalink: "news-release-map-program.html"
         </div>
         <div data-reveal data-reveal-delay="1">
           <p class="body-text">Most news-release maps are the same map with new drill data. So we build your base once &mdash; the house-styled property base, the drill-hole and label template, the legend &mdash; and lock it. After that, each release is a fast, faithful update, not a fresh project.</p>
-          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed 24&ndash;48 hour turnaround</strong> from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
+          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>scheduled 24&ndash;48-hour turnaround</strong> from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
         </div>
       </div>
     </section>
@@ -46,7 +46,8 @@ permalink: "news-release-map-program.html"
             <li>Drill-hole &amp; label template</li>
             <li>Priority over one-off work</li>
           </ul>
-          <a href="{{ links.payNrmpCadence }}" class="nrmp-tier-cta">Start this program</a>
+          <p class="nrmp-tier-math">Works out to ~$625 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
+          <a href="{{ links.payNrmpCadence }}{% if links.payNrmpCadence == "book.html" %}?program=cadence{% endif %}" class="nrmp-tier-cta">Book to start this program <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="nrmp-tier nrmp-tier--featured">
           <div class="nrmp-tier-name">Active Drill</div>
@@ -58,7 +59,8 @@ permalink: "news-release-map-program.html"
             <li>Faster turnaround</li>
             <li>Resource-update maps included</li>
           </ul>
-          <a href="{{ links.payNrmpActive }}" class="nrmp-tier-cta">Start this program</a>
+          <p class="nrmp-tier-math">Works out to ~$438 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
+          <a href="{{ links.payNrmpActive }}{% if links.payNrmpActive == "book.html" %}?program=active{% endif %}" class="nrmp-tier-cta">Book to start this program <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div class="nrmp-tier">
           <div class="nrmp-tier-name">Full Program</div>
@@ -70,7 +72,8 @@ permalink: "news-release-map-program.html"
             <li>Same-day priority</li>
             <li>Quarterly base refresh</li>
           </ul>
-          <a href="{{ links.payNrmpFull }}" class="nrmp-tier-cta">Start this program</a>
+          <p class="nrmp-tier-math">Works out to ~$300&ndash;375 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
+          <a href="{{ links.payNrmpFull }}{% if links.payNrmpFull == "book.html" %}?program=full{% endif %}" class="nrmp-tier-cta">Book to start this program <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
       <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">One-time base setup is billed separately. Maps beyond your monthly tier are billed at a member rate. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
@@ -93,6 +96,37 @@ permalink: "news-release-map-program.html"
 
     <div class="divider"></div>
 
+    <!-- CONFIDENTIALITY -->
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">Confidentiality</div>
+          <h2 class="section-headline">Unreleased results stay unreleased.</h2>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="body-text">The Program handles material information before it&rsquo;s public, and we treat it that way. A standing NDA is available on request. Access is restricted to the team assigned to your account, and unreleased results are held off shared systems until your release crosses the wire.</p>
+          <p class="body-text">Our staff do not trade in client securities. That&rsquo;s a standing policy, not a case-by-case call.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- BUILT FOR YOUR QP -->
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">Built for your QP</div>
+          <h2 class="section-headline">Your data. Your QP&rsquo;s sign-off.</h2>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="body-text">The Program fits inside your disclosure process, not around it. Your team sends the data; we draft the map on the locked base; your Qualified Person reviews and approves it; then it goes out with the release. We never publish anything &mdash; approval stays with you.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section class="cta-section">
       <h2 class="cta-headline">Drilling this year?</h2>
       <p class="cta-sub">Tell us your release cadence and we&rsquo;ll size the right program.</p>
@@ -102,3 +136,13 @@ permalink: "news-release-map-program.html"
     </section>
 
     <div class="divider"></div>
+
+    <style>
+      /* Per-map math line on the tier cards. margin-top: auto keeps the line
+         (and the CTA below it) bottom-aligned across the three cards. */
+      .nrmp-tier-math {
+        margin: auto 0 0; padding-top: 16px;
+        font-family: var(--font-sans); font-size: 12.5px; line-height: 1.5;
+        color: var(--muted); font-variant-numeric: tabular-nums;
+      }
+    </style>

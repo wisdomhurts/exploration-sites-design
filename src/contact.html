@@ -14,9 +14,6 @@ permalink: "contact.html"
       <div class="hero-buttons" style="margin-top: 32px;">
         <a href="book.html" class="btn-primary">Book a discovery call</a>
       </div>
-      <ul class="cta-assurance" aria-label="What to expect">
-        <li>We take a limited number of clients each quarter</li>
-      </ul>
     </section>
 
     <style>
@@ -156,17 +153,30 @@ permalink: "contact.html"
                 <label class="form-label" for="service">Service Needed</label>
                 <select class="form-select" id="service" name="service">
                   <option value="">Select a service</option>
-                  <option value="package">Launch Package</option>
-                  <option value="retainer">Monthly Retainer</option>
-                  <option value="maps">GIS Maps</option>
-                  <option value="websites">Websites</option>
-                  <option value="presentations">Presentations</option>
-                  <option value="films">Films &amp; Motion</option>
-                  <option value="design">Design &amp; Branding</option>
-                  <option value="crm">CRM &amp; Socials</option>
-                  <option value="other">Other / Not Sure</option>
+                  <option value="investor-maps">Investor Maps</option>
+                  <option value="investor-deck">Investor Deck</option>
+                  <option value="corporate-website">Corporate Website</option>
+                  <option value="motion-3d">Motion &amp; 3D</option>
+                  <option value="brand-design">Brand &amp; Design</option>
+                  <option value="nrmp">News-Release Map Program</option>
+                  <option value="scorecard">Materials Scorecard review</option>
+                  <option value="retainer">Retainer</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
+              <div class="form-field">
+                <label class="form-label" for="budget">Budget Range</label>
+                <select class="form-select" id="budget" name="budget">
+                  <option value="">Select a range</option>
+                  <option value="under-5k">Under $5k</option>
+                  <option value="5-15k">$5&ndash;15k</option>
+                  <option value="15k-plus">$15k+</option>
+                  <option value="monthly">Monthly program</option>
+                  <option value="not-sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="form-field">
                 <label class="form-label" for="timeline">Timeline</label>
                 <select class="form-select" id="timeline" name="timeline">
@@ -234,7 +244,7 @@ permalink: "contact.html"
     <!-- TRUST STRIP (moved to bottom) -->
     <section class="section" style="padding: 8px 0 28px;">
       <div class="trust-strip" style="align-items: center;" aria-label="A selection of companies we work with">
-        <span class="trust-strip-label">Trusted by {{ proof.companies }}+ exploration teams across {{ proof.continents }} continents</span>
+        <span class="trust-strip-label">{{ proof.companies }}+ exploration teams served since 1996 across {{ proof.continents }} continents</span>
         <div class="trust-strip-logos">
           <img src="images/clients/montage.avif" alt="Montage Gold" loading="lazy">
           <img src="images/clients/fireweed.avif" alt="Fireweed Metals" loading="lazy">
