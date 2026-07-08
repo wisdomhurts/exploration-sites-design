@@ -535,75 +535,76 @@
       /* Once the WebGL globe boots, hide the fallback. */
       .hero-globe.is-live .hero-globe-fallback { display: none; }
 
-      /* --- NRMP strip ---
-         Slim hairline-ruled band for the News-Release Map Program: one serif
-         line, one sentence, one link. Its own border-top rules it above; the
-         existing divider below closes it. No fill, no card, no shadow. */
-      .nrmp-strip {
-        border-top: 1px solid var(--border);
-        padding: 40px 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 10px 48px;
+      /* --- NRMP commercial ---
+         Announcement panel above the Investor Maps gallery: vellum field,
+         1px rule, serif introduction + three ledger stats. No fill tricks,
+         no shadow — presence comes from scale and whitespace. */
+      .nrmp-comm {
+        margin: 44px 0 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--vellum);
+        padding: clamp(32px, 4.5vw, 56px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: center;
       }
-      .nrmp-strip-headline {
-        margin: 0;
+      .nrmp-comm-eyebrow {
+        margin: 0 0 14px;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--ore-text);
+      }
+      .nrmp-comm-headline {
+        margin: 0 0 16px;
         font-family: var(--font-serif);
-        font-size: 24px;
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.15;
         font-weight: 500;
         letter-spacing: -0.01em;
         color: var(--graphite);
-        white-space: nowrap;
       }
-      .nrmp-strip-body {
+      .nrmp-comm-body {
         margin: 0;
         font-family: var(--font-sans);
-        font-size: 14px;
-        line-height: 1.6;
-        color: var(--muted);
-        max-width: 56ch;
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--body);
+        max-width: 52ch;
       }
-      .nrmp-strip-link {
-        font-family: var(--font-sans);
-        font-size: 14px;
+      .nrmp-comm .btn-discovery { margin-top: 26px; }
+      .nrmp-comm-stats { display: grid; align-content: center; }
+      .nrmp-comm-stat {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nrmp-comm-stat:first-child { padding-top: 0; }
+      .nrmp-comm-stat:last-child { border-bottom: 0; padding-bottom: 0; }
+      .nrmp-comm-num {
+        font-family: var(--font-serif);
+        font-size: clamp(24px, 2.4vw, 30px);
         font-weight: 500;
         color: var(--graphite);
-        text-decoration: none;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 3px;
+        font-variant-numeric: tabular-nums;
         white-space: nowrap;
-        transition: border-color 0.2s var(--ease-out-soft);
+        min-width: 3.6em;
       }
-      .nrmp-strip-link:hover { border-color: var(--moss); }
-      .nrmp-strip-link:focus-visible {
-        outline: 2px solid var(--ore);
-        outline-offset: 3px;
-        border-radius: 2px;
-      }
-
-      /* Small program pointer under the Investor Maps group head, above the
-         gallery. One muted sentence; the program name is the only link. */
-      .nrmp-kicker {
-        margin: -12px 0 28px;
+      .nrmp-comm-lbl {
         font-family: var(--font-sans);
-        font-size: 13.5px;
-        line-height: 1.6;
+        font-size: 13px;
+        line-height: 1.5;
         color: var(--muted);
       }
-      .nrmp-kicker a {
-        color: var(--graphite);
-        font-weight: 500;
-        text-decoration: none;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 2px;
-        transition: border-color 0.2s var(--ease-out-soft);
-      }
-      .nrmp-kicker a:hover { border-color: var(--moss); }
-      .nrmp-kicker a:focus-visible {
-        outline: 2px solid var(--ore);
-        outline-offset: 3px;
-        border-radius: 2px;
+      @media (max-width: 900px) {
+        .nrmp-comm { grid-template-columns: 1fr; gap: 28px; }
+        .nrmp-comm-num { min-width: 4.4em; }
       }
 
       /* Quiet program pointer under the West Red Lake cadence testimonial. */
@@ -1581,13 +1582,27 @@
 
       <!-- COMPLIANCE-06: source/attribution caption for the client market-cap stat -->
 
+      <!-- NRMP COMMERCIAL -->
+      <aside class="nrmp-comm" aria-label="Introducing the News-Release Map Program">
+        <div>
+          <p class="nrmp-comm-eyebrow">New &middot; For companies in active drilling</p>
+          <h3 class="nrmp-comm-headline">Introducing our new<br>News-Release Map Program.</h3>
+          <p class="nrmp-comm-body">Most release maps are the same map with new drill data. So we lock your house-styled base once &mdash; then every set of results comes back as an investor-ready map in 24&ndash;48 hours, guaranteed, with priority over everything else on our desk. One monthly fee. No per-map quotes.</p>
+          <a href="news-release-map-program.html" class="btn-discovery">See the program <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="nrmp-comm-stats">
+          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">24&ndash;48h</span><span class="nrmp-comm-lbl">per map, guaranteed &mdash; a late map is a free map</span></div>
+          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">4&ndash;15</span><span class="nrmp-comm-lbl">maps every month, sized to your drill cadence</span></div>
+          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">$2,500</span><span class="nrmp-comm-lbl">from, per month &middot; CAD &middot; pause between programs</span></div>
+        </div>
+      </aside>
+
       <!-- Investor Maps -->
       <div class="showcase-group">
         <div class="showcase-group-head">
             <h3 class="showcase-group-title">Investor Maps</h3>
           <a class="showcase-group-link" href="investor-maps.html">All map types &rarr;</a>
         </div>
-        <p class="nrmp-kicker">On a drill program? The <a href="news-release-map-program.html">News-Release Map Program</a> delivers release-ready maps like these in 24&ndash;48 hours &mdash; from $2,500/mo.</p>
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
           <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
@@ -1860,13 +1875,6 @@
         </div>
       </div>
 
-    </section>
-
-    <!-- NRMP STRIP -->
-    <section class="nrmp-strip" aria-label="News-Release Map Program">
-      <h2 class="nrmp-strip-headline">Drilling season, on cadence.</h2>
-      <p class="nrmp-strip-body">The News-Release Map Program keeps your maps moving at the speed of your drills &mdash; from $2,500/mo, 24&ndash;48h per map.</p>
-      <a class="nrmp-strip-link" href="news-release-map-program.html">See the program <span aria-hidden="true">&rarr;</span></a>
     </section>
 
     <div class="divider"></div>
