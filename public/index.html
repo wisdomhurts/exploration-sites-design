@@ -582,6 +582,30 @@
         border-radius: 2px;
       }
 
+      /* Small program pointer under the Investor Maps group head, above the
+         gallery. One muted sentence; the program name is the only link. */
+      .nrmp-kicker {
+        margin: -12px 0 28px;
+        font-family: var(--font-sans);
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+      .nrmp-kicker a {
+        color: var(--graphite);
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2px;
+        transition: border-color 0.2s var(--ease-out-soft);
+      }
+      .nrmp-kicker a:hover { border-color: var(--moss); }
+      .nrmp-kicker a:focus-visible {
+        outline: 2px solid var(--ore);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
       /* Quiet program pointer under the West Red Lake cadence testimonial. */
       .testimonial-program-link {
         display: inline-block;
@@ -1563,6 +1587,7 @@
             <h3 class="showcase-group-title">Investor Maps</h3>
           <a class="showcase-group-link" href="investor-maps.html">All map types &rarr;</a>
         </div>
+        <p class="nrmp-kicker">On a drill program? The <a href="news-release-map-program.html">News-Release Map Program</a> delivers release-ready maps like these in 24&ndash;48 hours &mdash; from $2,500/mo.</p>
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
           <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
