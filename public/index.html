@@ -507,12 +507,12 @@
       .hero-globe-fallback {
         position: absolute;
         top: 50%;
-        right: 60px;
-        width: 720px;
-        height: 720px;
-        max-width: 52vw;
-        max-height: 92vh;
-        transform: translate(-280px, -50%);
+        right: 0;
+        width: min(720px, 58vw);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        /* Match the live canvas: locked to the right edge, a quarter off-screen, square. */
+        transform: translate(25%, -50%);
         border-radius: 50%;
         background: var(--quartz);
         border: 1px solid var(--border);
@@ -534,6 +534,15 @@
       }
       /* Once the WebGL globe boots, hide the fallback. */
       .hero-globe.is-live .hero-globe-fallback { display: none; }
+      /* Mobile: match the live globe's centered treatment (it's absolute, so the
+         container's justify-content:center can't move it — center it explicitly). */
+      @media (max-width: 767px) {
+        .hero-globe-fallback {
+          right: 50%;
+          width: min(420px, 80vw);
+          transform: translate(50%, -50%);
+        }
+      }
 
       /* --- NRMP commercial ---
          Announcement panel above the Investor Maps gallery: vellum field,
@@ -1835,15 +1844,15 @@
           <a class="showcase-group-link" href="websites.html">All websites &rarr;</a>
         </div>
         <div class="showcase-grid showcase-grid--sites">
-          <a class="work-card" href="websites.html">
+          <a class="work-card work-card--fx1" href="websites.html">
             <span class="work-card-media work-card-media--wide"><img src="images/sites/snowline.avif" alt="Snowline Gold investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Snowline Gold</span>            </span>
           </a>
-          <a class="work-card" href="websites.html">
+          <a class="work-card work-card--fx2" href="websites.html">
             <span class="work-card-media work-card-media--wide"><img src="images/sites/avino.avif" alt="Avino Silver &amp; Gold investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Avino Silver &amp; Gold</span>            </span>
           </a>
-          <a class="work-card" href="websites.html">
+          <a class="work-card work-card--fx3" href="websites.html">
             <span class="work-card-media work-card-media--wide"><img src="images/sites/blackrocksilver.png" alt="Black Rock Silver investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Black Rock Silver</span>            </span>
           </a>
