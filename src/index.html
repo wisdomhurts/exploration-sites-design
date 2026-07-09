@@ -304,8 +304,8 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         </div>
         <div class="nrmp-comm-stats">
           <div class="nrmp-comm-stat"><span class="nrmp-comm-num">24&ndash;48 hour</span><span class="nrmp-comm-lbl">results, guaranteed &mdash; a late map is a free map</span></div>
-          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">4&ndash;15 maps</span><span class="nrmp-comm-lbl">every month, sized to your drill cadence</span></div>
-          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">${{ prices.nrmpCadence }} / month</span><span class="nrmp-comm-lbl">starting at &middot; pause between programs</span></div>
+          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">4&ndash;15 maps</span><span class="nrmp-comm-lbl">every month &mdash; sized to your drill cadence</span></div>
+          <div class="nrmp-comm-stat"><span class="nrmp-comm-num">${{ prices.nrmpCadence }} / month</span><span class="nrmp-comm-lbl">starting at &mdash; pause between programs</span></div>
         </div>
       </aside>
 
@@ -334,10 +334,11 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
           .maps-tab-bar { position: absolute; left: 0; bottom: 0; height: 1.5px; width: 0; background: var(--ore); }
           @keyframes mapsProgress { from { width: 0; } to { width: 100%; } }
           .maps-rotator { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-content: start; }
-          .maps-rotator .map-cell { display: block; padding: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; opacity: 0; transform: translateY(10px) scale(0.99); transition: opacity 0.5s var(--ease-out-soft), transform 0.5s var(--ease-out-soft); }
+          .maps-rotator .map-cell { display: block; padding: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); cursor: zoom-in; aspect-ratio: 4 / 3; opacity: 0; transform: translateY(10px) scale(0.99); transition: opacity 0.5s var(--ease-out-soft), transform 0.5s var(--ease-out-soft), border-color 0.4s ease, box-shadow 0.4s ease; }
           .maps-rotator .map-cell.in { opacity: 1; transform: none; }
-          .maps-rotator .map-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s var(--ease-out-soft); }
-          .maps-rotator .map-cell:hover img { transform: scale(1.04); }
+          .maps-rotator .map-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+          /* Match the showcase cards: lift + hairline Ore frame + soft shadow (revealed cells only). */
+          .maps-rotator .map-cell.in:hover, .maps-rotator .map-cell.in:focus-visible { transform: translateY(-8px); border-color: var(--ore); box-shadow: 0 16px 34px -20px rgba(45, 32, 15, 0.4); }
           @media (max-width: 900px) { .maps-rotator { grid-template-columns: repeat(2, 1fr); } }
           @media (prefers-reduced-motion: reduce) { .maps-rotator .map-cell { transition: none; transform: none; opacity: 1; } .maps-tab-bar { display: none; } }
         </style>
