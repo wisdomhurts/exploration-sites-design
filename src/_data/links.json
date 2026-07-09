@@ -1,7 +1,7 @@
 {
-  "_comment": "Payment links. Placeholders route to book.html until Stripe is live; then paste the Stripe Payment Link URLs here and every button updates.",
-  "payNrmpCadence": "book.html",
-  "payNrmpActive": "book.html",
-  "payNrmpFull": "book.html",
+  "_comment": "Payment links. NRMP tier links are LIVE Stripe Payment Links (GST 5% auto-added via Stripe Tax; each = monthly + $2,500 one-time setup). payRetainer still routes to book.html until a retainer link exists.",
+  "payNrmpCadence": "https://buy.stripe.com/28E6oGdlydwtgrD08lbV600",
+  "payNrmpActive": "https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601",
+  "payNrmpFull": "https://buy.stripe.com/cNi14m6Xa7853ER08lbV602",
   "payRetainer": "book.html"
 }
