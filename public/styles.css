@@ -2713,6 +2713,7 @@
       font: inherit;
       color: inherit;
       cursor: zoom-in;
+      transition: transform 0.4s var(--ease-out-soft);
     }
     .work-card-media {
       display: block;
@@ -2721,6 +2722,7 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--vellum);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
     .work-card-media img {
       width: 100%;
@@ -2729,48 +2731,15 @@
       display: block;
       transition: transform 0.5s ease;
     }
-    .work-card:hover .work-card-media img,
-    .work-card:focus-visible .work-card-media img { transform: scale(1.04); }
-
-    /* === Site-card hover variations (homepage Websites showcase) — pick one ===
-       Applied one-per-card so all three can be compared live, then the winner
-       gets applied to all three. Each overrides the default scale(1.04) above. */
-    /* FX1 — caption bar slides up + a slow, gentle zoom */
-    .work-card--fx1 .work-card-media { position: relative; }
-    .work-card--fx1 .work-card-media img { transition: transform 2.8s ease; }
-    .work-card--fx1:hover .work-card-media img,
-    .work-card--fx1:focus-visible .work-card-media img { transform: scale(1.05); }
-    .work-card--fx1 .work-card-media::after {
-      content: "Visit the site \2192";
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 11px 16px;
-      font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
-      color: var(--quartz); background: var(--graphite);
-      transform: translateY(100%);
-      transition: transform 0.42s var(--ease-out-soft);
-    }
-    .work-card--fx1:hover .work-card-media::after,
-    .work-card--fx1:focus-visible .work-card-media::after { transform: translateY(0); }
-
-    /* FX2 — the whole card lifts; a hairline Ore frame + soft shadow appear (no zoom) */
-    .work-card--fx2 { transition: transform 0.4s var(--ease-out-soft); }
-    .work-card--fx2 .work-card-media { transition: border-color 0.4s ease, box-shadow 0.4s ease; }
-    .work-card--fx2:hover, .work-card--fx2:focus-visible { transform: translateY(-8px); }
-    .work-card--fx2:hover .work-card-media,
-    .work-card--fx2:focus-visible .work-card-media {
+    /* Hover: the card lifts, a hairline Ore frame + soft shadow appear.
+       Applied to every showcase card — maps, websites, and presentations. */
+    .work-card:hover,
+    .work-card:focus-visible { transform: translateY(-8px); }
+    .work-card:hover .work-card-media,
+    .work-card:focus-visible .work-card-media {
       border-color: var(--ore);
       box-shadow: 0 16px 34px -20px rgba(45, 32, 15, 0.4);
     }
-    .work-card--fx2:hover .work-card-media img,
-    .work-card--fx2:focus-visible .work-card-media img { transform: none; }
-
-    /* FX3 — the screenshot slowly scrolls, like paging through the live site */
-    .work-card--fx3 .work-card-media img {
-      transform: scale(1.12) translateY(6%);
-      transition: transform 3.4s ease;
-    }
-    .work-card--fx3:hover .work-card-media img,
-    .work-card--fx3:focus-visible .work-card-media img { transform: scale(1.12) translateY(-6%); }
 
     .work-card-meta {
       display: flex;
