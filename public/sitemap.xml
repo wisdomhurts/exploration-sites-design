@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://es-draft-1.vercel.app/404.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/team.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/fundable-materials-scorecard.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/privacy.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/conference-booth.html</loc></url>
@@ -36,6 +35,7 @@
   <url><loc>https://es-draft-1.vercel.app/news-release-map-program.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/terms.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/case-study-montage.html</loc></url>
-  <url><loc>https://es-draft-1.vercel.app/clients.html</loc></url>
   <url><loc>https://es-draft-1.vercel.app/</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/clients.html</loc></url>
+  <url><loc>https://es-draft-1.vercel.app/team.html</loc></url>
 </urlset>
