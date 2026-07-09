@@ -471,27 +471,23 @@
       .team-link:hover,
       .team-link:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
       .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
-      /* Team members now carry bios: photo-left card, two-up on desktop. Overrides
-         the global 5-col bare-photo .team-grid (source order wins at equal specificity). */
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 48px; padding: 24px 0 32px; }
-      .team-grid-member { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: start; }
-      .team-grid-member .team-photo { width: 120px; max-width: none; aspect-ratio: 1; margin: 0; }
+      /* Team directory: large photo-on-top cards, four-up — big headshots that
+         match the leadership photos, with the bio beneath. Overrides the global
+         5-col bare-photo .team-grid (source order wins at equal specificity). */
+      .team-grid { grid-template-columns: repeat(4, 1fr); gap: 44px 28px; padding: 24px 0 32px; }
+      .team-grid-member { display: block; }
+      .team-grid-member .team-photo { width: 100%; max-width: none; aspect-ratio: 1; margin: 0 0 15px; }
       .team-grid-text { min-width: 0; }
-      .team-grid-member .team-name { font-size: 16px; margin-bottom: 2px; }
+      .team-grid-member .team-name { font-size: 17px; margin-bottom: 2px; }
       .team-grid-member .team-role { font-size: 12px; margin-bottom: 9px; }
-      .team-grid-member .team-bio { font-size: 13px; line-height: 168%; max-width: 100%; }
-      .team-grid-member .team-links { margin-top: 12px; gap: 13px; }
+      .team-grid-member .team-bio { font-size: 13px; line-height: 1.62; max-width: 100%; }
+      .team-grid-member .team-links { margin-top: 13px; gap: 14px; }
       /* Lighter, borderless LinkedIn link so 10 of them don't clutter the section */
       .team-grid-member .team-link { font-size: 10px; padding: 2px 0; gap: 5px; border-bottom: none; }
       .team-grid-member .team-link:hover,
       .team-grid-member .team-link:focus-visible { border-bottom-color: transparent; }
-      @media (max-width: 860px) {
-        .team-grid { grid-template-columns: 1fr; gap: 28px; }
-      }
-      @media (max-width: 420px) {
-        .team-grid-member { grid-template-columns: 92px 1fr; gap: 16px; }
-        .team-grid-member .team-photo { width: 92px; }
-      }
+      @media (max-width: 980px) { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 28px; } }
+      @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
 
     <!-- LEADERSHIP -->
@@ -583,7 +579,7 @@
           <div class="team-grid-text">
             <div class="team-name">Piyush Lamba</div>
             <div class="team-role">Web Developer</div>
-            <div class="team-bio">Piyush supports the development of investor-facing websites and digital tools for Exploration Sites clients. His work helps bring design, content, and technical requirements together into clean, functional web experiences.</div>
+            <div class="team-bio">Piyush supports Exploration Sites through web development, automation, and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyushlamba222@gmail.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
           </div>
         </div>
