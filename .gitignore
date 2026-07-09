@@ -1,6 +1,11 @@
 # Vercel
 .vercel
 
+# Secrets / env — NEVER commit API keys (Stripe, etc.)
+.env
+.env.*
+!.env.example
+
 # OS
 .DS_Store
 Thumbs.db
@@ -57,3 +62,9 @@ skills-lock.json
 # Blender working files
 *.blend
 *.blend1
+
+# ES3D platform (own git repo)
+es3donline-opus48/
+.gstack/
+
+.vercel

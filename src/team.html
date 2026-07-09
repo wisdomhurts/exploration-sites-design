@@ -16,10 +16,12 @@ permalink: "team.html"
 
     <!--
       team.html owns a small inline <style> block (do NOT move to styles.css):
-      it standardizes leadership-card spacing.
-      Per-person LinkedIn links were removed pending real individual profile URLs;
-      the company LinkedIn lives in the footer site-wide. To add an individual
-      link, drop <a class="team-link" href="..."> into that leader's card.
+      it standardizes leadership-card spacing and the per-person LinkedIn links.
+      Individual profile URLs were added 2026-07-09 (war-room action 24) via the
+      .team-link hook: leadership cards use the bordered mono link pinned to a
+      baseline; grid members use the borderless .team-link--sm variant. The
+      company LinkedIn still lives in the footer site-wide. Dorian & Anastasia
+      have no individual URL yet, so their leadership cards carry no link.
     -->
     <style>
       /* Leadership card: keep name / role / bio / link rhythm consistent across all four */
@@ -45,6 +47,27 @@ permalink: "team.html"
       .team-link:hover,
       .team-link:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
       .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
+      /* Team members now carry bios: photo-left card, two-up on desktop. Overrides
+         the global 5-col bare-photo .team-grid (source order wins at equal specificity). */
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 48px; padding: 24px 0 32px; }
+      .team-grid-member { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: start; }
+      .team-grid-member .team-photo { width: 120px; max-width: none; aspect-ratio: 1; margin: 0; }
+      .team-grid-text { min-width: 0; }
+      .team-grid-member .team-name { font-size: 16px; margin-bottom: 2px; }
+      .team-grid-member .team-role { font-size: 12px; margin-bottom: 9px; }
+      .team-grid-member .team-bio { font-size: 13px; line-height: 168%; max-width: 100%; }
+      .team-grid-member .team-links { margin-top: 12px; }
+      /* Lighter, borderless LinkedIn link so 10 of them don't clutter the section */
+      .team-grid-member .team-link { font-size: 10px; padding: 2px 0; gap: 5px; border-bottom: none; }
+      .team-grid-member .team-link:hover,
+      .team-grid-member .team-link:focus-visible { border-bottom-color: transparent; }
+      @media (max-width: 860px) {
+        .team-grid { grid-template-columns: 1fr; gap: 28px; }
+      }
+      @media (max-width: 420px) {
+        .team-grid-member { grid-template-columns: 92px 1fr; gap: 16px; }
+        .team-grid-member .team-photo { width: 92px; }
+      }
     </style>
 
     <!-- LEADERSHIP -->
@@ -56,24 +79,28 @@ permalink: "team.html"
           <div class="team-name">Dorian Leslie</div>
           <div class="team-role">Founder &amp; CEO</div>
           <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/dorianleslie/" target="_blank" rel="noopener" aria-label="Dorian Leslie on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Anastasia Schoeps</div>
           <div class="team-role">Operations Director</div>
           <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/anastasia-schoeps-357233157/" target="_blank" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Kai Erfle</div>
           <div class="team-role">Creative Director</div>
           <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/kai-erfle-3927b01a4/" target="_blank" rel="noopener" aria-label="Kai Erfle on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
         </div>
         <div class="team-lead">
           <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Jake Galbraith</div>
           <div class="team-role">Project Manager</div>
           <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/jacobgalbraith/" target="_blank" rel="noopener" aria-label="Jake Galbraith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
         </div>
       </div>
     </section>
@@ -84,53 +111,93 @@ permalink: "team.html"
       <div class="team-grid">
         <div class="team-grid-member">
           <div class="team-photo"><img src="images/headshots/gregor.jpg" alt="Gregor Smith" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Gregor Smith</div>
-          <div class="team-role">Map Technician</div>
+          <div class="team-grid-text">
+            <div class="team-name">Gregor Smith</div>
+            <div class="team-role">GIS &amp; Exploration Mapping Specialist</div>
+            <div class="team-bio">Gregor helps turn technical exploration data into clear, accurate maps and figures for investor-facing materials. With experience in GIS, spatial data management, cartographic production, and Leapfrog Geo modelling, he supports projects from raw datasets through to polished exploration visuals.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/gregor-smith-6b37a0260/" target="_blank" rel="noopener" aria-label="Gregor Smith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
           <div class="team-photo"><img src="images/headshots/mark.jpg" alt="Mark Aimon Pangan" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Mark Aimon Pangan</div>
-          <div class="team-role">Map Technician</div>
+          <div class="team-grid-text">
+            <div class="team-name">Mark Aimon Pangan</div>
+            <div class="team-role">Exploration Mapping Technician</div>
+            <div class="team-bio">Mark supports the production of clean, technically grounded maps and visual materials for mineral exploration clients. His work helps organize geological and spatial data into figures that are easier for investors, technical teams, and stakeholders to understand.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/mark-aimon-pangan/" target="_blank" rel="noopener" aria-label="Mark Aimon Pangan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/adrian.jpg" alt="Adrian Sarabia" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Adrian Sarabia</div>
-          <div class="team-role">Designer / Developer</div>
+          <div class="team-photo"><img src="images/headshots/adrian.jpg" alt="Adrian Lee Sarabia" loading="lazy" width="225" height="225"></div>
+          <div class="team-grid-text">
+            <div class="team-name">Adrian Lee Sarabia</div>
+            <div class="team-role">Digital Designer &amp; Web Production Specialist</div>
+            <div class="team-bio">Adrian supports design and web production, helping translate client ideas into clean, functional digital materials. With a background in graphic design, web design, layout, and visual content production, he brings a detail-oriented approach to websites, social graphics, and client-facing design work.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/adrianleesarabia/" target="_blank" rel="noopener" aria-label="Adrian Lee Sarabia on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
           <div class="team-photo"><img src="images/headshots/marvin.jpg" alt="Marvin Del Rosario" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Marvin Del Rosario</div>
-          <div class="team-role">Senior Web Developer</div>
+          <div class="team-grid-text">
+            <div class="team-name">Marvin Del Rosario</div>
+            <div class="team-role">Senior Web Developer</div>
+            <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
           <div class="team-photo"><img src="images/headshots/paul.jpg" alt="Paul Joshua Villora" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Paul Joshua Villora</div>
-          <div class="team-role">Map Technician</div>
+          <div class="team-grid-text">
+            <div class="team-name">Paul Joshua Villora</div>
+            <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
+            <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
           <div class="team-photo"><img src="images/headshots/piyush.jpg" alt="Piyush Lamba" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Piyush Lamba</div>
-          <div class="team-role">Developer</div>
+          <div class="team-grid-text">
+            <div class="team-name">Piyush Lamba</div>
+            <div class="team-role">Web Developer</div>
+            <div class="team-bio">Piyush supports the development of investor-facing websites and digital tools for Exploration Sites clients. His work helps bring design, content, and technical requirements together into clean, functional web experiences.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/belle.jpg" alt="Belle Ely" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Belle Ely</div>
-          <div class="team-role">Web &amp; Graphic Design</div>
+          <div class="team-photo"><img src="images/headshots/belle.jpg" alt="Belle Ely Berber" loading="lazy" width="225" height="225"></div>
+          <div class="team-grid-text">
+            <div class="team-name">Belle Ely Berber</div>
+            <div class="team-role">UI/UX &amp; Marketing Design Specialist</div>
+            <div class="team-bio">Belle supports UI/UX design, brand visuals, marketing creative, landing pages, investor-facing presentations, and digital content production. Her experience across Figma, Adobe Suite, WordPress, paid creative, and campaign design helps bridge strong visual execution with clear, conversion-focused communication.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/rebecca.jpg" alt="Rebecca Krayenhoff" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Rebecca Krayenhoff</div>
-          <div class="team-role">Administrative Assistant</div>
+          <div class="team-photo"><img src="images/headshots/rebecca.jpg" alt="Rebecca Krayenhoff van de Leur" loading="lazy" width="225" height="225"></div>
+          <div class="team-grid-text">
+            <div class="team-name">Rebecca Krayenhoff van de Leur</div>
+            <div class="team-role">Marketing &amp; Operations Coordinator</div>
+            <div class="team-bio">Rebecca supports marketing, operations, content creation, client communication, and administrative workflows across Exploration Sites projects. Her background includes social media, email marketing, website management, graphic design, customer service, database management, and campaign coordination.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/elijah.jpg" alt="Elijah Mahri" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Elijah Mahri</div>
-          <div class="team-role">GIS Support</div>
+          <div class="team-photo"><img src="images/headshots/elijah.jpg" alt="Elijah Mahri Barongan" loading="lazy" width="225" height="225"></div>
+          <div class="team-grid-text">
+            <div class="team-name">Elijah Mahri Barongan</div>
+            <div class="team-role">Operations &amp; GIS Support Coordinator</div>
+            <div class="team-bio">Elijah supports Exploration Sites across operations, communication, sales support, GIS/admin workflows, and internal coordination. With experience in outbound sales, dashboard moderation, onboarding, research, design tools, publishing, and professional communication, he helps keep client work organized and moving efficiently.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/elijah-mahri-barongan-80631018b/" target="_blank" rel="noopener" aria-label="Elijah Mahri Barongan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/vince.jpg" alt="Vincent Ca&ntilde;as" loading="lazy" width="225" height="225"></div>
-          <div class="team-name">Vincent Ca&ntilde;as</div>
-          <div class="team-role">Web Development Support</div>
+          <div class="team-photo"><img src="images/headshots/vince.jpg" alt="Amiel Vincent Ca&ntilde;as" loading="lazy" width="225" height="225"></div>
+          <div class="team-grid-text">
+            <div class="team-name">Amiel Vincent Ca&ntilde;as</div>
+            <div class="team-role">Webflow &amp; Web Development Specialist</div>
+            <div class="team-bio">Vincent specializes in Webflow and front-end web development, supporting responsive, production-ready websites from design concepts through to published pages. His background includes Webflow, HTML, JavaScript, PHP, WordPress, Next.js, migrations, hosting, performance, and site reliability.</div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Amiel Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a></div>
+          </div>
         </div>
       </div>
     </section>
