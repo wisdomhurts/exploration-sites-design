@@ -828,13 +828,14 @@
        mobile / reduced-motion / no-WebGL where there are no pins. */
     .hero-globe-title {
       position: absolute;
-      left: 0;
-      right: 0;
+      right: 40px;
       bottom: 40px;
       z-index: 2;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 80px;
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
       text-align: right;
       font-family: var(--font-sans);
       font-size: 11px;
@@ -845,6 +846,16 @@
       pointer-events: none;
     }
     .hero-globe:not(.is-live) ~ .hero-globe-title { display: none; }
+
+    /* Rotating hero word (deposit -> project -> idea -> venture): a quiet,
+       institutional fade + rise, like a departure board rolling over. */
+    .hero-rotate {
+      display: inline-block;
+      transition: opacity 0.38s var(--ease-out-soft), transform 0.38s var(--ease-out-soft);
+    }
+    .hero-rotate.rot-out { opacity: 0; transform: translateY(-0.22em); }
+    .hero-rotate.rot-pre { opacity: 0; transform: translateY(0.22em); transition: none; }
+    @media (prefers-reduced-motion: reduce) { .hero-rotate { transition: none; } }
 
     .hero-label {
       font-family: var(--font-sans);
