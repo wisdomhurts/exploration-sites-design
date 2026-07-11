@@ -965,30 +965,6 @@
       gap: 60px;
     }
 
-    .section-grid-3col {
-      display: grid;
-      grid-template-columns: 360px 1fr 340px;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .case-logo {
-      height: 196px;
-      max-width: 100%;
-      object-fit: contain;
-      margin-bottom: 20px;
-    }
-
-    .case-multiplier {
-      font-family: var(--font-serif);
-      font-size: clamp(52px, 6vw, 88px);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--ore);
-      margin-top: 16px;
-    }
-
     .tv-chart-col { padding-top: 30px; }
     .tv-chart-col iframe { border: none !important; }
 
@@ -1071,60 +1047,6 @@
       letter-spacing: -0.015em;
       color: var(--graphite);
       margin: 0;
-    }
-
-    /* --- CASE STUDIES: ticker + link utilities --- */
-    .case-ticker {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 3px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: transparent;
-      min-width: 72px;
-      flex-shrink: 0;
-      align-self: flex-start;
-      margin-top: 6px;
-    }
-    .case-ticker-exchange {
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .case-ticker-symbol {
-      color: var(--graphite);
-      font-weight: 700;
-    }
-
-    .case-label {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--slate);
-      padding: 0;
-      min-width: 72px;
-      flex-shrink: 0;
-      align-self: flex-start;
-    }
-
-    .case-link {
-      color: var(--graphite);
-      text-decoration: none;
-      background-image: linear-gradient(var(--ore), var(--ore));
-      background-size: 100% 1px;
-      background-repeat: no-repeat;
-      background-position: 0 100%;
-      transition: color 0.2s var(--ease-out-soft),
-                  background-size 0.3s var(--ease-out-quart);
-    }
-    .case-link:hover {
-      color: var(--ore);
-      background-size: 100% 2px;
     }
 
     @media (max-width: 900px) {
@@ -1288,6 +1210,62 @@
       transition: color 0.2s var(--ease-out-soft), border-color 0.2s var(--ease-out-soft);
     }
     .cs-services a:hover { color: var(--graphite); border-color: var(--slate); }
+
+    /* Reveal (fade-up) + CSS stagger — no JS beyond the shared observer */
+    .cs-flagship, .cs-cell {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.55s var(--ease-out-soft),
+                  transform 0.55s var(--ease-out-soft);
+    }
+    .cs-flagship.is-revealed, .cs-cell.is-revealed {
+      opacity: 1;
+      transform: none;
+    }
+    .cs-wall .cs-cell:nth-child(1).is-revealed { transition-delay: 0ms; }
+    .cs-wall .cs-cell:nth-child(2).is-revealed { transition-delay: 40ms; }
+    .cs-wall .cs-cell:nth-child(3).is-revealed { transition-delay: 80ms; }
+    .cs-wall .cs-cell:nth-child(4).is-revealed { transition-delay: 120ms; }
+    @media (prefers-reduced-motion: reduce) {
+      .cs-flagship, .cs-cell {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* Responsive ------------------------------------------------- */
+    @media (max-width: 1160px) {
+      .cs-flagship-inner { padding: 0 40px; }
+      .cs-wall-inner { padding: 0 40px; }
+    }
+    /* Flagship card stacks below its image < 900px */
+    @media (max-width: 900px) {
+      .cs-flagship { display: block; }
+      .cs-flagship-inner {
+        padding: 0 40px;
+        pointer-events: auto;
+      }
+      .cs-facts {
+        width: 100%;
+        margin: -40px 0 0;   /* slight overlap, still readable */
+        position: relative;
+      }
+      .cs-facts .cs-traj { font-size: 48px; }
+    }
+    /* Wall collapses to one column < 768px */
+    @media (max-width: 768px) {
+      .cs-wall-inner { grid-template-columns: 1fr; }
+      .cs-cell { border-right: 0; }
+      .cs-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .cs-cell:last-child { border-bottom: 0; }
+    }
+    @media (max-width: 640px) {
+      .cs-flagship-inner, .cs-wall-inner { padding: 0 20px; }
+      .cs-cell-body { padding: 20px 20px 0; }
+      .cs-cell .cs-traj { font-size: 38px; }
+      .cs-facts .cs-traj { font-size: 42px; }
+    }
 
     .section-counter {
       font-family: var(--font-sans);
@@ -2605,7 +2583,6 @@
       .nav-inner { padding: 0 40px; }
       .page { padding: 0 40px; }
       .section-grid { grid-template-columns: 1fr; gap: 32px; }
-      .section-grid-3col { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .hero-headline { font-size: 44px; }
@@ -3028,46 +3005,6 @@
     .hero-film-link:hover .hero-film-play { background: var(--ore); }
     .hero-film-link:hover .hero-film-play::after { border-left-color: var(--on-dark); }
     .hero-buttons .hero-film-link { margin-top: 0; margin-left: 4px; }
-
-    /* --- CASE STUDIES: deliverables ledger (3rd column on each case) ---
-       Replaces the retired market-cap "journey" rail (COMPLIANCE-01 / TRUST-04):
-       a quiet, factual record of what ES produced. Inter labels, static serif
-       numerals, 1px rules. No charts, no bars, no mono. */
-    .case-ledger { align-self: start; padding-top: 4px; }
-    .case-ledger-title {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 18px;
-    }
-    .case-ledger-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border-top: 1px solid var(--border);
-    }
-    .case-ledger-item {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      line-height: 1.45;
-      color: var(--body);
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .case-ledger-item--lead { color: var(--navy); font-weight: 600; }
-    .case-ledger-num { font-family: var(--font-serif); font-variant-numeric: tabular-nums; }
-    /* Dated market-cap footnote — mirrors the .client-table-note caption pattern */
-    .case-footnote {
-      margin-top: 18px;
-      font-family: var(--font-sans);
-      font-size: 11px;
-      line-height: 1.6;
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-    }
 
     /* --- Compliance / source captions (COMPLIANCE-06 / COMPLIANCE-07) ---
        Quiet muted legal captions on the homepage (stat source + logo-wall
