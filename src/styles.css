@@ -1140,6 +1140,103 @@
       .case-kpis > div:last-child { border-bottom: 0; }
     }
 
+    /* ============================================================
+       CASE STUDIES — Evidence Wall (Design B, ruled)   [2026-07]
+       Flagship media panel + shared trajectory-number system.
+       ============================================================ */
+
+    /* Shared trajectory number (used by flagship + wall) --------- */
+    .cs-name {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--graphite);
+      margin: 0 0 8px;
+    }
+    .cs-ticker {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin: 0 0 14px;
+    }
+    .cs-ticker b { color: var(--graphite); font-weight: 700; }
+    .cs-traj {
+      font-family: var(--font-serif);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin: 0;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0 10px;
+    }
+    .cs-traj-from { font-size: 0.42em; font-weight: 400; color: var(--slate); }
+    .cs-arrow    { font-size: 0.42em; font-weight: 400; color: var(--ore); }
+    .cs-traj-to  { font-weight: 600; color: var(--graphite); }
+    .cs-qual {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+    .cs-story {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--body);
+      margin: 14px 0 0;
+    }
+
+    /* Flagship ---------------------------------------------------- */
+    .cs-flagship {
+      width: 100vw;
+      margin: 0 calc(50% - 50vw);
+      isolation: isolate;
+      display: grid;
+    }
+    .cs-flagship-media,
+    .cs-flagship-inner { grid-area: 1 / 1; }          /* stack in one cell */
+    .cs-flagship-media {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: var(--vellum);
+      cursor: zoom-in;
+    }
+    .cs-flagship-media img {
+      display: block;
+      width: 100%;
+      height: clamp(340px, 42vw, 560px);
+      object-fit: cover;
+    }
+    .cs-flagship-inner {
+      position: relative;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: flex;
+      align-items: flex-end;      /* card sits at the bottom of the image */
+      pointer-events: none;        /* let clicks fall through to the image… */
+    }
+    .cs-facts {
+      pointer-events: auto;        /* …except on the card itself */
+      width: min(400px, 100%);
+      margin-bottom: 32px;
+      background: var(--surface);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-card);
+    }
+    .cs-facts .cs-traj { font-size: 64px; }           /* flagship ceiling */
+    .cs-facts .btn-discovery { margin-top: 18px; }
+
     .section-counter {
       font-family: var(--font-sans);
       font-size: 12px;
