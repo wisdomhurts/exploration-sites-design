@@ -201,16 +201,20 @@ def update_montage_pages(montage):
     with open(MONTAGE_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
-    # ---- case-studies.html (Montage is the FIRST case; only touch that one) ----
+    # ---- case-studies.html (Montage is the FIRST/flagship case; only touch that one) ----
     with open(CASES_HTML, 'r', encoding='utf-8') as f:
         h = f.read()
-    # Montage is the FIRST case. Its old .case-journey market-cap rail was replaced
-    # (2026-07) by a deliverables ledger + a demoted, sourced footnote; keep that
-    # footnote and the intro-prose "today" figure fresh instead.
-    h = _sub(h, r'(Company-reported market cap ~\$130M \(2023\) to ~)\$[\d.]+B( \(today\))',
-             rf'\g<1>{cap1}\g<2>', 'cases montage footnote cap', count=1)
-    h = _sub(h, r'(reported market capitalisation grew from ~\$130M to ~)\$[\d.]+B',
-             rf'\g<1>{cap1}', 'cases montage prose cap', count=1)
+    # Montage is the flagship "Evidence Wall" panel (2026-07 redesign). Its market cap
+    # now lives ONLY in the trajectory display number: the .cs-traj-to span that follows
+    # the "$130M -> grew to" sequence. Keep that destination figure fresh. (The other
+    # four wall cells are static, as they always were.)
+    h = _sub(
+        h,
+        r'(<span class="cs-traj-from">\$130M</span>\s*'
+        r'<span class="cs-arrow"[^>]*>&rarr;</span>\s*'
+        r'<span class="sr-only">grew to</span>\s*'
+        r'<span class="cs-traj-to">)\$[\d.]+B(</span>)',
+        rf'\g<1>{cap1}\g<2>', 'cases montage flagship cap', count=1)
     with open(CASES_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
