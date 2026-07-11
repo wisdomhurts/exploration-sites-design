@@ -790,6 +790,37 @@ description: "How we engage with exploration-stage companies — project work on
   .deliv-list a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   .deliv-list a:hover { color: var(--ore); }
 
+  /* ---------- NEWS-RELEASE MAP PROGRAM — companion band under the model cards ---------- */
+  a.models-nrmp {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 8px 28px; flex-wrap: wrap;
+    margin-top: 20px; padding: 18px 22px;
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--surface); box-shadow: var(--shadow-card);
+    text-decoration: none; color: inherit;
+    transition: box-shadow 0.2s var(--ease-out-soft);
+  }
+  a.models-nrmp:hover { box-shadow: inset 0 0 0 1.5px var(--ore), var(--shadow-card); }
+  .models-nrmp-kick {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ore-text); white-space: nowrap; flex: 0 0 auto;
+  }
+  .models-nrmp-body { font-size: 14px; line-height: 1.55; color: var(--body); flex: 1 1 360px; min-width: 0; }
+  .models-nrmp-body strong { color: var(--graphite); font-weight: 600; }
+  .models-nrmp-price { font-size: 14px; color: var(--graphite); white-space: nowrap; flex: 0 0 auto; }
+  .models-nrmp-price .mono { font-family: var(--font-mono); }
+  .models-nrmp-cta {
+    font-size: 13px; font-weight: 500; color: var(--graphite);
+    white-space: nowrap; flex: 0 0 auto;
+    border-bottom: 1px solid var(--ore); padding-bottom: 2px;
+    transition: color 0.2s var(--ease-out-soft);
+  }
+  a.models-nrmp:hover .models-nrmp-cta { color: var(--ore); }
+  @media (max-width: 720px) {
+    a.models-nrmp { gap: 10px 20px; }
+  }
+
   /* ---------- TYPICAL TIMELINES ----------
      Quiet hairline row under the model cards — values mirror contact.html. */
   .timelines {
@@ -1338,6 +1369,14 @@ description: "How we engage with exploration-stage companies — project work on
         </a>
       </div>
 
+      <!-- News-Release Map Program — drilling-season map cadence, sits with the three models -->
+      <a class="models-nrmp reveal" href="news-release-map-program.html">
+        <span class="models-nrmp-kick">In active drilling</span>
+        <span class="models-nrmp-body">The <strong>News-Release Map Program</strong> keeps your news-release map cadence through the season &mdash; maps sized to your drill program, guaranteed in 24&ndash;48h.</span>
+        <span class="models-nrmp-price">From <span class="mono">${{ prices.nrmpCadence }}</span>/mo</span>
+        <span class="models-nrmp-cta">See the program &rarr;</span>
+      </a>
+
       <!-- Typical timelines — quiet ledger row under the model cards.
            Values mirror the Typical Timelines block on contact.html; keep the two in step. -->
       <div class="timelines reveal" aria-label="Typical delivery timelines">
@@ -1513,12 +1552,6 @@ description: "How we engage with exploration-stage companies — project work on
         </div>
       </div>
 
-      <!-- NRMP boundary — where the retainer ends and the map program begins -->
-      <div class="retainer-nrmp reveal">
-        <p>Retainers keep all your materials current, as standing capacity; drilling-season map cadence is the <strong>News-Release Map Program</strong>, in maps &mdash; from ${{ prices.nrmpCadence }}/mo.</p>
-        <a href="news-release-map-program.html">See the program &rarr;</a>
-      </div>
-
       <p class="retainer-foot reveal">All retainers are based on a 12-month commitment.</p>
 
       <style>
@@ -1552,22 +1585,6 @@ description: "How we engage with exploration-stage companies — project work on
         #retainers .retainer-rate { margin-top: auto; padding: 14px 22px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.03em; }
         #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 14px; color: var(--muted); }
         /* NRMP boundary callout — quiet surface row under the tier cards */
-        #retainers .retainer-nrmp {
-          display: flex; align-items: baseline; justify-content: space-between;
-          gap: 12px 32px; flex-wrap: wrap;
-          margin-top: 24px; padding: 18px 22px;
-          border: 1px solid var(--border); border-radius: 12px;
-          background: var(--surface);
-        }
-        #retainers .retainer-nrmp p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--body); max-width: 78ch; }
-        #retainers .retainer-nrmp strong { color: var(--graphite); font-weight: 600; }
-        #retainers .retainer-nrmp a {
-          font-size: 13px; font-weight: 500; color: var(--graphite);
-          text-decoration: none; white-space: nowrap;
-          border-bottom: 1px solid var(--ore); padding-bottom: 2px;
-          transition: color 0.2s var(--ease-out-soft);
-        }
-        #retainers .retainer-nrmp a:hover { color: var(--ore); }
         @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
       </style>
     </div>
