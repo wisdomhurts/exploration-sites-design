@@ -791,11 +791,11 @@
     gap: 8px 28px; flex-wrap: wrap;
     margin-top: 20px; padding: 18px 22px;
     border: 1px solid var(--border); border-radius: 12px;
-    background: var(--surface); box-shadow: var(--shadow-card);
+    background: var(--surface);
     text-decoration: none; color: inherit;
     transition: box-shadow 0.2s var(--ease-out-soft);
   }
-  a.models-nrmp:hover { box-shadow: inset 0 0 0 1.5px var(--ore), var(--shadow-card); }
+  a.models-nrmp:hover { box-shadow: inset 0 0 0 1.5px var(--ore); z-index: 1; }
   .models-nrmp-kick {
     font-family: var(--font-mono);
     font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
