@@ -849,6 +849,47 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
 
     <div class="divider"></div>
 
+    <!-- THE STANDARD -->
+    <style>
+      /* The bar ES holds its own work to — the inward mirror of the client-facing
+         Fundable Scorecard. Two-column editorial: statement (serif) + gloss (sans),
+         numerals muted so the Ore budget stays on the two section labels. */
+      .standard-intro { margin-bottom: 0; }
+      .standard-how { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); max-width: 42ch; }
+      .standard-how-label { display: block; margin-bottom: 6px; font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ore-text); }
+      .standard-how p { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.6; color: var(--body); }
+      .standard-list { list-style: none; margin: 0; padding: 0; }
+      .standard-item { display: flex; gap: 18px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border); }
+      .standard-item:first-child { border-top: 0; padding-top: 0; }
+      .standard-num { flex: none; width: 22px; font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; color: var(--muted); }
+      .standard-stmt { margin: 0 0 5px; font-family: var(--font-serif); font-size: 19px; font-weight: 400; line-height: 1.25; letter-spacing: -0.01em; color: var(--graphite); }
+      .standard-gloss { margin: 0; font-family: var(--font-sans); font-size: 14px; line-height: 1.6; color: var(--body); max-width: 52ch; }
+    </style>
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">The Standard</div>
+          <h2 class="section-headline">The bar we won&rsquo;t<br>ship below.</h2>
+          <p class="body-text standard-intro">Institutional-grade isn&rsquo;t a claim we make &mdash; it&rsquo;s a line we don&rsquo;t fall below. What every deliverable clears before it carries our name:</p>
+          <div class="standard-how">
+            <span class="standard-how-label">How we hold it</span>
+            <p>Every deliverable clears an internal review against this bar before it reaches you. The same desk, every time.</p>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <ol class="standard-list">
+            <li class="standard-item"><span class="standard-num" aria-hidden="true">01</span><div><p class="standard-stmt">It survives a portfolio manager.</p><p class="standard-gloss">Built to hold up under the most skeptical desk in the room &mdash; or it doesn&rsquo;t leave the building.</p></div></li>
+            <li class="standard-item"><span class="standard-num" aria-hidden="true">02</span><div><p class="standard-stmt">Every number is sourced.</p><p class="standard-gloss">Grade, width, market cap, comparable &mdash; each one defensible to the drill log or the filing.</p></div></li>
+            <li class="standard-item"><span class="standard-num" aria-hidden="true">03</span><div><p class="standard-stmt">Geology before design.</p><p class="standard-gloss">We read strike, dip, and grade before we choose type and colour. The science leads; the craft serves it.</p></div></li>
+            <li class="standard-item"><span class="standard-num" aria-hidden="true">04</span><div><p class="standard-stmt">One visual language.</p><p class="standard-gloss">Maps, sections, decks, and site read as one company &mdash; never five vendors stapled together.</p></div></li>
+            <li class="standard-item"><span class="standard-num" aria-hidden="true">05</span><div><p class="standard-stmt">It reads on a phone.</p><p class="standard-gloss">If it fails when skimmed between meetings, it fails. Legible small; forwardable without you in the room.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- CLIENTS / SOCIAL PROOF CTA -->
     <section class="cta-section">
       <h2 class="cta-headline">{{ proof.companies }}+ exploration teams served<br>across {{ proof.continents }} continents since 1996.</h2>
