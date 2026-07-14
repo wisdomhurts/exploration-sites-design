@@ -404,7 +404,11 @@
 
   <div class="page" id="main">
     
-        <section class="hero hero--page">
+        <div class="sc-band sc-band--hero">
+      <img src="images/scorecard/hero.avif" alt="Layered exploration survey materials — a topographic contour map over a geological cross-section, rendered in warm neutral tones with a single fine gold reference line." width="2000" height="1131" loading="eager" decoding="async">
+    </div>
+
+    <section class="hero hero--page">
       <div class="section-label">Free resource &middot; No call required</div>
       <h1 class="hero-headline" style="max-width: 17ch;">The Fundable Materials Scorecard.</h1>
       <p class="hero-body" style="max-width: 62ch;">Twelve things a generalist allocator looks for in your deck, maps, and website in the first ninety seconds &mdash; before they decide whether your geology is worth a meeting. Score your own materials against the desk: one point each.</p>
@@ -413,6 +417,9 @@
     <div class="divider"></div>
 
     <section class="section">
+      <div class="sc-band sc-band--scorecard">
+        <img src="images/scorecard/scorecard.avif" alt="An abstract geological cross-section of layered strata in muted earth neutrals, threaded by a single fine gold mineralised seam." width="2000" height="1131" loading="lazy" decoding="async">
+      </div>
       <ol class="scorecard">
         <li class="scorecard-item" id="crit-01"><span class="scorecard-num">01</span><div class="scorecard-body"><h2 class="scorecard-title">The one-line thesis</h2><p class="scorecard-desc">A non-geologist can say what you have and why it matters in a single sentence &mdash; on slide one, not slide nine.</p></div></li>
         <li class="scorecard-item" id="crit-02"><span class="scorecard-num">02</span><div class="scorecard-body"><h2 class="scorecard-title">Location in context</h2><p class="scorecard-desc">A locator map places the project beside the deposits and operators the market already knows. The comps do the explaining.</p></div></li>
@@ -436,6 +443,9 @@
 
     <!-- Low-friction lead capture: free async read, no call -->
     <section class="section scorecard-offer">
+      <div class="sc-band sc-band--offer">
+        <img src="images/scorecard/offer.avif" alt="Overhead view of blank exploration map sheets, a geological cross-section drawing, and mineral specimens arranged on a warm neutral desk." width="2000" height="1131" loading="lazy" decoding="async">
+      </div>
       <div class="scorecard-offer-grid">
         <div>
           <div class="section-label">Free read</div>
@@ -470,6 +480,20 @@
     <div class="divider"></div>
 
     <style>
+      /* Full-bleed brand imagery band, one per section. Warm cartographic stills
+         (GPT Image 2), cropped to a calm horizontal strip framed by hairline rules. */
+      .sc-band {
+        width: 100vw;
+        margin-inline: calc(50% - 50vw);
+        height: clamp(220px, 30vw, 400px);
+        overflow: hidden;
+        border-block: 1px solid var(--border);
+        background: var(--vellum);
+      }
+      .sc-band img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+      .sc-band--hero { margin-bottom: clamp(32px, 5vw, 56px); }
+      .sc-band--scorecard { margin-bottom: clamp(36px, 5vw, 60px); }
+      .sc-band--offer { margin-bottom: clamp(36px, 5vw, 60px); }
       .scorecard { list-style: none; counter-reset: none; margin: 0 auto; padding: 0; max-width: 760px; }
       .scorecard-item { display: flex; gap: 22px; align-items: baseline; padding: 22px 0; border-top: 1px solid var(--border); }
       .scorecard-item:first-child { border-top: none; }
