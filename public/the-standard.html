@@ -402,8 +402,8 @@
     
         <section class="hero hero--page">
       <div class="section-label">The Standard</div>
-      <h1 class="hero-headline" style="max-width: 18ch;">The bar we won&rsquo;t ship below.</h1>
-      <p class="hero-body" style="max-width: 64ch;">Institutional-grade isn&rsquo;t a claim we make &mdash; it&rsquo;s a line we don&rsquo;t fall below. This is the bar every deliverable clears before it carries our name: the same desk that scores your materials, turned on our own work.</p>
+      <h1 class="hero-headline" style="max-width: 18ch;">The bar we hold our work to.</h1>
+      <p class="hero-body" style="max-width: 64ch;">Institutional-grade isn&rsquo;t a claim we make &mdash; it&rsquo;s the standard we build to, and what we advise every client toward. This is the bar we hold our own work to: the same desk that scores your materials, turned on our own.</p>
     </section>
 
     <div class="divider"></div>
@@ -417,12 +417,21 @@
       .std-gloss { margin: 0; font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--body); max-width: 64ch; }
       .std-close { max-width: 820px; margin: 34px auto 0; padding-top: 22px; border-top: 1px solid var(--border); font-size: 15px; line-height: 1.7; color: var(--body); }
       .std-close strong { color: var(--graphite); font-weight: 600; }
+      /* Framing creed above the bar: the client owns the final call, and ES's
+         commitment is to them first. Sets the relationship before the standard. */
+      .std-lede { max-width: 820px; margin: 0 auto 44px; padding-bottom: 34px; border-bottom: 1px solid var(--border); }
+      .std-lede-label { display: block; margin-bottom: 10px; font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ore-text); }
+      .std-lede-text { margin: 0; max-width: 60ch; font-family: var(--font-serif); font-size: clamp(19px, 1.9vw, 23px); font-weight: 400; line-height: 1.4; letter-spacing: -0.01em; color: var(--graphite); }
     </style>
 
     <section class="section">
+      <div class="std-lede">
+        <span class="std-lede-label">Our first commitment</span>
+        <p class="std-lede-text">The final call is always yours. We&rsquo;ll make the case for this standard &mdash; hard, and every time &mdash; then build what you decide. Our commitment is to you before it&rsquo;s to our own preferences. That&rsquo;s the order, always.</p>
+      </div>
       <ol class="std-list">
-        <li class="std-item" id="std-01"><span class="std-num" aria-hidden="true">01</span><div class="std-body"><p class="std-stmt">It survives a portfolio manager.</p><p class="std-gloss">Built to hold up under the most skeptical desk in the room &mdash; or it doesn&rsquo;t leave the building.</p></div></li>
-        <li class="std-item" id="std-02"><span class="std-num" aria-hidden="true">02</span><div class="std-body"><p class="std-stmt">It carries our name only when it&rsquo;s true.</p><p class="std-gloss">If we wouldn&rsquo;t defend it in front of your board, we don&rsquo;t ship it.</p></div></li>
+        <li class="std-item" id="std-01"><span class="std-num" aria-hidden="true">01</span><div class="std-body"><p class="std-stmt">It survives a portfolio manager.</p><p class="std-gloss">Built to hold up under the most skeptical desk in the room &mdash; that&rsquo;s what we build every deliverable toward.</p></div></li>
+        <li class="std-item" id="std-02"><span class="std-num" aria-hidden="true">02</span><div class="std-body"><p class="std-stmt">It carries our name only when it&rsquo;s true.</p><p class="std-gloss">If we wouldn&rsquo;t defend it in front of your board, we&rsquo;ll tell you before it goes out.</p></div></li>
         <li class="std-item" id="std-03"><span class="std-num" aria-hidden="true">03</span><div class="std-body"><p class="std-stmt">Every number is sourced.</p><p class="std-gloss">Grade, width, market cap, comparable &mdash; each one defensible to the drill log or the filing.</p></div></li>
         <li class="std-item" id="std-04"><span class="std-num" aria-hidden="true">04</span><div class="std-body"><p class="std-stmt">No cherry-picked intervals.</p><p class="std-gloss">We show the assay in context, not the one number that flatters.</p></div></li>
         <li class="std-item" id="std-05"><span class="std-num" aria-hidden="true">05</span><div class="std-body"><p class="std-stmt">Figures are set in tabular numerals.</p><p class="std-gloss">Columns line up; the eye compares grades and widths without effort.</p></div></li>
@@ -431,7 +440,7 @@
         <li class="std-item" id="std-08"><span class="std-num" aria-hidden="true">08</span><div class="std-body"><p class="std-stmt">Coordinates are verified, not assumed.</p><p class="std-gloss">Every pin is checked against tenure and datum before it&rsquo;s placed on a map.</p></div></li>
         <li class="std-item" id="std-09"><span class="std-num" aria-hidden="true">09</span><div class="std-body"><p class="std-stmt">Colour follows commodity, not decoration.</p><p class="std-gloss">Gold reads gold, copper reads copper &mdash; one consistent legend across every asset.</p></div></li>
         <li class="std-item" id="std-10"><span class="std-num" aria-hidden="true">10</span><div class="std-body"><p class="std-stmt">Every map has a scale bar and a north arrow.</p><p class="std-gloss">Orientation and size are never left for the reader to guess.</p></div></li>
-        <li class="std-item" id="std-11"><span class="std-num" aria-hidden="true">11</span><div class="std-body"><p class="std-stmt">Projection and datum are stated.</p><p class="std-gloss">A map that can&rsquo;t say where it is doesn&rsquo;t ship.</p></div></li>
+        <li class="std-item" id="std-11"><span class="std-num" aria-hidden="true">11</span><div class="std-body"><p class="std-stmt">Projection and datum are stated.</p><p class="std-gloss">We don&rsquo;t consider a map finished until it can say where it is.</p></div></li>
         <li class="std-item" id="std-12"><span class="std-num" aria-hidden="true">12</span><div class="std-body"><p class="std-stmt">The basemap serves the story, not itself.</p><p class="std-gloss">Terrain and context are dialled back so the target reads first.</p></div></li>
         <li class="std-item" id="std-13"><span class="std-num" aria-hidden="true">13</span><div class="std-body"><p class="std-stmt">Continuity is shown, not asserted.</p><p class="std-gloss">Mineralisation appears in section or 3D &mdash; not a scatter of plan-view dots.</p></div></li>
         <li class="std-item" id="std-14"><span class="std-num" aria-hidden="true">14</span><div class="std-body"><p class="std-stmt">Section lines are drawn on the plan.</p><p class="std-gloss">The reader always knows exactly where the section was cut.</p></div></li>
@@ -458,7 +467,7 @@
         <li class="std-item" id="std-35"><span class="std-num" aria-hidden="true">35</span><div class="std-body"><p class="std-stmt">If it&rsquo;s only pretty, it&rsquo;s not done.</p><p class="std-gloss">Beauty is the byproduct of clarity, never the goal.</p></div></li>
       </ol>
 
-      <p class="std-close"><strong>How we hold it.</strong> Every deliverable clears an internal review against this list before it reaches you &mdash; the same desk, every time. It&rsquo;s the reason our clients hand us pre-disclosure material and stop checking the work.</p>
+      <p class="std-close"><strong>How we hold it.</strong> Every deliverable clears an internal review against this list before it reaches you. Where something falls short of the bar, we&rsquo;ll say so plainly &mdash; then build what you&rsquo;ve chosen. It&rsquo;s the reason our clients hand us pre-disclosure material and stop checking the work.</p>
     </section>
 
     <div class="divider"></div>
