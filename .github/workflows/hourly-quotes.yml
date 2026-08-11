@@ -41,7 +41,13 @@ jobs:
         run: |
           git config user.name "es-quote-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/clients.html src/case-study-montage.html src/case-studies.html
+          # Must list EVERY file update-client-quotes.py writes. Anything missing
+          # still reaches production (the deploy step below runs from this same
+          # working tree) but never lands in the repo, so the source goes stale and
+          # local builds silently regress the live numbers. proof.json did exactly
+          # that: the repo sat at marketCapB 81 while production served 87.
+          git add src/clients.html src/case-study-montage.html src/case-studies.html \
+                  src/index.html src/_data/proof.json
           if git diff --cached --quiet; then
             echo "No quote changes this hour."
           else
