@@ -404,8 +404,8 @@
     <!-- PAGE HERO -->
     <section class="hero hero--page">
       <div class="section-label">Our Team</div>
-      <h1 class="hero-headline" style="font-size: 44px;">Sector-native.<br>We understand the geology first.<br>Then we make it investable.</h1>
-      <p class="hero-body" style="margin-top: 18px;">Three decades. 500+ projects. One discipline: making geology legible to capital.</p>
+      <h1 class="hero-headline">Sector-native.<br>We understand the geology first.<br>Then we make it investable.</h1>
+      <p class="hero-body" style="margin-top: 22px;">Three decades. 500+ projects. One discipline: making geology legible to capital.</p>
     </section>
 
     <div class="divider"></div>
@@ -420,6 +420,30 @@
       have no individual URL yet, so their leadership cards carry no link.
     -->
     <style>
+      /* --- TYPE SCALE ---------------------------------------------------------
+         Every size on this page is a step on one modular scale (perfect fourth,
+         1.333, from a 15px base) instead of the ad-hoc 12/13/16/17/18px values
+         that made the directory read flat. Steps actually used:
+           11 · 15 · 20 · 36 · 60
+         The jumps are deliberate — 60 → 36 → 20 → 15 → 11 gives the page a top,
+         a middle and a floor. The old scale ran 18 → 12, barely 1.5x end to end. */
+      :root {
+        --t-min: 11px;   /* labels, roles, tags        */
+        --t-body: 15px;  /* bios                       */
+        --t-name: 20px;  /* directory names            */
+        --t-lead: 36px;  /* leadership names           */
+        --t-display: clamp(34px, 4.6vw, 60px); /* page headline */
+      }
+      /* This <style> block only renders on team.html, so the bare selectors below
+         cannot leak to other pages. */
+      .hero--page .hero-headline {
+        font-size: var(--t-display);
+        line-height: 1.08;
+        letter-spacing: -0.015em;
+        max-width: 22ch;
+      }
+      .hero--page .hero-body { font-size: 18px; line-height: 1.6; max-width: 62ch; }
+
       /* Leadership card: keep name / role / bio / link rhythm consistent across all four */
       .team-leadership .team-lead { display: flex; flex-direction: column; }
       .team-leadership .team-bio { margin-bottom: 12px; }
@@ -445,55 +469,171 @@
       .team-link:hover,
       .team-link:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
       .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
-      /* Team directory: large photo-on-top cards, four-up — big headshots that
-         match the leadership photos, with the bio beneath. Overrides the global
-         5-col bare-photo .team-grid (source order wins at equal specificity). */
-      .team-grid { grid-template-columns: repeat(4, 1fr); gap: 44px 28px; padding: 24px 0 32px; }
-      .team-grid-member { display: block; }
-      .team-grid-member .team-photo { width: 100%; max-width: none; aspect-ratio: 1; margin: 0 0 15px; }
+      /* Portraits were removed 2026-08-11, so the NAME carries the weight the photo
+         used to. 34px serif against an 11px tracked role is a ~3x jump; the old
+         18px/12px pairing was barely 1.5x and read as timid. Colour stays out of it:
+         roles are Slate, not Ore, because 14 gold labels would blow the ≤2% budget. */
+      .team-leadership {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 56px;
+        padding: 8px 0 0;
+        border-bottom: none;
+      }
+      .team-leadership .team-lead {
+        border-top: 1px solid var(--border);
+        padding: 26px 0 32px;
+      }
+      .team-leadership .team-name {
+        font-family: var(--font-serif);
+        font-size: var(--t-lead);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        margin-bottom: 10px;
+      }
+      .team-leadership .team-role,
+      .team-grid-member .team-role {
+        font-size: var(--t-min);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin-bottom: 14px;
+      }
+      .team-leadership .team-bio { font-size: var(--t-body); line-height: 1.64; margin-bottom: 14px; }
+
+      /* Directory: three-up so the bios and capability rows have a readable measure. */
+      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 0 44px; padding: 8px 0 32px; }
+      .team-grid-member { display: block; border-top: 1px solid var(--border); padding: 22px 0 26px; }
+      .team-grid-member .team-name {
+        font-family: var(--font-serif);
+        font-size: var(--t-name);
+        font-weight: 400;
+        line-height: 1.15;
+        margin-bottom: 8px;
+      }
       .team-grid-text { min-width: 0; }
-      .team-grid-member .team-name { font-size: 17px; margin-bottom: 2px; }
-      .team-grid-member .team-role { font-size: 12px; margin-bottom: 9px; }
-      .team-grid-member .team-bio { font-size: 13px; line-height: 1.62; max-width: 100%; }
-      .team-grid-member .team-links { margin-top: 13px; gap: 14px; }
-      /* Lighter, borderless LinkedIn link so 10 of them don't clutter the section */
-      .team-grid-member .team-link { font-size: 10px; padding: 2px 0; gap: 5px; border-bottom: none; }
+
+      /* Capability rows — every term is lifted from that person's own bio, so this
+         is the same information made scannable, not new claims. 11px is the floor. */
+      .team-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+      .team-tag {
+        font-family: var(--font-sans);
+        font-size: var(--t-min);
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--slate);
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        padding: 3px 8px;
+        white-space: nowrap;
+      }
+
+      /* The work band: the honest replacement for portraits. The page's proof isn't
+         faces, it's output — and each plate maps to a discipline listed below it. */
+      .team-work { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 24px; }
+      .team-work-item {
+        display: block; width: 100%; padding: 0; margin: 0;
+        border: 1px solid var(--border); border-radius: 4px;
+        overflow: hidden; background: var(--vellum); cursor: zoom-in;
+      }
+      .team-work-item img {
+        width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+        transition: transform 0.5s var(--ease-out-soft, ease);
+      }
+      .team-work-item:hover img,
+      .team-work-item:focus-visible img { transform: scale(1.03); }
+      .team-work-cap {
+        font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--slate); margin: 10px 0 0;
+      }
+      @media (max-width: 900px) { .team-work { grid-template-columns: repeat(2, 1fr); } }
+      /* NOTE: the old 17px name / 12px role rules lived here and, being later in
+         source at equal specificity, silently beat the new scale above. Removed. */
+      .team-grid-member .team-bio { font-size: var(--t-body); line-height: 1.64; max-width: 100%; }
+      .team-grid-member .team-links { margin-top: 14px; gap: 14px; }
+      /* Lighter, borderless LinkedIn link so 10 of them don't clutter the section.
+         11px, not the previous 10px — below that it trips the legibility floor. */
+      .team-grid-member .team-link { font-size: 11px; padding: 2px 0; gap: 5px; border-bottom: none; }
       .team-grid-member .team-link:hover,
       .team-grid-member .team-link:focus-visible { border-bottom-color: transparent; }
-      @media (max-width: 980px) { .team-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 28px; } }
-      @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 34px; } }
+      @media (max-width: 980px) {
+        .team-grid { grid-template-columns: repeat(2, 1fr); gap: 0 28px; }
+        .team-leadership { grid-template-columns: 1fr; gap: 0; }
+        .team-leadership .team-name { font-size: 28px; }
+      }
+      @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 0; } }
     </style>
+
+    <!-- WHAT THE TEAM MAKES — output as proof, in place of portraits. Each plate is a
+         discipline that maps to roles in the directory below: maps, sections, 3D, decks, sites. -->
+    <section class="section" style="padding: 30px 0 8px;">
+      <div class="section-label">What This Team Makes</div>
+      <div class="team-work" data-reveal>
+        <figure style="margin:0;">
+          <button type="button" class="team-work-item" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
+            <img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030">
+          </button>
+          <figcaption class="team-work-cap">Investor maps</figcaption>
+        </figure>
+        <figure style="margin:0;">
+          <button type="button" class="team-work-item" data-lightbox data-full="images/work/long-section-dolly-varden.avif" data-caption="Dolly Varden Silver — Wolf vein long section">
+            <img src="images/work/long-section-dolly-varden.avif" alt="Dolly Varden Silver Wolf vein long section" loading="lazy" width="2000" height="1713">
+          </button>
+          <figcaption class="team-work-cap">Cross sections</figcaption>
+        </figure>
+        <figure style="margin:0;">
+          <button type="button" class="team-work-item" data-lightbox data-full="images/work/nfg-3d.webp" data-caption="New Found Gold — 3D block model">
+            <img src="images/work/nfg-3d.webp" alt="3D block model produced for New Found Gold" loading="lazy" width="2000" height="1209">
+          </button>
+          <figcaption class="team-work-cap">3D models</figcaption>
+        </figure>
+        <figure style="margin:0;">
+          <button type="button" class="team-work-item" data-lightbox data-full="images/presentations/hercules.avif" data-caption="Hercules Metals — investor presentation">
+            <img src="images/presentations/hercules.avif" alt="Hercules Metals investor deck cover" loading="lazy" width="1100" height="618">
+          </button>
+          <figcaption class="team-work-cap">Investor decks</figcaption>
+        </figure>
+        <figure style="margin:0;">
+          <button type="button" class="team-work-item" data-lightbox data-full="images/sites/snowline.avif" data-caption="Snowline Gold — investor website">
+            <img src="images/sites/snowline.avif" alt="Snowline Gold investor website" loading="lazy" width="1600" height="1067">
+          </button>
+          <figcaption class="team-work-cap">Websites</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="divider"></div>
 
     <!-- LEADERSHIP -->
     <section class="section" style="padding: 32px 0 0;">
       <div class="section-label">Leadership</div>
       <div class="team-leadership">
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/dorian.jpg" alt="Dorian Leslie" width="275" height="275"></div>
           <div class="team-name">Dorian Leslie</div>
           <div class="team-role">Founder &amp; CEO</div>
           <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
+          <div class="team-tags"><span class="team-tag">30+ years</span><span class="team-tag">Mineral exploration</span><span class="team-tag">Investor communication</span></div>
           <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/dorianleslie/" target="_blank" rel="noopener" aria-label="Dorian Leslie on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:dorian@explorationsites.com" aria-label="Email Dorian Leslie"><span>Email</span></a></div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/stasia.jpg" alt="Anastasia Schoeps" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Anastasia Schoeps</div>
           <div class="team-role">Operations Director</div>
           <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
+          <div class="team-tags"><span class="team-tag">Geology</span><span class="team-tag">GIS</span><span class="team-tag">Project delivery</span></div>
           <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/anastasia-schoeps-357233157/" target="_blank" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:anastasia@explorationsites.com" aria-label="Email Anastasia Schoeps"><span>Email</span></a></div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/kai.jpg" alt="Kai Erfle" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Kai Erfle</div>
           <div class="team-role">Creative Director</div>
           <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
+          <div class="team-tags"><span class="team-tag">Creative direction</span><span class="team-tag">Digital experience</span></div>
           <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/kai-erfle-3927b01a4/" target="_blank" rel="noopener" aria-label="Kai Erfle on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:kai@explorationsites.com" aria-label="Email Kai Erfle"><span>Email</span></a></div>
         </div>
         <div class="team-lead">
-          <div class="team-photo"><img src="images/headshots/jake.jpg" alt="Jake Galbraith" loading="lazy" width="275" height="275"></div>
           <div class="team-name">Jake Galbraith</div>
           <div class="team-role">Project Manager</div>
           <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
+          <div class="team-tags"><span class="team-tag">Map production</span><span class="team-tag">Spatial data</span></div>
           <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/jacobgalbraith/" target="_blank" rel="noopener" aria-label="Jake Galbraith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:jake@explorationsites.com" aria-label="Email Jake Galbraith"><span>Email</span></a></div>
         </div>
       </div>
@@ -504,93 +644,93 @@
       <div class="section-label">Team</div>
       <div class="team-grid">
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/gregor.jpg" alt="Gregor Smith" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Gregor Smith</div>
             <div class="team-role">GIS &amp; Exploration Mapping Specialist</div>
             <div class="team-bio">Gregor helps turn technical exploration data into clear, accurate maps and figures for investor-facing materials. With experience in GIS, spatial data management, cartographic production, and Leapfrog Geo modelling, he supports projects from raw datasets through to polished exploration visuals.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/gregor-smith-6b37a0260/" target="_blank" rel="noopener" aria-label="Gregor Smith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:gregor@explorationsites.com" aria-label="Email Gregor Smith"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">GIS</span><span class="team-tag">Cartography</span><span class="team-tag">Leapfrog Geo</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/gregor-smith-6b37a0260/" target="_blank" rel="noopener" aria-label="Gregor Smith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:gregor@explorationsites.com" aria-label="Email Gregor Smith"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/mark.jpg" alt="Mark Aimon Pangan" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Mark Aimon Pangan</div>
             <div class="team-role">Exploration Mapping Technician</div>
             <div class="team-bio">Mark supports the production of clean, technically grounded maps and visual materials for mineral exploration clients. His work helps organize geological and spatial data into figures that are easier for investors, technical teams, and stakeholders to understand.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/mark-aimon-pangan/" target="_blank" rel="noopener" aria-label="Mark Aimon Pangan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:mark@explorationsites.com" aria-label="Email Mark Aimon Pangan"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Mapping</span><span class="team-tag">Spatial data</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/mark-aimon-pangan/" target="_blank" rel="noopener" aria-label="Mark Aimon Pangan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:mark@explorationsites.com" aria-label="Email Mark Aimon Pangan"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/adrian.jpg" alt="Adrian Lee Sarabia" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Adrian Lee Sarabia</div>
             <div class="team-role">Digital Designer &amp; Web Production Specialist</div>
             <div class="team-bio">Adrian supports design and web production, helping translate client ideas into clean, functional digital materials. With a background in graphic design, web design, layout, and visual content production, he brings a detail-oriented approach to websites, social graphics, and client-facing design work.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/adrianleesarabia/" target="_blank" rel="noopener" aria-label="Adrian Lee Sarabia on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:adrian@explorationsites.com" aria-label="Email Adrian Lee Sarabia"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Graphic design</span><span class="team-tag">Web production</span><span class="team-tag">Layout</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/adrianleesarabia/" target="_blank" rel="noopener" aria-label="Adrian Lee Sarabia on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:adrian@explorationsites.com" aria-label="Email Adrian Lee Sarabia"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/marvin.jpg" alt="Marvin Del Rosario" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Marvin Del Rosario</div>
             <div class="team-role">Senior Web Developer</div>
             <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">8+ years</span><span class="team-tag">WordPress</span><span class="team-tag">PHP</span><span class="team-tag">Webflow</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/paul.jpg" alt="Paul Joshua Villora" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Paul Joshua Villora</div>
             <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
             <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cross sections</span><span class="team-tag">3D modelling</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/piyush.jpg" alt="Piyush Lamba" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Piyush Lamba</div>
             <div class="team-role">Automation &amp; AI Engineer</div>
             <div class="team-bio">Piyush supports Exploration Sites through automation and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Automation</span><span class="team-tag">AI pipelines</span><span class="team-tag">Full-stack</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/belle.jpg" alt="Belle Ely Berber" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Belle Ely Berber</div>
             <div class="team-role">UI/UX &amp; Marketing Design Specialist</div>
             <div class="team-bio">Belle supports UI/UX design, brand visuals, marketing creative, landing pages, investor-facing presentations, and digital content production. Her experience across Figma, Adobe Suite, WordPress, paid creative, and campaign design helps bridge strong visual execution with clear, conversion-focused communication.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">UI and UX</span><span class="team-tag">Figma</span><span class="team-tag">Campaign design</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/rebecca.jpg" alt="Rebecca Krayenhoff van de Leur" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Rebecca Krayenhoff van de Leur</div>
             <div class="team-role">Marketing &amp; Operations Coordinator</div>
             <div class="team-bio">Rebecca supports marketing, operations, content creation, client communication, and administrative workflows across Exploration Sites projects. Her background includes social media, email marketing, website management, graphic design, customer service, database management, and campaign coordination.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:admin@explorationsites.com" aria-label="Email Rebecca Krayenhoff van de Leur"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Marketing ops</span><span class="team-tag">Email</span><span class="team-tag">Content</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:admin@explorationsites.com" aria-label="Email Rebecca Krayenhoff van de Leur"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/elijah.jpg" alt="Elijah Mahri Barongan" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Elijah Mahri Barongan</div>
             <div class="team-role">Operations &amp; GIS Support Coordinator</div>
             <div class="team-bio">Elijah supports Exploration Sites across operations, communication, sales support, GIS/admin workflows, and internal coordination. With experience in outbound sales, dashboard moderation, onboarding, research, design tools, publishing, and professional communication, he helps keep client work organized and moving efficiently.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/elijah-mahri-barongan-80631018b/" target="_blank" rel="noopener" aria-label="Elijah Mahri Barongan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:elijah@explorationsites.com" aria-label="Email Elijah Mahri Barongan"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Operations</span><span class="team-tag">GIS support</span><span class="team-tag">Research</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/elijah-mahri-barongan-80631018b/" target="_blank" rel="noopener" aria-label="Elijah Mahri Barongan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:elijah@explorationsites.com" aria-label="Email Elijah Mahri Barongan"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
-          <div class="team-photo"><img src="images/headshots/vince.jpg" alt="Vincent Ca&ntilde;as" loading="lazy" width="225" height="225"></div>
           <div class="team-grid-text">
             <div class="team-name">Vincent Ca&ntilde;as</div>
             <div class="team-role">Webflow &amp; Web Development Specialist</div>
             <div class="team-bio">Vincent specializes in Webflow and front-end web development, supporting responsive, production-ready websites from design concepts through to published pages. His background includes Webflow, HTML, JavaScript, PHP, WordPress, Next.js, migrations, hosting, performance, and site reliability.</div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
+            <div class="team-tags"><span class="team-tag">Webflow</span><span class="team-tag">Next.js</span><span class="team-tag">Front-end</span></div>
+          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
           </div>
         </div>
       </div>
@@ -607,70 +747,21 @@
 
     <div class="divider"></div>
 
-    <!-- Team photos: still headshot at rest. On hover the motion loop cross-dissolves in
-         and CROSSFADE-LOOPS — two stacked copies of the clip dissolve across the loop seam
-         (a second copy restarts from 0 and fades in ~0.5s before the first ends), so there's
-         no hard jump at the loop point no matter how long you hover. -->
-    <script>
-      (function () {
-        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduce) return; // reduced motion: keep the still photo, no video
-        var FADE = 0.5; // crossfade overlap (must match the CSS opacity transition)
-        var photos = document.querySelectorAll('.team-photo');
-        Array.prototype.forEach.call(photos, function (photo) {
-          var img = photo.querySelector('img');
-          if (!img) return;
-          var src = img.getAttribute('src') || '';
-          var vsrc = src.replace('images/headshots/', 'images/team-loops/').replace(/\.(jpe?g|png|webp|avif)$/i, '.mp4');
-          if (vsrc === src) return;
-          function make() {
-            var v = document.createElement('video');
-            v.muted = true; v.playsInline = true; v.preload = 'auto'; v.tabIndex = -1;
-            v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
-            v.src = vsrc;
-            photo.appendChild(v);
-            return v;
-          }
-          var a = make(), b = make();
-          var cur = a, nxt = b, active = false, raf = null, swapping = false, off = null;
+  <!-- Shared lightbox — required by the work band's data-lightbox buttons -->
+  <div class="lightbox" id="work-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" alt="" hidden>
+      <div class="lightbox-video" hidden></div>
+      <figcaption class="lightbox-cap"></figcaption>
+    </figure>
+  </div>
 
-          function tick() {
-            if (!active) return;
-            if (cur.duration && cur.currentTime >= cur.duration - FADE && !swapping) {
-              swapping = true;
-              try { nxt.currentTime = 0; } catch (e) {}
-              var p = nxt.play(); if (p && p.catch) p.catch(function () {});
-              nxt.classList.add('tv-on'); cur.classList.remove('tv-on');
-              var ending = cur;
-              setTimeout(function () { ending.pause(); swapping = false; }, FADE * 1000 + 60);
-              var t = cur; cur = nxt; nxt = t;
-            }
-            raf = requestAnimationFrame(tick);
-          }
-          function start() {
-            active = true; clearTimeout(off);
-            photo.classList.add('is-playing');
-            cur.classList.add('tv-on');
-            var p = cur.play(); if (p && p.catch) p.catch(function () {});
-            cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
-          }
-          function stop() {
-            active = false; swapping = false;
-            photo.classList.remove('is-playing');
-            cancelAnimationFrame(raf);
-            off = setTimeout(function () {
-              a.pause(); b.pause();
-              try { a.currentTime = 0; b.currentTime = 0; } catch (e) {}
-              a.classList.add('tv-on'); b.classList.remove('tv-on'); cur = a; nxt = b;
-            }, 420);
-          }
-          photo.addEventListener('mouseenter', start);
-          photo.addEventListener('mouseleave', stop);
-          photo.addEventListener('focusin', start);
-          photo.addEventListener('focusout', stop);
-        });
-      })();
-    </script>
+    <!-- Portraits removed 2026-08-11: the headshots and their hover motion loops were
+         AI-generated likenesses of real colleagues. On a page whose whole job is "these
+         are the people you'd be trusting with pre-disclosure material," a synthetic face
+         undercuts the one thing the page exists to establish. The directory is type-led
+         until real photography exists; drop `.team-photo` blocks back in when it does. -->
 
     
   </div>

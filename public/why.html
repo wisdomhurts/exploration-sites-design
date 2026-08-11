@@ -463,6 +463,33 @@
         color: var(--ore-text);
       }
 
+      /* Hero: copy left, evidence right. A grid rather than wrapper divs so the
+         load animation's `.hero > .hero-headline` direct-child selectors still hit. */
+      .why-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: clamp(32px, 5vw, 72px);
+        align-items: start;
+      }
+      .why-hero > .section-label,
+      .why-hero > .hero-headline,
+      .why-hero > .hero-body { grid-column: 1; }
+      .why-hero > .hero-headline { max-width: none; }
+      .why-hero-figure {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        align-self: center;
+        margin: 0;
+      }
+      @media (max-width: 900px) {
+        .why-hero { grid-template-columns: minmax(0, 1fr); }
+        .why-hero-figure {
+          grid-column: 1;
+          grid-row: auto;
+          margin-top: 36px;
+        }
+      }
+
       /* Hero evidence plate — the page opens on the work, not on prose */
       .csv3-hero-media {
         display: block;
@@ -645,21 +672,33 @@
       .csv3-mech-media:hover img,
       .csv3-mech-media:focus-visible img { transform: scale(1.03); }
 
+      /* Evidence plates read as figures beside the copy, not full-bleed spreads.
+         Global .map-feature is 1.5fr 1fr, so the media is ~60% of the row; 3fr 7fr
+         puts it at 30%, exactly half the previous size. Scoped to this page so
+         locators-area-plays.html keeps its large plates. */
+      .why-evidence .map-feature {
+        grid-template-columns: 3fr 7fr;
+        align-items: center;
+      }
+      .why-evidence .map-feature-text { max-width: 54ch; }
+
       @media (max-width: 760px) {
         .csv3-ledger { grid-template-columns: 1fr; }
         .csv3-mech { grid-template-columns: 1fr; gap: 22px; }
       }
+      /* Must restate the stack: .why-evidence .map-feature outranks the global
+         768px rule, so without this the maps stay in two columns on mobile. */
+      @media (max-width: 768px) {
+        .why-evidence .map-feature { grid-template-columns: minmax(0, 1fr); }
+      }
     </style>
 
-    <!-- PAGE HERO -->
-    <section class="hero hero--page">
+    <!-- PAGE HERO — text left, evidence right -->
+    <section class="hero hero--page why-hero">
       <div class="section-label">Why We Exist</div>
       <h1 class="hero-headline">We are the translation layer.</h1>
       <p class="hero-body">Markets are supposed to price discovery efficiently. In exploration they don&rsquo;t, because the asset is buried, technical, and described in a language investors don&rsquo;t speak. The result is a quiet, structural mispricing: brilliant geology that capital simply cannot see. That gap is the problem we exist to close.</p>
-    </section>
-
-    <section class="section">
-      <figure style="margin:0;" data-reveal>
+      <figure class="why-hero-figure">
         <button type="button" class="csv3-hero-media" data-lightbox data-full="images/work/greenstone-belts-full.avif" data-caption="G Mining — Guiana Shield &amp; West African greenstone belts">
           <img src="images/work/greenstone-belts.avif" alt="Guiana Shield and West African greenstone belt deposit map produced for G Mining" width="1400" height="845" fetchpriority="high">
         </button>
@@ -792,7 +831,7 @@
     <div class="divider"></div>
 
     <!-- THE EVIDENCE: map deliverables -->
-    <section class="section">
+    <section class="section why-evidence">
       <div class="section-label" data-reveal>What Legible Looks Like</div>
       <h2 class="section-headline" data-reveal>The same geology, made readable.</h2>
 
@@ -819,13 +858,13 @@
       </div>
 
       <div class="map-feature" data-reveal>
-        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/schematic-algogrande.webp" data-caption="AlgoGrande — porphyry deposit conceptual model">
-          <img src="images/work/schematic-algogrande.webp" alt="AlgoGrande porphyry deposit conceptual model produced by Exploration Sites" loading="lazy" width="2000" height="1347">
+        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/heliostar-porphyry.webp" data-caption="Heliostar — interpreted porphyry model">
+          <img src="images/work/heliostar-porphyry.webp" alt="Interpreted causative porphyry block model produced for Heliostar" loading="lazy" width="1440" height="1800">
         </button>
         <div class="map-feature-text">
-          <div class="section-label">AlgoGrande</div>
+          <div class="section-label">Heliostar</div>
           <h3 class="map-feature-title">Show the model behind the target.</h3>
-          <p class="body-text">A conceptual porphyry schematic that puts the exploration thesis on a single page: the alteration shells, the structural controls, and why the next hole is where it is. The argument for the drill program, made visible.</p>
+          <p class="body-text">A block model cut into the ground so the whole thesis reads at once: assays by grade, the breccia, the contact skarn target, and the interpreted causative porphyry sitting beneath it all. It shows where the next drill station goes, and why.</p>
         </div>
       </div>
     </section>
