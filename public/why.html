@@ -416,7 +416,7 @@
         font-family: var(--font-serif);
         font-weight: 300;
         font-size: clamp(28px, 4.4vw, 56px);
-        line-height: 1.08;
+        line-height: 1.1;
         letter-spacing: -0.01em;
         margin: 18px 0 0;
         max-width: none;
@@ -438,7 +438,7 @@
         position: absolute;
         right: clamp(-30px, -2vw, 0px);
         bottom: -36px;
-        font-family: Georgia, serif;
+        font-family: var(--font-serif);
         font-size: clamp(180px, 26vw, 340px);
         line-height: 1;
         color: rgba(184, 130, 58, 0.12);
@@ -461,6 +461,35 @@
         font-style: italic;
         font-weight: 400;
         color: var(--ore-text);
+      }
+
+      /* Hero evidence plate — the page opens on the work, not on prose */
+      .csv3-hero-media {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--vellum);
+        cursor: zoom-in;
+      }
+      .csv3-hero-media img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .csv3-hero-media:hover img,
+      .csv3-hero-media:focus-visible img { transform: scale(1.02); }
+      .csv3-figcap {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--slate);
+        margin: 12px 0 0;
       }
 
       /* The asymmetry ledger: deposit vs. comprehension */
@@ -509,7 +538,8 @@
       }
       .csv3-ledger-col--cost .csv3-ledger-tick { color: #5A5F63; }
 
-      /* Two-minute scan visual */
+      /* Attention compression: the long span of the work vs. the moment of judgement.
+         Proportional, not measured — no figure is claimed. */
       .csv3-scan {
         margin-top: 24px;
         padding: clamp(24px, 3vw, 36px);
@@ -518,16 +548,19 @@
         background: #FBFAF7;
       }
       .csv3-scan-meter {
+        position: relative;
         height: 8px;
         border-radius: 99px;
-        background: rgba(26, 16, 31, 0.08);
+        background: rgba(26, 16, 31, 0.10);
         overflow: hidden;
-        margin: 16px 0 10px;
+        margin: 16px 0 12px;
       }
       .csv3-scan-fill {
-        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
         height: 100%;
-        width: 12%;
+        width: 6%;
         background: #B8823A;
         border-radius: 99px;
       }
@@ -539,9 +572,16 @@
         color: #5A5F63;
         display: flex;
         justify-content: space-between;
+        gap: 16px;
+      }
+      .csv3-scan-note {
+        font-size: 15px;
+        line-height: 1.55;
+        color: #5A5F63;
+        margin: 0;
       }
 
-      /* Mechanism steps */
+      /* Mechanism steps — each claim followed by the deliverable that proves it */
       .csv3-mech {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -560,13 +600,13 @@
         margin-bottom: 12px;
       }
       .csv3-mech-title {
-        font-family: Georgia, serif;
+        font-family: var(--font-serif);
         font-size: 22px;
         line-height: 1.15;
         margin: 0 0 10px;
         color: #1A101F;
       }
-      /* Three moves, three colors: Ore / Moss / Slate. Rules run full-strength;
+      /* Three moves, three colors: Slate / Moss / Ore. Rules run full-strength;
          the 22px titles + numbers use the deepened text variants (AA on Quartz). */
       .csv3-mech-step:nth-child(1) { border-top-color: var(--slate); }
       .csv3-mech-step:nth-child(1) .csv3-mech-num,
@@ -583,6 +623,27 @@
         color: #5A5F63;
         margin: 0;
       }
+      .csv3-mech-media {
+        display: block;
+        width: 100%;
+        margin: 18px 0 0;
+        padding: 0;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--vellum);
+        cursor: zoom-in;
+        aspect-ratio: 4 / 3;
+      }
+      .csv3-mech-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .csv3-mech-media:hover img,
+      .csv3-mech-media:focus-visible img { transform: scale(1.03); }
 
       @media (max-width: 760px) {
         .csv3-ledger { grid-template-columns: 1fr; }
@@ -594,7 +655,16 @@
     <section class="hero hero--page">
       <div class="section-label">Why We Exist</div>
       <h1 class="hero-headline">We are the translation layer.</h1>
-      <p class="hero-body">Markets are supposed to price discovery efficiently. In exploration, they don&rsquo;t &mdash; because the asset is buried, technical, and described in a language investors don&rsquo;t speak. The result is a quiet, structural mispricing: brilliant geology that capital simply cannot see. That gap is the problem we exist to close.</p>
+      <p class="hero-body">Markets are supposed to price discovery efficiently. In exploration they don&rsquo;t, because the asset is buried, technical, and described in a language investors don&rsquo;t speak. The result is a quiet, structural mispricing: brilliant geology that capital simply cannot see. That gap is the problem we exist to close.</p>
+    </section>
+
+    <section class="section">
+      <figure style="margin:0;" data-reveal>
+        <button type="button" class="csv3-hero-media" data-lightbox data-full="images/work/greenstone-belts-full.avif" data-caption="G Mining — Guiana Shield &amp; West African greenstone belts">
+          <img src="images/work/greenstone-belts.avif" alt="Guiana Shield and West African greenstone belt deposit map produced for G Mining" width="1400" height="845" fetchpriority="high">
+        </button>
+        <figcaption class="csv3-figcap">G Mining &middot; Guiana Shield and West African greenstone belts</figcaption>
+      </figure>
     </section>
 
     <div class="divider"></div>
@@ -602,72 +672,54 @@
     <!-- THE DEFINITION -->
     <section class="section">
       <div class="section-label" data-reveal>The Definition</div>
-      <p class="csv3-def" data-reveal data-reveal-delay="1"><em>Investor legibility</em> is the discipline of making a mineral asset readable &mdash; scale, grade, and context &mdash; by the capital that prices it.</p>
+      <p class="csv3-def" data-reveal data-reveal-delay="1"><em>Investor legibility</em> is the discipline of making a mineral asset readable, in scale, grade, and context, by the capital that prices it.</p>
     </section>
 
     <div class="divider"></div>
 
-    <!-- THE CATEGORY -->
+    <!-- THE PROBLEM (decoration vs. legibility + the asymmetry) -->
     <section class="section">
       <div class="section-grid">
         <div data-reveal>
-          <div class="section-label">The Category</div>
-          <h2 class="section-headline">Not decoration.<br>Legibility.</h2>
-        </div>
-        <div data-reveal data-reveal-delay="1">
-          <p class="body-text">Most investor-relations spend buys <em>decoration</em> &mdash; a prettier deck, a slicker site, a louder logo. It flatters the company and changes nothing about whether an allocator can actually read the asset. We do the other job. For three decades we have practiced the discipline defined above &mdash; making buried, technical geology legible to the generalists who price it.</p>
-          <p class="body-text">The distinction is the whole business. Decoration is judged by how it looks; legibility is judged by whether the market finally understands what you have. One is cosmetics. The other is what makes a real deposit read as fundable.</p>
-          <p class="body-text"><strong>Who it&rsquo;s for:</strong> exploration and development companies whose science is strong and whose story arrives illegible &mdash; the gap between a real deposit and the capital it deserves.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- THE INVESTOR'S PROBLEM -->
-    <section class="section">
-      <div class="section-grid">
-        <div data-reveal>
-          <div class="section-label">The Investor&rsquo;s Problem</div>
+          <div class="section-label">The Problem</div>
           <h2 class="section-headline">An information asymmetry, not a geology problem.</h2>
         </div>
         <div data-reveal data-reveal-delay="1">
-          <p class="body-text">A generalist fund manager reviews dozens of opportunities a week. They are not a geologist. They cannot personally verify a cross-section, reconcile a resource model, or weigh one greenstone belt against another. So they do what every rational allocator does under uncertainty: they default to <em>no</em>.</p>
-          <p class="body-text">The deposit may be extraordinary. But if the story arrives illegible &mdash; a dense deck, a confusing map, a website that signals 2008 &mdash; the investor never accumulates enough conviction to act. The rocks aren&rsquo;t rejected. They&rsquo;re never understood in the first place.</p>
-          <p class="body-text">Economists call it information asymmetry: the seller knows what the asset is worth, the buyer can&rsquo;t verify it, and value goes unfunded. In exploration, it&rsquo;s the single most expensive problem on the cap table.</p>
+          <p class="body-text">A generalist fund manager reviews dozens of opportunities a week. They are not a geologist. They cannot personally verify a cross section, reconcile a resource model, or weigh one greenstone belt against another. So they do what every rational allocator does under uncertainty: they default to <em>no</em>.</p>
+          <p class="body-text">The deposit may be extraordinary. But if the story arrives illegible, a dense deck, a confusing map, a website that signals 2008, the investor never accumulates enough conviction to act. The rocks aren&rsquo;t rejected. They&rsquo;re never understood in the first place.</p>
+          <p class="body-text">Most investor-relations spend answers this with <em>decoration</em>: a prettier deck, a slicker site, a louder logo. It flatters the company and changes nothing about whether an allocator can read the asset. The distinction is the whole business. Decoration is judged by how it looks. Legibility is judged by whether the market finally understands what you have.</p>
+          <p class="body-text"><strong>Who it&rsquo;s for:</strong> exploration and development companies whose science is strong and whose story arrives illegible.</p>
         </div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- THE TWO-MINUTE SCAN -->
+    <!-- THE WINDOW -->
     <section class="section">
       <div class="section-grid">
         <div data-reveal>
           <div class="section-label">The Window</div>
-          <h2 class="section-headline">You get about two minutes before the verdict.</h2>
+          <h2 class="section-headline">Years of work.<br>One glance.</h2>
         </div>
         <div data-reveal data-reveal-delay="1">
-          <p class="body-text">Decision-makers spend a fraction of a meeting deciding whether the rest of it is worth their attention. Years of fieldwork, drilling, and geological insight get compressed into a first impression measured in seconds.</p>
-          <div class="csv3-scan">
-            <div class="csv3-scan-caption"><span>Years in the ground</span><span>Seconds on the page</span></div>
-            <span class="csv3-scan-meter"><span class="csv3-scan-fill"></span></span>
-            <p class="csv3-mech-desc" style="margin-top:6px;">The whole investment thesis is judged inside that narrow gold band. Clarity isn&rsquo;t decoration &mdash; it&rsquo;s the only thing that survives the scan.</p>
+          <p class="body-text">An allocator moves through a stack of opportunities in a single sitting. Whatever took years to prove has to survive the few seconds they give it before deciding the rest is worth their attention. That isn&rsquo;t cynicism about the market. It is the arithmetic of attention, and it is the constraint every map, deck, and site has to be built for.</p>
+          <div class="csv3-scan" role="img" aria-label="Diagram: a long bar representing years of exploration work, with a narrow gold segment at the end representing the brief moment an investor spends forming a first impression">
+            <div class="csv3-scan-caption"><span>Years in the ground</span><span>The first impression</span></div>
+            <div class="csv3-scan-meter" aria-hidden="true"><span class="csv3-scan-fill"></span></div>
+            <p class="csv3-scan-note">Everything the drill core proved is judged inside that gold sliver. Clarity isn&rsquo;t decoration. It is the only part of the work that survives the glance.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="thesis-quote">
-      <blockquote class="thesis-quote-text">Capital flows toward <em>clarity</em>.</blockquote>
-    </section>
+    <div class="divider"></div>
 
     <!-- THE LEDGER: deposit doesn't change, comprehension does -->
     <section class="section">
       <div class="section-label" data-reveal>The Asymmetry, Itemised</div>
       <h2 class="section-headline" data-reveal>The deposit is fixed. The comprehension develops.</h2>
-      <p class="body-text" style="max-width:60ch; margin: 22px 0 8px;" data-reveal data-reveal-delay="1">The orebody is fixed &mdash; a set quantity of metal in the ground. Drilling and geophysics sharpen the picture of it; they reveal what&rsquo;s there, they don&rsquo;t change it. What moves the share price is something else: whether the market can see that picture clearly enough, and fast enough, to act. The left column is the asset. The right column is the comprehension we engineer &mdash; the half most companies leave to chance.</p>
+      <p class="body-text" style="max-width:60ch; margin: 22px 0 8px;" data-reveal data-reveal-delay="1">The orebody is fixed, a set quantity of metal in the ground. Drilling and geophysics sharpen the picture of it. They reveal what is there; they don&rsquo;t change it. What moves the share price is something else: whether the market can see that picture clearly enough, and fast enough, to act. The left column is the asset. The right column is the comprehension we engineer, the half most companies leave to chance.</p>
 
       <div class="csv3-ledger" data-reveal data-reveal-delay="2">
         <div class="csv3-ledger-col csv3-ledger-col--cost">
@@ -682,8 +734,9 @@
           <div class="csv3-ledger-head">Variable &mdash; the comprehension</div>
           <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">How fast an investor places the project on a map.</span></div>
           <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether scale, grade, and upside potential read at a glance.</span></div>
-          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether the project reads in context &mdash; flanked by the deposits the market already knows.</span></div>
-          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">How quickly fresh drill results become a picture of scale.</span></div>          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether the 3D model makes continuity obvious, not just plausible.</span></div>
+          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether the project reads in context, flanked by the deposits the market already knows.</span></div>
+          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">How quickly fresh drill results become a picture of scale.</span></div>
+          <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether the 3D model makes continuity obvious, not just plausible.</span></div>
           <div class="csv3-ledger-row"><span class="csv3-ledger-tick">+</span><span class="csv3-ledger-text">Whether a generalist can repeat the thesis after a single read.</span></div>
         </div>
       </div>
@@ -691,13 +744,13 @@
 
     <div class="divider"></div>
 
-    <!-- THE TRANSLATION LAYER -->
+    <!-- OUR POSITION -->
     <section class="section">
       <div class="csv3-thesis" data-reveal>
         <span class="csv3-thesis-mark" aria-hidden="true">&ldquo;</span>
         <div class="section-label">Our Position</div>
-        <p class="csv3-thesis-quote">We are the <em>translation layer</em><br>between a deposit and<br>the capital markets.</p>
-        <p class="csv3-thesis-sub">We started in 1996 as mapmakers &mdash; take the data, make it clean, get it into the news / report / deck. Three decades and 500+ projects later, the discipline is the same and the mandate is larger: convert invisible, buried, technical data into something an allocator can understand in the time they actually have.</p>
+        <p class="csv3-thesis-quote">Capital flows<br>toward <em>clarity</em>.</p>
+        <p class="csv3-thesis-sub">We started in 1996 as mapmakers. Take the data, make it clean, get it into the news release, the report, the deck. Three decades and 500+ projects later the discipline hasn&rsquo;t changed and the mandate is larger: convert invisible, buried, technical data into something an allocator can understand in the time they actually have.</p>
       </div>
     </section>
 
@@ -712,17 +765,26 @@
         <div class="csv3-mech-step">
           <div class="csv3-mech-num">01</div>
           <h3 class="csv3-mech-title">Locate</h3>
-          <p class="csv3-mech-desc">We put the project on the map an investor already trusts &mdash; flanked by the deposits and districts the market knows &mdash; so scale and context register in seconds, not slides.</p>
+          <p class="csv3-mech-desc">We put the project on the map an investor already trusts, flanked by the deposits and districts the market knows, so scale and context register in seconds rather than slides.</p>
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
+            <img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030">
+          </button>
         </div>
         <div class="csv3-mech-step">
           <div class="csv3-mech-num">02</div>
           <h3 class="csv3-mech-title">Clarify</h3>
-          <p class="csv3-mech-desc">Geological maps, cross sections, and 3D models that make grade, continuity, and upside potential legible &mdash; the technical case rendered so a generalist can read it like a specialist.</p>
+          <p class="csv3-mech-desc">Geological maps, cross sections, and 3D models that make grade, continuity, and upside legible: the technical case rendered so a generalist can read it like a specialist.</p>
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/work/long-section-dolly-varden.avif" data-caption="Dolly Varden Silver — Wolf vein long section">
+            <img src="images/work/long-section-dolly-varden.avif" alt="Dolly Varden Silver Wolf vein long section produced by Exploration Sites" loading="lazy" width="2000" height="1713">
+          </button>
         </div>
         <div class="csv3-mech-step">
           <div class="csv3-mech-num">03</div>
           <h3 class="csv3-mech-title">Carry</h3>
-          <p class="csv3-mech-desc">One visual language across the maps, the deck, the website, the films, and the brand &mdash; so every touchpoint compounds conviction instead of resetting it. The whole investor system, coherent.</p>
+          <p class="csv3-mech-desc">One visual language across the maps, the deck, the website, the films, and the brand, so every touchpoint compounds conviction instead of resetting it. The same Dolly Varden section, carried into the deck.</p>
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/presentations/dolly-varden.avif" data-caption="Dolly Varden Silver — investor presentation">
+            <img src="images/presentations/dolly-varden.avif" alt="Dolly Varden Silver investor presentation cover produced by Exploration Sites" loading="lazy" width="1100" height="618">
+          </button>
         </div>
       </div>
     </section>
@@ -742,6 +804,28 @@
           <div class="section-label">Kincora Copper</div>
           <h3 class="map-feature-title">Turn a scattered land package into one story.</h3>
           <p class="body-text">An area play across the Macquarie Arc and Cobar Basin, colour-coded by endowment and anchored to Cadia, Northparkes, and Cowal. What was an illegible spread of claim blocks becomes a single, fundable thesis the market can hold in its head.</p>
+        </div>
+      </div>
+
+      <div class="map-feature" data-reveal>
+        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/nfg-3d.webp" data-caption="New Found Gold — 3D block model">
+          <img src="images/work/nfg-3d.webp" alt="3D block model produced for New Found Gold" loading="lazy" width="2000" height="1209">
+        </button>
+        <div class="map-feature-text">
+          <div class="section-label">New Found Gold</div>
+          <h3 class="map-feature-title">Make continuity obvious, not just plausible.</h3>
+          <p class="body-text">A block model rendered so the shape of the system reads immediately: where grade concentrates, how the zones connect, what remains open. The geologist already knew. This is the version an allocator can see.</p>
+        </div>
+      </div>
+
+      <div class="map-feature" data-reveal>
+        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/schematic-algogrande.webp" data-caption="AlgoGrande — porphyry deposit conceptual model">
+          <img src="images/work/schematic-algogrande.webp" alt="AlgoGrande porphyry deposit conceptual model produced by Exploration Sites" loading="lazy" width="2000" height="1347">
+        </button>
+        <div class="map-feature-text">
+          <div class="section-label">AlgoGrande</div>
+          <h3 class="map-feature-title">Show the model behind the target.</h3>
+          <p class="body-text">A conceptual porphyry schematic that puts the exploration thesis on a single page: the alteration shells, the structural controls, and why the next hole is where it is. The argument for the drill program, made visible.</p>
         </div>
       </div>
     </section>
@@ -777,11 +861,11 @@
       <div class="section-grid">
         <div data-reveal>
           <div class="section-label">The Belief</div>
-          <h2 class="section-headline">Capital flows<br>toward clarity.</h2>
+          <h2 class="section-headline">We don&rsquo;t move<br>the rocks.</h2>
         </div>
         <div data-reveal data-reveal-delay="1">
-          <p class="body-text">In our experience, the companies that present their science with precision and beauty tend to get a fairer hearing &mdash; not because the market is shallow, but because clarity is the only thing an allocator can actually evaluate.</p>
-          <p class="body-text">We don&rsquo;t move the rocks and we don&rsquo;t take credit for the drill results. We make the case legible &mdash; so that when the results are ready to be seen, the capital is ready to see it. If it carries our name, it holds up in front of an institutional investor. That is the entire bar, and the entire business.</p>
+          <p class="body-text">We don&rsquo;t take credit for the drill results either. What we change is whether the market can read them. In our experience the companies that present their science with precision get a fairer hearing, not because allocators are shallow, but because clarity is the only thing they can actually evaluate.</p>
+          <p class="body-text">We make the case legible, so that when the results are ready to be seen, the capital is ready to see it. If it carries our name, it holds up in front of an institutional investor. That is the entire bar, and the entire business.</p>
         </div>
       </div>
     </section>
@@ -791,7 +875,7 @@
     <!-- CTA -->
     <section class="cta-section">
       <h2 class="cta-headline">You have the geology.<br>Make it legible to investors.</h2>
-      <p class="cta-sub">If the market isn&rsquo;t pricing what&rsquo;s in the ground, the problem is legibility &mdash; and legibility is fixable.</p>
+      <p class="cta-sub">If the market isn&rsquo;t pricing what&rsquo;s in the ground, the problem is legibility, and legibility is fixable.</p>
       <a href="book.html" class="btn-primary">Book a discovery call</a>
       <a href="case-studies.html" class="btn-secondary">See the pattern</a>
     </section>
@@ -802,7 +886,7 @@
   <div class="lightbox" id="work-lightbox" hidden>
     <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
     <figure class="lightbox-figure">
-      <img class="lightbox-img" src="" alt="" hidden>
+      <img class="lightbox-img" alt="" hidden>
       <div class="lightbox-video" hidden></div>
       <figcaption class="lightbox-cap"></figcaption>
     </figure>
