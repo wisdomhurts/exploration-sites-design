@@ -132,25 +132,69 @@ permalink: "team.html"
         white-space: nowrap;
       }
 
-      /* The work band: the honest replacement for portraits. The page's proof isn't
-         faces, it's output — and each plate maps to a discipline listed below it. */
-      .team-work { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 24px; }
-      .team-work-item {
-        display: block; width: 100%; padding: 0; margin: 0;
-        border: 1px solid var(--border); border-radius: 4px;
-        overflow: hidden; background: var(--vellum); cursor: zoom-in;
+      /* --- CAPABILITY MATRIX --------------------------------------------------
+         Replaces a band of recycled work thumbnails (removed 2026-08-11: same
+         plates as four other pages, unattributed, and crushed into a 4:3 crop at
+         ~230px). This answers what a buyer actually asks of a team page — is the
+         technical bench real, and who does the 3D — using only what the bios
+         already say. A real <table>, because it is genuinely tabular data. */
+      .cap-wrap { overflow-x: auto; margin-top: 26px; }
+      .cap-matrix { width: 100%; border-collapse: collapse; min-width: 700px; }
+      .cap-matrix thead th {
+        font-family: var(--font-sans);
+        font-size: var(--t-min);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--slate);
+        padding: 0 0 15px;
+        vertical-align: bottom;
+        text-align: center;
       }
-      .team-work-item img {
-        width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
-        transition: transform 0.5s var(--ease-out-soft, ease);
+      .cap-matrix thead th:first-child { text-align: left; }
+      .cap-matrix tbody th {
+        font-family: var(--font-serif);
+        font-size: 17px;
+        font-weight: 400;
+        color: var(--graphite);
+        text-align: left;
+        padding: 13px 24px 13px 0;
+        border-top: 1px solid var(--border);
+        white-space: nowrap;
       }
-      .team-work-item:hover img,
-      .team-work-item:focus-visible img { transform: scale(1.03); }
-      .team-work-cap {
-        font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.12em;
-        text-transform: uppercase; color: var(--slate); margin: 10px 0 0;
+      .cap-matrix tbody td {
+        text-align: center;
+        border-top: 1px solid var(--border);
+        padding: 13px 0;
       }
-      @media (max-width: 900px) { .team-work { grid-template-columns: repeat(2, 1fr); } }
+      .cap-dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--graphite);
+      }
+      /* Totals in the serif display voice — the depth of the bench, per column. */
+      .cap-matrix tfoot th,
+      .cap-matrix tfoot td { border-top: 1px solid var(--graphite); padding: 15px 0 0; }
+      .cap-matrix tfoot th {
+        font-family: var(--font-sans);
+        font-size: var(--t-min);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--slate);
+        text-align: left;
+        padding-right: 24px;
+      }
+      .cap-matrix tfoot td {
+        text-align: center;
+        font-family: var(--font-serif);
+        font-size: 24px;
+        font-variant-numeric: tabular-nums;
+        color: var(--graphite);
+      }
+
       /* NOTE: the old 17px name / 12px role rules lived here and, being later in
          source at equal specificity, silently beat the new scale above. Removed. */
       .team-grid-member .team-bio { font-size: var(--t-body); line-height: 1.64; max-width: 100%; }
@@ -168,41 +212,62 @@ permalink: "team.html"
       @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 0; } }
     </style>
 
-    <!-- WHAT THE TEAM MAKES — output as proof, in place of portraits. Each plate is a
-         discipline that maps to roles in the directory below: maps, sections, 3D, decks, sites. -->
+
+    <!-- CAPABILITY MATRIX — the shape of the bench, drawn from the bios below. -->
     <section class="section" style="padding: 30px 0 8px;">
-      <div class="section-label">What This Team Makes</div>
-      <div class="team-work" data-reveal>
-        <figure style="margin:0;">
-          <button type="button" class="team-work-item" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
-            <img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030">
-          </button>
-          <figcaption class="team-work-cap">Investor maps</figcaption>
-        </figure>
-        <figure style="margin:0;">
-          <button type="button" class="team-work-item" data-lightbox data-full="images/work/long-section-dolly-varden.avif" data-caption="Dolly Varden Silver — Wolf vein long section">
-            <img src="images/work/long-section-dolly-varden.avif" alt="Dolly Varden Silver Wolf vein long section" loading="lazy" width="2000" height="1713">
-          </button>
-          <figcaption class="team-work-cap">Cross sections</figcaption>
-        </figure>
-        <figure style="margin:0;">
-          <button type="button" class="team-work-item" data-lightbox data-full="images/work/nfg-3d.webp" data-caption="New Found Gold — 3D block model">
-            <img src="images/work/nfg-3d.webp" alt="3D block model produced for New Found Gold" loading="lazy" width="2000" height="1209">
-          </button>
-          <figcaption class="team-work-cap">3D models</figcaption>
-        </figure>
-        <figure style="margin:0;">
-          <button type="button" class="team-work-item" data-lightbox data-full="images/presentations/hercules.avif" data-caption="Hercules Metals — investor presentation">
-            <img src="images/presentations/hercules.avif" alt="Hercules Metals investor deck cover" loading="lazy" width="1100" height="618">
-          </button>
-          <figcaption class="team-work-cap">Investor decks</figcaption>
-        </figure>
-        <figure style="margin:0;">
-          <button type="button" class="team-work-item" data-lightbox data-full="images/sites/snowline.avif" data-caption="Snowline Gold — investor website">
-            <img src="images/sites/snowline.avif" alt="Snowline Gold investor website" loading="lazy" width="1600" height="1067">
-          </button>
-          <figcaption class="team-work-cap">Websites</figcaption>
-        </figure>
+      <div class="section-label">The Bench</div>
+      <h2 class="section-headline" style="max-width: 22ch;">Who does what.</h2>
+      <div class="cap-wrap" data-reveal>
+        <table class="cap-matrix">
+          <caption class="sr-only">Disciplines covered by each member of the Exploration Sites team</caption>
+          <thead>
+            <tr>
+              <th scope="col">Discipline</th>
+              <th scope="col">Geology</th>
+              <th scope="col">Cartography</th>
+              <th scope="col">3D Models</th>
+              <th scope="col">Design</th>
+              <th scope="col">Web</th>
+              <th scope="col">Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Dorian Leslie</th>
+              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+            <tr><th scope="row">Anastasia Schoeps</th>
+              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+            <tr><th scope="row">Kai Erfle</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Jake Galbraith</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+            <tr><th scope="row">Gregor Smith</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="cap-dot"></span><span class="sr-only">3D Models</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Mark Aimon Pangan</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Paul Joshua Villora</th>
+              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="cap-dot"></span><span class="sr-only">3D Models</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Adrian Lee Sarabia</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Belle Ely Berber</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Marvin Del Rosario</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Vincent Ca&ntilde;as</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
+            <tr><th scope="row">Piyush Lamba</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+            <tr><th scope="row">Rebecca Krayenhoff van de Leur</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+            <tr><th scope="row">Elijah Mahri Barongan</th>
+              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">People covering</th>
+              <td>3</td><td>6</td><td>2</td><td>5</td><td>6</td><td>6</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </section>
 
@@ -350,16 +415,6 @@ permalink: "team.html"
     </section>
 
     <div class="divider"></div>
-
-  <!-- Shared lightbox — required by the work band's data-lightbox buttons -->
-  <div class="lightbox" id="work-lightbox" hidden>
-    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
-    <figure class="lightbox-figure">
-      <img class="lightbox-img" alt="" hidden>
-      <div class="lightbox-video" hidden></div>
-      <figcaption class="lightbox-cap"></figcaption>
-    </figure>
-  </div>
 
     <!-- Portraits removed 2026-08-11: the headshots and their hover motion loops were
          AI-generated likenesses of real colleagues. On a page whose whole job is "these
