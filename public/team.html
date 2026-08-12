@@ -444,11 +444,6 @@
       }
       .hero--page .hero-body { font-size: 18px; line-height: 1.6; max-width: 62ch; }
 
-      /* Leadership card: keep name / role / bio / link rhythm consistent across all four */
-      .team-leadership .team-lead { display: flex; flex-direction: column; }
-      .team-leadership .team-bio { margin-bottom: 12px; }
-      /* Push the LinkedIn link to a consistent baseline so cards of varying bio length align */
-      .team-leadership .team-lead .team-links { margin-top: auto; }
       /* LinkedIn + Email sit side by side in one row */
       .team-links { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
       .team-link {
@@ -470,28 +465,8 @@
       .team-link:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
       .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
       /* Portraits were removed 2026-08-11, so the NAME carries the weight the photo
-         used to. 34px serif against an 11px tracked role is a ~3x jump; the old
-         18px/12px pairing was barely 1.5x and read as timid. Colour stays out of it:
-         roles are Slate, not Ore, because 14 gold labels would blow the ≤2% budget. */
-      .team-leadership {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0 56px;
-        padding: 8px 0 0;
-        border-bottom: none;
-      }
-      .team-leadership .team-lead {
-        border-top: 1px solid var(--border);
-        padding: 26px 0 32px;
-      }
-      .team-leadership .team-name {
-        font-family: var(--font-serif);
-        font-size: var(--t-lead);
-        font-weight: 400;
-        line-height: 1.1;
-        letter-spacing: -0.015em;
-        margin-bottom: 10px;
-      }
-      .team-leadership .team-role,
+         used to. Colour stays out of it: roles are Slate, not Ore, because 14 gold
+         labels would blow the ≤2% accent budget. */
       .team-grid-member .team-role {
         font-size: var(--t-min);
         letter-spacing: 0.14em;
@@ -499,7 +474,39 @@
         color: var(--slate);
         margin-bottom: 14px;
       }
-      .team-leadership .team-bio { font-size: var(--t-body); line-height: 1.64; margin-bottom: 14px; }
+
+      /* --- THE SPLIT ----------------------------------------------------------
+         Replaces a capability matrix (removed 2026-08-11). A matrix is a lookup
+         table — structurally incapable of an argument — and it answered a
+         verification question that arrives long after the reader has decided to
+         care. The roster itself is the story: the company claims to be the
+         translation layer, and it is staffed 7/7 on either side of that
+         translation. Claim first, then the two benches as evidence. */
+      .bench-claim {
+        font-family: var(--font-serif);
+        font-size: clamp(30px, 3.6vw, 46px);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        color: var(--graphite);
+        margin: 14px 0 0;
+        max-width: 18ch;
+      }
+      .bench-lede {
+        font-size: 17px;
+        line-height: 1.62;
+        color: var(--slate);
+        max-width: 60ch;
+        margin: 22px 0 0;
+      }
+      .bench-title {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--graphite);
+        margin: 12px 0 0;
+      }
 
       /* Directory: three-up so the bios and capability rows have a readable measure. */
       .team-grid { grid-template-columns: repeat(3, 1fr); gap: 0 44px; padding: 8px 0 32px; }
@@ -528,68 +535,6 @@
         white-space: nowrap;
       }
 
-      /* --- CAPABILITY MATRIX --------------------------------------------------
-         Replaces a band of recycled work thumbnails (removed 2026-08-11: same
-         plates as four other pages, unattributed, and crushed into a 4:3 crop at
-         ~230px). This answers what a buyer actually asks of a team page — is the
-         technical bench real, and who does the 3D — using only what the bios
-         already say. A real <table>, because it is genuinely tabular data. */
-      .cap-wrap { overflow-x: auto; margin-top: 26px; }
-      .cap-matrix { width: 100%; border-collapse: collapse; min-width: 700px; }
-      .cap-matrix thead th {
-        font-family: var(--font-sans);
-        font-size: var(--t-min);
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--slate);
-        padding: 0 0 15px;
-        vertical-align: bottom;
-        text-align: center;
-      }
-      .cap-matrix thead th:first-child { text-align: left; }
-      .cap-matrix tbody th {
-        font-family: var(--font-serif);
-        font-size: 17px;
-        font-weight: 400;
-        color: var(--graphite);
-        text-align: left;
-        padding: 13px 24px 13px 0;
-        border-top: 1px solid var(--border);
-        white-space: nowrap;
-      }
-      .cap-matrix tbody td {
-        text-align: center;
-        border-top: 1px solid var(--border);
-        padding: 13px 0;
-      }
-      .cap-dot {
-        display: inline-block;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--graphite);
-      }
-      /* Totals in the serif display voice — the depth of the bench, per column. */
-      .cap-matrix tfoot th,
-      .cap-matrix tfoot td { border-top: 1px solid var(--graphite); padding: 15px 0 0; }
-      .cap-matrix tfoot th {
-        font-family: var(--font-sans);
-        font-size: var(--t-min);
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--slate);
-        text-align: left;
-        padding-right: 24px;
-      }
-      .cap-matrix tfoot td {
-        text-align: center;
-        font-family: var(--font-serif);
-        font-size: 24px;
-        font-variant-numeric: tabular-nums;
-        color: var(--graphite);
-      }
 
       /* NOTE: the old 17px name / 12px role rules lived here and, being later in
          source at equal specificity, silently beat the new scale above. Removed. */
@@ -602,146 +547,50 @@
       .team-grid-member .team-link:focus-visible { border-bottom-color: transparent; }
       @media (max-width: 980px) {
         .team-grid { grid-template-columns: repeat(2, 1fr); gap: 0 28px; }
-        .team-leadership { grid-template-columns: 1fr; gap: 0; }
-        .team-leadership .team-name { font-size: 28px; }
       }
       @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 0; } }
     </style>
 
-
-    <!-- CAPABILITY MATRIX — the shape of the bench, drawn from the bios below. -->
-    <section class="section" style="padding: 30px 0 8px;">
-      <div class="section-label">The Bench</div>
-      <h2 class="section-headline" style="max-width: 22ch;">Who does what.</h2>
-      <div class="cap-wrap" data-reveal>
-        <table class="cap-matrix">
-          <caption class="sr-only">Disciplines covered by each member of the Exploration Sites team</caption>
-          <thead>
-            <tr>
-              <th scope="col">Discipline</th>
-              <th scope="col">Geology</th>
-              <th scope="col">Cartography</th>
-              <th scope="col">3D Models</th>
-              <th scope="col">Design</th>
-              <th scope="col">Web</th>
-              <th scope="col">Operations</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Dorian Leslie</th>
-              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-            <tr><th scope="row">Anastasia Schoeps</th>
-              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-            <tr><th scope="row">Kai Erfle</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Jake Galbraith</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-            <tr><th scope="row">Gregor Smith</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="cap-dot"></span><span class="sr-only">3D Models</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Mark Aimon Pangan</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Paul Joshua Villora</th>
-              <td><span class="cap-dot"></span><span class="sr-only">Geology</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="cap-dot"></span><span class="sr-only">3D Models</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Adrian Lee Sarabia</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Belle Ely Berber</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Marvin Del Rosario</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Vincent Ca&ntilde;as</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="sr-only">&mdash;</span></td></tr>
-            <tr><th scope="row">Piyush Lamba</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Web</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-            <tr><th scope="row">Rebecca Krayenhoff van de Leur</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Design</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-            <tr><th scope="row">Elijah Mahri Barongan</th>
-              <td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Cartography</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="sr-only">&mdash;</span></td><td><span class="cap-dot"></span><span class="sr-only">Operations</span></td></tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">People covering</th>
-              <td>3</td><td>6</td><td>2</td><td>5</td><td>6</td><td>6</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+    <!-- THE SPLIT: the company thesis, staffed. why.html argues ES is the
+         "translation layer"; this is where that claim is shown to have people
+         standing on both sides of it. The 7/7 is a real count of the roster. -->
+    <section class="section" style="padding: 34px 0 6px;">
+      <div class="section-label">The Translation</div>
+      <h2 class="bench-claim">Seven from the rock.<br>Seven from the market.</h2>
+      <p class="bench-lede">Most investor-relations firms are designers who have never read a cross section. Most geological consultancies cannot design. We are staffed on both sides of the translation: licensed geologists and Leapfrog modellers sitting next to art directors and developers, on the same file. That is why the work holds up in front of an institutional desk.</p>
     </section>
 
     <div class="divider"></div>
 
-    <!-- LEADERSHIP -->
-    <section class="section" style="padding: 32px 0 0;">
-      <div class="section-label">Leadership</div>
-      <div class="team-leadership">
-        <div class="team-lead">
-          <div class="team-name">Dorian Leslie</div>
-          <div class="team-role">Founder &amp; CEO</div>
-          <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
-          <div class="team-tags"><span class="team-tag">30+ years</span><span class="team-tag">Mineral exploration</span><span class="team-tag">Investor communication</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/dorianleslie/" target="_blank" rel="noopener" aria-label="Dorian Leslie on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:dorian@explorationsites.com" aria-label="Email Dorian Leslie"><span>Email</span></a></div>
-        </div>
-        <div class="team-lead">
-          <div class="team-name">Anastasia Schoeps</div>
-          <div class="team-role">Operations Director</div>
-          <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
-          <div class="team-tags"><span class="team-tag">Geology</span><span class="team-tag">GIS</span><span class="team-tag">Project delivery</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/anastasia-schoeps-357233157/" target="_blank" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:anastasia@explorationsites.com" aria-label="Email Anastasia Schoeps"><span>Email</span></a></div>
-        </div>
-        <div class="team-lead">
-          <div class="team-name">Kai Erfle</div>
-          <div class="team-role">Creative Director</div>
-          <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
-          <div class="team-tags"><span class="team-tag">Creative direction</span><span class="team-tag">Digital experience</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/kai-erfle-3927b01a4/" target="_blank" rel="noopener" aria-label="Kai Erfle on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:kai@explorationsites.com" aria-label="Email Kai Erfle"><span>Email</span></a></div>
-        </div>
-        <div class="team-lead">
-          <div class="team-name">Jake Galbraith</div>
-          <div class="team-role">Project Manager</div>
-          <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
-          <div class="team-tags"><span class="team-tag">Map production</span><span class="team-tag">Spatial data</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/jacobgalbraith/" target="_blank" rel="noopener" aria-label="Jake Galbraith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:jake@explorationsites.com" aria-label="Email Jake Galbraith"><span>Email</span></a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section class="section" style="padding: 24px 0;">
-      <div class="section-label">Team</div>
+    <section class="section" style="padding: 30px 0 8px;">
+      <div class="section-label">From The Rock</div>
+      <h3 class="bench-title">Geology, GIS, and the technical case.</h3>
       <div class="team-grid">
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Gregor Smith</div>
-            <div class="team-role">GIS &amp; Exploration Mapping Specialist</div>
-            <div class="team-bio">Gregor helps turn technical exploration data into clear, accurate maps and figures for investor-facing materials. With experience in GIS, spatial data management, cartographic production, and Leapfrog Geo modelling, he supports projects from raw datasets through to polished exploration visuals.</div>
-            <div class="team-tags"><span class="team-tag">GIS</span><span class="team-tag">Cartography</span><span class="team-tag">Leapfrog Geo</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/gregor-smith-6b37a0260/" target="_blank" rel="noopener" aria-label="Gregor Smith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:gregor@explorationsites.com" aria-label="Email Gregor Smith"><span>Email</span></a></div>
+            <div class="team-name">Dorian Leslie</div>
+            <div class="team-role">Founder &amp; CEO</div>
+            <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
+            <div class="team-tags"><span class="team-tag">30+ years</span><span class="team-tag">Mineral exploration</span><span class="team-tag">Investor communication</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/dorianleslie/" target="_blank" rel="noopener" aria-label="Dorian Leslie on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:dorian@explorationsites.com" aria-label="Email Dorian Leslie"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Mark Aimon Pangan</div>
-            <div class="team-role">Exploration Mapping Technician</div>
-            <div class="team-bio">Mark supports the production of clean, technically grounded maps and visual materials for mineral exploration clients. His work helps organize geological and spatial data into figures that are easier for investors, technical teams, and stakeholders to understand.</div>
-            <div class="team-tags"><span class="team-tag">Mapping</span><span class="team-tag">Spatial data</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/mark-aimon-pangan/" target="_blank" rel="noopener" aria-label="Mark Aimon Pangan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:mark@explorationsites.com" aria-label="Email Mark Aimon Pangan"><span>Email</span></a></div>
+            <div class="team-name">Anastasia Schoeps</div>
+            <div class="team-role">Operations Director</div>
+            <div class="team-bio">Background in geology and GIS. Oversees project delivery from concept to completion, ensuring exploration data becomes credible, compelling material on schedule.</div>
+            <div class="team-tags"><span class="team-tag">Geology</span><span class="team-tag">GIS</span><span class="team-tag">Project delivery</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/anastasia-schoeps-357233157/" target="_blank" rel="noopener" aria-label="Anastasia Schoeps on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:anastasia@explorationsites.com" aria-label="Email Anastasia Schoeps"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Adrian Lee Sarabia</div>
-            <div class="team-role">Digital Designer &amp; Web Production Specialist</div>
-            <div class="team-bio">Adrian supports design and web production, helping translate client ideas into clean, functional digital materials. With a background in graphic design, web design, layout, and visual content production, he brings a detail-oriented approach to websites, social graphics, and client-facing design work.</div>
-            <div class="team-tags"><span class="team-tag">Graphic design</span><span class="team-tag">Web production</span><span class="team-tag">Layout</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/adrianleesarabia/" target="_blank" rel="noopener" aria-label="Adrian Lee Sarabia on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:adrian@explorationsites.com" aria-label="Email Adrian Lee Sarabia"><span>Email</span></a></div>
-          </div>
-        </div>
-        <div class="team-grid-member">
-          <div class="team-grid-text">
-            <div class="team-name">Marvin Del Rosario</div>
-            <div class="team-role">Senior Web Developer</div>
-            <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
-            <div class="team-tags"><span class="team-tag">8+ years</span><span class="team-tag">WordPress</span><span class="team-tag">PHP</span><span class="team-tag">Webflow</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
+            <div class="team-name">Jake Galbraith</div>
+            <div class="team-role">Project Manager</div>
+            <div class="team-bio">Leads map production from concept to delivery, pairing design execution with a deep understanding of spatial data so every figure is accurate and defensible.</div>
+            <div class="team-tags"><span class="team-tag">Map production</span><span class="team-tag">Spatial data</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/jacobgalbraith/" target="_blank" rel="noopener" aria-label="Jake Galbraith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:jake@explorationsites.com" aria-label="Email Jake Galbraith"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
@@ -750,34 +599,25 @@
             <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
             <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
             <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cross sections</span><span class="team-tag">3D modelling</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Piyush Lamba</div>
-            <div class="team-role">Automation &amp; AI Engineer</div>
-            <div class="team-bio">Piyush supports Exploration Sites through automation and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
-            <div class="team-tags"><span class="team-tag">Automation</span><span class="team-tag">AI pipelines</span><span class="team-tag">Full-stack</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
+            <div class="team-name">Gregor Smith</div>
+            <div class="team-role">GIS &amp; Exploration Mapping Specialist</div>
+            <div class="team-bio">Gregor helps turn technical exploration data into clear, accurate maps and figures for investor-facing materials. With experience in GIS, spatial data management, cartographic production, and Leapfrog Geo modelling, he supports projects from raw datasets through to polished exploration visuals.</div>
+            <div class="team-tags"><span class="team-tag">GIS</span><span class="team-tag">Cartography</span><span class="team-tag">Leapfrog Geo</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/gregor-smith-6b37a0260/" target="_blank" rel="noopener" aria-label="Gregor Smith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:gregor@explorationsites.com" aria-label="Email Gregor Smith"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Belle Ely Berber</div>
-            <div class="team-role">UI/UX &amp; Marketing Design Specialist</div>
-            <div class="team-bio">Belle supports UI/UX design, brand visuals, marketing creative, landing pages, investor-facing presentations, and digital content production. Her experience across Figma, Adobe Suite, WordPress, paid creative, and campaign design helps bridge strong visual execution with clear, conversion-focused communication.</div>
-            <div class="team-tags"><span class="team-tag">UI and UX</span><span class="team-tag">Figma</span><span class="team-tag">Campaign design</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
-          </div>
-        </div>
-        <div class="team-grid-member">
-          <div class="team-grid-text">
-            <div class="team-name">Rebecca Krayenhoff van de Leur</div>
-            <div class="team-role">Marketing &amp; Operations Coordinator</div>
-            <div class="team-bio">Rebecca supports marketing, operations, content creation, client communication, and administrative workflows across Exploration Sites projects. Her background includes social media, email marketing, website management, graphic design, customer service, database management, and campaign coordination.</div>
-            <div class="team-tags"><span class="team-tag">Marketing ops</span><span class="team-tag">Email</span><span class="team-tag">Content</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:admin@explorationsites.com" aria-label="Email Rebecca Krayenhoff van de Leur"><span>Email</span></a></div>
+            <div class="team-name">Mark Aimon Pangan</div>
+            <div class="team-role">Exploration Mapping Technician</div>
+            <div class="team-bio">Mark supports the production of clean, technically grounded maps and visual materials for mineral exploration clients. His work helps organize geological and spatial data into figures that are easier for investors, technical teams, and stakeholders to understand.</div>
+            <div class="team-tags"><span class="team-tag">Mapping</span><span class="team-tag">Spatial data</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/mark-aimon-pangan/" target="_blank" rel="noopener" aria-label="Mark Aimon Pangan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:mark@explorationsites.com" aria-label="Email Mark Aimon Pangan"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
@@ -786,7 +626,34 @@
             <div class="team-role">Operations &amp; GIS Support Coordinator</div>
             <div class="team-bio">Elijah supports Exploration Sites across operations, communication, sales support, GIS/admin workflows, and internal coordination. With experience in outbound sales, dashboard moderation, onboarding, research, design tools, publishing, and professional communication, he helps keep client work organized and moving efficiently.</div>
             <div class="team-tags"><span class="team-tag">Operations</span><span class="team-tag">GIS support</span><span class="team-tag">Research</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/elijah-mahri-barongan-80631018b/" target="_blank" rel="noopener" aria-label="Elijah Mahri Barongan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:elijah@explorationsites.com" aria-label="Email Elijah Mahri Barongan"><span>Email</span></a></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/elijah-mahri-barongan-80631018b/" target="_blank" rel="noopener" aria-label="Elijah Mahri Barongan on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:elijah@explorationsites.com" aria-label="Email Elijah Mahri Barongan"><span>Email</span></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" style="padding: 30px 0 8px;">
+      <div class="section-label">To The Market</div>
+      <h3 class="bench-title">Design, code, and the investor-facing craft.</h3>
+      <div class="team-grid">
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Kai Erfle</div>
+            <div class="team-role">Creative Director</div>
+            <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
+            <div class="team-tags"><span class="team-tag">Creative direction</span><span class="team-tag">Digital experience</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/kai-erfle-3927b01a4/" target="_blank" rel="noopener" aria-label="Kai Erfle on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:kai@explorationsites.com" aria-label="Email Kai Erfle"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Marvin Del Rosario</div>
+            <div class="team-role">Senior Web Developer</div>
+            <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
+            <div class="team-tags"><span class="team-tag">8+ years</span><span class="team-tag">WordPress</span><span class="team-tag">PHP</span><span class="team-tag">Webflow</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
@@ -795,7 +662,43 @@
             <div class="team-role">Webflow &amp; Web Development Specialist</div>
             <div class="team-bio">Vincent specializes in Webflow and front-end web development, supporting responsive, production-ready websites from design concepts through to published pages. His background includes Webflow, HTML, JavaScript, PHP, WordPress, Next.js, migrations, hosting, performance, and site reliability.</div>
             <div class="team-tags"><span class="team-tag">Webflow</span><span class="team-tag">Next.js</span><span class="team-tag">Front-end</span></div>
-          <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Adrian Lee Sarabia</div>
+            <div class="team-role">Digital Designer &amp; Web Production Specialist</div>
+            <div class="team-bio">Adrian supports design and web production, helping translate client ideas into clean, functional digital materials. With a background in graphic design, web design, layout, and visual content production, he brings a detail-oriented approach to websites, social graphics, and client-facing design work.</div>
+            <div class="team-tags"><span class="team-tag">Graphic design</span><span class="team-tag">Web production</span><span class="team-tag">Layout</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/adrianleesarabia/" target="_blank" rel="noopener" aria-label="Adrian Lee Sarabia on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:adrian@explorationsites.com" aria-label="Email Adrian Lee Sarabia"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Belle Ely Berber</div>
+            <div class="team-role">UI/UX &amp; Marketing Design Specialist</div>
+            <div class="team-bio">Belle supports UI/UX design, brand visuals, marketing creative, landing pages, investor-facing presentations, and digital content production. Her experience across Figma, Adobe Suite, WordPress, paid creative, and campaign design helps bridge strong visual execution with clear, conversion-focused communication.</div>
+            <div class="team-tags"><span class="team-tag">UI and UX</span><span class="team-tag">Figma</span><span class="team-tag">Campaign design</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Piyush Lamba</div>
+            <div class="team-role">Automation &amp; AI Engineer</div>
+            <div class="team-bio">Piyush supports Exploration Sites through automation and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
+            <div class="team-tags"><span class="team-tag">Automation</span><span class="team-tag">AI pipelines</span><span class="team-tag">Full-stack</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Rebecca Krayenhoff van de Leur</div>
+            <div class="team-role">Marketing &amp; Operations Coordinator</div>
+            <div class="team-bio">Rebecca supports marketing, operations, content creation, client communication, and administrative workflows across Exploration Sites projects. Her background includes social media, email marketing, website management, graphic design, customer service, database management, and campaign coordination.</div>
+            <div class="team-tags"><span class="team-tag">Marketing ops</span><span class="team-tag">Email</span><span class="team-tag">Content</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:admin@explorationsites.com" aria-label="Email Rebecca Krayenhoff van de Leur"><span>Email</span></a></div>
           </div>
         </div>
       </div>
