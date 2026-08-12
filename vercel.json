@@ -1,6 +1,13 @@
 {
   "buildCommand": "npx @11ty/eleventy",
   "outputDirectory": "public",
+  "redirects": [
+    {
+      "source": "/the-standard.html",
+      "destination": "/why.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/",

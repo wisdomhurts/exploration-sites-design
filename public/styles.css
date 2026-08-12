@@ -2391,7 +2391,8 @@
     }
     .footer-est {
       font-family: var(--font-mono);
-      font-size: 9px;
+      /* 11px is the legibility floor for functional text; this was 9px. */
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);

@@ -35,7 +35,6 @@ permalink: "team.html"
         --t-min: 11px;   /* labels, roles, tags        */
         --t-body: 15px;  /* bios                       */
         --t-name: 20px;  /* directory names            */
-        --t-lead: 36px;  /* leadership names           */
         --t-display: clamp(34px, 4.6vw, 60px); /* page headline */
       }
       /* This <style> block only renders on team.html, so the bare selectors below
@@ -54,7 +53,10 @@ permalink: "team.html"
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-family: var(--font-mono);
+        /* --font-sans, not --font-mono: the mono voice was retired 2026-07 and the
+           token now just aliases to Inter, so the old reference implied a third
+           typeface that no longer exists. */
+        font-family: var(--font-sans);
         font-size: 11px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -70,11 +72,15 @@ permalink: "team.html"
       .team-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
       /* Portraits were removed 2026-08-11, so the NAME carries the weight the photo
          used to. Colour stays out of it: roles are Slate, not Ore, because 14 gold
-         labels would blow the ≤2% accent budget. */
+         labels would blow the ≤2% accent budget.
+         Roles are sentence case, NOT the uppercase label treatment: these run
+         34-44 characters ("Digital Designer & Web Production Specialist"), and
+         DESIGN.md §4 is explicit — no all-caps in long passages. Uppercase is for
+         "LEADERSHIP", not for a job title. 13px is the brand's caption step. */
       .team-grid-member .team-role {
-        font-size: var(--t-min);
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0;
+        text-transform: none;
         color: var(--slate);
         margin-bottom: 14px;
       }
