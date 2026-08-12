@@ -40,6 +40,37 @@ PROOF_JSON   = os.path.join(ROOT, 'src', '_data', 'proof.json')
 MONTAGE_TICKER = 'MAU'        # TSX
 MONTAGE_BASELINE = 130e6      # ~C$130M market cap when ES came on board, 2023
 
+BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+              '(KHTML, like Gecko) Chrome/124.0 Safari/537.36')
+
+
+def proxied_session():
+    """Yahoo-capable session for sandboxes that force HTTPS through a proxy.
+
+    yfinance fetches through curl_cffi impersonating Chrome's TLS fingerprint.
+    A TLS-terminating egress proxy rejects that handshake outright — every
+    ticker dies with curl error 35 ("Recv failure: Connection reset by peer")
+    and the run reports 0 updated / all failed, which reads like Yahoo blocking
+    us rather than a local TLS problem. Handing yfinance a plain,
+    non-impersonating session aimed at the proxy and its CA bundle fixes it.
+
+    Returns None when HTTPS_PROXY is unset, which keeps stock yfinance
+    behaviour (impersonation included) for the two paths that matter in
+    production: the hourly GitHub Actions run and a local run on Dorian's box.
+    """
+    proxy = os.environ.get('HTTPS_PROXY') or os.environ.get('https_proxy')
+    if not proxy:
+        return None
+
+    from curl_cffi import requests as curl_requests
+    session = curl_requests.Session()
+    session.proxies = {'https': proxy, 'http': proxy}
+    ca_bundle = os.environ.get('REQUESTS_CA_BUNDLE') or os.environ.get('SSL_CERT_FILE')
+    if ca_bundle:
+        session.verify = ca_bundle
+    session.headers.update({'User-Agent': BROWSER_UA})
+    return session
+
 
 def parse_rows(html):
     """Extract all table rows with their data."""
@@ -87,6 +118,10 @@ def fetch_quotes(html):
     montage = None
     total = success = skipped = 0
 
+    session = proxied_session()
+    if session is not None:
+        print("HTTPS_PROXY set - routing Yahoo via proxy, TLS impersonation off")
+
     for name, price, ticker, exchange, mcap, commodity, country, extra in rows:
         if ticker in ('—', '') or exchange in ('Private', 'Acquired', 'Delisted', ''):
             skipped += 1
@@ -99,7 +134,7 @@ def fetch_quotes(html):
 
         total += 1
         try:
-            fi = yf.Ticker(yahoo_sym).fast_info
+            fi = yf.Ticker(yahoo_sym, session=session).fast_info
             if fi.last_price and fi.last_price > 0:
                 new_price = f"${fi.last_price:.2f}"
                 new_mcap = fmt_mcap(fi.market_cap) if fi.market_cap else mcap
