@@ -6,10 +6,15 @@ permalink: "team.html"
 ---
 
     <!-- PAGE HERO -->
-    <section class="hero hero--page">
+    <section class="hero hero--page team-hero">
       <div class="section-label">Our Team</div>
       <h1 class="hero-headline">Sector-native.<br>We understand the geology first.<br>Then we make it investable.</h1>
       <p class="hero-body" style="margin-top: 22px;">Three decades. {{ proof.projects }}+ projects. One discipline: making geology legible to capital.</p>
+      <div class="team-hero-aside">
+        <div class="section-label">The Translation</div>
+        <h2 class="bench-claim">Seven from the rock.<br>Seven from the market.</h2>
+        <p class="bench-lede">Most investor-relations firms are designers who have never read a cross section. Most geological consultancies cannot design. We are staffed on both sides of the translation: licensed geologists and Leapfrog modellers sitting next to art directors and developers, on the same file. That is why the work holds up in front of an institutional desk.</p>
+      </div>
     </section>
 
     <div class="divider"></div>
@@ -35,7 +40,7 @@ permalink: "team.html"
         --t-min: 11px;   /* labels, roles, tags        */
         --t-body: 15px;  /* bios                       */
         --t-name: 20px;  /* directory names            */
-        --t-display: clamp(34px, 4.6vw, 60px); /* page headline */
+        --t-display: clamp(28px, 3.1vw, 44px); /* page headline (half-width now) */
       }
       /* This <style> block only renders on team.html, so the bare selectors below
          cannot leak to other pages. */
@@ -46,6 +51,25 @@ permalink: "team.html"
         max-width: 22ch;
       }
       .hero--page .hero-body { font-size: 18px; line-height: 1.6; max-width: 62ch; }
+
+      /* Hero: copy left, the translation claim right. A grid rather than wrapper
+         divs, because the load animation targets `.hero > .hero-headline` as a
+         direct child and wrapping would silently kill the fade-in. */
+      .team-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: clamp(32px, 5vw, 72px);
+        align-items: start;
+      }
+      .team-hero > .section-label,
+      .team-hero > .hero-headline,
+      .team-hero > .hero-body { grid-column: 1; }
+      .team-hero .hero-body { max-width: 46ch; }
+      .team-hero-aside { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
+      @media (max-width: 900px) {
+        .team-hero { grid-template-columns: minmax(0, 1fr); }
+        .team-hero-aside { grid-column: 1; grid-row: auto; margin-top: 34px; }
+      }
 
       /* LinkedIn + Email sit side by side in one row */
       .team-links { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
@@ -94,7 +118,7 @@ permalink: "team.html"
          translation. Claim first, then the two benches as evidence. */
       .bench-claim {
         font-family: var(--font-serif);
-        font-size: clamp(30px, 3.6vw, 46px);
+        font-size: clamp(23px, 2.4vw, 31px);
         font-weight: 400;
         line-height: 1.1;
         letter-spacing: -0.015em;
@@ -103,8 +127,8 @@ permalink: "team.html"
         max-width: 18ch;
       }
       .bench-lede {
-        font-size: 17px;
-        line-height: 1.62;
+        font-size: 15px;
+        line-height: 1.6;
         color: var(--slate);
         max-width: 60ch;
         margin: 22px 0 0;
@@ -118,8 +142,15 @@ permalink: "team.html"
         margin: 12px 0 0;
       }
 
-      /* Directory: three-up so the bios and capability rows have a readable measure. */
+      /* Each bench runs 3 senior across the top, then the remaining 4 smaller
+         below — hierarchy inside the bench without a separate Leadership section. */
       .team-grid { grid-template-columns: repeat(3, 1fr); gap: 0 44px; padding: 8px 0 32px; }
+      .team-grid--lead { padding-bottom: 8px; }
+      .team-grid--sm { grid-template-columns: repeat(4, 1fr); gap: 0 32px; padding: 0 0 26px; }
+      .team-grid--sm .team-grid-member { padding: 20px 0 24px; }
+      .team-grid--sm .team-name { font-size: 17px; }
+      .team-grid--sm .team-role { font-size: 12px; margin-bottom: 12px; }
+      .team-grid--sm .team-bio { font-size: 13px; line-height: 1.6; }
       .team-grid-member { display: block; border-top: 1px solid var(--border); padding: 22px 0 26px; }
       .team-grid-member .team-name {
         font-family: var(--font-serif);
@@ -158,24 +189,19 @@ permalink: "team.html"
       @media (max-width: 980px) {
         .team-grid { grid-template-columns: repeat(2, 1fr); gap: 0 28px; }
       }
-      @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; gap: 0; } }
+      @media (max-width: 1100px) { .team-grid--sm { grid-template-columns: repeat(3, 1fr); } }
+      @media (max-width: 980px)  { .team-grid--sm { grid-template-columns: repeat(2, 1fr); gap: 0 28px; } }
+      @media (max-width: 560px) {
+        .team-grid { grid-template-columns: 1fr; gap: 0; }
+        .team-grid--sm { grid-template-columns: 1fr; gap: 0; }
+      }
     </style>
 
-    <!-- THE SPLIT: the company thesis, staffed. why.html argues ES is the
-         "translation layer"; this is where that claim is shown to have people
-         standing on both sides of it. The 7/7 is a real count of the roster. -->
-    <section class="section" style="padding: 34px 0 6px;">
-      <div class="section-label">The Translation</div>
-      <h2 class="bench-claim">Seven from the rock.<br>Seven from the market.</h2>
-      <p class="bench-lede">Most investor-relations firms are designers who have never read a cross section. Most geological consultancies cannot design. We are staffed on both sides of the translation: licensed geologists and Leapfrog modellers sitting next to art directors and developers, on the same file. That is why the work holds up in front of an institutional desk.</p>
-    </section>
-
-    <div class="divider"></div>
 
     <section class="section" style="padding: 30px 0 8px;">
       <div class="section-label">From The Rock</div>
       <h3 class="bench-title">Geology, GIS, and the technical case.</h3>
-      <div class="team-grid">
+      <div class="team-grid team-grid--lead">
         <div class="team-grid-member">
           <div class="team-grid-text">
             <div class="team-name">Dorian Leslie</div>
@@ -203,15 +229,9 @@ permalink: "team.html"
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/jacobgalbraith/" target="_blank" rel="noopener" aria-label="Jake Galbraith on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:jake@explorationsites.com" aria-label="Email Jake Galbraith"><span>Email</span></a></div>
           </div>
         </div>
-        <div class="team-grid-member">
-          <div class="team-grid-text">
-            <div class="team-name">Paul Joshua Villora</div>
-            <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
-            <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
-            <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cross sections</span><span class="team-tag">3D modelling</span></div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
-          </div>
-        </div>
+      </div>
+
+      <div class="team-grid team-grid--sm">
         <div class="team-grid-member">
           <div class="team-grid-text">
             <div class="team-name">Gregor Smith</div>
@@ -232,6 +252,15 @@ permalink: "team.html"
         </div>
         <div class="team-grid-member">
           <div class="team-grid-text">
+            <div class="team-name">Paul Joshua Villora</div>
+            <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
+            <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
+            <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cross sections</span><span class="team-tag">3D modelling</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
             <div class="team-name">Elijah Mahri Barongan</div>
             <div class="team-role">Operations &amp; GIS Support Coordinator</div>
             <div class="team-bio">Elijah supports Exploration Sites across operations, communication, sales support, GIS/admin workflows, and internal coordination. With experience in outbound sales, dashboard moderation, onboarding, research, design tools, publishing, and professional communication, he helps keep client work organized and moving efficiently.</div>
@@ -247,7 +276,7 @@ permalink: "team.html"
     <section class="section" style="padding: 30px 0 8px;">
       <div class="section-label">To The Market</div>
       <h3 class="bench-title">Design, code, and the investor-facing craft.</h3>
-      <div class="team-grid">
+      <div class="team-grid team-grid--lead">
         <div class="team-grid-member">
           <div class="team-grid-text">
             <div class="team-name">Kai Erfle</div>
@@ -255,24 +284,6 @@ permalink: "team.html"
             <div class="team-bio">Leads the creative direction behind our client work &mdash; translating complex exploration stories into clear digital experiences that build investor trust.</div>
             <div class="team-tags"><span class="team-tag">Creative direction</span><span class="team-tag">Digital experience</span></div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/kai-erfle-3927b01a4/" target="_blank" rel="noopener" aria-label="Kai Erfle on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:kai@explorationsites.com" aria-label="Email Kai Erfle"><span>Email</span></a></div>
-          </div>
-        </div>
-        <div class="team-grid-member">
-          <div class="team-grid-text">
-            <div class="team-name">Marvin Del Rosario</div>
-            <div class="team-role">Senior Web Developer</div>
-            <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
-            <div class="team-tags"><span class="team-tag">8+ years</span><span class="team-tag">WordPress</span><span class="team-tag">PHP</span><span class="team-tag">Webflow</span></div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
-          </div>
-        </div>
-        <div class="team-grid-member">
-          <div class="team-grid-text">
-            <div class="team-name">Vincent Ca&ntilde;as</div>
-            <div class="team-role">Webflow &amp; Web Development Specialist</div>
-            <div class="team-bio">Vincent specializes in Webflow and front-end web development, supporting responsive, production-ready websites from design concepts through to published pages. His background includes Webflow, HTML, JavaScript, PHP, WordPress, Next.js, migrations, hosting, performance, and site reliability.</div>
-            <div class="team-tags"><span class="team-tag">Webflow</span><span class="team-tag">Next.js</span><span class="team-tag">Front-end</span></div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
@@ -293,13 +304,25 @@ permalink: "team.html"
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
           </div>
         </div>
+      </div>
+
+      <div class="team-grid team-grid--sm">
         <div class="team-grid-member">
           <div class="team-grid-text">
-            <div class="team-name">Piyush Lamba</div>
-            <div class="team-role">Automation &amp; AI Engineer</div>
-            <div class="team-bio">Piyush supports Exploration Sites through automation and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
-            <div class="team-tags"><span class="team-tag">Automation</span><span class="team-tag">AI pipelines</span><span class="team-tag">Full-stack</span></div>
-            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
+            <div class="team-name">Marvin Del Rosario</div>
+            <div class="team-role">Senior Web Developer</div>
+            <div class="team-bio">Marvin is an experienced web developer with more than eight years of experience building, launching, migrating, and maintaining websites and web applications. His technical background spans WordPress, PHP, Webflow, HTML/CSS, JavaScript, DNS, server management, and site migrations.</div>
+            <div class="team-tags"><span class="team-tag">8+ years</span><span class="team-tag">WordPress</span><span class="team-tag">PHP</span><span class="team-tag">Webflow</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/marvin-del-rosario-8b2799102/" target="_blank" rel="noopener" aria-label="Marvin Del Rosario on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:marvin@explorationsites.com" aria-label="Email Marvin Del Rosario"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Vincent Ca&ntilde;as</div>
+            <div class="team-role">Webflow &amp; Web Development Specialist</div>
+            <div class="team-bio">Vincent specializes in Webflow and front-end web development, supporting responsive, production-ready websites from design concepts through to published pages. His background includes Webflow, HTML, JavaScript, PHP, WordPress, Next.js, migrations, hosting, performance, and site reliability.</div>
+            <div class="team-tags"><span class="team-tag">Webflow</span><span class="team-tag">Next.js</span><span class="team-tag">Front-end</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/amiel-vincent-canas/" target="_blank" rel="noopener" aria-label="Vincent Ca&ntilde;as on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:vincent@explorationsites.com" aria-label="Email Vincent Ca&ntilde;as"><span>Email</span></a></div>
           </div>
         </div>
         <div class="team-grid-member">
@@ -309,6 +332,15 @@ permalink: "team.html"
             <div class="team-bio">Rebecca supports marketing, operations, content creation, client communication, and administrative workflows across Exploration Sites projects. Her background includes social media, email marketing, website management, graphic design, customer service, database management, and campaign coordination.</div>
             <div class="team-tags"><span class="team-tag">Marketing ops</span><span class="team-tag">Email</span><span class="team-tag">Content</span></div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/rebecca-krayenhoff-van-de-leur-613565164/" target="_blank" rel="noopener" aria-label="Rebecca Krayenhoff van de Leur on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:admin@explorationsites.com" aria-label="Email Rebecca Krayenhoff van de Leur"><span>Email</span></a></div>
+          </div>
+        </div>
+        <div class="team-grid-member">
+          <div class="team-grid-text">
+            <div class="team-name">Piyush Lamba</div>
+            <div class="team-role">Automation &amp; AI Engineer</div>
+            <div class="team-bio">Piyush supports Exploration Sites through automation and AI-enabled workflow systems that help streamline internal operations and content production. His work includes building automated data extraction pipelines, developing AI-assisted production workflows, and creating full-stack tools for time tracking, task management, and client management.</div>
+            <div class="team-tags"><span class="team-tag">Automation</span><span class="team-tag">AI pipelines</span><span class="team-tag">Full-stack</span></div>
+            <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/piyush-lamba-4b65ab1aa/" target="_blank" rel="noopener" aria-label="Piyush Lamba on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:piyush@explorationsites.com" aria-label="Email Piyush Lamba"><span>Email</span></a></div>
           </div>
         </div>
       </div>
