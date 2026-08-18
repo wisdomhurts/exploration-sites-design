@@ -1,7 +1,10 @@
 {
-  "_comment": "Payment links. NRMP tier links are LIVE Stripe Payment Links (GST 5% auto-added via Stripe Tax; each = monthly + $2,500 one-time setup). payRetainer still routes to book.html until a retainer link exists.",
-  "payNrmpCadence": "https://buy.stripe.com/28E6oGdlydwtgrD08lbV600",
-  "payNrmpActive": "https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601",
-  "payNrmpFull": "https://buy.stripe.com/cNi14m6Xa7853ER08lbV602",
+  "_comment": "Payment links. 2026-08-11: the three NRMP tiers now route to book.html instead of direct Stripe checkout — the tier buttons append ?program=cadence|active|full, which book.html reads to confirm which program is being started. The LIVE Stripe Payment Links are preserved below and can be dropped straight back into the payNrmp* keys to restore self-serve purchase (GST 5% auto-added via Stripe Tax; each = monthly + $2,500 one-time setup).",
+  "_stripeNrmpCadence": "https://buy.stripe.com/28E6oGdlydwtgrD08lbV600",
+  "_stripeNrmpActive": "https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601",
+  "_stripeNrmpFull": "https://buy.stripe.com/cNi14m6Xa7853ER08lbV602",
+  "payNrmpCadence": "book.html",
+  "payNrmpActive": "book.html",
+  "payNrmpFull": "book.html",
   "payRetainer": "book.html"
 }
