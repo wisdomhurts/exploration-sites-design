@@ -896,6 +896,39 @@ description: "How we engage with exploration-stage companies — project work on
     font-size: 15.5px; color: var(--graphite);
   }
   .launch-incl li::before { display: none; }
+  /* Deliverable proof strip under the Launch Package. Natural heights with
+     align-items:start rather than a forced uniform crop — the plates run 1.36
+     and 1.60, and cover-cropping would chop the locator's edges. */
+  .launch-proof { margin-top: clamp(28px, 3vw, 42px); }
+  .launch-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 1.6vw, 22px);
+    align-items: start;
+    margin-top: 14px;
+  }
+  .launch-proof-item { display: block; text-decoration: none; }
+  .launch-proof-media {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--vellum);
+  }
+  .launch-proof-media img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+  .launch-proof-item:hover .launch-proof-media img,
+  .launch-proof-item:focus-visible .launch-proof-media img { transform: scale(1.03); }
+  .launch-proof-cap {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 10px;
+  }
+  @media (max-width: 760px) { .launch-proof-grid { grid-template-columns: 1fr; } }
+
   .launch-note {
     margin-top: 22px; padding-top: 20px;
     border-top: 1px dotted var(--graticule);
@@ -1461,13 +1494,13 @@ description: "How we engage with exploration-stage companies — project work on
         <div class="launch-left">
           <span class="model-ref">Model 01 — Bundled</span>
           <h3>Everything, in one engagement.</h3>
-          <p>The full investor-relations foundation in one engagement — everything an exploration company needs to become fundable, delivered together on a single fixed quote.</p>
+          <p>Commissioned piece by piece, five deliverables come back in five voices. Scoped as one engagement, they come back in one — and at a lower number.</p>
           <div class="launch-save">
             <span>Commissioned separately:</span>
             <b>from ~$28&ndash;32,000</b>
           </div>
           <div class="launch-price" style="margin-top: 12px; padding-top: 0;">
-            <span class="launch-price-lead" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">As one engagement, starting at</span>
+            <span class="launch-price-lead" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">As one engagement, starting at</span>
             <span class="launch-price-fig mono" style="color: var(--ore);">${{ prices.launchPackage }}</span>
             <span class="launch-price-note">the complete investor foundation &mdash; built before you raise</span>
           </div>
@@ -1481,7 +1514,28 @@ description: "How we engage with exploration-stage companies — project work on
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
             <li><a class="launch-link" href="logos-branding.html">A coherent brand identity</a></li>
           </ul>
-          <p class="launch-note">Scoped as one engagement so the maps, deck, site, fact sheet, and brand speak with a single voice. Commissioned separately: from ~$28&ndash;32,000. As one engagement: ${{ prices.launchPackage }}.</p>
+        </div>
+      </div>
+
+      <!-- What the package actually produces. The five inclusions above were text
+           links only, and this is the page where someone commits ~$28-32k, so the
+           map, deck and site are shown. Natural aspect ratios (1.36 / 1.60 / 1.60),
+           no forced uniform crop. -->
+      <div class="launch-proof reveal">
+        <div class="lbl">What the package produces</div>
+        <div class="launch-proof-grid">
+          <a class="launch-proof-item" href="locators-area-plays.html">
+            <span class="launch-proof-media"><img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030"></span>
+            <span class="launch-proof-cap">Investor map set</span>
+          </a>
+          <a class="launch-proof-item" href="presentations.html">
+            <span class="launch-proof-media"><img src="images/presentations/tiger-gold.avif" alt="Tiger Gold investor presentation cover" loading="lazy" width="1100" height="688"></span>
+            <span class="launch-proof-cap">Investor deck</span>
+          </a>
+          <a class="launch-proof-item" href="websites.html">
+            <span class="launch-proof-media"><img src="images/sites/fireweed.avif" alt="Fireweed Metals investor website" loading="lazy" width="1200" height="750"></span>
+            <span class="launch-proof-cap">Website</span>
+          </a>
         </div>
       </div>
     </div>
