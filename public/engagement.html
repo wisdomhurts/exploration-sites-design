@@ -930,6 +930,31 @@
     font-size: 13.5px; line-height: 1.6; color: var(--slate);
   }
   /* Pricing links inside the launch panel */
+  /* The five map types were a parenthetical inside the parent link; now a
+     second line where each one links to its own What We Do page. Separators are
+     CSS ::after so they are never inside a link's hit area or read by AT. */
+  .launch-sub {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--graticule);
+  }
+  .launch-sub a {
+    color: var(--slate);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s var(--ease-out-soft), border-color 0.2s var(--ease-out-soft);
+  }
+  .launch-sub a:hover,
+  .launch-sub a:focus-visible { color: var(--ore-text); border-bottom-color: rgba(184,130,58,0.4); }
+  .launch-sub a + a { margin-left: 0; }
+  .launch-sub a:not(:last-child)::after {
+    content: "  B7 ";
+    color: var(--graticule);
+    border-bottom: none;
+  }
+
   .launch-link {
     color: var(--ore-text); text-decoration: none;
     border-bottom: 1px solid rgba(184,130,58,0.4);
@@ -1798,7 +1823,8 @@
         <div class="launch-right">
           <div class="lbl">Included in the package</div>
           <ul class="launch-incl">
-            <li><a class="launch-link" href="locators-area-plays.html">An investor map set (locator, property, geology, sections, and a 3D view)</a></li>
+            <li><a class="launch-link" href="investor-maps.html">An investor map set</a>
+              <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><a href="property-target.html">Property</a><a href="geoscience-maps.html">Geology</a><a href="sections.html">Sections</a><a href="3d-models.html">3D view</a></span></li>
             <li><a class="launch-link" href="presentations.html">A polished investor deck</a></li>
             <li><a class="launch-link" href="websites.html">A purpose-built website</a></li>
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
