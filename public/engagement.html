@@ -931,11 +931,16 @@
   }
   /* Pricing links inside the launch panel */
   /* The five map types were a parenthetical inside the parent link; now a
-     second line where each one links to its own What We Do page. Separators are
-     CSS ::after so they are never inside a link's hit area or read by AT. */
+     second line where each one links to its own What We Do page. Spacing is a flex gap,
+     so nothing decorative sits inside a link's hit area. */
   .launch-sub {
-    display: block;
-    margin-top: 6px;
+    /* Spaced with a flex gap, not a generated-content separator. The
+       previous middle-dot CSS escape collapsed into a literal NUL byte
+       plus the text "B7" and rendered as garbage on the page. */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 18px;
+    margin-top: 7px;
     font-size: 13px;
     line-height: 1.7;
     color: var(--graticule);
@@ -948,12 +953,6 @@
   }
   .launch-sub a:hover,
   .launch-sub a:focus-visible { color: var(--ore-text); border-bottom-color: rgba(184,130,58,0.4); }
-  .launch-sub a + a { margin-left: 0; }
-  .launch-sub a:not(:last-child)::after {
-    content: "  B7 ";
-    color: var(--graticule);
-    border-bottom: none;
-  }
 
   .launch-link {
     color: var(--ore-text); text-decoration: none;
