@@ -939,20 +939,25 @@
        plus the text "B7" and rendered as garbage on the page. */
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 18px;
+    gap: 2px 9px;
     margin-top: 7px;
     font-size: 13px;
     line-height: 1.7;
     color: var(--graticule);
   }
+  /* decorative only: aria-hidden so the dot is not announced between links */
+  .launch-sub .launch-sep {
+    color: var(--graticule);
+    user-select: none;
+  }
   .launch-sub a {
-    color: var(--slate);
+    color: var(--ore-text);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid rgba(184,130,58,0.4);
     transition: color 0.2s var(--ease-out-soft), border-color 0.2s var(--ease-out-soft);
   }
   .launch-sub a:hover,
-  .launch-sub a:focus-visible { color: var(--ore-text); border-bottom-color: rgba(184,130,58,0.4); }
+  .launch-sub a:focus-visible { color: var(--ore); border-bottom-color: var(--ore); }
 
   .launch-link {
     color: var(--ore-text); text-decoration: none;
@@ -1823,7 +1828,7 @@
           <div class="lbl">Included in the package</div>
           <ul class="launch-incl">
             <li><a class="launch-link" href="investor-maps.html">An investor map set</a>
-              <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><a href="property-target.html">Property</a><a href="geoscience-maps.html">Geology</a><a href="sections.html">Sections</a><a href="3d-models.html">3D view</a></span></li>
+              <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="property-target.html">Property</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="geoscience-maps.html">Geology</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="sections.html">Sections</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="3d-models.html">3D view</a></span></li>
             <li><a class="launch-link" href="presentations.html">A polished investor deck</a></li>
             <li><a class="launch-link" href="websites.html">A purpose-built website</a></li>
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
