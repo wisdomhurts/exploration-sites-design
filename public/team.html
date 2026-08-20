@@ -521,7 +521,9 @@
         letter-spacing: -0.015em;
         color: var(--graphite);
         margin: 14px 0 0;
-        max-width: 18ch;
+        /* 18ch was clipping "market." onto a third line; the <br> already sets the
+           break, so this only needs to clear the longer line (22 chars). */
+        max-width: 24ch;
       }
       .bench-lede {
         font-size: 15px;
@@ -604,7 +606,7 @@
             <div class="team-name">Dorian Leslie</div>
             <div class="team-role">Founder &amp; CEO</div>
             <div class="team-bio">Over 30 years in mineral exploration. Founded Exploration Sites to bridge geology and investor communication, and leads the multidisciplinary team that turns complex exploration data into clear, investor-ready visuals.</div>
-            <div class="team-tags"><span class="team-tag">30+ years</span><span class="team-tag">Mineral exploration</span><span class="team-tag">Investor communication</span></div>
+            <div class="team-tags"><span class="team-tag">30 years</span><span class="team-tag">Investor communication</span></div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/dorianleslie/" target="_blank" rel="noopener" aria-label="Dorian Leslie on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:dorian@explorationsites.com" aria-label="Email Dorian Leslie"><span>Email</span></a></div>
           </div>
         </div>
@@ -652,7 +654,7 @@
             <div class="team-name">Paul Joshua Villora</div>
             <div class="team-role">Geologist &amp; GIS Mapping Technician</div>
             <div class="team-bio">Paul brings a licensed geologist's perspective to Exploration Sites' mapping work, helping turn geological, spatial, and historical datasets into high-quality investor-facing figures. His experience includes gold exploration, drill core interpretation, cross-sections, 3D modelling, GIS workflows, and exploration targeting support.</div>
-            <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cross sections</span><span class="team-tag">3D modelling</span></div>
+            <div class="team-tags"><span class="team-tag">Licensed geologist</span><span class="team-tag">Cartography</span></div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/paulvillora/" target="_blank" rel="noopener" aria-label="Paul Joshua Villora on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:paul@explorationsites.com" aria-label="Email Paul Joshua Villora"><span>Email</span></a></div>
           </div>
         </div>
@@ -697,7 +699,7 @@
             <div class="team-name">Belle Ely Berber</div>
             <div class="team-role">UI/UX &amp; Marketing Design Specialist</div>
             <div class="team-bio">Belle supports UI/UX design, brand visuals, marketing creative, landing pages, investor-facing presentations, and digital content production. Her experience across Figma, Adobe Suite, WordPress, paid creative, and campaign design helps bridge strong visual execution with clear, conversion-focused communication.</div>
-            <div class="team-tags"><span class="team-tag">UI and UX</span><span class="team-tag">Figma</span><span class="team-tag">Campaign design</span></div>
+            <div class="team-tags"><span class="team-tag">UI and UX</span><span class="team-tag">Figma</span></div>
             <div class="team-links"><a class="team-link" href="https://www.linkedin.com/in/belinda-ely-berber/" target="_blank" rel="noopener" aria-label="Belle Ely Berber on LinkedIn"><span>LinkedIn</span><span aria-hidden="true">&#8599;</span></a><a class="team-link" href="mailto:belle@explorationsites.com" aria-label="Email Belle Ely Berber"><span>Email</span></a></div>
           </div>
         </div>
