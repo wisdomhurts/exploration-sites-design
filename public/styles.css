@@ -1517,6 +1517,22 @@
       margin-bottom: 8px;
     }
 
+    /* Only the market-cap stat links (to the client list it is derived from).
+       role="img" was dropped: an anchor carries its own accessible name via
+       aria-label, and the visual children stay aria-hidden. */
+    .stat-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .stat-link .stat-number,
+    .stat-link .stat-label { transition: color 0.2s ease; }
+    .stat-link:hover .stat-number,
+    .stat-link:focus-visible .stat-number { color: var(--ore); }
+    .stat-link:hover .stat-label,
+    .stat-link:focus-visible .stat-label { color: var(--graphite); }
+    .stat-link:focus-visible { outline: 2px solid var(--ore); outline-offset: 6px; }
+
     .stat-label {
       font-family: var(--font-sans);
       font-size: 11px;
