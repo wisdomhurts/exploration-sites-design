@@ -64,7 +64,7 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
     <style>
       .booking-cover { margin-top: 32px; }
       .booking-cover-label {
-        font-family: var(--font-mono);
+        font-family: var(--font-sans);
         font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
         color: var(--muted); margin-bottom: 14px;
       }
@@ -98,7 +98,7 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
       }
       .booking-tz {
         margin-top: 18px;
-        font-family: var(--font-mono);
+        font-family: var(--font-sans);
         font-size: 11px; letter-spacing: 0.06em;
         color: var(--muted);
       }
@@ -118,7 +118,7 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
         display: flex; flex-direction: column; gap: 14px;
       }
       .booking-logos-label {
-        font-family: var(--font-mono);
+        font-family: var(--font-sans);
         font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
         color: var(--muted);
       }
@@ -131,6 +131,15 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
         opacity: 0.55; filter: grayscale(1);
         transition: opacity 0.2s var(--ease-out-soft);
       }
+      /* The client logo files carry large transparent margins (Fireweed's mark is
+         15% of its file height, Montage 29%, Endeavour 27%), so a flat 32px renders
+         them as specks. Per-logo heights bring every mark's INK to ~24-30px, the
+         same fix contact.html and engagement.html apply to their trust strips. */
+      .booking-logos-row img[alt="Montage Gold"]        { height: 92px; }
+      .booking-logos-row img[alt="Fireweed Metals"]     { height: 160px; }
+      .booking-logos-row img[alt="Endeavour Mining"]    { height: 84px; }
+      .booking-logos-row img[alt="Snowline Gold"]       { height: 34px; }
+      .booking-logos-row img[alt="Dolly Varden Silver"] { height: 72px; }
       .booking-logos-row img:hover { opacity: 0.85; }
     </style>
 
