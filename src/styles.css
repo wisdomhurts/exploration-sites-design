@@ -2898,6 +2898,7 @@
     .design-card:hover .design-card-media img,
     .design-card:focus-visible .design-card-media img { transform: scale(1.02); }
     .design-card:focus-visible { outline: 2px solid var(--ore); outline-offset: 4px; border-radius: 10px; }
+    a.design-card { text-decoration: none; cursor: pointer; }
     .design-card-meta { display: flex; flex-direction: column; gap: 2px; padding: 12px 2px 0; }
     .design-card-title { font-size: 15px; font-weight: 600; color: var(--graphite); }
     .design-card-type { font-size: 13px; color: var(--muted); }

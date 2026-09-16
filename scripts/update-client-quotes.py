@@ -48,6 +48,7 @@ CASE_WALL = {
     'FWZ':  {'from': '$16.5M'},   # Fireweed Metals, 2018
     'WRLG': {'from': '$40M'},     # West Red Lake Gold, Aug 2023
     'BIG':  {'from': '$24M'},     # Hercules Metals, 2023
+    'SGD':  {'from': '$1.4B'},    # Snowline Gold, July 2025 (~174.4M sh x C$8.00 close, 2025-07-09)
 }
 
 BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '

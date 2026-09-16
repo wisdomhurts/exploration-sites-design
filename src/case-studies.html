@@ -2,7 +2,7 @@
 layout: base.html
 permalink: "case-studies.html"
 title: "Case Studies — Exploration Sites"
-description: "Case studies of Exploration Sites' investor maps, decks, and websites for exploration companies — including Montage Gold, Fireweed Metals, West Red Lake Gold, Dolly Varden, and Hercules Metals."
+description: "Case studies of Exploration Sites' investor maps, decks, and websites for exploration companies — including Montage Gold, Fireweed Metals, West Red Lake Gold, Dolly Varden, Hercules Metals, and Snowline Gold."
 ---
 
 <!-- PAGE HERO -->
@@ -17,6 +17,30 @@ description: "Case studies of Exploration Sites' investor maps, decks, and websi
 
 <!-- No-JS fallback: the reveal starts cases at opacity:0; keep them visible without JS. -->
 <noscript><style>.cs-flagship,.cs-cell{opacity:1;transform:none}</style></noscript>
+
+<style>
+  /* Fifth wall cell (Snowline, added 2026-09): the wall is a 2-up grid, so an odd
+     count would strand one cell beside a blank. The newest case spans the full
+     width instead — image left, facts right — and reads as the closing row. */
+  .cs-cell--wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: 40px;
+    border-right: 0;
+    padding-bottom: 0;
+  }
+  .cs-cell--wide .cs-cell-media { cursor: pointer; }
+  .cs-cell--wide .cs-cell-body { padding-top: 0; }
+  /* Rules: the two cells above it keep their bottom rule; the wide row ends the wall. */
+  .cs-wall .cs-cell:nth-last-child(-n+2):not(.cs-cell--wide) { border-bottom: 1px solid var(--border); }
+  .cs-wall .cs-cell--wide { border-bottom: 0; }
+  @media (max-width: 900px) {
+    .cs-cell--wide { grid-template-columns: 1fr; }
+    .cs-cell--wide .cs-cell-body { padding-top: 20px; }
+  }
+</style>
 
     <!-- MONTAGE GOLD (flagship) -->
 <section class="cs-flagship" data-reveal>
@@ -162,6 +186,33 @@ description: "Case studies of Exploration Sites' investor maps, decks, and websi
           <a href="locators-area-plays.html">Maps</a> &middot;
           <a href="sections.html">Sections</a> &middot;
           <a href="conference-booth.html">Booth</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- SNOWLINE GOLD -->
+    <article class="cs-cell cs-cell--wide" data-reveal>
+      <a class="cs-cell-media" href="https://snowlinegold.com/" target="_blank" rel="noopener"
+         aria-label="Snowline Gold investor website (opens in a new tab)">
+        <img src="images/sites/snowline.avif"
+             alt="The Snowline Gold investor website, built by Exploration Sites"
+             width="1200" height="750" loading="lazy" decoding="async">
+      </a>
+      <div class="cs-cell-body">
+        <h2 class="cs-name">Snowline Gold</h2>
+        <div class="cs-ticker">TSX:<b>SGD</b> &middot; Client since July 2025</div>
+        <p class="cs-traj">
+          <span class="cs-traj-from">$1.4B</span>
+          <span class="cs-arrow" aria-hidden="true">&rarr;</span>
+          <span class="sr-only">grew to</span>
+          <span class="cs-traj-to">$2.8B</span>
+        </p>
+        <p class="cs-qual">Reported market cap, July 2025 to Sept 2026 &mdash; company disclosure.</p>
+        <p class="cs-story">A billion-dollar Yukon discovery whose investor materials hadn&rsquo;t caught up with it. One launch package &mdash; ten investor maps, the corporate deck, and a new website &mdash; brought every surface up to the standard the Valley deposit had already earned.</p>
+        <p class="cs-services">
+          <a href="locators-area-plays.html">Maps</a> &middot;
+          <a href="presentations.html">Presentations</a> &middot;
+          <a href="webflow.html">Website</a>
         </p>
       </div>
     </article>
