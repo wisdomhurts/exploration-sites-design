@@ -10,9 +10,9 @@ that shows a quote / market cap consistent from a single fetch:
   - src/case-study-montage.html  Montage hero price + market cap, the outcomes
                                  band "to" figure + multiple, the hero ~Nx stat,
                                  the big pull-quote, and the meta description
-  - src/case-studies.html        Montage's demoted market-cap footnote + the
-                                 intro-prose "today" figure (the old journey rail
-                                 was replaced by a deliverables ledger, 2026-07)
+  - src/case-studies.html        every live "from -> to" trajectory on the
+                                 evidence wall (CASE_WALL: Montage, Fireweed,
+                                 WRLG, Hercules) plus the dated qualifier under it
 
 Montage's multiple is computed against its ~C$130M market cap when Exploration
 Sites came on board in 2023 (MONTAGE_BASELINE). Because the clients-table Montage
@@ -34,11 +34,21 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLIENTS_HTML = os.path.join(ROOT, 'src', 'clients.html')
 MONTAGE_HTML = os.path.join(ROOT, 'src', 'case-study-montage.html')
 CASES_HTML   = os.path.join(ROOT, 'src', 'case-studies.html')
-INDEX_HTML   = os.path.join(ROOT, 'src', 'index.html')
 PROOF_JSON   = os.path.join(ROOT, 'src', '_data', 'proof.json')
 
 MONTAGE_TICKER = 'MAU'        # TSX
 MONTAGE_BASELINE = 130e6      # ~C$130M market cap when ES came on board, 2023
+
+# Every case on the case-studies "evidence wall" whose trajectory ends in a live
+# market cap. Keyed by ticker (as it appears in the clients table); `from` is the
+# static starting figure exactly as written in the .cs-traj-from span — it's the
+# regex anchor, so it must match the HTML character-for-character.
+CASE_WALL = {
+    'MAU':  {'from': '$130M'},    # Montage Gold, 2023
+    'FWZ':  {'from': '$16.5M'},   # Fireweed Metals, 2018
+    'WRLG': {'from': '$40M'},     # West Red Lake Gold, Aug 2023
+    'BIG':  {'from': '$24M'},     # Hercules Metals, 2023
+}
 
 BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
               '(KHTML, like Gecko) Chrome/124.0 Safari/537.36')
@@ -109,13 +119,15 @@ def fmt_mcap(mcap):
 def fetch_quotes(html):
     """Fetch fresh quotes for all companies with tickers.
 
-    Returns (updates, montage) where:
+    Returns (updates, montage, caps) where:
       updates  = {name: (price_str, mcap_str)}
       montage  = {'price': float, 'mcap': float} or None
+      caps     = {ticker: float mcap} for every CASE_WALL ticker that fetched
     """
     rows = parse_rows(html)
     updates = {}
     montage = None
+    caps = {}
     total = success = skipped = 0
 
     session = proxied_session()
@@ -143,13 +155,15 @@ def fetch_quotes(html):
                     success += 1
                 if ticker == MONTAGE_TICKER and fi.market_cap:
                     montage = {'price': float(fi.last_price), 'mcap': float(fi.market_cap)}
+                if ticker in CASE_WALL and fi.market_cap:
+                    caps[ticker] = float(fi.market_cap)
         except Exception:
             pass
 
         time.sleep(1 if total % 50 == 0 else 0.2)
 
     print(f"Fetched {total} tickers: {success} updated, {total - success} failed, {skipped} skipped")
-    return updates, montage
+    return updates, montage, caps
 
 
 def apply_updates(html, updates):
@@ -236,30 +250,47 @@ def update_montage_pages(montage):
     with open(MONTAGE_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
-    # ---- case-studies.html (Montage is the FIRST/flagship case; only touch that one) ----
+    # (case-studies.html is handled for every wall cell by update_case_wall; the
+    # homepage "Outcomes" band this used to touch was removed in the 2026-07 reframe.)
+
+
+def fmt_wall_cap(mcap):
+    """Display form for a case-wall destination figure: $7.6B / $749M."""
+    return f"${mcap/1e9:.1f}B" if mcap >= 1e9 else f"${mcap/1e6:.0f}M"
+
+
+def update_case_wall(caps):
+    """Keep every live trajectory on the case-studies evidence wall current.
+
+    Each cell reads "<from> -> <to>" with a qualifier line beneath. The <to> figure
+    is the company's current market cap; the qualifier carries the as-of month so
+    the number is dated evidence, not an undated claim. Cells whose ticker didn't
+    fetch this run are left untouched (they still show last hour's value, which is
+    the least-wrong fallback). Static cells (Dolly Varden's exit) have no ticker in
+    CASE_WALL and are never matched."""
+    if not caps:
+        print("No case-wall caps fetched -- skipping case-studies sync")
+        return
+    as_of = f"{datetime.now():%b %Y}".replace('Sep ', 'Sept ')
     with open(CASES_HTML, 'r', encoding='utf-8') as f:
         h = f.read()
-    # Montage is the flagship "Evidence Wall" panel (2026-07 redesign). Its market cap
-    # now lives ONLY in the trajectory display number: the .cs-traj-to span that follows
-    # the "$130M -> grew to" sequence. Keep that destination figure fresh. (The other
-    # four wall cells are static, as they always were.)
-    h = _sub(
-        h,
-        r'(<span class="cs-traj-from">\$130M</span>\s*'
-        r'<span class="cs-arrow"[^>]*>&rarr;</span>\s*'
-        r'<span class="sr-only">grew to</span>\s*'
-        r'<span class="cs-traj-to">)\$[\d.]+B(</span>)',
-        rf'\g<1>{cap1}\g<2>', 'cases montage flagship cap', count=1)
+    for ticker, cell in CASE_WALL.items():
+        if ticker not in caps:
+            print(f"  [warn] {ticker} not fetched; wall cell left as-is")
+            continue
+        to = fmt_wall_cap(caps[ticker])
+        # The trajectory: anchor on the static "from" figure, replace the "to".
+        h = _sub(
+            h,
+            r'(<span class="cs-traj-from">' + re.escape(cell['from']) + r'</span>\s*'
+            r'<span class="cs-arrow"[^>]*>&rarr;</span>\s*'
+            r'<span class="sr-only">grew to</span>\s*'
+            r'<span class="cs-traj-to">)\$[\d.]+[BM](</span>\s*</p>\s*'
+            # The qualifier directly beneath: "... 2018 to <today|Mon YYYY> — company disclosure."
+            r'<p class="cs-qual">Reported market cap(?:italisation)?, [^<]*? to )(?:today|[A-Z][a-z]+ \d{4})( &mdash; company disclosure\.)',
+            rf'\g<1>{to}\g<2>{as_of}\g<3>', f'case wall {ticker}', count=1)
+        print(f"  case wall {ticker}: -> {to} ({as_of})")
     with open(CASES_HTML, 'w', encoding='utf-8') as f:
-        f.write(h)
-
-    # ---- index.html (homepage "Outcomes" band — keep the Montage card's cap in
-    # lockstep with case-studies so the two pages never disagree) ----
-    with open(INDEX_HTML, 'r', encoding='utf-8') as f:
-        h = f.read()
-    h = _sub(h, r'(<span class="outcome-card-cap">Company-reported market cap ~\$130M \(2023\) to ~)\$[\d.]+B',
-             rf'\g<1>{cap1}', 'index montage outcomes cap', count=1)
-    with open(INDEX_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 
 
@@ -295,7 +326,7 @@ def main():
     with open(CLIENTS_HTML, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    updates, montage = fetch_quotes(html)
+    updates, montage, caps = fetch_quotes(html)
 
     if updates:
         html, total_b = apply_updates(html, updates)
@@ -307,6 +338,7 @@ def main():
         print("No client updates to apply")
 
     update_montage_pages(montage)
+    update_case_wall(caps)
 
 
 if __name__ == '__main__':
