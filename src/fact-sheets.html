@@ -30,6 +30,33 @@ permalink: "fact-sheets.html"
 
     <div class="divider"></div>
 
+    <!-- FACT SHEET GALLERY -->
+    <section class="section">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-headline">Recent fact sheets.</h2>
+      <p class="body-text" style="max-width: 62ch;">Front pages, as issued. Each one is the company&rsquo;s deck reduced to what a generalist needs before the meeting &mdash; and revised every time a number moves.</p>
+      <div class="design-grid design-grid--4">
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/factsheet-wrlg-full.avif" data-caption="West Red Lake Gold &mdash; investor fact sheet, September 2024">
+          <span class="design-card-media design-card-media--portrait"><img src="/images/design/factsheet-wrlg.avif" alt="West Red Lake Gold one-page fact sheet: Madsen Mine acquisition terms, resource highlights and restart approach" loading="lazy" width="933" height="1200"></span>
+          <span class="design-card-meta"><span class="design-card-title">West Red Lake Gold</span><span class="design-card-type">Madsen restart &middot; Sept 2024</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/factsheet-dolly-varden-full.avif" data-caption="Dolly Varden Silver &mdash; investor fact sheet, April 2025">
+          <span class="design-card-media design-card-media--portrait"><img src="/images/design/factsheet-dolly-varden.avif" alt="Dolly Varden Silver one-page fact sheet: combined project benefits, claim map, capitalization and shareholder mix" loading="lazy" width="927" height="1200"></span>
+          <span class="design-card-meta"><span class="design-card-title">Dolly Varden Silver</span><span class="design-card-type">Kitsault Valley &middot; April 2025</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/factsheet-hercules-full.avif" data-caption="Hercules Metals &mdash; investor fact sheet, December 2024">
+          <span class="design-card-media design-card-media--portrait"><img src="/images/design/factsheet-hercules.avif" alt="Hercules Metals one-page fact sheet: investment highlights, project location, size, access and infrastructure" loading="lazy" width="675" height="1200"></span>
+          <span class="design-card-meta"><span class="design-card-title">Hercules Metals</span><span class="design-card-type">Porphyry copper &middot; Dec 2024</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/factsheet-silver-viper-full.avif" data-caption="Silver Viper Minerals &mdash; investor fact sheet, February 2026 (PDAC)">
+          <span class="design-card-media design-card-media--portrait"><img src="/images/design/factsheet-silver-viper.avif" alt="Silver Viper Minerals one-page fact sheet: company overview, investment highlights, capital structure and board" loading="lazy" width="948" height="1200"></span>
+          <span class="design-card-meta"><span class="design-card-title">Silver Viper Minerals</span><span class="design-card-type">TSX Venture 50 &middot; PDAC 2026</span></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section class="cta-section">
       <h2 class="cta-headline">Need a fact sheet that lands?</h2>
       <p class="cta-sub">Tell us about your project and what you want an investor to remember.</p>
@@ -39,3 +66,13 @@ permalink: "fact-sheets.html"
     </section>
 
     <div class="divider"></div>
+
+  <!-- Shared lightbox (selected work) -->
+  <div class="lightbox" id="work-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="" hidden>
+      <div class="lightbox-video" hidden></div>
+      <figcaption class="lightbox-cap"></figcaption>
+    </figure>
+  </div>

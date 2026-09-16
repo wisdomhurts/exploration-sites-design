@@ -6,69 +6,6 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
 ---
 
     <style>
-      /* --- Above-fold proof (ITEM 19) --- */
-      .hero-proof {
-        margin-top: 28px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 10px 20px;
-        pointer-events: auto;
-      }
-      .hero-proof-stat {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        letter-spacing: 0.01em;
-        color: var(--muted);
-      }
-      /* Accessible "clients by region" panel — the keyboard/SR route to the globe's
-         geographic proof (A11Y-09). Quiet mono row beneath the proof bar. */
-      .hero-clients {
-        margin-top: 16px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 8px 16px;
-        pointer-events: auto;
-      }
-      .hero-clients-label {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--graticule);
-      }
-      .hero-clients-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px 14px;
-      }
-      .hero-clients-list li {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.01em;
-        color: var(--muted);
-      }
-      .hero-clients-count { color: var(--graphite); font-weight: 500; }
-      .hero-proof-link { /* small gold link — uses deepened --ore-text for AA contrast (A11Y-05) */
-        font-family: var(--font-sans);
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        color: var(--ore-text);
-        text-decoration: none;
-        white-space: nowrap;
-        pointer-events: auto;
-      }
-      .hero-proof-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-      .hero-proof-link:focus-visible {
-        outline: 2px solid var(--ore);
-        outline-offset: 3px;
-        border-radius: 2px;
-      }
       .hero-text-link {
         font-family: var(--font-sans);
         font-size: 14px; font-weight: 500;
@@ -112,15 +49,6 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
       }
       /* Once the WebGL globe boots, hide the fallback. */
       .hero-globe.is-live .hero-globe-fallback { display: none; }
-      /* Mobile: match the live globe's centered treatment (it's absolute, so the
-         container's justify-content:center can't move it — center it explicitly). */
-      @media (max-width: 767px) {
-        .hero-globe-fallback {
-          right: 50%;
-          width: min(420px, 80vw);
-          transform: translate(50%, -50%);
-        }
-      }
 
       /* --- NRMP commercial ---
          Announcement panel above the Investor Maps gallery: vellum field,
@@ -265,7 +193,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             var el = document.querySelector('.hero-rotate');
             if (!el) return;
             if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            var words = ['deposit', 'project', 'idea', 'venture'];
+            var words = ['deposit', 'project', 'discovery', 'target'];
             var i = 0;
             setInterval(function () {
               i = (i + 1) % words.length;
@@ -309,9 +237,9 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <div class="stat-number" aria-hidden="true">{{ proof.websites }}+</div>
             <div class="stat-label" aria-hidden="true">Websites Launched</div>
           </a>
-          <a class="stat-link" href="clients.html" aria-label="${{ proof.marketCapB }}B+ in client market cap trusts us — see the full client list">
+          <a class="stat-link" href="clients.html" aria-label="${{ proof.marketCapB }} billion combined client market cap as of {{ proof.asOf }} — see the full client list">
             <div class="stat-number" aria-hidden="true">${{ proof.marketCapB }}B+</div>
-            <div class="stat-label" aria-hidden="true">In client market cap trusts us</div>
+            <div class="stat-label" aria-hidden="true">Client market cap &middot; {{ proof.asOf }}</div>
           </a>
           <a class="stat-link" href="why.html" aria-label="{{ proof.years }} years in business — why we exist">
             <div class="stat-number" aria-hidden="true">{{ proof.years }}</div>
@@ -321,6 +249,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
       </div>
 
       <!-- COMPLIANCE-06: source/attribution caption for the client market-cap stat -->
+      <p class="stats-source">Combined market capitalisation of current and former clients as reported by each company, {{ proof.asOf }}; figures move with the market and are shown for context only. <a href="clients.html">Full client list &rarr;</a></p>
 
       <!-- NRMP COMMERCIAL -->
       <aside class="nrmp-comm" aria-label="Introducing the News-Release Map Program">
@@ -492,81 +421,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             show(0); schedule();
           })();
         </script>
-        <div class="showcase-grid showcase-grid--maps" style="display:none" hidden>
 
-          <button type="button" class="work-card" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
-            <span class="work-card-media"><img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Locators &amp; Area Plays</span>
-              <span class="work-card-title">NGEX &mdash; Vicu&ntilde;a District</span>
-              <span class="work-card-type">Regional locator</span>
-            </span>
-          </button>
-
-          <button type="button" class="work-card" data-lightbox data-full="images/work/kincora-nsw-full.avif" data-caption="Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia">
-            <span class="work-card-media"><img src="images/work/kincora-nsw.avif" alt="Macquarie Arc projects and mineral belts area-play map produced for Kincora" loading="lazy" width="1400" height="1181"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Locators &amp; Area Plays</span>
-              <span class="work-card-title">Kincora &mdash; Macquarie Arc</span>
-              <span class="work-card-type">Area play, NSW Australia</span>
-            </span>
-          </button>
-
-          <button type="button" class="work-card" data-lightbox data-full="images/work/nfg-ownership.webp" data-caption="New Found Gold — claim ownership &amp; target map">
-            <span class="work-card-media"><img src="images/work/nfg-ownership.webp" alt="Claim ownership and target map produced for New Found Gold" loading="lazy"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Property &amp; Target</span>
-              <span class="work-card-title">New Found Gold</span>
-              <span class="work-card-type">Claim ownership &amp; targets</span>
-            </span>
-          </button>
-
-          <button type="button" class="work-card" data-lightbox data-full="images/work/montage-geophysics.webp" data-caption="Montage Gold — resistivity &amp; VTEM geophysics">
-            <span class="work-card-media"><img src="images/work/montage-geophysics.webp" alt="Resistivity and VTEM geophysics figure produced for Montage Gold" loading="lazy"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Geophysics</span>
-              <span class="work-card-title">Montage Gold</span>
-              <span class="work-card-type">Resistivity &amp; VTEM survey</span>
-            </span>
-          </button>
-
-          <button type="button" class="work-card" data-lightbox data-full="images/work/nfg-3d.webp" data-caption="New Found Gold — 3D block model">
-            <span class="work-card-media"><img src="images/work/nfg-3d.webp" alt="3D block model produced for New Found Gold" loading="lazy"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">3D Isometric Models</span>
-              <span class="work-card-title">New Found Gold</span>
-              <span class="work-card-type">3D block model</span>
-            </span>
-          </button>
-
-          <button type="button" class="work-card" data-lightbox data-full="images/work/tigergold-model.webp" data-caption="Tiger Gold — Quinchía extended geological model">
-            <span class="work-card-media"><img src="images/work/tigergold-model.webp" alt="Extended 3D geological model produced for Tiger Gold, Quinchía" loading="lazy"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">3D Isometric Models</span>
-              <span class="work-card-title">Tiger Gold &mdash; Quinch&iacute;a</span>
-              <span class="work-card-type">Extended geological model</span>
-            </span>
-          </button>
-
-          <a class="work-card" href="sections.html">
-            <span class="work-card-media"><img src="images/work/long-section-dolly-varden.avif" alt="Dolly Varden Silver Wolf vein long section produced by Exploration Sites" loading="lazy" width="2000" height="1713"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Long Sections</span>
-              <span class="work-card-title">Cross-sections &amp; long sections</span>
-              <span class="work-card-type">View examples &rarr;</span>
-            </span>
-          </a>
-
-          <a class="work-card" href="conceptual-schematic.html">
-            <span class="work-card-media"><img src="images/work/schematic-algogrande.webp" alt="AlgoGrande porphyry deposit conceptual model produced by Exploration Sites" loading="lazy" width="2000" height="1347"></span>
-            <span class="work-card-meta">
-              <span class="work-card-cat">Conceptual Schematic</span>
-              <span class="work-card-title">Deposit models &amp; schematics</span>
-              <span class="work-card-type">View examples &rarr;</span>
-            </span>
-          </a>
-
-        </div>
         </div>
       </div>
 
@@ -586,7 +441,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <span class="work-card-meta">              <span class="work-card-title">Avino Silver &amp; Gold</span>            </span>
           </a>
           <a class="work-card" href="https://www.blackrocksilver.com/" target="_blank" rel="noopener" aria-label="Black Rock Silver website (opens in a new tab)">
-            <span class="work-card-media work-card-media--wide"><img src="images/sites/blackrocksilver.png" alt="Black Rock Silver investor website" loading="lazy"></span>
+            <span class="work-card-media work-card-media--wide"><img src="images/sites/blackrocksilver.avif" alt="Black Rock Silver investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Black Rock Silver</span>            </span>
           </a>
         </div>

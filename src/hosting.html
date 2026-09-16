@@ -5,6 +5,17 @@ description: "Fast, secure, fully managed hosting and maintenance for exploratio
 permalink: "hosting.html"
 ---
 
+    <style>
+      /* Page-scoped: same scope-row treatment as websites.html */
+      .scope-rows { margin-top: 20px; }
+      .scope-rows .contact-info-row { align-items: baseline; gap: 24px; }
+      .scope-rows .contact-info-value { text-align: right; }
+      @media (max-width: 560px) {
+        .scope-rows .contact-info-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 0; }
+        .scope-rows .contact-info-value { text-align: left; }
+      }
+    </style>
+
     <!-- PAGE HERO -->
     <section class="hero hero--page">
       <div class="section-label">Websites &middot; Hosting</div>
@@ -23,6 +34,45 @@ permalink: "hosting.html"
         <div>
           <p class="body-text">Your site runs on a global CDN with SSL, daily backups, and round-the-clock uptime monitoring. When news breaks or a figure changes, we make the update &mdash; no tickets, no plugins to wrangle.</p>
           <p class="body-text">Global CDN &amp; SSL &middot; Automatic backups &middot; Uptime monitoring &middot; Content updates &middot; Performance tuning.</p>
+          <div class="scope-rows">
+            <div class="contact-info-row">
+              <span class="contact-info-label">Platform</span>
+              <span class="contact-info-value">Webflow or WordPress &middot; global CDN &middot; SSL</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">Protection</span>
+              <span class="contact-info-value">Daily backups &middot; core &amp; plugin updates &middot; uptime monitoring</span>
+            </div>
+            <div class="contact-info-row">
+              <span class="contact-info-label">Updates</span>
+              <span class="contact-info-value">News releases, figures &amp; filings posted on request</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- RUNNING NOW -->
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Running now</div>
+          <h2 class="section-headline">Seven years, one site.</h2>
+        </div>
+        <div>
+          <p class="body-text">Fireweed Metals&rsquo; investor site has been built, hosted, and kept current by us since 2018 &mdash; through the growth from micro-cap zinc explorer to billion-dollar critical-minerals company. Every release, every figure, every filing posted.</p>
+          <div class="site-grid" style="margin-top: 24px; grid-template-columns: minmax(0, 1fr);">
+            <a class="site-card" href="https://fireweedmetals.com/" target="_blank" rel="noopener" aria-label="Fireweed Metals website (opens in a new tab)">
+              <span class="site-card-media"><img src="images/sites/fireweed.avif" alt="Fireweed Metals investor website, hosted and maintained by Exploration Sites" loading="lazy" width="1200" height="750"></span>
+              <span class="site-card-meta">
+                <span class="site-card-title">Fireweed Metals</span>
+                <span class="site-card-visit">Visit site &rarr;</span>
+              </span>
+            </a>
+          </div>
+          <p class="next-step" style="margin-top: 24px;">More of the sites we&rsquo;ve built: <a href="websites.html">Websites &rarr;</a> &nbsp;&middot;&nbsp; The Fireweed story: <a href="case-studies.html">Case studies &rarr;</a></p>
         </div>
       </div>
     </section>

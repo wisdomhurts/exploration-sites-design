@@ -5,6 +5,13 @@ description: "Brand identity for exploration and mining companies — logo, colo
 permalink: "logos-branding.html"
 ---
 
+    <style>
+      /* Page-scoped: logo marks sit on a plain Quartz field, not the vellum
+         gallery tile — a mark should be judged on paper, not on a coloured card. */
+      .brand-marks .design-card-media { background: var(--quartz); }
+      .brand-marks .design-card-media img { padding: 6%; box-sizing: border-box; }
+    </style>
+
     <!-- PAGE HERO -->
     <section class="hero hero--page">
       <div class="section-label">Design &middot; Brand</div>
@@ -30,6 +37,53 @@ permalink: "logos-branding.html"
 
     <div class="divider"></div>
 
+    <!-- FEATURED: SNOWLINE GUIDELINES -->
+    <section class="section">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-headline">Snowline Gold &mdash; the brand book.</h2>
+      <p class="body-text" style="max-width: 62ch;">Identity, logo usage, type, and colour in one document the whole company works from. The guidelines are what keep a news-release map and a roadshow deck looking like they came from the same desk two years later.</p>
+      <div class="design-grid design-grid--2">
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-snowline-cover-full.avif" data-caption="Snowline Gold &mdash; brand guidelines, cover">
+          <span class="design-card-media design-card-media--wide design-card-media--fill"><img src="/images/design/brand-snowline-cover.avif" alt="Cover of the Snowline Gold brand guidelines with the mountain mark and wordmark" loading="lazy" width="1200" height="675"></span>
+          <span class="design-card-meta"><span class="design-card-title">Brand guidelines</span><span class="design-card-type">Cover &middot; 2024</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-snowline-logo-full.avif" data-caption="Snowline Gold &mdash; logo lockups on light and dark">
+          <span class="design-card-media design-card-media--wide design-card-media--fill"><img src="/images/design/brand-snowline-logo.avif" alt="Snowline Gold logo lockups: horizontal and stacked, on white and on dark" loading="lazy" width="1200" height="675"></span>
+          <span class="design-card-meta"><span class="design-card-title">Logo lockups</span><span class="design-card-type">Horizontal, stacked, reversed</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-snowline-usage-full.avif" data-caption="Snowline Gold &mdash; logo usage rules">
+          <span class="design-card-media design-card-media--wide design-card-media--fill"><img src="/images/design/brand-snowline-usage.avif" alt="Snowline Gold logo usage page: clear space and three things not to do to the mark" loading="lazy" width="1200" height="675"></span>
+          <span class="design-card-meta"><span class="design-card-title">Logo usage</span><span class="design-card-type">Clear space &middot; what not to do</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-snowline-colour-full.avif" data-caption="Snowline Gold &mdash; colour system">
+          <span class="design-card-media design-card-media--wide design-card-media--fill"><img src="/images/design/brand-snowline-colour.avif" alt="Snowline Gold colour system: eight swatches with CMYK, RGB and hex values" loading="lazy" width="1200" height="641"></span>
+          <span class="design-card-meta"><span class="design-card-title">Colour system</span><span class="design-card-type">Print &amp; screen values</span></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- MARKS -->
+    <section class="section brand-marks">
+      <div class="section-label">Marks</div>
+      <h2 class="section-headline">Logos we&rsquo;ve drawn.</h2>
+      <p class="body-text" style="max-width: 62ch;">A mining mark has to survive a claim map at 12&nbsp;px, a booth banner at two metres, and a black-and-white SEDAR filing. These do.</p>
+      <div class="design-grid design-grid--2">
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-wrlg-logo.avif" data-caption="West Red Lake Gold Mines &mdash; logo &amp; wordmark">
+          <span class="design-card-media design-card-media--wide"><img src="/images/design/brand-wrlg-logo.avif" alt="West Red Lake Gold Mines logo: red square with maple leaf and layered waves above the wordmark" loading="lazy" width="1904" height="1133"></span>
+          <span class="design-card-meta"><span class="design-card-title">West Red Lake Gold</span><span class="design-card-type">Logo, wordmark &amp; full rollout &mdash; booth, fact sheet, deck, website</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/brand-dolly-varden-logo.avif" data-caption="Dolly Varden Silver &mdash; logo &amp; wordmark">
+          <span class="design-card-media design-card-media--wide"><img src="/images/design/brand-dolly-varden-logo.avif" alt="Dolly Varden Silver Corp logo: rounded-square mark with a stylised fish above the wordmark" loading="lazy" width="1904" height="1032"></span>
+          <span class="design-card-meta"><span class="design-card-title">Dolly Varden Silver</span><span class="design-card-type">Logo &amp; wordmark &middot; carried through six years of maps, decks and banners</span></span>
+        </button>
+      </div>
+      <p class="next-step" style="margin-top: 32px;">See the identity applied: <a href="conference-booth.html">Booth &amp; banners &rarr;</a> &nbsp;&middot;&nbsp; <a href="fact-sheets.html">Fact sheets &rarr;</a> &nbsp;&middot;&nbsp; <a href="websites.html">Websites &rarr;</a></p>
+    </section>
+
+    <div class="divider"></div>
+
     <section class="cta-section">
       <h2 class="cta-headline">Ready to look like one company?</h2>
       <p class="cta-sub">Tell us where your brand stands today and where you want it.</p>
@@ -39,3 +93,13 @@ permalink: "logos-branding.html"
     </section>
 
     <div class="divider"></div>
+
+  <!-- Shared lightbox (selected work) -->
+  <div class="lightbox" id="work-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="" hidden>
+      <div class="lightbox-video" hidden></div>
+      <figcaption class="lightbox-cap"></figcaption>
+    </figure>
+  </div>

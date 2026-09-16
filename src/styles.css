@@ -1541,6 +1541,20 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+    /* Source line under the proof band — the market-cap figure is a claim, so it
+       carries its as-of date and basis in the caption step (DESIGN.md: evidence
+       before assertions). Quiet: 12px, muted, centred under the grid. */
+    .stats-source {
+      margin: 22px auto 0;
+      max-width: 72ch;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .stats-source a { color: var(--ore-text, var(--ore)); text-decoration: none; font-weight: 500; white-space: nowrap; }
+    .stats-source a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
     /* --- TESTIMONIALS --- */
     .testimonials {
@@ -2852,6 +2866,44 @@
     .site-card-visit { font-size: 13px; font-weight: 600; color: var(--graphite); }
     .site-card:hover .site-card-visit { color: var(--ore); }
     @media (max-width: 760px) { .site-grid { grid-template-columns: 1fr; } }
+
+    /* --- DESIGN GALLERY (logos & branding / infographics / booth / fact sheets) ---
+       Print and brand deliverables don't share one aspect ratio the way maps do:
+       pull-up banners run ~1:2.4, fact sheets are letter portrait, flowsheets are
+       wide. Each figure sets its own aspect via a modifier and the image sits
+       object-fit: contain on vellum, so nothing gets cropped — the whole
+       deliverable is the proof. Lightbox on click, same as the map galleries. */
+    .design-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 28px; margin-top: 40px; }
+    .design-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .design-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .design-card { display: flex; flex-direction: column; text-align: left; background: none; border: none; padding: 0; margin: 0; font: inherit; color: inherit; cursor: zoom-in; min-width: 0; }
+    .design-card-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--vellum);
+      transition: border-color 0.27s ease, box-shadow 0.27s ease;
+    }
+    .design-card-media--tall     { aspect-ratio: 5 / 12; }   /* pull-up banner */
+    .design-card-media--portrait { aspect-ratio: 17 / 22; }  /* letter fact sheet */
+    .design-card-media--square   { aspect-ratio: 1 / 1; }    /* booth backdrop panel */
+    .design-card-media--wide     { aspect-ratio: 16 / 9; }   /* guideline spread / timeline */
+    .design-card-media img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 0.5s ease; }
+    .design-card-media--fill img { object-fit: cover; }
+    .design-card:hover .design-card-media,
+    .design-card:focus-visible .design-card-media { border-color: var(--ore); box-shadow: 0 16px 34px -20px rgba(45, 32, 15, 0.4); }
+    .design-card:hover .design-card-media img,
+    .design-card:focus-visible .design-card-media img { transform: scale(1.02); }
+    .design-card:focus-visible { outline: 2px solid var(--ore); outline-offset: 4px; border-radius: 10px; }
+    .design-card-meta { display: flex; flex-direction: column; gap: 2px; padding: 12px 2px 0; }
+    .design-card-title { font-size: 15px; font-weight: 600; color: var(--graphite); }
+    .design-card-type { font-size: 13px; color: var(--muted); }
+    @media (max-width: 1024px) { .design-grid, .design-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .design-grid, .design-grid--4, .design-grid--2 { grid-template-columns: 1fr; } .design-card-media--tall { aspect-ratio: 5 / 9; } }
+    @media (prefers-reduced-motion: reduce) { .design-card-media, .design-card-media img { transition: none; } .design-card:hover .design-card-media img { transform: none; } }
 
     /* ===== Homepage maps gallery + case-studies (merged from es-draft1) ===== */
 

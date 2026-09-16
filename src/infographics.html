@@ -30,6 +30,58 @@ permalink: "infographics.html"
 
     <div class="divider"></div>
 
+    <!-- FEATURED -->
+    <section class="section">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-headline">A few we&rsquo;ve made.</h2>
+
+      <div class="map-feature">
+        <button type="button" class="map-feature-media" data-lightbox data-full="/images/design/infographic-montage-flowsheet-full.avif" data-caption="Montage Gold &mdash; Kon&eacute; process flowsheet">
+          <img src="/images/design/infographic-montage-flowsheet.avif" alt="Process flowsheet for the Koné Gold Project from primary crusher through CIL to gold doré" loading="lazy" width="1200" height="804">
+        </button>
+        <div class="map-feature-text">
+          <div class="section-label">Flow sheet</div>
+          <h3 class="map-feature-title">Montage Gold &mdash; Kon&eacute; process flow</h3>
+          <p class="body-text">The feasibility-study flowsheet redrawn for a deck: crushing, HPGR, milling, CIL, and the gold room as one left-to-right read. An investor who has never seen a plant can follow the ore to the bar; a metallurgist finds nothing missing.</p>
+        </div>
+      </div>
+
+      <div class="map-feature">
+        <button type="button" class="map-feature-media" data-lightbox data-full="/images/design/infographic-fireweed-model-full.avif" data-caption="Fireweed Metals &mdash; Macmillan Pass mineralization model">
+          <img src="/images/design/infographic-fireweed-model.avif" alt="Block diagram of the Macmillan Pass mineralization model showing stratiform and vein sulphide zones against the stratigraphic column" loading="lazy" width="1200" height="1121">
+        </button>
+        <div class="map-feature-text">
+          <div class="section-label">Deposit model</div>
+          <h3 class="map-feature-title">Fireweed Metals &mdash; how the deposit formed</h3>
+          <p class="body-text">A stratigraphic column turned into a block model, with each style of mineralisation pulled out and labelled. It replaces three paragraphs of the technical report with one figure the market can hold in its head.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- MORE -->
+    <section class="section">
+      <div class="section-label">Timelines &amp; Panels</div>
+      <h2 class="section-headline">A wider selection.</h2>
+      <div class="design-grid">
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/infographic-wrlg-timeline-full.avif" data-caption="West Red Lake Gold &mdash; Madsen Mine history timeline, corporate deck">
+          <span class="design-card-media design-card-media--wide"><img src="/images/design/infographic-wrlg-timeline.avif" alt="Timeline of the Madsen Mine from 1936 production through the 2023 West Red Lake Gold purchase" loading="lazy" width="1200" height="397"></span>
+          <span class="design-card-meta"><span class="design-card-title">West Red Lake Gold</span><span class="design-card-type">Mine history timeline &middot; deck slide</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/infographic-rua-timeline-full.avif" data-caption="RUA Gold &mdash; catalyst timeline, website">
+          <span class="design-card-media design-card-media--wide"><img src="/images/design/infographic-rua-timeline.avif" alt="Catalyst timeline for RUA Gold showing RTO close, phased drilling and permitting milestones by quarter" loading="lazy" width="1200" height="564"></span>
+          <span class="design-card-meta"><span class="design-card-title">RUA Gold</span><span class="design-card-type">Catalyst timeline &middot; website</span></span>
+        </button>
+        <button type="button" class="design-card" data-lightbox data-full="/images/design/infographic-hercules-copper-full.avif" data-caption="Hercules Metals &mdash; copper thesis panel, soil sampling results">
+          <span class="design-card-media design-card-media--wide design-card-media--fill"><img src="/images/design/infographic-hercules-copper.avif" alt="Hercules Metals infographic panel combining soil-sampling results, key stats and a global copper supply-and-demand chart" loading="lazy" width="1200" height="1200"></span>
+          <span class="design-card-meta"><span class="design-card-title">Hercules Metals</span><span class="design-card-type">Copper thesis panel &middot; social &amp; booth</span></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section class="cta-section">
       <h2 class="cta-headline">Have something complex to explain?</h2>
       <p class="cta-sub">Tell us what investors keep getting lost on.</p>
@@ -39,3 +91,13 @@ permalink: "infographics.html"
     </section>
 
     <div class="divider"></div>
+
+  <!-- Shared lightbox (selected work) -->
+  <div class="lightbox" id="work-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="" hidden>
+      <div class="lightbox-video" hidden></div>
+      <figcaption class="lightbox-cap"></figcaption>
+    </figure>
+  </div>

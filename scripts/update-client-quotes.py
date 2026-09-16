@@ -274,12 +274,17 @@ def sync_index_market_cap(val):
     static text sourced from proof.json now.)"""
     with open(PROOF_JSON, 'r', encoding='utf-8') as f:
         proof = json.load(f)
-    if proof.get('marketCapB') != val:
+    # asOf is rendered beside the stat as its date ("Client market cap · Sept 2026"
+    # + the source caption), so it must move with the figure — a fresh number
+    # under a stale month is worse than no date at all.
+    as_of = f"{datetime.now():%b %Y}".replace('Sep ', 'Sept ')
+    if proof.get('marketCapB') != val or proof.get('asOf') != as_of:
         proof['marketCapB'] = val
+        proof['asOf'] = as_of
         with open(PROOF_JSON, 'w', encoding='utf-8') as f:
             json.dump(proof, f, indent=2)
             f.write('\n')
-        print(f"Synced proof.json marketCapB -> {val}")
+        print(f"Synced proof.json marketCapB -> {val}, asOf -> {as_of}")
     else:
         print("proof.json marketCapB already current")
 
