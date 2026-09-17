@@ -394,6 +394,14 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
               idx = i;
               tabs.forEach(function (t, j) { t.classList.toggle('is-active', j === i); t.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
               runBar(i);
+              // Phone: the rail is a single horizontal scroller — keep the active tab in
+              // view as the rotator advances. Scroll the list itself (not scrollIntoView,
+              // which could yank the page vertically while the reader is elsewhere).
+              var list = tabs[i] && tabs[i].closest('.maps-rail-list');
+              if (list && list.scrollWidth > list.clientWidth + 1) {
+                var li = tabs[i].parentNode;
+                list.scrollTo({ left: Math.max(0, li.offsetLeft - 16), behavior: reduce ? 'auto' : 'smooth' });
+              }
               var t = TYPES[i];
               if (reduce) { fill(t); return; }
               // Preload this category's 8 images while the current grid stays put, then

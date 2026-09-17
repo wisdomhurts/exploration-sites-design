@@ -152,6 +152,21 @@
       .maps-page { grid-template-columns: 1fr; gap: 0; }
       .maps-rail { position: static; padding-top: 40px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
       .maps-rail-list { flex-flow: row wrap; gap: 4px 20px; margin-bottom: 10px; }
+      /* Homepage tab rail: six labels wrapped 2/1/2/1 on a phone. One scrollable
+         row instead — snap per tab, no scrollbar, a soft fade on the right edge
+         so the overflow is discoverable. The active tab is scrolled into view by
+         the rotator script. Bleeds to the viewport edge on the right. */
+      .maps-rail--tabs { padding-top: 12px; margin-bottom: 18px; padding-bottom: 0; border-bottom: 0; position: relative; min-width: 0; max-width: 100%; }
+      .maps-rail--tabs .maps-rail-list {
+        flex-flow: row nowrap; gap: 0 22px; margin: 0; padding: 0 0 12px; max-width: 100%;
+        overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; border-bottom: 1px solid var(--border);
+        -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+                mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+      }
+      .maps-rail--tabs .maps-rail-list::-webkit-scrollbar { display: none; }
+      .maps-rail--tabs li { flex: 0 0 auto; scroll-snap-align: start; }
+      .maps-rail--tabs li:last-child { padding-right: 40px; } /* room so the last tab clears the fade */
     }
     .body-text:last-child { margin-bottom: 0; }
 
