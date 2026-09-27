@@ -1,11 +1,12 @@
 ---
 layout: base.html
 title: "Websites — Exploration Sites"
-description: "Investor websites for exploration and mining companies, built on Webflow and WordPress — clear visual storytelling that holds up in front of an institutional desk."
+description: "Investor websites for exploration and mining companies, with interactive ES3D integrations, Webflow, and WordPress — clear visual storytelling that holds up in front of an institutional desk."
 permalink: "websites.html"
 ---
 
     <style>
+      .es3d-preview-note { font-size: 13px; line-height: 1.6; color: var(--muted); }
       /* Page-scoped: platform tag on site cards + scope rows */
       .site-card-platform { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
       .scope-rows { margin-top: 8px; }
@@ -25,6 +26,25 @@ permalink: "websites.html"
       <p class="hero-from">From <b>${{ prices.websiteFrom }}</b> &middot; typically 5 weeks</p>
     </section>
 
+    <div class="divider"></div>
+
+    <!-- MIATA FEATURE -->
+    <section class="section" id="miata">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Featured website / Miata Metals</div>
+          <h2 class="section-headline">The company story.<br>The ground in 3D.</h2>
+          <p class="body-text">A corporate website for Miata Metals, with project information, investor resources, and an embedded ES3D presentation of Sela Creek.</p>
+          <p class="body-text">Visitors can follow the regional setting into the targets and drilling, then return to the project details and supporting disclosures.</p>
+          <p class="body-text"><a href="es3d.html#miata-demo">Explore the ES3D integration &rarr;</a></p>
+          <p class="es3d-preview-note">Private website preview &middot; password required ahead of launch.</p>
+        </div>
+        <a class="site-card" href="https://miata.gold/" target="_blank" rel="noopener" aria-label="Visit Miata Metals private website preview (password required, opens in a new tab)">
+          <span class="site-card-media"><img src="images/sites/miata.jpg" alt="Miata Metals website showing Sela Creek field footage and its Gold the market can see headline" width="1265" height="712" loading="lazy"></span>
+          <span class="site-card-meta"><span class="site-card-title">Miata Metals<span class="site-card-platform">Corporate website + ES3D</span></span><span class="site-card-visit">Private preview ↗</span></span>
+        </a>
+      </div>
+    </section>
     <div class="divider"></div>
 
     <!-- WEBFLOW -->
