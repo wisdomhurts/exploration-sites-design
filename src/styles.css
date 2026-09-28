@@ -3203,3 +3203,13 @@
     .nrmp-tier-cta:hover { background: var(--graphite); color: var(--surface); border-color: var(--graphite); }
     .nrmp-tier--featured .nrmp-tier-cta { background: var(--graphite); color: var(--surface); border-color: var(--graphite); }
     .nrmp-tier--featured .nrmp-tier-cta:hover { background: var(--ore-text); border-color: var(--ore-text); }
+
+/* Full-bleed sections use viewport units; clip their scrollbar-width overshoot
+   without creating a scrolling container that breaks sticky sections. */
+body { overflow-x: clip; }
+.nav-mobile-panel { max-width: 100%; visibility: hidden; }
+.nav-mobile-panel.is-open { visibility: visible; }
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  .hero-globe-canvas, .hero-globe-pin { display: none !important; }
+  .hero-globe.is-live .hero-globe-fallback { display: block; opacity: 1; }
+}
