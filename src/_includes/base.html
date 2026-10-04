@@ -6,7 +6,7 @@
 <body>
 {% include "nav.html" %}
 
-  <div class="page" id="main">
+  <main class="page" id="main">
     {% if mapType %}
     <div class="maps-page">
       {% include "maps-rail.html" %}
@@ -15,7 +15,7 @@
     {% else %}
     {{ content }}
     {% endif %}
-  </div>
+  </main>
 
   {% include "footer.html" %}
   {% include "scripts.html" %}

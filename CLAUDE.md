@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The **Exploration Sites** marketing website — a static site built with Eleventy (11ty) v3, deployed to Vercel. Exploration Sites is a mining investor-relations / visualization agency (Victoria BC). Repo: `github.com/wisdomhurts/exploration-sites-design`. Live preview: `https://es-draft-1.vercel.app`.
 
-**Workspace vs. repo (important):** the `x:\ESOS` folder on disk also contains many *unrelated* sibling projects and asset folders (`josh/`, `blueprint-rectifier/`, `adobe-mcp/`, `es3donline-opus48/`, `leapfrog clone/`, `ES Client Work/`, `Map Review/`, `Claude-Memory/`, Blender files, etc.). These are **gitignored or untracked** and are NOT part of this site. The git repo tracks only the Eleventy site: `src/`, `scripts/`, and the root config files. Don't treat the sibling directories as part of this codebase unless explicitly asked. (`CLAUDE-CODE-BUILD-PROMPT.md` at the root is the spec for a *different* product, the ES3D/ESOS SaaS platform, not this website.)
+**Workspace vs. repo (important):** the working copy now lives at `D:\Code\es site`. The old `x:\ESOS` workspace also contained many *unrelated* sibling projects and asset folders (`josh/`, `blueprint-rectifier/`, `adobe-mcp/`, `es3donline-opus48/`, `leapfrog clone/`, `ES Client Work/`, `Map Review/`, `Claude-Memory/`, Blender files, etc.). These are **gitignored or untracked** and are NOT part of this site. The git repo tracks only the Eleventy site: `src/`, `scripts/`, and the root config files. Don't treat the sibling directories as part of this codebase unless explicitly asked. (`CLAUDE-CODE-BUILD-PROMPT.md` at the root is the spec for a *different* product, the ES3D/ESOS SaaS platform, not this website.)
 
 ## Commands
 
@@ -17,25 +17,22 @@ npm run build-mask  # regenerate src/assets/world-mask.png from Natural Earth da
 ```
 
 - **No test suite.** `npm test` is a placeholder that exits non-zero; there is no test framework.
-- Build output goes to `public/` (Vercel `outputDirectory`).
+- Build output goes to `public/` (Vercel `outputDirectory`). It is gitignored — Vercel rebuilds it on every deploy.
 - Environment is Windows / PowerShell. `deploy.bat` and the Python scripts assume this and use hardcoded `x:\ESOS\...` paths.
 
 ## Deploy
 
-GitHub auto-deploy to Vercel is unreliable. To ship:
+**Ship by committing and pushing to `master`.** The hourly quote workflow (`.github/workflows/hourly-quotes.yml`) runs `vercel deploy --prod` from the GitHub HEAD every hour, so a manual `npx vercel --prod` of uncommitted work is overwritten within the hour. Push first; a manual `npx vercel --prod --yes` afterwards is fine for an immediate deploy.
 
-```bash
-npx vercel --prod --yes      # deploy the current build to production
-```
-
-`deploy.bat` does the full flow (git add/commit/push, then `vercel --prod --yes`). Either works.
+- Production domain: set the `SITE_URL` env var in Vercel (e.g. `https://www.explorationsites.com`) — `src/_data/site.js` uses it for canonicals, OG, JSON-LD, sitemap and robots.
+- `vercel.json` sends `X-Robots-Tag: noindex` for any `*.vercel.app` host, so preview/draft URLs never get indexed; the real domain is unaffected. It also sets the CSP and security headers — any new third-party script, iframe, form target or redirect target (e.g. Stripe Checkout) must be added to the CSP.
 
 ## Architecture
 
 **Eleventy static site.** `.eleventy.js` sets input `src/` → output `public/`, includes dir `_includes`. Pages are standalone `.html` files (no Markdown) with YAML front matter declaring `layout: base.html`, `title`, and `description`. The layout chain is:
 
 - `src/_includes/base.html` — document shell; pulls in `head.html`, `nav.html`, `footer.html`, `scripts.html`.
-- `head.html` — meta/OG tags, Google Fonts (Source Serif 4 / Inter / JetBrains Mono), and the **Three.js import map** (loaded from jsDelivr CDN, not npm).
+- `head.html` — meta/OG tags, icons, and the **Three.js import map** (pointing at the self-hosted, minified, versioned `src/assets/three/r169/`). Fonts are self-hosted in `src/fonts/` and declared in `styles.css` (one variable file per family, with a weight range).
 - `scripts.html` — all site-wide vanilla-JS behavior (mega-menu, IntersectionObserver reveals, count-up numbers, scroll-pinned steps, before/after compare slider). No build step or bundler — plain ES in `<script>`.
 
 CSS is a single large hand-authored file: `src/styles.css` (passed through verbatim). There is no CSS framework or preprocessor.
@@ -46,12 +43,21 @@ CSS is a single large hand-authored file: `src/styles.css` (passed through verba
 - **`pricing.html` is an intentional orphan** (Dorian, 2026-07-01, reaffirming commit `eb5b27e`): no nav, footer, or body link points to it. It stays live for direct URL/SEO; the nav's answer to pricing is Engagement. Don't re-add links to it.
 - **Stat numbers are serif and static** — the scroll-triggered count-up animation was removed 2026-07-01 (an understated brand doesn't perform its numbers).
 
+### Stripe checkout (`api/`)
+
+The only server code. Two Vercel Functions (web-standard `POST(request)` handlers, `.mjs` because `package.json` is CommonJS):
+
+- `api/checkout.mjs` — the NRMP tier buttons on `news-release-map-program.html` are `<form method="post" action="/api/checkout">` with `program=cadence|active|full`. Creates a subscription-mode Checkout Session (tier monthly price + one-time setup price, Stripe Tax on), redirects to Stripe; success → `checkout-success.html` (noindex, not in sitemap). If Stripe errors, it falls back to `book.html?program=…`.
+- `api/stripe-webhook.mjs` — verifies the signature and emails `accounts@explorationsites.com` (via Resend) on `checkout.session.completed`, `invoice.payment_failed`, `customer.subscription.deleted`. Returns 500 if the email fails so Stripe retries.
+- All keys and price IDs are Vercel env vars — names documented in `.env.example`. Never commit keys.
+- `.vercelignore` is a whitelist; `/api` must stay in it or the functions won't deploy.
+
 ### Hero globe (`src/assets/hero-globe.js`)
 
 The homepage hero is a Three.js dotted-globe point cloud:
 
 - A Fibonacci sphere of ~60k candidate points is filtered against `src/assets/world-mask.png` (an equirectangular land mask) to color land (Slate) vs ocean (Graticule) over a Quartz fill sphere.
-- **Pins are HTML `<a>` elements, not 3D objects.** The pin markup lives **inline in `src/index.html`** (the `.hero-globe` block, ~line 134), not in an include. It renders one fixed Victoria HQ pin (hardcoded) plus one pin per entry in `src/_data/clientpins.json` (looped with `{% for p in clientpins %}`, using `data-lat`/`data-lon` and an inline `style="color: {{ p.color }}"` — the dot is `background: currentColor`, so each pin is tinted by its client's commodity color). `hero-globe.js` collects every `.hero-globe-pin` from the DOM and re-projects it from 3D to screen coords every frame, applying cursor magnetism, pin-to-pin repulsion, tooltip gating, and auto-rotate slowdown. (`src/_includes/hero-globe.html` is a **dead/unused** copy — no page includes it.)
+- **Pins are HTML `<a>` elements, not 3D objects.** The pin markup lives **inline in `src/index.html`** (the `.hero-globe` block, ~line 134), not in an include. It renders one fixed Victoria HQ pin (hardcoded) plus one pin per entry in `src/_data/clientpins.json` (looped with `{% for p in clientpins %}`, using `data-lat`/`data-lon` and an inline `style="color: {{ p.color }}"` — the dot is `background: currentColor`, so each pin is tinted by its client's commodity color). `hero-globe.js` collects every `.hero-globe-pin` from the DOM and re-projects it from 3D to screen coords every frame, applying cursor magnetism, pin-to-pin repulsion, tooltip gating, and auto-rotate slowdown.
 - Tunable constants (magnet radius, repulsion, scale, camera, auto-rotate speed, orientation) are all named consts at the top of `hero-globe.js`. The globe is oriented so Western Canada faces the viewer.
 - The footer has its own WebGL effect in `src/assets/footer-shader.js`.
 
@@ -68,7 +74,7 @@ The homepage hero is a Three.js dotted-globe point cloud:
 
 `scripts/build-world-mask.mjs` — downloads Natural Earth 1:110m land GeoJSON and rasterizes it to `world-mask.png` (uses `@resvg/resvg-js` + `sharp`). Run via `npm run build-mask`.
 
-`scripts/build-client-projects.mjs` / `src/assets/client-projects.js` — an older geocode-from-`clients.html` path. Note `client-projects.js` is **not currently imported by the globe** (pins come from `clientpins.json`); treat it as a decoupled artifact unless you re-wire it.
+`scripts/build-client-projects.mjs` / `src/assets/client-projects.js` — an older geocode-from-`clients.html` path. `client-projects.js` is **not imported by the globe** and is no longer copied into the build (pins come from `clientpins.json`); treat it as a decoupled artifact unless you re-wire it.
 
 ## Gotchas
 

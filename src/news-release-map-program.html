@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: "News-Release Map Program — Exploration Sites"
-description: "A monthly program for news-release maps: a locked house-styled base, a set number of investor-ready maps each month, and a guaranteed 24-48h turnaround for exploration companies in active drilling."
+description: "Monthly news-release maps for companies in active drilling: a locked house-styled base, set maps each month, and a guaranteed 24–48h turnaround by tier."
 permalink: "news-release-map-program.html"
 ---
 
@@ -10,7 +10,7 @@ permalink: "news-release-map-program.html"
       <div class="section-label">Investor Maps &middot; Program</div>
       <h1 class="hero-headline">The News-Release<br>Map Program.</h1>
       <p class="hero-body">When you&rsquo;re drilling, every release needs a map &mdash; fast, on-brand, and consistent. We keep a locked, house-styled base for your project and turn each set of results into an investor-ready map on a set schedule. One monthly fee, no per-map back-and-forth.</p>
-      <p class="hero-from">From <b>${{ prices.nrmpCadence }}</b> / month</p>
+      <p class="hero-from">From <b>${{ prices.nrmpCadence }}</b> / month, plus one-time setup</p>
     </section>
 
     <div class="divider"></div>
@@ -24,7 +24,7 @@ permalink: "news-release-map-program.html"
         </div>
         <div data-reveal data-reveal-delay="1">
           <p class="body-text">Most news-release maps are the same map with new drill data. So we build your base once &mdash; the house-styled property base, the drill-hole and label template, the legend &mdash; and lock it. After that, each release is a fast, faithful update, not a fresh project.</p>
-          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed 24&ndash;48-hour turnaround</strong> from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
+          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed turnaround &mdash; 24 to 48 hours, depending on tier</strong> &mdash; from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
         </div>
       </div>
     </section>
@@ -47,7 +47,7 @@ permalink: "news-release-map-program.html"
             <li>Priority over one-off work</li>
           </ul>
           <p class="nrmp-tier-math">Works out to ~$625 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
-          <a href="{{ links.payNrmpCadence }}{% if links.payNrmpCadence == "book.html" %}?program=cadence{% endif %}" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></a>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="cadence"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
         <div class="nrmp-tier nrmp-tier--featured">
           <div class="nrmp-tier-name">Active Drill</div>
@@ -60,7 +60,7 @@ permalink: "news-release-map-program.html"
             <li>Resource-update maps included</li>
           </ul>
           <p class="nrmp-tier-math">Works out to ~$438 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
-          <a href="{{ links.payNrmpActive }}{% if links.payNrmpActive == "book.html" %}?program=active{% endif %}" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></a>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="active"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
         <div class="nrmp-tier">
           <div class="nrmp-tier-name">Full Program</div>
@@ -69,14 +69,15 @@ permalink: "news-release-map-program.html"
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
             <li>Everything in Active Drill</li>
-            <li>Same-day priority</li>
+            <li>First in the queue, ahead of all other work</li>
             <li>Quarterly base refresh</li>
           </ul>
           <p class="nrmp-tier-math">Works out to ~$300&ndash;375 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
-          <a href="{{ links.payNrmpFull }}{% if links.payNrmpFull == "book.html" %}?program=full{% endif %}" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></a>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="full"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
       </div>
-      <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">One-time base setup from ${{ prices.nrmpSetup }}. Maps beyond your monthly tier are billed at the ${{ prices.nrmpOverage }} member rate &mdash; vs ${{ prices.mapFrom }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
+      <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">Plus a one-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your monthly tier are billed at the ${{ prices.nrmpOverage }} member rate &mdash; vs ${{ prices.mapFrom }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
+      <p class="compliance-note" style="margin-top: 10px; max-width: 780px;">Program or retainer? A <a href="/engagement.html#retainers">monthly retainer</a> keeps your deck, fact sheet, site, and existing maps current at standard turnaround. The Map Program is built for drill season: new news-release maps on a guaranteed turnaround, ahead of all one-off work.</p>
     </section>
 
     <div class="divider"></div>
@@ -94,7 +95,7 @@ permalink: "news-release-map-program.html"
             <li><b>Pause.</b> Between programs, pause for up to six months with your locked base retained. Resume within twelve months and the setup fee is never charged again.</li>
             <li><b>Capacity.</b> Your tier buys standing capacity and priority, not map inventory &mdash; unused maps don&rsquo;t carry forward.</li>
             <li><b>Guarantee.</b> Turnaround is measured from clean data, and it&rsquo;s guaranteed &mdash; a late map is a free map, credited on that month&rsquo;s invoice.</li>
-            <li><b>Billing.</b> One-time base setup from ${{ prices.nrmpSetup }}. Maps beyond your tier at the ${{ prices.nrmpOverage }} member rate. Monthly, in CAD.</li>
+            <li><b>Billing.</b> One-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your tier at the ${{ prices.nrmpOverage }} member rate. Monthly, in CAD.</li>
           </ul>
         </div>
       </div>

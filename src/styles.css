@@ -1,10 +1,7 @@
     /* Self-hosted fonts (PERF-02/07) — latin woff2, font-display:swap, no third-party origin. */
     @font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/inter-300.woff2') format('woff2');}
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/inter-400.woff2') format('woff2');}
-    @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/inter-500.woff2') format('woff2');}
-    @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/inter-600.woff2') format('woff2');}
-    @font-face{font-family:'Source Serif 4';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/source-serif-4-300.woff2') format('woff2');}
-    @font-face{font-family:'Source Serif 4';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/source-serif-4-400.woff2') format('woff2');}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-400.woff2') format('woff2');}
+    @font-face{font-family:'Source Serif 4';font-style:normal;font-weight:300 600;font-display:swap;src:url('/fonts/source-serif-4-300.woff2') format('woff2');}
     /* Metric-matched Georgia fallback so the LCP serif headline swaps with ~zero layout shift. */
     @font-face{font-family:'Source Serif Fallback';src:local('Georgia');size-adjust:97%;ascent-override:95%;descent-override:25%;line-gap-override:0%;}
 
@@ -3203,6 +3200,9 @@
     .nrmp-tier-cta:hover { background: var(--graphite); color: var(--surface); border-color: var(--graphite); }
     .nrmp-tier--featured .nrmp-tier-cta { background: var(--graphite); color: var(--surface); border-color: var(--graphite); }
     .nrmp-tier--featured .nrmp-tier-cta:hover { background: var(--ore-text); border-color: var(--ore-text); }
+    /* Tier CTAs are <button>s inside a form posting to /api/checkout */
+    .nrmp-tier-form { margin: 0; }
+    button.nrmp-tier-cta { width: 100%; background: none; line-height: inherit; cursor: pointer; }
 
 /* Full-bleed sections use viewport units; clip their scrollbar-width overshoot
    without creating a scrolling container that breaks sticky sections. */

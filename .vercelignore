@@ -12,6 +12,7 @@
 # 2. Re-include only the site.
 !/src
 !/scripts
+!/api
 !/.eleventy.js
 !/package.json
 !/package-lock.json

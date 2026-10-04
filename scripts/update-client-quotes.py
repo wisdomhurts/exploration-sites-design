@@ -213,11 +213,12 @@ def apply_updates(html, updates):
             elif 'M' in s: total += v * 1e6
             elif 'K' in s: total += v * 1e3
 
-    new_total = f"${total/1e9:.0f}B+"
+    # Floor, not round: "$88.7B" must read "$88B+", never "$89B+".
+    new_total = f"${int(total // 1e9)}B+"
     html = re.sub(r'>\$\d+B\+<', f'>{new_total}<', html)
 
     print(f"Updated {count} client rows. Combined market cap: {new_total}")
-    return html, int(round(total / 1e9))
+    return html, int(total // 1e9)
 
 
 def _sub(html, pattern, repl, label, count=0):
@@ -285,10 +286,10 @@ def update_case_wall(caps):
             h,
             r'(<span class="cs-traj-from">' + re.escape(cell['from']) + r'</span>\s*'
             r'<span class="cs-arrow"[^>]*>&rarr;</span>\s*'
-            r'<span class="sr-only">grew to</span>\s*'
+            r'<span class="sr-only">(?:grew )?to</span>\s*'
             r'<span class="cs-traj-to">)\$[\d.]+[BM](</span>\s*</p>\s*'
             # The qualifier directly beneath: "... 2018 to <today|Mon YYYY> — company disclosure."
-            r'<p class="cs-qual">Reported market cap(?:italisation)?, [^<]*? to )(?:today|[A-Z][a-z]+ \d{4})( &mdash; company disclosure\.)',
+            r'<p class="cs-qual">(?:Reported market cap(?:italisation)?|Client market cap during engagement), [^<]*? to )(?:today|[A-Z][a-z]+ \d{4})( &mdash; (?:company disclosure|Yahoo Finance)\.)',
             rf'\g<1>{to}\g<2>{as_of}\g<3>', f'case wall {ticker}', count=1)
         print(f"  case wall {ticker}: -> {to} ({as_of})")
     with open(CASES_HTML, 'w', encoding='utf-8') as f:
