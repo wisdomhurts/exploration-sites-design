@@ -8,7 +8,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/hero-globe.js");
   eleventyConfig.addPassthroughCopy("src/assets/three");
   eleventyConfig.addPassthroughCopy("src/assets/world-mask.png");
-  eleventyConfig.addPassthroughCopy("src/assets/client-projects.js");
   eleventyConfig.addPassthroughCopy("src/assets/footer-shader.js");
   return {
     dir: {

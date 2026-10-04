@@ -72,3 +72,6 @@ es3donline-opus48/
 # Python bytecode cache
 __pycache__/
 *.pyc
+
+# Eleventy build output — Vercel rebuilds it on deploy
+public/
