@@ -31,7 +31,7 @@ npm run build-mask  # regenerate src/assets/world-mask.png from Natural Earth da
 
 **Eleventy static site.** `.eleventy.js` sets input `src/` → output `public/`, includes dir `_includes`. Pages are standalone `.html` files (no Markdown) with YAML front matter declaring `layout: base.html`, `title`, and `description`. The layout chain is:
 
-- `src/_includes/base.html` — document shell; pulls in `head.html`, `nav.html`, `footer.html`, `scripts.html`.
+- `src/_includes/base.html` — document shell; pulls in `head.html`, `nav.html`, `footer.html`, `scripts.html`. Content sits in `<main class="page">` (1440px max, side padding); a page whose sections are full-bleed bands sets `fullBleed: true` to drop that frame (`engagement.html` does — its own design tokens are scoped to `.eng-main`). Page-specific JSON-LD goes in the `pageSchema` front-matter key.
 - `head.html` — meta/OG tags, icons, and the **Three.js import map** (pointing at the self-hosted, minified, versioned `src/assets/three/r169/`). Fonts are self-hosted in `src/fonts/` and declared in `styles.css` (one variable file per family, with a weight range).
 - `scripts.html` — all site-wide vanilla-JS behavior (mega-menu, IntersectionObserver reveals, count-up numbers, scroll-pinned steps, before/after compare slider). No build step or bundler — plain ES in `<script>`.
 

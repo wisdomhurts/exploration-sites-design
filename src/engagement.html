@@ -1,43 +1,14 @@
 ---
+layout: base.html
 permalink: "engagement.html"
 title: "Project, Launch & Retainer Engagements — Exploration Sites"
 description: "Project work on one fixed quote, a complete launch package, or a monthly retainer — each built around your exploration project and timeline."
+fullBleed: true
+pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We Work With Exploration Companies","description":"Project, launch, and retainer engagements for exploration-stage mining companies.","url":"{{ site.url }}/engagement.html","provider":{"@type":"ProfessionalService","name":"Exploration Sites"}}'
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>document.documentElement.classList.add('js');</script>
-<title>Project, Launch &amp; Retainer Engagements — Exploration Sites</title>
-<meta name="description" content="Project work on one fixed quote, a complete launch package, or a monthly retainer — each built around your exploration project and timeline.">
-<meta name="theme-color" content="#1A101F">
-<link rel="canonical" href="{{ site.url }}/engagement.html">
-<meta property="og:title" content="Project, Launch &amp; Retainer Engagements — Exploration Sites">
-<meta property="og:description" content="Project work on a single fixed quote, a complete launch package, and ongoing monthly retainers — each built around your project and timeline.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ site.url }}/engagement.html">
-<meta property="og:site_name" content="Exploration Sites">
-<meta property="og:image" content="{{ site.url }}/images/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How We Work With Exploration Companies — Exploration Sites">
-<meta name="twitter:description" content="Project, launch, and retainer engagements for exploration-stage mining companies.">
-<meta name="twitter:image" content="{{ site.url }}/images/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How We Work With Exploration Companies","description":"Project, launch, and retainer engagements for exploration-stage mining companies.","url":"{{ site.url }}/engagement.html","provider":{"@type":"ProfessionalService","name":"Exploration Sites"}}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 124.63 124.63'%3E%3Cg fill='%231A101F'%3E%3Cpolygon points='41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32'/%3E%3Cpolygon points='41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64'/%3E%3Cpolygon points='83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63'/%3E%3Cpolygon points='111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51'/%3E%3Cpath d='M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z'/%3E%3Cpath d='M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-300.woff2" crossorigin>
 <style>
-/* Self-hosted fonts (PERF-02/07) — latin woff2, no third-party origin. */
-@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-400.woff2') format('woff2');}
-@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:300 600;font-display:swap;src:url('/fonts/source-serif-4-300.woff2') format('woff2');}
-@font-face{font-family:'Source Serif Fallback';src:local('Georgia');size-adjust:97%;ascent-override:95%;descent-override:25%;line-gap-override:0%;}
-</style>
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
+  /* Page design tokens, scoped to this page's content (the shared nav/footer use styles.css). */
+  .eng-main {
     --font-serif: "Source Serif 4", "Source Serif Fallback", Georgia, serif;
     --font-sans: "Inter", -apple-system, sans-serif;
     --font-mono: "Inter", -apple-system, sans-serif;  /* data-voice retired to Inter — no monospace */
@@ -77,7 +48,7 @@ description: "Project work on one fixed quote, a complete launch package, or a m
 
   html { scroll-behavior: smooth; }
 
-  body {
+  .eng-main {
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.55;
@@ -99,231 +70,11 @@ description: "Project work on one fixed quote, a complete launch package, or a m
     font-variant-numeric: tabular-nums;
   }
 
-  /* ---------- ACCESSIBILITY ---------- */
-  /* --- ACCESSIBILITY (ported from src/styles.css) --- */
-  .skip-link {
-    position: absolute;
-    top: -100px;
-    left: 16px;
-    background: var(--graphite);
-    color: var(--surface);
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 999;
-    text-decoration: none;
-    transition: top 0.15s;
-  }
-  .skip-link:focus { top: 16px; }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--ore);
-    outline-offset: 3px;
-  }
-
-  .sr-only {
-    position: absolute; width: 1px; height: 1px;
-    padding: 0; margin: -1px; overflow: hidden;
-    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
-
   /* ---------- SHELL ---------- */
   .shell {
     max-width: var(--shell);
     margin: 0 auto;
     padding-inline: var(--pad);
-  }
-
-  /* ---------- TOP NAV (ported verbatim from src/styles.css; --navy→--graphite, --white→--surface, --ice→--ore, --shadow-deep inlined) ---------- */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--quartz);
-  }
-
-  .nav-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 80px;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--graphite);
-  }
-
-  .nav-logo-icon {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-logo-icon svg {
-    width: 30px;
-    height: 30px;
-  }
-
-  .nav-logo-text {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: lowercase;
-    color: var(--graphite);
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    position: relative;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--graphite);
-    text-decoration: none;
-    padding-bottom: 3px;
-    transition: color 0.2s var(--ease-out-soft);
-  }
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 100%;
-    bottom: 0;
-    height: 1px;
-    background: var(--ore);
-    transition: right 0.32s var(--ease-out-quart);
-  }
-  .nav-links a:hover { color: var(--graphite); }
-  .nav-links a:hover::after { right: 0; }
-  /* Current page: held-open underline — mirrors styles.css (this page doesn't load it) */
-  .nav-links a[aria-current="page"] { color: var(--graphite); }
-  .nav-links a[aria-current="page"]::after { right: 0; }
-  .nav-mobile-links > li > a[aria-current="page"] { color: var(--graphite); font-weight: 600; }
-
-  /* Mobile hamburger */
-  .nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: var(--graphite);
-  }
-
-  .nav-hamburger svg { width: 24px; height: 24px; }
-
-  .nav-mobile-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.3);
-    z-index: 150;
-  }
-
-  .nav-mobile-overlay.is-open { display: block; }
-
-  .nav-mobile-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background: var(--surface);
-    z-index: 200;
-    padding: 24px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-  }
-
-  .nav-mobile-panel.is-open { transform: translateX(0); }
-
-  .nav-mobile-close {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 32px;
-  }
-
-  .nav-mobile-close button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: var(--graphite);
-  }
-
-  .nav-mobile-close button svg { width: 24px; height: 24px; }
-
-  .nav-mobile-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .nav-mobile-links li a {
-    display: block;
-    padding: 14px 0;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--graphite);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-mobile-links li:first-child a { border-top: 1px solid var(--border); }
-
-  .nav-mobile-links li a:hover { color: var(--graphite); }
-
-  .nav-mobile-cta {
-    display: block;
-    margin-top: 24px;
-    background: var(--graphite);
-    color: var(--surface);
-    text-align: center;
-    padding: 14px 24px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .nav-cta {
-    background: var(--graphite);
-    color: var(--surface) !important;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease;
-  }
-
-  .nav-cta:hover {
-    opacity: 1 !important;
-    background: var(--basalt);
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 32px;
   }
 
   /* "Book a discovery call" button — editorial outline + arrow (variation 1) */
@@ -348,258 +99,10 @@ description: "Project work on one fixed quote, a complete launch package, or a m
   .btn-discovery:hover { border-color: var(--ore); }
   .btn-discovery:hover .arw { transform: translateX(4px); color: var(--ore); }
 
-  /* --- QA: keep the desktop nav on one line, collapse to hamburger before it crowds --- */
-  .nav-logo-text,
-  .nav .nav-links a,
-  .nav .mega-menu-trigger,
-  .nav-right .btn-discovery { white-space: nowrap; }
-  .nav-right { gap: 20px; }
-  .nav .nav-links { gap: 16px; }
-  @media (max-width: 1160px) {
-    .nav .nav-links { display: none; }
-    .nav .nav-right .btn-discovery { display: none; }
-    .nav .nav-hamburger { display: block; }
-  }
-
   /* On dark surfaces (footer, dark CTA bands) */
   .btn-discovery--on-dark { border-color: rgba(244,241,236,0.38); color: var(--quartz); }
   .btn-discovery--on-dark:hover { border-color: var(--ore); }
   .btn-discovery--on-dark:hover .arw { color: var(--ore); }
-
-  /* Compact in the header */
-  .nav-right .btn-discovery { font-size: 14px; padding: 9px 20px; }
-
-  .nav-strip {
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* --- MEGA MENU --- */
-  .mega-menu-wrapper {
-    position: relative;
-  }
-
-  .mega-menu-trigger {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--graphite);
-    text-decoration: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: inherit;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: opacity 0.15s;
-  }
-
-  .mega-menu-trigger:hover { opacity: 0.7; }
-
-  .mega-menu-trigger svg {
-    width: 10px;
-    height: 10px;
-    transition: transform 0.2s ease;
-  }
-
-  .mega-menu-wrapper:hover .mega-menu-trigger svg {
-    transform: rotate(180deg);
-  }
-
-  .mega-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding-top: 18px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 200;
-  }
-
-  .mega-menu-wrapper:hover .mega-menu,
-  .mega-menu-wrapper:focus-within .mega-menu {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .mega-menu-arrow {
-    width: 16px;
-    height: 8px;
-    margin: 0 0 -1px 36px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .mega-menu-arrow::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid rgba(0,0,0,0.08);
-  }
-
-  .mega-menu-arrow::after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--surface);
-  }
-
-  .mega-menu-panel {
-    width: 480px;
-    max-width: calc(100vw - 80px);
-    background: var(--surface);
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    box-shadow: rgba(26,16,31,0.01) 0px 1px 3px, rgba(26,16,31,0.02) 0px 3px 7px, rgba(26,16,31,0.02) 0px 7px 15px, rgba(26,16,31,0.04) 0px 14px 28px, rgba(26,16,31,0.05) 0px 23px 52px;
-    display: flex;
-    padding: 20px 24px;
-    gap: 20px;
-  }
-
-  .mega-menu-sidebar {
-    width: 160px;
-    flex-shrink: 0;
-    border-right: 1px solid rgba(0,0,0,0.06);
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .mega-menu-tab {
-    display: block;
-    padding: 10px 0;
-    text-decoration: none;
-    color: var(--muted);
-    transition: color 0.2s var(--ease-out-soft);
-  }
-
-  .mega-menu-tab:hover,
-  .mega-menu-tab.is-active {
-    color: var(--graphite);
-  }
-  .mega-menu-tab.is-active .mega-menu-tab-title {
-    font-weight: 500;
-  }
-
-  .mega-menu-tab-title {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--graphite);
-  }
-
-  .mega-menu-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .mega-menu-content-header {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 14px;
-  }
-
-  .mega-menu-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-bottom: 16px;
-  }
-
-  .mega-menu-card {
-    display: block;
-    padding: 10px 0;
-    border: 0;
-    background: transparent;
-    text-decoration: none;
-    color: var(--muted);
-    transition: color 0.2s var(--ease-out-soft);
-  }
-
-  .mega-menu-card:hover { color: var(--graphite); }
-
-  .mega-menu-card-title {
-    font-size: 14px;
-    font-weight: 400;
-    color: inherit;
-  }
-
-  .mega-menu-card-price {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ore-text);
-    margin-top: 6px;
-  }
-
-  .mega-menu-footer-link {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--graphite);
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-
-  .mega-menu-footer-link:hover { opacity: 0.7; }
-
-  /* Tab content panels — show/hide via JS */
-  .mega-menu-tab-panel { display: none; }
-  .mega-menu-tab-panel.is-active { display: block; }
-
-  /* ---------- SECTION RAIL (sticky in-page nav) ---------- */
-  .rail {
-    position: sticky; top: 64px; z-index: 110;
-    background: var(--graphite);
-    color: var(--quartz);
-  }
-  .rail-inner {
-    max-width: var(--shell);
-    margin: 0 auto;
-    padding-inline: var(--pad);
-    height: 52px;
-    display: flex; align-items: center; gap: clamp(16px, 4vw, 48px);
-  }
-  .rail-label {
-    font-family: var(--font-mono);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--graticule);
-    white-space: nowrap;
-  }
-  .rail-links {
-    display: flex; align-items: center; gap: clamp(14px, 3vw, 34px);
-    list-style: none; margin-left: auto;
-  }
-  .rail-links a {
-    display: inline-flex; align-items: baseline; gap: 8px;
-    font-size: 13px; font-weight: 500; color: var(--quartz);
-    text-decoration: none; opacity: .72;
-    transition: opacity .2s var(--ease-out-soft);
-    white-space: nowrap;
-  }
-  .rail-links a:hover, .rail-links a.is-active { opacity: 1; }
-  .rail-links a .ix {
-    font-family: var(--font-mono);
-    font-size: 10.5px; color: var(--ore);
-    font-variant-numeric: tabular-nums;
-  }
-  .rail-links a.is-active { color: #fff; }
 
   /* ---------- DOCUMENT MASTHEAD ---------- */
   .masthead { padding-top: 80px; padding-bottom: clamp(8px, 1.2vw, 14px); }
@@ -1240,80 +743,6 @@ description: "Project work on one fixed quote, a complete launch package, or a m
   .cta .cta-inner { padding-top: clamp(40px, 5vw, 64px); }
   @media (max-width: 560px) { .eng-trust-logos img { height: 44px; } }
 
-  /* ---------- FOOTER ---------- */
-  .footer { background: var(--quartz); border-top: 1px solid var(--border); position: relative; overflow: hidden; isolation: isolate; }
-  .footer-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: -1; }
-  .footer-inner {
-    max-width: var(--shell); margin: 0 auto;
-    padding: clamp(48px, 6vw, 80px) var(--pad) 28px;
-  }
-  .footer-top {
-    display: grid;
-    grid-template-columns: minmax(220px, 1.1fr) minmax(0, 1fr) minmax(240px, 1.1fr);
-    gap: 48px;
-    align-items: start;
-    padding-bottom: 24px;
-  }
-  .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
-  .footer-mark {
-    display: inline-flex; align-items: center; gap: 12px;
-    color: var(--graphite); text-decoration: none;
-    transition: opacity 0.3s var(--ease-out-soft); margin-bottom: 18px;
-  }
-  .footer-mark:hover { opacity: 0.75; }
-  .footer-mark svg { width: 28px; height: 28px; flex: 0 0 28px; }
-  .footer-mark-text {
-    font-family: var(--font-sans); font-size: 16px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: lowercase; color: var(--graphite);
-  }
-  .footer-statement {
-    font-family: var(--font-serif); font-size: 17px; font-weight: 300;
-    line-height: 1.35; letter-spacing: -0.01em; color: var(--graphite);
-    max-width: 28ch; margin: 0;
-  }
-  /* Signature phrase — --ore-text keeps 17px gold text AA on Quartz */
-  .footer-statement em { font-style: italic; font-weight: 500; color: var(--ore-text); }
-  /* Wordmark + Est. 1996 signature, right-aligned under the text */
-  .footer-mark-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
-  .footer-est {
-    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--muted); line-height: 1;
-  }
-  .footer-nav { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; list-style: none; }
-  .footer-social { list-style: none; padding: 0; margin: 22px 0 0; display: flex; gap: 14px; }
-  .footer-social a {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; color: var(--muted);
-    transition: color 0.2s var(--ease-out-soft);
-  }
-  .footer-social a:hover { color: var(--ore); }
-  .footer-social svg { width: 18px; height: 18px; }
-  .footer-contact { display: flex; flex-direction: column; text-align: right; }
-  .footer-contact .email-local { color: var(--graphite); }
-  .footer-col ul, .footer-contact ul { list-style: none; padding: 0; margin: 0; }
-  .footer-col ul li, .footer-contact ul li { margin-bottom: 6px; }
-  .footer-col ul a, .footer-contact ul a {
-    font-size: 13px; color: var(--muted); text-decoration: none;
-    line-height: 1.5; transition: color 0.2s var(--ease-out-soft);
-  }
-  .footer-col ul a:hover, .footer-contact ul a:hover { color: var(--graphite); }
-  .footer-rule { height: 1px; background: var(--border); margin: 0; }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 14px; font-size: 11px; letter-spacing: 0.02em; color: var(--muted);
-  }
-  .footer-legal { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
-  .footer-legal a {
-    font-size: 11px; color: var(--muted); text-decoration: none;
-    letter-spacing: 0.02em; transition: color 0.2s var(--ease-out-soft);
-  }
-  .footer-legal a:hover { color: var(--graphite); }
-  @media (max-width: 768px) {
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    .footer-contact { text-align: left; }
-    .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
-  }
-
   /* ---------- REVEAL ----------
      Hidden state applies only when JS is running (html.js set inline in <head>),
      so no-JS visitors, scrapers, and print get visible content. */
@@ -1325,18 +754,6 @@ description: "Project work on one fixed quote, a complete launch package, or a m
     .models { grid-template-columns: 1fr 1fr; }
     .model:last-child { grid-column: 1 / -1; }
   }
-  /* Nav responsive — ported from src/styles.css so the shared nav collapses
-     to the hamburger / mobile panel exactly like every other page. */
-  @media (max-width: 1024px) {
-    .nav-inner { padding: 0 40px; }
-    .mega-menu-panel { max-width: 680px; }
-  }
-  @media (max-width: 640px) {
-    .nav-inner { padding: 0 20px; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    .nav-hamburger { display: block; }
-  }
   @media (max-width: 860px) {
     .masthead-grid { grid-template-columns: 1fr; gap: 24px; align-items: start; }
     .intro { max-width: 60ch; }
@@ -1346,13 +763,11 @@ description: "Project work on one fixed quote, a complete launch package, or a m
     .launch-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
     .cta-inner { grid-template-columns: 1fr; }
     .sec-note { text-align: left; }
-    .rail-label { display: none; }
-    .rail-links { margin-left: 0; width: 100%; justify-content: space-between; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
-    .btn-cta:hover, .nav-cta:hover, .btn-discovery:hover { transform: none; }
+    .btn-cta:hover, .btn-discovery:hover { transform: none; }
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   }
 
@@ -1364,13 +779,8 @@ description: "Project work on one fixed quote, a complete launch package, or a m
   #models { padding-top: clamp(16px, 3vw, 32px); }
   #launch { padding-top: clamp(16px, 3vw, 36px); }
 </style>
-</head>
-<body>
-{% include "nav.html" %}
 
-<!-- section rail removed -->
-
-<main id="main">
+<div class="eng-main">
 
   <!-- ===== MASTHEAD ===== -->
   <div class="masthead">
@@ -1654,6 +1064,8 @@ description: "Project work on one fixed quote, a complete launch package, or a m
           transition: border-color 0.2s var(--ease-out-soft);
         }
         #retainers .retainer-card.is-popular { border-color: var(--navy); }
+        /* Cancel the shared .retainer-card padding from styles.css; this page pads head/body itself. */
+        #retainers .retainer-card { padding: 0; }
         #retainers .retainer-card:hover { border-color: var(--slate); }
         #retainers .retainer-card.is-popular:hover { border-color: var(--navy); }
         @media (prefers-reduced-motion: reduce) { #retainers .retainer-card:hover { transform: none; } }
@@ -1755,121 +1167,9 @@ description: "Project work on one fixed quote, a complete launch package, or a m
     </div>
   </section>
 
-</main>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <canvas class="footer-canvas" aria-hidden="true"></canvas>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-mark" aria-label="Exploration Sites home">
-          <svg viewBox="0 0 124.63 124.63" fill="currentColor" aria-hidden="true">
-            <polygon fill="var(--ore)" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/>
-            <polygon fill="var(--ore)" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/>
-            <polygon fill="var(--ore)" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/>
-            <polygon fill="var(--ore)" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/>
-            <path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/>
-            <path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/>
-          </svg>
-          <span class="footer-mark-stack">
-            <span class="footer-mark-text">exploration sites</span>
-            <span class="footer-est">Est. 1996</span>
-          </span>
-        </a>
-        <p class="footer-statement">The <em>translation layer</em> between your deposit and the capital markets.</p>
-        <ul class="footer-social" aria-label="Social media">
-          <li><a href="https://www.youtube.com/@ExplorationSites1/videos" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.4-1.9.5-3.8.5-5.8s-.1-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a></li>
-          <li><a href="https://x.com/explorationsite" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a></li>
-          <li><a href="https://www.instagram.com/explorationsites" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.2c-3.2 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3 1-.4 2.1C2.7 8.5 2.7 8.8 2.7 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.8.6 1.2.8.4.1 1 .3 2.1.4 1.2.1 1.5.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-1 .4-2.1.1-1.2.1-1.5.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.8-.6-1.2-.8-.4-.1-1-.3-2.1-.4-1.2-.1-1.5-.1-4.7-.1zm0 3.7a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8zm0 6.4a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm5-6.6a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0z"/></svg></a></li>
-          <li><a href="https://www.linkedin.com/company/exploration-sites/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
-        </ul>
-      </div>
-
-      <nav class="footer-nav" aria-label="Footer">
-        <div class="footer-col">
-          <ul>
-            <li><a href="services.html">What we do</a></li>
-            <li><a href="why.html">Why we exist</a></li>
-            <li><a href="engagement.html">How We Work</a></li>
-            <li><a href="clients.html">Our clients</a></li>
-            <li><a href="case-studies.html">Case studies</a></li>
-            <li><a href="team.html">Our team</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="footer-contact">
-        <ul>
-          <li><a href="tel:6046889997">604 688 9997</a></li>
-          <li><a href="mailto:info@explorationsites.com"><span class="email-local">info</span>@explorationsites.com</a></li>
-          <li><a href="mailto:updates@explorationsites.com"><span class="email-local">updates</span>@explorationsites.com</a></li>
-          <li><a href="mailto:support@explorationsites.com"><span class="email-local">support</span>@explorationsites.com</a></li>
-          <li><a href="mailto:accounts@explorationsites.com"><span class="email-local">accounts</span>@explorationsites.com</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-rule"></div>
-
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Exploration Sites. All rights reserved.</span>
-      <ul class="footer-legal">
-        <li><a href="disclosures.html">Disclosures</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+</div>
 
 <script>
-  // ===== Shared nav: mega-menu + mobile nav (ported from src/_includes/scripts.html) =====
-  // Mega menu tab switching — click SELECTS the panel (never navigates), matching
-  // the shared scripts.html selectTab incl. aria-selected/tabindex sync.
-  // Node lists are cached once — the handlers fire on mouseenter/click/focus.
-  (function () {
-    var megaTabs = Array.prototype.slice.call(document.querySelectorAll('.mega-menu-tab'));
-    var megaPanels = Array.prototype.slice.call(document.querySelectorAll('.mega-menu-tab-panel'));
-    megaTabs.forEach(function(tab) {
-      function activateTab() {
-        if (tab.classList.contains('is-active')) return;
-        var tabId = tab.getAttribute('data-tab');
-        megaTabs.forEach(function(t) {
-          var on = t === tab;
-          t.classList.toggle('is-active', on);
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.setAttribute('tabindex', on ? '0' : '-1');
-        });
-        megaPanels.forEach(function(p) {
-          var on = p.id === 'panel-' + tabId;
-          p.classList.toggle('is-active', on);
-          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
-        });
-      }
-      tab.addEventListener('mouseenter', activateTab);
-      tab.addEventListener('click', activateTab);
-      tab.addEventListener('focus', activateTab);
-    });
-  })();
-
-  // Mega menu aria-expanded toggle
-  (function () {
-    var trigger = document.querySelector('.mega-menu-trigger');
-    var wrapper = document.querySelector('.mega-menu-wrapper');
-    if (trigger && wrapper) {
-      wrapper.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      wrapper.addEventListener('mouseleave', function() { trigger.setAttribute('aria-expanded', 'false'); });
-      trigger.addEventListener('focus', function() { trigger.setAttribute('aria-expanded', 'true'); });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
-          trigger.setAttribute('aria-expanded', 'false');
-          trigger.focus();
-        }
-      });
-    }
-  })();
-
   (function () {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1905,9 +1205,3 @@ description: "Project work on one fixed quote, a complete launch package, or a m
     }
   })();
 </script>
-<script type="module" src="/assets/footer-shader.js"></script>
-<!-- Vercel Web Analytics (cookieless). Enable under Vercel → es-draft-1 → Analytics. -->
-<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-<script defer src="/_vercel/insights/script.js"></script>
-</body>
-</html>

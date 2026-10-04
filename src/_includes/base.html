@@ -6,7 +6,7 @@
 <body>
 {% include "nav.html" %}
 
-  <main class="page" id="main">
+  <main class="{% unless fullBleed %}page{% endunless %}" id="main">
     {% if mapType %}
     <div class="maps-page">
       {% include "maps-rail.html" %}

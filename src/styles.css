@@ -2055,12 +2055,10 @@
       padding: 28px 24px;
       position: relative;
       background: var(--white);
-      box-shadow: var(--shadow-card);
     }
 
     .retainer-card.is-popular {
       border-color: var(--navy);
-      box-shadow: var(--shadow-deep);
     }
 
     .retainer-badge {
@@ -2350,14 +2348,13 @@
     }
 
 
-    /* --- HOVER LIFTS --- */
+    /* --- HOVER --- DESIGN.md: no lifts or shadows; a 1px rule marks hover. */
     .retainer-card {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s ease;
     }
 
     .retainer-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-deep);
+      border-color: var(--slate);
     }
 
     /* --- FOOTER ----------------------------------------------------
