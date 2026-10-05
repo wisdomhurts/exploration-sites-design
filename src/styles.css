@@ -1488,6 +1488,17 @@
       line-height: 150%;
     }
 
+    /* Quiet starting price under a service description (services.html) */
+    .service-from {
+      margin-top: 8px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      font-variant-numeric: tabular-nums;
+      color: var(--slate);
+    }
+
     .service-arrow {
       font-size: 18px;
       color: var(--muted);
