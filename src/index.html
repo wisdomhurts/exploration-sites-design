@@ -130,23 +130,6 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         .nrmp-comm-num { min-width: 0; }
       }
 
-      /* Quiet program pointer under the West Red Lake cadence testimonial. */
-      .testimonial-program-link {
-        display: inline-block;
-        margin-top: 6px;
-        font-family: var(--font-sans);
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.01em;
-        color: var(--ore-text);
-        text-decoration: none;
-      }
-      .testimonial-program-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-      .testimonial-program-link:focus-visible {
-        outline: 2px solid var(--ore);
-        outline-offset: 3px;
-        border-radius: 2px;
-      }
       @media (max-width: 767px) {
         /* max-width:none / max-height:none kill the base 52vw + 92vh caps that
            squashed the disc into an ellipse (portrait AND landscape phones);
@@ -645,47 +628,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
     <!-- COMPLIANCE-07: identification-only microcaption under the client logo marquee -->
 
     <!-- TESTIMONIALS -->
-    <section class="testimonials page">
-      <div class="testimonials-lede">
-        <div class="section-label">Their words</div>
-      </div>
-      <div class="testimonials-grid">
-        <figure class="testimonial">
-          <blockquote class="testimonial-quote">Extremely knowledgeable about the mining industry, very responsive &amp; committed to getting it right. They helped elevate our branding &amp; digital presence to better reflect the stage our company has grown to.</blockquote>
-          <figcaption class="testimonial-bottom">
-            <div>
-              <cite class="testimonial-name">Stephanie Hansen</cite>
-              <div class="testimonial-role">Director, Marketing &amp; IR &mdash; Snowline</div>
-              <p class="testimonial-fact">Branding, investor maps &amp; website</p>
-            </div>
-            <img src="images/clients/snowline.avif" alt="" class="testimonial-logo">
-          </figcaption>
-        </figure>
-        <figure class="testimonial">
-          <blockquote class="testimonial-quote">Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</blockquote>
-          <figcaption class="testimonial-bottom">
-            <div>
-              <cite class="testimonial-name">Will Robinson</cite>
-              <div class="testimonial-role">VP Exploration &mdash; West Red Lake</div>
-              <p class="testimonial-fact">~10 maps/month for news releases</p>
-              <a class="testimonial-program-link" href="news-release-map-program.html">That cadence is a program <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            <img src="images/clients/wrlg.avif" alt="" class="testimonial-logo">
-          </figcaption>
-        </figure>
-        <figure class="testimonial">
-          <blockquote class="testimonial-quote">When it comes to 2D and 3D maps, cross-sections and figures, they really are the industry standard. I&rsquo;m a GIS background myself, so I have a lot of respect for their quality of work.</blockquote>
-          <figcaption class="testimonial-bottom">
-            <div>
-              <cite class="testimonial-name">Chris Paul</cite>
-              <div class="testimonial-role">CEO &amp; Director &mdash; Hercules Metals</div>
-              <p class="testimonial-fact">Maps, sections &amp; conference booth</p>
-            </div>
-            <img src="images/clients/hercules.avif" alt="" class="testimonial-logo">
-          </figcaption>
-        </figure>
-      </div>
-    </section>
+    {% include "testimonials.html" %}
 
     <div class="divider"></div>
 

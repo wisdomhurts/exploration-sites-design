@@ -371,6 +371,10 @@ description: "How we built the investor maps, presentation visuals, and brand sy
   }
   .csm-statline b { font-weight: 600; color: var(--graphite); }
   .csm-statline .csm-sep { color: var(--ore-text); font-size: 11px; padding: 0 12px; }
+  /* Links to Montage's own public materials (proof without a client quote) */
+  .csm-appears { font-size: 15px; }
+  .csm-appears a { color: var(--graphite); text-decoration: none; border-bottom: 1px solid var(--graticule); transition: border-color 0.2s var(--ease-out-quart); }
+  .csm-appears a:hover { border-bottom-color: var(--ore); }
   .csm-maps3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1076,9 +1080,14 @@ description: "How we built the investor maps, presentation visuals, and brand sy
         <p class="csm-body csm-body--lead">The new map suite let investors grasp scale, resource growth, and regional positioning at a glance.</p>
         <p class="csm-body">Over the same period the company reported a <strong>C$180M private placement</strong> and a <strong>US$825M project financing</strong> with Zijin Mining and Wheaton Precious Metals &mdash; one of West Africa&rsquo;s largest gold development financings (company-reported).</p>
         <p class="csm-statline" style="margin: 24px 0 22px;"><b>~US$1B</b> raised by the company since 2023 (company-reported) <span class="csm-sep" aria-hidden="true">&#9670;</span> incl. the <b>US$825M</b> Kon&eacute; construction package</p>
+        <p class="csm-body csm-appears">See the work in Montage&rsquo;s own public materials: its <a href="https://www.montagegold.com/_resources/presentations/corporate-presentation.pdf" target="_blank" rel="noopener">corporate presentation</a>, <a href="https://www.montagegold.com/investors/news/" target="_blank" rel="noopener">news releases</a>, and <a href="https://www.montagegold.com/portfolio/development/kone-project/" target="_blank" rel="noopener">Kon&eacute; project page</a>.</p>
       </div>
     </div>
   </section>
+
+  <!-- Other clients' words: approved quotes from Snowline, West Red Lake and Hercules (not Montage). -->
+  {% assign testimonialsLabel = "What other clients say" %}
+  {% include "testimonials.html" %}
 
   <!-- ============== FINALE: QUOTE + TAKEAWAY ============== -->
   <section class="csm-finale">
@@ -1087,12 +1096,6 @@ description: "How we built the investor maps, presentation visuals, and brand sy
         <p class="csm-quote-text">
           When scale, grade, and continuity read at a glance, an investor can finally weigh what the deposit is worth.
         </p>
-        <!--
-          Client testimonial pending verified attribution (name + title + written consent).
-          Reinstate with a named officer once on file. Original received copy:
-          "The updated figures made a real difference in how we present the Koné Project.
-           They're clear, consistent, and visually strong — something investors immediately notice."
-        -->
       </div>
       <div class="csm-finale-takeaway">
         <div class="csm-kicker">The Takeaway</div>

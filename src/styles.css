@@ -1642,6 +1642,23 @@
       letter-spacing: 0.01em;
       color: var(--muted);
     }
+    /* Quiet program pointer under the West Red Lake cadence testimonial. */
+    .testimonial-program-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ore-text);
+      text-decoration: none;
+    }
+    .testimonial-program-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .testimonial-program-link:focus-visible {
+      outline: 2px solid var(--ore);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
     .testimonial-role {
       font-family: var(--font-sans);
       font-size: 12px;
