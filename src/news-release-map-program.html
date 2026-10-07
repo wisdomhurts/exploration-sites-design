@@ -35,10 +35,23 @@ permalink: "news-release-map-program.html"
     <section class="section">
       <div class="section-label" data-reveal>Programs</div>
       <h2 class="section-headline" data-reveal>Pick the cadence that matches your drilling.</h2>
+{%- comment -%} Monthly prices come from prices.json; annual = 10 x monthly (2 months free), shown as a monthly equivalent. {%- endcomment -%}
+      {%- assign cad = prices.nrmpCadence | remove: "," | plus: 0 -%}
+      {%- assign act = prices.nrmpActive | remove: "," | plus: 0 -%}
+      {%- assign ful = prices.nrmpFull | remove: "," | plus: 0 -%}
+      {%- assign cadAnnual = cad | times: 10 | divided_by: 12.0 -%}
+      {%- assign actAnnual = act | times: 10 | divided_by: 12.0 -%}
+      {%- assign fulAnnual = ful | times: 10 | divided_by: 12.0 -%}
+      <div class="nrmp-billing" role="group" aria-label="Billing period" data-billing-toggle data-state="monthly" hidden>
+        <button type="button" class="nrmp-billing-opt" data-billing="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" class="nrmp-billing-opt" data-billing="annual" aria-pressed="false">Annually <span class="nrmp-billing-save">2 months free</span></button>
+      </div>
       <div class="nrmp-tiers" data-reveal data-reveal-delay="1">
         <div class="nrmp-tier">
           <div class="nrmp-tier-name">Cadence</div>
-          <div class="nrmp-tier-price">${{ prices.nrmpCadence }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="monthly">${{ cad | money }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="annual" hidden>${{ cadAnnual | money }}<span>&nbsp;/ mo, billed annually</span></div>
+          <div class="nrmp-tier-annual" data-billing-show="annual" hidden>${{ cad | times: 10 | money }} / year &middot; 2 months free</div>
           <div class="nrmp-tier-meta">Up to 4 maps / month &middot; 48h turnaround</div>
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
@@ -46,12 +59,15 @@ permalink: "news-release-map-program.html"
             <li>Drill-hole &amp; label template</li>
             <li>Priority over one-off work</li>
           </ul>
-          <p class="nrmp-tier-math">Works out to ~$625 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
-          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="cadence"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
+          <p class="nrmp-tier-math" data-billing-show="monthly">Works out to ~${{ cad | divided_by: 4.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
+          <p class="nrmp-tier-math" data-billing-show="annual" hidden>Works out to ~${{ cadAnnual | divided_by: 4.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="cadence"><input type="hidden" name="billing" value="monthly"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
         <div class="nrmp-tier nrmp-tier--featured">
           <div class="nrmp-tier-name">Active Drill</div>
-          <div class="nrmp-tier-price">${{ prices.nrmpActive }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="monthly">${{ act | money }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="annual" hidden>${{ actAnnual | money }}<span>&nbsp;/ mo, billed annually</span></div>
+          <div class="nrmp-tier-annual" data-billing-show="annual" hidden>${{ act | times: 10 | money }} / year &middot; 2 months free</div>
           <div class="nrmp-tier-meta">Up to 8 maps / month &middot; 24&ndash;48h turnaround</div>
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
@@ -59,12 +75,15 @@ permalink: "news-release-map-program.html"
             <li>Faster turnaround</li>
             <li>Resource-update maps included</li>
           </ul>
-          <p class="nrmp-tier-math">Works out to ~$438 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
-          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="active"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
+          <p class="nrmp-tier-math" data-billing-show="monthly">Works out to ~${{ act | divided_by: 8.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
+          <p class="nrmp-tier-math" data-billing-show="annual" hidden>Works out to ~${{ actAnnual | divided_by: 8.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="active"><input type="hidden" name="billing" value="monthly"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
         <div class="nrmp-tier">
           <div class="nrmp-tier-name">Full Program</div>
-          <div class="nrmp-tier-price">${{ prices.nrmpFull }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="monthly">${{ ful | money }}<span>&nbsp;/ mo</span></div>
+          <div class="nrmp-tier-price" data-billing-show="annual" hidden>${{ fulAnnual | money }}<span>&nbsp;/ mo, billed annually</span></div>
+          <div class="nrmp-tier-annual" data-billing-show="annual" hidden>${{ ful | times: 10 | money }} / year &middot; 2 months free</div>
           <div class="nrmp-tier-meta">Up to 12&ndash;15 maps / month &middot; 24h turnaround</div>
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
@@ -72,11 +91,12 @@ permalink: "news-release-map-program.html"
             <li>First in the queue, ahead of all other work</li>
             <li>Quarterly base refresh</li>
           </ul>
-          <p class="nrmp-tier-math">Works out to ~$300&ndash;375 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
-          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="full"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
+          <p class="nrmp-tier-math" data-billing-show="monthly">Works out to ~${{ ful | divided_by: 15.0 | money }}&ndash;{{ ful | divided_by: 12.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
+          <p class="nrmp-tier-math" data-billing-show="annual" hidden>Works out to ~${{ fulAnnual | divided_by: 15.0 | money }}&ndash;{{ fulAnnual | divided_by: 12.0 | money }} per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
+          <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="full"><input type="hidden" name="billing" value="monthly"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
       </div>
-      <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">Plus a one-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your monthly tier are billed at the ${{ prices.nrmpOverage }} member rate &mdash; vs ${{ prices.mapFrom }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
+      <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">Plus a one-time base setup of ${{ prices.nrmpSetup }}, billed with your first invoice. Annual plans are billed upfront: twelve months for the price of ten. Maps beyond your monthly tier are billed at the ${{ prices.nrmpOverage }} member rate &mdash; vs ${{ prices.mapFrom }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
       <p class="compliance-note" style="margin-top: 10px; max-width: 780px;">Program or retainer? A <a href="/engagement.html#retainers">monthly retainer</a> keeps your deck, fact sheet, site, and existing maps current at standard turnaround. The Map Program is built for drill season: new news-release maps on a guaranteed turnaround, ahead of all one-off work.</p>
     </section>
 
@@ -91,11 +111,11 @@ permalink: "news-release-map-program.html"
         </div>
         <div data-reveal data-reveal-delay="1">
           <ul class="nrmp-terms">
-            <li><b>Term.</b> Four months minimum &mdash; one drill season &mdash; then month-to-month.</li>
+            <li><b>Term.</b> Four months minimum &mdash; one drill season &mdash; then month-to-month. Or pay annually, upfront, and get two months free.</li>
             <li><b>Pause.</b> Between programs, pause for up to six months with your locked base retained. Resume within twelve months and the setup fee is never charged again.</li>
             <li><b>Capacity.</b> Your tier buys standing capacity and priority, not map inventory &mdash; unused maps don&rsquo;t carry forward.</li>
             <li><b>Guarantee.</b> Turnaround is measured from clean data, and it&rsquo;s guaranteed.</li>
-            <li><b>Billing.</b> One-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your tier at the ${{ prices.nrmpOverage }} member rate. Monthly, in CAD.</li>
+            <li><b>Billing.</b> One-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your tier at the ${{ prices.nrmpOverage }} member rate. Monthly or annually, in CAD.</li>
           </ul>
         </div>
       </div>
@@ -178,3 +198,31 @@ permalink: "news-release-map-program.html"
       .nrmp-terms li:last-child { border-bottom: 0; }
       .nrmp-terms b { color: var(--graphite); font-weight: 600; }
     </style>
+
+<script>
+  // Monthly / Annually billing toggle for the tier cards.
+  (function () {
+    var toggle = document.querySelector('[data-billing-toggle]');
+    if (!toggle) return;
+    var opts = toggle.querySelectorAll('.nrmp-billing-opt');
+    function set(state) {
+      toggle.setAttribute('data-state', state);
+      opts.forEach(function (o) { o.setAttribute('aria-pressed', String(o.getAttribute('data-billing') === state)); });
+      document.querySelectorAll('[data-billing-show]').forEach(function (el) { el.hidden = el.getAttribute('data-billing-show') !== state; });
+      document.querySelectorAll('.nrmp-tier-form input[name="billing"]').forEach(function (i) { i.value = state; });
+      place();
+    }
+    // Size and slide the thumb under whichever option is selected (the labels differ in width).
+    function place() {
+      var sel = toggle.querySelector('[aria-pressed="true"]');
+      if (!sel) return;
+      toggle.style.setProperty('--thumb-w', sel.offsetWidth + 'px');
+      toggle.style.setProperty('--thumb-x', (sel.offsetLeft - 3) + 'px');
+    }
+    opts.forEach(function (o) { o.addEventListener('click', function () { set(o.getAttribute('data-billing')); }); });
+    toggle.hidden = false;
+    set('monthly');
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    window.addEventListener('resize', place);
+  })();
+</script>

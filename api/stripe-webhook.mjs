@@ -66,6 +66,7 @@ async function newSignupEmail(stripe, session) {
     subject: `New NRMP sign-up: ${d.business_name || d.name || d.email} — ${program}`,
     rows: [
       ['Program', program],
+      ['Billing', full.metadata?.billing === 'annual' ? 'Annual (2 months free)' : 'Monthly'],
       ['Customer', d.name],
       ['Business', d.business_name],
       ['Email', d.email],
