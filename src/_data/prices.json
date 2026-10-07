@@ -10,5 +10,6 @@
   "nrmpActive": "3,500",
   "nrmpFull": "4,500",
   "nrmpSetup": "2,500",
-  "nrmpOverage": "750"
+  "nrmpOverage": "750",
+  "hostingMonthly": "200"
 }
