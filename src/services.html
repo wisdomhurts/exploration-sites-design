@@ -76,7 +76,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">3D Isometric Models</div>
               <div class="service-desc">Perspective and isometric views that let investors grasp the scale, shape, and setting of a deposit at a glance.</div>
-              <div class="service-from">From ${{ prices.mapFrom }}</div>
+              <div class="service-from">From ${{ prices.isoFrom }}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -111,7 +111,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Webflow</div>
               <div class="service-desc">Custom-designed, visually-editable sites. A premium presence with content you can update yourself, no developer in the loop.</div>
-              <div class="service-from">From ${{ prices.websiteFrom }}</div>
+              <div class="service-from">From ${{ prices.webflowFrom }}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -203,7 +203,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Infographics</div>
               <div class="service-desc">Process flows, timelines, and resource breakdowns that make a complex story legible in a single figure.</div>
-              <div class="service-from">From ${{ prices.designFrom }}</div>
+              <div class="service-from">${{ prices.infographicsHourly }}/hour</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>

@@ -289,6 +289,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
   }
   .deliv-list a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   .deliv-list a:hover { color: var(--ore); }
+  /* Starting price under each deliverable (own line, so long names never collide with it) */
+  .deliv-list li:has(.deliv-price) { flex-wrap: wrap; row-gap: 1px; }
+  .deliv-price { flex-basis: 100%; padding-left: 14px; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted); }
   /* ---------- NEWS-RELEASE MAP PROGRAM — companion band under the model cards ---------- */
   a.models-nrmp {
     display: flex; align-items: baseline; justify-content: space-between;
@@ -860,7 +863,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       <div class="sec-head reveal" id="deliverables" style="margin-top:clamp(48px,6vw,80px); scroll-margin-top:80px;">
         <span class="sec-reg">[ §<b>01</b>.A ]&nbsp;&nbsp;Project deliverables</span>
         <h2>Scope your own program.</h2>
-        <p class="sec-note" style="max-width:none;">5 deliverable groups. Mix freely &mdash; each quoted individually.</p>
+        <p class="sec-note" style="max-width:none;">4 deliverable groups. Mix freely &mdash; starting prices shown, each piece quoted to your scope.</p>
       </div>
 
       <div class="deliverables reveal">
@@ -868,39 +871,39 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <div class="deliv-kick">Make geology legible</div>
           <div class="deliv-title">Investor Maps</div>
           <ul class="deliv-list">
-            <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a></li>
-            <li><a href="property-target.html">Property &amp; Target Maps</a></li>
-            <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a></li>
-            <li><a href="sections.html">Sections &amp; Long Sections</a></li>
-            <li><a href="3d-models.html">3D Isometric Models</a></li>
-            <li><a href="conceptual-schematic.html">Conceptual &amp; Schematic</a></li>
+            <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a><span class="deliv-price">From ${{ prices.mapFrom }}</span></li>
+            <li><a href="property-target.html">Property &amp; Target Maps</a><span class="deliv-price">From ${{ prices.mapFrom }}</span></li>
+            <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a><span class="deliv-price">From ${{ prices.mapFrom }}</span></li>
+            <li><a href="sections.html">Sections &amp; Long Sections</a><span class="deliv-price">From ${{ prices.mapFrom }}</span></li>
+            <li><a href="3d-models.html">3D Isometric Models</a><span class="deliv-price">From ${{ prices.isoFrom }}</span></li>
+            <li><a href="conceptual-schematic.html">Conceptual &amp; Schematic</a><span class="deliv-price">From ${{ prices.designFrom }}</span></li>
           </ul>
         </div>
         <div class="deliv-group">
           <div class="deliv-kick">Your digital presence</div>
           <div class="deliv-title">Websites</div>
           <ul class="deliv-list">
-            <li><a href="webflow.html">Webflow</a></li>
-            <li><a href="wordpress.html">WordPress</a></li>
-            <li><a href="hosting.html">Hosting</a></li>
+            <li><a href="webflow.html">Webflow</a><span class="deliv-price">From ${{ prices.webflowFrom }}</span></li>
+            <li><a href="wordpress.html">WordPress</a><span class="deliv-price">From ${{ prices.websiteFrom }}</span></li>
+            <li><a href="hosting.html">Hosting</a><span class="deliv-price">${{ prices.hostingMonthly }}/mo</span></li>
           </ul>
         </div>
         <div class="deliv-group">
           <div class="deliv-kick">Tell your story</div>
           <div class="deliv-title">Presentations</div>
           <ul class="deliv-list">
-            <li><a href="presentations.html">Investor Deck</a></li>
-            <li><a href="fact-sheets.html">Fact Sheets</a></li>
-            <li><a href="movies.html">GIS Films</a></li>
+            <li><a href="presentations.html">Investor Deck</a><span class="deliv-price">From ${{ prices.deckFrom }}</span></li>
+            <li><a href="fact-sheets.html">Fact Sheets</a><span class="deliv-price">From ${{ prices.designFrom }}</span></li>
+            <li><a href="movies.html">GIS Films</a><span class="deliv-price">From ${{ prices.motionFrom }}</span></li>
           </ul>
         </div>
         <div class="deliv-group">
           <div class="deliv-kick">Shape your identity</div>
           <div class="deliv-title">Design</div>
           <ul class="deliv-list">
-            <li><a href="logos-branding.html">Logos &amp; Branding</a></li>
-            <li><a href="infographics.html">Infographics</a></li>
-            <li><a href="conference-booth.html">Conference / Booth Design</a></li>
+            <li><a href="logos-branding.html">Logos &amp; Branding</a><span class="deliv-price">From ${{ prices.designFrom }}</span></li>
+            <li><a href="infographics.html">Infographics</a><span class="deliv-price">${{ prices.infographicsHourly }}/hr</span></li>
+            <li><a href="conference-booth.html">Conference / Booth Design</a><span class="deliv-price">From ${{ prices.designFrom }}</span></li>
           </ul>
         </div>
       </div>
@@ -937,7 +940,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <li><a class="launch-link" href="investor-maps.html">An investor map set</a>
               <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="property-target.html">Property</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="geoscience-maps.html">Geology</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="sections.html">Sections</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="3d-models.html">3D view</a></span></li>
             <li><a class="launch-link" href="presentations.html">A polished investor deck</a></li>
-            <li><a class="launch-link" href="websites.html">A purpose-built website</a></li>
+            <li><a class="launch-link" href="wordpress.html">A WordPress investor website</a></li>
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
             <li><a class="launch-link" href="logos-branding.html">A coherent brand identity</a></li>
           </ul>
