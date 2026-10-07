@@ -41,7 +41,7 @@ export async function POST(request) {
       consent_collection: { terms_of_service: 'required' },
       custom_text: {
         terms_of_service_acceptance: {
-          message: `I agree to the [Terms of Service](${origin}/terms.html#subscriptions), including the four-month minimum term.`,
+          message: `I agree to the [Terms of Service](${origin}/terms.html#subscriptions), including the 4-month minimum term (at least four monthly payments).`,
         },
       },
       metadata: { program },

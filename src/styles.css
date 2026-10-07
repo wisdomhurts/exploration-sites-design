@@ -3215,6 +3215,14 @@
     .nrmp-tier-feat li { font-family: var(--font-sans); font-size: 13.5px; line-height: 1.45; color: var(--body); padding-left: 16px; position: relative; }
     .nrmp-tier-feat li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 1px; background: var(--ore); }
     @media (max-width: 820px) { .nrmp-tiers { grid-template-columns: 1fr; } }
+    /* The 4-month minimum, stated on every tier and above the tiers */
+    .nrmp-tier-term {
+      align-self: flex-start; margin-top: 10px; padding: 4px 9px;
+      border: 1px solid var(--slate); border-radius: 4px;
+      font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: var(--graphite);
+    }
+    .nrmp-term-note { margin: 4px 0 22px; max-width: 64ch; font-family: var(--font-sans); font-size: 15px; line-height: 1.55; color: var(--body); }
+    .nrmp-term-note strong { color: var(--graphite); font-weight: 600; }
     .nrmp-tier-cta {
       margin-top: 22px; display: block; text-align: center; padding: 11px 16px;
       border: 1px solid var(--slate); border-radius: 8px;
