@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: "News-Release Map Program — Exploration Sites"
-description: "Monthly news-release maps for companies in active drilling: a locked house-styled base, set maps each month, and a guaranteed 24–48h turnaround by tier."
+description: "Monthly news-release maps for companies in active drilling: a locked house-styled base, set maps each month, and a guaranteed 48-hour turnaround."
 permalink: "news-release-map-program.html"
 ---
 
@@ -24,7 +24,7 @@ permalink: "news-release-map-program.html"
         </div>
         <div data-reveal data-reveal-delay="1">
           <p class="body-text">Most news-release maps are the same map with new drill data. So we build your base once &mdash; the house-styled property base, the drill-hole and label template, the legend &mdash; and lock it. After that, each release is a fast, faithful update, not a fresh project.</p>
-          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed turnaround &mdash; 24 to 48 hours, depending on tier</strong> &mdash; from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
+          <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed 48-hour turnaround</strong> &mdash; from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
         </div>
       </div>
     </section>
@@ -55,28 +55,28 @@ permalink: "news-release-map-program.html"
           <div class="nrmp-tier-name">Active Drill</div>
           <div class="nrmp-tier-price">${{ prices.nrmpActive }}<span>&nbsp;/ mo</span></div>
           <div class="nrmp-tier-term">4-month minimum, then month-to-month</div>
-          <div class="nrmp-tier-meta">Up to 8 maps / month &middot; 24&ndash;48h turnaround</div>
+          <div class="nrmp-tier-meta">Up to 8 maps / month &middot; 48h turnaround</div>
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
             <li>Everything in Cadence</li>
-            <li>Faster turnaround</li>
+            <li>Double the monthly capacity</li>
             <li>Resource-update maps included</li>
           </ul>
-          <p class="nrmp-tier-math">Works out to ~$438 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24&ndash;48-hour turnaround.</p>
+          <p class="nrmp-tier-math">Works out to ~$438 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
           <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="active"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
         <div class="nrmp-tier">
           <div class="nrmp-tier-name">Full Program</div>
           <div class="nrmp-tier-price">${{ prices.nrmpFull }}<span>&nbsp;/ mo</span></div>
           <div class="nrmp-tier-term">4-month minimum, then month-to-month</div>
-          <div class="nrmp-tier-meta">Up to 12&ndash;15 maps / month &middot; 24h turnaround</div>
+          <div class="nrmp-tier-meta">Up to 12&ndash;15 maps / month &middot; 48h turnaround</div>
           <div class="nrmp-tier-rule"></div>
           <ul class="nrmp-tier-feat">
             <li>Everything in Active Drill</li>
             <li>First in the queue, ahead of all other work</li>
             <li>Quarterly base refresh</li>
           </ul>
-          <p class="nrmp-tier-math">Works out to ~$300&ndash;375 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 24-hour turnaround.</p>
+          <p class="nrmp-tier-math">Works out to ~$300&ndash;375 per map &mdash; vs ${{ prices.mapFrom }} one-off &mdash; on a 48-hour turnaround.</p>
           <form method="post" action="/api/checkout" class="nrmp-tier-form"><input type="hidden" name="program" value="full"><button type="submit" class="nrmp-tier-cta">Start this program <span aria-hidden="true">&rarr;</span></button></form>
         </div>
       </div>
