@@ -165,19 +165,15 @@ description: "Book a free 20-minute discovery call with Exploration Sites. Tell 
   // confirm which program they're booking to start. Unknown values are ignored.
   (function () {
     var names = { cadence: 'Cadence', active: 'Active Drill', full: 'Full Program' };
-    var key = '', annual = false;
-    try {
-      var q = new URLSearchParams(location.search);
-      key = q.get('program') || '';
-      annual = q.get('billing') === 'annual';
-    } catch (e) {}
+    var key = '';
+    try { key = new URLSearchParams(location.search).get('program') || ''; } catch (e) {}
     if (!Object.prototype.hasOwnProperty.call(names, key)) return;
     var main = document.querySelector('.booking-main');
     var embed = document.querySelector('.booking-embed');
     if (!main || !embed) return;
     var note = document.createElement('p');
     note.className = 'booking-program-note';
-    note.textContent = 'You’re booking to start: News-Release Map Program — ' + names[key] + (annual ? ' (annual billing, 2 months free)' : '');
+    note.textContent = 'You’re booking to start: News-Release Map Program — ' + names[key];
     main.insertBefore(note, embed);
   })();
 </script>
