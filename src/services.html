@@ -21,66 +21,73 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         <div>
           <div class="section-label">Investor Maps</div>
           <h2 class="section-headline">Maps that make the geology investable.</h2>
-          <button type="button" class="work-plate" data-lightbox data-full="images/work/kincora-nsw-full.avif" data-caption="Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia">
-            <img src="images/work/kincora-nsw.avif" alt="Macquarie Arc projects and mineral belts area-play map produced for Kincora" loading="lazy" decoding="async" width="1400" height="1181">
+          <button type="button" class="work-plate" data-lightbox data-full="/images/work/locators/kincora-macquarie-arc-full.webp" data-caption="Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia">
+            <img src="/images/work/locators/kincora-macquarie-arc.webp" alt="Macquarie Arc projects and mineral belts area-play map produced for Kincora" loading="lazy" decoding="async" width="1400" height="1181">
             <span class="work-plate-cap">Kincora &middot; Macquarie Arc area play</span>
           </button>
         </div>
         <div>
           <p class="body-text">From the first locator to the cross-section that proves grade at depth &mdash; designed cartography built from your raw GIS, geophysics, and drillhole data, styled for the deck, the news release, and the website.</p>
-          <a href="locators-area-plays.html" class="service-row">
+          <a href="locators-area-plays.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['locators-area-plays.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Locators &amp; Area Plays</div>
               <div class="service-desc">Regional and district context. Place your ground inside a proven belt, beside the majors and past producers the market already trusts.</div>
-              <div class="service-from">From ${{ prices.mapFrom }}</div>
+              <div class="service-from">From ${{ prices.mapFrom }}{% if serviceSamples['locators-area-plays.html'].count > 2 %} &middot; {{ serviceSamples['locators-area-plays.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="property-target.html" class="service-row">
+          <a href="property-target.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['property-target.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Property &amp; Target Maps</div>
               <div class="service-desc">Claims, infrastructure, drilling, and priority targets. The on-the-ground orientation that shows what the program is chasing and why.</div>
-              <div class="service-from">From ${{ prices.mapFrom }}</div>
+              <div class="service-from">From ${{ prices.mapFrom }}{% if serviceSamples['property-target.html'].count > 2 %} &middot; {{ serviceSamples['property-target.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="geoscience-maps.html" class="service-row">
+          <a href="geoscience-maps.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['geoscience-maps.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Geo / Geochem / Geophys</div>
               <div class="service-desc">Lithology and structure, soil and rock geochem, magnetics and IP. The evidence layers that show why the targets sit where they do.</div>
-              <div class="service-from">From ${{ prices.mapFrom }}</div>
+              <div class="service-from">From ${{ prices.mapFrom }}{% if serviceSamples['geoscience-maps.html'].count > 2 %} &middot; {{ serviceSamples['geoscience-maps.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="drilling.html" class="service-row">
+          <a href="drilling.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['drilling.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Drilling / Sections</div>
               <div class="service-desc">Drill plans, cross-sections, and long sections &mdash; grade, geometry, and continuity at depth, read from your drillhole data.</div>
-              <div class="service-from">From ${{ prices.mapFrom }}</div>
+              <div class="service-from">From ${{ prices.mapFrom }}{% if serviceSamples['drilling.html'].count > 2 %} &middot; {{ serviceSamples['drilling.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="3d-models.html" class="service-row">
+          <a href="3d-models.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['3d-models.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">3D Isometric Models</div>
               <div class="service-desc">Perspective and isometric views that let investors grasp the scale, shape, and setting of a deposit at a glance.</div>
-              <div class="service-from">From ${{ prices.isoFrom }}</div>
+              <div class="service-from">From ${{ prices.isoFrom }}{% if serviceSamples['3d-models.html'].count > 2 %} &middot; {{ serviceSamples['3d-models.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="schematics-plans.html" class="service-row">
+          <a href="schematics-plans.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['schematics-plans.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Schematics &amp; Plans</div>
               <div class="service-desc">Deposit models, footprint comparisons, simplified sections, and site plans that frame the geological thesis for a non-technical audience.</div>
-              <div class="service-from">From ${{ prices.designFrom }}</div>
+              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['schematics-plans.html'].count > 2 %} &middot; {{ serviceSamples['schematics-plans.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="news-release-map-program.html" class="service-row">
+          <a href="news-release-map-program.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['news-release-map-program.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
-              <div class="service-title">News-Release Map Program</div>
+              <div class="service-title">News-Release Map Program <span class="nav-new">New</span></div>
               <div class="service-desc">For companies in active drilling: a locked house-styled base and a set number of maps each month, on a guaranteed 48-hour turnaround.</div>
-              <div class="service-from">From ${{ prices.nrmpCadence }}/month + setup &middot; 4-month minimum</div>
+              <div class="service-from">From ${{ prices.nrmpCadence }}/month + setup &middot; 4-month minimum <span class="avail-tag">Limited availability</span>{% if serviceSamples['news-release-map-program.html'].count > 2 %} &middot; {{ serviceSamples['news-release-map-program.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -96,34 +103,37 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         <div>
           <div class="section-label">Websites</div>
           <h2 class="section-headline">Investor-grade web presence.</h2>
-          <button type="button" class="work-plate" data-lightbox data-full="images/sites/snowline.avif" data-caption="Snowline Gold — investor website">
-            <img src="images/sites/snowline.avif" alt="Investor website produced for Snowline Gold" loading="lazy" decoding="async" width="1600" height="1067">
-            <span class="work-plate-cap">Snowline Gold &middot; Investor website</span>
+          <button type="button" class="work-plate" data-lightbox data-full="/images/sites/capitan-silver.avif" data-caption="Capitan Silver — investor website">
+            <img src="/images/sites/capitan-silver.avif" alt="Investor website produced for Capitan Silver" loading="lazy" decoding="async" width="1600" height="1065">
+            <span class="work-plate-cap">Capitan Silver &middot; Investor website</span>
           </button>
         </div>
         <div>
           <p class="body-text">Fast, well-built websites for exploration-stage companies &mdash; designed to communicate your story to investors, analysts, and regulators, and to stay current between news releases.</p>
-          <a href="webflow.html" class="service-row">
+          <a href="webflow.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['webflow.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Webflow Websites</div>
               <div class="service-desc">Custom-designed, visually-editable sites. A premium presence with content you can update yourself, no developer in the loop.</div>
-              <div class="service-from">From ${{ prices.webflowFrom }}</div>
+              <div class="service-from">From ${{ prices.webflowFrom }}{% if serviceSamples['webflow.html'].count > 2 %} &middot; {{ serviceSamples['webflow.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="wordpress.html" class="service-row">
+          <a href="wordpress.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['wordpress.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">WordPress Websites</div>
               <div class="service-desc">Flexible CMS-driven builds with full content control. Ideal for frequent news releases, regulatory pages, and investor sections.</div>
-              <div class="service-from">From ${{ prices.websiteFrom }}</div>
+              <div class="service-from">From ${{ prices.websiteFrom }}{% if serviceSamples['wordpress.html'].count > 2 %} &middot; {{ serviceSamples['wordpress.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="hosting.html" class="service-row">
+          <a href="hosting.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['hosting.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Hosting &amp; Nurture CRM</div>
               <div class="service-desc">Managed hosting, maintenance, and support &mdash; with an investor CRM and investor analytics included, so the site stays fast and every interested investor is captured.</div>
-              <div class="service-from">${{ prices.hostingMonthly }}/month, CRM &amp; analytics included</div>
+              <div class="service-from">${{ prices.hostingMonthly }}/month, CRM &amp; analytics included{% if serviceSamples['hosting.html'].count > 2 %} &middot; {{ serviceSamples['hosting.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -141,34 +151,37 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         <div>
           <div class="section-label">Presentations</div>
           <h2 class="section-headline">Decks, fact sheets, and films built for the two minutes you actually get.</h2>
-          <button type="button" class="work-plate" data-lightbox data-full="images/presentations/hercules.avif" data-caption="Hercules Metals — investor deck">
-            <img src="images/presentations/hercules.avif" alt="Investor deck produced for Hercules Metals" loading="lazy" decoding="async" width="1100" height="618">
-            <span class="work-plate-cap">Hercules Metals &middot; Investor deck</span>
+          <button type="button" class="work-plate" data-lightbox data-full="/images/presentations/kincora.avif" data-caption="Kincora Copper — investor deck">
+            <img src="/images/presentations/kincora.avif" alt="Investor deck produced for Kincora Copper" loading="lazy" decoding="async" width="1100" height="619">
+            <span class="work-plate-cap">Kincora Copper &middot; Investor deck</span>
           </button>
         </div>
         <div>
           <p class="body-text">Investor decks, one-page fact sheets, and GIS films &mdash; built for boardrooms, roadshows, and conference booths, turning technical data into a clear, investable narrative.</p>
-          <a href="presentations.html" class="service-row">
+          <a href="presentations.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['presentations.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Investor Presentations</div>
               <div class="service-desc">Corporate decks built for roadshows and the capital markets. Clear narrative, sharp visuals, and data-driven slides that build conviction.</div>
-              <div class="service-from">From ${{ prices.deckFrom }}</div>
+              <div class="service-from">From ${{ prices.deckFrom }}{% if serviceSamples['presentations.html'].count > 2 %} &middot; {{ serviceSamples['presentations.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="fact-sheets.html" class="service-row">
+          <a href="fact-sheets.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['fact-sheets.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Fact Sheets</div>
               <div class="service-desc">The one-page property summary. The essential leave-behind for conferences, meetings, and investor inboxes.</div>
-              <div class="service-from">From ${{ prices.designFrom }}</div>
+              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['fact-sheets.html'].count > 2 %} &middot; {{ serviceSamples['fact-sheets.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="movies.html" class="service-row">
+          <a href="movies.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['movies.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">GIS Films</div>
               <div class="service-desc">Animated flyovers and geological models that give investors a visceral read on a property's scale, setting, and structure.</div>
-              <div class="service-from">From ${{ prices.motionFrom }}</div>
+              <div class="service-from">From ${{ prices.motionFrom }}{% if serviceSamples['movies.html'].count > 2 %} &middot; {{ serviceSamples['movies.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -184,30 +197,37 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         <div>
           <div class="section-label">Design</div>
           <h2 class="section-headline">Visual identity built for resource companies.</h2>
+          <button type="button" class="work-plate" data-lightbox data-full="/images/design/booth-bunker-hill-full.avif" data-caption="Bunker Hill Mining — 10 &times; 10 ft booth backdrop">
+            <img src="/images/design/booth-bunker-hill.avif" alt="Booth backdrop produced for Bunker Hill Mining" loading="lazy" decoding="async" width="1200" height="1200">
+            <span class="work-plate-cap">Bunker Hill Mining &middot; Booth backdrop</span>
+          </button>
         </div>
         <div>
           <p class="body-text">Logos, brand systems, infographics, and booth design &mdash; a consistent identity that carries from the ticker to the trade-show floor.</p>
-          <a href="logos-branding.html" class="service-row">
+          <a href="logos-branding.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['logos-branding.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Logos &amp; Branding</div>
               <div class="service-desc">A complete visual identity for a resource company &mdash; logo, palette, typography, and the usage standards that keep it consistent.</div>
-              <div class="service-from">From ${{ prices.designFrom }}</div>
+              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['logos-branding.html'].count > 2 %} &middot; {{ serviceSamples['logos-branding.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="infographics.html" class="service-row">
+          <a href="infographics.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['infographics.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Infographics</div>
               <div class="service-desc">Process flows, timelines, and resource breakdowns that make a complex story legible in a single figure.</div>
-              <div class="service-from">${{ prices.infographicsHourly }}/hour</div>
+              <div class="service-from">${{ prices.infographicsHourly }}/hour{% if serviceSamples['infographics.html'].count > 2 %} &middot; {{ serviceSamples['infographics.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
-          <a href="conference-booth.html" class="service-row">
+          <a href="conference-booth.html" class="service-row service-row--thumb">
+            <span class="service-thumb" aria-hidden="true"><img src="{{ serviceSamples['conference-booth.html'].img }}" alt="" loading="lazy" decoding="async"></span>
             <div>
               <div class="service-title">Conference / Booth Design</div>
               <div class="service-desc">Banners, panels, and booth graphics that hold up at PDAC and the show floor &mdash; on-brand and built to read from across the hall.</div>
-              <div class="service-from">From ${{ prices.designFrom }}</div>
+              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['conference-booth.html'].count > 2 %} &middot; {{ serviceSamples['conference-booth.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
