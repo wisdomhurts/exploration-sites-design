@@ -300,14 +300,14 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'property', label: 'Property & Target', maps: [
-                '/images/work/cdn/aa6ba3cc-696e77bbfafa1ac89c37b619_2_WRLG_Plan_Madsen-copy.webp',
-                '/images/work/cdn/bef399e1-6973ceaf554e40fc41648326_Snowline_Rogue_Detail_New-copy.webp',
-                '/images/work/cdn/7013fdb7-6973ceafd185cc6888e851a6_AlgoGrande_AdelitaClaim_Targets_V2-copy.webp',
-                '/images/work/cdn/baabb310-6973d56517a6d4f921a9a4cf_EmperorMetals_AbitibiBeltMap-copy.webp',
-                '/images/work/cdn/0d7f2172-6973d5654384d2b226d9ec8a_Endeavour_Hounde-copy.webp',
-                '/images/work/cdn/e6b85d11-696e77d916deca73fcd5bab0_1_WesternAlaska_LF_Target_Zones-copy.webp',
-                '/images/work/cdn/2210e866-696e77f8a4e2f0defba53646_1_ATHA_PPT_AthabascaBasin_NorthRim_V2_wValour-copy-scaled.avif',
-                '/images/work/cdn/37be07ee-696e77da4472ce6285bc3b7c_3_ArgentaSilver_Quevar_Google_maps_claim-copy-scaled.avif'
+                {%- comment -%} First eight maps exactly as ordered on property-target.html: featured maps, then the gallery (src/_data/propertyMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in propertyMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in propertyMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'geo', label: 'Geo / Geochem / Geophys', maps: [
                 '/images/work/cdn/d7899d32-696e693fe5de57c207ae3101_MontageGold_Full_Geo_CIV_map.webp',
