@@ -10,10 +10,14 @@
 
 import Stripe from 'stripe';
 
+// paymentLink: live Stripe Payment Links (not secret). Used whenever no secret key is
+// configured, or if creating a Checkout Session fails. They are set up to match this
+// checkout: same prices + setup fee, Stripe Tax, required address, tax ID collection,
+// required Terms acceptance (4-month minimum), redirect to checkout-success.html.
 const TIERS = {
-  cadence: { name: 'Cadence', priceEnv: 'STRIPE_PRICE_NRMP_CADENCE' },
-  active: { name: 'Active Drill', priceEnv: 'STRIPE_PRICE_NRMP_ACTIVE' },
-  full: { name: 'Full Program', priceEnv: 'STRIPE_PRICE_NRMP_FULL' },
+  cadence: { name: 'Cadence', priceEnv: 'STRIPE_PRICE_NRMP_CADENCE', paymentLink: 'https://buy.stripe.com/28E6oGdlydwtgrD08lbV600' },
+  active: { name: 'Active Drill', priceEnv: 'STRIPE_PRICE_NRMP_ACTIVE', paymentLink: 'https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601' },
+  full: { name: 'Full Program', priceEnv: 'STRIPE_PRICE_NRMP_FULL', paymentLink: 'https://buy.stripe.com/cNi14m6Xa7853ER08lbV602' },
 };
 
 export async function POST(request) {
@@ -25,6 +29,9 @@ export async function POST(request) {
   } catch {}
   const tier = Object.hasOwn(TIERS, program) ? TIERS[program] : null;
   if (!tier) return Response.redirect(`${origin}/news-release-map-program.html`, 303);
+
+  // No API key configured: send the buyer to the matching Payment Link.
+  if (!process.env.STRIPE_SECRET_KEY) return Response.redirect(tier.paymentLink, 303);
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -51,9 +58,8 @@ export async function POST(request) {
     });
     return Response.redirect(session.url, 303);
   } catch (err) {
-    // Don't strand a buyer on an error page — fall back to booking a call for
-    // the same program, which is how purchases were handled before checkout.
+    // Don't strand a buyer on an error page — fall back to the Payment Link.
     console.error('checkout: failed to create session', program, err?.message);
-    return Response.redirect(`${origin}/book.html?program=${program}`, 303);
+    return Response.redirect(tier.paymentLink, 303);
   }
 }
