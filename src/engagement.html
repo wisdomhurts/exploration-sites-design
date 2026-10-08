@@ -297,7 +297,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
   }
   .models-nrmp-body { font-size: 14px; line-height: 1.55; color: var(--body); flex: 1 1 360px; min-width: 0; }
   .models-nrmp-body strong { color: var(--graphite); font-weight: 600; }
-  .models-nrmp-price { font-size: 14px; color: var(--graphite); white-space: nowrap; flex: 0 0 auto; }
+  .models-nrmp-price { font-size: 14px; color: var(--graphite); white-space: nowrap; flex: 0 0 auto; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Small square tag under the price — same treatment as the nav "New" tag */
+  .models-nrmp-avail { display: inline-block; padding: 2px 7px; border: 1px solid var(--ore); border-radius: 2px; font-size: 10.5px; font-weight: 600; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ore-text, #815A20); }
   .models-nrmp-price .mono { font-family: var(--font-mono); }
   .models-nrmp-cta {
     font-size: 13px; font-weight: 500; color: var(--graphite);
@@ -831,7 +833,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       <a class="models-nrmp reveal" href="news-release-map-program.html">
         <span class="models-nrmp-kick">In active drilling</span>
         <span class="models-nrmp-body">The <strong>News-Release Map Program</strong> keeps your news-release map cadence through the season &mdash; maps sized to your drill program, guaranteed in 48 hours.</span>
-        <span class="models-nrmp-price">From <span class="mono">${{ prices.nrmpCadence }}</span>/mo + setup &middot; 4-month min.</span>
+        <span class="models-nrmp-price"><span>From <span class="mono">${{ prices.nrmpCadence }}</span>/mo + setup &middot; 4-month min.</span><span class="models-nrmp-avail">Limited availability</span></span>
         <span class="models-nrmp-cta">See the program &rarr;</span>
       </a>
 
