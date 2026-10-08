@@ -26,12 +26,32 @@
         if (focusIt) tab.focus();
       }
 
+      // A tab's click goes to the first page in its panel (Investor Maps ->
+      // Locators & Area Plays, etc.), read from the panel so it follows any
+      // reordering. Hover and focus still just preview the panel. On touch, the
+      // first tap on an inactive tab only selects it (a tap fires mouseenter and
+      // click together), so the cards can be seen; a second tap navigates.
+      var lastPointer = 'mouse';
+      function firstHref(tab) {
+        var p = document.getElementById('panel-' + tab.getAttribute('data-tab'));
+        var a = p && p.querySelector('a[href]');
+        return a ? a.getAttribute('href') : null;
+      }
+
       tabs.forEach(function (tab, i) {
-        // Switch on hover (desktop), click, and focus (keyboard Tab into list).
-        // Click SELECTS the panel — it never navigates. Touch users tap a tab to
-        // see its cards; category pages are reached via the panel's links.
+        tab.addEventListener('pointerdown', function (e) {
+          lastPointer = e.pointerType;
+          tab.dataset.wasActive = tab.classList.contains('is-active') ? '1' : '';
+        });
         tab.addEventListener('mouseenter', function () { selectTab(tab, false); });
-        tab.addEventListener('click', function () { selectTab(tab, false); });
+        tab.addEventListener('click', function () {
+          var touchFirstTap = lastPointer === 'touch' && !tab.dataset.wasActive;
+          lastPointer = 'mouse';
+          selectTab(tab, false);
+          if (touchFirstTap) return;
+          var href = firstHref(tab);
+          if (href) window.location.href = href;
+        });
         tab.addEventListener('focus', function () { selectTab(tab, false); });
         // Roving-tabindex arrow-key navigation within the tablist.
         tab.addEventListener('keydown', function (e) {
