@@ -7,6 +7,7 @@
     "build": "npx @11ty/eleventy",
     "dev": "npx @11ty/eleventy --serve",
     "build-mask": "node scripts/build-world-mask.mjs",
+    "thumbs": "node scripts/build-thumbs.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

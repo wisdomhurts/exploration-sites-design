@@ -94,7 +94,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         max-width: 56ch;
       }
       .nrmp-comm .btn-discovery { margin-top: 16px; }
-      .nrmp-comm-note { margin: 12px 0 0; font-family: var(--font-sans); font-size: 12px; line-height: 1.55; color: var(--muted); max-width: 52ch; }
+      .nrmp-comm-note { margin: 12px 0 0; font-family: var(--font-sans); font-size: 12px; line-height: 1.55; color: var(--slate); max-width: 52ch; }
       .nrmp-comm-stats { display: grid; align-content: center; }
       .nrmp-comm-stat {
         display: flex;
@@ -118,7 +118,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         font-family: var(--font-sans);
         font-size: 12.5px;
         line-height: 1.5;
-        color: var(--muted);
+        color: var(--slate);
       }
       @media (max-width: 900px) {
         .nrmp-comm { grid-template-columns: 1fr; gap: 28px; }
@@ -257,12 +257,12 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
           <ul class="maps-rail-list" role="tablist" aria-label="Investor map types">
-            <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling / Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="schematics"><span class="maps-rail-text">Schematics &amp; Plans</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling / Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li role="presentation"><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="schematics"><span class="maps-rail-text">Schematics &amp; Plans</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
         </aside>
         <div class="maps-rotator" id="maps-rotator" role="tabpanel" aria-live="polite"></div>
@@ -290,60 +290,60 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 {%- comment -%} First eight maps exactly as ordered on locators-area-plays.html: featured maps, then the gallery (src/_data/locatorMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in locatorMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in locatorMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'property', label: 'Property & Target', maps: [
                 {%- comment -%} First eight maps exactly as ordered on property-target.html: featured maps, then the gallery (src/_data/propertyMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in propertyMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in propertyMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'geo', label: 'Geo / Geochem / Geophys', maps: [
                 {%- comment -%} First eight maps exactly as ordered on geoscience-maps.html: featured maps, then the gallery (src/_data/geoMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in geoMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in geoMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'drilling', label: 'Drilling / Sections', maps: [
                 {%- comment -%} First eight maps exactly as ordered on drilling.html: featured maps, then the gallery (src/_data/drillingMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in drillingMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in drillingMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'models', label: '3D Isometric Models', maps: [
                 {%- comment -%} First eight maps exactly as ordered on 3d-models.html: featured maps, then the gallery (src/_data/modelMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in modelMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in modelMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'schematics', label: 'Schematics & Plans', maps: [
                 {%- comment -%} First eight figures exactly as ordered on schematics-plans.html: featured figures, then the gallery (src/_data/schematicsMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in schematicsMaps -%}{%- if m.feature and shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
                 {%- for m in schematicsMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
-                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                { src: {{ m.src | thumb | json }}, full: {{ m.full | default: m.src | json }}, caption: {{ m.caption | json }}, alt: {{ m.alt | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]}
             ];
@@ -363,8 +363,9 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
               rotator.innerHTML = t.maps.map(function (u) {
                 // Entries are a URL, or { src, full, caption } (Locators: from locatorMaps.json).
                 var src = u.src || u, full = u.full || src, cap = u.caption || (t.label + ' — Exploration Sites');
+                var alt = String(u.alt || (t.label + ' map by Exploration Sites')).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
                 return '<button type="button" class="map-cell" data-lightbox data-full="' + full + '" data-caption="' + cap + '">'
-                  + '<img src="' + src + '" alt="' + t.label + ' map by Exploration Sites" loading="lazy" decoding="async"></button>';
+                  + '<img src="' + src + '" alt="' + alt + '" loading="lazy" decoding="async"></button>';
               }).join('');
               var cells = Array.prototype.slice.call(rotator.querySelectorAll('.map-cell'));
               if (reduce) { cells.forEach(function (c) { c.classList.add('in'); }); return; }
@@ -429,15 +430,15 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         </div>
         <div class="showcase-grid showcase-grid--sites">
           <a class="work-card" href="https://snowlinegold.com/" target="_blank" rel="noopener" aria-label="Snowline Gold website (opens in a new tab)">
-            <span class="work-card-media work-card-media--wide"><img width="1600" height="1067" src="images/sites/snowline.avif" alt="Snowline Gold investor website" loading="lazy"></span>
+            <span class="work-card-media work-card-media--wide"><img width="1600" height="1067" src="{{ 'images/sites/snowline.avif' | site800 }}" alt="Snowline Gold investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Snowline Gold</span>            </span>
           </a>
           <a class="work-card" href="https://avino.com/" target="_blank" rel="noopener" aria-label="Avino Silver &amp; Gold website (opens in a new tab)">
-            <span class="work-card-media work-card-media--wide"><img width="1600" height="1072" src="images/sites/avino.avif" alt="Avino Silver &amp; Gold investor website" loading="lazy"></span>
+            <span class="work-card-media work-card-media--wide"><img width="1600" height="1072" src="{{ 'images/sites/avino.avif' | site800 }}" alt="Avino Silver &amp; Gold investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Avino Silver &amp; Gold</span>            </span>
           </a>
           <a class="work-card" href="https://www.blackrocksilver.com/" target="_blank" rel="noopener" aria-label="Black Rock Silver website (opens in a new tab)">
-            <span class="work-card-media work-card-media--wide"><img width="1600" height="1057" src="images/sites/blackrocksilver.avif" alt="Black Rock Silver investor website" loading="lazy"></span>
+            <span class="work-card-media work-card-media--wide"><img width="1600" height="1057" src="{{ 'images/sites/blackrocksilver.avif' | site800 }}" alt="Black Rock Silver investor website" loading="lazy"></span>
             <span class="work-card-meta">              <span class="work-card-title">Black Rock Silver</span>            </span>
           </a>
         </div>
@@ -578,43 +579,43 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
     <div style="text-align: center; padding-top: 40px;"><div class="section-label">Clients</div></div>
     <div class="logo-scroll-wrapper">
       <div class="logo-scroll-track">
-        <img width="751" height="751" src="images/clients/discovery.avif" alt="Discovery Silver">
-        <img width="751" height="751" src="images/clients/montage.avif" alt="Montage Gold">
-        <img width="751" height="751" src="images/clients/aris.avif" alt="Aris Mining">
-        <img width="751" height="751" src="images/clients/fortuna.avif" alt="Fortuna Mining">
-        <img width="751" height="751" src="images/clients/southern-cross.avif" alt="Southern Cross Gold">
-        <img src="images/clients/snowline.avif" alt="Snowline Gold" class="logo-sm">
-        <img width="751" height="751" src="images/clients/fireweed.avif" alt="Fireweed Metals">
-        <img width="751" height="751" src="images/clients/newfound.avif" alt="New Found Gold">
-        <img width="751" height="751" src="images/clients/asante.avif" alt="Asante Gold">
-        <img width="751" height="751" src="images/clients/avino.avif" alt="Avino Silver & Gold">
-        <img width="751" height="751" src="images/clients/dolly-varden.avif" alt="Dolly Varden Silver">
-        <img src="images/clients/wrlg.avif" alt="West Red Lake Gold" class="logo-sm">
-        <img width="751" height="751" src="images/clients/nexgold.avif" alt="NexGold">
-        <img width="751" height="751" src="images/clients/white-gold.avif" alt="White Gold Corp">
-        <img src="images/clients/hercules.avif" alt="Hercules Metals" class="logo-sm">
-        <img width="751" height="751" src="images/clients/atha.avif" alt="Atha Energy">
-        <img width="751" height="751" src="images/clients/liberty.avif" alt="Liberty Gold">
-        <img width="751" height="751" src="images/clients/revival.avif" alt="Revival Gold">
+        <img width="751" height="751" src="{{ 'images/clients/discovery.avif' | logoSm }}" alt="Discovery Silver">
+        <img width="751" height="751" src="{{ 'images/clients/montage.avif' | logoSm }}" alt="Montage Gold">
+        <img width="751" height="751" src="{{ 'images/clients/aris.avif' | logoSm }}" alt="Aris Mining">
+        <img width="751" height="751" src="{{ 'images/clients/fortuna.avif' | logoSm }}" alt="Fortuna Mining">
+        <img width="751" height="751" src="{{ 'images/clients/southern-cross.avif' | logoSm }}" alt="Southern Cross Gold">
+        <img src="{{ 'images/clients/snowline.avif' | logoSm }}" alt="Snowline Gold" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/fireweed.avif' | logoSm }}" alt="Fireweed Metals">
+        <img width="751" height="751" src="{{ 'images/clients/newfound.avif' | logoSm }}" alt="New Found Gold">
+        <img width="751" height="751" src="{{ 'images/clients/asante.avif' | logoSm }}" alt="Asante Gold">
+        <img width="751" height="751" src="{{ 'images/clients/avino.avif' | logoSm }}" alt="Avino Silver & Gold">
+        <img width="751" height="751" src="{{ 'images/clients/dolly-varden.avif' | logoSm }}" alt="Dolly Varden Silver">
+        <img src="{{ 'images/clients/wrlg.avif' | logoSm }}" alt="West Red Lake Gold" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/nexgold.avif' | logoSm }}" alt="NexGold">
+        <img width="751" height="751" src="{{ 'images/clients/white-gold.avif' | logoSm }}" alt="White Gold Corp">
+        <img src="{{ 'images/clients/hercules.avif' | logoSm }}" alt="Hercules Metals" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/atha.avif' | logoSm }}" alt="Atha Energy">
+        <img width="751" height="751" src="{{ 'images/clients/liberty.avif' | logoSm }}" alt="Liberty Gold">
+        <img width="751" height="751" src="{{ 'images/clients/revival.avif' | logoSm }}" alt="Revival Gold">
         <!-- Duplicate for seamless loop — decorative mirror, hidden from assistive tech (A11Y-08) -->
-        <img width="751" height="751" src="images/clients/discovery.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/montage.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/aris.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/fortuna.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/southern-cross.avif" alt="" aria-hidden="true">
-        <img src="images/clients/snowline.avif" alt="" aria-hidden="true" class="logo-sm">
-        <img width="751" height="751" src="images/clients/fireweed.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/newfound.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/asante.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/avino.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/dolly-varden.avif" alt="" aria-hidden="true">
-        <img src="images/clients/wrlg.avif" alt="" aria-hidden="true" class="logo-sm">
-        <img width="751" height="751" src="images/clients/nexgold.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/white-gold.avif" alt="" aria-hidden="true">
-        <img src="images/clients/hercules.avif" alt="" aria-hidden="true" class="logo-sm">
-        <img width="751" height="751" src="images/clients/atha.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/liberty.avif" alt="" aria-hidden="true">
-        <img width="751" height="751" src="images/clients/revival.avif" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/discovery.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/montage.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/aris.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/fortuna.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/southern-cross.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img src="{{ 'images/clients/snowline.avif' | logoSm }}" alt="" aria-hidden="true" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/fireweed.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/newfound.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/asante.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/avino.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/dolly-varden.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img src="{{ 'images/clients/wrlg.avif' | logoSm }}" alt="" aria-hidden="true" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/nexgold.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/white-gold.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img src="{{ 'images/clients/hercules.avif' | logoSm }}" alt="" aria-hidden="true" class="logo-sm">
+        <img width="751" height="751" src="{{ 'images/clients/atha.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/liberty.avif' | logoSm }}" alt="" aria-hidden="true">
+        <img width="751" height="751" src="{{ 'images/clients/revival.avif' | logoSm }}" alt="" aria-hidden="true">
       </div>
     </div>
 

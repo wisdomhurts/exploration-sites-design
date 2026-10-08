@@ -1698,6 +1698,7 @@
     }
     .testimonial-logo {
       height: 40px;
+      width: auto;
       object-fit: contain;
       object-position: right bottom;
       opacity: 0.38;
