@@ -14,6 +14,20 @@ mapType: "drilling"
 
     <div class="divider"></div>
 
+    <!-- GALLERY: every map, in folder order (featured first — matches the homepage tab) -->
+    <section class="section">
+      <div class="section-label">The work</div>
+      <div class="map-gallery">
+{%- for m in drillingMaps -%}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
+        </button>
+{%- endfor %}
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- WHY IT MATTERS -->
     <section class="section">
       <div class="section-grid">
@@ -30,10 +44,10 @@ mapType: "drilling"
 
     <div class="divider"></div>
 
-    <!-- FEATURED EXAMPLES -->
+    <!-- UP CLOSE -->
     <section class="section">
-      <div class="section-label">Selected Work</div>
-      <h2 class="section-headline">A few we&rsquo;ve made.</h2>
+      <div class="section-label">Up close</div>
+      <h2 class="section-headline">A few, in detail.</h2>
 
 {%- comment -%} Maps come from src/_data/drillingMaps.json, in folder-number order. The homepage shows the first eight as they appear here (featured maps first, then gallery). {%- endcomment -%}
 {%- for m in drillingMaps -%}{%- if m.feature %}
@@ -48,20 +62,6 @@ mapType: "drilling"
         </div>
       </div>
 {%- endif -%}{%- endfor %}
-    </section>
-
-    <div class="divider"></div>
-
-    <section class="section">
-      <div class="section-label">More Drilling &amp; Sections</div>
-      <h2 class="section-headline">A wider selection.</h2>
-      <div class="map-gallery">
-{%- for m in drillingMaps -%}{%- unless m.feature %}
-        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
-          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
-        </button>
-{%- endunless -%}{%- endfor %}
-      </div>
     </section>
 
     <div class="divider"></div>

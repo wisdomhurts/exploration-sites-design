@@ -35,9 +35,6 @@
                 <!-- Investor Maps Panel -->
                 <div class="mega-menu-tab-panel is-active" id="panel-maps" role="tabpanel" aria-labelledby="tab-maps" tabindex="0">
                   <div class="mega-menu-cards">
-                    <a href="/news-release-map-program.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">News-Release Map Program</div>
-                    </a>
                     <a href="/locators-area-plays.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
                     </a>
@@ -55,6 +52,9 @@
                     </a>
                     <a href="/schematics-plans.html" class="mega-menu-card">
                       <div class="mega-menu-card-title">Schematics &amp; Plans</div>
+                    </a>
+                    <a href="/news-release-map-program.html" class="mega-menu-card">
+                      <div class="mega-menu-card-title">News-Release Map Program <span class="nav-new">New</span></div>
                     </a>
                   </div>
                 </div>
@@ -137,13 +137,13 @@
         <div class="nav-mobile-acc-body" id="nav-mobile-acc-services" hidden>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Investor Maps</div>
-            <a href="/news-release-map-program.html">News-Release Map Program</a>
             <a href="/locators-area-plays.html">Locators &amp; Area Plays</a>
             <a href="/property-target.html">Property &amp; Target Maps</a>
             <a href="/geoscience-maps.html">Geo / Geochem / Geophys</a>
             <a href="/drilling.html">Drilling / Sections</a>
             <a href="/3d-models.html">3D Isometric Models</a>
             <a href="/schematics-plans.html">Schematics &amp; Plans</a>
+            <a href="/news-release-map-program.html">News-Release Map Program <span class="nav-new">New</span></a>
           </div>
           <div class="nav-mobile-acc-group">
             <div class="nav-mobile-acc-group-title">Websites</div>
@@ -176,6 +176,22 @@
   </div>
 
   <style>
+    /* Small square "New" tag beside a menu item. 1px rule, no fill. */
+    .nav-new {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 5px;
+      border: 1px solid var(--ore, #B8823A);
+      border-radius: 2px;
+      font-family: Inter, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ore-text, #815A20);
+      vertical-align: 2px;
+    }
     /* Mega-menu open state is JS-driven (.is-open) via click/keyboard, plus
        desktop :hover. styles.css also opens it on :focus-within, which fights
        click-toggle + Escape (focus on the trigger would keep it visually open).

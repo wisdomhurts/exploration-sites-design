@@ -270,7 +270,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
   .rate-list li { display: flex; align-items: baseline; gap: 8px; padding: 9px 0; border-top: 1px solid var(--border); font-size: 14px; line-height: 1.35; color: var(--body); }
   .rate-list a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
   .rate-list a:hover { color: var(--ore); }
-  .rate-dots { flex: 1 1 auto; min-width: 16px; border-bottom: 1px dotted var(--graticule); transform: translateY(-4px); }
+  .rate-dots { flex: 1 1 auto; min-width: 16px; }
   .rate-price { flex: 0 0 auto; white-space: nowrap; font-weight: 500; color: var(--graphite); font-variant-numeric: tabular-nums; }
   @media (max-width: 900px) {
     .rate-lead { grid-template-columns: 1fr 1fr; }
@@ -854,7 +854,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       </div>
 
       <div class="rate reveal">
-        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash; anything that differs is priced below. All prices in CAD.</span></p>
+        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash;<br>anything that differs is priced below.<br>All prices in CAD.</span></p>
         <div class="rate-card rate-lead">
           <div class="rate-head">
             <div class="deliv-kick">Make geology legible</div>
