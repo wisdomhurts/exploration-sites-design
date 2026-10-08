@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: "Terms of Service — Exploration Sites"
-description: "Terms governing engagements, Map Program subscriptions, deliverables, and payment with Exploration Sites."
+description: "Terms governing project work, Map Program subscriptions, retainers, deliverables, and payment with Exploration Sites."
 permalink: "terms.html"
 footerShader: false
 ---
@@ -254,8 +254,8 @@ footerShader: false
   <header class="lgl-hero">
     <p class="lgl-eyebrow">Legal</p>
     <h1 class="lgl-title">Terms of Service</h1>
-    <p class="lgl-lede">The terms below govern engagements, subscriptions, deliverables, and payment with Exploration Sites. Where a signed project agreement exists, it takes precedence.</p>
-    <p class="lgl-meta">Last updated October&nbsp;7,&nbsp;2026</p>
+    <p class="lgl-lede">The terms below govern all work, subscriptions, retainers, and payments with Exploration Sites. They are written to be read: plain language, no surprises. Where a signed agreement with you says something different, the signed agreement wins.</p>
+    <p class="lgl-meta">Last updated October&nbsp;8,&nbsp;2026</p>
   </header>
 
   <div class="lgl-body">
@@ -263,11 +263,11 @@ footerShader: false
     <nav class="lgl-toc" aria-label="Sections">
       <p class="lgl-toc-label">On this page</p>
       <ul class="lgl-toc-list">
-{%- assign sections = "engagements|Engagements,subscriptions|Map Program subscriptions,pricing|Pricing,ownership|Ownership &amp; revisions,disclaimers|Disclaimers,liability|Limitation of liability,law|Governing law,changes|Changes to these terms,contact|Contact" | split: "," %}
+{%- assign sections = "about|About these terms,projects|Project work,subscriptions|Map Program subscriptions,retainers|Retainers,responsibilities|Your data &amp; approvals,confidentiality|Confidentiality,ownership|Ownership &amp; portfolio,pricing|Pricing &amp; taxes,disclaimers|Disclaimers,liability|Limitation of liability,indemnity|Indemnity,beyond-control|Events beyond our control,law|Governing law,changes|Changes to these terms,contact|Contact" | split: "," %}
 {%- for s in sections %}{% assign parts = s | split: "|" %}
         <li>
           <a class="lgl-toc-link" href="#{{ parts[0] }}">
-            <span class="lgl-toc-num">0{{ forloop.index }}</span>
+            <span class="lgl-toc-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
             <span class="lgl-toc-text">{{ parts[1] }}</span>
           </a>
         </li>
@@ -277,83 +277,145 @@ footerShader: false
 
     <div class="lgl-prose">
 
-      <section class="lgl-section" id="engagements">
+      <section class="lgl-section" id="about">
         <div class="lgl-section-head">
           <span class="lgl-section-num">01</span>
-          <h2 class="lgl-section-title">Engagements</h2>
+          <h2 class="lgl-section-title">About these terms</h2>
         </div>
-        <p class="lgl-text">Project work is initiated once a signed project agreement and payment in full are received &mdash; engagements are paid in full at approval; it is how fixed quotes stay fixed. Scope, deliverables, timelines, and payment terms are defined in the individual project agreement, which takes precedence over anything on this website. Monthly News-Release Map Program subscriptions purchased online are governed by section 02.</p>
+        <p class="lgl-text">&ldquo;Exploration Sites&rdquo;, &ldquo;we&rdquo;, and &ldquo;us&rdquo; mean Exploration Sites Corp., a company based in Victoria, British Columbia. &ldquo;You&rdquo; means the company or person we do the work for.</p>
+        <p class="lgl-text">These terms apply to every engagement: online Map Program subscriptions, retainers, and project work. Each engagement is made up of these terms plus the written quote, proposal, or order you accept &mdash; accepting by email or by paying counts. If we both sign a separate agreement, it takes precedence where it differs from these terms.</p>
+      </section>
+
+      <section class="lgl-section" id="projects">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">02</span>
+          <h2 class="lgl-section-title">Project work</h2>
+        </div>
+        <p class="lgl-text"><b>Quotes.</b> Each project is priced on a written quote that sets out the scope, deliverables, number of revision rounds, and timeline. Quotes are valid for thirty days.</p>
+        <p class="lgl-text"><b>Payment.</b> Projects are paid in full when you approve the quote, and work starts once payment is received &mdash; it is how fixed quotes stay fixed.</p>
+        <p class="lgl-text"><b>Changes in scope.</b> Work outside the quoted scope, or revision rounds beyond those included, is quoted separately before we do it. We won&rsquo;t bill for extra work you haven&rsquo;t approved.</p>
+        <p class="lgl-text"><b>Timelines.</b> Timelines run from receipt of payment and the data and materials we need. If data, feedback, or approvals arrive late, the timeline moves by at least the same amount.</p>
       </section>
 
       <section class="lgl-section" id="subscriptions">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">02</span>
+          <span class="lgl-section-num">03</span>
           <h2 class="lgl-section-title">Map Program subscriptions</h2>
         </div>
-        <p class="lgl-text"><b>Agreement.</b> When you complete checkout for a News-Release Map Program tier and accept these terms, you enter a subscription agreement with Exploration Sites on these terms. If we later sign a project agreement with you for the same program, that agreement takes precedence.</p>
-        <p class="lgl-text"><b>Billing.</b> At checkout we charge the one-time base setup fee and your first month. Your subscription then renews monthly on the same date and is charged automatically to the payment method on file through our payment processor, Stripe. All amounts are in Canadian dollars; GST is added where it applies.</p>
-        <p class="lgl-text"><b>Term &amp; cancellation.</b> Subscriptions run for a four-month minimum term &mdash; at least four monthly payments &mdash; then month-to-month. You can cancel at any time by emailing <a href="mailto:accounts@explorationsites.com">accounts@explorationsites.com</a>. Cancellation after the minimum term takes effect at the end of the current billing period. If you cancel during the minimum term, the remaining months of the minimum term stay payable.</p>
-        <p class="lgl-text"><b>Pause.</b> Between drill programs you may pause for up to six months by emailing us; billing stops while paused, your locked base is retained, and paused months do not count toward the minimum term. Resume within twelve months of your last billed month and the setup fee is not charged again.</p>
-        <p class="lgl-text"><b>Capacity.</b> Your tier buys standing capacity and priority each month, not map inventory &mdash; unused maps do not carry forward. Maps beyond your tier are billed at the member rate on your next invoice.</p>
-        <p class="lgl-text"><b>Turnaround guarantee.</b> Your tier&rsquo;s turnaround is measured from our receipt of clean, complete data, Monday to Friday.</p>
-        <p class="lgl-text"><b>Refunds.</b> The setup fee is non-refundable once base-map work has begun. Monthly fees are non-refundable for a billing period that has started, except where required by law. If we end your subscription for reasons other than non-payment, we refund any prepaid fees for the unused part of the billing period.</p>
-        <p class="lgl-text"><b>Failed payments &amp; price changes.</b> If a payment fails, Stripe will retry it; we may pause work while an invoice is more than fourteen days overdue. We will give at least thirty days&rsquo; notice of any price change, and prices do not change during your minimum term.</p>
+        <p class="lgl-text"><b>Agreement.</b> When you complete checkout for a News-Release Map Program tier and accept these terms, you enter a subscription with Exploration Sites on these terms.</p>
+        <p class="lgl-text"><b>Billing.</b> At checkout we charge the one-time base setup fee and your first month. Your subscription then renews monthly on the same date and is charged automatically to the payment method on file through our payment processor, Stripe.</p>
+        <p class="lgl-text"><b>Minimum term &amp; cancellation.</b> Subscriptions have a four-month minimum term &mdash; four paid months &mdash; then continue month-to-month. You can cancel at any time by emailing <a href="mailto:accounts@explorationsites.com">accounts@explorationsites.com</a>. After the minimum term, cancellation takes effect at the end of the current billing period and nothing further is charged. If you cancel during the minimum term, the remaining months of the minimum term stay payable.</p>
+        <p class="lgl-text"><b>Pause.</b> You may pause at any time for up to six months by emailing us. Billing stops while paused, your locked base is kept, and paused months do not count toward the minimum term. Billing restarts when you resume. If you have not resumed by the end of six months, your subscription ends, and any unpaid months of the minimum term become payable.</p>
+        <p class="lgl-text"><b>Rejoining.</b> If you come back within twelve months of your last billed month, the setup fee is not charged again.</p>
+        <p class="lgl-text"><b>Capacity.</b> Your tier buys a monthly number of maps and priority over one-off work. It is capacity, not inventory: unused maps do not carry forward. Maps beyond your tier are billed at the member rate on your next invoice. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
+        <p class="lgl-text"><b>Turnaround.</b> &ldquo;48 hours&rdquo; means two business days. If we receive clean, complete data by noon Pacific time on a business day, the map is delivered by noon Pacific two business days later; data received after noon counts from the next business day. Business days are Monday to Friday, excluding British Columbia statutory holidays. The 48-hour turnaround covers up to two maps per request; for larger batches we agree a delivery schedule with you. &ldquo;Clean, complete data&rdquo; means everything the map needs &mdash; final assay or result values, collar and trace data, and any text you want on the map &mdash; in a usable digital format. The clock restarts if the data or results change. Your revision requests are turned around on the same basis.</p>
+        <p class="lgl-text"><b>Refunds.</b> The setup fee is non-refundable once base-map work has begun. Monthly fees are non-refundable once a billing period has started, except where the law requires otherwise. If we end your subscription for any reason other than non-payment or breach of these terms, we refund the prepaid fees for the unused part of the billing period.</p>
+        <p class="lgl-text"><b>Failed payments.</b> If a payment fails, Stripe retries it automatically. We may pause work while an invoice is more than fourteen days overdue, and may end the subscription if it is more than thirty days overdue.</p>
+        <p class="lgl-text"><b>Price changes.</b> Prices do not change during your minimum term. After that, we give at least thirty days&rsquo; notice by email of any price change, so you can cancel before it applies.</p>
       </section>
 
-      <section class="lgl-section" id="pricing">
+      <section class="lgl-section" id="retainers">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">03</span>
-          <h2 class="lgl-section-title">Pricing</h2>
+          <span class="lgl-section-num">04</span>
+          <h2 class="lgl-section-title">Retainers</h2>
         </div>
-        <p class="lgl-text">All prices shown on the website are in Canadian dollars and exclude GST. Published prices reflect typical scope and may be adjusted for projects requiring non-standard scope, data, or timelines. For online subscriptions, the price shown at checkout is the price you pay.</p>
+        <p class="lgl-text"><b>Term.</b> Retainers have a twelve-month term, billed monthly in advance. After twelve months they continue month-to-month until either of us ends them with thirty days&rsquo; written notice (email is fine). If you end a retainer during the first twelve months, the remaining monthly fees of the term stay payable.</p>
+        <p class="lgl-text"><b>Capacity.</b> Each tier includes a monthly amount of production capacity, described on our site and in your proposal. Up to 40% of a month&rsquo;s unused capacity rolls into the following month only; it does not accumulate beyond that and has no cash value. Work beyond your capacity is quoted before we start it.</p>
+        <p class="lgl-text"><b>Response time.</b> Priority response times are measured in business hours (Monday to Friday, Pacific time, excluding British Columbia statutory holidays) and mean we acknowledge and schedule your request within that time, not that the work is finished.</p>
+        <p class="lgl-text"><b>Price changes.</b> Prices are fixed for the twelve-month term. After that, we give at least thirty days&rsquo; notice by email of any change.</p>
+      </section>
+
+      <section class="lgl-section" id="responsibilities">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">05</span>
+          <h2 class="lgl-section-title">Your data &amp; approvals</h2>
+        </div>
+        <p class="lgl-text"><b>Your data.</b> You are responsible for the accuracy and completeness of the data, results, and text you give us, and you confirm you have the right to let us use it for the work. We build maps from what you supply; we do not independently verify assays, resource figures, or other technical data.</p>
+        <p class="lgl-text"><b>Your approval.</b> Before you publish anything we make &mdash; in a news release, presentation, filing, or anywhere else &mdash; you are responsible for reviewing and approving it, including review by your qualified person where your disclosure requires one. Publishing a deliverable confirms you have approved it.</p>
+        <p class="lgl-text"><b>Errors.</b> If you find an error that we introduced, tell us within thirty days of delivery and we will correct it at no charge, as quickly as we reasonably can. Corrections for errors in data you supplied, or changes after approval, are billed as new work or count toward your tier.</p>
+      </section>
+
+      <section class="lgl-section" id="confidentiality">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">06</span>
+          <h2 class="lgl-section-title">Confidentiality</h2>
+        </div>
+        <p class="lgl-text">Much of what you send us is non-public, and some of it may be material information about a publicly traded company. We keep everything you share confidential: we use it only to do your work, limit access to the team members involved, and never disclose it without your permission or a legal obligation to do so. No one at Exploration Sites trades in a client&rsquo;s securities using information we receive from that client. We return or delete your materials on request, keeping only what we must for legal, tax, and accounting records. We will sign a non-disclosure agreement before work begins if you ask.</p>
       </section>
 
       <section class="lgl-section" id="ownership">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">04</span>
-          <h2 class="lgl-section-title">Ownership &amp; revisions</h2>
+          <span class="lgl-section-num">07</span>
+          <h2 class="lgl-section-title">Ownership &amp; portfolio</h2>
         </div>
-        <p class="lgl-text">On final payment, the client receives rights to use the delivered materials for their stated business purpose; for subscriptions, rights to each map pass when the invoice covering it is paid. We retain the right to showcase completed work in our portfolio and marketing. Revision rounds and scope boundaries are defined per engagement.</p>
+        <p class="lgl-text"><b>What you own.</b> Once the work is paid for, you own the final deliverables &mdash; the finished maps, figures, presentations, and other files we deliver &mdash; and may use, reproduce, and adapt them for any purpose. For subscriptions and retainers, ownership of each deliverable passes when the invoice covering it is paid.</p>
+        <p class="lgl-text"><b>What we keep.</b> We keep ownership of our working files, templates, house styles, symbol libraries, and methods, which we may reuse for other clients without your confidential content. Working files (such as GIS projects and layered design files) are not included unless your quote says so.</p>
+        <p class="lgl-text"><b>Third-party material.</b> Some deliverables include third-party material such as base-map data, satellite imagery, government geoscience data, or licensed fonts and images. That material stays subject to its own licence and attribution terms, which we follow when we build your work.</p>
+        <p class="lgl-text"><b>Portfolio.</b> We may show finished work in our portfolio and marketing, and name you as a client &mdash; but only after the work, and the information in it, has been made public by you. We never show unreleased results. If you would rather we did not show a piece of work, tell us and we will take it down.</p>
+      </section>
+
+      <section class="lgl-section" id="pricing">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">08</span>
+          <h2 class="lgl-section-title">Pricing &amp; taxes</h2>
+        </div>
+        <p class="lgl-text">All prices are in Canadian dollars and exclude taxes; applicable sales taxes (such as GST or HST) are added to invoices and at checkout. Published prices reflect typical scope and may be adjusted, in your quote, for non-standard scope, data, or timelines. For online subscriptions, the price shown at checkout is the price you pay.</p>
       </section>
 
       <section class="lgl-section" id="disclaimers">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">05</span>
+          <span class="lgl-section-num">09</span>
           <h2 class="lgl-section-title">Disclaimers</h2>
         </div>
-        <p class="lgl-text">Investor maps, presentations, and other materials produced by Exploration Sites are communication tools. They are not investment advice and do not constitute technical reports under NI 43-101 or equivalent standards. Clients are responsible for the accuracy of the data they supply and for regulatory review of all disclosure materials before publication.</p>
+        <p class="lgl-text">Our maps, presentations, websites, and other materials are communication tools. They are not investment advice, they are not technical reports under NI&nbsp;43-101 or any equivalent standard, and we do not act as anyone&rsquo;s qualified person. We do not promise any financing, market, share-price, or valuation outcome. See our <a href="/disclosures.html">Disclosures</a> for more.</p>
       </section>
 
       <section class="lgl-section" id="liability">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">06</span>
+          <span class="lgl-section-num">10</span>
           <h2 class="lgl-section-title">Limitation of liability</h2>
         </div>
-        <p class="lgl-text">To the extent permitted by law, our total liability arising from any engagement or subscription is limited to the fees you paid us for it in the three months before the claim arose. We are not liable for indirect or consequential losses, including lost profits, financing outcomes, or changes in share price or market value.</p>
+        <p class="lgl-text">To the fullest extent the law allows, our total liability for any claim arising from an engagement, subscription, or retainer is limited to the fees you paid us for it in the three months before the claim arose. We are not liable for indirect or consequential losses, including lost profits, lost financing, regulatory consequences of disclosure you published, or changes in share price or market value. Nothing in these terms limits liability that cannot be limited by law.</p>
+      </section>
+
+      <section class="lgl-section" id="indemnity">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">11</span>
+          <h2 class="lgl-section-title">Indemnity</h2>
+        </div>
+        <p class="lgl-text">You agree to cover our reasonable costs, including legal fees, if a third party makes a claim against us arising from data, text, or other material you supplied, from your decision to publish a deliverable, or from your breach of these terms.</p>
+      </section>
+
+      <section class="lgl-section" id="beyond-control">
+        <div class="lgl-section-head">
+          <span class="lgl-section-num">12</span>
+          <h2 class="lgl-section-title">Events beyond our control</h2>
+        </div>
+        <p class="lgl-text">Neither of us is responsible for a delay or failure caused by events outside our reasonable control, such as major outages of internet, power, or the services we rely on, natural disasters, or illness affecting our team. The affected side will tell the other promptly and resume as soon as it reasonably can. This does not excuse payment of amounts already due.</p>
       </section>
 
       <section class="lgl-section" id="law">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">07</span>
+          <span class="lgl-section-num">13</span>
           <h2 class="lgl-section-title">Governing law</h2>
         </div>
-        <p class="lgl-text">These terms are governed by the laws of the Province of British Columbia and the federal laws of Canada that apply there. Any dispute will be resolved in the courts of British Columbia.</p>
+        <p class="lgl-text">These terms are governed by the laws of the Province of British Columbia and the federal laws of Canada that apply there. Before going to court, we will each try in good faith to resolve any dispute by talking it through. Any dispute that can&rsquo;t be resolved that way will be decided in the courts of British Columbia.</p>
       </section>
 
       <section class="lgl-section" id="changes">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">08</span>
+          <span class="lgl-section-num">14</span>
           <h2 class="lgl-section-title">Changes to these terms</h2>
         </div>
-        <p class="lgl-text">We may update these terms from time to time; the date at the top shows the current version. For active subscriptions, we will give at least thirty days&rsquo; notice of a material change by email before it applies to you.</p>
+        <p class="lgl-text">We may update these terms from time to time; the date at the top shows the current version. Changes don&rsquo;t apply to work already quoted and accepted. For active subscriptions and retainers, we give at least thirty days&rsquo; notice by email of any material change before it applies to you, and you may cancel before then without the change applying.</p>
       </section>
 
       <section class="lgl-section" id="contact">
         <div class="lgl-section-head">
-          <span class="lgl-section-num">09</span>
+          <span class="lgl-section-num">15</span>
           <h2 class="lgl-section-title">Contact</h2>
         </div>
-        <p class="lgl-text">Questions about these terms can be sent to <a href="mailto:info@explorationsites.com">info@explorationsites.com</a>. Billing and subscription questions: <a href="mailto:accounts@explorationsites.com">accounts@explorationsites.com</a>.</p>
+        <p class="lgl-text">Questions about these terms: <a href="mailto:info@explorationsites.com">info@explorationsites.com</a>. Billing, subscriptions, pauses, and cancellations: <a href="mailto:accounts@explorationsites.com">accounts@explorationsites.com</a>.</p>
       </section>
 
     </div>
