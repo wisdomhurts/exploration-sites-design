@@ -1,0 +1,80 @@
+---
+layout: base.html
+title: "You're booked — Exploration Sites"
+description: "Your discovery call with Exploration Sites is booked."
+permalink: "booking-confirmed.html"
+noindex: true
+sitemap: false
+---
+{%- comment -%}
+  Post-booking page. The GoHighLevel calendar on book.html redirects here after a
+  booking (set in GHL: Calendar settings > Confirmation > Redirect to URL). It is
+  the site's conversion page: count page views of /booking-confirmed.html as
+  booked calls in Vercel Analytics. Noindex and out of the sitemap.
+{%- endcomment %}
+
+    <section class="hero hero--page">
+      <div class="section-label">Discovery call</div>
+      <h1 class="hero-headline">You&rsquo;re booked.</h1>
+      <p class="hero-body">A confirmation with the time and the call link is on its way to your inbox. It&rsquo;s twenty minutes with Dorian Leslie, and there&rsquo;s nothing to prepare unless you&rsquo;d like to.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">If you have five minutes</div>
+          <h2 class="section-headline">Send these ahead.</h2>
+        </div>
+        <div>
+          <p class="body-text">None of it is required, but each one lets us spend the call on your project rather than on background. Reply to the confirmation email, or write to <a href="mailto:dorian@explorationsites.com">dorian@explorationsites.com</a>.</p>
+          <ul class="booked-list">
+            <li><b>Your current deck or website.</b> A link is fine. It tells us where your story stands today.</li>
+            <li><b>The project and its stage.</b> Name, location, and whether you are drilling, defining a resource, or heading toward a study.</li>
+            <li><b>What&rsquo;s coming up.</b> Results due, a raise, a conference, a rebrand. Dates help us scope honestly.</li>
+            <li><b>Any maps or data you already have.</b> Existing figures, a GIS workspace, or the drill database. Rough is fine.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">While you wait</div>
+          <h2 class="section-headline">See the work.</h2>
+        </div>
+        <div>
+          <a href="case-studies.html" class="service-row">
+            <div>
+              <div class="service-title">Case studies</div>
+              <div class="service-desc">How we have worked with Montage Gold, West Red Lake Gold, Fireweed Metals, and others.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="services.html" class="service-row">
+            <div>
+              <div class="service-title">What we do</div>
+              <div class="service-desc">Maps, websites, presentations, and design, with recent work in each.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+          <a href="fundable-materials-scorecard.html" class="service-row">
+            <div>
+              <div class="service-title">Fundable Materials Scorecard</div>
+              <div class="service-desc">A short self-assessment of your current investor materials. Handy to have done before the call.</div>
+            </div>
+            <span class="service-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .booked-list { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--border); }
+      .booked-list li { padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 15px; line-height: 1.6; color: var(--body); }
+      .booked-list b { color: var(--graphite); font-weight: 600; }
+    </style>
