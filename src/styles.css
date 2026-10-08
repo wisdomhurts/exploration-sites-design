@@ -1526,6 +1526,54 @@
     .service-row--static:hover > *,
     .service-row--static:hover .service-arrow { transform: none; color: var(--muted); }
 
+    /* --- SITUATIONS (services.html): start-from-where-you-are entry cards --- */
+    .situation-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 22px; }
+    .situation-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; background: var(--white, #fff); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s ease; }
+    .situation-card:hover, .situation-card:focus-visible { border-color: var(--slate); }
+    .situation-media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--vellum); border-bottom: 1px solid var(--border); }
+    .situation-media img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; transition: transform 0.5s ease; }
+    .situation-card:hover .situation-media img { transform: scale(1.03); }
+    .situation-title { margin: 18px 20px 6px; font-family: var(--font-serif); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: var(--graphite); }
+    .situation-desc { margin: 0 20px; font-size: 13.5px; line-height: 1.55; color: var(--body); flex: 1 1 auto; }
+    .situation-link { margin: 16px 20px 20px; font-size: 12.5px; font-weight: 600; color: var(--graphite); }
+    .situation-card:hover .situation-link { color: var(--ore-text, #815A20); }
+    @media (max-width: 1024px) { .situation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .situation-grid { grid-template-columns: minmax(0, 1fr); } }
+
+    /* --- WHAT WE DO: map-type grid, recent-work line, NRMP band (services.html) --- */
+    .maptype-price { margin: 20px 0 14px; font-size: 13px; font-weight: 500; color: var(--slate); font-variant-numeric: tabular-nums; }
+    .maptype-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .maptype { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+    .maptype-media { display: block; aspect-ratio: 4 / 3; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--vellum); transition: border-color 0.2s ease; }
+    .maptype-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+    .maptype:hover .maptype-media, .maptype:focus-visible .maptype-media { border-color: var(--slate); }
+    .maptype:hover .maptype-media img { transform: scale(1.04); }
+    .maptype-name { margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.3; }
+    .maptype-count { margin-top: 2px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .maptype:hover .maptype-name { color: var(--ore-text, #815A20); }
+    .recent-work { margin: 22px 0 0; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
+    .nrmp-band { display: grid; grid-template-columns: 200px minmax(0, 1fr) auto; gap: 28px; align-items: center; margin: 0 0 clamp(40px, 5vw, 64px); padding: 22px; background: var(--white, #fff); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: inherit; transition: border-color 0.2s ease; }
+    .nrmp-band:hover, .nrmp-band:focus-visible { border-color: var(--ore); }
+    .nrmp-band-media { display: block; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+    .nrmp-band-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .nrmp-band-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .nrmp-band-kick { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ore-text, #815A20); }
+    .nrmp-band-kick .nav-new { margin-left: 8px; }
+    .nrmp-band-title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15; letter-spacing: -0.01em; color: var(--graphite); }
+    .nrmp-band-desc { font-size: 14px; line-height: 1.55; color: var(--body); max-width: 60ch; }
+    .nrmp-band-side { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-left: 28px; border-left: 1px solid var(--border); }
+    .nrmp-band-price { font-size: 13.5px; line-height: 1.5; color: var(--graphite); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .nrmp-band-cta { font-size: 13px; font-weight: 600; color: var(--graphite); border-bottom: 1px solid var(--ore); padding-bottom: 2px; }
+    .nrmp-band:hover .nrmp-band-cta { color: var(--ore-text, #815A20); }
+    @media (max-width: 1024px) {
+      .nrmp-band { grid-template-columns: 160px minmax(0, 1fr); }
+      .nrmp-band-side { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-left: 0; border-left: none; padding-top: 16px; border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 560px) {
+      .maptype-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .nrmp-band { grid-template-columns: minmax(0, 1fr); }
+    }
+
     /* --- STATS --- */
     .stats {
       padding: 80px 0;
