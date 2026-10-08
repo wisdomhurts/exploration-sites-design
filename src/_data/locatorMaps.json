@@ -1,0 +1,489 @@
+[
+  {
+    "src": "/images/work/locators/gmin-greenstone-belts.webp",
+    "full": "/images/work/locators/gmin-greenstone-belts-full.webp",
+    "w": 1400,
+    "h": 845,
+    "caption": "G Mining — Guiana Shield &amp; West African greenstone belts",
+    "alt": "Guiana Shield and West African greenstone belt deposit map produced for G Mining",
+    "feature": {
+      "label": "G Mining Ventures",
+      "title": "Guiana Shield &amp; West Africa",
+      "body": "A continental-scale locator placing G Mining&rsquo;s Oko West, Gurupi, and Tocantinzinho among the Birimian / Transamazonian greenstone belts &mdash; reunited across the Pangea reconstruction to show the shared geology that hosts West Africa&rsquo;s and South America&rsquo;s largest gold deposits."
+    }
+  },
+  {
+    "src": "/images/work/locators/kincora-macquarie-arc.webp",
+    "full": "/images/work/locators/kincora-macquarie-arc-full.webp",
+    "w": 1400,
+    "h": 1181,
+    "caption": "Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia",
+    "alt": "Macquarie Arc projects and mineral belts area-play map produced for Kincora",
+    "feature": {
+      "label": "Kincora Copper",
+      "title": "Macquarie Arc, New South Wales",
+      "body": "An area play mapping Kincora&rsquo;s full project portfolio across the Macquarie Arc and Cobar Basin systems, colour-coded by metal endowment and set against district anchors &mdash; Cadia, Northparkes, Cowal &mdash; plus partnered ground. It turns a scattered land package into a single, legible story."
+    }
+  },
+  {
+    "src": "/images/work/locators/ngex-vicuna-district.webp",
+    "full": "/images/work/locators/ngex-vicuna-district-full.webp",
+    "w": 1400,
+    "h": 1030,
+    "caption": "NGEX — Vicuña District regional locator, Chile &amp; Argentina",
+    "alt": "Vicuña District regional locator map produced for NGEX",
+    "feature": {
+      "label": "NGEX Resources",
+      "title": "Vicu&ntilde;a District, Chile &amp; Argentina",
+      "body": "A regional locator placing NGEX&rsquo;s Los Helados inside the Vicu&ntilde;a District &mdash; flanked by the Maricunga and El Indio porphyry belts and the names the market knows: Caserones, Cerro Casale, and the BHP&nbsp;/&nbsp;Lundin Vicu&ntilde;a project. Borders, infrastructure, and scale all read at a glance."
+    }
+  },
+  {
+    "src": "/images/work/locators/nations-royalties-golden-triangle.webp",
+    "full": "/images/work/locators/nations-royalties-golden-triangle-full.webp",
+    "w": 800,
+    "h": 802,
+    "caption": "Nations Royalties — Golden Triangle, BC",
+    "alt": "Golden Triangle map produced for Nations Royalties"
+  },
+  {
+    "src": "/images/work/locators/dolly-varden-golden-triangle.webp",
+    "full": "/images/work/locators/dolly-varden-golden-triangle-full.webp",
+    "w": 800,
+    "h": 900,
+    "caption": "Dolly Varden — Golden Triangle, BC",
+    "alt": "Golden Triangle locator map produced for Dolly Varden Silver"
+  },
+  {
+    "src": "/images/work/locators/resolute-west-africa.webp",
+    "full": "/images/work/locators/resolute-west-africa-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Resolute — West African projects",
+    "alt": "West African projects locator map produced for Resolute"
+  },
+  {
+    "src": "/images/work/locators/tiger-gold-colombia.webp",
+    "full": "/images/work/locators/tiger-gold-colombia-full.webp",
+    "w": 800,
+    "h": 989,
+    "caption": "Tiger Gold — regional geology locator, Colombia",
+    "alt": "Colombia regional geology locator map produced for Tiger Gold"
+  },
+  {
+    "src": "/images/work/locators/andina-regional-locator.webp",
+    "full": "/images/work/locators/andina-regional-locator-full.webp",
+    "w": 800,
+    "h": 1014,
+    "caption": "Andina Copper — regional locator",
+    "alt": "Regional locator map produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/locators/nfg-newfoundland.webp",
+    "full": "/images/work/locators/nfg-newfoundland-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "New Found Gold — regional locator, Newfoundland",
+    "alt": "Newfoundland regional locator map produced for New Found Gold"
+  },
+  {
+    "src": "/images/work/locators/andina-mantau-district.webp",
+    "full": "/images/work/locators/andina-mantau-district-full.webp",
+    "w": 800,
+    "h": 1014,
+    "caption": "Andina Copper — Mantau district claims",
+    "alt": "Mantau district claims map produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/locators/andina-piuquenes-district.webp",
+    "full": "/images/work/locators/andina-piuquenes-district-full.webp",
+    "w": 800,
+    "h": 1014,
+    "caption": "Andina Copper — Piuquenes district claims",
+    "alt": "Piuquenes district claims map produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/locators/asante-south-ghana.webp",
+    "full": "/images/work/locators/asante-south-ghana-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Asante — south Ghana greenstone belts",
+    "alt": "South Ghana greenstone belt map produced for Asante Gold"
+  },
+  {
+    "src": "/images/work/locators/atha-athabasca-basin.webp",
+    "full": "/images/work/locators/atha-athabasca-basin-full.webp",
+    "w": 800,
+    "h": 600,
+    "caption": "ATHA — Athabasca Basin properties",
+    "alt": "Athabasca Basin properties map produced for ATHA Energy"
+  },
+  {
+    "src": "/images/work/locators/golden-triangle-area-play.webp",
+    "full": "/images/work/locators/golden-triangle-area-play-full.webp",
+    "w": 800,
+    "h": 1015,
+    "caption": "Golden Triangle area play, BC",
+    "alt": "Golden Triangle area-play map"
+  },
+  {
+    "src": "/images/work/locators/firefly-green-bay.webp",
+    "full": "/images/work/locators/firefly-green-bay-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Firefly Metals — Green Bay area play, Newfoundland",
+    "alt": "Green Bay area-play map produced for Firefly Metals"
+  },
+  {
+    "src": "/images/work/locators/montage-cote-divoire-geology.webp",
+    "full": "/images/work/locators/montage-cote-divoire-geology-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Montage Gold — regional geology, Côte d&rsquo;Ivoire",
+    "alt": "Côte d'Ivoire regional geology map produced for Montage Gold"
+  },
+  {
+    "src": "/images/work/locators/emperor-abitibi-belt.webp",
+    "full": "/images/work/locators/emperor-abitibi-belt-full.webp",
+    "w": 800,
+    "h": 449,
+    "caption": "Emperor Metals — Abitibi greenstone belt",
+    "alt": "Abitibi greenstone belt map produced for Emperor Metals"
+  },
+  {
+    "src": "/images/work/locators/snowline-yukon-locator.webp",
+    "full": "/images/work/locators/snowline-yukon-locator-full.webp",
+    "w": 800,
+    "h": 871,
+    "caption": "Snowline — regional locator, Yukon",
+    "alt": "Yukon regional locator map produced for Snowline Gold"
+  },
+  {
+    "src": "/images/work/locators/nex-selkirk-selebi.webp",
+    "full": "/images/work/locators/nex-selkirk-selebi-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Selkirk &amp; Selebi mines — project locator",
+    "alt": "Selkirk and Selebi mines project locator map"
+  },
+  {
+    "src": "/images/work/locators/snowline-infrastructure.webp",
+    "full": "/images/work/locators/snowline-infrastructure-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Snowline — Rogue project infrastructure, Yukon",
+    "alt": "Rogue project infrastructure map produced for Snowline Gold"
+  },
+  {
+    "src": "/images/work/locators/cabral-brazil.webp",
+    "full": "/images/work/locators/cabral-brazil-full.webp",
+    "w": 800,
+    "h": 653,
+    "caption": "Cabral Gold — regional locator, Brazil",
+    "alt": "Brazil regional locator map produced for Cabral Gold"
+  },
+  {
+    "src": "/images/work/locators/capitan-durango.webp",
+    "full": "/images/work/locators/capitan-durango-full.webp",
+    "w": 800,
+    "h": 714,
+    "caption": "Capitan Silver — Cruz de Plata, Durango",
+    "alt": "Durango provincial locator map produced for Capitan Silver"
+  },
+  {
+    "src": "/images/work/locators/hercules-area-play.webp",
+    "full": "/images/work/locators/hercules-area-play-full.webp",
+    "w": 800,
+    "h": 739,
+    "caption": "Hercules Metals — area play, Idaho",
+    "alt": "Idaho area-play map produced for Hercules Metals"
+  },
+  {
+    "src": "/images/work/locators/surge-copper-bc.webp",
+    "full": "/images/work/locators/surge-copper-bc-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Surge Copper — Berg &amp; Ootsa, British Columbia",
+    "alt": "British Columbia locator map produced for Surge Copper"
+  },
+  {
+    "src": "/images/work/locators/coppercorp-tasmania.webp",
+    "full": "/images/work/locators/coppercorp-tasmania-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "CopperCorp — projects locator, Tasmania",
+    "alt": "Tasmania projects locator map produced for CopperCorp"
+  },
+  {
+    "src": "/images/work/locators/endeavour-greenstone-world.webp",
+    "full": "/images/work/locators/endeavour-greenstone-world-full.webp",
+    "w": 800,
+    "h": 483,
+    "caption": "Endeavour Mining — greenstone belts of West Africa &amp; South America",
+    "alt": "West African and South American greenstone belt map produced for Endeavour Mining"
+  },
+  {
+    "src": "/images/work/locators/endeavour-west-africa.webp",
+    "full": "/images/work/locators/endeavour-west-africa-full.webp",
+    "w": 800,
+    "h": 569,
+    "caption": "Endeavour Mining — West African greenstone belts",
+    "alt": "West African greenstone belt map produced for Endeavour Mining"
+  },
+  {
+    "src": "/images/work/locators/prairie-gold-area-play.webp",
+    "full": "/images/work/locators/prairie-gold-area-play-full.webp",
+    "w": 800,
+    "h": 531,
+    "caption": "Prairie Gold area play",
+    "alt": "Prairie Gold area-play map"
+  },
+  {
+    "src": "/images/work/locators/oaxaca-locator.webp",
+    "full": "/images/work/locators/oaxaca-locator-full.webp",
+    "w": 800,
+    "h": 600,
+    "caption": "San José Mine — regional locator, Oaxaca, Mexico",
+    "alt": "Oaxaca, Mexico regional locator map"
+  },
+  {
+    "src": "/images/work/locators/nevada-projects.webp",
+    "full": "/images/work/locators/nevada-projects-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Nevada projects locator",
+    "alt": "Nevada projects locator map"
+  },
+  {
+    "src": "/images/work/locators/nunavut-muskox.webp",
+    "full": "/images/work/locators/nunavut-muskox-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Muskox project — regional locator, Nunavut",
+    "alt": "Nunavut regional locator map"
+  },
+  {
+    "src": "/images/work/locators/pc-gold-spring-hill.webp",
+    "full": "/images/work/locators/pc-gold-spring-hill-full.webp",
+    "w": 800,
+    "h": 729,
+    "caption": "PC Gold — Spring Hill regional locator, Australia",
+    "alt": "Spring Hill regional locator map produced for PC Gold"
+  },
+  {
+    "src": "/images/work/locators/electrum-serbia-projects.webp",
+    "full": "/images/work/locators/electrum-serbia-projects-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Electrum Discovery — projects overview, Serbia",
+    "alt": "Serbia projects overview map produced for Electrum Discovery"
+  },
+  {
+    "src": "/images/work/locators/electrum-serbia-locator.webp",
+    "full": "/images/work/locators/electrum-serbia-locator-full.webp",
+    "w": 800,
+    "h": 678,
+    "caption": "Electrum Discovery — regional locator, Serbia",
+    "alt": "Serbia regional locator map produced for Electrum Discovery"
+  },
+  {
+    "src": "/images/work/locators/white-gold-ownership.webp",
+    "full": "/images/work/locators/white-gold-ownership-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "White Gold — ownership map, Yukon",
+    "alt": "Yukon ownership map produced for White Gold"
+  },
+  {
+    "src": "/images/work/locators/mammoth-nevada.webp",
+    "full": "/images/work/locators/mammoth-nevada-full.webp",
+    "w": 800,
+    "h": 957,
+    "caption": "Mammoth — Nevada regional projects",
+    "alt": "Nevada regional projects locator map produced for Mammoth"
+  },
+  {
+    "src": "/images/work/locators/sitka-yukon.webp",
+    "full": "/images/work/locators/sitka-yukon-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Sitka Gold — RC Gold, Yukon",
+    "alt": "Yukon locator map produced for Sitka Gold"
+  },
+  {
+    "src": "/images/work/locators/gfg-greenstone-claims.webp",
+    "full": "/images/work/locators/gfg-greenstone-claims-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "GFG Resources — greenstone claims, Ontario",
+    "alt": "Ontario greenstone claims map produced for GFG Resources"
+  },
+  {
+    "src": "/images/work/locators/lavras-gold-brazil.webp",
+    "full": "/images/work/locators/lavras-gold-brazil-full.webp",
+    "w": 800,
+    "h": 609,
+    "caption": "Lavras Gold — regional locator, Brazil",
+    "alt": "Brazil regional locator map produced for Lavras Gold"
+  },
+  {
+    "src": "/images/work/locators/generation-uranium-yath.webp",
+    "full": "/images/work/locators/generation-uranium-yath-full.webp",
+    "w": 800,
+    "h": 811,
+    "caption": "Generation Uranium — Yath district area play",
+    "alt": "Yath district area-play map produced for Generation Uranium"
+  },
+  {
+    "src": "/images/work/locators/wrlg-red-lake.webp",
+    "full": "/images/work/locators/wrlg-red-lake-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "West Red Lake Gold — Red Lake district ownership",
+    "alt": "Red Lake district ownership map produced for West Red Lake Gold"
+  },
+  {
+    "src": "/images/work/locators/golden-sky-regional.webp",
+    "full": "/images/work/locators/golden-sky-regional-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Golden Sky — regional locator",
+    "alt": "Regional locator map produced for Golden Sky"
+  },
+  {
+    "src": "/images/work/locators/gold-terra-greenstone.webp",
+    "full": "/images/work/locators/gold-terra-greenstone-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Gold Terra — Canadian greenstone belts",
+    "alt": "Canadian greenstone belt locator map produced for Gold Terra"
+  },
+  {
+    "src": "/images/work/locators/silver-viper-mexico.webp",
+    "full": "/images/work/locators/silver-viper-mexico-full.webp",
+    "w": 800,
+    "h": 650,
+    "caption": "Silver Viper — regional projects &amp; trends, Mexico",
+    "alt": "Mexico regional projects and trends map produced for Silver Viper"
+  },
+  {
+    "src": "/images/work/locators/algo-grande-sonora.webp",
+    "full": "/images/work/locators/algo-grande-sonora-full.webp",
+    "w": 800,
+    "h": 711,
+    "caption": "Algo Grande — regional locator, Sonora",
+    "alt": "Sonora regional locator map produced for Algo Grande"
+  },
+  {
+    "src": "/images/work/locators/purecore-athabasca.webp",
+    "full": "/images/work/locators/purecore-athabasca-full.webp",
+    "w": 800,
+    "h": 530,
+    "caption": "PureCore — Athabasca Basin area play",
+    "alt": "Athabasca Basin area-play map produced for PureCore"
+  },
+  {
+    "src": "/images/work/locators/salvadora-chile.webp",
+    "full": "/images/work/locators/salvadora-chile-full.webp",
+    "w": 800,
+    "h": 1267,
+    "caption": "Salvadora project — regional locator, Chile",
+    "alt": "Chile regional locator map for the Salvadora project"
+  },
+  {
+    "src": "/images/work/locators/lac-gold-regional.webp",
+    "full": "/images/work/locators/lac-gold-regional-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "LAC Gold — Pickle Lake &amp; Rouyn, Canada",
+    "alt": "Canadian greenstone regional locator map produced for LAC Gold"
+  },
+  {
+    "src": "/images/work/locators/bunker-hill-silver-valley.webp",
+    "full": "/images/work/locators/bunker-hill-silver-valley-full.webp",
+    "w": 800,
+    "h": 253,
+    "caption": "Bunker Hill — project locator, Silver Valley, Idaho",
+    "alt": "Silver Valley project locator map produced for Bunker Hill"
+  },
+  {
+    "src": "/images/work/locators/kirkham-nw-bc.webp",
+    "full": "/images/work/locators/kirkham-nw-bc-full.webp",
+    "w": 800,
+    "h": 600,
+    "caption": "Kirkham — northwest British Columbia",
+    "alt": "Northwest British Columbia regional map produced for Kirkham"
+  },
+  {
+    "src": "/images/work/locators/kirkham-ownership.webp",
+    "full": "/images/work/locators/kirkham-ownership-full.webp",
+    "w": 800,
+    "h": 600,
+    "caption": "Kirkham — ownership map, northwest BC",
+    "alt": "Northwest BC ownership map produced for Kirkham"
+  },
+  {
+    "src": "/images/work/locators/newfoundland-claims.webp",
+    "full": "/images/work/locators/newfoundland-claims-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Newfoundland claims locator",
+    "alt": "Newfoundland claims locator map"
+  },
+  {
+    "src": "/images/work/locators/area-play-tombstone.webp",
+    "full": "/images/work/locators/area-play-tombstone-full.webp",
+    "w": 800,
+    "h": 554,
+    "caption": "Tombstone Gold Belt area play",
+    "alt": "Tombstone Gold Belt area-play map"
+  },
+  {
+    "src": "/images/work/locators/area-play-athabasca.webp",
+    "full": "/images/work/locators/area-play-athabasca-full.webp",
+    "w": 800,
+    "h": 554,
+    "caption": "Athabasca Basin area play",
+    "alt": "Athabasca Basin area-play map"
+  },
+  {
+    "src": "/images/work/locators/area-play-newfoundland.webp",
+    "full": "/images/work/locators/area-play-newfoundland-full.webp",
+    "w": 800,
+    "h": 554,
+    "caption": "Newfoundland area play",
+    "alt": "Newfoundland area-play map"
+  },
+  {
+    "src": "/images/work/locators/area-play-toodoggone.webp",
+    "full": "/images/work/locators/area-play-toodoggone-full.webp",
+    "w": 800,
+    "h": 1156,
+    "caption": "Toodoggone area play",
+    "alt": "Toodoggone area-play map"
+  },
+  {
+    "src": "/images/work/locators/battery-global.webp",
+    "full": "/images/work/locators/battery-global-full.webp",
+    "w": 800,
+    "h": 746,
+    "caption": "Battery Mineral Resources — global project locator",
+    "alt": "Global project locator map produced for Battery Mineral Resources"
+  },
+  {
+    "src": "/images/work/locators/japan-epithermal.webp",
+    "full": "/images/work/locators/japan-epithermal-full.webp",
+    "w": 800,
+    "h": 647,
+    "caption": "Japan — epithermal gold province",
+    "alt": "Japan epithermal gold province map"
+  },
+  {
+    "src": "/images/work/locators/kincora-condobolin.webp",
+    "full": "/images/work/locators/kincora-condobolin-full.webp",
+    "w": 800,
+    "h": 727,
+    "caption": "Kincora — Condobolin area play, NSW",
+    "alt": "Condobolin area-play map produced for Kincora"
+  }
+]

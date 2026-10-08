@@ -290,14 +290,14 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             if (!rotator) return;
             var TYPES = [
               { key: 'locators', label: 'Locators & Area Plays', maps: [
-                '/images/work/cdn/2818b66d-6973c7281329a77bade7f534_Snowline_Yukon_Locator_SQUARE-copy.webp',
-                '/images/work/cdn/14e2cbd0-6973c728dec078b88a7e64af_NFG_Map085-Locator_V1-copy.webp',
-                '/images/work/cdn/052e9efe-696e77e98502aa90fc197411_1_MontageGold_NR_GoldBelt_KoneGoldProject-copy-scaled.avif',
-                '/images/work/cdn/c8b6d624-6973ccd74cb7c0683025530e_Hercules_areaplay-copy.webp',
-                '/images/work/cdn/09081b9a-6973c728c3da04f1c182f9b3_GoldTerra_CanadaGreenstoneLocator_DM-copy.webp',
-                '/images/work/cdn/c86508d6-6973d56562f682492b4e2c28_Asante_SouthGhana_Greenstone_Belt_Map-copy.webp',
-                '/images/work/cdn/c9ceb824-696e76ffc9b8a5626e9c2981_2_VulcanResources_NevadaLocator-copy-scaled.avif',
-                '/images/work/cdn/887e1a10-6973c728bcea646c802e2989_AlgoGrande_Sonora-Locator_DM_HS-copy.webp'
+                {%- comment -%} First eight maps exactly as ordered on locators-area-plays.html: featured maps, then the gallery (src/_data/locatorMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in locatorMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in locatorMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'property', label: 'Property & Target', maps: [
                 '/images/work/cdn/aa6ba3cc-696e77bbfafa1ac89c37b619_2_WRLG_Plan_Madsen-copy.webp',
@@ -359,8 +359,10 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             }, true);
             function fill(t) {
               rotator.innerHTML = t.maps.map(function (u) {
-                return '<button type="button" class="map-cell" data-lightbox data-full="' + u + '" data-caption="' + t.label + ' — Exploration Sites">'
-                  + '<img src="' + u + '" alt="' + t.label + ' map by Exploration Sites" loading="lazy" decoding="async"></button>';
+                // Entries are a URL, or { src, full, caption } (Locators: from locatorMaps.json).
+                var src = u.src || u, full = u.full || src, cap = u.caption || (t.label + ' — Exploration Sites');
+                return '<button type="button" class="map-cell" data-lightbox data-full="' + full + '" data-caption="' + cap + '">'
+                  + '<img src="' + src + '" alt="' + t.label + ' map by Exploration Sites" loading="lazy" decoding="async"></button>';
               }).join('');
               var cells = Array.prototype.slice.call(rotator.querySelectorAll('.map-cell'));
               if (reduce) { cells.forEach(function (c) { c.classList.add('in'); }); return; }
@@ -392,7 +394,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
               // swap + cascade so nothing pops. Capped at 900ms so one slow/404 image
               // can't stall the swap; aborts if the user has since switched tabs.
               var pending = t.maps.map(function (u) {
-                return new Promise(function (res) { var im = new Image(); im.onload = im.onerror = res; im.src = u; });
+                return new Promise(function (res) { var im = new Image(); im.onload = im.onerror = res; im.src = u.src || u; });
               });
               Promise.race([
                 Promise.all(pending),

@@ -63,6 +63,8 @@ The homepage hero is a Three.js dotted-globe point cloud:
 
 ### Data pipelines
 
+`src/_data/locatorMaps.json` drives the Locators & Area Plays page **and** the homepage "Locators & Area Plays" tab: entries in folder-number order (`src`, `full`, `w`, `h`, `caption`, `alt`, and `feature` {label, title, body} for the big featured maps). The page renders featured entries first, then the gallery; the homepage shows the first eight in that same order. Images live in `src/images/work/locators/` (800px tile or 1400px feature + 2400px `-full`), converted from `A:- Portfolio Maps locators and areaplays` (top level only).
+
 `src/_data/clientpins.json` (the globe's live pin list — `{name, lat, lon, color, href}`, one per unique client on `clients.html`) is the current source of the globe pins. Each entry's `color` is the client's commodity color (same palette as the clients-table `CMDY` map in `clients.html`; non-mining clients get the neutral fallback `#C8C2B4`). It was generated once by researching each client's flagship-project location; re-generating it means re-running that research against the current `clients.html` roster.
 
 `src/_data/projects.json` (`{name, lat, lon, href}`) is the **older** pin source and **no longer drives the globe**. It is now consumed only by `src/_data/regions.js` (a build-time continent-grouping helper whose output is currently un-rendered), so keep the file present — `regions.js` `require()`s it and the build fails without it. It is **generated**, not hand-edited. Pipeline (Python, needs `pyshp` + `pyproj`):
