@@ -192,7 +192,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             }, 10000);
           })();
         </script>
-        <p class="hero-body">Brilliant geology gets overlooked when capital can&rsquo;t read it. We make the asset legible &mdash; maps, decks, websites, and brand built to survive an institutional desk &mdash; so the market can see what&rsquo;s actually in the ground.</p>
+        <p class="hero-body">Brilliant geology gets overlooked when capital can&rsquo;t read it. We make the asset legible &mdash; locator and drill maps, sections, 3D models, corporate decks, and investor websites &mdash; so the market can see what&rsquo;s actually in the ground.</p>
         <div class="hero-buttons">
           <a href="book.html" class="btn-primary">Book a discovery call</a>
           <a href="engagement.html" class="hero-text-link">How we engage &rarr;</a>
@@ -207,7 +207,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
     <section class="section showcase">
       <header class="services-editorial-head">
         <div class="section-label">What We Do</div>
-        <h2 class="section-headline">Every surface the market judges you on &mdash; built to read as fundable.</h2>
+        <h2 class="section-headline">Every surface the market judges you on &mdash; maps, decks, websites, and brand.</h2>
       </header>
 
       <!-- Proof band -->
@@ -221,9 +221,9 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <div class="stat-number" aria-hidden="true">{{ proof.websites }}+</div>
             <div class="stat-label" aria-hidden="true">Websites Launched</div>
           </a>
-          <a class="stat-link" href="clients.html" aria-label="${{ proof.marketCapB }} billion combined client market cap as of {{ proof.asOf }} — see the full client list">
-            <div class="stat-number" aria-hidden="true">${{ proof.marketCapB }}B+</div>
-            <div class="stat-label" aria-hidden="true">Combined client market cap</div>
+          <a class="stat-link" href="clients.html" aria-label="{{ proof.companies }}+ exploration teams served — see the full client list">
+            <div class="stat-number" aria-hidden="true">{{ proof.companies }}+</div>
+            <div class="stat-label" aria-hidden="true">Exploration Teams Served</div>
           </a>
           <a class="stat-link" href="why.html" aria-label="{{ proof.years }} years in business — why we exist">
             <div class="stat-number" aria-hidden="true">{{ proof.years }}</div>
@@ -231,9 +231,6 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
           </a>
         </div>
       </div>
-
-      <!-- COMPLIANCE-06: source/attribution caption for the client market-cap stat -->
-      <p class="stats-source">Combined market capitalisation of the listed companies we&rsquo;ve worked with. Their growth is their own &mdash; our part has been helping them visualise their data and tell their story. <a href="clients.html">Full client list &rarr;</a></p>
 
       <!-- NRMP COMMERCIAL -->
       <aside class="nrmp-comm" aria-label="Introducing the News-Release Map Program">
@@ -464,6 +461,9 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
 
     </section>
 
+    <!-- TESTIMONIALS: named client quotes, directly after the work -->
+    {% include "testimonials.html" %}
+
     <div class="divider"></div>
 
     <!-- FUNDABLE SCORECARD INTRO -->
@@ -618,10 +618,8 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
       </div>
     </div>
 
-    <!-- COMPLIANCE-07: identification-only microcaption under the client logo marquee -->
-
-    <!-- TESTIMONIALS -->
-    {% include "testimonials.html" %}
+    <!-- COMPLIANCE-06/07: the market-cap figure lives here as one quiet, attributed line, not a headline stat -->
+    <p class="stats-source" style="text-align: center; margin: 24px auto 56px; max-width: 640px;">The listed companies we&rsquo;ve worked with have a combined market capitalisation of about ${{ proof.marketCapB }}B. Their growth is their own &mdash; our part is the maps and the story. <a href="clients.html">Full client list &rarr;</a></p>
 
     <div class="divider"></div>
 
@@ -634,8 +632,8 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
         </div>
         <div data-reveal data-reveal-delay="1">
           <p class="body-text">Markets are supposed to price discovery efficiently. In exploration, they don&rsquo;t &mdash; the asset is buried, technical, and described in a language investors don&rsquo;t speak. The result is a quiet, structural gap: brilliant geology that capital simply cannot read.</p>
-          <p class="body-text">That gap is the problem we exist to close. We turn rigorous geology into a clear, fundable story &mdash; maps, decks, and sites built to survive an institutional desk &mdash; so the market can weigh what the deposit is actually worth.</p>
-          <p class="body-text">Most IR spend buys decoration. We build the opposite: <em>investor legibility</em> &mdash; buried geology made legible to the people who price it.</p>
+          <p class="body-text">That gap is the problem we exist to close. We turn rigorous geology into maps, sections, decks, and websites a non-geologist can follow &mdash; so the market can weigh what the deposit is actually worth.</p>
+          <p class="body-text">{{ proof.years }} years and {{ proof.projects }}+ mapped projects in, the test hasn&rsquo;t changed: someone who isn&rsquo;t a geologist should be able to look at your map and say what you&rsquo;ve found. We call it <em>investor legibility</em>.</p>
           <a href="why.html" class="why-readmore">Read our thesis <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
