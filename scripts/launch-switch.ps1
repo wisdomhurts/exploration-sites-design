@@ -22,8 +22,8 @@ $Links = @(
 )
 
 Write-Host "1) Checking DNS..."
-$apex = (Resolve-DnsName explorationsites.com -Type A -Server 8.8.8.8 -ErrorAction SilentlyContinue | Where-Object { $_.Type -eq 'A' }).IPAddress
-$www  = Resolve-DnsName www.explorationsites.com -Server 8.8.8.8 -ErrorAction SilentlyContinue
+$apex = (Resolve-DnsName explorationsites.com -Type A -Server 1.1.1.1 -ErrorAction SilentlyContinue | Where-Object { $_.Type -eq 'A' }).IPAddress
+$www  = Resolve-DnsName www.explorationsites.com -Server 1.1.1.1 -ErrorAction SilentlyContinue
 $wwwA = ($www | Where-Object { $_.Type -eq 'A' }).IPAddress
 $wwwCname = ($www | Where-Object { $_.Type -eq 'CNAME' }).NameHost
 Write-Host "   apex A: $apex   www: $($wwwCname) $($wwwA)"
