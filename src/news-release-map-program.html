@@ -31,6 +31,34 @@ permalink: "news-release-map-program.html"
 
     <div class="divider"></div>
 
+    <!-- IN PRACTICE: WEST RED LAKE GOLD -->
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">In practice</div>
+          <h2 class="section-headline">West Red Lake Gold, release after release.</h2>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="body-text">West Red Lake Gold works on this cadence &mdash; around ten maps a month for its news releases at Madsen and Rowan, each built on the same locked base so every figure reads the same from one release to the next.</p>
+        </div>
+      </div>
+      {%- comment -%} West Red Lake maps pulled from the map-page data files (src contains "/wrlg-"), so images and captions stay in sync with those pages. {%- endcomment -%}
+      {%- assign wrlgMaps = drillingMaps | concat: geoMaps | concat: locatorMaps %}
+      <div class="map-gallery" data-reveal>
+      {%- for m in wrlgMaps -%}{%- if m.src contains "/wrlg-" %}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
+        </button>
+      {%- endif -%}{%- endfor %}
+      </div>
+      <figure class="nrmp-quote" data-reveal>
+        <blockquote>Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</blockquote>
+        <figcaption><b>Will Robinson</b> &middot; VP Exploration, West Red Lake Gold</figcaption>
+      </figure>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- PROGRAMS -->
     <section class="section">
       <div class="section-label" data-reveal>Programs</div>
@@ -181,4 +209,18 @@ permalink: "news-release-map-program.html"
       .nrmp-terms li:first-child { padding-top: 0; }
       .nrmp-terms li:last-child { border-bottom: 0; }
       .nrmp-terms b { color: var(--graphite); font-weight: 600; }
+      .nrmp-quote { margin: 30px 0 0; max-width: 760px; padding-left: 22px; border-left: 1px solid var(--slate); }
+      .nrmp-quote blockquote { margin: 0; font-family: var(--font-serif); font-weight: 300; font-size: clamp(18px, 1.9vw, 22px); line-height: 1.45; color: var(--graphite); }
+      .nrmp-quote figcaption { margin-top: 12px; font-family: var(--font-sans); font-size: 13px; color: var(--muted); }
+      .nrmp-quote figcaption b { color: var(--graphite); font-weight: 600; }
     </style>
+
+  <!-- Shared lightbox (West Red Lake maps) -->
+  <div class="lightbox" id="work-lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="" hidden>
+      <div class="lightbox-video" hidden></div>
+      <figcaption class="lightbox-cap"></figcaption>
+    </figure>
+  </div>
