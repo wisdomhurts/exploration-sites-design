@@ -265,7 +265,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="schematics"><span class="maps-rail-text">Schematics &amp; Plans</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
         </aside>
         <div class="maps-rotator" id="maps-rotator" role="tabpanel" aria-live="polite"></div>
@@ -339,10 +339,15 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 '/images/work/cdn/b19943ee-6973d105de53ad64aca86f1c_NexMining_Selkirk_3D_Model-copy.webp',
                 '/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif'
               ]},
-              { key: 'conceptual', label: 'Conceptual & Schematic', maps: [
-                '/images/work/cdn/288b6d46-696e77a89f502a2370c9d5c3_1_MontageGold_Kone_Exploration_Strat_v1-copy-scaled.avif',
-                '/images/work/cdn/cc102f51-696e77d9cd4f08e88a0814cf_2_Metallis_MultiFigureDraft3-ExplorationPotentialAdded-copy.webp',
-                '/images/work/cdn/af3784e7-6973da9d84226f912c445978_AlgoGrande_Deposit_footprint_comp-copy.webp'
+              { key: 'schematics', label: 'Schematics & Plans', maps: [
+                {%- comment -%} First eight figures exactly as ordered on schematics-plans.html: featured figures, then the gallery (src/_data/schematicsMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in schematicsMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in schematicsMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]}
             ];
             var DURATION = 8000;
