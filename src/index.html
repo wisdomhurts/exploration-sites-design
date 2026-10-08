@@ -213,7 +213,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
       <!-- Proof band -->
       <div class="stats" style="padding: 24px 0 32px;">
         <div class="stats-grid">
-          <a class="stat-link" href="investor-maps.html" aria-label="{{ proof.projects }}+ projects mapped — see the investor maps">
+          <a class="stat-link" href="services.html" aria-label="{{ proof.projects }}+ projects mapped — see the investor maps">
             <div class="stat-number" aria-hidden="true">{{ proof.projects }}+</div>
             <div class="stat-label" aria-hidden="true">Projects Mapped</div>
           </a>
@@ -255,7 +255,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
       <div class="showcase-group">
         <div class="showcase-group-head">
             <h3 class="showcase-group-title">Investor Maps</h3>
-          <a class="showcase-group-link" href="investor-maps.html">All map types &rarr;</a>
+          <a class="showcase-group-link" href="services.html">All map types &rarr;</a>
         </div>
         <div class="maps-showcase-2col">
         <aside class="maps-rail maps-rail--tabs" aria-label="Investor map types">
@@ -263,7 +263,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling / Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="schematics"><span class="maps-rail-text">Schematics &amp; Plans</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
@@ -319,7 +319,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
-              { key: 'drilling', label: 'Drilling', maps: [
+              { key: 'drilling', label: 'Drilling / Sections', maps: [
                 {%- comment -%} First eight maps exactly as ordered on drilling.html: featured maps, then the gallery (src/_data/drillingMaps.json). {%- endcomment -%}
                 {%- assign shown = 0 -%}
                 {%- for m in drillingMaps -%}{%- if m.feature and shown < 8 %}
@@ -431,7 +431,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
           <a class="showcase-group-link" href="websites.html">All websites &rarr;</a>
         </div>
         <div class="showcase-grid showcase-grid--sites">
-          <a class="work-card" href="es3d.html#miata-integration" aria-label="Miata Metals website and ES3D integration">
+          <a class="work-card" href="websites.html" aria-label="Miata Metals website and ES3D integration">
             <span class="work-card-media work-card-media--wide"><img src="images/sites/miata.jpg" alt="Miata Metals corporate website, featuring field footage from Sela Creek" loading="lazy" width="1265" height="712"></span>
             <span class="work-card-meta"><span class="work-card-title">Miata Metals · Website + ES3D</span></span>
           </a>

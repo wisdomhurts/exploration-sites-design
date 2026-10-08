@@ -275,8 +275,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
   @media (max-width: 900px) {
     .rate-lead { grid-template-columns: 1fr 1fr; }
     .rate-lead .rate-head { grid-column: 1 / -1; }
-    .rate-row { grid-template-columns: 1fr; }
   }
+  /* Stack the three lower cards before long names (e.g. Hosting &amp; Nurture CRM) would wrap */
+  @media (max-width: 1100px) { .rate-row { grid-template-columns: 1fr; } }
   @media (max-width: 560px) { .rate-lead { grid-template-columns: 1fr; } }
   /* ---------- NEWS-RELEASE MAP PROGRAM — companion band under the model cards ---------- */
   a.models-nrmp {
@@ -853,11 +854,11 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       </div>
 
       <div class="rate reveal">
-        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Every piece starts here, unless it&rsquo;s priced below. CAD, before GST.</span></p>
+        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash; anything that differs is priced below. All prices in CAD.</span></p>
         <div class="rate-card rate-lead">
           <div class="rate-head">
             <div class="deliv-kick">Make geology legible</div>
-            <div class="deliv-title"><a href="investor-maps.html">Investor Maps</a></div>
+            <div class="deliv-title"><a href="services.html">Investor Maps</a></div>
             <p class="rate-meta">Per map &middot; typically 3&ndash;7 business days</p>
           </div>
           <ul class="rate-list">
@@ -866,7 +867,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
           </ul>
           <ul class="rate-list">
-            <li><a href="drilling.html">Drilling</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
+            <li><a href="drilling.html">Drilling / Sections</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
             <li><a href="schematics-plans.html">Schematics &amp; Plans</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.designFrom }}</span>{% endif %}</li>
             <li><a href="3d-models.html">3D Isometric Models</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.isoFrom }}</span></li>
           </ul>
@@ -877,9 +878,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <div class="deliv-title"><a href="websites.html">Websites</a></div>
           <p class="rate-meta">Typically 5 weeks</p>
           <ul class="rate-list">
-            <li><a href="wordpress.html">WordPress</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.websiteFrom }}</span></li>
-            <li><a href="webflow.html">Webflow</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.webflowFrom }}</span></li>
-            <li><a href="hosting.html">Hosting &amp; CRM</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.hostingMonthly }}/mo</span></li>
+            <li><a href="wordpress.html">WordPress Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.websiteFrom }}</span></li>
+            <li><a href="webflow.html">Webflow Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.webflowFrom }}</span></li>
+            <li><a href="hosting.html">Hosting &amp; Nurture CRM</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.hostingMonthly }}/mo</span></li>
           </ul>
         </div>
         <div class="rate-card">
@@ -888,7 +889,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <p class="rate-meta">Typically 4&ndash;6 weeks</p>
           <ul class="rate-list">
             <li><a href="fact-sheets.html">Fact Sheets</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.designFrom }}</span>{% endif %}</li>
-            <li><a href="presentations.html">Investor Deck</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.deckFrom }}</span></li>
+            <li><a href="presentations.html">Investor Presentations</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.deckFrom }}</span></li>
             <li><a href="movies.html">GIS Films</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.motionFrom }}</span></li>
           </ul>
         </div>
@@ -934,8 +935,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <div class="launch-right">
           <div class="lbl">Included in the package</div>
           <ul class="launch-incl">
-            <li><a class="launch-link" href="investor-maps.html">An investor map set</a>
-              <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="property-target.html">Property</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="geoscience-maps.html">Geology</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="drilling.html">Drilling</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="3d-models.html">3D view</a></span></li>
+            <li><a class="launch-link" href="services.html">An investor map set</a>
+              <span class="launch-sub"><a href="locators-area-plays.html">Locator</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="property-target.html">Property</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="geoscience-maps.html">Geology</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="drilling.html">Drilling / Sections</a><span class="launch-sep" aria-hidden="true">&middot;</span><a href="3d-models.html">3D view</a></span></li>
             <li><a class="launch-link" href="presentations.html">A polished investor deck</a></li>
             <li><a class="launch-link" href="wordpress.html">A WordPress investor website</a></li>
             <li><a class="launch-link" href="fact-sheets.html">A clean, current fact sheet</a></li>
