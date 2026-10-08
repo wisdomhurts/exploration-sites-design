@@ -43,6 +43,7 @@
                   <div class="mm-head">Design</div>
                   <a class="mm-link" href="/logos-branding.html">Logos &amp; Branding</a>
                   <a class="mm-link" href="/conference-booth.html">Conference / Booth Design</a>
+                  <a class="mm-all" href="/services.html">All services &rarr;</a>
                 </div>
               </div>
               <a class="mm-feature" href="/news-release-map-program.html">
@@ -51,7 +52,6 @@
                 <span class="mm-feature-note">Maps on a guaranteed 48-hour turnaround &middot; <span class="mm-feature-avail">Limited availability</span></span>
                 <span class="mm-feature-arrow" aria-hidden="true">&rarr;</span>
               </a>
-              <a class="mm-all" href="/services.html">All services &rarr;</a>
             </div>
           </div>
         </li>
@@ -127,7 +127,7 @@
 
   <style>
     /* --- Four-column What We Do panel (replaces the tabbed panel) --- */
-    .mega-menu-panel.mm-panel { width: 920px; display: block; padding: 26px 30px 22px; white-space: normal; }
+    .mega-menu-panel.mm-panel { width: 990px; display: block; padding: 26px 30px 22px; white-space: normal; }
     .mm-cols { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.1fr; gap: 0 26px; }
     .mm-col { display: flex; flex-direction: column; min-width: 0; }
     .mm-col + .mm-col { border-left: 1px solid rgba(0,0,0,0.06); padding-left: 26px; }
@@ -142,13 +142,20 @@
     .mm-feature-avail { color: var(--ore-text, #815A20); font-weight: 600; }
     .mm-feature-arrow { grid-area: arrow; font-size: 18px; color: var(--muted); transition: transform 0.2s ease, color 0.2s ease; }
     .mm-feature:hover .mm-feature-arrow { transform: translateX(4px); color: var(--ore); }
-    .mm-all { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--ore); padding-bottom: 1px; }
+    .mm-all { display: inline-block; margin-top: auto; align-self: flex-end; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--ore); padding-bottom: 1px; }
     .mm-all:hover { color: var(--ore-text, #815A20); }
-    /* Narrower desktops: pull the wide panel left so it stays on screen; keep the arrow on the trigger */
-    @media (max-width: 1360px) {
-      .mega-menu:has(.mm-panel) { left: -150px; }
-      .mega-menu:has(.mm-panel) .mega-menu-arrow { margin-left: 186px; }
-    }
+    /* The top-bar link style (.nav-links a: 3px bottom padding, animated underline,
+       no-wrap) also matches links inside the menu; switch it off in the panel. */
+    .nav-links .mm-panel a::after { content: none; }
+    .nav-links .mm-panel a { white-space: normal; }
+    .nav-links .mm-panel .mm-link { padding: 7px 0; }
+    .nav-links .mm-panel .mm-feature { padding: 14px 18px; }
+    .nav-links .mm-panel .mm-all { padding: 0 0 1px; }
+    /* The wide panel is pulled left of the trigger so it stays on screen at every
+       desktop width (the nav collapses to the hamburger below 1161px); the arrow
+       stays on the trigger. */
+    .mega-menu:has(.mm-panel) { left: -170px; }
+    .mega-menu:has(.mm-panel) .mega-menu-arrow { margin-left: 206px; }
     /* Small square "New" tag beside a menu item. 1px rule, no fill. */
     .nav-new {
       display: inline-block;
