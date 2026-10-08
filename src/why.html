@@ -285,6 +285,9 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
         align-items: center;
       }
       .why-evidence .map-feature-text { max-width: 54ch; }
+      /* Tall models (e.g. the Heliostar porphyry) are capped so the plate stays
+         in proportion with its text; the lightbox still shows the whole figure. */
+      .why-evidence .map-feature-media img { max-height: 420px; width: 100%; object-fit: cover; object-position: center top; }
 
       @media (max-width: 760px) {
         .csv3-ledger { grid-template-columns: 1fr; }
@@ -303,8 +306,8 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
       <h1 class="hero-headline">We are the translation layer.</h1>
       <p class="hero-body">Markets are supposed to price discovery efficiently. In exploration they don&rsquo;t, because the asset is buried, technical, and described in a language investors don&rsquo;t speak. The result is a quiet, structural mispricing: brilliant geology that capital simply cannot see. That gap is the problem we exist to close.</p>
       <figure class="why-hero-figure">
-        <button type="button" class="csv3-hero-media" data-lightbox data-full="images/work/greenstone-belts-full.avif" data-caption="G Mining — Guiana Shield &amp; West African greenstone belts">
-          <img src="images/work/greenstone-belts.avif" alt="Guiana Shield and West African greenstone belt deposit map produced for G Mining" width="1400" height="845" fetchpriority="high">
+        <button type="button" class="csv3-hero-media" data-lightbox data-full="/images/work/locators/gmin-greenstone-belts-full.webp" data-caption="G Mining — Guiana Shield &amp; West African greenstone belts">
+          <img src="/images/work/locators/gmin-greenstone-belts.webp" alt="Guiana Shield and West African greenstone belt deposit map produced for G Mining" width="1400" height="845" fetchpriority="high">
         </button>
         <figcaption class="csv3-figcap">G Mining &middot; Guiana Shield and West African greenstone belts</figcaption>
       </figure>
@@ -409,24 +412,24 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
           <div class="csv3-mech-num">01</div>
           <h3 class="csv3-mech-title">Locate</h3>
           <p class="csv3-mech-desc">We put the project on the map an investor already trusts, flanked by the deposits and districts the market knows, so scale and context register in seconds rather than slides.</p>
-          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/work/vicuna-district-full.avif" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
-            <img src="images/work/vicuna-district.avif" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030">
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="/images/work/locators/ngex-vicuna-district-full.webp" data-caption="NGEX — Vicuña District regional locator, Chile &amp; Argentina">
+            <img src="/images/work/locators/ngex-vicuna-district.webp" alt="Vicuña District regional locator map produced for NGEX" loading="lazy" width="1400" height="1030">
           </button>
         </div>
         <div class="csv3-mech-step">
           <div class="csv3-mech-num">02</div>
           <h3 class="csv3-mech-title">Clarify</h3>
           <p class="csv3-mech-desc">Geological maps, cross sections, and 3D models that make grade, continuity, and upside legible: the technical case rendered so a generalist can read it like a specialist.</p>
-          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/work/long-section-dolly-varden.avif" data-caption="Dolly Varden Silver — Wolf vein long section">
-            <img src="images/work/long-section-dolly-varden.avif" alt="Dolly Varden Silver Wolf vein long section produced by Exploration Sites" loading="lazy" width="2000" height="1713">
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="/images/work/drilling/wrlg-madsen-potential-full.webp" data-caption="West Red Lake Gold — Madsen long section &amp; potential, Ontario">
+            <img src="/images/work/drilling/wrlg-madsen-potential.webp" alt="Madsen long section produced for West Red Lake Gold" loading="lazy" width="800" height="426">
           </button>
         </div>
         <div class="csv3-mech-step">
           <div class="csv3-mech-num">03</div>
           <h3 class="csv3-mech-title">Carry</h3>
-          <p class="csv3-mech-desc">One visual language across the maps, the deck, the website, the films, and the brand, so every touchpoint compounds conviction instead of resetting it. The same Dolly Varden section, carried into the deck.</p>
-          <button type="button" class="csv3-mech-media" data-lightbox data-full="images/presentations/dolly-varden.avif" data-caption="Dolly Varden Silver — investor presentation">
-            <img src="images/presentations/dolly-varden.avif" alt="Dolly Varden Silver investor presentation cover produced by Exploration Sites" loading="lazy" width="1100" height="618">
+          <p class="csv3-mech-desc">One visual language across the maps, the deck, the website, the films, and the brand, so every touchpoint compounds conviction instead of resetting it. Here, West Red Lake Gold: the Madsen sections and the deck, in one language.</p>
+          <button type="button" class="csv3-mech-media" data-lightbox data-full="/images/presentations/west-red-lake.avif" data-caption="West Red Lake Gold — investor presentation">
+            <img src="/images/presentations/west-red-lake.avif" alt="West Red Lake Gold investor presentation cover produced by Exploration Sites" loading="lazy" width="1100" height="619">
           </button>
         </div>
       </div>
@@ -440,8 +443,8 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
       <h2 class="section-headline" data-reveal>The same geology, made readable.</h2>
 
       <div class="map-feature" data-reveal data-reveal-delay="1">
-        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/kincora-nsw-full.avif" data-caption="Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia">
-          <img src="images/work/kincora-nsw.avif" alt="Macquarie Arc projects and mineral belts area-play map produced for Kincora" loading="lazy" width="1400" height="1181">
+        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/locators/kincora-macquarie-arc-full.webp" data-caption="Kincora — Macquarie Arc projects &amp; mineral belts, NSW Australia">
+          <img src="/images/work/locators/kincora-macquarie-arc.webp" alt="Macquarie Arc projects and mineral belts area-play map produced for Kincora" loading="lazy" width="1400" height="1181">
         </button>
         <div class="map-feature-text">
           <div class="section-label">Kincora Copper</div>
@@ -451,8 +454,8 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
       </div>
 
       <div class="map-feature" data-reveal>
-        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/nfg-3d.webp" data-caption="New Found Gold — 3D block model">
-          <img src="images/work/nfg-3d.webp" alt="3D block model produced for New Found Gold" loading="lazy" width="2000" height="1209">
+        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/3d/nfg-3d-looking-west-full.webp" data-caption="New Found Gold — 3D view looking west, Queensway">
+          <img src="/images/work/3d/nfg-3d-looking-west.webp" alt="3D view of the Queensway block model looking west, produced for New Found Gold" loading="lazy" width="800" height="423">
         </button>
         <div class="map-feature-text">
           <div class="section-label">New Found Gold</div>
@@ -462,8 +465,8 @@ description: "Capital flows toward clarity. Brilliant geology fails to raise whe
       </div>
 
       <div class="map-feature" data-reveal>
-        <button type="button" class="map-feature-media" data-lightbox data-full="images/work/heliostar-porphyry.webp" data-caption="Heliostar — interpreted porphyry model">
-          <img src="images/work/heliostar-porphyry.webp" alt="Interpreted causative porphyry block model produced for Heliostar" loading="lazy" width="1440" height="1800">
+        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/3d/heliostar-porphyry-model-full.webp" data-caption="Heliostar Metals — porphyry model">
+          <img src="/images/work/3d/heliostar-porphyry-model.webp" alt="Interpreted causative porphyry block model produced for Heliostar" loading="lazy" width="1400" height="2644">
         </button>
         <div class="map-feature-text">
           <div class="section-label">Heliostar</div>
