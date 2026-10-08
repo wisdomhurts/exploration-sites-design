@@ -15,6 +15,23 @@ permalink: "news-release-map-program.html"
 
     <div class="divider"></div>
 
+    <!-- NEW FOUND GOLD: six maps up top. Pulled from the map-page data files by image path, in this order. -->
+    <section class="section">
+      <div class="section-label">Selected work</div>
+      <h2 class="section-headline">New Found Gold, Queensway.</h2>
+      {%- assign nfgPick = "/images/work/drilling/nfg-keats-news-release.webp,/images/work/drilling/nfg-queensway-afz.webp,/images/work/drilling/nfg-monte-carlo-long-section.webp,/images/work/property/nfg-queensway.webp,/images/work/3d/nfg-iceberg-3d.webp,/images/work/3d/nfg-3d-looking-west.webp" | split: "," %}
+      {%- assign allMaps = drillingMaps | concat: propertyMaps | concat: modelMaps %}
+      <div class="map-gallery">
+      {%- for p in nfgPick -%}{%- for m in allMaps -%}{%- if m.src == p %}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
+        </button>
+      {%- endif -%}{%- endfor -%}{%- endfor %}
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- THE IDEA -->
     <section class="section">
       <div class="section-grid">
@@ -27,34 +44,6 @@ permalink: "news-release-map-program.html"
           <p class="body-text">You get a set number of maps every month, produced to one standard, with a <strong>guaranteed 48-hour turnaround</strong> &mdash; from clean data and priority over one-off work. Predictable for your desk; consistent for your investors.</p>
         </div>
       </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- IN PRACTICE: WEST RED LAKE GOLD -->
-    <section class="section">
-      <div class="section-grid">
-        <div data-reveal>
-          <div class="section-label">In practice</div>
-          <h2 class="section-headline">West Red Lake Gold, release after release.</h2>
-        </div>
-        <div data-reveal data-reveal-delay="1">
-          <p class="body-text">West Red Lake Gold works on this cadence &mdash; around ten maps a month for its news releases at Madsen and Rowan, each built on the same locked base so every figure reads the same from one release to the next.</p>
-        </div>
-      </div>
-      {%- comment -%} West Red Lake maps pulled from the map-page data files (src contains "/wrlg-"), so images and captions stay in sync with those pages. {%- endcomment -%}
-      {%- assign wrlgMaps = drillingMaps | concat: geoMaps | concat: locatorMaps %}
-      <div class="map-gallery" data-reveal>
-      {%- for m in wrlgMaps -%}{%- if m.src contains "/wrlg-" %}
-        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
-          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
-        </button>
-      {%- endif -%}{%- endfor %}
-      </div>
-      <figure class="nrmp-quote" data-reveal>
-        <blockquote>Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</blockquote>
-        <figcaption><b>Will Robinson</b> &middot; VP Exploration, West Red Lake Gold</figcaption>
-      </figure>
     </section>
 
     <div class="divider"></div>
@@ -110,6 +99,34 @@ permalink: "news-release-map-program.html"
       </div>
       <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">Plus a one-time base setup of ${{ prices.nrmpSetup }}, billed with your first month. Maps beyond your monthly tier are billed at the ${{ prices.nrmpOverage }} member rate &mdash; vs ${{ prices.mapFrom }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately.</p>
       <p class="compliance-note" style="margin-top: 10px; max-width: 780px;">Program or retainer? A <a href="/engagement.html#retainers">monthly retainer</a> keeps your deck, fact sheet, site, and existing maps current at standard turnaround. The Map Program is built for drill season: new news-release maps on a guaranteed turnaround, ahead of all one-off work.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- IN PRACTICE: WEST RED LAKE GOLD -->
+    <section class="section">
+      <div class="section-grid">
+        <div data-reveal>
+          <div class="section-label">In practice</div>
+          <h2 class="section-headline">West Red Lake Gold, release after release.</h2>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <p class="body-text">West Red Lake Gold works on this cadence &mdash; around ten maps a month for its news releases at Madsen and Rowan, each built on the same locked base so every figure reads the same from one release to the next.</p>
+        </div>
+      </div>
+      {%- comment -%} West Red Lake maps pulled from the map-page data files (src contains "/wrlg-"), so images and captions stay in sync with those pages. {%- endcomment -%}
+      {%- assign wrlgMaps = drillingMaps | concat: geoMaps | concat: locatorMaps %}
+      <div class="map-gallery" data-reveal>
+      {%- for m in wrlgMaps -%}{%- if m.src contains "/wrlg-" %}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
+        </button>
+      {%- endif -%}{%- endfor %}
+      </div>
+      <figure class="nrmp-quote" data-reveal>
+        <blockquote>Accurate and informative images are essential in communicating exploration and mining news effectively. Dorian and his team handle this important job with precision and speed. They do far more than simply create images.</blockquote>
+        <figcaption><b>Will Robinson</b> &middot; VP Exploration, West Red Lake Gold</figcaption>
+      </figure>
     </section>
 
     <div class="divider"></div>
@@ -215,7 +232,7 @@ permalink: "news-release-map-program.html"
       .nrmp-quote figcaption b { color: var(--graphite); font-weight: 600; }
     </style>
 
-  <!-- Shared lightbox (West Red Lake maps) -->
+  <!-- Shared lightbox (New Found Gold + West Red Lake maps) -->
   <div class="lightbox" id="work-lightbox" hidden>
     <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
     <figure class="lightbox-figure">
