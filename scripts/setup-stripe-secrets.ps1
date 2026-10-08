@@ -16,7 +16,7 @@ Set-Location (Split-Path $PSScriptRoot -Parent)
 function Read-Secret([string]$prompt) {
   $s = Read-Host $prompt -AsSecureString
   $b = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($s)
-  try { [Runtime.InteropServices.Marshal]::PtrToStringBSTR($b) } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b) }
+  try { ([Runtime.InteropServices.Marshal]::PtrToStringBSTR($b)).Trim() } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b) }
 }
 
 function Save-Var([string]$name, [string]$value, [switch]$Plain) {
@@ -29,7 +29,7 @@ function Save-Var([string]$name, [string]$value, [switch]$Plain) {
 Write-Host "`n1) Stripe secret key" -ForegroundColor Cyan
 Write-Host "   Stripe Dashboard > Developers > API keys > Secret key (starts sk_live_)."
 $sk = Read-Secret '   Paste it (input is hidden)'
-if ($sk -notmatch '^(sk|rk)_(live|test)_') { throw 'That does not look like a Stripe secret key.' }
+if ($sk -notmatch '^(sk|rk)_(live|test)_' -or $sk.Length -lt 50) { throw "That does not look like a full Stripe secret key ($($sk.Length) characters; a full key is 100+). Nothing was saved." }
 Save-Var STRIPE_SECRET_KEY $sk
 $mode = if ($sk -match '_live_') { '--live' } else { $null }
 
