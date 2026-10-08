@@ -151,6 +151,21 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
     padding-top: 6px;
   }
   .intro strong { color: var(--graphite); font-weight: 600; }
+  /* On-this-page jump row: quiet text links, hairline above, no buttons
+     (the page's one call to action stays "Book a discovery call"). */
+  .jump-row {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 0;
+    margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--hairline);
+  }
+  .jump-row a {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+  .jump-row a + a::before { content: "\B7"; margin: 0 12px; color: var(--graticule); }
+  .jump-row a:hover, .jump-row a:focus-visible { color: var(--graphite); }
+  .jump-row .jump-row-key { color: var(--graphite); font-weight: 600; }
+  .jump-row .jump-row-key:hover { color: var(--ore-text); }
 
   /* ---------- SECTION SCAFFOLD ---------- */
   section[id] { padding-block: clamp(56px, 8vw, 104px); }
@@ -772,6 +787,13 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <div class="eyebrow">Engagement</div>
         <h1 class="title">How we engage.</h1>
         <p class="intro">Three ways to work together — a <strong>complete launch package</strong>, <strong>ongoing retainers</strong>, and <strong>discrete project work</strong> — each scoped to your project, your timeline, and the standard the capital markets expect. In active drilling? The <a href="/news-release-map-program.html">News-Release Map Program</a> adds guaranteed-turnaround news-release maps on a monthly plan.</p>
+        <nav class="jump-row" aria-label="On this page">
+          <a href="#models">Engagement models</a>
+          <a href="#deliverables">Scope your own</a>
+          <a href="#launch">Launch Package</a>
+          <a href="#retainers">Retainers</a>
+          <a href="#process" class="jump-row-key">How an engagement works <span aria-hidden="true">&darr;</span></a>
+        </nav>
       </div>
     </div>
   </div>
