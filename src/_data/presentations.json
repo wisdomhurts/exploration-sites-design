@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Capitan Silver",
+    "type": "Silver &middot; Durango, Mexico",
+    "cover": "images/presentations/capitan-silver.avif",
+    "pdf": "images/decks/capitan-silver.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 18
+  },
+  {
+    "title": "Eastport Critical Metals",
+    "type": "Copper &amp; critical metals &middot; Botswana",
+    "cover": "images/presentations/eastport.avif",
+    "pdf": "images/decks/eastport.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 21
+  },
+  {
+    "title": "Kincora Copper",
+    "type": "Copper-gold &middot; NSW, Australia",
+    "cover": "images/presentations/kincora.avif",
+    "pdf": "images/decks/kincora.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 36
+  },
+  {
+    "title": "Hercules Metals",
+    "type": "Copper-silver &middot; Idaho",
+    "cover": "images/presentations/hercules.avif",
+    "pdf": "images/decks/hercules.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 32
+  },
+  {
+    "title": "Tiger Gold",
+    "type": "Gold &middot; Colombia",
+    "cover": "images/presentations/tiger-gold.avif",
+    "pdf": "images/decks/tiger-gold.pdf",
+    "w": 1100,
+    "h": 688,
+    "pages": 35
+  },
+  {
+    "title": "NexMetals Mining",
+    "type": "Nickel-copper &middot; Botswana",
+    "cover": "images/presentations/nexmetals.avif",
+    "pdf": "images/decks/nexmetals.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 25
+  },
+  {
+    "title": "Western Alaska Minerals",
+    "type": "Silver-zinc-lead &middot; Alaska",
+    "cover": "images/presentations/western-alaska.avif",
+    "pdf": "images/decks/western-alaska.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 36
+  },
+  {
+    "title": "Silver Viper Minerals",
+    "type": "Silver-gold &middot; Mexico",
+    "cover": "images/presentations/silver-viper.avif",
+    "pdf": "images/decks/silver-viper.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 25
+  },
+  {
+    "title": "Rua Gold",
+    "type": "Gold &middot; New Zealand",
+    "cover": "images/presentations/rua-gold.avif",
+    "pdf": "images/decks/rua-gold.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 23
+  },
+  {
+    "title": "West Red Lake Gold",
+    "type": "Gold &middot; Ontario",
+    "cover": "images/presentations/west-red-lake.avif",
+    "pdf": "images/decks/west-red-lake.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 21
+  },
+  {
+    "title": "Temas Resources",
+    "type": "Titanium &amp; critical minerals &middot; Quebec",
+    "cover": "images/presentations/temas.avif",
+    "pdf": "images/decks/temas.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 17
+  },
+  {
+    "title": "US Critical Metals",
+    "type": "Lithium &amp; REE",
+    "cover": "images/presentations/uscm.avif",
+    "pdf": "images/decks/uscm.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 31
+  },
+  {
+    "title": "Emperor Metals",
+    "type": "Gold &middot; Quebec",
+    "cover": "images/presentations/emperor.avif",
+    "pdf": "images/decks/emperor.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 28
+  },
+  {
+    "title": "Scorpio Gold",
+    "type": "Gold &middot; Nevada",
+    "cover": "images/presentations/scorpio.avif",
+    "pdf": "images/decks/scorpio.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 19
+  },
+  {
+    "title": "Copper Corp",
+    "type": "Copper-gold-REE &middot; Tasmania",
+    "cover": "images/presentations/copper-corp.avif",
+    "pdf": "images/decks/copper-corp.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 33
+  },
+  {
+    "title": "Fuse Advisors",
+    "type": "Project evaluation",
+    "cover": "images/presentations/fuse-advisors.avif",
+    "pdf": "images/decks/fuse-advisors.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 21
+  },
+  {
+    "title": "Volcanic Gold Mines",
+    "type": "Gold-silver &middot; Guatemala",
+    "cover": "images/presentations/volcanic.avif",
+    "pdf": "images/decks/volcanic.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 16
+  },
+  {
+    "title": "Aris Mining",
+    "type": "Gold &middot; Colombia",
+    "cover": "images/presentations/aris.avif",
+    "pdf": "images/decks/aris.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 25
+  },
+  {
+    "title": "Enduro Metals",
+    "type": "Copper-gold &middot; Golden Triangle, BC",
+    "cover": "images/presentations/enduro.avif",
+    "pdf": "images/decks/enduro.pdf",
+    "w": 1100,
+    "h": 619,
+    "pages": 25
+  },
+  {
+    "title": "Metallis Resources",
+    "type": "Copper-gold-nickel &middot; BC Golden Triangle",
+    "cover": "images/presentations/metallis.avif",
+    "pdf": "images/decks/metallis.pdf",
+    "w": 1100,
+    "h": 825,
+    "pages": 41
+  }
+]
