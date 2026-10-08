@@ -245,7 +245,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
 
   /* Rate card inside Model 03 (project work): base price stated once, exceptions priced */
   .rate { display: grid; gap: 14px; margin-top: 6px; }
-  .rate-base { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 4px; }
+  .rate-base { display: flex; align-items: flex-end; align-items: last baseline; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 4px; }
   .rate-base-fig { font-family: var(--font-serif); font-weight: 300; font-size: clamp(38px, 4.2vw, 52px); line-height: 1; letter-spacing: -0.02em; color: var(--graphite); font-variant-numeric: tabular-nums; }
   .rate-base-text { font-size: 15px; line-height: 1.5; color: var(--body); max-width: 46ch; }
   .rate-card { background: var(--surface); border: 1px solid var(--hairline); padding: 22px 24px 24px; transition: box-shadow 0.2s var(--ease-out-soft); }
@@ -843,7 +843,6 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <span class="timelines-item"><span class="tl-key">Presentations</span><span class="tl-val mono">4 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">Websites</span><span class="tl-val mono">5 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">GIS films</span><span class="tl-val mono">6 weeks</span></span>
-        <span class="timelines-currency">Prices in CAD, excl. GST</span>
       </div>
 
       <!-- Model 03 deliverable register -->
@@ -854,7 +853,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       </div>
 
       <div class="rate reveal">
-        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash;<br>anything that differs is priced below.<br>All prices in CAD.</span></p>
+        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash;<br>anything that differs is priced below.</span></p>
         <div class="rate-card rate-lead">
           <div class="rate-head">
             <div class="deliv-kick">Make geology legible</div>
