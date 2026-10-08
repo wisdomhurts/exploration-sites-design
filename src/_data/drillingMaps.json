@@ -13,19 +13,6 @@
     }
   },
   {
-    "src": "/images/work/drilling/firefly-ming-long-section.webp",
-    "full": "/images/work/drilling/firefly-ming-long-section-full.webp",
-    "w": 1400,
-    "h": 787,
-    "caption": "Firefly Metals — Ming Mine long section, Newfoundland",
-    "alt": "Ming Mine long section produced for Firefly Metals",
-    "feature": {
-      "label": "Firefly Metals",
-      "title": "Ming Mine, Newfoundland",
-      "body": "A long section through the Ming copper-gold deposit &mdash; the resource, the underground workings, and the drilling projected onto one plane, with the system left open down plunge."
-    }
-  },
-  {
     "src": "/images/work/drilling/nfg-keats-news-release.webp",
     "full": "/images/work/drilling/nfg-keats-news-release-full.webp",
     "w": 1400,
@@ -45,6 +32,14 @@
     "h": 466,
     "caption": "New Found Gold — Monte Carlo long section, Queensway",
     "alt": "Monte Carlo long section produced for New Found Gold"
+  },
+  {
+    "src": "/images/work/drilling/firefly-ming-long-section.webp",
+    "full": "/images/work/drilling/firefly-ming-long-section-full.webp",
+    "w": 1400,
+    "h": 787,
+    "caption": "Firefly Metals — Ming Mine long section, Newfoundland",
+    "alt": "Ming Mine long section produced for Firefly Metals"
   },
   {
     "src": "/images/work/drilling/waratah-drill-plan.webp",
