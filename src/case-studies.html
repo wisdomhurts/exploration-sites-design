@@ -40,18 +40,48 @@ description: "Case studies: investor maps, decks, and websites for Montage Gold,
     .cs-cell--wide { grid-template-columns: 1fr; }
     .cs-cell--wide .cs-cell-body { padding-top: 20px; }
   }
+
+  /* ---- Spacing pass (2026-10-08) ------------------------------------------
+     Montage band is a plain image; the wall becomes an open grid with real
+     gutters instead of hairline-ruled cells that touched each other. */
+  .cs-flagship-media { cursor: default; }
+
+  .cs-wall { border-top: 0; padding: clamp(72px, 8vw, 112px) 0 clamp(48px, 6vw, 80px); }
+  .cs-wall-inner { column-gap: 48px; row-gap: 64px; }
+  .cs-wall-head { grid-column: 1 / -1; margin-bottom: -28px; }
+  .cs-wall .cs-cell,
+  .cs-wall .cs-cell:nth-last-child(-n+2):not(.cs-cell--wide) { border: 0; padding: 0; }
+  .cs-wall .cs-cell-media { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .cs-wall .cs-cell-media img { height: 260px; }
+  .cs-wall .cs-cell-body { padding: 26px 0 0; }
+
+  /* One vertical rhythm for every card */
+  .cs-wall .cs-name { margin-bottom: 6px; }
+  .cs-wall .cs-ticker { margin-bottom: 20px; }
+  .cs-wall .cs-qual, .cs-facts .cs-qual { font-size: 12.5px; margin-top: 10px; max-width: 46ch; }
+  .cs-wall .cs-story { margin-top: 18px; max-width: 58ch; }
+  .cs-wall .cs-services { margin-top: 18px; }
+
+  /* Wide closing row: image keeps a real shape so the text block centres on it */
+  .cs-cell--wide { column-gap: 56px; align-items: center; }
+  .cs-cell--wide .cs-cell-media img { height: auto; aspect-ratio: 16 / 10; }
+  .cs-cell--wide .cs-cell-body { padding: 0; }
+
+  @media (max-width: 900px) {
+    .cs-wall-inner { row-gap: 48px; }
+    .cs-wall-head { margin-bottom: -16px; }
+    .cs-wall .cs-cell-media img { height: 220px; }
+    .cs-cell--wide .cs-cell-body { padding-top: 22px; }
+  }
 </style>
 
     <!-- MONTAGE GOLD (flagship) -->
 <section class="cs-flagship" data-reveal>
-  <button type="button" class="cs-flagship-media" data-lightbox
-          aria-label="Enlarge: Montage Gold Kon&eacute; Project investor map"
-          data-full="/images/case-studies/montage/montage-hero.avif"
-          data-caption="Montage Gold &mdash; Kon&eacute; Gold Project investor map, C&ocirc;te d&rsquo;Ivoire">
+  <div class="cs-flagship-media">
     <img src="images/case-studies/montage/montage-hero.avif"
-         alt="Investor map of the Kon&eacute; Gold Project, C&ocirc;te d&rsquo;Ivoire, produced for Montage Gold"
+         alt="Bushland at the Kon&eacute; Gold Project, C&ocirc;te d&rsquo;Ivoire"
          width="1600" height="900" loading="eager" decoding="async">
-  </button>
+  </div>
   <div class="cs-flagship-inner">
     <div class="cs-facts">
       <h2 class="cs-name">Montage Gold</h2>
@@ -68,6 +98,7 @@ description: "Case studies: investor maps, decks, and websites for Montage Gold,
 <!-- EVIDENCE WALL -->
 <section class="cs-wall">
   <div class="cs-wall-inner">
+    <div class="cs-wall-head"><div class="section-label">More engagements</div></div>
 
     <!-- FIREWEED METALS -->
     <article class="cs-cell" data-reveal>
