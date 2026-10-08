@@ -42,8 +42,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
     --ease-out-quart: cubic-bezier(.2,.8,.2,1);
     --ease-out-soft:  cubic-bezier(.33,1,.68,1);
 
-    --shell: 1320px;
-    --pad: clamp(20px, 5vw, 64px);
+    --shell: 1440px;
+    --pad: 80px; /* matches .page gutters site-wide: 80 / 40 (<=1024) / 20 (<=640) */
   }
 
   html { scroll-behavior: smooth; }
@@ -76,6 +76,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
     margin: 0 auto;
     padding-inline: var(--pad);
   }
+  @media (max-width: 1024px) { .eng-main { --pad: 40px; } }
+  @media (max-width: 640px) { .eng-main { --pad: 20px; } }
 
   /* "Book a discovery call" button — editorial outline + arrow (variation 1) */
   .btn-discovery {
