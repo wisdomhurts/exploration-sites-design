@@ -39,6 +39,5 @@ module.exports = () => ({
   "fact-sheets.html": fromPage("fact-sheets.html", "design-card"),
   "movies.html": fromPage("movies.html", "movie-card"),
   "logos-branding.html": fromPage("logos-branding.html", "design-card"),
-  "infographics.html": fromPage("infographics.html", "design-card"),
   "conference-booth.html": fromPage("conference-booth.html", "design-card"),
 });
