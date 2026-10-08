@@ -1,18 +1,5 @@
 [
   {
-    "src": "/images/work/schematics/alaska-silver-illinois-creek.webp",
-    "full": "/images/work/schematics/alaska-silver-illinois-creek-full.webp",
-    "w": 1400,
-    "h": 788,
-    "caption": "Alaska Silver — Illinois Creek target zones &amp; mineral system",
-    "alt": "Illinois Creek target zones and mineral system schematic produced for Alaska Silver",
-    "feature": {
-      "label": "Alaska Silver",
-      "title": "Illinois Creek, Alaska",
-      "body": "The Illinois Creek mineral system on one zoned model &mdash; the mine, Waterpump Creek, Silver Sage, and Warm Springs placed from copper-gold through to zinc-lead-silver, so the district&rsquo;s targets read as one connected system."
-    }
-  },
-  {
     "src": "/images/work/schematics/algo-grande-footprint-comparison.webp",
     "full": "/images/work/schematics/algo-grande-footprint-comparison-full.webp",
     "w": 1400,
@@ -23,19 +10,6 @@
       "label": "Algo Grande",
       "title": "Cerro Grande, Sonora",
       "body": "The Cerro Grande footprint drawn to one scale alongside the world&rsquo;s major porphyry systems &mdash; Oyu Tolgoi, Pebble, Filo del Sol, Los Helados, and others &mdash; so the size of the opportunity reads at a glance."
-    }
-  },
-  {
-    "src": "/images/work/schematics/bmc-kzk-infrastructure.webp",
-    "full": "/images/work/schematics/bmc-kzk-infrastructure-full.webp",
-    "w": 1400,
-    "h": 1400,
-    "caption": "BMC Minerals — Kudz Ze Kayah infrastructure plan, Yukon",
-    "alt": "Kudz Ze Kayah project infrastructure plan produced for BMC Minerals",
-    "feature": {
-      "label": "BMC Minerals",
-      "title": "Kudz Ze Kayah, Yukon",
-      "body": "A site plan for Kudz Ze Kayah &mdash; the ABM and Krakatoa deposits with the planned open pit, waste storage, camp, and plant site. How the project will be built, in one figure."
     }
   },
   {
@@ -69,6 +43,14 @@
     "h": 450,
     "caption": "Emperor Metals — mine depth comparison, Abitibi",
     "alt": "Abitibi mine depth comparison chart produced for Emperor Metals"
+  },
+  {
+    "src": "/images/work/schematics/york-harbour-section.webp",
+    "full": "/images/work/schematics/york-harbour-section-full.webp",
+    "w": 800,
+    "h": 445,
+    "caption": "York Harbour Cu–Zn mine — schematic section",
+    "alt": "York Harbour copper-zinc mine schematic section"
   },
   {
     "src": "/images/work/schematics/vms-section-comparison.webp",
@@ -119,11 +101,11 @@
     "alt": "Madsen future site plan produced for West Red Lake Gold"
   },
   {
-    "src": "/images/work/schematics/york-harbour-section.webp",
-    "full": "/images/work/schematics/york-harbour-section-full.webp",
-    "w": 800,
-    "h": 445,
-    "caption": "York Harbour Cu–Zn mine — schematic section",
-    "alt": "York Harbour copper-zinc mine schematic section"
+    "src": "/images/work/schematics/bmc-kzk-infrastructure.webp",
+    "full": "/images/work/schematics/bmc-kzk-infrastructure-full.webp",
+    "w": 1400,
+    "h": 1400,
+    "caption": "BMC Minerals — Kudz Ze Kayah infrastructure plan, Yukon",
+    "alt": "Kudz Ze Kayah project infrastructure plan produced for BMC Minerals"
   }
 ]
