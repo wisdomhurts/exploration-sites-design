@@ -717,6 +717,9 @@ description: "How we built the investor maps, presentation visuals, and brand sy
     gap: clamp(28px, 4vw, 56px);
     align-items: start;
   }
+  /* Fig. 01 is a wide (16:9) portfolio map: it spans the row, text + stats sit beneath */
+  .csm-bg3--wide { grid-template-columns: 2fr 1fr; }
+  .csm-bg3--wide .csm-bg3-map { grid-column: 1 / -1; }
   .csm-bg3 .csm-kicker { margin-bottom: 14px; }
   .csm-bg3 .csm-h2 { max-width: 20ch; margin-bottom: 22px; }
   .csm-bg3 .csm-body:first-of-type { margin-top: 0; }
@@ -959,11 +962,11 @@ description: "How we built the investor maps, presentation visuals, and brand sy
 
   <!-- ============== CLIENT BACKGROUND ============== -->
   <section class="csm-section">
-    <div class="csm-bg3">
+    <div class="csm-bg3 csm-bg3--wide">
       <div class="csm-bg3-map">
         <figure class="csm-map">
-          <span class="csm-map-media"><img src="images/case-studies/montage/montage-map-01.jpg" alt="Location map of the Kon&eacute; Gold Project in C&ocirc;te d&rsquo;Ivoire" width="1600" height="1598" loading="lazy" decoding="async"></span>
-          <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 01</span><p class="csm-map-text">Project location &mdash; C&ocirc;te d&rsquo;Ivoire.</p></figcaption>
+          <span class="csm-map-media"><img src="images/case-studies/montage/montage-cdi-portfolio.jpg" alt="Montage Gold&rsquo;s C&ocirc;te d&rsquo;Ivoire gold portfolio &mdash; Kon&eacute;, Didievi and Wend&eacute; among the country&rsquo;s gold mines and resources" width="2400" height="1350" loading="lazy" decoding="async"></span>
+          <figcaption class="csm-map-cap"><span class="csm-map-tag">Fig. 01</span><p class="csm-map-text">C&ocirc;te d&rsquo;Ivoire gold portfolio &mdash; Kon&eacute;, Didievi, Wend&eacute;.</p></figcaption>
         </figure>
       </div>
       <div class="csm-bg3-body">
