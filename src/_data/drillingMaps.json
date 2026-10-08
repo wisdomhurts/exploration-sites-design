@@ -1,0 +1,329 @@
+[
+  {
+    "src": "/images/work/drilling/nfg-queensway-afz.webp",
+    "full": "/images/work/drilling/nfg-queensway-afz-full.webp",
+    "w": 1400,
+    "h": 1581,
+    "caption": "New Found Gold — Appleton Fault Zone drilling, Queensway",
+    "alt": "Appleton Fault Zone drill plan over the resource block model, produced for New Found Gold",
+    "feature": {
+      "label": "New Found Gold",
+      "title": "Queensway, Newfoundland",
+      "body": "Drilling along the Appleton Fault Zone at Queensway &mdash; Keats, Iceberg, and their neighbours in plan, over the resource block model. Where the ounces sit, and how much of the trend the drilling has already tested."
+    }
+  },
+  {
+    "src": "/images/work/drilling/firefly-ming-long-section.webp",
+    "full": "/images/work/drilling/firefly-ming-long-section-full.webp",
+    "w": 1400,
+    "h": 787,
+    "caption": "Firefly Metals — Ming Mine long section, Newfoundland",
+    "alt": "Ming Mine long section produced for Firefly Metals",
+    "feature": {
+      "label": "Firefly Metals",
+      "title": "Ming Mine, Newfoundland",
+      "body": "A long section through the Ming copper-gold deposit &mdash; the resource, the underground workings, and the drilling projected onto one plane, with the system left open down plunge."
+    }
+  },
+  {
+    "src": "/images/work/drilling/nfg-keats-news-release.webp",
+    "full": "/images/work/drilling/nfg-keats-news-release-full.webp",
+    "w": 1400,
+    "h": 847,
+    "caption": "New Found Gold — Keats drill results, Queensway",
+    "alt": "Keats drill results map for a news release, produced for New Found Gold",
+    "feature": {
+      "label": "New Found Gold",
+      "title": "Keats, Queensway",
+      "body": "A news-release figure for new Keats results &mdash; intercepts called out around the zone in plan, with a looking-northwest inset of the block model so the new holes read in three dimensions."
+    }
+  },
+  {
+    "src": "/images/work/drilling/nfg-monte-carlo-long-section.webp",
+    "full": "/images/work/drilling/nfg-monte-carlo-long-section-full.webp",
+    "w": 800,
+    "h": 466,
+    "caption": "New Found Gold — Monte Carlo long section, Queensway",
+    "alt": "Monte Carlo long section produced for New Found Gold"
+  },
+  {
+    "src": "/images/work/drilling/waratah-drill-plan.webp",
+    "full": "/images/work/drilling/waratah-drill-plan-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Waratah Minerals — drill plan, New South Wales",
+    "alt": "Drill plan map produced for Waratah Minerals"
+  },
+  {
+    "src": "/images/work/drilling/waratah-drillhole-news-release.webp",
+    "full": "/images/work/drilling/waratah-drillhole-news-release-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Waratah Minerals — drill-hole map for a news release, New South Wales",
+    "alt": "News-release drill-hole map produced for Waratah Minerals"
+  },
+  {
+    "src": "/images/work/drilling/selebi-section.webp",
+    "full": "/images/work/drilling/selebi-section-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Selebi North &amp; Selebi Main — drilling section, Botswana",
+    "alt": "Selebi drilling section"
+  },
+  {
+    "src": "/images/work/drilling/andina-piuquenes-regional.webp",
+    "full": "/images/work/drilling/andina-piuquenes-regional-full.webp",
+    "w": 800,
+    "h": 427,
+    "caption": "Andina Copper — Piuquenes drilling, regional view",
+    "alt": "Piuquenes drilling regional view produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/drilling/piuquenes-wider-view.webp",
+    "full": "/images/work/drilling/piuquenes-wider-view-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Piuquenes drilling, wider view",
+    "alt": "Piuquenes drilling wider view map"
+  },
+  {
+    "src": "/images/work/drilling/andina-piuquenes-detail.webp",
+    "full": "/images/work/drilling/andina-piuquenes-detail-full.webp",
+    "w": 800,
+    "h": 523,
+    "caption": "Andina Copper — Piuquenes drilling detail",
+    "alt": "Piuquenes drilling detail map produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/drilling/montage-gbongogo-south-long-section.webp",
+    "full": "/images/work/drilling/montage-gbongogo-south-long-section-full.webp",
+    "w": 800,
+    "h": 435,
+    "caption": "Montage Gold — Gbongogo South long section &amp; updated pit, Côte d&rsquo;Ivoire",
+    "alt": "Gbongogo South long section with updated pit produced for Montage Gold"
+  },
+  {
+    "src": "/images/work/drilling/andina-drill-plan-callouts.webp",
+    "full": "/images/work/drilling/andina-drill-plan-callouts-full.webp",
+    "w": 800,
+    "h": 719,
+    "caption": "Andina Copper — drill plan with intercepts",
+    "alt": "Drill plan with intercept callouts produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/drilling/montage-kone-section.webp",
+    "full": "/images/work/drilling/montage-kone-section-full.webp",
+    "w": 800,
+    "h": 501,
+    "caption": "Montage Gold — Koné geological section",
+    "alt": "Koné geological section produced for Montage Gold"
+  },
+  {
+    "src": "/images/work/drilling/andina-cross-section.webp",
+    "full": "/images/work/drilling/andina-cross-section-full.webp",
+    "w": 800,
+    "h": 518,
+    "caption": "Andina Copper — cross-section",
+    "alt": "Cross-section produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/drilling/hercules-drill-plan-satellite.webp",
+    "full": "/images/work/drilling/hercules-drill-plan-satellite-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Hercules Metals — drill plan on satellite imagery, Idaho",
+    "alt": "Drill plan on satellite imagery produced for Hercules Metals"
+  },
+  {
+    "src": "/images/work/drilling/algo-grande-section.webp",
+    "full": "/images/work/drilling/algo-grande-section-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Algo Grande — Leapfrog section, Sonora",
+    "alt": "Leapfrog section produced for Algo Grande"
+  },
+  {
+    "src": "/images/work/drilling/ngex-plan-view.webp",
+    "full": "/images/work/drilling/ngex-plan-view-full.webp",
+    "w": 800,
+    "h": 448,
+    "caption": "NGEX — drill plan view",
+    "alt": "Drill plan view produced for NGEX"
+  },
+  {
+    "src": "/images/work/drilling/ngex-los-helados-3d.webp",
+    "full": "/images/work/drilling/ngex-los-helados-3d-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "NGEX — Los Helados 3D view",
+    "alt": "Los Helados 3D drilling view produced for NGEX"
+  },
+  {
+    "src": "/images/work/drilling/capitan-jesus-maria-oblique.webp",
+    "full": "/images/work/drilling/capitan-jesus-maria-oblique-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Capitan Silver — Jesús María oblique view, Durango",
+    "alt": "Jesús María oblique drilling view produced for Capitan Silver"
+  },
+  {
+    "src": "/images/work/drilling/fireweed-boundary-plan.webp",
+    "full": "/images/work/drilling/fireweed-boundary-plan-full.webp",
+    "w": 800,
+    "h": 445,
+    "caption": "Fireweed Metals — Boundary zone drill plan, Yukon",
+    "alt": "Boundary zone drill plan produced for Fireweed Metals"
+  },
+  {
+    "src": "/images/work/drilling/fireweed-west-boundary-section-1.webp",
+    "full": "/images/work/drilling/fireweed-west-boundary-section-1-full.webp",
+    "w": 800,
+    "h": 446,
+    "caption": "Fireweed Metals — West Boundary section 1, Yukon",
+    "alt": "West Boundary sectional view produced for Fireweed Metals"
+  },
+  {
+    "src": "/images/work/drilling/fireweed-west-boundary-section-2.webp",
+    "full": "/images/work/drilling/fireweed-west-boundary-section-2-full.webp",
+    "w": 800,
+    "h": 445,
+    "caption": "Fireweed Metals — West Boundary section 2, Yukon",
+    "alt": "Second West Boundary sectional view produced for Fireweed Metals"
+  },
+  {
+    "src": "/images/work/drilling/emperor-dq23-05-section.webp",
+    "full": "/images/work/drilling/emperor-dq23-05-section-full.webp",
+    "w": 800,
+    "h": 854,
+    "caption": "Emperor Metals — section DQ23-05, looking west",
+    "alt": "Drill-hole cross-section produced for Emperor Metals"
+  },
+  {
+    "src": "/images/work/drilling/wrlg-rowan-plan.webp",
+    "full": "/images/work/drilling/wrlg-rowan-plan-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "West Red Lake Gold — Rowan drill plan, Ontario",
+    "alt": "Rowan drill plan produced for West Red Lake Gold"
+  },
+  {
+    "src": "/images/work/drilling/wrlg-vein-101-long-section.webp",
+    "full": "/images/work/drilling/wrlg-vein-101-long-section-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "West Red Lake Gold — vein 101 long section, 2023 drilling",
+    "alt": "Vein 101 long section produced for West Red Lake Gold"
+  },
+  {
+    "src": "/images/work/drilling/wrlg-madsen-potential.webp",
+    "full": "/images/work/drilling/wrlg-madsen-potential-full.webp",
+    "w": 800,
+    "h": 426,
+    "caption": "West Red Lake Gold — Madsen long section &amp; potential, Ontario",
+    "alt": "Madsen long section produced for West Red Lake Gold"
+  },
+  {
+    "src": "/images/work/drilling/wrlg-rowan-section.webp",
+    "full": "/images/work/drilling/wrlg-rowan-section-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "West Red Lake Gold — Rowan section 1, Ontario",
+    "alt": "Rowan cross-section produced for West Red Lake Gold"
+  },
+  {
+    "src": "/images/work/drilling/sitka-rc-gold-long-section.webp",
+    "full": "/images/work/drilling/sitka-rc-gold-long-section-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Sitka Gold — RC Gold long section, pit-constrained resources, Yukon",
+    "alt": "RC Gold long section produced for Sitka Gold"
+  },
+  {
+    "src": "/images/work/drilling/sitka-rhosgobel.webp",
+    "full": "/images/work/drilling/sitka-rhosgobel-full.webp",
+    "w": 800,
+    "h": 682,
+    "caption": "Sitka Gold — Rhosgobel deposit plan &amp; section, Yukon",
+    "alt": "Rhosgobel deposit plan and section produced for Sitka Gold"
+  },
+  {
+    "src": "/images/work/drilling/toma-berrigan-sections.webp",
+    "full": "/images/work/drilling/toma-berrigan-sections-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Toma Gold — Berrigan sections",
+    "alt": "Berrigan section figure produced for Toma Gold"
+  },
+  {
+    "src": "/images/work/drilling/toma-berrigan-cross-section.webp",
+    "full": "/images/work/drilling/toma-berrigan-cross-section-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Toma Gold — Berrigan cross-section",
+    "alt": "Berrigan cross-section produced for Toma Gold"
+  },
+  {
+    "src": "/images/work/drilling/toma-berrigan-long-section.webp",
+    "full": "/images/work/drilling/toma-berrigan-long-section-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Toma Gold — Berrigan long section",
+    "alt": "Berrigan long section produced for Toma Gold"
+  },
+  {
+    "src": "/images/work/drilling/pc-gold-adit-drilling.webp",
+    "full": "/images/work/drilling/pc-gold-adit-drilling-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "PC Gold — adit drilling section, Australia",
+    "alt": "Adit drilling section produced for PC Gold"
+  },
+  {
+    "src": "/images/work/drilling/pc-gold-link-zone-2.webp",
+    "full": "/images/work/drilling/pc-gold-link-zone-2-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "PC Gold — Link Zone 2 cross-section, Australia",
+    "alt": "Link Zone 2 cross-section produced for PC Gold"
+  },
+  {
+    "src": "/images/work/drilling/premier-drill-plan.webp",
+    "full": "/images/work/drilling/premier-drill-plan-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Premier area drill plan, Golden Triangle",
+    "alt": "Premier area drill plan map"
+  },
+  {
+    "src": "/images/work/drilling/nexgold-niblack.webp",
+    "full": "/images/work/drilling/nexgold-niblack-full.webp",
+    "w": 800,
+    "h": 634,
+    "caption": "NexGold — Niblack Leapfrog model, Alaska",
+    "alt": "Niblack Leapfrog model view produced for NexGold"
+  },
+  {
+    "src": "/images/work/drilling/altair-section-a.webp",
+    "full": "/images/work/drilling/altair-section-a-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Altair Minerals — section A, Guyana",
+    "alt": "Section A produced for Altair Minerals"
+  },
+  {
+    "src": "/images/work/drilling/capitan-cross-section-b.webp",
+    "full": "/images/work/drilling/capitan-cross-section-b-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Capitan Silver — cross-section B, Durango",
+    "alt": "Cross-section B produced for Capitan Silver"
+  },
+  {
+    "src": "/images/work/drilling/miata-big-berg-section-c.webp",
+    "full": "/images/work/drilling/miata-big-berg-section-c-full.webp",
+    "w": 800,
+    "h": 716,
+    "caption": "Miata Metals — Big Berg cross-section C, Suriname",
+    "alt": "Big Berg cross-section C produced for Miata Metals"
+  }
+]

@@ -10,6 +10,8 @@
     { "source": "/nurture-crm.html", "destination": "/hosting.html#investor-tools", "permanent": true },
     { "source": "/investor-analytics.html", "destination": "/hosting.html#investor-tools", "permanent": true },
     { "source": "/exploration-today-ai.html", "destination": "/services.html", "permanent": false },
+    { "source": "/sections.html", "destination": "/drilling.html", "permanent": true },
+    { "source": "/sections{/}?", "destination": "/drilling.html", "permanent": true },
     { "source": "/maps{/}?", "destination": "/investor-maps.html", "permanent": true },
     { "source": "/home{/}?", "destination": "/", "permanent": true },
     { "source": "/:slug([a-z0-9-]+){/}?", "destination": "/:slug.html", "permanent": true }

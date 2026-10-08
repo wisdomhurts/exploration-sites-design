@@ -263,7 +263,7 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
             <li><button type="button" class="maps-tab is-active" role="tab" aria-selected="true" data-type="locators"><span class="maps-rail-text">Locators &amp; Area Plays</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="property"><span class="maps-rail-text">Property &amp; Target</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="geo"><span class="maps-rail-text">Geo / Geochem / Geophys</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
-            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="sections"><span class="maps-rail-text">Sections &amp; Long Sections</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
+            <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="drilling"><span class="maps-rail-text">Drilling</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="models"><span class="maps-rail-text">3D Isometric Models</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
             <li><button type="button" class="maps-tab" role="tab" aria-selected="false" data-type="conceptual"><span class="maps-rail-text">Conceptual &amp; Schematic</span><span class="maps-tab-bar" aria-hidden="true"></span></button></li>
           </ul>
@@ -319,15 +319,15 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
-              { key: 'sections', label: 'Sections & Long Sections', maps: [
-                '/images/work/cdn/12e73da8-696e77bb8acf5961c08d9949_1_DollyVarden_Wolf_LongSection-DV22273-removed-copy-scaled.avif',
-                '/images/work/cdn/1f6162d8-696e77bb8d7dae472088d4cd_4_MontageGold_Gbongogo_Section1-copy-scaled.avif',
-                '/images/work/cdn/b59d92c4-696e77bbd222e6156b2ceec6_1_CopperCorp_LF_Alpine_BB_SectionLookingNE-copy-scaled.avif',
-                '/images/work/cdn/94e005e9-696e77bb13d3a33c62fcd336_1_Reefton_LF_PACSectionMap-copy.webp',
-                '/images/work/cdn/0ac53aa3-696e77bb96dead22878ea4d9_2_PPT_SONORO_CerroCaliche_Cuervos-Section-copy.webp',
-                '/images/work/cdn/377f4e97-6973d355becb45cfaf55f197_Stallion_Section_DDH_CF24-003_V2-copy.webp',
-                '/images/work/cdn/3e724b37-6973d39068a1ab6e1e370c9c_Miata_Jons_Pit_Cross-Section3-copy.webp',
-                '/images/work/cdn/d373703b-6973d400e0b1f46193e58966_Waratah_Consols_CrossSection_Expanded-copy.webp'
+              { key: 'drilling', label: 'Drilling', maps: [
+                {%- comment -%} First eight maps exactly as ordered on drilling.html: featured maps, then the gallery (src/_data/drillingMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in drillingMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in drillingMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'models', label: '3D Isometric Models', maps: [
                 '/images/work/cdn/722e9283-696e693fffa1f3594b798a2d_NFG_086Map-3D.webp',
