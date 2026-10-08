@@ -310,14 +310,14 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'geo', label: 'Geo / Geochem / Geophys', maps: [
-                '/images/work/cdn/d7899d32-696e693fe5de57c207ae3101_MontageGold_Full_Geo_CIV_map.webp',
-                '/images/work/cdn/1b9bf359-696e77bb54baa59b5a6eb0ac_4_Hercules_IP_Isometric-copy.webp',
-                '/images/work/cdn/1d7caedb-696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif',
-                '/images/work/cdn/62620525-696e77e9a3a203234c319dac_1_WarabaGold_RegionalAreaplay-geo-1x1-copy-scaled.webp',
-                '/images/work/cdn/73f3524c-696e77f879c40da838396931_2_magnetics-copy-scaled.avif',
-                '/images/work/cdn/be87859c-696e781395a555cbcddfb39a_1_FNM_Storjuktan_Geochem_Cu-copy-scaled.avif',
-                '/images/work/cdn/72d8c13b-696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp',
-                '/images/work/cdn/000d3e3e-6973d7f758ec5ee5c5842cc0_GENU_Yath-Property-Geophysics_V1-copy.webp'
+                {%- comment -%} First eight maps exactly as ordered on geoscience-maps.html: featured maps, then the gallery (src/_data/geoMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in geoMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in geoMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'sections', label: 'Sections & Long Sections', maps: [
                 '/images/work/cdn/12e73da8-696e77bb8acf5961c08d9949_1_DollyVarden_Wolf_LongSection-DV22273-removed-copy-scaled.avif',

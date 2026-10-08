@@ -35,38 +35,19 @@ mapType: "geoscience"
       <div class="section-label">Selected Work</div>
       <h2 class="section-headline">A few we&rsquo;ve made.</h2>
 
+{%- comment -%} Maps come from src/_data/geoMaps.json, in folder-number order. The homepage shows the first eight as they appear here (featured maps first, then gallery). {%- endcomment -%}
+{%- for m in geoMaps -%}{%- if m.feature %}
       <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/1d7caedb-696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif" data-caption="Property geology map">
-          <img width="2276" height="2560" src="/images/work/cdn/1d7caedb-696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif" alt="Property-scale geological map showing lithology and structure" loading="lazy">
+        <button type="button" class="map-feature-media" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy" width="{{ m.w }}" height="{{ m.h }}">
         </button>
         <div class="map-feature-text">
-          <div class="section-label">Property geology</div>
-          <h3 class="map-feature-title">Lithology &amp; structure</h3>
-          <p class="body-text">A property-scale geology map &mdash; mapped units, contacts, and the structural framework that controls mineralisation &mdash; with custom symbology and a legend built for a non-geologist. It is the base layer every other dataset is read against.</p>
+          <div class="section-label">{{ m.feature.label }}</div>
+          <h3 class="map-feature-title">{{ m.feature.title }}</h3>
+          <p class="body-text">{{ m.feature.body }}</p>
         </div>
       </div>
-
-      <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/72d8c13b-696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp" data-caption="Soil geochemistry map">
-          <img width="2000" height="2009" src="/images/work/cdn/72d8c13b-696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp" alt="Soil geochemistry contour map with sample grid" loading="lazy">
-        </button>
-        <div class="map-feature-text">
-          <div class="section-label">Geochemistry</div>
-          <h3 class="map-feature-title">Soil &amp; rock geochem</h3>
-          <p class="body-text">Sample-grid results rendered as interpolated surfaces with the anomalies called out &mdash; the footprint of a system at surface. Done well, the contour does the arguing: the high-tenor zone is obvious, and the drill plan that follows it makes sense on sight.</p>
-        </div>
-      </div>
-
-      <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/73f3524c-696e77f879c40da838396931_2_magnetics-copy-scaled.avif" data-caption="Geophysics — magnetics">
-          <img width="1255" height="2000" src="/images/work/cdn/73f3524c-696e77f879c40da838396931_2_magnetics-copy-scaled.avif" alt="Airborne magnetics geophysical map with colour ramp" loading="lazy">
-        </button>
-        <div class="map-feature-text">
-          <div class="section-label">Geophysics</div>
-          <h3 class="map-feature-title">Magnetics, gravity &amp; IP</h3>
-          <p class="body-text">Airborne and ground survey data &mdash; magnetics, gravity, IP chargeability &mdash; rendered with professional colour ramps and the interpreted structures drawn on. The geophysical signature that defines the buried target, made readable for the market.</p>
-        </div>
-      </div>
+{%- endif -%}{%- endfor %}
     </section>
 
     <div class="divider"></div>
@@ -75,36 +56,11 @@ mapType: "geoscience"
       <div class="section-label">More Geoscience Maps</div>
       <h2 class="section-headline">A wider selection.</h2>
       <div class="map-gallery">
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/1b9bf359-696e77bb54baa59b5a6eb0ac_4_Hercules_IP_Isometric-copy.webp" data-caption="Hercules — IP chargeability isometric">
-          <img width="2000" height="1125" src="/images/work/cdn/1b9bf359-696e77bb54baa59b5a6eb0ac_4_Hercules_IP_Isometric-copy.webp" alt="IP chargeability isometric produced for Hercules" loading="lazy">
+{%- for m in geoMaps -%}{%- unless m.feature %}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
         </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/1d7caedb-696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif" data-caption="Property geology map, Skyline copper project">
-          <img width="2276" height="2560" src="/images/work/cdn/1d7caedb-696e77e92e43857cb5e8e144_2_FTL_Skyline_Copper_geo_4000x4500-copy-scaled.avif" alt="Property geology map of the Skyline copper project" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/62620525-696e77e9a3a203234c319dac_1_WarabaGold_RegionalAreaplay-geo-1x1-copy-scaled.webp" data-caption="Waraba Gold — regional geology area play">
-          <img width="2000" height="2053" src="/images/work/cdn/62620525-696e77e9a3a203234c319dac_1_WarabaGold_RegionalAreaplay-geo-1x1-copy-scaled.webp" alt="Regional geology area-play map produced for Waraba Gold" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/73f3524c-696e77f879c40da838396931_2_magnetics-copy-scaled.avif" data-caption="Geophysics — magnetics">
-          <img width="1255" height="2000" src="/images/work/cdn/73f3524c-696e77f879c40da838396931_2_magnetics-copy-scaled.avif" alt="Airborne magnetics geophysical map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/000d3e3e-6973d7f758ec5ee5c5842cc0_GENU_Yath-Property-Geophysics_V1-copy.webp" data-caption="GENU — property geophysics, Yath">
-          <img width="2500" height="1773" src="/images/work/cdn/000d3e3e-6973d7f758ec5ee5c5842cc0_GENU_Yath-Property-Geophysics_V1-copy.webp" alt="Yath property geophysics map produced for GENU" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/72d8c13b-696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp" data-caption="Hercules — silver soil sampling map">
-          <img width="2000" height="2009" src="/images/work/cdn/72d8c13b-696e7813aa4d35e5a23a2fce_1_Hercules_SilverSoilSampling-NewInset-copy-scaled.webp" alt="Silver soil sampling map produced for Hercules" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/cf230c06-6973d91628decd865169e905_Altair_South_Oko_Soils-copy.webp" data-caption="Altair — soil geochemistry, South Oko">
-          <img width="2000" height="1999" src="/images/work/cdn/cf230c06-6973d91628decd865169e905_Altair_South_Oko_Soils-copy.webp" alt="South Oko soil geochemistry map produced for Altair" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/8add0c1d-696e7813aa4d35e5a23a2fcb_2_WarabaGold_DDH_PlanMap_ContouredSoils-copy-scaled.avif" data-caption="Waraba Gold — drill plan with contoured soils">
-          <img width="2000" height="1816" src="/images/work/cdn/8add0c1d-696e7813aa4d35e5a23a2fcb_2_WarabaGold_DDH_PlanMap_ContouredSoils-copy-scaled.avif" alt="Drill plan with contoured soils produced for Waraba Gold" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/be87859c-696e781395a555cbcddfb39a_1_FNM_Storjuktan_Geochem_Cu-copy-scaled.avif" data-caption="FNM — copper geochemistry, Storjuktan">
-          <img width="2000" height="2000" src="/images/work/cdn/be87859c-696e781395a555cbcddfb39a_1_FNM_Storjuktan_Geochem_Cu-copy-scaled.avif" alt="Storjuktan copper geochemistry map produced for FNM" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/d7899d32-696e693fe5de57c207ae3101_MontageGold_Full_Geo_CIV_map.webp" data-caption="Montage Gold — full geology map, Côte d'Ivoire">
-          <img width="2000" height="2000" src="/images/work/cdn/d7899d32-696e693fe5de57c207ae3101_MontageGold_Full_Geo_CIV_map.webp" alt="Côte d'Ivoire geology map produced for Montage Gold" loading="lazy">
-        </button>
+{%- endunless -%}{%- endfor %}
       </div>
     </section>
 
