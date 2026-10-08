@@ -87,12 +87,12 @@
         if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
           e.preventDefault();
           if (!isOpen()) { openMenu(); }
-          var active = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          var active = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0] || wrapper.querySelector('.mm-link');
           if (active) active.focus();
         } else if (e.key === 'ArrowDown') {
           e.preventDefault();
           if (!isOpen()) openMenu();
-          var first = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0];
+          var first = wrapper.querySelector('.mega-menu-tab.is-active') || tabs[0] || wrapper.querySelector('.mm-link');
           if (first) first.focus();
         }
       });

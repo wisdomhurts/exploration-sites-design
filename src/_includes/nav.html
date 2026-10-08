@@ -16,88 +16,42 @@
           </button>
           <div class="mega-menu" id="mega-menu">
             <div class="mega-menu-arrow"></div>
-            <div class="mega-menu-panel">
-              <div class="mega-menu-sidebar" role="tablist" aria-label="What we do" aria-orientation="vertical">
-                <button type="button" class="mega-menu-tab is-active" role="tab" id="tab-maps" data-tab="maps" aria-selected="true" aria-controls="panel-maps" tabindex="0">
-                  <span class="mega-menu-tab-title">Investor Maps</span>
-                </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-websites" data-tab="websites" aria-selected="false" aria-controls="panel-websites" tabindex="-1">
-                  <span class="mega-menu-tab-title">Websites</span>
-                </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-presentations" data-tab="presentations" aria-selected="false" aria-controls="panel-presentations" tabindex="-1">
-                  <span class="mega-menu-tab-title">Presentations</span>
-                </button>
-                <button type="button" class="mega-menu-tab" role="tab" id="tab-design" data-tab="design" aria-selected="false" aria-controls="panel-design" tabindex="-1">
-                  <span class="mega-menu-tab-title">Design</span>
-                </button>
-              </div>
-              <div class="mega-menu-content">
-                <!-- Investor Maps Panel -->
-                <div class="mega-menu-tab-panel is-active" id="panel-maps" role="tabpanel" aria-labelledby="tab-maps" tabindex="0">
-                  <div class="mega-menu-cards">
-                    <a href="/locators-area-plays.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Locators &amp; Area Plays</div>
-                    </a>
-                    <a href="/property-target.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Property &amp; Target Maps</div>
-                    </a>
-                    <a href="/geoscience-maps.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Geo / Geochem / Geophys</div>
-                    </a>
-                    <a href="/drilling.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Drilling / Sections</div>
-                    </a>
-                    <a href="/3d-models.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">3D Isometric Models</div>
-                    </a>
-                    <a href="/schematics-plans.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Schematics &amp; Plans</div>
-                    </a>
-                    <a href="/news-release-map-program.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">News-Release Map Program <span class="nav-new">New</span></div>
-                    </a>
-                  </div>
+            <div class="mega-menu-panel mm-panel">
+              <div class="mm-cols">
+                <div class="mm-col">
+                  <div class="mm-head">Investor Maps</div>
+                  <a class="mm-link" href="/locators-area-plays.html">Locators &amp; Area Plays</a>
+                  <a class="mm-link" href="/property-target.html">Property &amp; Target Maps</a>
+                  <a class="mm-link" href="/geoscience-maps.html">Geo / Geochem / Geophys</a>
+                  <a class="mm-link" href="/drilling.html">Drilling / Sections</a>
+                  <a class="mm-link" href="/3d-models.html">3D Isometric Models</a>
+                  <a class="mm-link" href="/schematics-plans.html">Schematics &amp; Plans</a>
                 </div>
-                <!-- Websites Panel -->
-                <div class="mega-menu-tab-panel" id="panel-websites" role="tabpanel" aria-labelledby="tab-websites" tabindex="0" hidden>
-                  <div class="mega-menu-cards">
-                    <a href="/webflow.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Webflow Websites</div>
-                    </a>
-                    <a href="/wordpress.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">WordPress Websites</div>
-                    </a>
-                    <a href="/hosting.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Hosting &amp; Nurture CRM</div>
-                    </a>
-                  </div>
+                <div class="mm-col">
+                  <div class="mm-head">Websites</div>
+                  <a class="mm-link" href="/webflow.html">Webflow Websites</a>
+                  <a class="mm-link" href="/wordpress.html">WordPress Websites</a>
+                  <a class="mm-link" href="/hosting.html">Hosting &amp; Nurture CRM</a>
                 </div>
-                <!-- Presentations Panel -->
-                <div class="mega-menu-tab-panel" id="panel-presentations" role="tabpanel" aria-labelledby="tab-presentations" tabindex="0" hidden>
-                  <div class="mega-menu-cards">
-                    <a href="/presentations.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Investor Presentations</div>
-                    </a>
-                    <a href="/fact-sheets.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Fact Sheets</div>
-                    </a>
-                    <a href="/movies.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">GIS Films</div>
-                    </a>
-                  </div>
+                <div class="mm-col">
+                  <div class="mm-head">Presentations</div>
+                  <a class="mm-link" href="/presentations.html">Investor Presentations</a>
+                  <a class="mm-link" href="/fact-sheets.html">Fact Sheets</a>
+                  <a class="mm-link" href="/movies.html">GIS Films</a>
                 </div>
-                <!-- Design Panel -->
-                <div class="mega-menu-tab-panel" id="panel-design" role="tabpanel" aria-labelledby="tab-design" tabindex="0" hidden>
-                  <div class="mega-menu-cards">
-                    <a href="/logos-branding.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Logos &amp; Branding</div>
-                    </a>
-                    <a href="/conference-booth.html" class="mega-menu-card">
-                      <div class="mega-menu-card-title">Conference / Booth Design</div>
-                    </a>
-                  </div>
+                <div class="mm-col">
+                  <div class="mm-head">Design</div>
+                  <a class="mm-link" href="/logos-branding.html">Logos &amp; Branding</a>
+                  <a class="mm-link" href="/conference-booth.html">Conference / Booth Design</a>
                 </div>
               </div>
+              <a class="mm-feature" href="/news-release-map-program.html">
+                <span class="mm-feature-kick">In active drilling</span>
+                <span class="mm-feature-name">News-Release Map Program <span class="nav-new">New</span></span>
+                <span class="mm-feature-note">Maps on a guaranteed 48-hour turnaround &middot; <span class="mm-feature-avail">Limited availability</span></span>
+                <span class="mm-feature-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a class="mm-all" href="/services.html">All services &rarr;</a>
             </div>
           </div>
         </li>
@@ -172,6 +126,29 @@
   </div>
 
   <style>
+    /* --- Four-column What We Do panel (replaces the tabbed panel) --- */
+    .mega-menu-panel.mm-panel { width: 920px; display: block; padding: 26px 30px 22px; white-space: normal; }
+    .mm-cols { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.1fr; gap: 0 26px; }
+    .mm-col { display: flex; flex-direction: column; min-width: 0; }
+    .mm-col + .mm-col { border-left: 1px solid rgba(0,0,0,0.06); padding-left: 26px; }
+    .mm-head { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .mm-link { display: block; padding: 7px 0; font-size: 14px; color: var(--navy); text-decoration: none; transition: color 0.2s ease; }
+    .mm-link:hover, .mm-link:focus-visible { color: var(--ore-text, #815A20); }
+    .mm-feature { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "kick name arrow" "kick note arrow"; align-items: center; gap: 2px 18px; margin-top: 22px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--white, #fff); text-decoration: none; color: inherit; transition: border-color 0.2s ease; }
+    .mm-feature:hover, .mm-feature:focus-visible { border-color: var(--ore); }
+    .mm-feature-kick { grid-area: kick; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ore-text, #815A20); padding-right: 18px; border-right: 1px solid var(--border); align-self: stretch; display: flex; align-items: center; }
+    .mm-feature-name { grid-area: name; font-size: 14.5px; font-weight: 600; color: var(--navy); }
+    .mm-feature-note { grid-area: note; font-size: 12.5px; color: var(--muted); }
+    .mm-feature-avail { color: var(--ore-text, #815A20); font-weight: 600; }
+    .mm-feature-arrow { grid-area: arrow; font-size: 18px; color: var(--muted); transition: transform 0.2s ease, color 0.2s ease; }
+    .mm-feature:hover .mm-feature-arrow { transform: translateX(4px); color: var(--ore); }
+    .mm-all { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--ore); padding-bottom: 1px; }
+    .mm-all:hover { color: var(--ore-text, #815A20); }
+    /* Narrower desktops: pull the wide panel left so it stays on screen; keep the arrow on the trigger */
+    @media (max-width: 1360px) {
+      .mega-menu:has(.mm-panel) { left: -150px; }
+      .mega-menu:has(.mm-panel) .mega-menu-arrow { margin-left: 186px; }
+    }
     /* Small square "New" tag beside a menu item. 1px rule, no fill. */
     .nav-new {
       display: inline-block;
