@@ -25,6 +25,7 @@ npm run build-mask  # regenerate src/assets/world-mask.png from Natural Earth da
 **Ship by committing and pushing to `master`.** The hourly quote workflow (`.github/workflows/hourly-quotes.yml`) runs `vercel deploy --prod` from the GitHub HEAD every hour, so a manual `npx vercel --prod` of uncommitted work is overwritten within the hour. Push first; a manual `npx vercel --prod --yes` afterwards is fine for an immediate deploy.
 
 - Production domain: set the `SITE_URL` env var in Vercel (e.g. `https://www.explorationsites.com`) — `src/_data/site.js` uses it for canonicals, OG, JSON-LD, sitemap and robots.
+- **Launch status (2026-10-08):** `SITE_URL=https://www.explorationsites.com` is already set in Vercel (canonicals/sitemap/robots point at www). Both domains are attached to es-draft-1. The only remaining switch is DNS (Google Cloud DNS: apex A and www → `76.76.21.21`; leave MX/TXT). After DNS moves, run `scripts/launch-switch.ps1`: it checks DNS, moves the three Stripe Payment Links’ post-payment redirect to the real domain, and smoke-tests. Manual after that: Stripe Terms URL (dashboard), GoHighLevel redirect to `/booking-confirmed.html`, Search Console sitemap.
 - `vercel.json` sends `X-Robots-Tag: noindex` for any `*.vercel.app` host, so preview/draft URLs never get indexed; the real domain is unaffected. It also sets the CSP and security headers — any new third-party script, iframe, form target or redirect target (e.g. Stripe Checkout) must be added to the CSP.
 
 ## Architecture
