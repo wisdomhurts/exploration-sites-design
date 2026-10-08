@@ -4,7 +4,7 @@ permalink: "fundable-materials-scorecard.html"
 title: "Fundable Materials Scorecard — Exploration Sites"
 description: "The 12 things a generalist allocator checks in your deck, maps, and website in the first 90 seconds. Send us your materials and we'll score them, free."
 footerShader: true
-pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"The Fundable Materials Scorecard","about":"What a generalist investor looks for in mining investor-relations materials","provider":{"@type":"ProfessionalService","name":"Exploration Sites"}}'
+pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"The Fundable Materials Scorecard","about":"What a generalist investor looks for in mining investor-relations materials","url":"%SITE%/fundable-materials-scorecard.html","publisher":{"@id":"%SITE%/#org"}}'
 ---
     <div class="sc-band sc-band--hero">
       <img src="images/scorecard/hero.avif" alt="Layered exploration survey materials — a topographic contour map over a geological cross-section, rendered in warm neutral tones with a single fine gold reference line." width="2000" height="1131" loading="eager" decoding="async">
@@ -57,6 +57,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"The Fund
         </div>
 
         <form class="contact-form scorecard-form" id="scorecard-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
+            <!-- Spam honeypot: Formspree drops any submission that fills _gotcha. Hidden from people and screen readers. -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <input type="hidden" name="_subject" value="Fundable Materials Scorecard — free read request">
           <p id="scorecard-status" class="form-hint" role="status" aria-live="polite"></p>
           <p class="form-hint">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>

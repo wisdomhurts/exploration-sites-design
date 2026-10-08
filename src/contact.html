@@ -91,7 +91,7 @@ permalink: "contact.html"
           </div>
           <div class="contact-info-row">
             <span class="contact-info-label">Presentations</span>
-            <span class="contact-info-value">4 weeks</span>
+            <span class="contact-info-value">4&ndash;6 weeks</span>
           </div>
           <div class="contact-info-row">
             <span class="contact-info-label">Websites</span>
@@ -126,6 +126,8 @@ permalink: "contact.html"
           <h2 class="contact-form-heading">Or send your project details.</h2>
           <p class="contact-form-sub">Prefer not to book a call yet? Tell us what you need and we&rsquo;ll follow up within one business day.</p>
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqelyb" method="POST" data-success="Sent — we’ll be in touch">
+            <!-- Spam honeypot: Formspree drops any submission that fills _gotcha. Hidden from people and screen readers. -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
             <p id="form-status" class="form-hint" role="status" aria-live="polite"></p>
             <p class="form-hint">Fields marked <span class="req" aria-hidden="true">*</span> are required.</p>
             <div class="form-row">

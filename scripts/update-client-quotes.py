@@ -43,13 +43,10 @@ MONTAGE_BASELINE = 130e6      # ~C$130M market cap when ES came on board, 2023
 # market cap. Keyed by ticker (as it appears in the clients table); `from` is the
 # static starting figure exactly as written in the .cs-traj-from span — it's the
 # regex anchor, so it must match the HTML character-for-character.
-CASE_WALL = {
-    'MAU':  {'from': '$130M'},    # Montage Gold, 2023
-    'FWZ':  {'from': '$16.5M'},   # Fireweed Metals, 2018
-    'WRLG': {'from': '$40M'},     # West Red Lake Gold, Aug 2023
-    'BIG':  {'from': '$24M'},     # Hercules Metals, 2023
-    'SGD':  {'from': '$1.4B'},    # Snowline Gold, July 2025 (~174.4M sh x C$8.00 close, 2025-07-09)
-}
+# 2026-10-08: the case-studies page no longer shows client market cap before/after
+# (pre-launch claims review: it implied the agency caused the gains). Cards now show
+# years worked together + deliverables, so there are no live cells to update.
+CASE_WALL = {}
 
 BROWSER_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
               '(KHTML, like Gecko) Chrome/124.0 Safari/537.36')
@@ -202,8 +199,12 @@ def apply_updates(html, updates):
         sorted_rows = sorted(rows, key=get_mcap, reverse=True)
         html = html[:tbody_match.start(1)] + '\n' + '\n'.join(sorted_rows) + '\n' + html[tbody_match.end(1):]
 
-    # Recalculate combined total market cap
-    all_mcaps = re.findall(r'<td>(\$[\d,.]+[BMK]?)</td>', html)
+    # Recalculate combined total market cap. Acquired / delisted rows keep a frozen
+    # last-known cap in the table for reference but are excluded from the total, so
+    # the headline figure reflects current companies only.
+    all_mcaps = re.findall(
+        r'<tr><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>(?!Acquired<|Delisted<)[^<]*</td><td>(\$[\d,.]+[BMK]?)</td>',
+        html)
     total = 0
     for s in all_mcaps:
         num = re.search(r'\$([\d,.]+)', s)
@@ -247,8 +248,7 @@ def update_montage_pages(montage):
     h = _sub(h, r'(<span class="csm-fact csm-fact--price">)\$[\d.]+(</span>)', rf'\g<1>{price}\g<2>', 'montage hero price')
     h = _sub(h, r'(Market Cap: )\$[\d.]+B', rf'\g<1>{cap2}', 'montage hero market cap')
     # The market-cap "journey" + ~Nx multiple were removed (2026-07 reframe); no multiple
-    # is published anymore. Keep only the demoted, sourced footnote cap fresh.
-    h = _sub(h, r'(grew from ~\$130M \(2023\) to ~)\$[\d.]+B( today)', rf'\g<1>{cap1}\g<2>', 'montage outcomes footnote cap', count=1)
+    # is published anymore, and (2026-10-08) the outcomes footnote no longer carries a cap.
     with open(MONTAGE_HTML, 'w', encoding='utf-8') as f:
         f.write(h)
 

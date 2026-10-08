@@ -7,6 +7,8 @@
   "motionFrom": "20,000",
   "launchPackage": "24,000",
   "retainerFrom": "1,900",
+  "retainerDev": "3,500",
+  "retainerProducer": "7,500",
   "nrmpCadence": "2,500",
   "nrmpActive": "3,500",
   "nrmpFull": "4,500",
@@ -14,6 +16,5 @@
   "nrmpOverage": "750",
   "hostingMonthly": "200",
   "isoFrom": "1,800",
-  "webflowFrom": "18,000",
-  "infographicsHourly": "200"
+  "webflowFrom": "18,000"
 }

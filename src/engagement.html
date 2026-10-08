@@ -4,7 +4,7 @@ permalink: "engagement.html"
 title: "Project, Launch & Retainer Engagements — Exploration Sites"
 description: "Project work on one fixed quote, a complete launch package, or a monthly retainer — each built around your exploration project and timeline."
 fullBleed: true
-pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We Work With Exploration Companies","description":"Project, launch, and retainer engagements for exploration-stage mining companies.","url":"{{ site.url }}/engagement.html","provider":{"@type":"ProfessionalService","name":"Exploration Sites"}}'
+pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We Work With Exploration Companies","description":"Project, launch, and retainer engagements for exploration-stage mining companies.","url":"%SITE%/engagement.html","publisher":{"@id":"%SITE%/#org"}}'
 ---
 <style>
   /* Page design tokens, scoped to this page's content (the shared nav/footer use styles.css). */
@@ -864,7 +864,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       <div class="timelines reveal" aria-label="Typical delivery timelines">
         <span class="timelines-label">Typical timelines</span>
         <span class="timelines-item"><span class="tl-key">Maps</span><span class="tl-val mono">3&ndash;7 business days</span></span>
-        <span class="timelines-item"><span class="tl-key">Presentations</span><span class="tl-val mono">4 weeks</span></span>
+        <span class="timelines-item"><span class="tl-key">Presentations</span><span class="tl-val mono">4&ndash;6 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">Websites</span><span class="tl-val mono">5 weeks</span></span>
         <span class="timelines-item"><span class="tl-key">GIS films</span><span class="tl-val mono">6 weeks</span></span>
       </div>
@@ -945,8 +945,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <h3>Everything, in one engagement.</h3>
           <p>Commissioned piece by piece, five deliverables come back in five voices. Scoped as one engagement, they come back in one — and at a lower number.</p>
           <div class="launch-save">
-            <span>Commissioned separately:</span>
-            <b>from ~$28&ndash;32,000</b>
+            <span>Commissioned separately, the deck, WordPress site, fact sheet, and brand alone:</span>
+            <b>from ~$20,700, before the map set</b>
           </div>
           <div class="launch-price" style="margin-top: 12px; padding-top: 0;">
             <span class="launch-price-lead" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">As one engagement, starting at</span>
@@ -1020,7 +1020,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <div class="retainer-card is-popular">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">Developer Desk</span><span class="retainer-pop">Most retained tier</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$3,500<span style="color: var(--graticule);">/mo</span></span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerDev }}<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
@@ -1038,7 +1038,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <div class="retainer-card">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">Producer Desk</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">$7,500<span style="color: var(--graticule);">/mo</span></span></span>
+            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerProducer }}<span style="color: var(--graticule);">/mo</span></span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>

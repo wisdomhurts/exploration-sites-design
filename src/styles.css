@@ -107,7 +107,7 @@
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
-      outline: 2px solid var(--ore);
+      outline: 2px solid var(--ore-text);
       outline-offset: 2px;
     }
 
@@ -402,8 +402,18 @@
     .nav-right .btn-discovery { padding: 11px 20px; }
     @media (max-width: 1160px) {
       .nav .nav-links { display: none; }
-      .nav .nav-right .btn-discovery { display: none; }
+      /* Keep the main CTA visible beside the hamburger, as a compact "Book a call" */
+      .nav .nav-right .btn-discovery { padding: 9px 14px; font-size: 12.5px; }
+      .nav .nav-cta-long { display: none; }
+      .nav .nav-right { margin-left: auto; margin-right: 10px; }
       .nav .nav-hamburger { display: block; }
+    }
+    /* Small phones: logo, compact CTA and hamburger must share ~375px */
+    @media (max-width: 480px) {
+      .nav .nav-logo-text { font-size: 13.5px; letter-spacing: 0.05em; }
+      .nav .nav-right .btn-discovery { padding: 8px 11px; font-size: 12px; }
+      .nav .nav-right .btn-discovery .arw { display: none; }
+      .nav .nav-right { margin-right: 6px; }
     }
 
     /* On dark surfaces (footer, dark CTA bands) */
@@ -2403,7 +2413,7 @@
     .form-input:focus,
     .form-select:focus,
     .form-textarea:focus {
-      border-color: var(--ore);
+      border-color: var(--ore-text);
       box-shadow: 0 0 0 3px rgba(184,130,58,0.12);
     }
 
@@ -3248,6 +3258,15 @@
     .booking-main .booking-embed { max-width: none; margin: 0; }
     .booking-embed iframe { width: 100%; min-height: 620px; border: none; display: block; }
     @media (max-width: 900px) { .booking-layout { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; } }
+    /* Phones/tablets: headline + reassurance, then the calendar, then the agenda, host and logos */
+    @media (max-width: 900px) {
+      .booking-layout { display: flex; flex-direction: column; }
+      .booking-aside { display: contents; }
+      .booking-aside .hero-headline { order: 1; }
+      .booking-aside .booking-reassure { order: 2; margin-top: -12px; }
+      .booking-main { order: 3; }
+      .booking-aside .booking-cover, .booking-aside .booking-host, .booking-aside .booking-logos { order: 4; }
+    }
 
     /* let GHL form_embed.js auto-size the iframe so the calendar fits with no inner scrollbar */
     .booking-main .booking-embed iframe { min-height: 700px; border: 0 !important; outline: 0 !important; }
@@ -3300,6 +3319,11 @@
     /* Tier CTAs are <button>s inside a form posting to /api/checkout */
     .nrmp-tier-form { margin: 0; }
     button.nrmp-tier-cta { width: 100%; background: none; line-height: inherit; cursor: pointer; }
+    /* Quiet alternative under each tier's checkout button */
+    .nrmp-tier-talk { display: block; margin-top: 10px; text-align: center; font-size: 12.5px; font-weight: 500; color: var(--muted); text-decoration: none; }
+    .nrmp-tier-talk:hover { color: var(--ore-text); }
+    .nrmp-invoice-note { margin: 22px 0 0; max-width: 780px; font-size: 14px; line-height: 1.6; color: var(--body); }
+    .nrmp-invoice-note a { color: var(--graphite); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--ore); }
 
 /* Full-bleed sections use viewport units; clip their scrollbar-width overshoot
    without creating a scrolling container that breaks sticky sections. */
