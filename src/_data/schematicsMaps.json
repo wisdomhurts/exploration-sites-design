@@ -1,40 +1,19 @@
 [
   {
-    "src": "/images/work/schematics/algo-grande-footprint-comparison.webp",
-    "full": "/images/work/schematics/algo-grande-footprint-comparison-full.webp",
-    "w": 1400,
-    "h": 787,
-    "caption": "Algo Grande — Cerro Grande footprint vs. major porphyry systems",
-    "alt": "Cerro Grande footprint compared with major porphyry systems, produced for Algo Grande",
-    "feature": {
-      "label": "Algo Grande",
-      "title": "Cerro Grande, Sonora",
-      "body": "The Cerro Grande footprint drawn to one scale alongside the world&rsquo;s major porphyry systems &mdash; Oyu Tolgoi, Pebble, Filo del Sol, Los Helados, and others &mdash; so the size of the opportunity reads at a glance."
-    }
-  },
-  {
-    "src": "/images/work/schematics/cabral-cover-profile.webp",
-    "full": "/images/work/schematics/cabral-cover-profile-full.webp",
-    "w": 800,
-    "h": 509,
-    "caption": "Cabral Gold — transported cover vs. residual profile, Brazil",
-    "alt": "Schematic section of transported cover and residual profile produced for Cabral Gold"
-  },
-  {
-    "src": "/images/work/schematics/nevada-basin-and-range.webp",
-    "full": "/images/work/schematics/nevada-basin-and-range-full.webp",
-    "w": 800,
-    "h": 800,
-    "caption": "Nevada Basin &amp; Range domains — Carlin to Moapa",
-    "alt": "Nevada Basin and Range domains schematic map"
-  },
-  {
     "src": "/images/work/schematics/headwater-epithermal-model.webp",
     "full": "/images/work/schematics/headwater-epithermal-model-full.webp",
     "w": 800,
     "h": 824,
     "caption": "Headwater Gold — epithermal target model",
     "alt": "Epithermal target model produced for Headwater Gold"
+  },
+  {
+    "src": "/images/work/schematics/porphyry-model.webp",
+    "full": "/images/work/schematics/porphyry-model-full.webp",
+    "w": 800,
+    "h": 600,
+    "caption": "Porphyry deposit model",
+    "alt": "Porphyry deposit model schematic"
   },
   {
     "src": "/images/work/schematics/emperor-mine-depth.webp",
@@ -61,6 +40,30 @@
     "alt": "VMS deposit cross-section comparison figure"
   },
   {
+    "src": "/images/work/schematics/algo-grande-footprint-comparison.webp",
+    "full": "/images/work/schematics/algo-grande-footprint-comparison-full.webp",
+    "w": 1400,
+    "h": 787,
+    "caption": "Algo Grande — Cerro Grande footprint vs. major porphyry systems",
+    "alt": "Cerro Grande footprint compared with major porphyry systems, produced for Algo Grande"
+  },
+  {
+    "src": "/images/work/schematics/cabral-cover-profile.webp",
+    "full": "/images/work/schematics/cabral-cover-profile-full.webp",
+    "w": 800,
+    "h": 509,
+    "caption": "Cabral Gold — transported cover vs. residual profile, Brazil",
+    "alt": "Schematic section of transported cover and residual profile produced for Cabral Gold"
+  },
+  {
+    "src": "/images/work/schematics/nevada-basin-and-range.webp",
+    "full": "/images/work/schematics/nevada-basin-and-range-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Nevada Basin &amp; Range domains — Carlin to Moapa",
+    "alt": "Nevada Basin and Range domains schematic map"
+  },
+  {
     "src": "/images/work/schematics/trans-atlantic-setting.webp",
     "full": "/images/work/schematics/trans-atlantic-setting-full.webp",
     "w": 800,
@@ -75,14 +78,6 @@
     "h": 498,
     "caption": "West Red Lake Gold — Madsen distances to satellite targets",
     "alt": "Madsen distances to satellite targets produced for West Red Lake Gold"
-  },
-  {
-    "src": "/images/work/schematics/porphyry-model.webp",
-    "full": "/images/work/schematics/porphyry-model-full.webp",
-    "w": 800,
-    "h": 600,
-    "caption": "Porphyry deposit model",
-    "alt": "Porphyry deposit model schematic"
   },
   {
     "src": "/images/work/schematics/nfg-afz-site-plan.webp",
