@@ -1,0 +1,209 @@
+[
+  {
+    "src": "/images/work/3d/hercules-3d-model.webp",
+    "full": "/images/work/3d/hercules-3d-model-full.webp",
+    "w": 1400,
+    "h": 1180,
+    "caption": "Hercules Metals — 3D target model, Idaho",
+    "alt": "3D model of the Hercules target zone produced for Hercules Metals",
+    "feature": {
+      "label": "Hercules Metals",
+      "title": "Hercules, Idaho",
+      "body": "A 3D block of the Hercules system &mdash; drilling down through the cover rocks into the target zone and its early biotite and potassic alteration, so the depth and shape of the porphyry target read at once."
+    }
+  },
+  {
+    "src": "/images/work/3d/heliostar-porphyry-model.webp",
+    "full": "/images/work/3d/heliostar-porphyry-model-full.webp",
+    "w": 1400,
+    "h": 2644,
+    "caption": "Heliostar Metals — porphyry model",
+    "alt": "3D porphyry model produced for Heliostar Metals",
+    "feature": {
+      "label": "Heliostar Metals",
+      "title": "Porphyry system, in 3D",
+      "body": "A porphyry model built from the terrain down &mdash; the intrusive core, the alteration shells around it, and the drilling that tests them, read as one block."
+    }
+  },
+  {
+    "src": "/images/work/3d/firefly-ming-3d.webp",
+    "full": "/images/work/3d/firefly-ming-3d-full.webp",
+    "w": 1400,
+    "h": 1400,
+    "caption": "Firefly Metals — Ming deposit in 3D, Newfoundland",
+    "alt": "3D figure of the Ming deposit produced for Firefly Metals",
+    "feature": {
+      "label": "Firefly Metals",
+      "title": "Ming Mine, Newfoundland",
+      "body": "The Ming deposit in three dimensions &mdash; the resource, the drilling, and the underground workings in one block, with the system left open down plunge."
+    }
+  },
+  {
+    "src": "/images/work/3d/montage-continuity-iso.webp",
+    "full": "/images/work/3d/montage-continuity-iso-full.webp",
+    "w": 800,
+    "h": 417,
+    "caption": "Montage Gold — Koné continuity isometric, Côte d&rsquo;Ivoire",
+    "alt": "Koné continuity isometric model produced for Montage Gold"
+  },
+  {
+    "src": "/images/work/3d/ngex-los-helados-3d.webp",
+    "full": "/images/work/3d/ngex-los-helados-3d-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "NGEX — Los Helados 3D view",
+    "alt": "Los Helados 3D landscape view produced for NGEX"
+  },
+  {
+    "src": "/images/work/3d/selkirk-3d-model.webp",
+    "full": "/images/work/3d/selkirk-3d-model-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Selkirk deposit — 3D model",
+    "alt": "Selkirk deposit 3D model"
+  },
+  {
+    "src": "/images/work/3d/muskox-iso-geology.webp",
+    "full": "/images/work/3d/muskox-iso-geology-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Muskox project — isometric geology model, Nunavut",
+    "alt": "Muskox project isometric geology model"
+  },
+  {
+    "src": "/images/work/3d/pc-gold-spring-hill-3d.webp",
+    "full": "/images/work/3d/pc-gold-spring-hill-3d-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "PC Gold — Spring Hill mineralization &amp; block model, Australia",
+    "alt": "Spring Hill 3D mineralization and block model produced for PC Gold"
+  },
+  {
+    "src": "/images/work/3d/tiger-gold-quinchia-model.webp",
+    "full": "/images/work/3d/tiger-gold-quinchia-model-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Tiger Gold — Quinchía geological model, Colombia",
+    "alt": "Quinchía 3D geological model produced for Tiger Gold"
+  },
+  {
+    "src": "/images/work/3d/tiger-gold-ceibal-chuscal.webp",
+    "full": "/images/work/3d/tiger-gold-ceibal-chuscal-full.webp",
+    "w": 800,
+    "h": 593,
+    "caption": "Tiger Gold — Ceibal &amp; Chuscal 3D model, Colombia",
+    "alt": "Ceibal and Chuscal 3D model produced for Tiger Gold"
+  },
+  {
+    "src": "/images/work/3d/andina-cobrasco-3d.webp",
+    "full": "/images/work/3d/andina-cobrasco-3d-full.webp",
+    "w": 800,
+    "h": 682,
+    "caption": "Andina Copper — Cobrasco 3D drilling model",
+    "alt": "Cobrasco 3D isometric drilling model produced for Andina Copper"
+  },
+  {
+    "src": "/images/work/3d/aura-almas-isometric.webp",
+    "full": "/images/work/3d/aura-almas-isometric-full.webp",
+    "w": 800,
+    "h": 535,
+    "caption": "Aura Minerals — Almas isometric model, Brazil",
+    "alt": "Almas isometric model produced for Aura Minerals"
+  },
+  {
+    "src": "/images/work/3d/bmc-pit-layout.webp",
+    "full": "/images/work/3d/bmc-pit-layout-full.webp",
+    "w": 800,
+    "h": 641,
+    "caption": "BMC Minerals — Krakatoa &amp; ABM pit layout, Yukon",
+    "alt": "Krakatoa and ABM 3D pit layout produced for BMC Minerals"
+  },
+  {
+    "src": "/images/work/3d/skyline-3d-deposit.webp",
+    "full": "/images/work/3d/skyline-3d-deposit-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Skyline copper deposit — 3D model",
+    "alt": "Skyline copper deposit 3D model"
+  },
+  {
+    "src": "/images/work/3d/miata-jt-section-a.webp",
+    "full": "/images/work/3d/miata-jt-section-a-full.webp",
+    "w": 800,
+    "h": 800,
+    "caption": "Miata Metals — JT section A, Suriname",
+    "alt": "JT section A produced for Miata Metals"
+  },
+  {
+    "src": "/images/work/3d/galleon-west-cache.webp",
+    "full": "/images/work/3d/galleon-west-cache-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Galleon Gold — West Cache dipping long section, Ontario",
+    "alt": "West Cache dipping long section produced for Galleon Gold"
+  },
+  {
+    "src": "/images/work/3d/salvadora-san-juan-3d.webp",
+    "full": "/images/work/3d/salvadora-san-juan-3d-full.webp",
+    "w": 800,
+    "h": 617,
+    "caption": "Salvadora — San Juan 3D isometric model, Chile",
+    "alt": "San Juan 3D isometric model for the Salvadora project"
+  },
+  {
+    "src": "/images/work/3d/surge-berg-model.webp",
+    "full": "/images/work/3d/surge-berg-model-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Surge Copper — Berg block model, British Columbia",
+    "alt": "Berg 3D block model produced for Surge Copper"
+  },
+  {
+    "src": "/images/work/3d/rackla-3d-long-section.webp",
+    "full": "/images/work/3d/rackla-3d-long-section-full.webp",
+    "w": 800,
+    "h": 444,
+    "caption": "Rackla Metals — 3D long section, Yukon",
+    "alt": "3D long section produced for Rackla Metals"
+  },
+  {
+    "src": "/images/work/3d/coppercorp-3d-perspective.webp",
+    "full": "/images/work/3d/coppercorp-3d-perspective-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "CopperCorp — 3D perspective of sections, Tasmania",
+    "alt": "3D perspective of sections produced for CopperCorp"
+  },
+  {
+    "src": "/images/work/3d/altair-3d-magnetics.webp",
+    "full": "/images/work/3d/altair-3d-magnetics-full.webp",
+    "w": 800,
+    "h": 450,
+    "caption": "Altair Minerals — 3D magnetics, Guyana",
+    "alt": "3D magnetics figure produced for Altair Minerals"
+  },
+  {
+    "src": "/images/work/3d/algo-grande-porphyry-model.webp",
+    "full": "/images/work/3d/algo-grande-porphyry-model-full.webp",
+    "w": 800,
+    "h": 539,
+    "caption": "Algo Grande — Cerro Grande porphyry model, Sonora",
+    "alt": "Cerro Grande 3D porphyry model produced for Algo Grande"
+  },
+  {
+    "src": "/images/work/3d/nfg-3d-looking-west.webp",
+    "full": "/images/work/3d/nfg-3d-looking-west-full.webp",
+    "w": 800,
+    "h": 423,
+    "caption": "New Found Gold — 3D view looking west, Queensway",
+    "alt": "Queensway 3D view looking west produced for New Found Gold"
+  },
+  {
+    "src": "/images/work/3d/nfg-iceberg-3d.webp",
+    "full": "/images/work/3d/nfg-iceberg-3d-full.webp",
+    "w": 800,
+    "h": 483,
+    "caption": "New Found Gold — Iceberg 3D view, Queensway",
+    "alt": "Iceberg 3D view produced for New Found Gold"
+  }
+]

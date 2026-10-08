@@ -330,14 +330,14 @@ description: "Investor maps, decks, websites, and brand for exploration-stage mi
                 {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'models', label: '3D Isometric Models', maps: [
-                '/images/work/cdn/722e9283-696e693fffa1f3594b798a2d_NFG_086Map-3D.webp',
-                '/images/work/cdn/cad16788-696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif',
-                '/images/work/cdn/86820a7b-696e77dabaa6b099dedaad82_1_CopperCorp_3DPerspective-copy-scaled.avif',
-                '/images/work/cdn/7a94abd5-696e77dac7afb9ed21516ca9_2_Radius_el_cuervo_3D-copy.webp',
-                '/images/work/cdn/054f4949-696e77da4e08a5fc1b195e5f_3_RUA_3D_Glamorgan_Claim_With_OLD-copy-scaled.avif',
-                '/images/work/cdn/f6c67bf0-6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model-copy.webp',
-                '/images/work/cdn/b19943ee-6973d105de53ad64aca86f1c_NexMining_Selkirk_3D_Model-copy.webp',
-                '/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif'
+                {%- comment -%} First eight maps exactly as ordered on 3d-models.html: featured maps, then the gallery (src/_data/modelMaps.json). {%- endcomment -%}
+                {%- assign shown = 0 -%}
+                {%- for m in modelMaps -%}{%- if m.feature and shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endfor -%}
+                {%- for m in modelMaps -%}{%- unless m.feature -%}{%- if shown < 8 %}
+                { src: {{ m.src | json }}, full: {{ m.full | json }}, caption: {{ m.caption | json }} },
+                {%- assign shown = shown | plus: 1 -%}{%- endif -%}{%- endunless -%}{%- endfor %}
               ]},
               { key: 'schematics', label: 'Schematics & Plans', maps: [
                 {%- comment -%} First eight figures exactly as ordered on schematics-plans.html: featured figures, then the gallery (src/_data/schematicsMaps.json). {%- endcomment -%}

@@ -45,38 +45,19 @@ mapType: "models"
       <div class="section-label">Selected Work</div>
       <h2 class="section-headline">A few we&rsquo;ve made.</h2>
 
+{%- comment -%} Maps come from src/_data/modelMaps.json, in folder-number order. The homepage shows the first eight as they appear here (featured maps first, then gallery). {%- endcomment -%}
+{%- for m in modelMaps -%}{%- if m.feature %}
       <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/cad16788-696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif" data-caption="3D landscape and terrain view">
-          <img width="2000" height="1577" src="/images/work/cdn/cad16788-696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif" alt="3D landscape perspective view of a property in its terrain" loading="lazy">
+        <button type="button" class="map-feature-media" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy" width="{{ m.w }}" height="{{ m.h }}">
         </button>
         <div class="map-feature-text">
-          <div class="section-label">Terrain perspective</div>
-          <h3 class="map-feature-title">The property in its setting</h3>
-          <p class="body-text">A perspective view that drapes geology and project elements over real terrain &mdash; topography, scale, and access read instantly. The figure that gives an investor a sense of place no plan map can, especially in steep or remote ground.</p>
+          <div class="section-label">{{ m.feature.label }}</div>
+          <h3 class="map-feature-title">{{ m.feature.title }}</h3>
+          <p class="body-text">{{ m.feature.body }}</p>
         </div>
       </div>
-
-      <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif" data-caption="3D orebody and drilling model">
-          <img width="2560" height="2030" src="/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif" alt="3D model showing orebody wireframe and drillhole traces" loading="lazy">
-        </button>
-        <div class="map-feature-text">
-          <div class="section-label">Orebody &amp; drilling</div>
-          <h3 class="map-feature-title">The shape of the deposit</h3>
-          <p class="body-text">Wireframes, block models, and drill traces rendered together so the body&rsquo;s geometry, plunge, and the holes that define it are obvious. It turns modelling software output into a clean figure an investor can read without a geologist beside them.</p>
-        </div>
-      </div>
-
-      <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="/images/work/cdn/f6c67bf0-6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model-copy.webp" data-caption="3D deposit-style model">
-          <img width="2000" height="1347" src="/images/work/cdn/f6c67bf0-6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model-copy.webp" alt="3D isometric model illustrating a porphyry-style system" loading="lazy">
-        </button>
-        <div class="map-feature-text">
-          <div class="section-label">Isometric model</div>
-          <h3 class="map-feature-title">System, at a glance</h3>
-          <p class="body-text">An isometric model that shows the architecture of the system &mdash; zonation, alteration, and the targets within it &mdash; from a single, well-chosen angle. The kind of figure that carries a slide on its own.</p>
-        </div>
-      </div>
+{%- endif -%}{%- endfor %}
     </section>
 
     <div class="divider"></div>
@@ -85,42 +66,11 @@ mapType: "models"
       <div class="section-label">More 3D Models</div>
       <h2 class="section-headline">A wider selection.</h2>
       <div class="map-gallery">
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/cad16788-696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif" data-caption="PPT NGEX LOS HELADOS 3D Landscape view">
-          <img width="2000" height="1577" src="/images/work/cdn/cad16788-696e77da7e0423aeab58c541_2_PPT_NGEX_LOS-HELADOS_3D-Landscape-view-copy-scaled.avif" alt="PPT NGEX LOS HELADOS 3D Landscape view map" loading="lazy">
+{%- for m in modelMaps -%}{%- unless m.feature %}
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+          <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
         </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/b19943ee-6973d105de53ad64aca86f1c_NexMining_Selkirk_3D_Model-copy.webp" data-caption="NexMining Selkirk 3D Model">
-          <img width="2000" height="2000" src="/images/work/cdn/b19943ee-6973d105de53ad64aca86f1c_NexMining_Selkirk_3D_Model-copy.webp" alt="NexMining Selkirk 3D Model map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/86820a7b-696e77dabaa6b099dedaad82_1_CopperCorp_3DPerspective-copy-scaled.avif" data-caption="CopperCorp 3DPerspective">
-          <img width="2560" height="1797" src="/images/work/cdn/86820a7b-696e77dabaa6b099dedaad82_1_CopperCorp_3DPerspective-copy-scaled.avif" alt="CopperCorp 3DPerspective map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif" data-caption="Nexgold treasury niblack leapfrog map 2">
-          <img width="2560" height="2030" src="/images/work/cdn/474d3f01-696e77d95c1a4c2416d1620b_2_Nexgold_treasury-niblack-leapfrog-map-copy-2-scaled.avif" alt="Nexgold treasury niblack leapfrog map 2 map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/f6c67bf0-6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model-copy.webp" data-caption="AlgoGrande Porphyry model">
-          <img width="2000" height="1347" src="/images/work/cdn/f6c67bf0-6973d1057ea128e6dccfb003_AlgoGrande_Porphyry_model-copy.webp" alt="AlgoGrande Porphyry model map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/054f4949-696e77da4e08a5fc1b195e5f_3_RUA_3D_Glamorgan_Claim_With_OLD-copy-scaled.avif" data-caption="RUA 3D Glamorgan Claim With OLD">
-          <img width="2000" height="1125" src="/images/work/cdn/054f4949-696e77da4e08a5fc1b195e5f_3_RUA_3D_Glamorgan_Claim_With_OLD-copy-scaled.avif" alt="RUA 3D Glamorgan Claim With OLD map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/3b784e10-696e77dad8169b6d8915a235_3_ProspectRidge_3DLeonsLegacy-copy-scaled.avif" data-caption="ProspectRidge 3DLeonsLegacy">
-          <img width="2000" height="1125" src="/images/work/cdn/3b784e10-696e77dad8169b6d8915a235_3_ProspectRidge_3DLeonsLegacy-copy-scaled.avif" alt="ProspectRidge 3DLeonsLegacy map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/7a94abd5-696e77dac7afb9ed21516ca9_2_Radius_el_cuervo_3D-copy.webp" data-caption="Radius el cuervo 3D">
-          <img width="2000" height="1140" src="/images/work/cdn/7a94abd5-696e77dac7afb9ed21516ca9_2_Radius_el_cuervo_3D-copy.webp" alt="Radius el cuervo 3D map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/42a400e4-696e77f82a789e972f126dbd_5_PacificRidge_Kliyul_3D_GoogleEarth_V1-copy.webp" data-caption="PacificRidge Kliyul 3D GoogleEarth">
-          <img width="2000" height="1092" src="/images/work/cdn/42a400e4-696e77f82a789e972f126dbd_5_PacificRidge_Kliyul_3D_GoogleEarth_V1-copy.webp" alt="PacificRidge Kliyul 3D GoogleEarth map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/38643117-696e782fcd859c14672d4a12_2_BlackBrid_3DMap_Comp_UPDATED-copy.webp" data-caption="BlackBrid 3DMap Comp UPDATED">
-          <img width="2000" height="1442" src="/images/work/cdn/38643117-696e782fcd859c14672d4a12_2_BlackBrid_3DMap_Comp_UPDATED-copy.webp" alt="BlackBrid 3DMap Comp UPDATED map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/e8a34ed5-696e782f37d5f4cea5303916_2_GoldHunter_ISO_3D_Ownership-copy.webp" data-caption="GoldHunter ISO 3D Ownership">
-          <img width="2000" height="1267" src="/images/work/cdn/e8a34ed5-696e782f37d5f4cea5303916_2_GoldHunter_ISO_3D_Ownership-copy.webp" alt="GoldHunter ISO 3D Ownership map" loading="lazy">
-        </button>
-        <button type="button" class="map-thumb" data-lightbox data-full="/images/work/cdn/722e9283-696e693fffa1f3594b798a2d_NFG_086Map-3D.webp" data-caption="NFG 086Map 3D">
-          <img width="2000" height="1209" src="/images/work/cdn/722e9283-696e693fffa1f3594b798a2d_NFG_086Map-3D.webp" alt="NFG 086Map 3D map" loading="lazy">
-        </button>
+{%- endunless -%}{%- endfor %}
       </div>
     </section>
 
