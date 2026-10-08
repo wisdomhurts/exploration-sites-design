@@ -6,5 +6,6 @@
 const DEFAULT_URL = "https://es-draft-1.vercel.app";
 
 module.exports = {
-  url: (process.env.SITE_URL || DEFAULT_URL).replace(/\/$/, ""),
+  // Strip a stray BOM / whitespace (a PowerShell-piped env value once carried a U+FEFF).
+  url: (process.env.SITE_URL || DEFAULT_URL).replace(/^[\s﻿]+|[\s﻿]+$/g, "").replace(/\/$/, ""),
 };
