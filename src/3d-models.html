@@ -16,7 +16,7 @@ mapType: "models"
     <section class="hero hero--page">
       <div class="section-label">Investor Maps</div>
       <h1 class="hero-headline">3D isometric models.</h1>
-      <p class="hero-body">3D isometric and perspective views that let investors grasp the scale, shape, and setting of a deposit at a glance &mdash; terrain, drilling, and orebody in one frame.</p>
+      <p class="hero-body">Plans and sections each show one face of a deposit; a 3D view shows the whole thing &mdash; orebody, terrain, and drilling in one frame. Built from your DEM, drill database, and models, and rendered as a designed figure rather than a software screenshot.</p>
       <p class="hero-from">From <b>${{ prices.isoFrom }}</b> &middot; typically 3&ndash;7 business days</p>
       <p class="hero-from-note">Static 3D isometric models start at ${{ prices.isoFrom }}. Animated 3D films are a motion engagement &mdash; from ${{ prices.motionFrom }}.</p>
     </section>
@@ -28,49 +28,11 @@ mapType: "models"
       <div class="section-label">The work</div>
       <div class="map-gallery">
 {%- for m in modelMaps -%}
-        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
+        <button type="button" class="map-thumb" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}"{% if m.feature %} data-note="{{ m.feature.title }}. {{ m.feature.body }}"{% endif %}>
           <img width="{{ m.w }}" height="{{ m.h }}" src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy">
         </button>
 {%- endfor %}
       </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- WHY IT MATTERS -->
-    <section class="section">
-      <div class="section-grid">
-        <div>
-          <div class="section-label">Why it matters</div>
-          <h2 class="section-headline">Geology you can turn over.</h2>
-        </div>
-        <div>
-          <p class="body-text">Plans and sections each show one face of a deposit. A 3D view shows the whole thing at once &mdash; the orebody sitting in its terrain, the drill holes that define it, and the depth and orientation that flat figures flatten away. For many investors it is the moment the project finally <em>clicks.</em></p>
-          <p class="body-text">We build these from your DEM, drill database, and any wireframes or block models you have, rendered as a designed figure rather than a raw software screenshot &mdash; controlled lighting, a sensible vertical exaggeration, and labels that hold up in a deck or on a website. The result reads as real ground, not a graphic.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- UP CLOSE -->
-    <section class="section">
-      <div class="section-label">Up close</div>
-      <h2 class="section-headline">A few, in detail.</h2>
-
-{%- comment -%} Maps come from src/_data/modelMaps.json, in folder-number order. The homepage shows the first eight as they appear here (featured maps first, then gallery). {%- endcomment -%}
-{%- for m in modelMaps -%}{%- if m.feature %}
-      <div class="map-feature">
-        <button type="button" class="map-feature-media" data-lightbox data-full="{{ m.full }}" data-caption="{{ m.caption }}">
-          <img src="{{ m.src }}" alt="{{ m.alt | escape }}" loading="lazy" width="{{ m.w }}" height="{{ m.h }}">
-        </button>
-        <div class="map-feature-text">
-          <div class="section-label">{{ m.feature.label }}</div>
-          <h3 class="map-feature-title">{{ m.feature.title }}</h3>
-          <p class="body-text">{{ m.feature.body }}</p>
-        </div>
-      </div>
-{%- endif -%}{%- endfor %}
     </section>
 
     <div class="divider"></div>

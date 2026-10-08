@@ -323,13 +323,21 @@
         document.body.style.overflow = 'hidden';
         if (closeBtn) closeBtn.focus();
       }
-      function setImg(full, caption, alt) {
+      // Featured maps carry a short write-up in data-note, shown under the caption.
+      function setImg(full, caption, alt, note) {
         if (!img) return;
         img.src = full; img.alt = alt || caption || ''; img.hidden = false;
         if (vid) { vid.hidden = true; vid.innerHTML = ''; }
-        if (cap) cap.textContent = caption || '';
+        if (cap) {
+          cap.textContent = caption || '';
+          if (note) {
+            var n = document.createElement('span');
+            n.className = 'lightbox-note'; n.textContent = note;
+            cap.appendChild(n);
+          }
+        }
       }
-      function openImg(full, caption, alt) { setImg(full, caption, alt); show(); }
+      function openImg(full, caption, alt, note) { setImg(full, caption, alt, note); show(); }
       // Advance within the current gallery (wraps around); keeps the lightbox open.
       function nav(delta) {
         if (group.length < 2) return;
@@ -337,7 +345,7 @@
         var el = group[gi];
         lastTrigger = el;
         var t = el.querySelector('img');
-        setImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
+        setImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '', el.getAttribute('data-note'));
       }
       function openVideo(id, caption) {
         if (!vid) return;
@@ -371,7 +379,7 @@
         var multi = group.length > 1 && gi !== -1;
         prevBtn.hidden = !multi; nextBtn.hidden = !multi;
         var t = el.querySelector('img');
-        openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '');
+        openImg(el.getAttribute('data-full'), el.getAttribute('data-caption'), t ? t.alt : '', el.getAttribute('data-note'));
       });
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target.classList.contains('lightbox-close')) close();
