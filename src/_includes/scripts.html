@@ -421,5 +421,24 @@
     })();
   </script>
 <!-- Vercel Web Analytics (cookieless). Enable under Vercel → es-draft-1 → Analytics. -->
-<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  // Vercel records each page view's full URL, query string included (verified 2026-10-13).
+  // Query strings here can carry personal or confidential data — HighLevel's booking
+  // widget forwards its own URL parameters to /booking-confirmed.html, a Stripe redirect
+  // can add ?session_id=, and links from email campaigns can prefill name/email — so
+  // keep only campaign tags and the program choice, and drop everything else.
+  window.va('beforeSend', function (event) {
+    try {
+      var u = new URL(event.url);
+      var keep = new URLSearchParams();
+      u.searchParams.forEach(function (v, k) {
+        if (/^utm_(source|medium|campaign|term|content)$/.test(k) || k === 'ref' || (k === 'program' && /^(cadence|active|full)$/.test(v))) keep.append(k, v);
+      });
+      var qs = keep.toString();
+      event.url = u.origin + u.pathname + (qs ? '?' + qs : '');
+    } catch (e) {}
+    return event;
+  });
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
