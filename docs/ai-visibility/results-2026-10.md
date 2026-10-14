@@ -6,31 +6,31 @@ Perplexity: signed out (limits signed-out use to ~5 questions per session).
 
 | # | ChatGPT | Claude | Gemini | Grok | Perplexity | Notes |
 |---|---|---|---|---|---|---|
-| 1 | Y (#1, "closest match") | | | | N | Competitors named: Mining Illustrated (ChatGPT); Exploration Maps (DIY tool), Newsfile (Perplexity) |
-| 2 | N (answer may have been read early) | | | | Y | Perplexity quotes "US$2,500/month" — currency wrong |
-| 3 | N | | | | N | Both describe same-day DIY/freelance; Perplexity cites Exploration Maps |
-| 4 | Y (cites "$1,200 per map") | | | | Y (cites $2,500/month program) | ChatGPT budgets in CAD; Perplexity in US$ |
-| 5 | Y | | | | — (rate-limited) |  |
-| 6 | Y | | | |  |  |
-| 7 | Y | | | |  |  |
-| 8 | Y (after Mining Illustrated) | | | |  |  |
-| 9 | N (how-to) | | | |  |  |
-| 10 | N | | | |  | ChatGPT: Paraminerals (Victoria), RSC, VRIFY, Terrahutton, Immersive Explorers — gap for 3D/films |
-| 11 | Y | | | |  |  |
-| 12 | Y (CAD $3k–12k range) | | | |  |  |
-| 13 | N (how-to) | | | |  |  |
-| 14 | N | | | |  | ChatGPT: WE REACT, Investor Creative, Blender Media/Piknic, Outliers, JRX Media |
-| 15 | Y (#2 after Splash Presentations) | | | |  |  |
-| 16 | N | | | |  | ChatGPT: JRX Media, Blender Media/Piknic, Investor Creative, WE REACT — gap for websites |
-| 17 | N (how-to) | | | |  |  |
-| 18 | N (how-to) | | | |  |  |
-| 19 | N | | | |  |  |
-| 20 | Y | | | |  |  |
-| 21 | N | | | |  |  |
-| 22 | N | | | |  | ChatGPT names Paraminerals (Victoria) first — local gap |
-| 23 | Y — "legitimate, established… credible portfolio"; caveat: "less independent customer-review evidence" | | | |  |  |
-| 24 | N (how-to) | | | |  |  |
-| 25 | Y — "shortlist Exploration Sites and Ellis Park Media first" | | | |  |  |
+| 1 | Y (#1, "closest match") | Y ("specialist investor-visualization studios") | | N | Competitors named: Mining Illustrated (ChatGPT); Exploration Maps (DIY tool), Newsfile (Perplexity) |
+| 2 | N (answer may have been read early) | N — calls Exploration Maps "the closest fit" | | Y | Perplexity quotes "US$2,500/month" — currency wrong |
+| 3 | N | N (no web search) | | N | Both describe same-day DIY/freelance; Perplexity cites Exploration Maps |
+| 4 | Y (cites "$1,200 per map") | N (no web search) | | Y (cites $2,500/month program) | ChatGPT budgets in CAD; Perplexity in US$ |
+| 5 | Y | N | | — (rate-limited) |  |
+| 6 | Y | N | |  |  |
+| 7 | Y | N | |  |  |
+| 8 | Y (after Mining Illustrated) | N — DigiGeoData / Northern Miner | |  |  |
+| 9 | N (how-to) | N | |  |  |
+| 10 | N | N — VRIFY | |  | ChatGPT: Paraminerals (Victoria), RSC, VRIFY, Terrahutton, Immersive Explorers — gap for 3D/films |
+| 11 | Y | N | |  |  |
+| 12 | Y (CAD $3k–12k range) | N | |  |  |
+| 13 | N (how-to) | N | |  |  |
+| 14 | N | N — Blender Media, HOVR, Van York | |  | ChatGPT: WE REACT, Investor Creative, Blender Media/Piknic, Outliers, JRX Media |
+| 15 | Y (#2 after Splash Presentations) | N | |  |  |
+| 16 | N | N — Blender Media, Adnet, PilotStar | |  | ChatGPT: JRX Media, Blender Media/Piknic, Investor Creative, WE REACT — gap for websites |
+| 17 | N (how-to) | N | |  |  |
+| 18 | N (how-to) | N | |  |  |
+| 19 | N | N | |  |  |
+| 20 | Y | N — Blender Media, Refined Substance, Pace Creative, Galati, Rowland | |  |  |
+| 21 | N | N | |  |  |
+| 22 | N | N — VRIFY, Marca Studio, Blender Media, Kika, Adnet | |  | ChatGPT names Paraminerals (Victoria) first — local gap |
+| 23 | Y — "legitimate, established… credible portfolio"; caveat: "less independent customer-review evidence" | **N — web search could not find Exploration Sites at all** | |  |  |
+| 24 | N (how-to) | N | |  |  |
+| 25 | Y — "shortlist Exploration Sites and Ellis Park Media first" | N | |  |  |
 
 ## Findings so far
 
