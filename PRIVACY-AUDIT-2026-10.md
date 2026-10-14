@@ -38,7 +38,7 @@ Status key: **already addressed** · **fixed** · **not applicable** · **unveri
 | 2.5 | Terms acceptance is required on all three Payment Links and in the Session code. Stripe records acceptance on each Checkout Session (`consent.terms_of_service`). No sessions exist yet, so a stored record couldn't be inspected. | Stripe API; `api/checkout.mjs:48-53` | already addressed (record unverified until first sale) |
 | 2.6 | Website, consent text, Terms and the post-payment page agree: setup plus first month at checkout, 4 paid months then month-to-month, cancel by email, pause up to 6 months that doesn't count toward the minimum. | `src/terms.html:306-312`, `src/checkout-success.html:14-15` | already addressed |
 | 2.7 | No Stripe customer portal is configured, so clients can't self-cancel and cancellation happens by email, as the Terms say. Stripe won't enforce the 4-month minimum, pauses, or "remaining minimum months payable"; those are manual. | Stripe API: 0 portal configurations | unverified — **owner process** |
-| 2.8 | **Klarna** (buy now, pay later) is enabled on the checkout. Whether to offer it on a B2B recurring subscription is your call. | rendered checkout page | unverified — **owner, Stripe → Payment methods** |
+| 2.8 | **Klarna** (buy now, pay later) is enabled on the checkout. Whether to offer it on a B2B recurring subscription is your call. | rendered checkout page | **fixed** 2026-10-13 — Klarna turned off in the account default payment-method configuration; checkout now shows card only |
 | 2.9 | Customer emails Stripe sends (payment receipts, which the post-payment page promises; renewal reminders; failed-payment emails) are dashboard settings the API doesn't expose. | Stripe → Settings → Customer emails / Billing | unverified — **owner** |
 | 2.10 | Stripe Tax has an active Canadian registration (standard). | Stripe API | already addressed |
 
@@ -103,7 +103,6 @@ Owner options for 3.5, none implemented because each changes the booking experie
    - Address the Meta library in the booking widget (3.5).
 2. **Formspree:** confirm there are no integrations or autoresponders adding people to lists (1.7).
 3. **Stripe:**
-   - Decide on Klarna (2.8).
    - Turn on successful-payment receipts and review renewal and failed-payment emails (2.9).
    - Write down the manual steps for pause, cancellation and remaining minimum months (2.7).
 4. **Legal review:**
