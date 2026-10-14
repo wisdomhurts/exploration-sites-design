@@ -1,0 +1,49 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# Exploration Sites
+
+> Exploration Sites is an investor-relations visualization studio for exploration and mining companies, based in Victoria, British Columbia, Canada, working since 1996. It makes investor maps (locator, property, geoscience, drill plans and sections, 3D), corporate investor presentations, fact sheets, investor websites, brand identities, and 3D GIS films, so that generalist investors can understand a mineral project. It has served 300+ exploration teams on five continents. All prices are in Canadian dollars, before tax.
+
+Exploration Sites is a communications and design studio: it does not give investment advice, is not a securities dealer, and does not prepare NI 43-101 technical reports. Company figures shown in its work are as reported by each issuer.
+
+## News-Release Map Program (monthly)
+
+- [News-Release Map Program]({{ site.url }}/news-release-map-program.html): {{ services["news-release-map-program"].summary | safe }} Tiers: Cadence (up to 4 maps/month, ${{ prices.nrmpCadence }}/month), Active Drill (up to 8, ${{ prices.nrmpActive }}/month), Full Program (up to 12–15, ${{ prices.nrmpFull }}/month). Extra maps ${{ prices.nrmpOverage }} each.
+
+## Investor maps
+
+{% for key, s in services %}{% if s.group == "Investor maps" and key != "news-release-map-program" %}- [{{ s.name | safe }}]({{ site.url }}/{{ key }}.html): {{ s.summary | safe }}
+{% endif %}{% endfor %}
+## Presentations & design
+
+{% for key, s in services %}{% if s.group == "Presentations & design" %}- [{{ s.name | safe }}]({{ site.url }}/{{ key }}.html): {{ s.summary | safe }}
+{% endif %}{% endfor %}
+## Websites
+
+{% for key, s in services %}{% if s.group == "Websites" %}- [{{ s.name | safe }}]({{ site.url }}/{{ key }}.html): {{ s.summary | safe }}
+{% endif %}{% endfor %}
+## Ways to work together
+
+- [How we work]({{ site.url }}/engagement.html): project work on a fixed quote (maps from ${{ prices.mapFrom }}); a Launch Package (maps, deck, website, fact sheet and brand together, ${{ prices.launchPackage }}); or a monthly retainer (from ${{ prices.retainerFrom }}/month, 12-month term) that keeps maps, deck, fact sheet and website current.
+- [All services]({{ site.url }}/services.html): overview of every service.
+- [Fundable Materials Scorecard]({{ site.url }}/fundable-materials-scorecard.html): a free 12-point checklist of what a generalist investor looks for in a mining company's deck, maps and website.
+
+## About
+
+- [Why we exist]({{ site.url }}/why.html): the thesis — buried, technical geology is hard for capital markets to read; clear maps and materials make it legible.
+- [Clients]({{ site.url }}/clients.html): exploration and mining companies served, with market data.
+- [Case studies]({{ site.url }}/case-studies.html): work for Montage Gold, Fireweed Metals, West Red Lake Gold, Dolly Varden Silver, Hercules Metals and others.
+- [Team]({{ site.url }}/team.html): geology- and GIS-trained mapmakers, Leapfrog modellers, designers and developers.
+
+## Contact
+
+- [Book a discovery call]({{ site.url }}/book.html) — free, 20 minutes.
+- [Contact form]({{ site.url }}/contact.html), email info@explorationsites.com, phone +1 604 688 9997.
+
+## Optional
+
+- [Terms of Service]({{ site.url }}/terms.html)
+- [Privacy Policy]({{ site.url }}/privacy.html)
+- [Disclosures]({{ site.url }}/disclosures.html)

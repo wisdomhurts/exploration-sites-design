@@ -15,6 +15,7 @@ npm run build       # npx @11ty/eleventy → builds src/ into public/
 npm run dev         # eleventy --serve (live-reload dev server)
 npm run build-mask  # regenerate src/assets/world-mask.png from Natural Earth data (network)
 npm run thumbs      # make missing small image variants (map tiles, site shots, client logos)
+npm run indexnow    # after a content deploy: ping Bing/IndexNow with every sitemap URL
 ```
 
 - **No test suite.** `npm test` is a placeholder that exits non-zero; there is no test framework.
@@ -44,6 +45,10 @@ CSS is a single large hand-authored file: `src/styles.css` (passed through verba
 **Deliberate decisions — do not "fix" these:**
 - **`pricing.html` is an intentional orphan** (Dorian, 2026-07-01, reaffirming commit `eb5b27e`): no nav, footer, or body link points to it. It stays live for direct URL/SEO; the nav's answer to pricing is Engagement. Don't re-add links to it.
 - **Stat numbers are serif and static** — the scroll-triggered count-up animation was removed 2026-07-01 (an understated brand doesn't perform its numbers).
+
+### AI / search discoverability
+
+`src/_data/services.js` is the single catalog of services (name, one-sentence summary, price from `prices.json`). It drives the per-page `Service` + `Offer` JSON-LD in `head.html` (any page whose file name is a key gets one), the org's `hasOfferCatalog`, and `/llms.txt` (`src/llms.txt.njk`). Change a price in `prices.json` and all three follow. Add a new service page = add a key here. `src/446d45b491bb1d660b1f96d071d35dad.txt` is the IndexNow ownership key; keep it at the root.
 
 ### Stripe checkout (`api/`)
 

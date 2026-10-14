@@ -9,6 +9,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/three");
   eleventyConfig.addPassthroughCopy("src/assets/world-mask.png");
   eleventyConfig.addPassthroughCopy("src/assets/footer-shader.js");
+  // IndexNow ownership key (scripts/indexnow.mjs) — must be served at the site root.
+  eleventyConfig.addPassthroughCopy("src/446d45b491bb1d660b1f96d071d35dad.txt");
 
   // Small image variants made by scripts/build-thumbs.mjs (npm run thumbs). Each
   // filter returns the variant's path if it exists, else the original, so a
