@@ -113,6 +113,11 @@
 
     /* --- UTILITY CLASSES --- */
     /* --- FAQ (_includes/faq.html): plain Q&A between 1px rules --- */
+    /* Rule between two numbered section-grid blocks (Disclosures, Guides): give it room */
+    .section-grid + .divider { margin: 48px 0; }
+    @media (max-width: 640px) { .section-grid + .divider { margin: 32px 0; } }
+    .guide-link { color: inherit; text-decoration: none; }
+    .guide-link:hover { color: var(--ore-text); }
     .faq-list { border-top: 1px solid var(--border); }
     .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
     .faq-q { font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--graphite); margin: 0 0 8px; }
