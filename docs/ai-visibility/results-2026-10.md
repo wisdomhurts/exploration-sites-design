@@ -34,5 +34,8 @@ Perplexity: signed out (limits signed-out use to ~5 questions per session).
 
 ## Findings so far
 
+- **Claude (1/25):** asked "What is Exploration Sites?", Claude's web search found nothing about the company. Its search index (reportedly Brave) does not know the site; Brave submission done 2026-10-14. Claude answers many questions from general knowledge without searching.
+- **ChatGPT (12/25):** strong on maps, presentations, fact sheets, branding, brand query and the "maps + deck + website before a financing" question. Misses: websites, hosting, 3D/films, local (Victoria/Vancouver), "best IR agency", how-to questions.
+
 - **Currency:** ChatGPT (Q1) and Perplexity (Q2) both state Exploration Sites prices in **US$**. Visible pages show "$" with no currency since the "CAD" labels were removed; JSON-LD and llms.txt (added 2026-10-14) now say CAD. Re-check next month; if still wrong, consider a small "CAD" on price lines.
 - **Competitor to watch:** Exploration Maps (explorationmaps) — a DIY drill-map tool (Pro US$29/month) that Perplexity cites for speed and price questions.
