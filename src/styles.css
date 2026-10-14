@@ -112,6 +112,13 @@
     }
 
     /* --- UTILITY CLASSES --- */
+    /* --- FAQ (_includes/faq.html): plain Q&A between 1px rules --- */
+    .faq-list { border-top: 1px solid var(--border); }
+    .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--graphite); margin: 0 0 8px; }
+    .faq-a { font-size: 15px; line-height: 175%; color: var(--body); margin: 0; }
+    .faq-a a { color: var(--graphite); text-decoration: underline; text-decoration-color: var(--ore); text-underline-offset: 3px; }
+
     .body-text {
       font-size: 15px;
       color: var(--body);

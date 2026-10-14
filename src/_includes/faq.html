@@ -1,0 +1,23 @@
+{%- comment -%} FAQ block: visible Q&A + FAQPage JSON-LD from src/_data/faqs.js, keyed by page file name. {%- endcomment -%}
+{%- assign faq = faqs[page.fileSlug] -%}
+{%- if faq %}
+    <section class="section faq" aria-labelledby="faq-heading">
+      <div class="section-grid">
+        <div>
+          <div class="section-label">Questions</div>
+          <h2 class="section-headline" id="faq-heading">Common questions.</h2>
+        </div>
+        <div class="faq-list">
+{%- for f in faq %}
+          <div class="faq-item">
+            <h3 class="faq-q">{{ f.q }}</h3>
+            <p class="faq-a">{{ f.a }}</p>
+          </div>
+{%- endfor %}
+        </div>
+      </div>
+    </section>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in faq %}{"@type":"Question","name":{{ f.q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | strip_html | json }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+    </script>
+{%- endif %}
