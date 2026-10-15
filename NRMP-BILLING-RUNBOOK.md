@@ -71,9 +71,10 @@ Don't use the website's checkout, because it charges the setup fee again.
 ## Failed payments
 
 - Stripe retries automatically and emails the client (failed-payment emails are on).
+- If a renewal needs the client to confirm it with their bank, Stripe emails them a confirmation link, with reminders at 3, 5 and 7 days.
 - **14+ days overdue:** you may pause work (Terms).
 - **30+ days overdue:** you may end the subscription. Cancel immediately, then invoice anything owed.
-- Check **Settings → Billing → Subscriptions and emails → Manage failed payments → "If all retries for a payment fail"**. Set it to *leave the subscription overdue* or *mark as unpaid*, so Stripe doesn't cancel before you decide.
+- Stripe is set (2026-10-14) to **leave the subscription overdue** when all retries fail, and when a payment needing card authentication stays incomplete for 15 days. It never cancels on its own; ending a subscription is always your decision.
 
 ## If we end a subscription (not for non-payment or breach)
 

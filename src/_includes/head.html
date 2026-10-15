@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="msvalidate.01" content="87961B901B79C5109006149B6D697761">
 <script>document.documentElement.classList.add('js');</script>
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
@@ -63,8 +64,19 @@
         "Investor presentations",
         "Geological visualization",
         "GIS cartography",
-        "Mineral exploration communications"
+        "Mineral exploration communications",
+        "News-release drill maps"
       ],
+      "foundingDate": "1996",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Investor maps, presentations, websites and branding for mining companies",
+        "itemListElement": [
+{%- for s in services %}
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": {{ s[1].name | json }}, "url": "{{ site.url }}/{{ s[0] }}.html" } }{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+        ]
+      },
       "sameAs": [
         "https://www.linkedin.com/company/exploration-sites/",
         "https://x.com/explorationsite",
@@ -82,6 +94,33 @@
   ]
 }
 </script>
+{%- assign svc = services[page.fileSlug] %}
+{% if svc %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ svc.name | json }},
+  "serviceType": {{ svc.serviceType | json }},
+  "description": {{ svc.summary | json }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "provider": { "@id": "{{ site.url }}/#org" },
+  "areaServed": "Worldwide",
+  "audience": { "@type": "BusinessAudience", "audienceType": "Exploration and mining companies" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "CAD",
+    "priceSpecification": {
+      "@type": "{% if svc.monthly %}UnitPriceSpecification{% else %}PriceSpecification{% endif %}",
+      "{% if svc.monthly %}price{% else %}minPrice{% endif %}": {{ svc.price }},
+      "priceCurrency": "CAD"{% if svc.monthly %},
+      "unitCode": "MON",
+      "unitText": "per month"{% endif %}
+    }
+  }
+}
+</script>
+{% endif %}
 {% if pageSchema %}
 <script type="application/ld+json">
 {{ pageSchema | replace: "%SITE%", site.url }}
