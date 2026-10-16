@@ -1,0 +1,586 @@
+---
+permalink: style-guide-internal/index.html
+sitemap: false
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Exploration Sites Brand Guidelines</title>
+<link rel="icon" href="/images/favicon-32.png" sizes="32x32">
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/inter-300.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/inter-400.woff2') format('woff2');}
+@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:300 600;font-display:swap;src:url('/fonts/source-serif-4-300.woff2') format('woff2');}
+
+/* Layout: the house two-column editorial grid (label column + content column), 1px rules, Quartz paper. */
+:root {
+  --paper: #F4F1EC;      /* Quartz */
+  --paper-alt: #E8E2D5;  /* Vellum */
+  --surface: #FBFAF7;
+  --ink: #1A101F;        /* Graphite */
+  --body: #5A5F63;       /* Slate */
+  --muted: #6E685C;
+  --rule: rgba(26,16,31,0.10);
+  --ore: #B8823A;
+  --ore-text: #815A20;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17111B; --paper-alt: #211A25; --surface: #231C27;
+    --ink: #F4F1EC; --body: #C9C4BA; --muted: #A59E91;
+    --rule: rgba(244,241,236,0.12); --ore: #C9954D; --ore-text: #D4A867;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17111B; --paper-alt: #211A25; --surface: #231C27;
+  --ink: #F4F1EC; --body: #C9C4BA; --muted: #A59E91;
+  --rule: rgba(244,241,236,0.12); --ore: #C9954D; --ore-text: #D4A867;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0;
+  background: var(--paper); color: var(--body);
+  font: 400 16px/1.6 var(--sans);
+  padding-inline: clamp(16px, 5vw, 80px);
+  padding-block: 0 96px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1240px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 300; text-wrap: balance; margin: 0; }
+p { margin: 0; max-width: 66ch; }
+a { color: var(--ink); text-underline-offset: 3px; }
+strong { color: var(--ink); font-weight: 600; }
+:focus-visible { outline: 2px solid var(--ore); outline-offset: 3px; }
+
+.label {
+  font: 600 11px/1.4 var(--sans); letter-spacing: 2px; text-transform: uppercase;
+  color: var(--body);
+}
+.label .ore { color: var(--ore-text); }
+
+/* Masthead */
+.mast {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding-block: 28px; border-bottom: 1px solid var(--rule);
+}
+.lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.lockup svg { width: 30px; height: 30px; flex: none; }
+.wordmark { font: 600 16px/1 var(--sans); letter-spacing: 0.1em; text-transform: lowercase; color: var(--ink); }
+.mast .meta { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.hero { padding-block: 72px 56px; border-bottom: 1px solid var(--rule); display: grid; gap: 24px; }
+.hero h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -0.01em; max-width: 16ch; }
+.hero p.lede { font-size: 19px; line-height: 1.55; color: var(--body); max-width: 60ch; }
+
+/* Contents */
+.toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 32px; padding-block: 28px; border-bottom: 1px solid var(--rule); }
+.toc a { display: flex; gap: 12px; padding-block: 8px; text-decoration: none; color: var(--ink); font-size: 15px; border-bottom: 1px solid var(--rule); }
+.toc a span { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 22px; }
+.toc a:hover { color: var(--ore-text); }
+
+/* Sections: label column + content column */
+section.part { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px 64px; padding-block: 64px; border-bottom: 1px solid var(--rule); scroll-margin-top: 16px; }
+.part > header { display: grid; gap: 14px; align-content: start; }
+.part > header h2 { font-size: clamp(28px, 3vw, 36px); line-height: 1.12; }
+.part > header p { font-size: 14px; color: var(--muted); }
+.content { display: grid; gap: 40px; min-width: 0; }
+.block { display: grid; gap: 14px; min-width: 0; }
+.block h3 { font-size: 22px; line-height: 1.25; }
+.block p + p { margin-top: 2px; }
+
+.statement { font-family: var(--serif); font-weight: 300; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; color: var(--ink); max-width: 34ch; }
+
+/* Facts table */
+.facts { width: 100%; border-collapse: collapse; font-size: 15px; }
+.facts th, .facts td { text-align: left; vertical-align: top; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.facts th { width: 34%; padding-right: 24px; font-weight: 500; color: var(--ink); }
+.facts td { color: var(--body); font-variant-numeric: tabular-nums; }
+.tablewrap { overflow-x: auto; }
+
+/* Copy boxes */
+.copy { position: relative; background: var(--surface); border: 1px solid var(--rule); padding: 20px 22px 18px; }
+.copy .label { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+.copy p { color: var(--ink); max-width: none; }
+.copy p + p { margin-top: 12px; }
+.copybtn { font: 500 12px/1 var(--sans); letter-spacing: 0.04em; color: var(--ink); background: transparent; border: 1px solid var(--rule); padding: 7px 10px; cursor: pointer; }
+.copybtn:hover { border-color: var(--ink); }
+
+/* Do / don't lists */
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; }
+.list li { padding: 10px 0 10px 26px; border-bottom: 1px solid var(--rule); position: relative; color: var(--ink); font-size: 15px; }
+.list li::before { position: absolute; left: 0; top: 10px; font-weight: 600; }
+.list.yes li::before { content: "✓"; color: var(--ore-text); }
+.list.no li::before { content: "✕"; color: var(--muted); }
+.list.no li { color: var(--body); }
+.list li small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+.words { display: flex; flex-wrap: wrap; gap: 8px; }
+.words span { font-size: 14px; padding: 5px 10px; border: 1px solid var(--rule); color: var(--ink); }
+.words.struck span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--muted); }
+
+/* Example lines */
+.ex { display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 6px 16px; font-size: 15px; padding-block: 12px; border-bottom: 1px solid var(--rule); }
+.ex b { font: 600 11px/1.9 var(--sans); letter-spacing: 1.5px; text-transform: uppercase; }
+.ex .bad b { color: var(--muted); }
+.ex .good b { color: var(--ore-text); }
+.ex div { display: contents; }
+.ex .bad span { color: var(--muted); }
+.ex .good span { color: var(--ink); }
+
+/* Logo */
+.logo-stage { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.tile { aspect-ratio: 16 / 10; display: grid; place-items: center; border: 1px solid var(--rule); position: relative; padding: 24px; max-width: 100%; }
+.tile .cap { position: absolute; left: 14px; bottom: 10px; font: 500 11px/1 var(--sans); letter-spacing: 1.5px; text-transform: uppercase; }
+.tile.on-quartz { background: #F4F1EC; } .tile.on-quartz .cap { color: #6E685C; }
+.tile.on-graphite { background: #1A101F; } .tile.on-graphite .cap { color: #C8C2B4; }
+.tile.on-vellum { background: #E8E2D5; } .tile.on-vellum .cap { color: #6E685C; }
+.tile .lk { display: flex; align-items: center; gap: 14px; }
+.tile .lk svg { width: 44px; height: 44px; }
+.tile .lk .wm { font: 600 21px/1 var(--sans); letter-spacing: 0.1em; text-transform: lowercase; }
+.tile.on-quartz .wm, .tile.on-vellum .wm { color: #1A101F; }
+.tile.on-graphite .wm { color: #F4F1EC; }
+.clear { display: grid; place-items: center; background: var(--surface); border: 1px dashed var(--muted); padding: 28px; max-width: 100%; }
+.clear .inner { outline: 1px solid var(--ore); outline-offset: 22px; display: flex; align-items: center; gap: 12px; }
+.clear svg { width: 40px; height: 40px; }
+.clear .wm { font: 600 19px/1 var(--sans); letter-spacing: 0.1em; text-transform: lowercase; color: var(--ink); }
+
+/* Colour */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.sw { border: 1px solid var(--rule); background: var(--surface); display: grid; }
+.sw .chip { height: 108px; display: flex; align-items: flex-end; padding: 10px 12px; font: 500 11px/1 var(--sans); letter-spacing: 1.5px; text-transform: uppercase; }
+.sw .info { padding: 12px 12px 14px; display: grid; gap: 4px; }
+.sw .name { font-family: var(--serif); font-size: 20px; color: var(--ink); }
+.sw .hex { font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.sw .role { font-size: 13px; color: var(--muted); line-height: 1.45; }
+.ratio { display: flex; height: 44px; border: 1px solid var(--rule); max-width: 100%; }
+.ratio div { display: flex; align-items: center; justify-content: center; font: 500 11px/1 var(--sans); letter-spacing: 1px; white-space: nowrap; overflow: hidden; }
+.ratio-key { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Type specimens */
+.spec { border-top: 1px solid var(--rule); padding-top: 18px; display: grid; gap: 10px; }
+.spec .row { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: 14px; }
+.spec .row .k { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; line-height: 1.4; }
+.s-display { font: 300 52px/1.05 var(--serif); color: var(--ink); letter-spacing: -0.01em; }
+.s-h1 { font: 300 40px/1.12 var(--serif); color: var(--ink); }
+.s-h2 { font: 400 28px/1.2 var(--serif); color: var(--ink); }
+.s-num { font: 300 48px/1 var(--serif); color: var(--ink); font-variant-numeric: lining-nums tabular-nums; }
+.s-intro { font: 400 18px/1.55 var(--sans); color: var(--ink); }
+.s-body { font: 400 16px/1.6 var(--sans); color: var(--body); }
+.s-cap { font: 400 13px/1.5 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+.s-label { font: 600 11px/1.4 var(--sans); letter-spacing: 2px; text-transform: uppercase; color: var(--body); }
+
+/* Map anatomy */
+.rules { counter-reset: r; list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.rules li { counter-increment: r; display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 4px 12px; padding-block: 14px; border-bottom: 1px solid var(--rule); }
+.rules li::before { content: counter(r, decimal-leading-zero); font: 400 13px/1.7 var(--sans); color: var(--ore-text); font-variant-numeric: tabular-nums; }
+.rules li strong { display: block; font-weight: 600; }
+.rules li span { color: var(--body); font-size: 15px; }
+
+.callout { border-left: 2px solid var(--ore); padding: 4px 0 4px 18px; color: var(--ink); font-size: 15px; max-width: 70ch; }
+
+/* Checklist */
+.check { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 32px; }
+.check li { display: flex; gap: 12px; padding-block: 11px; border-bottom: 1px solid var(--rule); color: var(--ink); font-size: 15px; }
+.check li::before { content: ""; flex: none; width: 14px; height: 14px; border: 1px solid var(--body); margin-top: 4px; }
+
+footer.end { padding-top: 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+
+@media (max-width: 860px) {
+  section.part { grid-template-columns: minmax(0,1fr); padding-block: 48px; }
+  .spec .row { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .s-display { font-size: 40px; } .s-num { font-size: 40px; }
+  .facts th { width: 40%; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="mast">
+  <a class="lockup" href="#top" aria-label="Exploration Sites">
+    <svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g><polygon fill="var(--ore)" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="var(--ore)" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="var(--ore)" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="var(--ore)" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path fill="var(--ink)" d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path fill="var(--ink)" d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg>
+    <span class="wordmark">Exploration Sites</span>
+  </a>
+  <span class="meta">Brand guidelines · Internal · October 2026</span>
+</div>
+
+<div class="hero" id="top">
+  <span class="label">For the team</span>
+  <h1>How Exploration Sites looks, sounds and shows its work.</h1>
+  <p class="lede">One reference for everyone who makes something with our name on it: maps, decks, fact sheets, websites, proposals, emails and posts. If a decision isn&rsquo;t covered here, use the rule behind all of it. It has to hold up in front of an institutional investor.</p>
+</div>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#who"><span>01</span>Who we are</a>
+  <a href="#voice"><span>02</span>Voice and claims</a>
+  <a href="#logo"><span>03</span>Logo and name</a>
+  <a href="#colour"><span>04</span>Colour</a>
+  <a href="#type"><span>05</span>Typography</a>
+  <a href="#layout"><span>06</span>Layout and visual style</a>
+  <a href="#maps"><span>07</span>Maps and figures</a>
+  <a href="#facts"><span>08</span>Facts and boilerplate</a>
+  <a href="#check"><span>09</span>Before it goes out</a>
+</nav>
+
+<!-- 01 WHO -->
+<section class="part" id="who">
+  <header>
+    <span class="label"><span class="ore">01</span> &nbsp;Who we are</span>
+    <h2>The translation layer between deposit and capital markets.</h2>
+  </header>
+  <div class="content">
+    <p class="statement">If it carries our name, it will hold up in front of an institutional investor.</p>
+    <div class="block">
+      <h3>What we do</h3>
+      <p>We are an investor-relations visualization studio in Victoria, BC. Since 1996 we have made investor maps, news-release drill maps and sections, 3D models, presentations, fact sheets, websites and brand identities for more than 300 exploration and mining companies on five continents.</p>
+      <p>Our job is to make a mineral project legible to a generalist investor without dumbing down the geology.</p>
+    </div>
+    <div class="block">
+      <h3>Who we make it for</h3>
+      <p><strong>Clients:</strong> CEOs, VPs of investor relations and geologists at junior and exploration-stage companies listed on the TSXV, CSE and ASX. They find us through referrals, conferences (PDAC, Roundup, AME) and search.</p>
+      <p><strong>Their audience:</strong> portfolio managers, analysts and retail investors who have seen a thousand decks. Everything we make is judged by them, usually in seconds and often on a phone.</p>
+    </div>
+    <div class="block">
+      <h3>Five traits</h3>
+      <div class="tablewrap"><table class="facts">
+        <tr><th>Authoritative</th><td>We have seen hundreds of stories and know what works.</td></tr>
+        <tr><th>Understated</th><td>The work speaks; we don&rsquo;t shout.</td></tr>
+        <tr><th>Meticulous</th><td>We obsess over the detail the investor will never consciously notice.</td></tr>
+        <tr><th>Cinematic</th><td>We are unafraid of scale and beauty when the geology earns it.</td></tr>
+        <tr><th>Sector-native</th><td>We are of this industry, not servicing it from outside. We know strike, dip and grade.</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VOICE -->
+<section class="part" id="voice">
+  <header>
+    <span class="label"><span class="ore">02</span> &nbsp;Voice and claims</span>
+    <h2>Confident, precise, quietly expert.</h2>
+    <p>The Economist meets a senior exploration geologist meets a fund&rsquo;s quarterly letter.</p>
+  </header>
+  <div class="content">
+    <div class="block">
+      <h3>How we write</h3>
+      <ul class="list yes">
+        <li>Numbers over adjectives.<small>&ldquo;2.4 g/t Au over 48 m&rdquo; beats &ldquo;strong gold intercepts.&rdquo;</small></li>
+        <li>Active voice. Short sentences for weight, longer ones for nuance.</li>
+        <li>Respect the reader. Assume they&rsquo;ve read a thousand decks.</li>
+        <li>Say what we make and what it does for the reader. Leave out what it does for the share price.</li>
+        <li>Prices in Canadian dollars, always written &ldquo;CAD&rdquo;, before tax.</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Words we reach for</h3>
+      <div class="words"><span>Clarity</span><span>Precision</span><span>Discovery</span><span>Thesis</span><span>Interval</span><span>Intercept</span><span>Structure</span><span>Section</span><span>Strike</span><span>Dip</span><span>Grade</span><span>Continuity</span><span>Evidence</span><span>Target</span><span>Measured</span><span>Legible</span></div>
+    </div>
+    <div class="block">
+      <h3>Words we never use</h3>
+      <div class="words struck"><span>World-class</span><span>Game-changing</span><span>Revolutionary</span><span>Cutting-edge</span><span>Unlock</span><span>Disrupt</span><span>Best-in-class</span><span>Synergy</span><span>Solutions</span><span>Empower</span><span>Transform</span><span>Immersive</span><span>Captivate</span><span>Seamless</span><span>Robust</span><span>Guaranteed</span></div>
+    </div>
+    <div class="block">
+      <h3>In practice</h3>
+      <div>
+        <div class="ex"><div class="bad"><b>Not</b><span>Our world-class maps unlock your project&rsquo;s true value.</span></div><div class="good"><b>Write</b><span>A section that shows where the intercept sits and how it connects to the last hole.</span></div></div>
+        <div class="ex"><div class="bad"><b>Not</b><span>Guaranteed 48-hour turnaround.</span></div><div class="good"><b>Write</b><span>Within two business days of clean data, for up to two maps per request.</span></div></div>
+        <div class="ex"><div class="bad"><b>Not</b><span>After our rebrand, their market cap tripled.</span></div><div class="good"><b>Write</b><span>Brand, maps and website since 2021; about ten release maps a month.</span></div></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3>Claims we don&rsquo;t make</h3>
+      <p>These come from our pre-launch claims review. They protect us and our clients&rsquo; disclosure obligations.</p>
+      <ul class="list no">
+        <li>Share-price or market-cap outcomes, or any before-and-after valuation.<small>We make materials investors can understand. We don&rsquo;t move share prices.</small></li>
+        <li>&ldquo;Guaranteed&rdquo; anything. Turnaround is a standard we work to, with no stated remedy.</li>
+        <li>&ldquo;Licensed geologists&rdquo; or P.Geo. Say &ldquo;geology- and GIS-trained mapmakers&rdquo;.</li>
+        <li>Technical figures that haven&rsquo;t been approved. The client&rsquo;s Qualified Person reviews and approves every technical figure before release.</li>
+        <li>Client work that hasn&rsquo;t been disclosed. Pre-release material stays confidential until the client publishes it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 03 LOGO -->
+<section class="part" id="logo">
+  <header>
+    <span class="label"><span class="ore">03</span> &nbsp;Logo and name</span>
+    <h2>A survey cross with four Ore ticks.</h2>
+    <p>Two Graphite strokes meet like a pair of offset survey lines; the four Ore ticks mark the corners of a claim.</p>
+  </header>
+  <div class="content">
+    <div class="logo-stage">
+      <div class="tile on-quartz"><div class="lk"><svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g><polygon fill="#B8823A" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="#B8823A" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="#B8823A" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="#B8823A" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path fill="#1A101F" d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path fill="#1A101F" d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg><span class="wm">Exploration Sites</span></div><span class="cap">Primary · on Quartz</span></div>
+      <div class="tile on-graphite"><div class="lk"><svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g><polygon fill="#B8823A" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="#B8823A" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="#B8823A" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="#B8823A" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path fill="#F4F1EC" d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path fill="#F4F1EC" d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg><span class="wm">Exploration Sites</span></div><span class="cap">Reversed · on Graphite</span></div>
+      <div class="tile on-vellum"><div class="lk"><svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g fill="#1A101F"><polygon points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg><span class="wm">Exploration Sites</span></div><span class="cap">One colour · Graphite</span></div>
+    </div>
+    <div class="block">
+      <h3>Wordmark</h3>
+      <p>Set in Inter Semibold, all lowercase, with 0.1&nbsp;em letter-spacing, in Graphite (Quartz when reversed). The mark always sits to the left of the wordmark, vertically centred, with a gap of about a third of the mark&rsquo;s width. Use the mark alone only where the name already appears nearby, such as favicons, social avatars and slide footers.</p>
+    </div>
+    <div class="block">
+      <h3>Clear space and size</h3>
+      <div class="clear" aria-label="Clear space diagram"><div class="inner"><svg viewBox="0 0 124.63 124.63" aria-hidden="true"><g><polygon fill="var(--ore)" points="41.31 32 22.51 13.38 13.38 22.52 32.01 41.31 41.31 32"/><polygon fill="var(--ore)" points="41.31 92.64 40.51 93.43 37.37 96.55 22.52 111.25 13.38 102.12 28.09 87.27 31.22 84.13 32.01 83.33 41.31 92.64"/><polygon fill="var(--ore)" points="83.33 92.63 102.13 111.26 111.26 102.12 92.64 83.32 83.33 92.63"/><polygon fill="var(--ore)" points="111.26 22.51 92.58 41.24 83.39 32.07 83.33 32.01 102.12 13.38 111.26 22.51"/><path fill="var(--ink)" d="M71.93,0v41.61l-30.27,30.32H0v-19.22h43.1c5.3,0,9.61-4.31,9.61-9.61V0h19.22Z"/><path fill="var(--ink)" d="M124.63,52.71v19.22h-43.1c-5.3,0-9.61,4.31-9.61,9.61v43.1h-19.22v-41.74l30.16-30.19h41.77Z"/></g></svg><span class="wm">Exploration Sites</span></div></div>
+      <p>Keep clear space on every side equal to half the mark&rsquo;s height (the gold line above). Minimum size is 20&nbsp;px tall for the mark on screen and 8&nbsp;mm in print. On maps and slides, the lockup sits in a corner, never centred over content.</p>
+    </div>
+    <div class="pair">
+      <div class="block"><h3>Do</h3><ul class="list yes"><li>Use the supplied files: <strong>logo-512.png</strong> and the SVG in the site&rsquo;s navigation.</li><li>Put it on Quartz, Vellum, Graphite or a calm part of a photo.</li><li>Use the one-colour version when Ore can&rsquo;t print accurately.</li></ul></div>
+      <div class="block"><h3>Don&rsquo;t</h3><ul class="list no"><li>Recolour the ticks or the cross, or swap their colours.</li><li>Stretch, rotate, outline or add a shadow or glow.</li><li>Use the old pastel or multicolour versions of the logo.</li><li>Set the wordmark in the serif or in capitals.</li></ul></div>
+    </div>
+    <div class="block">
+      <h3>Writing our name</h3>
+      <div class="tablewrap"><table class="facts">
+        <tr><th>In text</th><td><strong>Exploration Sites</strong>: two words, both capitalised.</td></tr>
+        <tr><th>Legal name</th><td>Exploration Sites Corp. Use it on contracts, invoices and terms.</td></tr>
+        <tr><th>Internal shorthand</th><td>&ldquo;ES&rdquo; is fine between us, but never in client-facing copy.</td></tr>
+        <tr><th>Never</th><td>ExplorationSites, Exploration Site, Explorationsites, E.S.</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 COLOUR -->
+<section class="part" id="colour">
+  <header>
+    <span class="label"><span class="ore">04</span> &nbsp;Colour</span>
+    <h2>Excavated neutrals, surveyed paper, one earned accent.</h2>
+    <p>Three primaries carry 90% of everything. Ore appears in under 2% of any layout.</p>
+  </header>
+  <div class="content">
+    <div class="block">
+      <h3>Primary</h3>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#1A101F;color:#C8C2B4">Type · dark grounds</div><div class="info"><span class="name">Graphite</span><span class="hex">#1A101F</span><span class="role">Near-black with a cool undertone. Headlines, body on light, dark backgrounds.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#F4F1EC;color:#6E685C;box-shadow:inset 0 -1px 0 rgba(26,16,31,.1)">Default paper</div><div class="info"><span class="name">Quartz</span><span class="hex">#F4F1EC</span><span class="role">Warm map stock. Our page colour. Never swap it for pure white.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#5A5F63;color:#F4F1EC">Secondary type · rules</div><div class="info"><span class="name">Slate</span><span class="hex">#5A5F63</span><span class="role">Body copy, labels, rule lines, cartographic strokes.</span></div></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3>Secondary and accent</h3>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#2C3338;color:#C8C2B4">Dark panels</div><div class="info"><span class="name">Basalt</span><span class="hex">#2C3338</span><span class="role">Dark secondary surfaces and render backdrops.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#E8E2D5;color:#6E685C">Alternate sections</div><div class="info"><span class="name">Vellum</span><span class="hex">#E8E2D5</span><span class="role">Warm light ground for alternating bands.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#C8C2B4;color:#1A101F">Hairlines · grids</div><div class="info"><span class="name">Graticule</span><span class="hex">#C8C2B4</span><span class="role">Rules, borders, map grids. Not for text.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#B8823A;color:#1A101F">Accent · ≤ 2%</div><div class="info"><span class="name">Ore</span><span class="hex">#B8823A</span><span class="role">Logo ticks, a key callout, the one thing to look at. Large or decorative use only.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#815A20;color:#F4F1EC">Small gold text</div><div class="info"><span class="name">Ore Text</span><span class="hex">#815A20</span><span class="role">Deepened Ore for small gold type. Passes contrast on Quartz and Vellum.</span></div></div>
+        <div class="sw"><div class="chip" style="background:#5F7052;color:#F4F1EC">Land · present state</div><div class="info"><span class="name">Moss</span><span class="hex">#5F7052</span><span class="role">Muted sage for land and active ground. Always subordinate to Ore.</span></div></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3>Proportion</h3>
+      <div class="ratio" role="img" aria-label="Colour proportion: 70% Quartz and Graphite, 20% Slate, 8% secondary colours, 2% Ore">
+        <div style="flex:35;background:#F4F1EC;color:#6E685C">Quartz</div>
+        <div style="flex:35;background:#1A101F;color:#C8C2B4">Graphite</div>
+        <div style="flex:20;background:#5A5F63;color:#F4F1EC">Slate</div>
+        <div style="flex:8;background:#E8E2D5;color:#6E685C">2°</div>
+        <div style="flex:2;background:#B8823A"></div>
+      </div>
+      <div class="ratio-key"><span>70% Quartz and Graphite</span><span>20% Slate type</span><span>8% Basalt, Vellum, Graticule</span><span>≤ 2% Ore</span></div>
+      <p class="callout">Client work uses the client&rsquo;s brand colours. Our palette governs our own materials: the website, proposals, our deck, social posts and anything signed Exploration Sites.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TYPE -->
+<section class="part" id="type">
+  <header>
+    <span class="label"><span class="ore">05</span> &nbsp;Typography</span>
+    <h2>Two voices. Never a third.</h2>
+    <p>Source Serif&nbsp;4 for headlines and display numbers. Inter for everything else. Both are free from Google Fonts.</p>
+  </header>
+  <div class="content">
+    <div class="spec">
+      <div class="row"><span class="k">Display · Serif Light · 64</span><span class="s-display">Capital flows toward clarity.</span></div>
+      <div class="row"><span class="k">H1 · Serif Light · 40–44</span><span class="s-h1">Investor maps for the Macquarie Arc</span></div>
+      <div class="row"><span class="k">H2 · Serif · 28</span><span class="s-h2">What the section shows</span></div>
+      <div class="row"><span class="k">Stat · Serif Light · tabular</span><span class="s-num">300+ &nbsp;1996 &nbsp;2.4&nbsp;g/t</span></div>
+      <div class="row"><span class="k">Intro · Inter · 18</span><span class="s-intro">Plan maps show where you drilled. Sections show what you hit.</span></div>
+      <div class="row"><span class="k">Body · Inter · 16</span><span class="s-body">Use the same base map, symbols and layout every release, so readers spend their attention on what&rsquo;s new rather than re-learning the map.</span></div>
+      <div class="row"><span class="k">Caption · Inter · 13</span><span class="s-cap">Figure 3. Long section looking north-east. Intervals are core length. Datum NAD83 / UTM 9N.</span></div>
+      <div class="row"><span class="k">Label · Inter Semibold · 11</span><span class="s-label">Section 02 &nbsp;·&nbsp; Drilling</span></div>
+    </div>
+    <div class="pair">
+      <div class="block"><h3>Rules</h3><ul class="list yes"><li>Tabular figures in every table and data label.</li><li>Curly quotes and apostrophes, true ellipses (&hellip;), real en dashes for ranges (3–7).</li><li>Uppercase only for short labels, with letter-spacing.</li><li>Headlines in sentence case.</li></ul></div>
+      <div class="block"><h3>Avoid</h3><ul class="list no"><li>A third typeface, including monospace. The mono data voice was retired in July 2026.</li><li>Bold and italic together.</li><li>All-caps paragraphs or headlines.</li><li>Calibri, Arial or Helvetica as stand-ins. Install the real fonts.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 LAYOUT -->
+<section class="part" id="layout">
+  <header>
+    <span class="label"><span class="ore">06</span> &nbsp;Layout and visual style</span>
+    <h2>Restraint is the luxury.</h2>
+    <p>Structure comes from whitespace, type hierarchy and 1&nbsp;px rules.</p>
+  </header>
+  <div class="content">
+    <div class="block">
+      <h3>Principles</h3>
+      <ul class="list yes">
+        <li>The work is the proof.<small>Show the map, the deck, the site. Don&rsquo;t describe it when you can show it.</small></li>
+        <li>Evidence before assertions.<small>Every claim has a source and survives a skeptical portfolio manager.</small></li>
+        <li>Subtract before adding.<small>Whitespace is the most expensive element on the page.</small></li>
+        <li>Editorial rhythm.<small>A small label, a serif headline, then content: two columns, separated by thin rules.</small></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>Never</h3>
+      <div class="words struck"><span>Glow</span><span>Gradient text</span><span>Decorative orbs</span><span>Heavy drop shadows</span><span>Bouncy animation</span><span>Neon on dark</span><span>Glassmorphism</span><span>Stock-photo handshakes</span><span>Emoji as icons</span></div>
+    </div>
+    <div class="block">
+      <h3>Measurements (web)</h3>
+      <div class="tablewrap"><table class="facts">
+        <tr><th>Page frame</th><td>1440 px max width, 80 px side padding</td></tr>
+        <tr><th>Two-column grid</th><td>380 px label column + 840 px content column</td></tr>
+        <tr><th>Spacing</th><td>8 px base: 16 gap · 24 inside sections · 40 between groups · 80 between sections</td></tr>
+        <tr><th>Rules</th><td>1 px, Graphite at 8% opacity</td></tr>
+        <tr><th>Cards</th><td>Warm near-white #FBFAF7 on Quartz, a soft shadow at most</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 MAPS -->
+<section class="part" id="maps">
+  <header>
+    <span class="label"><span class="ore">07</span> &nbsp;Maps and figures</span>
+    <h2>Every figure is read in seconds, often on a phone.</h2>
+    <p>These rules apply to everything we draw. The colours are the client&rsquo;s; the discipline is ours.</p>
+  </header>
+  <div class="content">
+    <ol class="rules">
+      <li><div><strong>One message per map.</strong><span>Decide the single thing it shows: a new intercept, a step-out, continuity along strike. Remove everything that doesn&rsquo;t support it.</span></div></li>
+      <li><div><strong>Plan first, then section.</strong><span>A plan shows where you drilled; a section shows what you hit. Pair them for headline intercepts.</span></div></li>
+      <li><div><strong>Show grade honestly.</strong><span>Use true scale and the same grade bins and colours every release. Label core length or true width exactly as the QP specifies.</span></div></li>
+      <li><div><strong>Give a scale anchor.</strong><span>Add a scale bar, a north arrow and one reference a non-geologist recognises: a road, the property boundary, a known deposit.</span></div></li>
+      <li><div><strong>Keep the base locked.</strong><span>Use the same base, symbols and layout every release, so a run of releases reads as one advancing story.</span></div></li>
+      <li><div><strong>Make it survive a phone.</strong><span>Check it at phone width. If hole labels or the legend aren&rsquo;t legible, there&rsquo;s too much on the map.</span></div></li>
+      <li><div><strong>Make it hold up when forwarded.</strong><span>Put the title, project name, date and key intercept on the figure itself.</span></div></li>
+      <li><div><strong>Get QP sign-off.</strong><span>The client&rsquo;s Qualified Person approves every technical figure before it&rsquo;s released.</span></div></li>
+    </ol>
+    <p class="callout">Turnaround on the News-Release Map Program is two business days from clean, complete data (collars, surveys, assays and the text for the map), for up to two maps per request. Never promise faster in writing.</p>
+  </div>
+</section>
+
+<!-- 08 FACTS -->
+<section class="part" id="facts">
+  <header>
+    <span class="label"><span class="ore">08</span> &nbsp;Facts and boilerplate</span>
+    <h2>Say it the same way everywhere.</h2>
+    <p>Search engines and AI assistants link mentions by consistency. Copy these exactly.</p>
+  </header>
+  <div class="content">
+    <div class="tablewrap"><table class="facts">
+      <tr><th>Name</th><td>Exploration Sites (legal: Exploration Sites Corp.)</td></tr>
+      <tr><th>Website</th><td>https://www.explorationsites.com</td></tr>
+      <tr><th>Email</th><td>info@explorationsites.com · billing: accounts@explorationsites.com</td></tr>
+      <tr><th>Phone</th><td>+1 604 688 9997</td></tr>
+      <tr><th>Location</th><td>Victoria, British Columbia, Canada. Serving clients worldwide; no public street address.</td></tr>
+      <tr><th>Founded</th><td>1996</td></tr>
+      <tr><th>Track record</th><td>300+ exploration teams on five continents · 500+ projects mapped · 100+ investor websites</td></tr>
+      <tr><th>Booking link</th><td>https://www.explorationsites.com/book.html</td></tr>
+    </table></div>
+
+    <div class="copy">
+      <div class="label"><span>Tagline</span><button class="copybtn" type="button" data-copy="c1">Copy</button></div>
+      <p id="c1">Investor maps, decks and websites for mining companies.</p>
+    </div>
+    <div class="copy">
+      <div class="label"><span>Short description · 160 characters</span><button class="copybtn" type="button" data-copy="c2">Copy</button></div>
+      <p id="c2">Victoria, BC studio making investor maps, news-release drill maps, presentations and websites for exploration and mining companies since 1996.</p>
+    </div>
+    <div class="copy">
+      <div class="label"><span>Medium description · about 50 words</span><button class="copybtn" type="button" data-copy="c3">Copy</button></div>
+      <p id="c3">Exploration Sites is an investor-relations visualization studio in Victoria, BC. Since 1996 we have made investor maps, news-release drill maps and sections, 3D models, corporate presentations, fact sheets, investor websites and brand identities for more than 300 exploration and mining companies, so generalist investors can understand a mineral project.</p>
+    </div>
+    <div class="copy">
+      <div class="label"><span>Long description · about 150 words</span><button class="copybtn" type="button" data-copy="c4">Copy</button></div>
+      <div id="c4">
+        <p>Exploration Sites is an investor-relations visualization studio based in Victoria, British Columbia. Since 1996 we have helped more than 300 exploration and mining companies on five continents explain their projects to investors.</p>
+        <p>We make locator and area-play maps, property and target maps, geology, geochemistry and geophysics maps, drill plans and sections, 3D isometric models and GIS films; corporate investor presentations and fact sheets; investor websites on Webflow and WordPress, with managed hosting; and brand identities and conference booth graphics.</p>
+        <p>For companies in active drilling, our News-Release Map Program keeps a locked, house-styled base map and delivers each new results map within two business days of clean data, on a monthly plan.</p>
+        <p>Our team combines geology- and GIS-trained mapmakers and Leapfrog modellers with designers and developers, so the people drawing your sections understand them. Clients&rsquo; Qualified Persons review and approve all technical figures.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Service names</h3>
+      <p>Use these names exactly. Prices are &ldquo;from&rdquo;, in CAD, before tax. The live figures are on the website; check there before quoting.</p>
+      <div class="tablewrap"><table class="facts">
+        <tr><th>News-Release Map Program</th><td>Monthly plan for active drillers. Cadence, Active Drill and Full Program tiers.</td></tr>
+        <tr><th>Investor maps</th><td>Locators &amp; Area Plays · Property &amp; Target · Geology, Geochem &amp; Geophysics</td></tr>
+        <tr><th>Drilling / Sections</th><td>Drill plans, cross-sections and long sections</td></tr>
+        <tr><th>3D Isometric Models</th><td>Models and GIS flythrough films</td></tr>
+        <tr><th>Schematics &amp; Plans</th><td>Conceptual and schematic figures</td></tr>
+        <tr><th>Investor Presentations</th><td>Never &ldquo;investor deck&rdquo; as a product name</td></tr>
+        <tr><th>Websites</th><td>Webflow Websites · WordPress Websites · Hosting &amp; Nurture CRM</td></tr>
+        <tr><th>Design</th><td>Logos &amp; Branding · Fact Sheets · Conference Booth</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CHECK -->
+<section class="part" id="check">
+  <header>
+    <span class="label"><span class="ore">09</span> &nbsp;Before it goes out</span>
+    <h2>The last pass.</h2>
+    <p>Run through this for anything that carries our name.</p>
+  </header>
+  <div class="content">
+    <ul class="check">
+      <li>Would this hold up in front of a portfolio manager?</li>
+      <li>Is there one clear message?</li>
+      <li>Numbers instead of adjectives; no banned words.</li>
+      <li>No share-price outcomes and no &ldquo;guaranteed&rdquo;.</li>
+      <li>Technical figures approved by the client&rsquo;s QP.</li>
+      <li>No undisclosed client information.</li>
+      <li>Two typefaces only; tabular figures in data.</li>
+      <li>Quartz, not white; Ore at 2% or less.</li>
+      <li>No glow, gradients or heavy shadows.</li>
+      <li>Checked at phone width.</li>
+      <li>Name, URL and phone written exactly as in section 08.</li>
+      <li>Prices in CAD, marked &ldquo;from&rdquo;, before tax.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="end">
+  <span>Exploration Sites · Victoria, BC · Since 1996</span>
+  <span>Questions about the brand: Dorian Leslie · info@explorationsites.com</span>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.copybtn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var text = Array.prototype.map.call(el.querySelectorAll('p').length ? el.querySelectorAll('p') : [el], function (p) { return p.textContent.trim(); }).join('\n\n');
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected · press Ctrl+C';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 2400);
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+</script>
+
+</body>
+</html>
