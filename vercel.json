@@ -12,6 +12,7 @@
     { "source": "/exploration-today-ai.html", "destination": "/services.html", "permanent": false },
     { "source": "/infographics.html", "destination": "/services.html", "permanent": false },
     { "source": "/infographics{/}?", "destination": "/services.html", "permanent": false },
+    { "source": "/advisors.html", "destination": "/team.html", "permanent": false },
     { "source": "/sections.html", "destination": "/drilling.html", "permanent": true },
     { "source": "/sections{/}?", "destination": "/drilling.html", "permanent": true },
     { "source": "/conceptual-schematic.html", "destination": "/schematics-plans.html", "permanent": true },
