@@ -133,6 +133,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"The Fund
             .then(function (res) {
               if (res.ok) {
                 form.reset();
+                if (window.esTrack) esTrack('Form sent', { form: 'scorecard' });
                 btn.textContent = form.dataset.success || 'Sent';
                 btn.classList.add('is-sent');
                 if (status) status.textContent = 'Thanks — your materials are on the way to us. We’ll send your read within one business day.';

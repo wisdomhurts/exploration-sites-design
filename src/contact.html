@@ -220,6 +220,7 @@ permalink: "contact.html"
                 }).then(function (res) {
                   if (res.ok) {
                     form.reset();
+                    if (window.esTrack) esTrack('Form sent', { form: 'contact' });
                     btn.textContent = form.dataset.success || 'Sent — we’ll be in touch';
                     btn.classList.add('is-sent');
                     // Announce success on a real status region (A11Y-04) — not the trigger button —

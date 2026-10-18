@@ -440,5 +440,38 @@
     } catch (e) {}
     return event;
   });
+
+  // Custom events (the conversions). Anonymous like page views: event names plus where
+  // on the site it happened. Never put names, emails or form contents in event data.
+  window.esTrack = function (name, data) { try { window.va('event', { name: name, data: data || {} }); } catch (e) {} };
+  (function () {
+    var page = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+    function spot(el) {
+      if (el.closest('nav, .site-nav, .mega-menu, header')) return 'nav';
+      if (el.closest('footer')) return 'footer';
+      if (el.closest('.hero, .hero--page')) return 'hero';
+      if (el.closest('.cta-section, .cta, .launch-cta')) return 'closing cta';
+      return 'body';
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (/(^|\/)book\.html(\?|#|$)/.test(href)) return esTrack('Book call click', { page: page, spot: spot(a) });
+      if (/^mailto:/i.test(href)) return esTrack('Email click', { page: page });
+      if (/^tel:/i.test(href)) return esTrack('Phone click', { page: page });
+      if (/\/decks\/[^/]+\.pdf/i.test(href)) return esTrack('Deck opened', { deck: href.split('/').pop().replace(/\.pdf.*$/i, '') });
+      if (a.classList.contains('site-card') && a.hostname !== location.hostname) return esTrack('Client site visit', { site: a.hostname.replace(/^www\./, '') });
+    }, true);
+    document.addEventListener('submit', function (e) {
+      var f = e.target;
+      if (f && f.matches && f.matches('.nrmp-tier-form')) {
+        var p = f.querySelector('[name="program"]');
+        esTrack('Checkout started', { tier: p ? p.value : 'unknown' });
+      }
+    }, true);
+    if (/^\/booking-confirmed/.test(location.pathname)) esTrack('Call booked');
+    if (/^\/checkout-success/.test(location.pathname)) esTrack('Checkout completed');
+  })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
