@@ -390,7 +390,11 @@
         if (!el) return;
         lastTrigger = el;
         var v = el.getAttribute('data-video');
-        if (v) { group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true; openVideo(v, el.getAttribute('data-caption')); return; }
+        if (v) {
+          if (window.esTrack) esTrack('Video played', { video: el.getAttribute('data-caption') || v });
+          group = []; gi = -1; prevBtn.hidden = true; nextBtn.hidden = true; openVideo(v, el.getAttribute('data-caption')); return;
+        }
+        if (window.esTrack) esTrack('Image enlarged', { page: location.pathname.replace(/\.html$/, '') || '/' });
         // Build the image gallery from the sibling image-lightboxes in the same container
         // (e.g. every map in the currently-shown category), so you can page through them.
         group = Array.prototype.slice.call((el.parentNode || document).querySelectorAll('[data-lightbox][data-full]'))
@@ -470,6 +474,22 @@
         esTrack('Checkout started', { tier: p ? p.value : 'unknown' });
       }
     }, true);
+    // How far visitors read: pricing reached (Map Program page) and 75% of any page, once per view.
+    if ('IntersectionObserver' in window) {
+      var tiers = document.querySelector('.nrmp-tiers');
+      if (tiers) {
+        var io = new IntersectionObserver(function (en) {
+          if (en.some(function (x) { return x.isIntersecting; })) { esTrack('Pricing seen', { page: page }); io.disconnect(); }
+        }, { threshold: 0.3 });
+        io.observe(tiers);
+      }
+    }
+    var deep = false;
+    window.addEventListener('scroll', function () {
+      if (deep) return;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h > 400 && window.scrollY / h >= 0.75) { deep = true; esTrack('Read 75%', { page: page }); }
+    }, { passive: true });
     if (/^\/booking-confirmed/.test(location.pathname)) esTrack('Call booked');
     if (/^\/checkout-success/.test(location.pathname)) esTrack('Checkout completed');
   })();
