@@ -447,7 +447,15 @@
 
   // Custom events (the conversions). Anonymous like page views: event names plus where
   // on the site it happened. Never put names, emails or form contents in event data.
-  window.esTrack = function (name, data) { try { window.va('event', { name: name, data: data || {} }); } catch (e) {} };
+  // Ad visitors: when this page view came from a tagged campaign link, add the campaign to
+  // every event on it (Vercel's UTM reports need a paid add-on; event data doesn't).
+  var esCampaign = (function () { try { return new URLSearchParams(location.search).get('utm_campaign') || ''; } catch (e) { return ''; } })().slice(0, 40);
+  window.esTrack = function (name, data) {
+    data = data || {};
+    if (esCampaign) data.campaign = esCampaign;
+    try { window.va('event', { name: name, data: data }); } catch (e) {}
+  };
+  if (esCampaign) window.esTrack('Campaign landing', { page: location.pathname.replace(/\.html$/, '') || '/' });
   (function () {
     var page = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
     function spot(el) {
