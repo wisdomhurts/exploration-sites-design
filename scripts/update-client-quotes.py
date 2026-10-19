@@ -196,6 +196,19 @@ def apply_updates(html, updates):
                         return v
             return 0
 
+        # Drop exact-duplicate rows. Copies have crept in twice (a stale branch rewrote
+        # the table); each copy inflates the client list and double-counts its cap
+        # in the combined total below.
+        seen = set()
+        unique_rows = []
+        for row in rows:
+            if row not in seen:
+                seen.add(row)
+                unique_rows.append(row)
+        if len(unique_rows) != len(rows):
+            print(f"Removed {len(rows) - len(unique_rows)} duplicate client row(s)")
+        rows = unique_rows
+
         sorted_rows = sorted(rows, key=get_mcap, reverse=True)
         html = html[:tbody_match.start(1)] + '\n' + '\n'.join(sorted_rows) + '\n' + html[tbody_match.end(1):]
 
