@@ -1024,6 +1024,13 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
               <div><dt>Response</dt><dd>{{ d.response }}</dd></div>
               <div><dt>Extra credits</dt><dd>${{ d.extra }} each</dd></div>
             </dl>
+            <div class="retainer-actions">
+              <form method="post" action="/api/checkout">
+                <input type="hidden" name="program" value="{{ d.key }}">
+                <button type="submit" class="retainer-buy">Start {{ d.name }} <span aria-hidden="true">&rarr;</span></button>
+              </form>
+              <a class="retainer-call" href="/book.html">Or book a call first</a>
+            </div>
           </div>
         </div>
         {%- endfor %}
@@ -1043,7 +1050,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         </ul>
       </div>
 
-      <p class="retainer-foot reveal">Full details are in the <a href="/terms.html#retainers">retainer terms</a>.</p>
+      <p class="retainer-foot reveal">Secure monthly billing through Stripe, in Canadian dollars plus applicable tax. Full details are in the <a href="/terms.html#retainers">retainer terms</a>.</p>
 
       <style>
         /* Retainer desks — pricing-style cards with a dark header (tier + price).
@@ -1068,6 +1075,12 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         #retainers .retainer-terms div { display: flex; justify-content: space-between; gap: 12px; }
         #retainers .retainer-terms dt { color: var(--muted); }
         #retainers .retainer-terms dd { margin: 0; color: var(--graphite); font-weight: 500; font-variant-numeric: tabular-nums; }
+        #retainers .retainer-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+        #retainers .retainer-actions form { margin: 0; }
+        #retainers .retainer-buy { width: 100%; display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 16px; background: var(--graphite); color: var(--quartz); border: 1px solid var(--graphite); border-radius: 4px; font: 500 14px/1.2 var(--font-sans); cursor: pointer; transition: background 0.2s var(--ease-out-soft); }
+        #retainers .retainer-buy:hover { background: var(--basalt); }
+        #retainers .retainer-buy:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
+        #retainers .retainer-call { align-self: center; font-size: 13px; color: var(--body); text-underline-offset: 3px; }
         #retainers .credit-menu { margin-top: 32px; padding: 26px 28px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
         #retainers .credit-menu-title { font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--body); margin: 0 0 14px; }
         #retainers .credit-menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin: 0; }

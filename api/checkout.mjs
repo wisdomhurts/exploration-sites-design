@@ -1,12 +1,14 @@
 // POST /api/checkout — starts a Stripe Checkout session for a News-Release Map
-// Program tier. The tier buttons on news-release-map-program.html are plain
-// <form method="post"> elements, so this works without client-side JS.
+// Program tier or a retainer desk. The buttons on news-release-map-program.html,
+// engagement.html and pricing.html are plain <form method="post"> elements, so
+// this works without client-side JS.
 //
 // Each session = the tier's monthly subscription price + the one-time base
 // setup price (both added to the first invoice). GST is calculated by Stripe Tax.
 //
 // Env (set in Vercel → Settings → Environment Variables — see .env.example):
-//   STRIPE_SECRET_KEY, STRIPE_PRICE_NRMP_CADENCE / _ACTIVE / _FULL, STRIPE_PRICE_NRMP_SETUP
+//   STRIPE_SECRET_KEY, STRIPE_PRICE_NRMP_CADENCE / _ACTIVE / _FULL, STRIPE_PRICE_NRMP_SETUP,
+//   STRIPE_PRICE_DESK_EXPLORER / _DEVELOPER / _PRODUCER
 
 import Stripe from 'stripe';
 
@@ -20,6 +22,44 @@ const TIERS = {
   full: { name: 'Full Program', priceEnv: 'STRIPE_PRICE_NRMP_FULL', paymentLink: 'https://buy.stripe.com/cNi14m6Xa7853ER08lbV602' },
 };
 
+// Retainer desks (src/_data/desks.js): monthly price only, no setup fee, 12-month term.
+// Payment Links match: Stripe Tax, required address, tax ID, Terms acceptance,
+// redirect to desk-welcome.html?desk=<key>.
+const DESKS = {
+  explorer: { name: 'Explorer Desk', priceEnv: 'STRIPE_PRICE_DESK_EXPLORER', paymentLink: 'https://buy.stripe.com/eVq4gy4P2bolb7j3kxbV603' },
+  developer: { name: 'Developer Desk', priceEnv: 'STRIPE_PRICE_DESK_DEVELOPER', paymentLink: 'https://buy.stripe.com/00w9AS6Xa0JHa3f7ANbV604' },
+  producer: { name: 'Producer Desk', priceEnv: 'STRIPE_PRICE_DESK_PRODUCER', paymentLink: 'https://buy.stripe.com/fZu3cu0yM2RP1wJ08lbV605' },
+};
+
+async function deskCheckout(origin, key) {
+  const desk = DESKS[key];
+  if (!process.env.STRIPE_SECRET_KEY) return Response.redirect(desk.paymentLink, 303);
+  try {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      line_items: [{ price: process.env[desk.priceEnv], quantity: 1 }],
+      automatic_tax: { enabled: true },
+      billing_address_collection: 'required',
+      tax_id_collection: { enabled: true },
+      consent_collection: { terms_of_service: 'required' },
+      custom_text: {
+        terms_of_service_acceptance: {
+          message: `I agree to the [Terms of Service](${origin}/terms.html#retainers), including the 12-month term (twelve monthly payments), then month to month.`,
+        },
+      },
+      metadata: { program: 'desk', desk: key },
+      subscription_data: { metadata: { desk: key } },
+      success_url: `${origin}/desk-welcome.html?desk=${key}`,
+      cancel_url: `${origin}/engagement.html#retainers`,
+    });
+    return Response.redirect(session.url, 303);
+  } catch (err) {
+    console.error('checkout: failed to create desk session', key, err?.message);
+    return Response.redirect(desk.paymentLink, 303);
+  }
+}
+
 export async function POST(request) {
   const origin = new URL(request.url).origin;
 
@@ -27,6 +67,7 @@ export async function POST(request) {
   try {
     program = String((await request.formData()).get('program') || '');
   } catch {}
+  if (Object.hasOwn(DESKS, program)) return deskCheckout(origin, program);
   const tier = Object.hasOwn(TIERS, program) ? TIERS[program] : null;
   if (!tier) return Response.redirect(`${origin}/news-release-map-program.html`, 303);
 

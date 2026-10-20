@@ -437,7 +437,7 @@
       var u = new URL(event.url);
       var keep = new URLSearchParams();
       u.searchParams.forEach(function (v, k) {
-        if (/^utm_(source|medium|campaign|term|content)$/.test(k) || k === 'ref' || (k === 'program' && /^(cadence|active|full)$/.test(v))) keep.append(k, v);
+        if (/^utm_(source|medium|campaign|term|content)$/.test(k) || k === 'ref' || (k === 'program' && /^(cadence|active|full)$/.test(v)) || (k === 'desk' && /^(explorer|developer|producer)$/.test(v))) keep.append(k, v);
       });
       var qs = keep.toString();
       event.url = u.origin + u.pathname + (qs ? '?' + qs : '');
@@ -477,7 +477,7 @@
     }, true);
     document.addEventListener('submit', function (e) {
       var f = e.target;
-      if (f && f.matches && f.matches('.nrmp-tier-form')) {
+      if (f && f.matches && f.matches('form[action="/api/checkout"]')) {
         var p = f.querySelector('[name="program"]');
         esTrack('Checkout started', { tier: p ? p.value : 'unknown' });
       }
@@ -499,7 +499,11 @@
       if (h > 400 && window.scrollY / h >= 0.75) { deep = true; esTrack('Read 75%', { page: page }); }
     }, { passive: true });
     if (/^\/booking-confirmed/.test(location.pathname)) esTrack('Call booked');
-    if (/^\/checkout-success/.test(location.pathname)) esTrack('Checkout completed');
+    if (/^\/checkout-success/.test(location.pathname)) esTrack('Checkout completed', { plan: 'map program' });
+    if (/^\/desk-welcome/.test(location.pathname)) {
+      var dk = new URLSearchParams(location.search).get('desk');
+      esTrack('Checkout completed', { plan: /^(explorer|developer|producer)$/.test(dk) ? dk + ' desk' : 'desk' });
+    }
   })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>

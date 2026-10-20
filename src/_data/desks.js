@@ -8,6 +8,7 @@ const p = require("./prices.json");
 module.exports = {
   tiers: [
     {
+      key: "explorer",
       name: "Explorer Desk",
       price: p.retainerFrom,
       for: "For juniors with one program a year.",
@@ -23,6 +24,7 @@ module.exports = {
       extra: "190",
     },
     {
+      key: "developer",
       name: "Developer Desk",
       price: p.retainerDev,
       for: "For companies in an active program.",
@@ -38,6 +40,7 @@ module.exports = {
       extra: "175",
     },
     {
+      key: "producer",
       name: "Producer Desk",
       price: p.retainerProducer,
       for: "For advancing issuers with a full investor-relations calendar.",
@@ -63,7 +66,7 @@ module.exports = {
   ],
   rules: [
     "Credits are released each quarter and agreed before work starts",
-    "Every item includes two rounds of revisions",
+    "Every item includes three rounds of revisions",
     "Rush work, under 24 hours, costs 1.5× credits",
     "12-month term, then month to month; step down one desk after month six",
   ],

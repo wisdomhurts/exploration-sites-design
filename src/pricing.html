@@ -137,7 +137,11 @@ permalink: "pricing.html"
               {%- endfor %}
               <li>{{ d.response }} response &middot; extra credits ${{ d.extra }}</li>
             </ul>
-            <a class="retainer-cta" href="book.html">Book a call about {{ d.name }} &rarr;</a>
+            <form class="retainer-buy-form" method="post" action="/api/checkout">
+              <input type="hidden" name="program" value="{{ d.key }}">
+              <button type="submit" class="retainer-cta retainer-buy-btn">Start {{ d.name }} &rarr;</button>
+            </form>
+            <a class="retainer-call-link" href="book.html">Or book a call first</a>
           </div>
           {%- endfor %}
         </div>
@@ -151,7 +155,9 @@ permalink: "pricing.html"
 
       <style>
         .retainer-card { display: flex; flex-direction: column; }
-        .retainer-card .retainer-cta { margin-top: auto; align-self: flex-start; }
+        .retainer-card .retainer-buy-form { margin: auto 0 0; }
+        .retainer-card .retainer-buy-btn { background: none; border: 0; border-bottom: 1px solid var(--ore); border-radius: 0; padding: 0 0 2px; cursor: pointer; }
+        .retainer-card .retainer-call-link { margin-top: 10px; font-size: 13px; color: var(--muted); text-underline-offset: 3px; }
         .retainer-credit-line { font-size: 14px; color: var(--body); margin: 10px 0 4px; }
         .retainer-credit-line strong { color: var(--graphite); font-weight: 600; }
         .pricing-credit-menu { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }

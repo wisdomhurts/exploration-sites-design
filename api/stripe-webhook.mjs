@@ -11,6 +11,9 @@ import Stripe from 'stripe';
 
 const NOTIFY_EMAIL_DEFAULT = 'accounts@explorationsites.com';
 const PROGRAM_NAMES = { cadence: 'Cadence', active: 'Active Drill', full: 'Full Program' };
+const DESK_NAMES = { explorer: 'Explorer Desk', developer: 'Developer Desk', producer: 'Producer Desk' };
+// Retainer desks carry metadata.desk; Map Program tiers carry metadata.program.
+const planName = (m = {}) => DESK_NAMES[m.desk] || PROGRAM_NAMES[m.program] || m.desk || m.program || '';
 
 export async function POST(request) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -58,12 +61,12 @@ export async function POST(request) {
 async function newSignupEmail(stripe, session) {
   const full = await stripe.checkout.sessions.retrieve(session.id, { expand: ['line_items'] });
   const d = full.customer_details || {};
-  const program = PROGRAM_NAMES[full.metadata?.program] || full.metadata?.program || 'Unknown tier';
+  const program = planName(full.metadata) || 'Unknown tier';
   const items = (full.line_items?.data || []).map((li) => `${li.description} — ${money(li.amount_total, full.currency)}`);
   const taxIds = (d.tax_ids || []).map((t) => `${t.type}: ${t.value}`);
 
   return {
-    subject: `New NRMP sign-up: ${d.business_name || d.name || d.email} — ${program}`,
+    subject: `New ${full.metadata?.desk ? program : 'NRMP'} sign-up: ${d.business_name || d.name || d.email}${full.metadata?.desk ? '' : ` — ${program}`}`,
     rows: [
       ['Program', program],
       ['Customer', d.name],
@@ -102,7 +105,7 @@ async function cancelledEmail(stripe, subscription) {
   try {
     customer = await stripe.customers.retrieve(subscription.customer);
   } catch {}
-  const program = PROGRAM_NAMES[subscription.metadata?.program] || subscription.metadata?.program || '';
+  const program = planName(subscription.metadata);
   return {
     subject: `Subscription cancelled: ${customer.name || customer.email || subscription.customer}${program ? ` — ${program}` : ''}`,
     rows: [
