@@ -831,10 +831,10 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           </div>
           <h3>Monthly retainer.</h3>
           <p class="model-price">From <span class="mono">${{ prices.retainerFrom }}</span>/mo</p>
-          <p class="model-lede">For companies in continuous market — ongoing map updates, presentation refreshes, site maintenance, and investor support, retained at a predictable monthly commitment.</p>
+          <p class="model-lede">For companies in continuous market — a predictable monthly fee for a yearly bank of credits, released each quarter, spent on map updates, deck refreshes, site work and new figures from a published menu.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
-            Issuers in an active program who keep materials current between milestones and want a standing production capacity rather than one-off briefs.
+            Issuers who keep materials current between milestones and want capacity that follows their drill seasons, conferences and financings rather than one-off briefs.
           </p>
         </a>
 
@@ -993,102 +993,94 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
     </div>
   </section>
 
-  <!-- ===== RETAINERS (comparison matrix) ===== -->
+  <!-- ===== RETAINERS (credit desks, 2026-10-20; data in src/_data/desks.js) ===== -->
   <section id="retainers" class="band-vellum">
     <div class="shell">
       <div class="sec-head reveal" id="retainers-tiers" style="scroll-margin-top:132px;">
         <span class="sec-reg">[ §<b>03</b> / 04 ]&nbsp;&nbsp;Monthly retainer · Model 02</span>
-        <h2>Retainer tiers, side by side.</h2>
-        <p class="sec-note" style="max-width:none;">For companies in continuous market — retained at a predictable monthly commitment. Retainers keep your existing materials current at standard turnaround; for new news-release maps on a 48-hour turnaround through a drill program, see the <a href="/news-release-map-program.html">News-Release Map Program</a>.</p>
+        <h2>Retainer desks, side by side.</h2>
+        <p class="sec-note" style="max-width:none;">A predictable monthly fee buys a yearly bank of credits, released each quarter, so your capacity follows drill seasons, conferences and financings instead of the calendar. One credit is about an hour of production, spent on the published menu below and agreed before work starts. For a run of news-release maps through a drill program, the <a href="/news-release-map-program.html">News-Release Map Program</a> is better value.</p>
       </div>
 
       <div class="retainer-grid reveal">
+        {%- for d in desks.tiers %}
         <div class="retainer-card">
           <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Explorer Desk</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerFrom }}<span style="color: var(--graticule);">/mo</span></span></span>
+            <span class="retainer-head-left"><span class="retainer-tier">{{ d.name }}</span></span>
+            <span class="retainer-dollars"><span class="rd-price">${{ d.price }}</span><span class="rd-unit">/mo</span></span>
           </div>
           <div class="retainer-body">
-            <p class="retainer-for">For early-stage teams keeping their core materials current between milestones.</p>
+            <p class="retainer-for">{{ d.for }}</p>
+            <div class="retainer-credits">
+              <span class="rc-num">{{ d.credits }} credits a year</span>
+              <span class="rc-note">{{ d.perQuarter }} each quarter. {{ d.note }}</span>
+            </div>
             <ul class="retainer-features">
-              <li>Maps, fact sheet &amp; site kept current</li>
-              <li>Capacity for ~4 figure or page updates / month</li>
-              <li>Up to 40% of unused capacity rolls forward</li>
-              <li>48-hour priority response</li>
+              {%- for f in d.features %}
+              <li>{{ f }}</li>
+              {%- endfor %}
             </ul>
+            <dl class="retainer-terms">
+              <div><dt>Response</dt><dd>{{ d.response }}</dd></div>
+              <div><dt>Extra credits</dt><dd>${{ d.extra }} each</dd></div>
+            </dl>
           </div>
         </div>
-        <div class="retainer-card is-popular">
-          <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Developer Desk</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerDev }}<span style="color: var(--graticule);">/mo</span></span></span>
-          </div>
-          <div class="retainer-body">
-            <p class="retainer-for">For companies in an active program who need steady production across maps, decks, and web.</p>
-            <ul class="retainer-features">
-              <li>New map production alongside updates</li>
-              <li>Capacity for ~8 figures or revisions / month</li>
-              <li>Up to 40% of unused capacity rolls forward</li>
-              <li>Website maintenance &amp; hosting, with investor CRM &amp; analytics</li>
-              <li>Presentation updates</li>
-              <li>48-hour priority response</li>
-            </ul>
-          </div>
-        </div>
-        <div class="retainer-card">
-          <div class="retainer-head">
-            <span class="retainer-head-left"><span class="retainer-tier">Producer Desk</span></span>
-            <span class="retainer-dollars" style="font-family: var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; letter-spacing: 0;"><span style="font-size: 15px; color: var(--quartz);">${{ prices.retainerProducer }}<span style="color: var(--graticule);">/mo</span></span></span>
-          </div>
-          <div class="retainer-body">
-            <p class="retainer-for">For advancing issuers running a full investor-relations function with motion, 3D, and analytics.</p>
-            <ul class="retainer-features">
-              <li>Everything in Developer Desk</li>
-              <li>Capacity for ~20 figures or revisions / month</li>
-              <li>Up to 40% of unused capacity rolls forward</li>
-              <li>One 3D model or motion piece per quarter (larger films quoted separately)</li>
-              <li>24-hour priority response</li>
-            </ul>
-          </div>
-        </div>
+        {%- endfor %}
       </div>
 
-      <p class="retainer-foot reveal">All retainers are based on a 12-month commitment, then month-to-month. See the <a href="/terms.html#retainers">terms</a>.</p>
+      <div class="credit-menu reveal">
+        <h3 class="credit-menu-title">What a credit buys</h3>
+        <dl class="credit-menu-list">
+          {%- for m in desks.menu %}
+          <div><dt>{{ m.item }}</dt><dd>{{ m.credits }}</dd></div>
+          {%- endfor %}
+        </dl>
+        <ul class="credit-rules">
+          {%- for r in desks.rules %}
+          <li>{{ r }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <p class="retainer-foot reveal">Full details are in the <a href="/terms.html#retainers">retainer terms</a>.</p>
 
       <style>
-        /* Retainer cards — pricing-style cards with a dark header (tier + $ rating).
+        /* Retainer desks — pricing-style cards with a dark header (tier + price).
            ID-scoped so these win the cascade over any conflicting global rules. */
-        #retainers .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; align-items: start; }
-        #retainers .retainer-card {
-          display: flex; flex-direction: column; position: relative; overflow: hidden;
-          border: 1px solid var(--border); border-radius: 8px;
-          background: var(--surface);
-          transition: border-color 0.2s var(--ease-out-soft);
-        }
-        #retainers .retainer-card.is-popular { border-color: var(--navy); }
-        /* Cancel the shared .retainer-card padding from styles.css; this page pads head/body itself. */
-        #retainers .retainer-card { padding: 0; }
+        #retainers .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; align-items: stretch; }
+        #retainers .retainer-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 0; transition: border-color 0.2s var(--ease-out-soft); }
         #retainers .retainer-card:hover { border-color: var(--slate); }
-        #retainers .retainer-card.is-popular:hover { border-color: var(--navy); }
-        @media (prefers-reduced-motion: reduce) { #retainers .retainer-card:hover { transform: none; } }
-        #retainers .retainer-head {
-          display: flex; align-items: center; justify-content: space-between; gap: 12px;
-          background: var(--graphite); color: var(--quartz); padding: 14px 22px;
-        }
+        #retainers .retainer-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--graphite); color: var(--quartz); padding: 14px 22px; }
         #retainers .retainer-head-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
         #retainers .retainer-head .retainer-tier { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--quartz) !important; margin: 0; }
-        /* Sits on the graphite retainer-card head — full-strength gold (5.5:1 on
-           #1A101F); --ore-text is a LIGHT-surface token and fails here. */
-        #retainers .retainer-pop { font-size: 9px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ore); border-bottom: 1px solid var(--ore); padding: 2px 0; }
-        #retainers .retainer-dollars { font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 1px; color: var(--graticule); line-height: 1; }
-        #retainers .retainer-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 26px; }
-        #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px; }
+        #retainers .retainer-dollars { font-family: var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
+        #retainers .rd-price { font-size: 15px; color: var(--quartz); }
+        #retainers .rd-unit { font-size: 15px; color: var(--graticule); }
+        #retainers .retainer-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 20px; gap: 16px; }
+        #retainers .retainer-for { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0; }
+        #retainers .retainer-credits { background: var(--vellum); border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+        #retainers .rc-num { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--graphite); font-variant-numeric: tabular-nums; }
+        #retainers .rc-note { font-size: 13px; line-height: 1.5; color: var(--body); }
         #retainers .retainer-features { list-style: none; margin: 0; padding: 0; }
-        #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 6px 0; line-height: 1.5; }
-        #retainers .retainer-rate { margin-top: auto; padding: 14px 22px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.03em; }
-        #retainers .retainer-foot { max-width: none; margin: 24px 0 0; font-size: 14px; color: var(--muted); }
-        /* NRMP boundary callout — quiet surface row under the tier cards */
+        #retainers .retainer-features li { font-size: 14px; color: var(--body); padding: 5px 0; line-height: 1.5; }
+        #retainers .retainer-terms { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--border); display: grid; gap: 4px; font-size: 13px; }
+        #retainers .retainer-terms div { display: flex; justify-content: space-between; gap: 12px; }
+        #retainers .retainer-terms dt { color: var(--muted); }
+        #retainers .retainer-terms dd { margin: 0; color: var(--graphite); font-weight: 500; font-variant-numeric: tabular-nums; }
+        #retainers .credit-menu { margin-top: 32px; padding: 26px 28px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+        #retainers .credit-menu-title { font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--body); margin: 0 0 14px; }
+        #retainers .credit-menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin: 0; }
+        #retainers .credit-menu-list div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        #retainers .credit-menu-list dt { color: var(--body); }
+        #retainers .credit-menu-list dd { margin: 0; color: var(--graphite); font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        #retainers .credit-rules { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 48px; }
+        #retainers .credit-rules li { font-size: 13px; line-height: 1.5; color: var(--muted); padding-left: 14px; position: relative; }
+        #retainers .credit-rules li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 5px; height: 1px; background: var(--slate); }
+        #retainers .retainer-foot { max-width: none; margin: 20px 0 0; font-size: 14px; color: var(--muted); }
+        @media (min-width: 1025px) { #retainers .retainer-for { min-height: 3em; } }
         @media (max-width: 1024px) { #retainers .retainer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 720px) { #retainers .credit-menu-list, #retainers .credit-rules { grid-template-columns: 1fr; } #retainers .credit-menu { padding: 20px; } }
       </style>
     </div>
   </section>
