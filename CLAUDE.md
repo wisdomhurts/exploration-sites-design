@@ -50,6 +50,10 @@ CSS is a single large hand-authored file: `src/styles.css` (passed through verba
 
 `src/_data/services.js` is the single catalog of services (name, one-sentence summary, price from `prices.json`). It drives the per-page `Service` + `Offer` JSON-LD in `head.html` (any page whose file name is a key gets one), the org's `hasOfferCatalog`, and `/llms.txt` (`src/llms.txt.njk`). Change a price in `prices.json` and all three follow. Add a new service page = add a key here. `src/446d45b491bb1d660b1f96d071d35dad.txt` is the IndexNow ownership key; keep it at the root.
 
+### Local-currency prices
+
+Every price in the source is CAD. Templates print prices through the `money` filter (`{{ prices.mapFrom | money }}` → `<span class="px" data-cad="1200">$1,200</span>`; FAQ prose goes through `moneyText`), and a script in `scripts.html` converts them for the visitor: US → USD, Australia → AUD, Canada → CAD, anywhere else → USD (country from `api/geo.mjs`, which echoes Vercel's `x-vercel-ip-country`; nothing stored). Visitors can switch with any `.fx-switch` (pricing page and footer). Conversion uses the fixed rates in `prices.json` `fx` with clean rounding (5 / 10 / 50 / 500 steps), and the six Stripe prices carry the same amounts as `currency_options`, so the page price is the checkout price. **Never hand-write `$1,200` in a template; use the filter**, or the number stays CAD for everyone. To re-price: change `prices.json` `fx` and the Stripe `currency_options` together. `.github/workflows/fx-check.yml` opens a GitHub issue on the 1st of the month if a rate drifts over 5%.
+
 ### Stripe checkout (`api/`)
 
 The only server code. Two Vercel Functions (web-standard `POST(request)` handlers, `.mjs` because `package.json` is CommonJS):

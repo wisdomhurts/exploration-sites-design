@@ -11,7 +11,7 @@
 {%- for f in faq %}
           <div class="faq-item">
             <h3 class="faq-q">{{ f.q }}</h3>
-            <p class="faq-a">{{ f.a }}</p>
+            <p class="faq-a">{{ f.a | moneyText }}</p>
           </div>
 {%- endfor %}
         </div>

@@ -15,5 +15,11 @@
   "nrmpOverage": "750",
   "hostingMonthly": "200",
   "isoFrom": "1,800",
-  "webflowFrom": "18,000"
+  "webflowFrom": "18,000",
+  "fx": {
+    "USD": 0.7117,
+    "AUD": 1.0189,
+    "asOf": "2026-10-20",
+    "_note": "CAD to USD/AUD rates the local-currency prices are built on (scripts.html + Stripe currency_options). Change only together with Stripe; scripts/fx-check.mjs flags drift over 5%."
+  }
 }

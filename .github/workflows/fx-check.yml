@@ -1,0 +1,30 @@
+name: Monthly currency drift check
+
+# Local-currency prices (USD, AUD) use fixed rates in src/_data/prices.json "fx".
+# On the 1st of each month this compares them with today's rates and opens an issue
+# if either has moved more than 5%. Nothing is changed automatically.
+
+on:
+  schedule:
+    - cron: "0 15 1 * *"     # 1st of the month, 15:00 UTC (8 am Pacific)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compare rates
+        run: node scripts/fx-check.mjs
+      - name: Open an issue if rates drifted
+        if: hashFiles('fx-drift.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Currency prices need a review ($(date +%Y-%m))" --body-file fx-drift.md

@@ -507,3 +507,53 @@
   })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- Local-currency prices. Prices are CAD in the source (<span class="px" data-cad>);
+     visitors in the US see USD, in Australia AUD, in Canada CAD, elsewhere USD — from
+     /api/geo (country only, nothing stored), overridable with the .fx-switch buttons.
+     Fixed rates + the same rounding as the Stripe currency_options, so the price on the
+     page is the price at checkout. Rates live in prices.json "fx". -->
+<script>
+  (function () {
+    var px = document.querySelectorAll('.px');
+    var switches = document.querySelectorAll('.fx-switch');
+    if (!px.length) return;
+    var FX = {{ prices.fx | json }};
+    var CUR = { CAD: { sym: '$', name: 'Canadian dollars' }, USD: { sym: 'US$', name: 'US dollars' }, AUD: { sym: 'A$', name: 'Australian dollars' } };
+    var BY_COUNTRY = { CA: 'CAD', US: 'USD', AU: 'AUD' };
+    function clean(v) { var s = v < 100 ? 5 : v < 1000 ? 10 : v < 5000 ? 50 : 500; return Math.round(v / s) * s; }
+    function amount(cad, c) { return c === 'CAD' ? cad : clean(cad * FX[c]); }
+    function apply(c) {
+      if (!CUR[c]) c = 'CAD';
+      px.forEach(function (el) { el.textContent = CUR[c].sym + amount(+el.getAttribute('data-cad'), c).toLocaleString('en-US'); });
+      document.querySelectorAll('.fx-code').forEach(function (el) { el.textContent = c; });
+      document.querySelectorAll('.fx-name').forEach(function (el) { el.textContent = CUR[c].name; });
+      switches.forEach(function (sw) {
+        sw.hidden = false;
+        sw.querySelectorAll('button[data-cur]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-cur') === c ? 'true' : 'false'); });
+      });
+      document.documentElement.setAttribute('data-currency', c);
+    }
+    function store(k, v, session) { try { (session ? sessionStorage : localStorage).setItem(k, v); } catch (e) {} }
+    function read(k, session) { try { return (session ? sessionStorage : localStorage).getItem(k); } catch (e) { return null; } }
+    switches.forEach(function (sw) {
+      sw.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-cur]');
+        if (!b) return;
+        var c = b.getAttribute('data-cur');
+        store('es-currency', c);
+        apply(c);
+        if (window.esTrack) esTrack('Currency switched', { to: c });
+      });
+    });
+    var chosen = read('es-currency');
+    if (chosen) return apply(chosen);
+    var guessed = read('es-currency-geo', true);
+    if (guessed) return apply(guessed);
+    apply('CAD');
+    fetch('/api/geo').then(function (r) { return r.json(); }).then(function (d) {
+      var c = BY_COUNTRY[d.country] || (d.country ? 'USD' : 'CAD');
+      store('es-currency-geo', c, true);
+      if (!read('es-currency')) apply(c);
+    }).catch(function () {});
+  })();
+</script>

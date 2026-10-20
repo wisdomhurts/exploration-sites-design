@@ -816,7 +816,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <span class="model-tag">Bundled</span>
           </div>
           <h3>The Launch Package.</h3>
-          <p class="model-price">From <span class="mono">${{ prices.launchPackage }}</span></p>
+          <p class="model-price">From <span class="mono">{{ prices.launchPackage | money }}</span></p>
           <p class="model-lede">The full investor-relations foundation in one engagement — maps, deck, website, fact sheet, and brand, delivered together on a single fixed quote.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
@@ -830,7 +830,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <span class="model-tag">Recurring</span>
           </div>
           <h3>Monthly retainer.</h3>
-          <p class="model-price">From <span class="mono">${{ prices.retainerFrom }}</span>/mo</p>
+          <p class="model-price">From <span class="mono">{{ prices.retainerFrom | money }}</span>/mo</p>
           <p class="model-lede">For companies in continuous market — a predictable monthly fee for a yearly bank of credits, released each quarter, spent on map updates, deck refreshes, site work and new figures from a published menu.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
@@ -844,7 +844,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <span class="model-tag">À la carte</span>
           </div>
           <h3>Project work.</h3>
-          <p class="model-price">From <span class="mono">${{ prices.mapFrom }}</span></p>
+          <p class="model-price">From <span class="mono">{{ prices.mapFrom | money }}</span></p>
           <p class="model-lede">Pick exactly the deliverables you need — investor maps, decks, websites, fact sheets, branding, or GIS films. Each piece is scoped on its own terms and delivered against a single fixed quote, so you know what you’re committing to before we begin.</p>
           <p class="model-bestfor">
             <span class="lbl">Ideal for</span>
@@ -857,7 +857,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       <a class="models-nrmp reveal" href="news-release-map-program.html">
         <span class="models-nrmp-kick">In active drilling</span>
         <span class="models-nrmp-body">The <strong>News-Release Map Program</strong> keeps your news-release map cadence through the season &mdash; maps sized to your drill program, turned around in 48 hours.</span>
-        <span class="models-nrmp-price"><span>From <span class="mono">${{ prices.nrmpCadence }}</span>/mo &middot; no setup fee &middot; 6-month min.</span><span class="models-nrmp-avail">Limited availability</span></span>
+        <span class="models-nrmp-price"><span>From <span class="mono">{{ prices.nrmpCadence | money }}</span>/mo &middot; no setup fee &middot; 6-month min.</span><span class="models-nrmp-avail">Limited availability</span></span>
         <span class="models-nrmp-cta">See the program &rarr;</span>
       </a>
 
@@ -879,7 +879,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
       </div>
 
       <div class="rate reveal">
-        <p class="rate-base"><span class="rate-base-fig">${{ prices.mapFrom }}</span><span class="rate-base-text">Most pieces start here &mdash;<br>anything that differs is priced below.</span></p>
+        <p class="rate-base"><span class="rate-base-fig">{{ prices.mapFrom | money }}</span><span class="rate-base-text">Most pieces start here &mdash;<br>anything that differs is priced below.</span></p>
         <div class="rate-card rate-lead">
           <div class="rate-head">
             <div class="deliv-kick">Make geology legible</div>
@@ -887,14 +887,14 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             <p class="rate-meta">Per map &middot; typically 3&ndash;7 business days</p>
           </div>
           <ul class="rate-list">
-            <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
-            <li><a href="property-target.html">Property &amp; Target Maps</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
-            <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
+            <li><a href="locators-area-plays.html">Locators &amp; Area Plays</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.mapFrom | money }}</span>{% endif %}</li>
+            <li><a href="property-target.html">Property &amp; Target Maps</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.mapFrom | money }}</span>{% endif %}</li>
+            <li><a href="geoscience-maps.html">Geo / Geochem / Geophys</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.mapFrom | money }}</span>{% endif %}</li>
           </ul>
           <ul class="rate-list">
-            <li><a href="drilling.html">Drilling / Sections</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.mapFrom }}</span>{% endif %}</li>
-            <li><a href="schematics-plans.html">Schematics &amp; Plans</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.designFrom }}</span>{% endif %}</li>
-            <li><a href="3d-models.html">3D Isometric Models</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.isoFrom }}</span></li>
+            <li><a href="drilling.html">Drilling / Sections</a>{% if prices.mapFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.mapFrom | money }}</span>{% endif %}</li>
+            <li><a href="schematics-plans.html">Schematics &amp; Plans</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.designFrom | money }}</span>{% endif %}</li>
+            <li><a href="3d-models.html">3D Isometric Models</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.isoFrom | money }}</span></li>
           </ul>
         </div>
         <div class="rate-row">
@@ -903,9 +903,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <div class="deliv-title"><a href="websites.html">Websites</a></div>
           <p class="rate-meta">Typically 5 weeks</p>
           <ul class="rate-list">
-            <li><a href="wordpress.html">WordPress Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.websiteFrom }}</span></li>
-            <li><a href="webflow.html">Webflow Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.webflowFrom }}</span></li>
-            <li><a href="hosting.html">Hosting &amp; Nurture CRM</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.hostingMonthly }}/mo</span></li>
+            <li><a href="wordpress.html">WordPress Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.websiteFrom | money }}</span></li>
+            <li><a href="webflow.html">Webflow Websites</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.webflowFrom | money }}</span></li>
+            <li><a href="hosting.html">Hosting &amp; Nurture CRM</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.hostingMonthly | money }}/mo</span></li>
           </ul>
         </div>
         <div class="rate-card">
@@ -913,9 +913,9 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <div class="deliv-title"><a href="presentations.html">Presentations</a></div>
           <p class="rate-meta">Typically 4&ndash;6 weeks</p>
           <ul class="rate-list">
-            <li><a href="fact-sheets.html">Fact Sheets</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.designFrom }}</span>{% endif %}</li>
-            <li><a href="presentations.html">Investor Presentations</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.deckFrom }}</span></li>
-            <li><a href="movies.html">GIS Films</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.motionFrom }}</span></li>
+            <li><a href="fact-sheets.html">Fact Sheets</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.designFrom | money }}</span>{% endif %}</li>
+            <li><a href="presentations.html">Investor Presentations</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.deckFrom | money }}</span></li>
+            <li><a href="movies.html">GIS Films</a><span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.motionFrom | money }}</span></li>
           </ul>
         </div>
         <div class="rate-card">
@@ -923,8 +923,8 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <div class="deliv-title"><a href="logos-branding.html">Design</a></div>
           <p class="rate-meta">Quoted to scope</p>
           <ul class="rate-list">
-            <li><a href="logos-branding.html">Logos &amp; Branding</a>{% if prices.brandFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.brandFrom }}</span>{% endif %}</li>
-            <li><a href="conference-booth.html">Conference / Booth Design</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">${{ prices.designFrom }}</span>{% endif %}</li>
+            <li><a href="logos-branding.html">Logos &amp; Branding</a>{% if prices.brandFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.brandFrom | money }}</span>{% endif %}</li>
+            <li><a href="conference-booth.html">Conference / Booth Design</a>{% if prices.designFrom != prices.mapFrom %}<span class="rate-dots" aria-hidden="true"></span><span class="rate-price">{{ prices.designFrom | money }}</span>{% endif %}</li>
           </ul>
         </div>
         </div>
@@ -948,11 +948,11 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
           <p>Commissioned piece by piece, five deliverables come back in five voices. Scoped as one engagement, they come back in one — and at a lower number.</p>
           <div class="launch-save">
             <span>Commissioned separately:</span>
-            <b>from ~${{ launch.separate }}</b>
+            <b>from ~{{ launch.separate | money }}</b>
           </div>
           <div class="launch-price" style="margin-top: 12px; padding-top: 0;">
             <span class="launch-price-lead" style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graticule);">As one engagement, starting at</span>
-            <span class="launch-price-fig mono">${{ prices.launchPackage }}</span>
+            <span class="launch-price-fig mono">{{ prices.launchPackage | money }}</span>
             <span class="launch-price-note">the complete investor foundation &mdash; built before you raise</span>
           </div>
         </div>
@@ -1007,7 +1007,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         <div class="retainer-card">
           <div class="retainer-head">
             <span class="retainer-head-left"><span class="retainer-tier">{{ d.name }}</span></span>
-            <span class="retainer-dollars"><span class="rd-price">${{ d.price }}</span><span class="rd-unit">/mo</span></span>
+            <span class="retainer-dollars"><span class="rd-price">{{ d.price | money }}</span><span class="rd-unit">/mo</span></span>
           </div>
           <div class="retainer-body">
             <p class="retainer-for">{{ d.for }}</p>
@@ -1022,7 +1022,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
             </ul>
             <dl class="retainer-terms">
               <div><dt>Response</dt><dd>{{ d.response }}</dd></div>
-              <div><dt>Extra credits</dt><dd>${{ d.extra }} each</dd></div>
+              <div><dt>Extra credits</dt><dd>{{ d.extra | money }} each</dd></div>
             </dl>
             <div class="retainer-actions">
               <form method="post" action="/api/checkout">
@@ -1050,7 +1050,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"WebPage","name":"How We W
         </ul>
       </div>
 
-      <p class="retainer-foot reveal">Secure monthly billing through Stripe, in Canadian dollars plus applicable tax. Full details are in the <a href="/terms.html#retainers">retainer terms</a>.</p>
+      <p class="retainer-foot reveal">Secure monthly billing through Stripe, in <span class="fx-name">Canadian dollars</span> plus applicable tax. Full details are in the <a href="/terms.html#retainers">retainer terms</a>.</p>
 
       <style>
         /* Retainer desks — pricing-style cards with a dark header (tier + price).

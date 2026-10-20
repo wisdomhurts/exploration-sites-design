@@ -3350,3 +3350,12 @@ body { overflow-x: clip; }
   .hero-globe-canvas, .hero-globe-pin { display: none !important; }
   .hero-globe.is-live .hero-globe-fallback { display: block; opacity: 1; }
 }
+
+    /* Local-currency switcher (scripts.html swaps .px prices; see .eleventy.js money filter) */
+    .fx-switch { display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; }
+    .fx-switch button { background: none; border: 0; border-bottom: 1px solid transparent; padding: 0 3px 1px; margin: 0 1px; font: inherit; letter-spacing: 0.04em; color: var(--muted); cursor: pointer; }
+    .fx-switch button:hover { color: var(--graphite); }
+    .fx-switch button[aria-pressed="true"] { color: var(--graphite); border-bottom-color: var(--ore); }
+    .fx-switch button:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
+    .fx-switch--footer { font-size: 11px; color: var(--muted); }
+    .px { font-variant-numeric: tabular-nums; }

@@ -17,8 +17,8 @@ mapType: "models"
       <div class="section-label">Investor Maps</div>
       <h1 class="hero-headline">3D isometric models.</h1>
       <p class="hero-body">Plans and sections each show one face of a deposit; a 3D view shows the whole thing &mdash; orebody, terrain, and drilling in one frame. Built from your DEM, drill database, and models, and rendered as a designed figure rather than a software screenshot.</p>
-      <p class="hero-from">From <b>${{ prices.isoFrom }}</b> &middot; typically 3&ndash;7 business days</p>
-      <p class="hero-from-note">Static 3D isometric models start at ${{ prices.isoFrom }}. Animated 3D films are a motion engagement &mdash; from ${{ prices.motionFrom }}.</p>
+      <p class="hero-from">From <b>{{ prices.isoFrom | money }}</b> &middot; typically 3&ndash;7 business days</p>
+      <p class="hero-from-note">Static 3D isometric models start at {{ prices.isoFrom | money }}. Animated 3D films are a motion engagement &mdash; from {{ prices.motionFrom | money }}.</p>
     </section>
 
     <div class="divider"></div>

@@ -61,7 +61,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         </div>
         <div>
           <p class="body-text">From the first locator to the cross-section that proves grade at depth &mdash; designed cartography built from your raw GIS, geophysics, and drillhole data, styled for the deck, the news release, and the website.</p>
-          <p class="maptype-price">From ${{ prices.mapFrom }} per map &middot; 3D models from ${{ prices.isoFrom }}</p>
+          <p class="maptype-price">From {{ prices.mapFrom | money }} per map &middot; 3D models from {{ prices.isoFrom | money }}</p>
           <div class="maptype-grid">
             <a class="maptype" href="locators-area-plays.html">
               <span class="maptype-media"><img src="{{ serviceSamples['locators-area-plays.html'].img }}" alt="" loading="lazy" decoding="async"></span>
@@ -108,7 +108,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
         <span class="nrmp-band-desc">A locked, house-styled base and a set number of maps every month, each on a 48-hour turnaround, so every release ships with its map.</span>
       </span>
       <span class="nrmp-band-side">
-        <span class="nrmp-band-price">From ${{ prices.nrmpCadence }}/month, no setup fee<br>6-month minimum</span>
+        <span class="nrmp-band-price">From {{ prices.nrmpCadence | money }}/month, no setup fee<br>6-month minimum</span>
         <span class="avail-tag">Limited availability</span>
         <span class="nrmp-band-cta">See the program &rarr;</span>
       </span>
@@ -134,7 +134,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Webflow Websites</div>
               <div class="service-desc">A premium site your team can update without a developer, so the story stays current between releases.</div>
-              <div class="service-from">From ${{ prices.webflowFrom }}{% if serviceSamples['webflow.html'].count > 2 %} &middot; {{ serviceSamples['webflow.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.webflowFrom | money }}{% if serviceSamples['webflow.html'].count > 2 %} &middot; {{ serviceSamples['webflow.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -143,7 +143,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">WordPress Websites</div>
               <div class="service-desc">A flexible build for companies that publish often: news releases, filings, and investor pages in one place.</div>
-              <div class="service-from">From ${{ prices.websiteFrom }}{% if serviceSamples['wordpress.html'].count > 2 %} &middot; {{ serviceSamples['wordpress.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.websiteFrom | money }}{% if serviceSamples['wordpress.html'].count > 2 %} &middot; {{ serviceSamples['wordpress.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -152,7 +152,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Hosting &amp; Nurture CRM</div>
               <div class="service-desc">We keep the site fast, secure, and current, with an investor CRM and analytics included so you can see who is reading.</div>
-              <div class="service-from">${{ prices.hostingMonthly }}/month, CRM &amp; analytics included{% if serviceSamples['hosting.html'].count > 2 %} &middot; {{ serviceSamples['hosting.html'].count }} examples{% endif %}</div>
+              <div class="service-from">{{ prices.hostingMonthly | money }}/month, CRM &amp; analytics included{% if serviceSamples['hosting.html'].count > 2 %} &middot; {{ serviceSamples['hosting.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -183,7 +183,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Investor Presentations</div>
               <div class="service-desc">A roadshow deck with a clear narrative and the maps to back it, built to move a room toward conviction.</div>
-              <div class="service-from">From ${{ prices.deckFrom }}{% if serviceSamples['presentations.html'].count > 2 %} &middot; {{ serviceSamples['presentations.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.deckFrom | money }}{% if serviceSamples['presentations.html'].count > 2 %} &middot; {{ serviceSamples['presentations.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -192,7 +192,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Fact Sheets</div>
               <div class="service-desc">The page an investor takes away: the story, the numbers, and the map, revised every time a number moves.</div>
-              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['fact-sheets.html'].count > 2 %} &middot; {{ serviceSamples['fact-sheets.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.designFrom | money }}{% if serviceSamples['fact-sheets.html'].count > 2 %} &middot; {{ serviceSamples['fact-sheets.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -201,7 +201,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">GIS Films</div>
               <div class="service-desc">Flyovers and animated models that show a property&rsquo;s scale and structure in a way a slide can&rsquo;t.</div>
-              <div class="service-from">From ${{ prices.motionFrom }}{% if serviceSamples['movies.html'].count > 2 %} &middot; {{ serviceSamples['movies.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.motionFrom | money }}{% if serviceSamples['movies.html'].count > 2 %} &middot; {{ serviceSamples['movies.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -230,7 +230,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Logos &amp; Branding</div>
               <div class="service-desc">An identity that makes a junior read as the serious company it is, with the standards to keep it consistent.</div>
-              <div class="service-from">From ${{ prices.brandFrom }}{% if serviceSamples['logos-branding.html'].count > 2 %} &middot; {{ serviceSamples['logos-branding.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.brandFrom | money }}{% if serviceSamples['logos-branding.html'].count > 2 %} &middot; {{ serviceSamples['logos-branding.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
@@ -239,7 +239,7 @@ pageSchema: '{"@context":"https://schema.org","@type":"Service","name":"Investor
             <div>
               <div class="service-title">Conference / Booth Design</div>
               <div class="service-desc">Banners and backdrops that pull investors across the hall and give your team something to point at.</div>
-              <div class="service-from">From ${{ prices.designFrom }}{% if serviceSamples['conference-booth.html'].count > 2 %} &middot; {{ serviceSamples['conference-booth.html'].count }} examples{% endif %}</div>
+              <div class="service-from">From {{ prices.designFrom | money }}{% if serviceSamples['conference-booth.html'].count > 2 %} &middot; {{ serviceSamples['conference-booth.html'].count }} examples{% endif %}</div>
             </div>
             <span class="service-arrow">&rarr;</span>
           </a>
