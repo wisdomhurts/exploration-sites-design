@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       q: "How much does a news-release map cost?",
-      a: `A one-off map starts at $${p.mapFrom} CAD. On the Map Program, maps come as monthly capacity: Cadence is $${p.nrmpCadence}/month for up to 4 maps, Active Drill $${p.nrmpActive} for up to 8, and Full Program $${p.nrmpFull} for up to 12–15, with a one-time $${p.nrmpSetup} setup and a four-month minimum. Extra maps are $${p.nrmpOverage} each. All prices are in Canadian dollars, before tax.`,
+      a: `A one-off map starts at $${p.mapFrom} CAD. On the Map Program, maps come as monthly capacity: Cadence is $${p.nrmpCadence}/month for up to 4 maps, Active Drill $${p.nrmpActive} for up to 8, and Full Program $${p.nrmpFull} for up to 12–15, with no setup fee and a six-month minimum. Extra maps are $${p.nrmpOverage} each. All prices are in Canadian dollars, before tax.`,
     },
     {
       q: "What do you need from us?",
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       q: "Can we pause between drill programs?",
-      a: `Yes. You can pause for up to six months, with your locked base map kept. Paused months don't count toward the four-month minimum.`,
+      a: `Yes. You can pause for up to six months, with your locked base map kept. Paused months don't count toward the six-month minimum.`,
     },
   ],
   "presentations": [

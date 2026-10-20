@@ -10,7 +10,7 @@ const S = (name, serviceType, summary, price, extra = {}) => ({ name, serviceTyp
 module.exports = {
   "news-release-map-program": S(
     "News-Release Map Program", "News-release drill maps (monthly subscription)",
-    `A monthly subscription for junior mining companies in active drilling: a locked, house-styled base map and a set number of news-release maps each month (up to 4, 8 or 12–15), each delivered within two business days of clean data. From $${p.nrmpCadence}/month plus a one-time $${p.nrmpSetup} setup, with a four-month minimum.`,
+    `A monthly subscription for junior mining companies in active drilling: a locked, house-styled base map and a set number of news-release maps each month (up to 4, 8 or 12–15), each delivered within two business days of clean data. From $${p.nrmpCadence}/month with no setup fee and a six-month minimum.`,
     p.nrmpCadence, { monthly: true, group: "Investor maps" }),
   "locators-area-plays": S(
     "Locator & area-play maps", "Regional locator maps",

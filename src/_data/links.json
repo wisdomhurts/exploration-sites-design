@@ -1,5 +1,5 @@
 {
-  "_comment": "Payment links. 2026-09-30: the three NRMP tiers now use Stripe Checkout via /api/checkout (see api/checkout.mjs) — the tier buttons are forms posting program=cadence|active|full. The legacy LIVE Stripe Payment Links are kept below for reference only (GST 5% auto-added via Stripe Tax; each = monthly + $2,500 one-time setup).",
+  "_comment": "Payment links. 2026-09-30: the three NRMP tiers now use Stripe Checkout via /api/checkout (see api/checkout.mjs) — the tier buttons are forms posting program=cadence|active|full. Current LIVE Stripe Payment Links (2026-10-20: no setup fee, 6-month minimum) are in api/checkout.mjs; the setup-fee links below were deactivated.",
   "_stripeNrmpCadence": "https://buy.stripe.com/28E6oGdlydwtgrD08lbV600",
   "_stripeNrmpActive": "https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601",
   "_stripeNrmpFull": "https://buy.stripe.com/cNi14m6Xa7853ER08lbV602",

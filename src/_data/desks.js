@@ -34,7 +34,7 @@ module.exports = {
       features: [
         "Everything in Explorer Desk",
         "Website hosting with investor CRM and analytics",
-        "News-Release Map Program setup waived",
+        "News-Release Map Program on a 4-month minimum instead of 6",
       ],
       response: "48 hours",
       extra: "175",

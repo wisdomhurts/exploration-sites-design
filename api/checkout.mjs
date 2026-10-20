@@ -3,23 +3,24 @@
 // engagement.html and pricing.html are plain <form method="post"> elements, so
 // this works without client-side JS.
 //
-// Each session = the tier's monthly subscription price + the one-time base
-// setup price (both added to the first invoice). GST is calculated by Stripe Tax.
+// Each session = the tier's monthly subscription price (no setup fee since
+// 2026-10-20; the minimum term is six months instead). GST is calculated by Stripe Tax.
 //
 // Env (set in Vercel → Settings → Environment Variables — see .env.example):
-//   STRIPE_SECRET_KEY, STRIPE_PRICE_NRMP_CADENCE / _ACTIVE / _FULL, STRIPE_PRICE_NRMP_SETUP,
+//   STRIPE_SECRET_KEY, STRIPE_PRICE_NRMP_CADENCE / _ACTIVE / _FULL,
 //   STRIPE_PRICE_DESK_EXPLORER / _DEVELOPER / _PRODUCER
 
 import Stripe from 'stripe';
 
 // paymentLink: live Stripe Payment Links (not secret). Used whenever no secret key is
 // configured, or if creating a Checkout Session fails. They are set up to match this
-// checkout: same prices + setup fee, Stripe Tax, required address, tax ID collection,
-// required Terms acceptance (4-month minimum), redirect to checkout-success.html.
+// checkout: same prices, Stripe Tax, required address, tax ID collection, required
+// Terms acceptance (6-month minimum), redirect to checkout-success.html. Desk clients
+// get separate 4-month links by email (not on the site; see CLAUDE.md).
 const TIERS = {
-  cadence: { name: 'Cadence', priceEnv: 'STRIPE_PRICE_NRMP_CADENCE', paymentLink: 'https://buy.stripe.com/28E6oGdlydwtgrD08lbV600' },
-  active: { name: 'Active Drill', priceEnv: 'STRIPE_PRICE_NRMP_ACTIVE', paymentLink: 'https://buy.stripe.com/7sY3cu1CQ2RP7V74oBbV601' },
-  full: { name: 'Full Program', priceEnv: 'STRIPE_PRICE_NRMP_FULL', paymentLink: 'https://buy.stripe.com/cNi14m6Xa7853ER08lbV602' },
+  cadence: { name: 'Cadence', priceEnv: 'STRIPE_PRICE_NRMP_CADENCE', paymentLink: 'https://buy.stripe.com/6oU9AS2GUakh2AN1cpbV606' },
+  active: { name: 'Active Drill', priceEnv: 'STRIPE_PRICE_NRMP_ACTIVE', paymentLink: 'https://buy.stripe.com/bJecN44P28c9grDcV7bV607' },
+  full: { name: 'Full Program', priceEnv: 'STRIPE_PRICE_NRMP_FULL', paymentLink: 'https://buy.stripe.com/5kQ5kC1CQgIFa3f9IVbV608' },
 };
 
 // Retainer desks (src/_data/desks.js): monthly price only, no setup fee, 12-month term.
@@ -78,10 +79,7 @@ export async function POST(request) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
-      line_items: [
-        { price: process.env[tier.priceEnv], quantity: 1 },
-        { price: process.env.STRIPE_PRICE_NRMP_SETUP, quantity: 1 },
-      ],
+      line_items: [{ price: process.env[tier.priceEnv], quantity: 1 }],
       automatic_tax: { enabled: true },
       billing_address_collection: 'required',
       tax_id_collection: { enabled: true },
@@ -89,7 +87,7 @@ export async function POST(request) {
       consent_collection: { terms_of_service: 'required' },
       custom_text: {
         terms_of_service_acceptance: {
-          message: `I agree to the [Terms of Service](${origin}/terms.html#subscriptions), including the 4-month minimum term (at least four monthly payments).`,
+          message: `I agree to the [Terms of Service](${origin}/terms.html#subscriptions), including the 6-month minimum term (at least six monthly payments).`,
         },
       },
       metadata: { program },
