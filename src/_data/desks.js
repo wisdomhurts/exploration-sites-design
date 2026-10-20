@@ -49,7 +49,7 @@ module.exports = {
         "First in the queue during a financing",
         "Quarterly planning call against your catalyst calendar",
       ],
-      response: "24 hours",
+      response: "36 hours",
       extra: "160",
     },
   ],
@@ -63,7 +63,7 @@ module.exports = {
   ],
   rules: [
     "Credits are released each quarter and agreed before work starts",
-    "Every item includes two rounds of revisions; extra rounds cost 25% of the item",
+    "Every item includes two rounds of revisions",
     "Rush work, under 24 hours, costs 1.5× credits",
     "12-month term, then month to month; step down one desk after month six",
   ],
