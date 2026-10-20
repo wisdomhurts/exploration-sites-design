@@ -1,7 +1,7 @@
 # NRMP billing runbook (internal)
 
 How to carry out the Map Program terms in Stripe by hand. Stripe does **not**
-enforce the 4-month minimum, pauses, or "remaining minimum months payable" on its
+enforce the minimum term, pauses, or "remaining minimum months payable" on its
 own, and clients can't cancel themselves (no customer portal), so every one of
 these starts with a client emailing accounts@explorationsites.com.
 
@@ -10,16 +10,29 @@ Stripe Dashboard: **Billing → Subscriptions → (client) → Actions**.
 
 ## The numbers
 
-| Tier | Monthly | Setup (one time, first invoice) |
-|---|---|---|
-| Cadence | $2,500 | $2,500 |
-| Active Drill | $3,500 | $2,500 |
-| Full Program | $4,500 | $2,500 |
+| Tier | Monthly |
+|---|---|
+| Cadence | $2,500 |
+| Active Drill | $3,500 |
+| Full Program | $4,500 |
 
-CAD, plus tax (Stripe Tax adds it).
+CAD, plus tax (Stripe Tax adds it). **No setup fee** since 2026-10-20 (subscriptions
+started before then paid a $2,500 setup with month 1).
+
+**Minimum term = M months**: 6 for everyone, 4 for Developer and Producer desk
+clients. Each subscription carries it as metadata `minimum_months` (older ones, 4).
+
+### Checkout links
+
+- Public (on the website, 6-month): Cadence https://buy.stripe.com/6oU9AS2GUakh2AN1cpbV606 ·
+  Active https://buy.stripe.com/bJecN44P28c9grDcV7bV607 · Full https://buy.stripe.com/5kQ5kC1CQgIFa3f9IVbV608
+- **Desk clients only (4-month; email these, never publish):** Cadence
+  https://buy.stripe.com/dRmeVcgxK6412AN1cpbV609 · Active https://buy.stripe.com/00w4gy4P2csp7V74oBbV60a ·
+  Full https://buy.stripe.com/00w3cu1CQ785ejv5sFbV60b
+- The old setup-fee links (…V600, …V601, …V602) are deactivated.
 
 **Paid months** = the number of *paid* monthly invoices on the subscription. The
-first invoice (setup + month 1) counts as month 1. Paused months don't count.
+first invoice counts as month 1. Paused months don't count.
 Check it under the subscription's **Invoices** list.
 
 ---
@@ -42,31 +55,30 @@ Check it under the subscription's **Invoices** list.
 
 The subscription ends, and any unpaid months of the minimum become payable.
 
-1. Remaining months = 4 − paid months. If that's 0 or less, just cancel (below).
+1. Remaining months = M − paid months. If that's 0 or less, just cancel (below).
 2. **Invoices → Create invoice** for the client. Add one line: "News-Release Map Program — remaining minimum term, N months × $X". Send it.
 3. **Actions → Cancel subscription → Immediately.** Choose no refund and no proration.
 4. Email the client explaining both steps.
 
-## Cancel after the minimum (4+ paid months)
+## Cancel after the minimum (M or more paid months)
 
 1. **Actions → Cancel subscription → At end of current period.**
 2. Choose no refund and no proration. Nothing more is charged.
 3. Reply confirming the last day of service.
 
-## Cancel during the minimum (fewer than 4 paid months)
+## Cancel during the minimum (fewer than M paid months)
 
-Remaining months = 4 − paid months. These stay payable. Pick one and tell the client:
+Remaining months = M − paid months. These stay payable. Pick one and tell the client:
 
-- **A. Run it out (simplest).** **Actions → Cancel subscription → On a custom date**: the end of the period covered by the 4th paid invoice. Stripe collects the remaining months automatically, then stops.
+- **A. Run it out (simplest).** **Actions → Cancel subscription → On a custom date**: the end of the period covered by the Mth paid invoice. Stripe collects the remaining months automatically, then stops.
 - **B. Settle now.** Invoice the remaining months as a one-off, as in "Not resumed" step 2. Once it's paid, **Cancel → Immediately**.
 
 ## Client comes back within 12 months
 
-Don't use the website's checkout, because it charges the setup fee again.
-
-1. **Customers → (client) → Create subscription.**
-2. Add the tier's monthly price only.
-3. The minimum term starts again from the first new payment.
+Send them the right checkout link above (public, or desk-client if they're on a
+Developer or Producer desk), or create it by hand: **Customers → (client) → Create
+subscription**, add the tier's monthly price, and set metadata `minimum_months`.
+The minimum term starts again from the first new payment; their locked base is reused.
 
 ## Failed payments
 
