@@ -1,8 +1,8 @@
 // Retainer desks (credit model, 2026-10-20). Single source for the Engagement and
 // pricing pages. Prices come from prices.json; credits, menu and rules live here.
 // 1 credit ≈ 1 hour of production. The menu was checked against real jobs
-// (invoices 5919, 5920 and 6346): new map ≈ 6 h, data update ≈ 3 h, deck
-// rebuild ≈ 20 h. Terms §04 states the same rules in legal form.
+// (invoices 5919, 5920 and 6346): new map ≈ 6 h, data update ≈ 3 h.
+// Terms §04 states the same rules in legal form.
 const p = require("./prices.json");
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
       for: "For juniors with one program a year.",
       credits: 120,
       perQuarter: 30,
-      note: "A typical year: four deck refreshes, eight new maps, ten data updates and a conference kit.",
+      note: "A typical year: eight new maps, ten data updates, a new investor deck, a booth banner and regular website updates.",
       features: [
         "Opening audit of your maps, deck, website and fact sheet",
         "Monthly one-page report of credits used and work delivered",
@@ -54,15 +54,11 @@ module.exports = {
     },
   ],
   menu: [
-    { item: "Minor map edit (labels, add a project or claim)", credits: "1" },
     { item: "Map data update (new holes, assays, geophysics)", credits: "3" },
     { item: "New map or section", credits: "6" },
-    { item: "Fact sheet refresh", credits: "3" },
-    { item: "Deck refresh (numbers, up to 10 slides)", credits: "8" },
-    { item: "Deck rebuild (new structure and slides)", credits: "20" },
     { item: "New investor deck", credits: "25" },
-    { item: "Website page or update", credits: "1–4" },
-    { item: "Booth banner", credits: "5" },
+    { item: "Website updates", credits: "from 0.5" },
+    { item: "Booth banner", credits: "6" },
     { item: "3D model", credits: "from 9" },
   ],
   rules: [
