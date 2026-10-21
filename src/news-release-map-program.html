@@ -98,6 +98,44 @@ permalink: "news-release-map-program.html"
           <a class="nrmp-tier-talk" href="/book.html?program=full">Talk to us first &rarr;</a>
         </div>
       </div>
+      <div class="nrmp-ask" data-reveal>
+        <div class="nrmp-ask-copy">
+          <div class="nrmp-ask-kicker">Not ready to commit?</div>
+          <h3 class="nrmp-ask-title">Ask Dorian first.</h3>
+          <p class="nrmp-ask-body">One line is enough: where you&rsquo;re drilling and when results land. Dorian Leslie, our founder, replies personally within one business day. No call needed.</p>
+          <p class="nrmp-ask-alt">Or start smaller: a single news-release map from {{ prices.mapFrom | money }}. <a href="/contact.html">Price one map &rarr;</a></p>
+        </div>
+        <form class="nrmp-ask-form" id="nrmp-ask-form" action="https://formspree.io/f/xykqelyb" method="POST">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <input type="hidden" name="source" value="Map Program page: Ask Dorian">
+          <input type="hidden" name="_subject" value="Map Program question (website)">
+          <label class="form-label" for="ask-name">Name</label>
+          <input class="form-input" type="text" id="ask-name" name="name" autocomplete="name" required>
+          <label class="form-label" for="ask-email">Work email</label>
+          <input class="form-input" type="email" id="ask-email" name="email" autocomplete="email" required>
+          <label class="form-label" for="ask-q">Your question</label>
+          <textarea class="form-input" id="ask-q" name="message" rows="3" placeholder="e.g. We have assays due in November at our BC project. Would the Cadence tier fit?" required></textarea>
+          <button type="submit" class="btn-primary">Send to Dorian</button>
+          <p class="form-hint" id="nrmp-ask-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <script>
+        (function () {
+          var f = document.getElementById('nrmp-ask-form'); if (!f) return;
+          var btn = f.querySelector('.btn-primary'), st = document.getElementById('nrmp-ask-status'), label = btn.textContent;
+          f.addEventListener('submit', function (e) {
+            e.preventDefault(); btn.disabled = true; btn.textContent = 'Sending\u2026'; st.textContent = '';
+            fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } }).then(function (r) {
+              if (!r.ok) throw 0;
+              f.reset(); if (window.esTrack) esTrack('Form sent', { form: 'nrmp-ask' });
+              btn.textContent = 'Sent. Dorian will reply within one business day.';
+            }).catch(function () {
+              btn.disabled = false; btn.textContent = label;
+              st.textContent = 'Something went wrong. Email info@explorationsites.com or call 604 688 9997.';
+            });
+          });
+        })();
+      </script>
       <p class="nrmp-invoice-note">Paying by card starts the program straight away. Prefer an invoice for your finance team, or a call before you commit? Use <a href="/book.html">Talk to us first</a> and we&rsquo;ll set it up that way.</p>
       <p class="compliance-note" style="margin-top: 22px; max-width: 780px;">No setup fee: your locked base map is built in your first month. Maps beyond your monthly tier are billed at the {{ prices.nrmpOverage | money }} member rate &mdash; vs {{ prices.mapFrom | money }} one-off. New base maps, cross-sections, 3D models, and area-play maps are quoted separately. Prefer to pay by invoice? <a href="/book.html">Book a call</a> and we&rsquo;ll set it up.</p>
       <p class="compliance-note" style="margin-top: 10px; max-width: 780px;">Program or retainer? A <a href="/engagement.html#retainers">monthly retainer</a> keeps your deck, fact sheet, site, and existing maps current at standard turnaround. The Map Program is built for drill season: new news-release maps on a 48-hour turnaround, ahead of all one-off work.</p>

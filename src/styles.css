@@ -3359,3 +3359,14 @@ body { overflow-x: clip; }
     .fx-switch button:focus-visible { outline: 2px solid var(--ore); outline-offset: 2px; }
     .fx-switch--footer { font-size: 11px; color: var(--muted); }
     .px { font-variant-numeric: tabular-nums; }
+
+    /* Map Program: low-commitment "Ask Dorian" step under the tiers */
+    .nrmp-ask { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; background: var(--vellum); border-radius: 10px; padding: 28px; }
+    .nrmp-ask-kicker { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ore-text); }
+    .nrmp-ask-title { font-family: var(--font-serif); font-size: 26px; font-weight: 400; color: var(--graphite); margin: 8px 0 10px; }
+    .nrmp-ask-body, .nrmp-ask-alt { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55; color: var(--body); margin: 0 0 10px; }
+    .nrmp-ask-alt a { color: var(--graphite); text-decoration: underline; text-decoration-color: var(--ore); text-underline-offset: 3px; }
+    .nrmp-ask-form { display: flex; flex-direction: column; gap: 6px; }
+    .nrmp-ask-form .form-input { margin-bottom: 6px; }
+    .nrmp-ask-form .btn-primary { align-self: flex-start; margin-top: 4px; }
+    @media (max-width: 760px) { .nrmp-ask { grid-template-columns: 1fr; gap: 18px; padding: 22px 18px; } }
