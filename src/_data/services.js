@@ -14,7 +14,7 @@ module.exports = {
     p.nrmpCadence, { monthly: true, group: "Investor maps" }),
   "locators-area-plays": S(
     "Locator & area-play maps", "Regional locator maps",
-    `Regional locator and area-play maps that place a mineral project in its district — belts, neighbouring deposits, and infrastructure. From $${p.mapFrom} per map.`,
+    `Regional locator and area-play maps that place a mineral project in its district: belts, neighbouring deposits, and infrastructure. From $${p.mapFrom} per map.`,
     p.mapFrom, { group: "Investor maps" }),
   "property-target": S(
     "Property & target maps", "Property and drill-target maps",
@@ -22,7 +22,7 @@ module.exports = {
     p.mapFrom, { group: "Investor maps" }),
   "geoscience-maps": S(
     "Geology, geochemistry & geophysics maps", "Geoscience maps",
-    `Geological, geochemical, and geophysical maps — soil grids, magnetics, IP chargeability — that show why targets sit where they do. From $${p.mapFrom} per map.`,
+    `Geological, geochemical, and geophysical maps (soil grids, magnetics, IP chargeability) that show why targets sit where they do. From $${p.mapFrom} per map.`,
     p.mapFrom, { group: "Investor maps" }),
   "drilling": S(
     "Drill plans & sections", "Drill plans, cross-sections and long sections",
@@ -50,7 +50,7 @@ module.exports = {
     p.designFrom, { group: "Presentations & design" }),
   "logos-branding": S(
     "Logos & branding", "Brand identity design",
-    `Brand identity for exploration and mining companies — logo, colour, type, and usage standards. From $${p.brandFrom}.`,
+    `Brand identity for exploration and mining companies: logo, colour, type, and usage standards. From $${p.brandFrom}.`,
     p.brandFrom, { group: "Presentations & design" }),
   "movies": S(
     "3D GIS films", "3D GIS flythrough films",

@@ -8,7 +8,7 @@ module.exports = {
   "news-release-map-program": [
     {
       q: "How fast can I get a drill-results map for a news release?",
-      a: `On the News-Release Map Program, within two business days of clean, complete data — collar, survey and assay tables plus the text you want on the map — for up to two maps per request. Larger batches get a delivery schedule agreed with you. One-off maps outside the program typically take 3–7 business days.`,
+      a: `On the News-Release Map Program, within two business days of clean, complete data (collar, survey and assay tables plus the text you want on the map), for up to two maps per request. Larger batches get a delivery schedule agreed with you. One-off maps outside the program typically take 3–7 business days.`,
     },
     {
       q: "How much does a news-release map cost?",
@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       q: "What do you need from us?",
-      a: `Claim boundaries and your drilling to date — collars, downhole surveys and assays, or simply the drill-database export. For each new set of results, send the new holes' data. Your Qualified Person reviews and approves every map before release.`,
+      a: `Claim boundaries and your drilling to date: collars, downhole surveys and assays, or just the drill-database export. For each new set of results, send the new holes' data. Your Qualified Person reviews and approves every map before release.`,
     },
     {
       q: "Can we pause between drill programs?",
@@ -30,7 +30,7 @@ module.exports = {
     },
     {
       q: "What should a junior mining company's investor presentation include?",
-      a: `A one-line thesis on slide one; the project in its regional context; the key result shown on a section, not buried in a table; a scale anchor against known deposits; a dated catalyst calendar; cash, burn and what the raise funds; capital structure; and a factual management record. Our free <a href="/fundable-materials-scorecard.html">Fundable Materials Scorecard</a> lists all twelve criteria a generalist investor checks.`,
+      a: `A one-line thesis on slide one; the project in its regional context; the headline result shown on a section, not buried in a table; a scale anchor against known deposits; a dated catalyst calendar; cash, burn and what the raise funds; capital structure; and a factual management record. Our free <a href="/fundable-materials-scorecard.html">Fundable Materials Scorecard</a> lists all twelve criteria a generalist investor checks.`,
     },
     {
       q: "Do you make the maps in the deck too?",
@@ -40,11 +40,11 @@ module.exports = {
   "websites": [
     {
       q: "What should a mining company's investor website include?",
-      a: `At minimum: Projects, News, Investors, Corporate and Contact sections, plus a live share quote, a news-release archive and links to your SEDAR+ filings. The project pages should answer an analyst's next question — location, geology, sections, resources, catalysts — without a phone call.`,
+      a: `At minimum: Projects, News, Investors, Corporate and Contact sections, plus a live share quote, a news-release archive and links to your SEDAR+ filings. The project pages should answer an analyst's next question (location, geology, sections, resources, catalysts) without a phone call.`,
     },
     {
       q: "Webflow or WordPress for a junior mining company?",
-      a: `Webflow suits companies that want a polished, design-led site that's quick to launch and easy to keep current, with less plugin maintenance. WordPress suits companies that need bespoke functionality — multi-language, complex document libraries, deep integrations — or already run on it. We build and maintain both.`,
+      a: `Webflow suits companies that want a polished, design-led site that's quick to launch and easy to keep current, with less plugin maintenance. WordPress suits companies that need bespoke functionality (multi-language, complex document libraries, deep integrations) or already run on it. We build and maintain both.`,
     },
     {
       q: "How much does an investor website cost, and how long does it take?",
@@ -54,7 +54,7 @@ module.exports = {
   "hosting": [
     {
       q: "What does managed hosting include?",
-      a: `$${p.hostingMonthly} CAD/month covers a global CDN with SSL, daily backups, uptime monitoring, software updates, and content updates on request — news releases, figures and filings posted for you. Every hosted site also includes an investor CRM and investor analytics.`,
+      a: `$${p.hostingMonthly} CAD/month covers a global CDN with SSL, daily backups, uptime monitoring, software updates, and content updates on request (news releases, figures and filings posted for you). Every hosted site also includes an investor CRM and investor analytics.`,
     },
     {
       q: "Do you host sites you didn't build?",
