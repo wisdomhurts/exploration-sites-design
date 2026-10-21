@@ -1,4 +1,4 @@
-  <script>
+﻿  <script>
     // Desktop mega menu — tabs + open/close (hover, click, keyboard, focus)
     (function () {
       var wrapper = document.querySelector('.mega-menu-wrapper');
@@ -462,6 +462,7 @@
       if (el.closest('nav, .site-nav, .mega-menu, header')) return 'nav';
       if (el.closest('footer')) return 'footer';
       if (el.closest('.hero, .hero--page')) return 'hero';
+      if (el.closest('.nrmp-tiers, .nrmp-invoice-note, .compliance-note')) return 'pricing';
       if (el.closest('.cta-section, .cta, .launch-cta')) return 'closing cta';
       return 'body';
     }
@@ -469,7 +470,7 @@
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a) return;
       var href = a.getAttribute('href') || '';
-      if (/(^|\/)book\.html(\?|#|$)/.test(href)) return esTrack('Book call click', { page: page, spot: spot(a) });
+      if (/(^|\/)book\.html(\?|#|$)/.test(href)) { var pm = href.match(/program=(cadence|active|full)/); return esTrack('Book call click', { page: page, spot: spot(a), tier: pm ? pm[1] : '' }); }
       if (/^mailto:/i.test(href)) return esTrack('Email click', { page: page });
       if (/^tel:/i.test(href)) return esTrack('Phone click', { page: page });
       if (/\/decks\/[^/]+\.pdf/i.test(href)) return esTrack('Deck opened', { deck: href.split('/').pop().replace(/\.pdf.*$/i, '') });
@@ -482,6 +483,32 @@
         esTrack('Checkout started', { tier: p ? p.value : 'unknown' });
       }
     }, true);
+    // Which sections a visitor reaches (pages with a sales story only), once each per view,
+    // so the drop-off point shows up as the last section most people see.
+    if ('IntersectionObserver' in window && /^\/(news-release-map-program|engagement|services)?$/.test(page)) {
+      var seen = {};
+      var so = new IntersectionObserver(function (en) {
+        en.forEach(function (x) {
+          if (!x.isIntersecting) return;
+          var h = x.target.querySelector('h1, h2');
+          var name = (h ? (h.innerText || h.textContent) : '').replace(/\s+/g, ' ').trim().slice(0, 48) || 'section';
+          if (seen[name]) return;
+          seen[name] = 1;
+          esTrack('Section seen', { page: page, section: name });
+          so.unobserve(x.target);
+        });
+      }, { rootMargin: '0px 0px -40% 0px', threshold: 0 });
+      Array.prototype.forEach.call(document.querySelectorAll('main section, section.hero'), function (el) { so.observe(el); });
+    }
+    // Engaged time: seconds with the tab visible, reported at 15, 30, 60 and 120 s.
+    (function () {
+      var marks = [15, 30, 60, 120], secs = 0;
+      var t = setInterval(function () {
+        if (document.visibilityState !== 'visible') return;
+        secs++;
+        if (secs === marks[0]) { esTrack('Engaged ' + marks.shift() + 's', { page: page }); if (!marks.length) clearInterval(t); }
+      }, 1000);
+    })();
     // How far visitors read: pricing reached (Map Program page) and 75% of any page, once per view.
     if ('IntersectionObserver' in window) {
       var tiers = document.querySelector('.nrmp-tiers');
