@@ -423,6 +423,15 @@
         else if (e.key === 'ArrowRight') { nav(1); e.preventDefault(); }
       });
     })();
+
+    // Map detail pages, phone: the type rail is one horizontal scroller. Bring the
+    // current page's tab into view (scroll the list, not the page).
+    (function () {
+      var list = document.querySelector('.maps-page .maps-rail-list');
+      var active = list && list.querySelector('.is-active');
+      if (!active || list.scrollWidth <= list.clientWidth + 1) return;
+      list.scrollLeft = Math.max(0, active.parentNode.offsetLeft - list.offsetLeft - 16);
+    })();
   </script>
 <!-- Vercel Web Analytics (cookieless). Enable under Vercel → es-draft-1 → Analytics. -->
 <script>
